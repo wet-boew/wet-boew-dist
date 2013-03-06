@@ -12,7 +12,7 @@
  * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
  */
 /* turn off fixes for old IE */
-/* -----Build Include Section Start----- */
+/* ----- All media types - Start of build includes ----- */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
@@ -44,10 +44,13 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
  */
-/* -----Build Include Section End----- */
-/* Mobile view */
-@media screen and (max-width: 767px), screen and (max-device-width: 767px) {
-  /* -----Build Include Section Start----- */
+#gcwu-wmms-in, #gcwu-sig-in {
+  display: block;
+}
+
+/* ----- All media types - End of build includes ----- */
+@media screen and (max-width: 959px), screen and (max-device-width: 1023px) {
+  /* ----- Mobile view (Smartphone and Tablet) - Screen media type only - Start of build includes ----- */
   /*
    * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
    * wet-boew.github.com/wet-boew/License-eng.txt / wet-boew.github.com/wet-boew/Licence-fra.txt
@@ -58,21 +61,18 @@
   }
   .no-js #gcwu-gcnb ul, .no-js #gcwu-wmms, .no-js #gcwu-bc, .no-js #wb-sec, .no-js #wb-foot, .no-js #gcwu-psnb, .no-js #gcwu-psnb #gcwu-psnb-in, .no-js #gcwu-srchbx, .no-js #gcwu-srchbx form {
     display: block;
-    width: 100%;
     z-index: 100;
   }
-  .no-js #gcwu-gcnb ul, .no-js #gcwu-wmms, .no-js #gcwu-bc, .no-js #wb-sec, .no-js #wb-foot, .no-js #gcwu-psnb, .no-js #gcwu-psnb #gcwu-psnb-in, .no-js #gcwu-srchbx, .no-js #gcwu-srchbx form {
-    display: block;
-  }
-  .no-js #gcwu-psnb {
-    margin-top: -11px;
+  .no-js #gcwu-bc, .no-js #wb-sec, .no-js #wb-foot, .no-js #gcwu-psnb #gcwu-psnb-in, .no-js #gcwu-srchbx form {
+    width: 100%;
   }
   .no-js #gcwu-srchbx form {
     border-bottom: 1px solid #999999;
     text-align: center;
     background: #1A3D6C;
     padding: 10px 0;
+    margin-bottom: 0;
   }
 
-  /* -----Build Include Section End----- */
+  /* ----- Mobile view (Smartphone and Tablet) - Screen media type only - End of build includes ----- */
 }
