@@ -3,7 +3,7 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.txt / wet-boew.github.io/wet-boew/Licence-fra.txt
  *
- * Version: v3.1.0-release Build: 2013-04-24 07:43 AM
+ * Version: @wet-boew-build.version@
  *
  */
 /*
@@ -21,4 +21,9 @@ Global overrides for individual components
 // Share widget
 var wet_boew_share = {
 	sites : ['del.icio.us', 'digg', 'facebook', 'google', 'linkedin', 'reddit', 'stumbleupon', 'twitter', 'yahoobuzz']
+};
+
+// Mobile view
+var wet_boew_mobile_view = {
+	header_fixed : true
 };
