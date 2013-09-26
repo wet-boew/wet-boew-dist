@@ -28,7 +28,25 @@
 		<script src="../../js/vapour.min.js"></script>
 
 	</head>
-	<body>
+	<body><div id="mocha"></div>
+
+<!-- Mocha -->
+<link rel="stylesheet" href="../../../node_modules/mocha/mocha.css" >
+<script src="../../../node_modules/mocha/mocha.js"></script>
+<!-- Chai -->
+<script src="../../../node_modules/chai/chai.js"></script>
+
+<script>
+	var expect = chai.expect;
+	mocha.setup('bdd');
+	$(document).on('ready', function(){
+		setTimeout(mocha.run, 2000);
+	});
+</script>
+
+<!-- Test -->
+<script src="test.js"></script>
+
 		<div id="wb-skip">
 			<ul id="wb-tphp">
 				<li id="wb-skip1">
@@ -426,5 +444,6 @@
 		</footer>
 
 		<script src="../../js/wet-boew.min.js"></script>
+		<script src="../../js/theme.js"></script>
 	</body>
 </html>
