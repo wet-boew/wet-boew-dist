@@ -28,19 +28,18 @@
 		<script src="../../js/vapour.min.js"></script>
 
 	</head>
-	<body><div id="mocha"></div>
+	<body vocab="http://schema.org/" typeof="WebPage"><div id="mocha"></div>
 
 <!-- Mocha -->
 <link rel="stylesheet" href="../../../node_modules/mocha/mocha.css" >
 <script src="../../../node_modules/mocha/mocha.js"></script>
-<!-- Chai -->
-<script src="../../../node_modules/chai/chai.js"></script>
+<!-- Expect.js -->
+<script src="../../../node_modules/expect.js/expect.js"></script>
 
 <script>
-	var expect = chai.expect;
-	mocha.setup('bdd');
-	$(document).on('ready', function(){
-		setTimeout(mocha.run, 2000);
+	mocha.setup( "bdd" );
+	vapour.doc.on( "ready", function() {
+		setTimeout( mocha.run, 2000 );
 	});
 </script>
 
@@ -85,7 +84,7 @@
 				</section>
 			</div>
 
-			<nav role="navigation" id="wb-sm">
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
 				<h2>Site menu</h2>
 				<ul class="mb-menu">
 	<li>
@@ -100,7 +99,7 @@
 </ul>
 			</nav>
 
-			<nav role="navigation" id="wb-bc">
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
 				<h2>Breadcrumb trail</h2>
 				<ol>
 	<li>
@@ -113,13 +112,12 @@
 			</nav>
 		</header>
 
-		<main role="main">
-			<h1 id="wb-cont">Menu Plugin</h1>
-			
-<section>
+		<main role="main" property="mainContentOfPage">
+			<h1 id="wb-cont" property="name">Menu Plugin</h1>
+			<section>
 	<h1>Menu Plugin</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, minima deleniti autem tenetur odit nostrum sunt eligendi quasi maiores veritatis voluptate tempore dolorem animi libero!</p>
-	<nav role="navigation" id="wb-sm" data-ajax-replace="menu-en.txt" data-post-remove="remove after init" class="wb-menu remove after init">
+	<nav role="navigation" id="wb-sm" data-ajax-replace="menu-en.txt" data-post-remove="remove after init" class="wb-menu remove after init" typeof="SiteNavigationElement">
 		<h2>Navigation</h2>
 		<ul class="list-inline menu">
 			<li><a href="http://www.canada.gc.ca">Lorem ipsum dolor sit amet.</a></li>
@@ -135,7 +133,7 @@
 		</main>
 
 		<!-- Secondary Menu [optional] -->
-		<nav role="navigation" id="wb-sec">
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
 			<h2>Secondary menu</h2>
 			
 		</nav>

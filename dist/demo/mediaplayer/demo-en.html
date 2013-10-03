@@ -28,19 +28,18 @@
 		<script src="../../js/vapour.min.js"></script>
 
 	</head>
-	<body><div id="mocha"></div>
+	<body vocab="http://schema.org/" typeof="WebPage"><div id="mocha"></div>
 
 <!-- Mocha -->
 <link rel="stylesheet" href="../../../node_modules/mocha/mocha.css" >
 <script src="../../../node_modules/mocha/mocha.js"></script>
-<!-- Chai -->
-<script src="../../../node_modules/chai/chai.js"></script>
+<!-- Expect.js -->
+<script src="../../../node_modules/expect.js/expect.js"></script>
 
 <script>
-	var expect = chai.expect;
-	mocha.setup('bdd');
-	$(document).on('ready', function(){
-		setTimeout(mocha.run, 2000);
+	mocha.setup( "bdd" );
+	vapour.doc.on( "ready", function() {
+		setTimeout( mocha.run, 2000 );
 	});
 </script>
 
@@ -85,7 +84,7 @@
 				</section>
 			</div>
 
-			<nav role="navigation" id="wb-sm">
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
 				<h2>Site menu</h2>
 				<ul class="mb-menu">
 	<li>
@@ -100,7 +99,7 @@
 </ul>
 			</nav>
 
-			<nav role="navigation" id="wb-bc">
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
 				<h2>Breadcrumb trail</h2>
 				<ol>
 	<li>
@@ -113,10 +112,9 @@
 			</nav>
 		</header>
 
-		<main role="main">
-			<h1 id="wb-cont">Multimedia Player</h1>
-			
-<p>For video, the multimedia player leverages the native HTML5 video tag and relies on Flash as a fallback mechanism when the HTML5 video tag is not implemented. The MPEG 4 format (H264 codec) is the minimum requirement for video because the Flash fallback relies on it and H264 is the standard video format on many mobile devices. An optional but highly recommended Webm (VP8 codec) should be added as well to allow some browsers such as Firefox that do not include native support for H264 to leverage the native HTML5 performance gains.</p>
+		<main role="main" property="mainContentOfPage">
+			<h1 id="wb-cont" property="name">Multimedia Player</h1>
+			<p>For video, the multimedia player leverages the native HTML5 video tag and relies on Flash as a fallback mechanism when the HTML5 video tag is not implemented. The MPEG 4 format (H264 codec) is the minimum requirement for video because the Flash fallback relies on it and H264 is the standard video format on many mobile devices. An optional but highly recommended Webm (VP8 codec) should be added as well to allow some browsers such as Firefox that do not include native support for H264 to leverage the native HTML5 performance gains.</p>
 <p>For <a href="#audio-only">audio only</a>, the multimedia player leverages the native HTML5 audio tag and relies on Flash as a fallback mechanism when the HTML5 audio tag is not implemented.</p>
 <p>For both video and audio-only, the multimedia player's timeline relies on the HTML5 progress element and uses a polyfill when the element is not supported.</p>
 
@@ -397,7 +395,7 @@
 		</main>
 
 		<!-- Secondary Menu [optional] -->
-		<nav role="navigation" id="wb-sec">
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
 			<h2>Secondary menu</h2>
 			
 		</nav>
