@@ -35,11 +35,13 @@
 <script src="../../../node_modules/mocha/mocha.js"></script>
 <!-- Expect.js -->
 <script src="../../../node_modules/expect.js/expect.js"></script>
+<!-- Sinon -->
+<script src="../../../node_modules/sinon/pkg/sinon.js"></script>
 
 <script>
 	mocha.setup( "bdd" );
 	vapour.doc.on( "ready", function() {
-		setTimeout( mocha.run, 2000 );
+		mocha.run();
 	});
 </script>
 
