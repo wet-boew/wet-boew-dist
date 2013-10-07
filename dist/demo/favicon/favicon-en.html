@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Carousel Plug-in Demo - </title>
+		<title>Favicon - </title>
 		<link href="../../images/favicon.ico" rel="shortcut icon">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<!-- Meta data -->
@@ -96,20 +96,25 @@
 		</header>
 
 		<main role="main" property="mainContentOfPage">
-			<h1 id="wb-cont" property="name">Carousel Plug-in Demo</h1>
+			<h1 id="wb-cont" property="name">Favicon</h1>
 			
+
 <section>
-	<h2>Carousel Gallore</h2>
-	<div class="wb-carousel fast">
-		<div class="col-md-8">
-			<div class="item fade in">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, eos, provident optio voluptatibus quasi accusantium nam dolores assumenda natus dicta in reprehenderit animi voluptates ad minima quae quisquam impedit praesentium.</div>
-			<div class="item fade">Porro, optio ullam distinctio obcaecati officia natus dolorum iusto modi officiis totam dolorem quam saepe! Quidem, deserunt, non quae quas quibusdam assumenda beatae qui saepe tenetur debitis commodi hic? Voluptatum.</div>
-			<div class="item fade">Sint, atque, veritatis dicta repellendus nobis impedit necessitatibus inventore neque provident vel aspernatur quidem quisquam non explicabo asperiores! Ipsam, ipsum fuga iusto esse voluptatibus repudiandae voluptates ex voluptate exercitationem velit.</div>
+	<h2>Favicon</h2>
+	
+	<p>This plugin provides the ability to add and update the favicon's on a web page.  Its default behaviour is to add a mobile favicon to web pages that have a favicon defined by a <code>&lt;link rel="shortcut icon"&gt;</code> element.</p>
+	<p>The mobile favicon's file name, rel, path and sizes can be set with data attributes on the <code>&lt;link rel="shortcut icon"&gt;</code>:</p>
 
-		</div>
-
-	</div>
-
+	<ul>
+		<li><strong>data-filename:</strong> filename of the mobile favicon (defaults to "favicon-mobile.png").  This will be appended to the favicon's path.</li>
+		<li><strong>data-path:</strong> path to the mobile favicon (defaults to using the same path as the shortcut icon).</li>
+		<li><strong>data-rel:</strong> rel attribute of the mobile favicon (defaults to "apple-touch-icon").</li>
+		<li><strong>data-sizes:</strong> sizes attribute of the mobile favicon (defaults to "57x57 72x72 114x114 144x144 150x150").</li>
+	</ul>
+	
+	<p>For example, the following overides the rel and file name attributes of the mobile favicon:</p>
+	
+	<code class="prettyprint">&lt;link href="favion.ico" rel="shortcut icon" data-filename="my-mobile-favicon.ico" data-rel="apple-touch-icon-precomposed"&gt;</code>	
 </section>
 
 		</main>
