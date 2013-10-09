@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Session Timeout - </title>
+		<title>Web feeds - </title>
 		<link href="../../images/favicon.ico" rel="shortcut icon">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<!-- Meta data -->
@@ -94,38 +94,87 @@
 		</header>
 
 		<main role="main" property="mainContentOfPage">
-			<h1 id="wb-cont" property="name">Session Timeout</h1>
+			<h1 id="wb-cont" property="name">Web feeds</h1>
 			
+<p>This feature provides a widget for aggregating and displaying the entries from one or more Web feeds on a Web page. Supported Web feed formats are Atom, RSS, and Media RSS.</p>
 
-<span class="wb-session-timeout" data-wet-boew='{"inactivity": 10000}'></span>
 <section>
-	<h2>Overview</h2>
-	<p>This sub project will help web asset owners provide session timeout and inactivity timeout functionality. When a user requests a page with this plugin implemented their session will begin. After the specified session period, they will be notified that their session is about to timeout.  At this point, they will have the option to remain logged in by clicking "OK", or logging out by clicking "Cancel".  At anytime during the session, if the user remains idle for a specified amount of time, they will be notified that they're session is about to time out. In either case, if the user does not respond to the timeout notification within a specified amount of time, once they click either "OK" or "Cancel" they will be automatically redirected to the log out page.</p>
-	<p>The code you're allowed to edit (within the page) is:</p>
-	<p><code>&lt;span class="wb-session-timeout" data-wet-boew='{"inactivity": 1200000, "reactionTime": 30000, "sessionalive": 1200000, "logouturl": "./", "refreshCallbackUrl": "./"}'&gt;&lt;/span&gt;</code></p>
-	<p>This allows you to configure the plugin:</p>
+	<h2>Benefits</h2>
 	<ul>
-		<li><strong>inactivity:</strong> This is the inactivity period of time after which the dialog message will appear.</li>
-		<li><strong>reactionTime:</strong> This is the period of time the user has to perform an action with the dialog message.</li>
-		<li><strong>sessionalive:</strong> This is the period of time for the session to stay alive until the dialog message appears.</li>
-		<li><strong>logouturl:</strong> This is the URL that users are sent to when the session has expired.</li>
-		<li><strong>refreshCallbackUrl:</strong> This is the URL to perform an ajax refresh, must return true/false.</li>
+		<li>Displays entries from one or more Atom, RSS, and Media RSS feeds on a Web page without the need for a Web feed reader</li>
+		<li>Dynamically fetches the top five items of any public Atom, RSS, or Media RSS feed</li>
+		<li>Enables cross-promotion and sharing of information between Web sites</li>
+		<li>Conforms to WCAG 2.0 AA</li>
+		<li>Uses WAI-ARIA to enhance accessibility</li>
+		<li>Progressive enhancement approach</li>
+		<li>Supports Firefox, Opera, Safari, Chrome, and IE 8+</li>
 	</ul>
-	<p>The only required parameter is logouturl, all other fields are optional. The default code would be:</p>
-	<p><code>&lt;span class="wb-session-timeout"&gt; data-wet-boew='{logouturl: "./"}'&gt;&lt;/span&gt;</code></p>
-	<p><strong>IMPORTANT NOTE:</strong> The inactivity, reactionTime and sessionalive parameters are set in milliseconds. The only required parameter is the logouturl. The default inactivity and sessionalive is set to 20 minutes with a 30 second confirmation time with the dialog message. The refreshCallbackUrl must not be a page containing the timeout function again as a loop will be created, it should be simply a viewless page that refreshes the session.</p>
-	<p>Need help with the conversion? See: <a href="http://www.calculateme.com/Time/Minutes/ToMilliseconds.htm" rel="external">http://www.calculateme.com/Time/Minutes/ToMilliseconds.htm</a></p>
-	<p><strong>IMPORTANT NOTE</strong>: Your sessionalive and inactivity parameters should be equal to your web server session alive time minus the reactionTime time. If you set your sessionalive time and inactivity time to the same as your web server without taking into consideration the reactionTime time then the session will have ended by the server as soon as the popup appears to extend the session.</p>
 </section>
+
 <section>
-	<h2>How do I use it?</h2>
-	<p>Add the following to the page:</p>
-	<p><code>&lt;span class="wb-session-timeout" data-wet-boew='{logouturl: "./"}'&gt;&lt;/span&gt;</code></p>
+	<h2>Samples</h2>
+	<div class="wb-webfeeds">
+		<section class="widget-container">
+			<h3>Ottawa Weather</h3>
+			<ul class="widget-content">
+				<li>
+					<a href="http://weather.gc.ca/city/pages/on-118_metric_e.html" rel="external">Ottawa Ontario</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="wb-webfeeds limit-5">
+		<section class="widget-container">
+			<h3>RSS Feed</h3>
+			<ul class="widget-content">
+				<li>
+					<a href="http://www.tc.gc.ca/mediaroom/rss/road.xml" rel="external">Road News Releases (All)</a>
+				</li>
+				<li>
+					<a href="http://wwwapps.tc.gc.ca/Saf-Sec-Sur/7/VRDB-BDRV/Search/Rss-Search.aspx" rel="external">Road Safety Recalls</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="wb-webfeeds">
+		<section class="widget-container">
+			<h3>Twitter Embedded Timeline</h3>
+			<article>
+				<a class="twitter-timeline" href="https://twitter.com/search?q=%23WxT" data-widget-id="329066756620566528">Tweets about "#WxT"</a>
+			</article>
+		</section>
+	</div>
 </section>
+
 <section>
-	<h2>Try it out!</h2>
-	<p>This page has a 30 seconds inactivity timeout period. You also have 30 seconds to confirm if you want to keep the session alive. Please wait for the prompt to appear.</p>
+	<h2>Parameters</h2>
+	<table>
+		<caption>Parameters and details for the Web feeds widget</caption>
+		<thead>
+			<tr>
+				<th scope="col">Class (parameter)</th>
+				<th scope="col">Role</th>
+				<th scope="col">Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>wet-boew-webwidget</code></td>
+				<td>identifier</td>
+				<td>main targeting class that identifies the codeblock used for the Web feeds widget</td>
+			</tr>
+			<tr>
+				<td><code>limit-<em>xxx</em></code></td>
+				<td>display</td>
+				<td>controls the amount of items the Web feeds widget will display (except for the Twitter Embedded Timeline)</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><a href="https://dev.twitter.com/docs/embedded-timelines">Twitter Embedded Timeline configuration options</a></p>
 </section>
+
 		</main>
 
 		<!-- Secondary Menu [optional] -->

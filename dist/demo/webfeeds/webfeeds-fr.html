@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="fr">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Fils de syndication - </title>
+		<link href="../../images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="../../css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/base.min.css">
+		<link rel="stylesheet" href="../../css/theme.min.css">
+
+		<!-- Polyfill loader-->
+		<!--[if lt IE 9]>
+		<script src="../../js/oldie/respond.min.js"></script>
+		<script src="../../js/oldie/jquery.min.js"></script>
+		<script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="../../js/jquery.min.js"></script>
+		<!--<![endif]-->
+		<script src="../../js/vapour.min.js"></script>
+
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<ul id="wb-tphp">
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-cont">Passer au contentu</a>
+			</li>
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-nav">Passer au pied de page</a>
+			</li>
+		</ul>
+		<header role="banner">
+			<div id="wb-banner">
+				<a href="index-fr.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../images/logo.svg" aria-label=""></object><span><small></small></span></a>
+
+				<section id="wb-lang">
+					<h2>Sélection de la langue</h2>
+					<ul>
+	<li class="current">
+		Français&#32;<span>(courant)</span>
+	</li>
+	<li>
+		<a lang="fr" href="#">Français</a>
+	</li>
+</ul>
+				</section>
+
+				<section id="wb-srch">
+					<h2>Recherche</h2>
+					<form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+		<label for="wb-srch-txt">Recherchez le site Web</label>
+		<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Recherche</button>
+	</div>
+</form>
+				</section>
+			</div>
+
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
+				<h2>Menu du site</h2>
+				<ul class="mb-menu">
+	<li>
+		<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
+	</li>
+	<li>
+		<a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a>
+	</li>
+	<li>
+		<a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a>
+	</li>
+</ul>
+			</nav>
+
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
+				<h2>Fil d'Ariane</h2>
+				<ol>
+	<li>
+		<a href="../index-fr.html">Accueil</a>
+	</li>
+	<li>
+		Exemples pratiques
+	</li>
+</ol>
+			</nav>
+		</header>
+
+		<main role="main" property="mainContentOfPage">
+			<h1 id="wb-cont" property="name">Fils de syndication</h1>
+			
+<p>>Cette composante est un gadget logiciel permettant de regrouper et d’afficher des données d'un ou plusieurs fils de syndication. Les formats soutenus sont Atom, RSS et Media RSS.</p>
+
+<section>
+	<h2>Avantages</h2>
+	<ul>
+		<li>Affichage des données d'un ou plusiers fils Atom, RSS ou Media RSS dans une page Web sans agrégateur de fil Web</li>
+		<li>Récupération dynamique des cinq derniers éléments de n’importe quel fil public d'Atom, RSS ou Media RSS</li>
+		<li>Fonctionnalité de promotion croisée et de partage d’information entre sites Web</li>
+		<li>Conformes à WCAG 2.0 AA</li>
+		<li>Recours aux WAI-ARIA pour accroître l’accessibilité</li>
+		<li>Approche d'amélioration progressive</li>
+		<li>Soutien pour Firefox, Opera, Safari, Chrome et IE 8+</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Exemples</h2>
+	<div class="wb-webfeeds">
+		<section class="widget-container">
+			<h3>Météo d'Ottawa</h3>
+			<ul class="widget-content">
+				<li><a href="http://weather.gc.ca/city/pages/on-118_metric_f.html" rel="external">Ottawa Ontario</a></li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="wb-webfeeds limit-5">
+		<section class="widget-container">
+			<h3>Fils RSS</h3>
+			<ul class="widget-content">
+				<li>
+					<a href="http://www.tc.gc.ca/medias/rss/routier.xml" rel="external">Communiqués de presse routière (Tous)</a>
+				</li>
+				<li>
+					<a href="http://wwwapps.tc.gc.ca/Saf-Sec-Sur/7/VRDB-BDRV/Search/Rss-Search.aspx?lang=fra" rel="external">Rappels de la Sécurité Routière</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+
+	<div class="wb-webfeeds">
+		<section class="widget-container">
+			<h3>Chronologie intégrée Twitter</h3>
+			<article>
+				<a class="twitter-timeline" href="https://twitter.com/search?q=%23boew" data-widget-id="329071414877495297">Tweets concernant "#boew"</a>
+			</article>
+		</section>
+	</div>
+</section>
+
+<section>
+	<h2>Paramètres</h2>
+	<table>
+		<caption>Paramètres et détails pour le gadget Web</caption>
+		<thead>
+			<tr>
+				<th scope="col">Classe (paramètre)</th>
+				<th scope="col">Rôle</th>
+				<th scope="col">Détails</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>wet-boew-webwidget</code></td>
+				<td>identificateur</td>
+				<td>classe principale qui identifie le code utilisé pour le gadget des fils de syndication</td>
+			</tr>
+			<tr>
+				<td><code>limit-<em>xxx</em></code></td>
+				<td>affichage</td>
+				<td>contrôle la quantité d'articles que le gadget des fils de syndication affichera (sauf les fils intégrés Twitter)</td>
+			</tr>
+		</tbody>
+	</table>
+	<p><a href="https://dev.twitter.com/docs/embedded-timelines">Options de configuration des fils intégrés Twitter</a></p>
+</section>
+
+		</main>
+
+		<!-- Secondary Menu [optional] -->
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+			<h2>Menu secondaire</h2>
+			
+		</nav>
+
+		<footer role="contentinfo" id="wb-nav">
+			<nav role="navigation">
+				<h2>Information du site</h2>
+				<section class="col-sm-3 col-lg-3">
+	<h3>About</h3>
+	<ul>
+		<li>
+			<a href="#">About the Web Experience Toolkit</a>
+		</li>
+		<li>
+			<a href="#">About the Web Standards</a>
+		</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Contact us</h3>
+	<ul>
+		<li>
+			<a href="#">Questions or comments?</a>
+		</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>News</h3>
+	<ul>
+		<li>
+			<a href="#">Recent project activity</a>
+		</li>
+	</ul>
+</section>
+<section class="col-sm-3 col-lg-3">
+	<h3>Stay Connected</h3>
+	<ul>
+		<li>
+			<a href="#">Twitter</a>
+		</li>
+	</ul>
+</section>
+			</nav>
+		</footer>
+
+		<script src="../../js/wet-boew.min.js"></script>
+		<script src="../../js/theme.js"></script>
+	</body>
+</html>
