@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en">
+<html lang="fr">
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Web feeds - </title>
+		<title>Fils de syndication - </title>
 		<link href="../../images/favicon.ico" rel="shortcut icon">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<!-- Meta data -->
@@ -31,21 +31,21 @@
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<ul id="wb-tphp">
 			<li class="wb-skip">
-				<a class="wb-skip-link" href="#wb-cont">Skip to content</a>
+				<a class="wb-skip-link" href="#wb-cont">Passer au contentu</a>
 			</li>
 			<li class="wb-skip">
-				<a class="wb-skip-link" href="#wb-nav">Skip to footer</a>
+				<a class="wb-skip-link" href="#wb-nav">Passer au pied de page</a>
 			</li>
 		</ul>
 		<header role="banner">
 			<div id="wb-banner">
-				<a href="index-en.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../images/logo.svg" aria-label=""></object><span><small></small></span></a>
+				<a href="index-fr.html"><object type="image/svg+xml" tabindex="-1" role="img" data="../../images/logo.svg" aria-label=""></object><span><small></small></span></a>
 
 				<section id="wb-lang">
-					<h2>Language selection</h2>
+					<h2>Sélection de la langue</h2>
 					<ul>
 	<li class="current">
-		English&#32;<span>(current)</span>
+		Français&#32;<span>(courant)</span>
 	</li>
 	<li>
 		<a lang="fr" href="#">Français</a>
@@ -54,19 +54,19 @@
 				</section>
 
 				<section id="wb-srch">
-					<h2>Search</h2>
+					<h2>Recherche</h2>
 					<form action="#" method="post" role="search" class="form-inline">
 	<div id="wet-srchbx-in">
-		<label for="wb-srch-txt">Search website</label>
+		<label for="wb-srch-txt">Recherchez le site Web</label>
 		<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
-		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Search</button>
+		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Recherche</button>
 	</div>
 </form>
 				</section>
 			</div>
 
 			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
-				<h2>Site menu</h2>
+				<h2>Menu du site</h2>
 				<ul class="mb-menu">
 	<li>
 		<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
@@ -81,101 +81,46 @@
 			</nav>
 
 			<nav role="navigation" id="wb-bc" property="breadcrumb">
-				<h2>Breadcrumb trail</h2>
+				<h2>Fil d'Ariane</h2>
 				<ol>
 	<li>
-		<a href="../index-en.html">Home</a>
+		<a href="../index-fr.html">Accueil</a>
 	</li>
 	<li>
-		Working examples
+		Exemples pratiques
 	</li>
 </ol>
 			</nav>
 		</header>
 
 		<main role="main" property="mainContentOfPage">
-			<h1 id="wb-cont" property="name">Web feeds</h1>
+			<h1 id="wb-cont" property="name">Fils de syndication</h1>
 			
-<p>This feature provides a widget for aggregating and displaying the entries from one or more Web feeds on a Web page. Supported Web feed formats are Atom, RSS, and Media RSS.</p>
+<p>Ce plugiciel aide à afficher des chronologies intégrées Twitter.</p>
 
 <section>
-	<h2>Benefits</h2>
-	<ul>
-		<li>Displays entries from one or more Atom, RSS, and Media RSS feeds on a Web page without the need for a Web feed reader</li>
-		<li>Dynamically fetches the top five items of any public Atom, RSS, or Media RSS feed</li>
-		<li>Enables cross-promotion and sharing of information between Web sites</li>
-		<li>Conforms to WCAG 2.0 AA</li>
-		<li>Uses WAI-ARIA to enhance accessibility</li>
-		<li>Progressive enhancement approach</li>
-		<li>Supports Firefox, Opera, Safari, Chrome, and IE 8+</li>
-	</ul>
-</section>
+	<h2>Exemple</h2>
 
-<section>
-	<h2>Samples</h2>
-	<div class="wb-webfeeds">
-		<section class="widget-container">
-			<h3>Ottawa Weather</h3>
-			<ul class="widget-content">
-				<li>
-					<a href="http://weather.gc.ca/city/pages/on-118_metric_e.html" rel="external">Ottawa Ontario</a>
-				</li>
-			</ul>
-		</section>
+	<div class="wb-twitter">
+		<a class="twitter-timeline" href="https://twitter.com/search?q=%23boew" data-widget-id="329071414877495297">Tweets concernant "#boew"</a>
 	</div>
-
-	<div class="wb-webfeeds limit-5">
-		<section class="widget-container">
-			<h3>RSS Feed</h3>
-			<ul class="widget-content">
-				<li>
-					<a href="http://www.tc.gc.ca/mediaroom/rss/road.xml" rel="external">Road News Releases (All)</a>
-				</li>
-				<li>
-					<a href="http://wwwapps.tc.gc.ca/Saf-Sec-Sur/7/VRDB-BDRV/Search/Rss-Search.aspx" rel="external">Road Safety Recalls</a>
-				</li>
-			</ul>
-		</section>
-	</div>
+	
+	<p><a href="https://dev.twitter.com/docs/embedded-timelines">Options de configuration des fils intégrés Twitter</a></p>
 </section>
 
-<section>
-	<h2>Parameters</h2>
-	<table>
-		<caption>Parameters and details for the Web feeds widget</caption>
-		<thead>
-			<tr>
-				<th scope="col">Class (parameter)</th>
-				<th scope="col">Role</th>
-				<th scope="col">Details</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><code>wet-boew-webwidget</code></td>
-				<td>identifier</td>
-				<td>main targeting class that identifies the codeblock used for the Web feeds widget</td>
-			</tr>
-			<tr>
-				<td><code>limit-<em>xxx</em></code></td>
-				<td>display</td>
-				<td>controls the amount of items the Web feeds widget will display (except for the Twitter Embedded Timeline)</td>
-			</tr>
-		</tbody>
-	</table>
-</section>
+
 
 		</main>
 
 		<!-- Secondary Menu [optional] -->
 		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
-			<h2>Secondary menu</h2>
+			<h2>Menu secondaire</h2>
 			
 		</nav>
 
 		<footer role="contentinfo" id="wb-nav">
 			<nav role="navigation">
-				<h2>Site Information</h2>
+				<h2>Information du site</h2>
 				<section class="col-sm-3 col-lg-3">
 	<h3>About</h3>
 	<ul>
