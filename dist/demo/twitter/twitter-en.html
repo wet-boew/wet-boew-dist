@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8" lang="en"><![endif]-->
 <!--[if gt IE 8]><!-->
 <html lang="en">
 <!--<![endif]-->
@@ -17,15 +17,10 @@
 		<link rel="stylesheet" href="../../css/base.min.css">
 		<link rel="stylesheet" href="../../css/theme.min.css">
 
-		<!-- Polyfill loader-->
-		<!--[if lt IE 9]>
-		<script src="../../js/oldie/respond.min.js"></script>
-		<script src="../../js/oldie/jquery.min.js"></script>
-		<script src="../../js/oldie/selectivizr.min.js"></script><![endif]-->
-		<!--[if gte IE 9 | !IE ]><!-->
-		<script src="../../js/jquery.min.js"></script>
-		<!--<![endif]-->
-		<script src="../../js/vapour.min.js"></script>
+		<!-- IE8 Support -->
+		<!--[if IE 8]>
+		<script src="../../js/vapour-ie8.min.js">
+		<![endif]-->
 
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
@@ -156,8 +151,10 @@
 </section>
 			</nav>
 		</footer>
-
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="../../js/jquery.min.js"></script>
+		<script src="../../js/vapour.min.js"></script>
+		<!--<![endif]-->
 		<script src="../../js/wet-boew.min.js"></script>
-		<script src="../../js/theme.js"></script>
 	</body>
 </html>
