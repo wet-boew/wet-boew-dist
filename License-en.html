@@ -1,92 +1,127 @@
 <!DOCTYPE html>
-<!--[if IE 7]><html lang="en" class="no-js ie7"><![endif]-->
-<!--[if IE 8]><html lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8" lang="en"><![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" class="no-js">
+<html lang="en">
 <!--<![endif]-->
-<head>
-<meta charset="utf-8" />
-<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Web Experience Toolkit (WET) - Terms and Conditions of Use</title>
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Web Experience Toolkit (WET) - Terms and Conditions of Use - </title>
+		<link href="./images/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/base.min.css">
+		<link rel="stylesheet" href="./css/theme.min.css">
 
-<link rel="shortcut icon" href="dist/theme-wet-boew/images/favicon.ico" />
-<meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities." />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- IE8 Support -->
+		<!--[if IE 8]>
+		<script src="./js/vapour-ie8.min.js"></script>
+		<![endif]-->
 
-<!--[if lte IE 8]>
-<script src="dist/js/jquery-ie.min.js"></script>
-<script src="dist/js/polyfills/html5shiv-min.js"></script>
-<link rel="stylesheet" href="dist/grids/css/util-ie-min.css" />
-<link rel="stylesheet" href="dist/js/css/pe-ap-ie-min.css" />
-<link rel="stylesheet" href="dist/theme-wet-boew/css/theme-ie-min.css" />
-<noscript><link rel="stylesheet" href="dist/theme-wet-boew/css/theme-ns-ie-min.css" /></noscript>
-<![endif]-->
-<!--[if gt IE 8]><!-->
-<script src="dist/js/jquery.min.js"></script>
-<link rel="stylesheet" href="dist/grids/css/util-min.css" />
-<link rel="stylesheet" href="dist/js/css/pe-ap-min.css" />
-<link rel="stylesheet" href="dist/theme-wet-boew/css/theme-min.css" />
-<noscript><link rel="stylesheet" href="dist/theme-wet-boew/css/theme-ns-min.css" /></noscript>
-<!--<![endif]-->
-
-<!-- CustomCSSStart -->
-<!-- CustomCSSEnd -->
-</head>
-
-<body vocab="http://schema.org/" typeof="WebPage"><div id="wb-body">
-<div id="wb-skip">
-<ul id="wb-tphp">
-<li id="wb-skip1"><a href="#wb-cont">Skip to main content</a></li>
-<li id="wb-skip2"><a href="#wb-nav">Skip to footer</a></li>
-</ul>
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<ul id="wb-tphp">
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-cont">Skip to content</a>
+			</li>
+			<li class="wb-skip">
+				<a class="wb-skip-link" href="#wb-nav">Skip to footer</a>
+			</li>
+		</ul>
+		<header role="banner">
+			<div id="wb-banner">
+				<section id="wb-lang">
+					<h2>Language selection</h2>
+					<div class="container">
+	<div class="row text-right">
+		<ul data-ajax-before="./js/assets/mobmenu-en.html" class="visible-md visible-lg">
+			<li class="current">
+				English&#32;<span>(current)</span>
+			</li>
+			<li>
+				<a lang="fr" href="#">Français</a>
+			</li>
+		</ul>
+	</div>
 </div>
 
-<div id="wb-head"><div id="wb-head-in"><header>
-<!-- HeaderStart -->
-<section><div id="wet-fullhd"><h2>Header bar</h2>
-<div id="wet-fullhd-in">
-<ul>
-<li id="wet-fullhd-lang-2"><a href="Licence-fra.html" lang="fr">Français</a></li>
-<li id="wet-fullhd-lang-current">English</li>
-</ul>
+				</section>
+
+				<div class="container">
+					<div class="row">
+
+						<section id="wb-sitetitle" class="col-md-8">
+							<a href="index-en.html"><object type="image/svg+xml" tabindex="-1" role="img" data="./assets/logo.svg" aria-label=""></object><span><small></small></span></a>
+
+						</section>
+
+						<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+							<h2>Search</h2>
+							<form action="#" method="post" role="search" class="form-inline">
+	<div id="wet-srchbx-in">
+
+		<div class="form-group">
+			<label for="wb-srch-txt">Search website</label>
+			<input id="wb-srch-txt" class="wb-srch-txt form-control" name="wb-srch-txt" type="search" value="" size="27" maxlength="150" />
+		</div>
+
+		<button type="submit" id="wb-srch-submit" class="wb-srch-submit btn btn-primary btn-small" name="wb-srch-submit">Search</button>
+
+
+	</div>
+</form>
+
+						</section>
+
+					</div>
+				</div>
+
+			</div>
+
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
+				<h2>Site menu</h2>
+				<div class="container">
+	<div class="row">
+		<ul class="mb-menu">
+			<li>
+				<a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a>
+			</li>
+			<li>
+				<a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a>
+			</li>
+			<li>
+				<a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a>
+			</li>
+		</ul>
+	</div>
 </div>
-</div></section>
 
-<div id="wet-bnr" role="banner"><div id="wet-bnr-in">
-<div id="wet-title"><p id="wet-title-in"><a href="index-eng.html"><object data="dist/theme-wet-boew/images/logo.svg" role="img" tabindex="-1" type="image/svg+xml"><img src="dist/theme-wet-boew/images/logo.png" alt="" /></object> <span>Web Experience Toolkit&#160;(WET) <small>Collaborative open source project led by the Government of Canada</small></span></a></p></div>
+			</nav>
 
-<section role="search"><div id="wet-srchbx"><h2>Search</h2>
-<form action="#" method="post"><div id="wet-srchbx-in">
-<label for="wet-srch">Search website</label><input id="wet-srch" name="wet-srch" type="search" value="" size="27" maxlength="150" />
-<input id="wet-srch-submit" name="wet-srch-submit" type="submit" value="Search" data-icon="search" class="button button-accent" />
-</div></form>
-</div></section>
-</div></div>
+			<nav role="navigation" id="wb-bc" property="breadcrumb">
+				<h2>Breadcrumb trail</h2>
+				<div class="container">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li>
+				<a href="./index-en.html">Home</a>
+			</li>
+		</ol>
+	</div>
+</div>
 
-<nav role="navigation" typeof="SiteNavigationElement">
-<div id="wet-psnb"><h2>Site menu</h2><div id="wet-psnb-in"><div class="wet-boew-menubar mb-mega"><div>
-<ul class="mb-menu" data-ajax-replace="demos/includes/projectmenu-eng.txt">
-<li><div><a href="http://wet-boew.github.io/wet-boew/index-en.html">WET project</a></div></li>
-<li><div><a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a></div></li>
-<li><div><a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a></div></li>
-</ul>
-</div></div></div></div>
+			</nav>
+		</header>
 
-<div id="wet-bc" property="breadcrumb"><h2>Breadcrumb trail</h2><div id="wet-bc-in">
-<ol>
-<li><a href="index-eng.html">Home</a></li>
-<li>Web Experience Toolkit (WET) - Terms and Conditions of Use</li>
-</ol>
-</div></div>
-</nav>
-<!-- HeaderEnd -->
-</header></div></div>
-
-<div id="wb-core"><div id="wb-core-in" class="equalize">
-<div id="wb-main" role="main" property="mainContentOfPage"><div id="wb-main-in">
-<!-- MainContentStart -->
-<h1 id="wb-cont" property="name">Web Experience Toolkit (WET) - Terms and Conditions of Use</h1>
+		<main role="main" property="mainContentOfPage" class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 id="wb-cont" property="name">Web Experience Toolkit (WET) - Terms and Conditions of Use</h1>
+					
 
 <p>Unless otherwise noted, computer program source code of the Web Experience Toolkit (WET) is 
 covered under Crown Copyright, Government of Canada, and is distributed under the <a href="#license">MIT License</a>.</p>
@@ -100,80 +135,89 @@ of the Government of Canada's corporate identity program. For more information, 
 held by the respective copyright holders as noted in those files. Users are asked to read the 
 3rd Party Licenses referenced with those assets.</p>
 
+<section>
+	<h2 id="license">MIT License</h2>
 
-<section><h2 id="license">MIT License</h2>
+	<p>Copyright (c) 2013 Government of Canada</p>
 
-<p>Copyright (c) 2013 Government of Canada</p>
+	<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
+	associated documentation files (the "Software"), to deal in the Software without restriction, 
+	including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+	and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
+	subject to the following conditions:</p>
 
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
-associated documentation files (the "Software"), to deal in the Software without restriction, 
-including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, 
-subject to the following conditions:</p>
+	<p>The above copyright notice and this permission notice shall be included in all copies or substantial 
+	portions of the Software.</p>
 
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial 
-portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
-NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+	<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT 
+	NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
+	WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </section>
 
-<dl id="wet-date-mod" role="contentinfo">
-<dt>Date modified:</dt><dd><span><time property="dateModified" datetime="2013-06-25T00:00:01+00:00">2013-06-25</time></span></dd>
-</dl>
-<div class="clear"></div>
-<!-- MainContentEnd -->
-</div></div>
-</div></div>
+				</div>
 
-<div id="wb-foot"><div id="wb-foot-in"><footer><h2 id="wb-nav">Footer</h2>
-<!-- FooterStart -->
-<nav role="navigation"><div id="wet-sft"><h3>Site footer</h3><div id="wet-sft-in">
-<section><div class="span-2"><h4 class="wet-col-head">About</h4>
-<ul>
-<li><a href="http://wet-boew.github.io/wet-boew/index-en.html#about">About the Web Experience Toolkit</a></li>
-<li><a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
-</ul>
-</div></section>
-<section><div class="span-2"><h4 class="wet-col-head">Contact us</h4>
-<ul>
-<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
-</ul>
-</div></section>
-<section><div class="span-2"><h4 class="wet-col-head">News</h4>
-<ul>
-<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
-<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
-</ul>
-</div></section>
-<section><div class="span-2"><h4 class="wet-col-head">Stay connected</h4>
-<ul>
-<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
-</ul>
-</div></section>
-</div></div></nav>
-<!-- FooterEnd -->
-</footer>
-</div></div></div>
+			</div>
+		</main>
 
-<!-- ScriptsStart -->
-<script src="dist/js/settings.js"></script>
-<!--[if lte IE 8]>
-<script src="dist/theme-wet-boew/js/theme-ie-min.js"></script>
-<script src="dist/js/pe-ap-ie-min.js"></script>
-<script src="dist/js/jquerymobile/jquery.mobile-ie.min.js"></script>
-<![endif]-->
-<!--[if gt IE 8]><!-->
-<script src="dist/theme-wet-boew/js/theme-min.js"></script>
-<script src="dist/js/pe-ap-min.js"></script>
-<script src="dist/js/jquerymobile/jquery.mobile.min.js"></script>
-<!--<![endif]-->
-<!-- ScriptsEnd -->
+		<!-- Secondary Menu
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+			<h2>Secondary menu</h2>
+			
+		</nav>
+		[optional] -->
 
-<!-- CustomScriptsStart -->
-<!-- CustomScriptsEnd -->
-</body>
+		<footer role="contentinfo" id="wb-nav">
+			<nav role="navigation">
+				<h2>Site Information</h2>
+				<div class="container">
+	<div class="row">
+		<section class="col-sm-3 col-lg-3">
+			<h3>About</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">About the Web Experience Toolkit</a>
+				</li>
+				<li>
+					<a href="#">About the Web Standards</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>Contact us</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Questions or comments?</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>News</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Recent project activity</a>
+				</li>
+			</ul>
+		</section>
+		<section class="col-sm-3 col-lg-3">
+			<h3>Stay Connected</h3>
+			<ul class="list-unstyled">
+				<li>
+					<a href="#">Twitter</a>
+				</li>
+			</ul>
+		</section>
+	</div>
+</div>
+
+			</nav>
+		</footer>
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/vapour.min.js"></script>
+		<!--<![endif]-->
+		<script src="./js/wet-boew.min.js"></script>
+		
+	</body>
 </html>
