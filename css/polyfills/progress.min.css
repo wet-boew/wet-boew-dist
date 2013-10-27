@@ -1,6 +1,6 @@
 @charset "utf-8";
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-10-25
+ - v4.0.0-a1-development - 2013-10-27
 */
 
 progress .outer,progress .undef{height:1em;width:100%;padding:2px;border:1px solid #000}progress{display:inline-block}progress .outer{background-color:#fff}progress .undef{background-color:#f99}progress .inner{height:100%;border:0;background-color:#090}
