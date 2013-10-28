@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Correctif «&amp;#160;details/summary&amp;#160;» (contenu affichable/masquable) - </title>
+		<title>Correctif «&amp;#160;input type=&quot;range&quot;&amp;#160;» (barre coulissante) - </title>
 		<link href="../../images/favicon.ico" rel="shortcut icon">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<!-- Meta data -->
@@ -46,7 +46,7 @@
 
 	
 			<li>
-				<a lang="en" href="details-en.html">English</a>
+				<a lang="en" href="slider-en.html">English</a>
 			</li>
 	
 
@@ -119,7 +119,7 @@
 				<a href="../../demos/index-fr.html">Exemples pratiques</a>
 			</li>
 
-			<li>Correctif «&amp;#160;details/summary&amp;#160;» (contenu affichable/masquable)</li>
+			<li>Correctif «&amp;#160;input type=&quot;range&quot;&amp;#160;» (barre coulissante)</li>
 		</ol>
 	</div>
 </div>
@@ -131,120 +131,36 @@
 		<main role="main" property="mainContentOfPage" class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 id="wb-cont" property="name">Correctif «&amp;#160;details/summary&amp;#160;» (contenu affichable/masquable)</h1>
+					<h1 id="wb-cont" property="name">Correctif «&amp;#160;input type=&quot;range&quot;&amp;#160;» (barre coulissante)</h1>
 					
-<style>
-.example2 summary {
-	background-color: #666;
-	color: #FFF;
-}
-.example3 summary {
-	background-color: #176CA7;
-	color: #FFF;
-	text-align: right;
-	padding-right: 5px;
-}
-</style>
+<div>
+	<p>Utilisez les attributs suivants pour spécifier les restrictions:</p>
+	<ul>
+		<li>max - spécifie la valeur maximale autorisée</li>
+		<li>min - spécifie la valeur minimale autorisée</li>
+		<li>step - spécifie la valeur d'intervalles (augmentations)</li>
+		<li>value - spécifie la valeur par défaut</li>
+	</ul>
+</div>
 
-<p>Les éléments HTML5 «&#160;<code lang="en">details</code>&#160;» et «&#160;<code lang="en">summary</code>&#160;» sont utilisés pour fournir le contenu en arborescence affichable/masquable. Ce composant ajoute le soutien pour ces éléments dans les navigateurs qui n'ont pas déjà la prise en charge native.</p>
-
-<section>
-	<h2>Exemples</h2>
-
-	<div class="row">
-		<details class="col-sm-12">
-			<summary>Exemple 1 (par défaut)</summary>
-			<p>Le contenu d'exemple qui fournit plus de détails.</p>
-			<table>
-				<caption>Tasses de café bues par chaque député</caption>
-				<thead>
-				<tr>
-					<th scope="col">Nom</th>
-					<th scope="col">Tasses</th>
-					<th scope="col">Type de café</th>
-					<th scope="col">Sucre?</th>
-				</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>T. Sexton</td>
-						<td>10</td>
-						<td>Expresso</td>
-						<td>Non</td>
-					</tr>
-					<tr>
-						<td>J. Dinnen</td>
-						<td>5</td>
-						<td>Déca</td>
-						<td>Oui</td>
-					</tr>
-				</tbody>
-			</table>
-		</details>
-	</div>
-
-	<div class="row">
-		<details class="example2 col-sm-6">
-			<summary>Exemple 2</summary>
-			<p>Le contenu d'exemple qui fournit plus de détails.</p>
-			<table>
-				<caption>Tasses de café bues par chaque député</caption>
-				<thead>
-				<tr>
-					<th scope="col">Nom</th>
-					<th scope="col">Tasses</th>
-					<th scope="col">Type de café</th>
-					<th scope="col">Sucre?</th>
-				</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>T. Sexton</td>
-						<td>10</td>
-						<td>Expresso</td>
-						<td>Non</td>
-					</tr>
-					<tr>
-						<td>J. Dinnen</td>
-						<td>5</td>
-						<td>Déca</td>
-						<td>Oui</td>
-					</tr>
-				</tbody>
-			</table>
-		</details>
-
-		<details class="example3 col-sm-6">
-			<summary>Exemple 3</summary>
-			<p>Le contenu d'exemple qui fournit plus de détails.</p>
-			<table>
-				<caption>Tasses de café bues par chaque député</caption>
-				<thead>
-				<tr>
-					<th scope="col">Nom</th>
-					<th scope="col">Tasses</th>
-					<th scope="col">Type de café</th>
-					<th scope="col">Sucre?</th>
-				</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>T. Sexton</td>
-						<td>10</td>
-						<td>Expresso</td>
-						<td>Non</td>
-					</tr>
-					<tr>
-						<td>J. Dinnen</td>
-						<td>5</td>
-						<td>Déca</td>
-						<td>Oui</td>
-					</tr>
-				</tbody>
-			</table>
-		</details>
-	</div>
-</section>
+<div class="wet-boew-prettify all-pre">
+	<section>
+		<h3>Étendue&#160;: 0 à 100 avec les augmentations de 1 <span id="html5shim-1-out"></span></h3>
+		<p><input name="html5shim-1" id="html5shim-1" type="range" min="0" max="100" step="1" title="Étendue&#160;: 0 à 100 avec les augmentations de 10" value="50" onchange="document.getElementById('html5shim-1-out').innerHTML = '(Valeur actuelle&#160;: ' + this.value + ')'"></p>
+	</section>
+	<section>
+		<h3>Code</h3>
+		<pre><code>&lt;input name="html5shim-1" id="html5shim-1" type="range" min="0" max="100" step="1" title="Étendue&#160;: 0 à 100 avec les augmentations de 10" value="50" onchange="document.getElementById('html5shim-1-out').innerHTML = '(Valeur actuelle&#160;: ' + this.value + ')'" /&gt;</code></pre>
+	</section>
+	<section>
+		<h3>Étendue&#160;: 20 à 50 avec les augmentations de 10 <span id="html5shim-2-out"></span></h3>
+		<p><input name="html5shim-2" id="html5shim-2" type="range" min="20" max="50" step="10" title="Étendue&#160;: 20 à 50 avec les augmentations de 10" value="20" onchange="document.getElementById('html5shim-2-out').innerHTML = '(Valeur actuelle&#160;: ' + this.value + ')'"></p>
+	</section>
+	<section>
+		<h3>Code</h3>
+		<pre><code>&lt;input name="html5shim-2" id="html5shim-2"  type="range" min="20" max="50" step="10" title="Étendue&#160;: 20 à 50 avec les augmentations de 10" value="20" onchange="document.getElementById('html5shim-2-out').innerHTML = '(Valeur actuelle&#160;: ' + this.value + ')'" /&gt;</code></pre>
+	</section>
+</div>
 				</div>
 
 			</div>
