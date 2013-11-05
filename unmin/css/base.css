@@ -8006,13 +8006,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   width: 100%;
   left: 0;
   text-align: center;
-  background-color: #cc0000;
-}
-
-.pg-banner.out a {
-  color: white;
-  text-decoration: underline;
-  font-weight: 700;
 }
 
 .pg-panel {
@@ -8023,25 +8016,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   top: 30%;
   position: absolute;
   right: 0;
-}
-
-/* Specific to theme */
-
-#archived {
-  background-color: #ffffcc;
-  border: 1px solid #cc0000;
-}
-
-#archived p {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-#archived h2 {
-  background-color: #cc0000;
-  color: white;
-  margin: 0;
-  padding: 2px 0 2px 10px;
 }
 
 /*
