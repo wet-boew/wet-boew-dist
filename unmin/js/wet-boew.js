@@ -1,0 +1,5073 @@
+/*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ - v4.0.0-a1-development - 2013-11-05
+*/
+(function( $ ) {
+	vapour.getData = function( element, dataName ) {
+		var elm = !element.jquery ? element : element[ 0 ],
+			dataAttr = elm.getAttribute( "data-" + dataName ),
+			dataObj;
+
+		if ( dataAttr ) {
+			try {
+				dataObj = JSON.parse( dataAttr );
+			} catch ( error ) {
+				$.error( "Bad JSON array in data-" + dataName + " attribute" );
+			}
+		}
+
+		$.data( elm, dataName, dataObj );
+		return dataObj;
+	};
+})( jQuery );
+
+(function( vapour ) {
+	"use strict";
+
+	// Escapes the characters in a string for use in a jQuery selector
+	// Based on http://totaldev.com/content/escaping-characters-get-valid-jquery-id
+	vapour.jqEscape = function( selector ) {
+		return selector.replace( /([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, "\\$1" );
+	};
+
+	/*
+	 * @namespace vapour.string
+	 */
+	vapour.string = {
+		/*
+		 * Left-pads a number with zeros.
+		 * @memberof vapour.string
+		 * @param {number} number The original number to pad.
+		 * @param {number} length The width of the resulting padded number, not the number of zeros to add to the front of the string.
+		 * @return {string} The padded string
+		 */
+		pad: function( number, length ) {
+			var str = number + "",
+				diff = length - str.length,
+				i;
+			for ( i = 0; i !== diff; i += 1 ) {
+				str = "0" + str;
+			}
+			return str;
+		}
+	};
+
+	/*
+	 * A suite of date related functions for easier parsing of dates
+	 * @namespace vapour.date
+	 */
+	vapour.date = {
+		/*
+		 * Converts the date to a date-object. The input can be:
+		 * <ul>
+		 * <li>a Date object: returned without modification.</li>
+		 * <li>an array: Interpreted as [year,month,day]. NOTE: month is 0-11.</li>
+		 * <li>a number: Interpreted as number of milliseconds since 1 Jan 1970 (a timestamp).</li>
+		 * <li>a string: Any format supported by the javascript engine, like 'YYYY/MM/DD', 'MM/DD/YYYY', 'Jan 31 2009' etc.</li>
+		 * <li>an object: Interpreted as an object with year, month and date attributes. **NOTE** month is 0-11.</li>
+		 * </ul>
+		 * @memberof vapour.date
+		 * @param {Date | number[] | number | string | object} dateValue
+		 * @return {Date | NaN}
+		 */
+		convert: function( dateValue ) {
+			var dateConstructor = dateValue.constructor;
+
+			switch ( dateConstructor ) {
+			case Date:
+				return dateConstructor;
+			case Array:
+				return new Date( dateValue[ 0 ], dateValue[ 1 ], dateValue[ 2 ] );
+			case Number:
+			case String:
+				return new Date( dateValue );
+			default:
+				return typeof dateValue === "object" ? new Date( dateValue.year, dateValue.month, dateValue.date ) : NaN;
+			}
+		},
+
+		/*
+		 * Compares two dates (input can be any type supported by the convert function).
+		 * @memberof vapour.date
+		 * @param {Date | number[] | number | string | object} dateValue1
+		 * @param {Date | number[] | number | string | object} dateValue2
+		 * @return {number | NaN}
+		 * @example returns
+		 * -1 if dateValue1 < dateValue2
+		 * 0 if dateValue1 = dateValue2
+		 * 1 if dateValue1 > dateValue2
+		 * NaN if dateValue1 or dateValue2 is an illegal date
+		 */
+		compare: function( dateValue1, dateValue2 ) {
+			var convert = vapour.date.convert;
+
+			if ( isFinite( dateValue1 = convert( dateValue1 ).valueOf() ) && isFinite( dateValue2 = convert( dateValue2 ).valueOf() ) ) {
+				return ( dateValue1 > dateValue2 ) - ( dateValue1 < dateValue2 );
+			}
+			return NaN;
+		},
+
+		/*
+		 * Cross-browser safe way of translating a date to ISO format
+		 * @memberof vapour.date
+		 * @param {Date | number[] | number | string | object} dateValue
+		 * @param {boolean} withTime Optional. Whether to include the time in the result, or just the date. False if blank.
+		 * @return {string}
+		 * @example
+		 * toDateISO( new Date() )
+		 * returns "2012-04-27"
+		 * toDateISO( new Date(), true )
+		 * returns "2012-04-27 13:46"
+		 */
+		toDateISO: function( dateValue, withTime ) {
+			var date = vapour.date.convert( dateValue ),
+				pad = vapour.string.pad;
+
+			return date.getFullYear() + "-" + pad( date.getMonth() + 1, 2, "0" ) + "-" + pad( date.getDate(), 2, "0" ) +
+				( withTime ? " " + pad( date.getHours(), 2, "0" ) + ":" + pad( date.getMinutes(), 2, "0" ) : "" );
+		},
+
+		/*
+		 * Cross-browser safe way of creating a date object from a date string in ISO format
+		 * @memberof vapour.date
+		 * @param {string} dateISO Date string in ISO format
+		 * @return {Date}
+		 */
+		fromDateISO: function ( dateISO ) {
+			var date = null;
+
+			if ( dateISO && dateISO.match( /\d{4}-\d{2}-\d{2}/ ) ) {
+				date = new Date();
+				date.setFullYear( dateISO.substr( 0, 4 ), dateISO.substr( 5, 2 ) - 1, dateISO.substr( 8, 2 ) );
+			}
+			return date;
+		}
+	};
+
+})( vapour );
+
+(function( $ ) {
+	"use strict";
+	
+	var methods,
+		_settings = {
+			"default": "wet-boew"
+		};
+	
+	methods = {
+	
+		init: function( options ) {
+			return $.extend( _settings, options || {} );
+		},
+
+		toggle: function( to, from ) {
+			$( this )
+				.addClass( to )
+				.removeClass( from );
+		}
+	};
+	
+	$.fn.wb = function( method ) {
+	
+		if ( methods[ method ] ) {
+			methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ) );
+		}
+		else if ( typeof method === "object" || !method ) {
+			methods.init.apply( this, arguments );
+		}
+		else {
+			$.error( "Method " + method + " does not exist on jquery.wb" );
+		}
+	};
+
+})( jQuery );
+
+/*
+:focusable and :tabable jQuery helper expressions - https://github.com/jquery/jquery-ui/blob/24756a978a977d7abbef5e5bce403837a01d964f/ui/jquery.ui.core.js
+*/
+(function ( $ ) {
+	"use strict";
+	
+	function focusable( element, isTabIndexNotNaN, visibility ) {
+		var map, mapName, img,
+			nodeName = element.nodeName.toLowerCase( );
+		if ( "area" === nodeName ) {
+			map = element.parentNode;
+			mapName = map.name;
+			if ( !element.href || !mapName || map.nodeName.toLowerCase( ) !== "map" ) {
+				return false;
+			}
+			img = $( "img[usemap=#" + mapName + "]" )[ 0 ];
+			return !!img && visible( img );
+		}
+		if ( visibility ) {
+			return ( /input|select|textarea|button|object/.test( nodeName ) ? !element.disabled :
+				"a" === nodeName ?
+				element.href || isTabIndexNotNaN :
+				isTabIndexNotNaN ) &&
+			// the element and all of its ancestors must be visible
+			visible( element );
+		}
+		else {
+			return ( /input|select|textarea|button|object/.test( nodeName ) ? !element.disabled :
+				"a" === nodeName ?
+				element.href || isTabIndexNotNaN :
+				isTabIndexNotNaN );
+		}
+	}
+	
+	function visible( element ) {
+		return $.expr.filters.visible( element ) && !$( element )
+			.parents( )
+			.addBack( )
+			.filter(function() {
+				return $.css( this, "visibility" ) === "hidden";
+			})
+			.length;
+	}
+	
+	$.extend( $.expr[ ":" ], {
+		data: $.expr.createPseudo ? $.expr.createPseudo(function(dataName ) {
+			return function( elem ) {
+				return !!$.data( elem, dataName );
+			};
+		} ) :
+		// support: jQuery <1.8
+	
+		function( elem, i, match ) {
+			return !!$.data( elem, match[ 3 ] );
+		},
+		focusable: function( element ) {
+			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+		},
+		discoverable: function( element ) {
+			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+		},
+		tabbable: function( element ) {
+			var tabIndex = $.attr( element, "tabindex" ),
+				isTabIndexNaN = isNaN( tabIndex );
+			return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !
+				isTabIndexNaN );
+		}
+	});
+
+})( jQuery );
+/*
+Peformant micro templater
+@credit: https://github.com/premasagar/tim/blob/master/tinytim.js
+@todo: caching
+*/
+(function ( window, undef ) {
+	"use strict";
+	var tmpl = (function () {
+		var start = "{{",
+			end = "}}",
+			path = "[a-z0-9_$][\\.a-z0-9_]*", // e.g. config.person.name
+			pattern = new RegExp( start + "\\s*(" + path + ")\\s*" + end, "gi" );
+		return function( template, data ) {
+			// Merge data into the template string
+			return template.replace( pattern, function( tag, token ) {
+				var path = token.split( "." ),
+					len = path.length,
+					lookup = data,
+					i = 0;
+				for ( ; i < len; i++ ) {
+					lookup = lookup[ path[ i ] ];
+					// Property not found
+					if ( lookup === undef ) {
+						throw "tim: '" + path[ i ] + "' not found in " + tag;
+					}
+					// Return the required value
+					if ( i === len - 1 ) {
+						return lookup;
+					}
+				}
+			});
+		};
+	}());
+	
+	window.tmpl = tmpl;
+
+})( window );
+(function( $, vapour ) {
+"use strict";
+
+$.ajaxSettings.cache = false;
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var $document = vapour.doc,
+
+	/*
+	 * @method generateSerial
+	 * @param {integer} Length of the random string to be generated
+	 */
+	generateSerial = function( len ) {
+		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz",
+			string_length = len,
+			randomstring = "",
+			counter = 0,
+			letterOrNumber,
+			newNum,
+			rnum;
+
+		for ( counter; counter !== string_length; counter += 1 ) {
+			letterOrNumber = Math.floor( Math.random( ) * 2 );
+			if ( letterOrNumber === 0 ) {
+				newNum = Math.floor( Math.random( ) * 9 );
+				randomstring += newNum;
+			} else {
+				rnum = Math.floor( Math.random( ) * chars.length );
+				randomstring += chars.substring( rnum, rnum + 1 );
+			}
+		}
+		return randomstring;
+	};
+
+// Event binding
+$document.on( "ajax-fetch.wb", function( event ) {
+	var caller = event.element,
+		url = event.fetch,
+		id;
+
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === event.target ) {
+		id = "wb" + ( generateSerial( 8 ) );
+
+		$( "<div id='" + id + "' />" )
+			.load( url, function() {
+				$( caller )
+					.trigger( {
+						type: "ajax-fetched.wb",
+						pointer: $( this )
+					});
+			});
+	}
+});
+
+})( jQuery, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once
+ * per page, not once per instance of plugin on the page. So, this is a good
+ * place to define variables that are common to all instances of the plugin on a
+ * page.
+ */
+var $document = vapour.doc,
+	i18n, i18nText,
+
+	/*
+	 * Creates a calendar instance
+	 * @method create
+	 */
+	create = function( event, calendarId, year, month, shownav, mindate, maxdate, day ) {
+		var calendar = document.getElementById( calendarId ),
+			$calendar = $( calendar ),
+			objCalendarId = "#cal-" + calendarId + "-cnt",
+			fromDateISO = vapour.date.fromDateISO,
+			$objCalendar, $calendarHeader, $days, $daysList,
+			maxDateYear, maxDateMonth, minDateYear, minDateMonth;
+
+		// Only initialize the i18nText once
+		if ( !i18nText ) {
+			i18n = window.i18n;
+			i18nText = {
+				monthNames: i18n( "%mnths" ),
+				prevMonth: i18n( "%prvMnth" ),
+				nextMonth: i18n( "%nxtMnth" ),
+				goToTitle: i18n( "%cal-goToTtl" ),
+				goToYear: i18n( "%cal-goToYr" ),
+				goToMonth: i18n( "%cal-goToMnth" ),
+				goToLink: i18n( "%cal-goToLnk" ),
+				goToBtn: i18n( "%cal-goToBtn" ),
+				cancelBtn: i18n( "%cancel" ),
+				dayNames: i18n( "%days" ),
+				currDay: i18n( "%currDay" )
+			};
+		}
+
+		$calendar.addClass( "cal-cnt" );
+
+		// Converts min and max date from string to date objects
+		if ( typeof mindate === "string" ) {
+			mindate = fromDateISO( mindate );
+		} else if ( !( typeof mindate === "object" && mindate.getFullYear() ) ) {
+			mindate = null;
+		}
+		if ( mindate === null ) {
+			mindate = new Date();
+			mindate.setFullYear( year - 1, month, 1 );
+		}
+
+		if ( typeof maxdate === "string" ) {
+			maxdate = fromDateISO( maxdate );
+		} else if ( typeof maxdate !== "object" || maxdate.constructor !== Date ) {
+			maxdate = new Date();
+			maxdate.setFullYear( year + 1, month, 1 );
+		}
+
+		// Validates that the year and month are in the min and max date range
+		maxDateYear = maxdate.getFullYear();
+		maxDateMonth = maxdate.getMonth();
+		minDateYear = mindate.getFullYear();
+		minDateMonth = mindate.getMonth();
+		if ( year > maxDateYear || ( year === maxDateYear && month > maxDateMonth ) ) {
+			year = maxDateYear;
+			month = maxDateMonth;
+		} else if ( year < minDateYear || ( year === minDateYear && month < minDateMonth ) ) {
+			year = minDateYear;
+			month = minDateMonth;
+		}
+
+		// Reset calendar if the calendar previously existed
+		$objCalendar = $( objCalendarId );
+		if ( $objCalendar.length !== 0 ) {
+			$objCalendar.find( "#cal-" + calendarId + "-wd, .cal-mnth, #cal-" + calendarId + "-days").remove();
+			$objCalendar = $calendar.children("#cal-" + calendarId + "-cnt");
+		} else {
+			$objCalendar = $( "<table id='cal-" + calendarId + "-cnt' class='cal-cnt'></table>" );
+			$calendar.append( $objCalendar );
+		}
+
+		// Creates the calendar header
+		$calendarHeader = $objCalendar.children( ".cal-hd" );
+		if ( $calendarHeader.length === 0 ) {
+			$calendarHeader = $( "<caption class='cal-hd'></caption>" );
+		}
+
+		$calendarHeader.prepend( "<div class='cal-mnth'>" + i18nText.monthNames[ month ] + " " + year + "</div>" );
+
+		if ( shownav ) {
+			// Create the month navigation
+			if ( document.getElementById( "#cal-" + calendarId + "-mnthnav" ) === null ) {
+				$calendarHeader.append( createMonthNav( calendarId, year, month, mindate, maxdate, minDateYear, maxDateYear ) );
+			}
+		}
+		$objCalendar.append( $calendarHeader );
+
+		// Create the calendar body
+
+		// Creates weekdays | Cree les jours de la semaines
+		$objCalendar.append( createWeekdays( calendarId ) );
+
+		// Creates the rest of the calendar | Cree le reste du calendrier
+		$days = createDays( calendarId, year, month );
+		$daysList = $days.find( "td:not(.cal-empty)" );
+
+		$objCalendar.append( $days );
+				
+		// Trigger the displayed.wb-cal Event
+		$calendar.trigger( "displayed.wb-cal", [ year, month, $daysList, day ] );
+	},
+
+	createMonthNav = function( calendarId, year, month, minDate, maxDate, minDateYear, maxDateYear ) {
+		var monthNames = i18nText.monthNames,
+			$monthNav = $( "#cal-" + calendarId + "-mnthnav" ),
+			assetsPath = vapour.getPath( "/assets" ),
+			buttonStart = "<a href='javascript:;' role='button' class='cal-",
+			buttonSpecs = [
+				[
+					"prvmnth",
+					-1,
+					i18nText.prevMonth,
+					"prepend"
+				],
+				[
+					"nxtmnth",
+					1,
+					i18nText.nextMonth,
+					"append"
+				],
+			],
+			alt, $btn, buttonSpec, buttonClass, newMonth, newYear, hideButton, index;
+
+		if ( $monthNav.length === 0 ) {
+			$monthNav = $( "<div id='cal-" + calendarId + "-mnthnav'></div>" );
+		}
+		
+		// Create the go to form if one doesn't already exist
+		if ( $( "#" + calendarId + " .cal-goto" ).length === 0 ) {
+			$monthNav.append( createGoToForm( calendarId, year, month, minDate, maxDate ) );
+		}
+
+		for ( index = 0; index !== 2; index += 1 ) {
+			buttonSpec = buttonSpecs[ index ];
+			buttonClass = buttonSpec[ 0 ];
+			newMonth = month + buttonSpec[ 1 ];
+			if ( newMonth < 0 ) {
+				newMonth = 11;
+				newYear = year - 1;
+			} else if ( newMonth > 11 ) {
+				newMonth = 0;
+				newYear = year + 1;
+			} else {
+				newYear = year;
+			}
+
+			hideButton = ( index === 0 ?
+				( ( newYear === minDateYear && newMonth < minDate.getMonth() ) || newYear < minDateYear ) :
+				( ( newYear === maxDateYear && newMonth > maxDate.getMonth() ) || newYear > maxDateYear )
+			);
+			alt = buttonSpec[ 2 ] + monthNames[ newMonth ] + " " + newYear;
+			$btn = $monthNav.find( ".cal-" + buttonClass );
+			
+			if ( $btn.length !== 0 ) {
+				$btn
+					.off()
+					.children( "img" )
+						.attr( "alt", alt );
+			} else {
+				$btn = $( buttonStart + buttonClass + "'><img src='" + assetsPath + "/" + buttonClass.charAt( 0 ) + ".png' alt='" + alt + "' /></a>" );
+				$monthNav[ buttonSpec[ 3 ] ]( $btn );
+			}
+			$btn
+				.toggleClass( "hide", hideButton )
+				.attr( "aria-hidden", hideButton );
+
+			if ( !hideButton ) {
+				$btn.on( "click", {
+					calID: calendarId,
+					year: newYear,
+					month : newMonth,
+					mindate: minDate,
+					maxdate: maxDate
+				}, changeMonth );
+			}
+		}
+
+		return $monthNav;
+	},
+
+	changeMonth = function( event ) {
+		var which = event.which,
+			$btn = $( event.target ),
+			eventData = event.data,
+			$container = $btn.closest( ".cal-cnt" );
+
+		// Ignore middle/right mouse buttons
+		if ( !which || which === 1 ) {
+			$document.trigger( "create.wb-cal", [
+				eventData.calID,
+				eventData.year,
+				eventData.month,
+				true,
+				eventData.mindate,
+				eventData.maxdate
+			]);
+
+			if ( $btn.hasClass( "wb-inv" ) ) {
+				$container.find( ".cal-goto-lnk a" ).trigger( "focus.wb" );
+			} else {
+				$btn.trigger( "focus.wb" );
+			}
+		}
+	},
+
+	yearChanged = function( event ) {
+		var year = parseInt( this.value, 10 ),
+			eventData = event.data,
+			minDate = eventData.minDate,
+			maxDate = eventData.maxDate,
+			monthField = eventData.monthField,
+			minMonth = 0,
+			maxMonth = 11,
+			monthNames = i18nText.monthNames,
+			month, i;
+
+		if ( year === minDate.getFullYear() ) {
+			minMonth = minDate.getMonth();
+		}
+
+		if ( year === maxDate.getFullYear() ) {
+			maxMonth = maxDate.getMonth();
+		}
+
+		month = monthField.val();
+
+		// Can't use monthField.empty() or .html("") on <select> in IE
+		// http://stackoverflow.com/questions/3252382/why-does-dynamically-populating-a-select-drop-down-list-element-using-javascript
+		for ( i = monthField.length - 1 ; i !== -1; i -= 1 ) {
+			monthField[ i ].remove( i );
+		}
+
+		for ( i = minMonth; i !== maxMonth; i += 1 ) {
+			monthField.append( "<option value='" + i + "'" + ( (i === month ) ? " selected='selected'" : "" ) +
+				">" + monthNames[ i ] + "</option>" );
+		}
+	},
+
+	createGoToForm = function( calendarId, year, month, minDate, maxDate ) {
+		var goToForm = $( "<div class='cal-goto'></div>" ),
+			form = $( "<form id='cal-" + calendarId + "-goto' role='form' style='display:none;' action=''><fieldset><legend>" +
+				i18nText.goToTitle + "</legend></fieldset></form>" ),
+			fieldset, yearContainer, yearField, y, _ylen, monthContainer, monthField, buttonContainer,
+			button, buttonCancelContainer, buttonCancel, goToLinkContainer, goToLink;
+
+		form.on( "submit", function( event ) {
+			event.preventDefault();
+			onGoTo( calendarId, minDate, maxDate );
+			return false;
+		});
+		fieldset = form.children( "fieldset" );
+
+		// Create the year field
+		yearContainer = $( "<div class='cal-goto-yr'></div>" );
+		yearField = $( "<select title='" + i18nText.goToYear + "' id='cal-" + calendarId + "-goto-year'></select>" );
+		for ( y = minDate.getFullYear(), _ylen = maxDate.getFullYear(); y <= _ylen; y += 1 ) {
+			yearField.append( $( "<option value='" + y + "'" + (y === year ? " selected='selected'" : "" ) + ">" + y + "</option>" ) );
+		}
+
+		yearContainer.append( yearField );
+		fieldset.append( yearContainer );
+
+		// Create the list of month field
+		monthContainer = $( "<div class='cal-goto-mnth'></div>" );
+		monthField = $( "<select title='" + i18nText.goToMonth + "' id='cal-" + calendarId + "-goto-month'></select>" );
+
+		monthContainer.append(monthField);
+		fieldset.append(monthContainer);
+
+		// Update the list of available months when changing the year
+		yearField.bind("change", {minDate: minDate, maxDate: maxDate, monthField: monthField}, yearChanged);
+		yearField.change(); // Populate initial month list		
+
+		buttonContainer = $( "<div class='cal-goto-btn'></div>" );
+		button = $( "<input type='submit' class='btn btn-primary' value='" + i18nText.goToBtn + "' />" );
+		buttonContainer.append(button);
+		fieldset.append(buttonContainer);
+
+		buttonCancelContainer = $( "<div class='cal-goto-btn'></div>" );
+		buttonCancel = $( "<input type='button' class='btn btn-default' value='" + i18nText.cancelBtn + "' />" );
+		buttonCancel.on("click", function( event ) {
+			var which = event.which;
+
+			// Ignore middle/right mouse buttons
+			if ( !which || which === 1 ) {
+				$( "#" + calendarId ).trigger( "hideGoToFrm.wb-cal" );
+			}
+		});
+		buttonCancelContainer.append(buttonCancel);
+		fieldset.append(buttonCancelContainer);
+
+		goToLinkContainer = $( "<p class='cal-goto-lnk' id='cal-" + calendarId + "-goto-lnk'></p>" );
+		goToLink = $( "<a href='javascript:;' role='button' aria-controls='cal-" +
+			calendarId + "-goto' aria-expanded='false'>" + i18nText.goToLink + "</a>" );
+		goToLink.on( "click", function( event ) {
+			var which = event.which;
+
+			// Ignore middle/right mouse buttons
+			if ( !which || which === 1 ) {
+				showGoToForm( calendarId );
+			}
+		} );
+		goToLinkContainer.append( goToLink );
+
+		goToForm.append( goToLinkContainer );
+		goToForm.append( form );
+
+		return goToForm;
+	},
+
+	createWeekdays = function( calendarId ) {
+		var weekdays = "<thead id='cal-" + calendarId + "-days' class='cal-wd' role='presentation'><tr>",
+			dayNames = i18nText.dayNames,
+			wd, wd1, dayName;
+		for ( wd = 0; wd < 7; wd += 1 ) {
+			dayName = dayNames[ wd ];
+			wd1 = wd + 1;
+			weekdays += "<th id='cal-" + calendarId + "-wd" + wd1 + "' class='cal-wd cal-wd" + wd1 +
+				( wd === 0 || wd === 6 ? "we" : "" ) + "' role='columnheader'><abbr title='" + dayName + "'>" +
+				dayName.charAt( 0 ) + "</abbr></th>";
+		}
+
+		return $( weekdays + "</tr></thead>" );
+	},
+
+	createDays = function( calendarId, year, month ) {
+		var cells = "<tbody id='cal-" + calendarId + "-days' class='cal-days'>",
+			date = new Date(),
+			textWeekDayNames = i18nText.dayNames,
+			textMonthNames = i18nText.monthNames,
+			textCurrentDay = i18nText.currDay,
+			frenchLang = ( document.documentElement.lang === "fr" ),
+			breakAtEnd = false,
+			dayCount = 0,
+			firstDay, lastDay, week, day, currYear, currMonth, currDay, id, className, isCurrentDate;
+
+		// Get the day of the week of the first day of the month | Determine le jour de la semaine du premier jour du mois
+		date.setFullYear( year, month, 1 );
+		firstDay = date.getDay();
+
+		// Get the last day of the month | Determine le dernier jour du mois
+		date.setFullYear( year, month + 1, 0 );
+		lastDay = date.getDate() - 1;
+
+		// Get the current date
+		date = new Date();
+		currYear = date.getFullYear();
+		currMonth = date.getMonth();
+		currDay = date.getDate();
+
+		for ( week = 1; week < 7; week += 1 ) {
+			cells += "<tr>";
+			for ( day = 0; day < 7; day += 1 ) {
+				
+				id = "cal-" + calendarId + "-w" + week + "d" + ( day + 1 );
+				className = ( day === 0 || day === 6 ? "cal-we " : "" ) +
+					"cal-w" + week + "d" + ( day + 1 ) + " cal-index-" + ( dayCount + 1 );
+				
+				if ( ( week === 1 && day < firstDay ) || ( dayCount > lastDay ) ) {
+
+					// Creates empty cells | Cree les cellules vides
+					cells += "<td id='" + id + "' class='cal-empty " + className + "'>&#160;</td>";
+				} else {
+
+					// Creates date cells | Cree les cellules de date
+					dayCount += 1;
+					isCurrentDate = ( dayCount === currDay && month === currMonth && year === currYear );
+
+					cells += "<td id='" + id + "' class='" + ( isCurrentDate ? "cal-currday " : "" ) + className + "'><div><time datetime='" + currYear + "-" +
+						( month < 9 ? "0" : "" ) + ( month + 1 ) + "-" + ( dayCount < 10 ? "0" : "" ) + dayCount + "'><span class='wb-inv'>" + textWeekDayNames[ day ] +
+						( frenchLang ? ( " </span>" + dayCount + "<span class='wb-inv'> " + textMonthNames[ month ].toLowerCase() + " " ) :
+						( " " + textMonthNames[ month ] + " </span>" + dayCount + "<span class='wb-inv'> " ) ) + year +
+						( isCurrentDate ?  textCurrentDay : "" ) + "</span></time></div></td>";
+						
+					if ( dayCount > lastDay ) {
+						breakAtEnd = true;
+					}
+				}
+			}
+			cells += "</tr>";
+			if ( breakAtEnd ) {
+				break;
+			}
+		}
+		cells += "</tbody></table>";
+
+		return $( cells );
+	},
+
+	showGoToForm = function( calendarId ) {
+		var link = $("#cal-" + calendarId + "-goto-lnk"),
+			form = $("#cal-" + calendarId + "-goto");
+
+		// Hide the month navigation
+		$( "#cal-" + calendarId +  "-mnthnav" )
+			.children( ".cal-prvmnth, .cal-nxtmnth" )
+				.addClass( "hide" )
+				.attr( "aria-hidden", "true" );
+
+		// TODO: Replace with CSS animation
+		link.stop().slideUp( 0 );
+		form.stop().slideDown( 0 ).queue(function() {
+			$( this ).find( ":input:eq(0)" ).trigger( "focus.wb" );
+		});
+
+		link
+			.children( "a" )
+				.attr({
+					"aria-hidden": "true",
+					"aria-expanded": "true"
+				});
+	},
+
+	hideGoToFrm = function( event ) {
+		var calendarId = event.target.id,
+			$link = $( "#cal-" + calendarId + "-goto-lnk" ),
+			$form = $( "#cal-" + calendarId + "-goto" );
+
+		// TODO: Replace with CSS animation
+		$form.stop().slideUp( 0 ).queue(function () {
+			// Show the month navigation
+			$( "#cal-" + calendarId +  "-mnthnav" )
+				.children( ".cal-prvmnth, .cal-nxtmnth" )
+					.removeClass( "wb-inv" )
+					.attr( "aria-hidden", "false" );
+		});
+		$link
+			.stop()
+			.slideDown( 0 )
+			.children( "a" )
+				.attr({
+					"aria-hidden": "false",
+					"aria-expanded": "false"
+				});
+	},
+
+	onGoTo = function( calendarId, minDate, maxDate ) {
+		var $container = $( "#" + calendarId ),
+			fieldset = $container.find( "fieldset" ),
+			month = parseInt( fieldset.find( ".cal-goto-mnth select option:selected" ).val(), 10 ),
+			year = parseInt( fieldset.find( ".cal-goto-yr select" ).val(), 10 );
+
+		if (!(month < minDate.getMonth() && year <= minDate.getFullYear()) && !(month > maxDate.getMonth() && year >= maxDate.getFullYear())) {
+			$document.trigger( "create.wb-cal", [
+				calendarId,
+				year,
+				month,
+				true,
+				minDate,
+				maxDate
+			]);
+			$container.trigger( "hideGoToFrm.wb-cal" );
+
+			// Go to the first day to avoid having to tab over the navigation again.
+			$( "#cal-" + calendarId + "-days a" )
+				.eq( 0 )
+				.trigger( "focus.wb" );
+		}
+	},
+	
+	setFocus = function( event, calendarId, year, month, minDate, maxDate, targetDate ) {
+		var time = targetDate.getTime();
+
+		if ( time < minDate.getTime() ) {
+			targetDate = minDate;
+			targetDate.setDate( targetDate.getDate() + 1 );
+		} else if ( time > maxDate.getTime() ) {
+			targetDate = maxDate;
+			targetDate.setDate( targetDate.getDate() + 1 );
+		}
+
+		if ( targetDate.getMonth() !== month || targetDate.getFullYear() !== year ) {
+			$document.trigger( "create.wb-cal", [
+					calendarId,
+					targetDate.getFullYear(),
+					targetDate.getMonth(),
+					true,
+					minDate,
+					maxDate,
+					targetDate.getDate()
+				]
+			);
+		}
+	};
+
+// Event binding
+$document.on( "create.wb-cal" , create );
+
+// Keyboard nav
+$document.on( "keydown", ".cal-days a", function ( event ) {
+	var elm = event.target,
+		$elm = $( elm ),
+		$container = $elm.closest( ".cal-cnt" ),
+		calendarId = $container.parent().attr( "id" ),
+		fieldId = $container.attr( "aria-controls" ),
+		which = event.which,
+		fromDateISO = vapour.date.fromDateISO,
+		date = fromDateISO( elm.getElementsByTagName( "time" )[ 0 ].getAttribute( "datetime" ) ),
+		currYear = date.getFullYear(),
+		currMonth = date.getMonth(),
+		currDay = date.getDate(),
+		days = elm.parentNode.parentNode.getElementsByTagName( "a" ),
+		maxDay = days.length,
+		field, minDate, maxDate, modifier;
+
+	if ( fieldId ) {
+		field = document.getElementById( fieldId );
+		minDate = field.getAttribute( "min" );
+		maxDate = field.getAttribute( "max" );
+	} else {
+		minDate = $container.data( "minDate" );
+		maxDate = $container.data( "maxDate" );
+	}
+
+	minDate = fromDateISO( ( minDate ? minDate : "1800-01-01" ) );
+	maxDate = fromDateISO( ( maxDate ? maxDate : "2100-01-01" ) );
+	
+	if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
+		switch ( which ) {
+
+		// spacebar
+		case 32:
+			$elm.trigger( "click" );
+			return false;
+
+		// page up / page down
+		case 33:
+		case 34:
+			modifier = ( which === 33 ? -1 : 1 );
+
+			if ( event.ctrlKey ) {
+				date.setYear( currYear + modifier );
+			} else {
+				date.setMonth( currMonth + modifier );
+			}
+			break;
+
+		// end key
+		case 35:
+			date.setDate( maxDay );
+			break;
+
+		// home key
+		case 36:
+			date.setDate( 1 );
+			break;
+
+		// left arrow key
+		case 37:
+			date.setDate( currDay - 1 );
+			break;
+
+		// up arrow key
+		case 38:
+			date.setDate( currDay - 7 );
+			break;
+
+		// right arrow key
+		case 39:
+			date.setDate( currDay + 1 );
+			break;
+
+		// down arrow key
+		case 40:
+			date.setDate( currDay + 7 );
+			break;
+		}
+	}
+
+	// Move focus to the new date
+	if ( currYear !== date.getFullYear() || currMonth !== date.getMonth() ) {
+		$document.trigger( "setFocus.wb-cal", [
+				calendarId,
+				currYear,
+				currMonth,
+				minDate,
+				maxDate,
+				date
+			]
+		);
+		return false;
+	} else if ( currDay !== date.getDate() ) {
+		$( days[ date.getDate() - 1 ] ).trigger( "focus.wb" );
+		return false;
+	}
+});
+
+$document.on( "hideGoToFrm.wb-cal", ".cal-cnt", hideGoToFrm );
+
+$document.on( "setFocus.wb-cal", setFocus );
+
+$document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
+
+})( jQuery, window, document, vapour );
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-carousel",
+	$document = vapour.doc,
+	controls = selector + " .prv, " + selector + " .nxt, " + selector + " .plypause",
+
+	/*
+	 * @method onTimerPoke
+	 * @param {jQuery DOM element} $elm The plugin element
+	 */
+	onTimerPoke = function( $elm ) {
+		var _setting,
+			_dataDelay = $elm.attr( "data-delay" ),
+			_delay;
+
+		if ( !_dataDelay ) {
+			$elm.trigger( "init.wb-carousel" );
+			return false;
+		}
+
+		/* state stopped*/
+		if ( $elm.hasClass( "stopped" ) ) {
+			return false;
+		}
+		/* continue;*/
+
+		/* add settings and counter*/
+		_setting = parseFloat( _dataDelay );
+		_delay = parseFloat( $elm.attr( "data-ctime" ) ) + 0.5;
+
+		/* check if we need*/
+		if ( _setting < _delay ) {
+			$elm.trigger( "shift.wb-carousel" );
+			_delay = 0;
+		}
+		$elm.attr( "data-ctime", _delay );
+	},
+
+	/*
+	 * @method onInit
+	 * @param {jQuery DOM element} $elm The plugin element
+	 */
+	onInit = function( $elm ) {
+		var _interval = 6;
+
+		if ( $elm.hasClass( "slow" ) ) {
+			_interval = 9;
+		} else if ( $elm.hasClass( "fast" ) ) {
+			_interval = 3;
+		}
+		$elm.find( ".item:not(.in)" )
+			.addClass( "out" );
+		$elm.attr( {
+			"data-delay": _interval,
+			"data-ctime": 0
+		});
+	},
+
+	/*
+	 * @method onShift
+	 * @param {jQuery DOM element} $elm The plugin element
+	 */
+	onShift = function( $elm, event ) {
+		var _items = $elm.find( ".item" ),
+			_len = _items.length,
+			_current = $elm.find( ".item.in" ).prevAll( ".item" ).length,
+			_shiftto = ( event.shiftto ) ? event.shiftto : 1,
+			_next = _current > _len ? 0 : _current + _shiftto;
+
+		_next = ( _next > _len - 1 ) ? 0 : ( _next < 0 ) ? _len - 1 : _next;
+		_items.eq( _current ).removeClass( "in" ).addClass( "out" );
+		_items.eq( _next ).removeClass( "out" ).addClass( "in" );
+	},
+
+	/*
+	 * @method onShift
+	 * @param {jQuery DOM element} $elm The plugin element
+	 * @param {integer} shifto The item to shift to
+	 */
+	onCycle = function( $elm, shifto ) {
+		$elm.trigger( {
+			type: "shift.wb-carousel",
+			shiftto: shifto
+		});
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb init.wb-carousel shift.wb-carousel", selector, function( event ) {
+	var eventType = event.type,
+
+		// "this" is cached for all events to utilize
+		$elm = $( this );
+
+	switch ( eventType ) {
+	case "timerpoke":
+		onTimerPoke( $elm );
+		break;
+
+	/*
+	 * Init
+	 */
+	case "init":
+		onInit( $elm );
+		break;
+
+	/*
+	 * Change Slides
+	 */
+	case "shift":
+		onShift( $elm, event );
+		break;
+	}
+
+	/*
+	 * Since we are working with events we want to ensure that we are being passive about our control,
+	 * so returning true allows for events to always continue
+	 */
+	return true;
+});
+
+/*
+ * Next / Prev
+ */
+$document.on( "click", controls, function( event ) {
+	event.preventDefault();
+	var $elm = $( this ),
+		_sldr = $elm.parents( ".wb-carousel" ),
+		_action = $elm.attr( "class" );
+
+	switch ( _action ) {
+	case "prv":
+		onCycle( $elm, -1 );
+		break;
+	case "nxt":
+		onCycle( $elm, 1 );
+		break;
+	default:
+		_sldr.toggleClass( "stopped" );
+	}
+	_sldr.attr( "data-ctime", 0 );
+
+	/*
+	 * Since we are working with events we want to ensure that we are being passive about our control,
+	 * so returning true allows for events to always continue
+	 */
+	return true;
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( ".wb-carousel" );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+$.ajaxSettings.cache = false;
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once
+ * per page, not once per instance of plugin on the page. So, this is a good
+ * place to define variables that are common to all instances of the plugin on a
+ * page.
+ */
+var $document = vapour.doc,
+	selector = "[data-ajax-after], [data-ajax-append], [data-ajax-before], " +
+		"[data-ajax-prepend], [data-ajax-replace]",
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple
+	 * elements. It will run more than once per plugin if you don't remove the
+	 * selector from the timer.
+	 * @method init
+	 * @param {jQuery DOM element} $elm The plugin element being initialized
+	 * @param {string} ajaxType The type of AJAX operation, either after, append, before or replace
+	 */
+	init = function( $elm, ajaxType ) {
+
+		var _url = $elm.data( "ajax-" + ajaxType );
+
+		// All plugins need to remove their reference from the timer in the init
+		// sequence unless they have a requirement to be poked every 0.5 seconds
+		window._timer.remove( selector );
+
+		$document.trigger({
+			type: "ajax-fetch.wb",
+			element: $elm,
+			fetch: _url
+		});
+	};
+
+$document.on( "timerpoke.wb ajax-fetched.wb", selector, function( event ) {
+	var eventTarget = event.target,
+		eventType = event.type,
+		ajaxTypes = [
+			"before",
+			"replace",
+			"after",
+			"append",
+			"prepend"
+		],
+		len = ajaxTypes.length,
+		$elm, ajaxType, i, content;
+
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === eventTarget ) {
+		$elm = $( eventTarget );
+
+		for ( i = 0; i !== len; i += 1 ) {
+			ajaxType = ajaxTypes[ i ];
+			if ( this.getAttribute( "data-ajax-" + ajaxType ) !== null ) {
+				break;
+			}
+		}
+
+		if ( eventType === "timerpoke" ) {
+			init( $elm, ajaxType );
+		} else {
+
+			// ajax-fetched event
+			content = event.pointer.html();
+			$elm.removeAttr( "data-ajax-" + ajaxType );
+
+			// "replace" is the only event that doesn't map to a jQuery function
+			if ( ajaxType === "replace") {
+				$elm.html( content );
+			} else {
+				$elm[ ajaxType ]( content );
+			}
+
+			$elm.trigger( "ajax-" + ajaxType + "-loaded.wb" );
+		}
+	}
+
+	/*
+	 * Since we are working with events we want to ensure that we are being
+	 * passive about our control, so returning true allows for events to always
+	 * continue
+	 */
+	return true;
+} );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-inview",
+	$elms = $( selector ),
+	$document = vapour.doc,
+	$window = vapour.win,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery DOM element} $elm The plugin element being initialized
+	 */
+	init = function( $elm ) {
+
+		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+		window._timer.remove( selector );
+
+		$elm.trigger( "scroll.wb-inview" );
+	},
+
+	/*
+	 * @method onInview
+	 * @param {jQuery DOM element} $elm The plugin element
+	 * @param {jQuery Event} event The event that triggered this method call
+	 */
+	onInview = function( $elm ) {
+		var elementWidth = $elm.outerWidth(),
+			elementHeight = $elm.outerHeight(),
+			scrollTop = $window.scrollTop(),
+			scrollBottom = scrollTop + $window.height(),
+			scrollRight = $window.scrollLeft() + elementWidth,
+			x1 = $elm.offset().left,
+			x2 = x1 + elementWidth,
+			y1 = $elm.offset().top,
+			y2 = y1 + elementHeight,
+			inView = ( scrollBottom < y1 || scrollTop > y2 ) || ( scrollRight < x1 || scrollRight > x2 );
+
+		$elm
+			.find( ".pg-banner, .pg-panel" )
+				.attr({
+					"role": "toolbar",
+					"aria-hidden": !inView
+				})
+				.toggleClass( "in", !inView )
+				.toggleClass( "out", inView );
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb scroll.wb-inview", selector, function( event ) {
+	var eventTarget = event.target,
+		eventType = event.type,
+		$elm;
+
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === eventTarget ) {
+		$elm = $( eventTarget );
+
+		switch ( eventType ) {
+		case "timerpoke":
+			init( $elm );
+			break;
+		case "scroll":
+			onInview( $elm );
+			break;
+		}
+	}
+
+	/*
+	 * Since we are working with events we want to ensure that we are being passive about our control, 
+	 * so returning true allows for events to always continue
+	 */
+	return true;
+});
+
+$window.on( "scroll scrollstop", function() {
+	$elms.trigger( "scroll.wb-inview" );
+});
+
+$document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", function() {
+	$elms.trigger( "scroll.wb-inview" );
+});
+
+// Add the timer poke to initialize the plugin
+
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = "[data-picture]",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery DOM element} $elm The plugin element being initialized
+	 */
+	init = function( $elm ) {
+
+		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+		window._timer.remove( selector );
+
+		$elm.trigger( "picturefill.wb-data-picture" );
+	},
+
+	/*
+	 * Updates the image displayed according to media queries.
+	 * This is the logic ported from Picturefill.
+	 * @method picturefill
+	 * @param {DOM element} elm The element containing the images to be updated
+	 */
+	picturefill = function( elm ) {
+		var matches = [],
+			img = elm.getElementsByTagName( "img" )[ 0 ],
+			sources = elm.getElementsByTagName( "span" ),
+			i, len, matchedElm, media;
+
+		// Loop over the data-media elements and find matching media queries
+		for ( i = 0, len = sources.length; i !== len; i += 1 ) {
+			media = sources[ i ].getAttribute( "data-media" );
+			if ( !media || Modernizr.mq( media ) ) {
+				matches.push( sources[ i ] );
+			}
+		}
+
+		// If a media query match was found, add the image to the page
+		if ( matches.length !== 0 ) {
+			matchedElm = matches.pop();
+			if ( !img ) {
+				img = $document[ 0 ].createElement( "img" );
+				img.alt = elm.getAttribute( "data-alt" );
+			}
+			img.src = matchedElm.getAttribute( "data-src" );
+			matchedElm.appendChild( img );
+
+		// No match and an image exists: delete it
+		} else if ( img ) {
+			img.parentNode.removeChild( img );
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb picturefill.wb-data-picture", selector, function( event ) {
+	var eventTarget = event.target,
+		eventType = event.type;
+		
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === eventTarget ) {
+		switch ( eventType ) {
+		case "timerpoke":
+			init( $( eventTarget ) );
+			break;
+		case "picturefill":
+			picturefill( eventTarget );
+			break;
+		}
+	}
+});
+
+// Handles window resize so images can be updated as new media queries match
+$document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", function() {
+	$( selector ).trigger( "picturefill.wb-data-picture" );
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-equalheight",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === event.target ) {
+		
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+			
+			// Remove the event handler since only want init fired once per page (not per element)
+			$document.off( "timerpoke.wb", selector );
+
+			onResize();
+		}
+	},
+
+	/*
+	 * Re-equalise any time the window/document or a child element of 'selector' is resized.
+	 * @method onResize
+	 */
+	onResize = function() {
+		var $elm = $( selector ),
+			$children = $elm.children(),
+			row = [ ],
+			rowTop = -1,
+			currentChild,
+			currentChildTop = -1,
+			currentChildHeight = -1,
+			tallestHeight = -1,
+			i;
+
+		for ( i = $children.length - 1; i >= 0; i-- ) {
+			currentChild = $children[ i ];
+
+			// Ensure all children that are on the same baseline have the same 'top' value.
+			currentChild.style.verticalAlign = "top";
+
+			currentChildTop = currentChild.offsetTop;
+			currentChildHeight = currentChild.offsetHeight;
+
+			if ( currentChildTop !== rowTop ) {
+				setRowHeight( row, tallestHeight );
+
+				rowTop = currentChildTop;
+				tallestHeight = currentChildHeight;
+			} else {
+				tallestHeight = (currentChildHeight > tallestHeight) ? currentChildHeight : tallestHeight;
+			}
+
+			row.push( currentChild );
+		}
+
+		if ( row.length !== 0 ) {
+			setRowHeight( row, tallestHeight );
+		}
+	},
+
+	/*
+	 * @method setRowHeight
+	 * @param {array} row The rows to be updated
+	 * @param {integer} height The new row height
+	 */
+	setRowHeight = function( row, height ) {
+		for ( var i = row.length - 1; i >= 0; i-- ) {
+			row[ i ].style.height = height + "px";
+		}
+		row.length = 0;
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Handle text and window resizing
+$document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", onResize );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = "link[rel='shortcut icon']",
+	$document = vapour.doc,
+
+	/*
+	 * Plugin users can override these defaults by setting attributes on the html elements that the
+	 * selector matches.
+	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
+	 */
+	defaults = {
+		filename: "favicon-mobile.png",
+		path: null,
+		rel: "apple-touch-icon",
+		sizes: "57x57 72x72 114x114 144x144 150x150"
+	},
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery DOM element} $favicon The plugin element being initialized
+	 */
+	init = function( $favicon ) {
+		// Merge default settings with overrides from the selected plugin element. There may be more than one, so don't override defaults globally!
+		var settings = $.extend( {}, defaults, $favicon.data() );
+
+		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+		window._timer.remove( selector );
+
+		$favicon.trigger( "mobile.wb-favicon", settings );
+	},
+
+	/*
+	 * Adds, or updates, the mobile favicon on a page. Mobile favicons are identified by the
+	 * `apple` prefix in the `<link>` elements rel attribute.
+	 * @method mobile
+	 * @param {DOM element} favicon Favicon element
+	 * @param {jQuery Event} event Event that triggered this handler
+	 * @param {Object} data Key-value data object passed with the event
+	 */
+	mobile = function( favicon, event, data ) {
+		var faviconPath,
+			faviconMobile = $( "link[rel^='apple']" ),
+			isFaviconMobile = faviconMobile.length !== 0;
+
+		// Create the mobile favicon if it doesn't exist
+		if ( !isFaviconMobile ) {
+			faviconMobile = $( "<link rel='" + data.rel + "' sizes='" + data.sizes + "' class='wb-favicon'>" );
+		}
+
+		// Only add/update a mobile favicon that was created by the plugin
+		if ( faviconMobile.hasClass( "wb-favicon" ) ) {
+			faviconPath = data.path !== null ? data.path : getPath( favicon.getAttribute( "href" ) );
+			faviconMobile.attr( "href", faviconPath + data.filename );
+
+			if ( !isFaviconMobile ) {
+				favicon.parentNode.insertBefore( faviconMobile[ 0 ], favicon );
+			}
+		}
+	},
+
+	/*
+	 * Updates the the page's shortcut icon
+	 * @method icon
+	 * @param {DOM element} favicon Favicon element
+	 * @param {jQuery Event} event Event that triggered this handler
+	 * @param {Object} data Key-value data object passed with the event
+	 */
+	icon = function( favicon, event, data ) {
+		var faviconPath = data.path !== null ? data.path : getPath( favicon.getAttribute( "href" ) );
+		favicon.setAttribute( "href", faviconPath + data.filename );
+	},
+
+	/*
+	 * Given a full file path, returns the path without the filename
+	 * @method getPath
+	 * @param {string} filepath The full path to file, including filename
+	 * @returns {string} The path to the file
+	 */
+	getPath = function( filepath ) {
+		return filepath.substring( 0, filepath.lastIndexOf( "/" ) + 1 );
+	};
+
+// Bind the plugin events
+$document.on( "timerpoke.wb mobile.wb-favicon icon.wb-favicon", selector, function( event, data ) {
+	var eventTarget = event.target;
+	
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === eventTarget ) {
+		switch ( event.type ) {
+		case "timerpoke":
+			init( $( eventTarget ) );
+			break;
+		case "mobile":
+			mobile( eventTarget, event, data );
+			break;
+		case "icon":
+			icon( eventTarget, event, data );
+			break;
+		}
+	}
+
+	/*
+	 * Since we are working with events we want to ensure that we are being passive about our control, 
+	 * so returning true allows for events to always continue
+	 */
+	return true;
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-feedback",
+	$document = vapour.doc,
+	feedback, access, contact1, contact2, $web, $mobile, $computer, $info,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+		var eventTarget = event.target,
+			referrerUrl = document.referrer,
+			$elm, $feedback, urlParams;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === eventTarget ) {
+			$elm = $( eventTarget );
+			$feedback = $elm.find( "#feedback" );
+			urlParams = vapour.pageUrlParts.params;
+
+			// Cache the form areas
+			feedback = $feedback[ 0 ];
+			access = document.getElementById( "access" );
+			contact1 = document.getElementById( "contact1" );
+			contact2 = document.getElementById( "contact2" );
+			$web = $elm.find( "#web" );
+			$mobile = $web.find( "#mobile" );
+			$computer = $web.find( "#computer" );
+			$info = $elm.find( "#info" );
+				
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Set the initial value for the feedback field based on the query string
+			if ( !urlParams.submit && urlParams.feedback ) {
+				$feedback.find( "option[value='" + urlParams.feedback + "']" ).attr( "selected", "selected" );
+			}
+
+			// Set aria-controls
+			feedback.setAttribute( "aria-controls", "web" );
+			access.setAttribute( "aria-controls", "mobile computer" );
+		
+			// Set the initial show/hide state of the form
+			showHide( feedback );
+			showHide( access );
+			showHide( contact1 );
+			showHide( contact2 );
+
+			// Prepopulates URL form field with referrer
+			document.getElementById( "page" ).setAttribute( "value", referrerUrl );
+		}
+	},
+
+	/*
+	 * @method showHide
+	 * @param {DOM element} elm The element triggering the show/hide
+	 */
+	showHide = function( elm ) {
+		var targetId = elm.id,
+			$show,
+			$hide;
+
+		switch ( targetId ) {
+		case "feedback":
+			if ( elm.value === "web" ) {
+				$show = $web;
+			} else {
+				$hide = $web;
+			}
+			break;
+		case "access":
+			if ( elm.value === "mobile" ) {
+				$show = $mobile;
+				$hide = $computer;
+			} else {
+				$show = $computer;
+				$hide = $mobile;
+			}
+			break;
+		case "contact1":
+		case "contact2":
+			if ( document.getElementById( "contact1" ).checked || document.getElementById( "contact2" ).checked ) {
+				$show = $info;
+			} else {
+				$hide = $info;
+			}
+			break;
+		}
+				
+		// Element to show
+		if ( $show ) {
+			// TODO: Use CSS transitions instead
+			$show.attr( "aria-hidden", "false" ).show( "slow" );
+		}
+
+		// Element to hide
+		if ( $hide ) {
+			// TODO: Use CSS transitions instead
+			$hide.attr( "aria-hidden", "true" ).hide( "slow" );
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Show/hide form areas when certain form fields are changed
+$document.on( "keydown click", "#feedback, #access, #contact1, #contact2", function( event ) {
+	var which = event.which;
+
+	// Ignore middle/right mouse buttons
+	if ( !which || which === 1 ) {
+		showHide( event.target );
+	}
+} );
+
+// Return to the form defaults when the reset button is activated
+$document.on( "click", selector + " input[type=reset]", function( event ) {
+	var which = event.which;
+
+	// Ignore middle/right mouse buttons
+	if ( !which || which === 1 ) {
+		showHide( feedback );
+		showHide( access );
+		showHide( contact1 );
+		showHide( contact2 );
+	}
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+(function( $, window, vapour ) {
+"use strict";
+
+$.ajaxSettings.cache = false;
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-feeds",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === event.target ) {
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			var elm = event.target,
+				$content = $( elm ).find( ".feeds-cont" ),
+				limit = getLimit( elm ),
+				feeds = elm.getElementsByTagName( "a" ),
+				last = feeds.length - 1,
+				i = last,
+				entries = [],
+				_results = [],
+				deferred = [],
+				processEntries = function( data ) {
+					var k, len;
+
+					data = data.responseData.feed.entries;
+					len = data.length;
+					for ( k = 0; k !== len; k += 1 ) {
+						entries.push( data[ k ] );
+					}
+					if ( !last ) {
+						parseEntries( entries, limit, $content );
+					}
+
+					last -= 1;
+					return last;
+				},
+				finalize = function() {
+
+					// TODO: Use CSS instead
+					$content.find( "li" ).show();
+				};
+
+			while ( i >= 0 ) {
+				deferred[ i ] = $.ajax({
+					url: jsonRequest( feeds[ i ].href, limit ),
+					dataType: "json",
+					timeout: 1000
+				}).done( processEntries );
+				_results.push( i -= 1 );
+			}
+			$.when.apply( null, deferred ).always( finalize );
+
+			$.extend( {}, _results );
+		}
+	},
+
+	/*
+	 * Returns a class-based set limit on plugin instances
+	 * @method getLimit
+	 * @param {DOM object} elm The element to search for a class of the form blimit-5
+	 * @return {number} 0 if none found, which means the plugin default
+	 */
+	getLimit = function( elm ) {
+		var count = elm.className.match( /\blimit-\d+/ );
+		if ( !count ) {
+			return 0;
+		}
+		return Number( count[ 0 ].replace( /limit-/i, "" ) );
+	},
+	
+	/*
+	 * Builds the URL for the JSON request
+	 * @method jsonRequest
+	 * @param {url} url URL of the feed.
+	 * @param {integer} limit Limit on the number of results for the JSON request to return.
+	 * @return {url} The URL for the JSON request
+	 */
+	jsonRequest = function( url, limit ) {
+		var requestURL = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" + encodeURIComponent( decodeURIComponent( url ) );
+		
+		// API returns a maximum of 4 entries by default so only override if more entries should be returned
+		if ( limit > 4 ) {
+			requestURL += "&num=" + limit;
+		}
+		return requestURL;
+	},
+
+	/*
+	 * Parses the results from a JSON request and appends to an element
+	 * @method parseEntries
+	 * @param {object} entries Results from a JSON request.
+	 * @param {integer} limit Limit on the number of results to append to the element.
+	 * @param {jQuery DOM element} $elm Element to which the elements will be appended.
+	 * @return {url} The URL for the JSON request
+	 */
+	parseEntries = function( entries, limit, $elm ) {
+		var cap = ( limit > 0 && limit < entries.length ? limit : entries.length ),
+			result = "",
+			toDateISO = vapour.date.toDateISO,
+			compare = vapour.date.compare,
+			i, sorted, sortedEntry;
+		
+		sorted = entries.sort( function( a, b ) {
+			return compare( b.publishedDate, a.publishedDate );
+		});
+
+		for ( i = 0; i !== cap; i += 1 ) {
+			sortedEntry = sorted[ i ];
+			result += "<li><a href='" + sortedEntry.link + "'>" + sortedEntry.title + "</a>" +
+				( sortedEntry.publishedDate !== "" ? " <span class='feeds-date'>[" +
+				toDateISO( sortedEntry.publishedDate, true ) + "]</span>" : "" ) + "</li>";
+		}
+		return $elm.empty().append( result );
+	};
+
+$document.on( "timerpoke.wb", selector, init );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, vapour ) {
+"use strict";
+
+// Bind the focus event
+vapour.doc.on( "focus.wb", function ( event ) {
+	var eventTarget = event.target;
+
+	// Ignore focus events that are not in the wb namespace and
+	// filter out any events triggered by descendants
+	if ( event.namespace === "wb" && event.currentTarget === eventTarget ) {
+
+		// Assigns focus to an element
+		setTimeout(function () {
+			return $( eventTarget ).focus();
+		}, 0 );
+	}
+});
+
+})( jQuery, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-fnote",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			$elm, footnoteDd, footnoteDt, i, len, dd, dt, dtId, $returnLinks;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+			footnoteDd = elm.getElementsByTagName( "dd" );
+			footnoteDt = elm.getElementsByTagName( "dt" );
+		
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Apply aria-labelledby and set initial event handlers for return to referrer links
+			len = footnoteDd.length;
+			for ( i = 0; i !== len; i += 1 ) {
+				dd = footnoteDd[ i ];
+				dt = footnoteDt[ i ];
+				dtId = dd.id + "-dt";
+				dd.setAttribute( "tabindex", "-1" );
+				dd.setAttribute( "aria-labelledby", dtId );
+				dt.id = dtId ;
+			}
+
+			// Remove "first/premier/etc"-style text from certain footnote return links (via the child spans that hold those bits of text)
+			$returnLinks = $elm.find( "dd p.fn-rtn a span span" ).remove();
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Listen for footnote reference links that get clicked
+$document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
+	var eventTarget = event.target,
+		which = event.which,
+		refId, $refLinkDest;
+
+	// Ignore middle/right mouse button
+	if ( !which || which === 1 ) {
+		refId = "#" + vapour.jqEscape( eventTarget.getAttribute( "href" ).substring( 1 ) );
+		$refLinkDest = $document.find( refId );
+	
+		$refLinkDest.find( "p.fn-rtn a" )
+					.attr( "href", "#" + eventTarget.parentNode.id );
+
+		// Assign focus to $refLinkDest
+		$refLinkDest.trigger( "focus.wb" );
+		return false;
+	}
+} );
+
+// Listen for footnote return links that get clicked
+$document.on( "click vclick", selector + " dd p.fn-rtn a", function( event ) {
+	var which = event.which,
+		refId;
+
+	// Ignore middle/right mouse button
+	if ( !which || which === 1 ) {
+		refId = "#" + vapour.jqEscape( event.target.getAttribute( "href" ).substring( 1 ) );
+
+		// Assign focus to the link
+		$document.find( refId + " a" ).trigger( "focus.wb" );
+		return false;
+	}
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-formvalid",
+	$document = vapour.doc,
+	i18n, i18nText,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+		var eventTarget = event.target,
+			modeJS, $elm;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === eventTarget ) {
+
+			// read the selector node for parameters
+			modeJS = vapour.getMode() + ".js";
+			$elm = $( eventTarget );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Only initialize the i18nText once
+			if ( !i18nText ) {
+				i18n = window.i18n;
+				i18nText = {
+					colon: i18n( "%colon" ),
+					hyphen: i18n( "%hyphen" ),
+					error: i18n( "%err" ),
+					errorFound: i18n( "%err-fnd" ),
+					errorsFound: i18n( "%errs-fnd" ),
+					formNotSubmitted: i18n( "%frm-nosubmit" )
+				};
+			}
+
+			Modernizr.load({
+				// For loading multiple dependencies
+				both: [
+					"site!deps/jquery.validate" + modeJS,
+					"site!deps/additional-methods" + modeJS
+				],
+				complete: function() {
+					var $form = $elm.find( "form" ),
+						formDOM = $form.get( 0 ),
+						formId = $form.attr( "id" ),
+						labels = formDOM.getElementsByTagName( "label" ),
+						labels_len = labels.length,
+						$formElms = $form.find( "input, select, textarea" ),
+						$inputs = $formElms.filter( "input" ),
+						$pattern = $inputs.filter( "[pattern]" ),
+						submitted = false,
+						$required = $form.find( "[required]" ).attr( "aria-required", "true" ),
+						errorFormId = "errors-" + ( !formId ? "default" : formId ),
+						i, len,	validator;
+
+					// Append the aria-live region (for provide message updates to screen readers)
+					$elm.append( "<div class='arialive wb-inv' aria-live='polite' aria-relevant='all'></div>" );
+
+					// Add space to the end of the labels (so separation between label and error when CSS turned off)
+					len = labels_len;
+					for ( i = 0; i !== len; i += 1 ) {
+						labels[ i ].innerHTML += " ";
+					}
+
+					// Remove the pattern attribute until it is safe to use with jQuery Validation
+					len = $pattern.length;
+					for ( i = 0; i !== len; i += 1 ) {
+						$pattern.eq( i ).removeAttr( "pattern" );
+					}
+
+					// Change form attributes and values that interfere with validation in IE7/8
+					// TODO: Need better way of dealing with this rather than browser sniffing
+					if ( vapour.ieVersion > 0 && vapour.ieVersion < 9 ) {
+						len = $required.length;
+						$required.removeAttr( "required" );
+						for ( i = 0; i !== len; i += 1) {
+							$required[ i ].setAttribute( "data-rule-required", "true" );
+						}
+						$inputs.filter( "[type=date]" ).each( function() {
+							var $this = $( this ),
+								$parent = $this.wrap( "<div/>" ).parent(),
+								newElm = $( $parent.html().replace( "type=date", "type=text" ) );
+							$parent.replaceWith( newElm );
+						});
+						$formElms = $form.find( "input, select, textarea" );
+					}
+
+					// The jQuery validation plug-in in action
+					validator = $form.validate({
+						meta: "validate",
+						focusInvalid: false,
+
+						// Set the element which will wrap the inline error messages
+						errorElement: "strong",
+
+						// Location for the inline error messages
+						// In this case we will place them in the associated label element
+						errorPlacement: function( $error, $element ) {
+							var type = $element.attr( "type" ),
+								$fieldset, $legend;
+
+							$error.data( "element-id", $element.attr( "id" ) );
+							if ( type ) {
+								type = type.toLowerCase();
+								if ( type === "radio" || type === "checkbox" ) {
+									$fieldset = $element.closest( "fieldset" );
+									if ( $fieldset.length !== 0 ) {
+										$legend = $fieldset.find( "legend" ).first();
+										if ( $legend.length !== 0 && $fieldset.find( "input[name=" + $element.attr( "name" ) + "]" ) !== 1) {
+											$error.appendTo( $legend );
+											return;
+										}
+									}
+								}
+							}
+							$error.appendTo( $form.find( "label[for=" + $element.attr( "id" ) + "]" ) );
+							return;
+						},
+
+						// Create our error summary that will appear before the form
+						showErrors: function( errorMap ) {
+							this.defaultShowErrors();
+							var _i18nText = i18nText,
+								$errors = $form.find( "strong.error" ).filter( ":not(:hidden)" ),
+								$errorfields = $form.find( "input.error, select.error, textarea.error" ),
+								$summaryContainer = $form.find( "#" + errorFormId ),
+								prefixStart = "<span class='prefix'>" + _i18nText.error + "&#160;",
+								prefixEnd = _i18nText.colon + " </span>",
+								separator = _i18nText.hyphen,
+								ariaLive = $form.parent().find( ".arialive" )[ 0 ],
+								summary, key, i, len, $error, prefix, $fieldName, $fieldset, label, labelString;
+
+							$form.find( "[aria-invalid=true]" ).removeAttr( "aria-invalid" );
+							if ( $errors.length !== 0 ) {
+								// Create our container if one doesn't already exist
+								if ( $summaryContainer.length === 0 ) {
+									$summaryContainer = $( "<div id='" + errorFormId + "' class='errCnt' tabindex='-1'/>" ).prependTo( $form );
+								} else {
+									$summaryContainer.empty();
+								}
+
+								// Post process
+								summary = "<p>" + _i18nText.formNotSubmitted + $errors.length + ( $errors.length !== 1 ? _i18nText.errorsFound : _i18nText.errorFound ) + "</p><ul>";
+								$errorfields.attr( "aria-invalid", "true" );
+								len = $errors.length;
+								for ( i = 0; i !== len; i += 1 ) {
+									$error = $errors.eq( i );
+									prefix = prefixStart + ( i + 1 ) + prefixEnd;
+									$fieldName = $error.closest( "label" ).find( ".field-name" );
+
+									// Try to find the field name in the legend (if one exists)
+									if ( $fieldName.length === 0 ) {
+										$fieldset = $error.closest( "fieldset" );
+										if ( $fieldset.length !== 0 ) {
+											$fieldName = $fieldset.find( "legend .field-name" );
+										}
+									}
+
+									$error.find( "span.prefix" ).detach();
+									summary += "<li><a href='#" + $error.data( "element-id" ) + "'>" + prefix + ( $fieldName.length !== 0 ? $fieldName.html() + separator : "" ) + $error[ 0 ].innerHTML + "</a></li>";
+									$error.prepend( prefix );
+								}
+								summary += "</ul>";
+
+								// Output our error summary and place it in the error container
+								$summaryContainer.append( summary );
+
+								// Put focus on the error if the errors are generated by an attempted form submission
+								if ( submitted ) {
+
+									// Assign focus to $summaryContainer
+									$summaryContainer.trigger( "focus.wb" );
+								} else {
+
+									// Update the aria-live region as necessary
+									i = 0;
+									for ( key in errorMap ) {
+										if ( errorMap.hasOwnProperty( key ) ) {
+											i += 1;
+											break;
+										}
+									}
+									if ( i !== 0 ) {
+										len = $errors.length;
+										for ( i = 0; i !== len; i += 1 ) {
+											label = $errors[ i ].parentNode;
+											if ( label.getAttribute( "for" ) === key ) {
+												labelString = label.innerHTML;
+												if ( labelString !== ariaLive.innerHTML ) {
+													ariaLive.innerHTML = labelString;
+												}
+												break;
+											}
+										}
+									} else if ( ariaLive.innerHTML.length !== 0 ) {
+										ariaLive.innerHTML = "";
+									}
+								}
+
+								submitted = false;
+							} else {
+								// Update the aria-live region as necessary
+								if ( ariaLive.innerHTML.length !== 0 ) {
+									ariaLive.innerHTML = "";
+								}
+								$summaryContainer.detach();
+							}
+						}, // End of showErrors()
+						invalidHandler: function() {
+							submitted = true;
+						}
+					} ); //end of validate()
+
+					// Clear the form and remove error messages on reset
+					$document.on( "click vclick touchstart", selector + " input[type=reset]", function( event ) {
+						var $summaryContainer,
+							which = event.which,
+							ariaLive;
+
+						// Ignore middle/right mouse buttons
+						if ( !which || which === 1 ) {
+							validator.resetForm();
+							$summaryContainer = $form.find( "#" + errorFormId );
+							if ( $summaryContainer.length > 0 ) {
+								$summaryContainer.empty();
+							}
+
+							$form.find( "[aria-invalid=true]" ).removeAttr( "aria-invalid" );
+							ariaLive = $form.parent().find( ".arialive" )[ 0 ];
+							if ( ariaLive.innerHTML.length !== 0 ) {
+								ariaLive.innerHTML = "";
+							}
+						}
+					});
+
+					// Tell the i18n file to execute to run any $.validator extends
+					$form.trigger( "formLanguages.wb" );
+				}
+			});
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Move the focus to the associated input when an error message link is clicked
+// and scroll to the top of the label or legend that contains the error
+$document.on( "click vclick", selector + " .errCnt a", function( event ) {
+	var which = event.which,
+		hash, $input, $label, $legend, errorTop;
+
+	// Ignore middle/right mouse buttons
+	if ( !which || which === 1 ) {
+		hash = this.href.substring( this.href.indexOf( "#" ) );
+		$input = $( hash );
+		$label = $input.prev();
+		$legend = $label.length === 0 ? $input.closest( "fieldset" ).find( "legend" ) : [];
+		errorTop = $label.length !== 0 ? $label.offset().top : ( $legend.length !== 0 ? $legend.offset().top : -1 );
+
+		// Assign focus to $input
+		$input.trigger( "focus.wb" );
+
+		if ( errorTop !== -1 ) {
+			window.scroll( 0, errorTop );
+		}
+		return false;
+	}
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-lightbox",
+	$document = vapour.doc,
+	i18n, i18nText,
+	extendedGlobal = false,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			$elm, modeJS;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+
+			// read the selector node for parameters
+			modeJS = vapour.getMode() + ".js";
+			$elm = $( elm );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Only initialize the i18nText once
+			if ( !i18nText ) {
+				i18n = window.i18n;
+				i18nText = {
+					tClose: i18n( "%close-esc" ),
+					tLoading: i18n( "%load" ),
+					gallery: {
+						tPrev: i18n( "%prv-l" ),
+						tNext: i18n( "%nxt-r" ),
+						tCounter: i18n( "%lb-curr" )
+					},
+					image: {
+						tError: i18n( "%lb-img-err" ) + " (<a href=\"%url%\">)"
+					},
+					ajax: {
+						tError: i18n( "%lb-xhr-err" ) + " (<a href=\"%url%\">)"
+					}
+				};
+			}
+
+			// Load Magnific Popup dependency and bind the init event handler
+			Modernizr.load({
+				load: "site!deps/jquery.magnific-popup" + modeJS,
+				complete: function() {
+					var settings = {},
+						firstLink;
+
+					// Set the dependency i18nText only once
+					if ( !extendedGlobal ) {
+						$.extend( true, $.magnificPopup.defaults, i18nText );
+						extendedGlobal = true;
+					}
+
+					// TODO: How to support other options available in Magnific Popup
+					// TODO: Fix AJAX support (works fine with "grunt connect watch" but not locally)
+					// TODO: Fix visible focus and hidden text for buttons
+					// TODO: Add swipe support
+					// TODO: Should support be added for multiple non-gallery items of possibly mixed content? Would come at a performance code.
+
+					settings.callbacks = {
+						open: function() {
+
+							// TODO: Better if dealt with upstream by Magnific popup
+							var $item = this.currItem,
+								$content = this.contentContainer,
+								$bottomBar;
+
+							this.wrap.attr({
+								"role": "dialog",
+								"aria-live": "polite",
+								"aria-labelledby": "lb-title",
+							});
+
+							if ( $item.type === "image" ) {
+								$bottomBar = $content.find( ".mfp-bottom-bar" ).attr( "id", "lb-title" );
+							} else {
+								$content.attr( "role", "document" );
+							}
+						},
+						change: function() {
+							var $item = this.currItem,
+								$content = this.contentContainer,
+								$el, $bottomBar, $source, $target, description, altTitleId, altTitle;
+
+							// TODO: Better if dealt with upstream by Magnific Popup
+							if ( $item.type === "image" ) {
+								$el = $item.el;
+								$source = $el.find( "img" );
+								$target = $item.img.attr( "alt", $source.attr( "alt" ) );
+								$bottomBar = $content.find( ".mfp-bottom-bar" );
+
+								// Replicate aria-describedby if it exists
+								description = $source.attr( "aria-describedby" );
+								if ( description ) {
+									$target.attr( "aria-describedby", description );
+								}
+
+								// Replicate longdesc if it exists
+								description = $source.attr( "longdesc" );
+								if ( description ) {
+									$target.attr( "longdesc", description );
+								}
+
+								// Handle alternate titles
+								altTitleId = $el.attr( "data-title" );
+								if ( altTitleId ) {
+									altTitle = document.getElementById( altTitleId );
+									if ( altTitle !== null ) {
+										$bottomBar.find( ".mfp-title" ).html( altTitle.innerHTML );
+									}
+								}
+							} else {
+								$content
+									.find( ".modal-title, h1" )
+									.first()
+									.attr( "id", "lb-title" );
+							}
+						}
+					};
+
+					if ( elm.nodeName.toLowerCase() !== "a" ) {
+						settings.delegate = "a";
+						firstLink = elm.getElementsByTagName( "a" )[0];
+
+						// Is the element a gallery?
+						// TODO: Should we support mixed content galleries? Could come at a performance cost and not very usable unless a hidden gallery (since always goes to first item).
+						if ( elm.className.indexOf( "-gallery" ) !== -1 ) {
+							settings.gallery = {
+								enabled: true,
+							};
+						}
+					} else {
+						firstLink = elm;
+					}
+
+
+					if ( firstLink.getAttribute( "href" ).charAt( 0 ) === "#" ) {
+						settings.type = "inline";
+					} else if ( firstLink.className.indexOf( "lb-iframe" ) !== -1 ) {
+						settings.type = "iframe";
+					} else if ( firstLink.getElementsByTagName( "img" ).length === 0 ) {
+						settings.type = "ajax";
+					} else {
+						settings.type = "image";
+					}
+
+					$elm.magnificPopup( settings );
+				}
+			});
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+$document.on( "keydown", ".mfp-wrap", function( event ) {
+	var eventTarget = event.target,
+		$elm;
+
+	// If the tab key is used and filter out any events triggered by descendants
+	if ( extendedGlobal && event.which === 9 ) {
+		$elm = $( this );
+
+		if ( event.shiftKey ) {
+			if ( event.currentTarget === eventTarget ) {
+				$elm.find( ":focusable" ).last().trigger( "focus.wb" );
+				return false;
+			}
+		} else {
+			if ( $elm.find( ":focusable" ).last()[ 0 ] === eventTarget ) {
+				$elm.trigger( "focus.wb" );
+				return false;
+			}
+		}
+	}
+
+	/*
+	 * Since we are working with events we want to ensure that we are being passive about our control,
+	 * so returning true allows for events to always continue
+	 */
+	return true;
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-menu",
+	$document = vapour.doc,
+
+/*
+ * Lets leverage JS assigment deconstruction to reduce the code output
+ * @method expand
+ * @param {DOM element} element The plugin element
+ * @param {boolean} scopeitems ***Description needed***
+ */
+expand = function( element, scopeitems ) {
+	var $elm = $( element ),
+		_elm = $elm.hasClass( "wb-menu" ) ? $elm.data() : $elm.parents( ".wb-menu" )
+			.first()
+			.data(),
+		_items = scopeitems ? _elm.items.has( element ) : _elm.items;
+	return [ _elm.self, _elm.menu, _items, $elm ];
+},
+
+/*
+ * Lets set some aria states and attributes
+ * @method onInit
+ * @param {jQuery DOM element} element The plugin element
+ */
+onInit = function( $elm ) {
+
+	// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+	window._timer.remove( selector );
+
+	// Lets test to see if we have any
+	if ( $elm.data( "ajax-fetch" ) ) {
+		$document.trigger({
+			type: "ajax-fetch.wb",
+			element: $elm,
+			fetch: $elm.data( "ajax-fetch" )
+		});
+	}
+
+	//anything else
+},
+/*
+ * Lets set some aria states and attributes
+ * @method drizzleAria
+ * @param {jQuery DOM elements} collection of elements
+ */
+drizzleAria = function( $elements ){
+	var length = $elements.length,
+		elm, subMenu, i;
+
+	// lets tweak for aria
+	for ( i = 0; i <= length; i++ ) {
+		elm = $elements.eq( i );
+		subMenu = elm.siblings( ".sm" );
+
+		elm.attr({
+			"aria-posinset": ( i + 1 ),
+			"aria-setsize": length,
+			"role": "menuitem"
+		});
+
+		// if there is a submenu lets put in the aria for it
+		if ( subMenu.length > 0 ) {
+
+			elm.attr({
+				"aria-haspopup": "true"
+			});
+
+			subMenu.attr({
+				"aria-expanded": "false",
+				"aria-hidden": "true"
+			});
+
+			// recurse into submenu
+			drizzleAria( subMenu.find( ":discoverable" ) );
+		}
+	}
+},
+/*
+ * @method onAjaxLoaded
+ * @param {jQuery DOM elements} element The plugin element
+ */
+onAjaxLoaded = function( $elm, $ajaxed ) {
+
+	//Some hooks for post transformation
+	// - @data-post-remove : removes the space delimited class for the element. This is more a feature to fight the FOUC
+	var $menu = $ajaxed.find( "[role='menubar'] .item" );
+
+	$ajaxed.find( ":discoverable" )
+		.attr( "tabindex", "-1" );
+
+	$menu.eq(0).attr( "tabindex", "0" );
+	$menu.filter( "[href^=#]" )
+		.append( "<span class='expicon'></span>" );
+
+	drizzleAria( $menu );
+
+	// Now lets replace the html since we were working off canvas for performance
+	if ( $elm.has( "[data-post-remove]" ) ) {
+		$elm.removeClass( $elm.data( "post-remove" ) )
+			.removeAttr( "data-post-remove" );
+	}
+
+	// replace elements
+	$elm.html( $ajaxed.html() );
+
+	// recalibrate context
+	$elm.data({
+		self: $elm,
+		menu: $elm.find( "[role=menubar] .item" ),
+		items: $elm.find( ".sm" )
+	});
+
+},
+
+/*
+ * @method onSelect
+ * @param {jQuery event} event The current event
+ */
+onSelect = function( event ) {
+
+	setTimeout(function () {
+		event.goto.focus();
+		if ( event.special ) {
+			onReset( event.goto.parents( selector ) );
+		}
+	}, 0 );
+
+},
+
+/*
+ * @method onIncrement
+ * @param {jQuery DOM element} element The plugin element
+ * @param {jQuery event} event The current event
+ */
+onIncrement = function( $elm, event ) {
+	var $links = event.cnode,
+		$next = event.current + event.increment,
+		$index = $next;
+
+	if ( $next >= $links.length ) {
+		$index = 0;
+	} else if ( $next < 0 ) {
+		$index = $links.length - 1;
+	}
+
+	$elm.trigger({
+		type: "select.wb-menu",
+		goto: $links.eq( $index )
+	});
+},
+
+/*
+ * @method onReset
+ * @param {jQuery DOM element} element The plugin element
+ */
+onReset = function( $elm ) {
+	$elm.find( ".open, .active" ).removeClass( "open active" );
+},
+
+/*
+ * @method onDisplay
+ * @param {jQuery DOM element} element The plugin element
+ * @param {jQuery event} event The current event
+ */
+onDisplay = function( $elm, event ) {
+	var $item = event.ident;
+
+	// lets reset the menus to ensure no overlap
+	$elm.trigger({
+		type: "reset.wb-menu"
+	});
+	// add the open state classes
+	$item.addClass( "active" )
+		.find( ".sm" )
+		.addClass( "open" );
+},
+
+/*
+ * @method onHoverFocus
+ * @param {jQuery event} event The current event
+ */
+onHoverFocus = function( event ) {
+	var ref = expand( event.target ),
+		$container = ref[ 0 ],
+		$elm = ref[ 3 ];
+
+		$container.trigger({
+			type: "display.wb-menu",
+			ident: $elm.parent()
+		});
+};
+
+// Bind the events of the plugin
+$document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.wb-menu reset.wb-menu display.wb-menu", selector, function( event ) {
+	var elm = event.target,
+		eventType = event.type,
+		$elm;
+
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === elm ) {
+		$elm = $( elm );
+	
+		switch ( eventType ) {
+		case "ajax-fetched":
+			onAjaxLoaded( $elm, event.pointer );
+			return false;
+
+		case "select":
+			onSelect( event );
+			break;
+
+		case "timerpoke":
+			onInit( $elm );
+			break;
+
+		case "increment":
+			onIncrement( $elm, event );
+			break;
+
+		case "mouseleave":
+			onReset( $elm );
+			break;
+
+		case "reset":
+			onReset( $elm );
+			break;
+
+		case "display":
+			onDisplay( $elm, event );
+			break;
+		}
+	}
+
+	/*
+	 * Since we are working with events we want to ensure that we are being passive about our control,
+	 * so returning true allows for events to always continue
+	 */
+	return true;
+});
+
+
+/*
+ * Menu Keyboard bindings
+ */
+$document.on( "mouseover focusin", selector + " .item", onHoverFocus );
+
+$document.on( "keydown", selector + " .item", function( event ) {
+	var elm = event.target,
+		which = event.which,
+		ref = expand( elm ),
+		$container = ref[ 0 ],
+		$menu = ref[ 1 ],
+		$elm = ref[ 3 ],
+		$index = $menu.index( $elm[ 0 ] ),
+		$goto;
+
+	switch ( which ) {
+	case 13:
+	case 40:
+		if ( $elm.find( ".expicon" ).length > 0 ) {
+			event.preventDefault();
+			$goto = $elm.closest( "li" ).find( ".sm [role=menuitem]" ).first();
+
+			$container.trigger({
+				type: "increment.wb-menu",
+				cnode: $menu,
+				increment: 0,
+				current: $index
+			}).trigger({
+					type: "select.wb-menu",
+					goto: $goto
+				});
+		}
+		break;
+
+	case 9:
+		onReset( $container );
+		break;
+
+	case 37:
+		event.preventDefault();
+		$container.trigger({
+			type: "increment.wb-menu",
+			cnode: $menu,
+			increment: -1,
+			current: $index
+		});
+		break;
+
+	case 39:
+		event.preventDefault();
+		$container.trigger({
+			type: "increment.wb-menu",
+			cnode: $menu,
+			increment: 1,
+			current: $index
+		});
+		break;
+	}
+});
+
+/*
+ * Item Keyboard bindings
+ */
+$document.on( "keydown", selector + " [role=menu]", function( event ) {
+	var elm = event.target,
+		which = event.which,
+		ref = expand( elm, true ),
+		$container = ref[ 0 ],
+		$menu = ref[ 1 ],
+		$items = ref[ 2 ],
+		$elm = ref[ 3 ],
+		$links = $items.find( ":focusable" ),
+		$index = $links.index( $elm[ 0 ] ),
+		$goto;
+
+	switch ( which ) {
+	case 27:
+	case 37:
+		event.preventDefault();
+		$goto = $menu.filter( "[href=#" + $items.attr( "id" ) + "]" );
+		$container.trigger({
+			type: "select.wb-menu",
+			goto: $goto,
+			special: "reset"
+		});
+		break;
+
+	case 38:
+		event.preventDefault();
+		$container.trigger({
+			type: "increment.wb-menu",
+			cnode: $links,
+			increment: -1,
+			current: $index
+		});
+		break;
+
+	case 9:
+		onReset( $container );
+		break;
+
+	case 40:
+		event.preventDefault();
+		$container.trigger({
+			type: "increment.wb-menu",
+			cnode: $links,
+			increment: 1,
+			current: $index
+		});
+		break;
+	}
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-modal",
+	$document = vapour.doc,
+
+	/*
+	 * Plugin users can override these defaults by setting attributes on the html elements that the
+	 * selector matches.
+	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
+	 */
+	defaults = {
+		modal: false,		// When true, force a modal-like behaviour (no close button and escape key or overlay click won't close)
+		mainClass: "mfp",	// CSS class for the modal wrapper element
+		removalDelay: 0		// Number of milliseconds to wait before removing modal element from DOM (use with closing animations)
+	},
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @function init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === event.target ) {
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Load the magnific popup dependency
+			Modernizr.load({
+				load: "site!deps/jquery.magnific-popup" + vapour.getMode() + ".js",
+				complete: function() {
+					$document.trigger( "ready.wb-modal" );
+				}
+			});
+		}
+	},
+
+	/*
+	 * Opens a popup defined by the settings object
+	 * @function show
+	 * @param {jQuery Event} event `modal.wb-session-timeout` event that triggered the function call
+	 * @param {Object} settings Key-value object
+	 */
+	show = function( event, settings ) {
+		$.magnificPopup.open( $.extend( {}, defaults, settings ) );
+	},
+
+	/*
+	 * Closes a popup defined by the settings object
+	 * @function hide
+	 * @param {jQuery Event} event `modal.wb-session-timeout` event that triggered the function call
+	 * @param {Object} settings Key-value object
+	 */
+	hide = function() {
+		$.magnificPopup.close();
+	},
+
+	/*
+	 * Creates a modal dialog for use with the Magnific Popup library.
+	 * @function build
+	 * @param {Object} settings Key-value object used to build the modal dialog
+	 * @returns {jQuery Object} The modal jQuery DOM object
+	 */
+	build = function( event, settings ) {
+		// TODO: Add random serial to `id` attribute to prevent collisions
+		var $modal = $(	"<div class='modal-dialog'><article class='modal-content'>" +
+			"<div class='modal-body' id='lb-desc'>" + settings.content + "</div></article></div>" ),
+			$content = $modal.find( ".modal-content" );
+
+		// Add modal's ID if it exists
+		if ( settings.id != null ) {
+			$modal.attr( "id", settings.id );
+		}
+
+		// Add modal's title if it exists
+		if ( settings.title != null ) {
+			$content.prepend( "<header class='modal-header'><h1 class='modal-title'>" + settings.title + "</h1></header>" );
+			$modal.attr( "aria-labelledby", "lb-title" );
+		}
+
+		// Add the buttons
+		if ( settings.buttons != null ) {
+			$content.append( "<div class='modal-footer'>" );
+			$content.find( ".modal-footer" ).append( settings.buttons );
+		}
+
+		// Set modal's accessibility attributes
+		// TODO: Better if dealt with upstream by Magnific popup
+		$modal.attr({
+			"role": "dialog",
+			"aria-live": "polite",
+			"aria-describedby": "lb-desc"
+		});
+
+		// Let the triggering process know that the modal has been built
+		if ( settings.deferred != null ) {
+			settings.deferred.resolve( $modal, true );
+		}
+
+		return $modal;
+	};
+
+// Bind the plugin events
+$document
+	.on( "timerpoke.wb", selector, init )
+	.on( "build.wb-modal show.wb-modal hide.wb-modal", function( event, settings ) {
+		var eventType = event.type;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === event.target ) {
+			switch ( eventType ) {
+			case "build":
+				build( event, settings );
+				break;
+			case "show":
+				show( event, settings );
+				break;
+			case "hide":
+				hide( event, settings );
+				break;
+			}
+		}
+	});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+
+(function( $, window, document, vapour, undef ) {
+"use strict";
+
+/* Local scoped variables*/
+var $document = $(document),
+	$selector = ".wb-mltmd",
+	$seed = 0,
+	$templatetriggered = false,
+	formatTime, parseTime, expand, loadCaptionsExternal, loadCaptionsInternal,
+	parseHtml, parseXml, playerApi, updateCaptions,
+	i18n, i18nText;
+
+/* helper functions*/
+
+/*
+@method formatTime
+@description format a number of seconds to SMTPE Timecode format (HH:MM:SS.FF)
+@param {Float} time The time to format
+@returns {String} the formatted time
+*/
+formatTime = function( time ) {
+	var index = 2, timecode = "",
+		secondsIn, current, pad;
+
+	pad = function( number, digits ) {
+		return new Array( Math.max( digits - String( number ).length + 1, 0 ) ).join( 0 ) + number;
+	};
+
+	time = Math.floor( time );
+
+	//Loop to extract hours, minutes and seconds
+	while (index >= 0) {
+		secondsIn = Math.pow( 60, index ); //Get the number of seconds for the current iteration (hour, minute or second)
+		current = Math.floor( time / secondsIn );
+
+		if ( timecode !== "" ) {
+			timecode += ":";
+		}
+
+		timecode += pad( current, 2 );
+		time -= secondsIn * current;
+		index -= 1;
+	}
+	return timecode;
+};
+
+/*
+@method parseTime
+@description parse an SMTPE Timecode string (HH:MM:SS.FF) or duration (45s) and returns the number of seconds for the timecode
+@param {String} time The timecode or duration string to parse
+@returns {Float} the number of seconds in time
+*/
+parseTime = function( time ) {
+	var p, parts, timeStringPortion, partLength, seconds;
+
+	if ( time !== undef ) {
+		if ( time.charAt( time.length - 1 ) === "s" ) {
+			//Duration parsing
+			return parseFloat( time.substring( 0, time.length - 1 ) );
+		} else {
+			//SMTPE Timecode Parsing
+			parts = time.split( ":" ).reverse();
+			seconds = 0;
+
+			for (p = 0, partLength = parts.length; p < partLength; p += 1 ) {
+				timeStringPortion = p === 0 ?
+					parseFloat( parts[ p ] ) :
+					parseInt( parts[ p ], 10 );
+				seconds += timeStringPortion * Math.pow( 60, p );
+			}
+			return seconds;
+		}
+	}
+	return -1;
+};
+
+// TODO: Document this function
+expand = function( elm, withPlayer ) {
+	var $this = $( elm ),
+		$data = $this.data( "properties" );
+
+	return withPlayer !== undef ?
+		 [ $this, $data, $data.player ] :
+		 [ $this, $data ];
+};
+
+
+/*
+@method parseHtml
+@description parse an HTML fragment and extract embed captions
+@param {String} content The HTML fragment containing the captions
+@returns {Array} An array of captions objects (ex: {text: "Caption", begin: 0, end :10})
+*/
+parseHtml = function( content ) {
+	var captions = [],
+		captionSelector = ".wb-tmtxt",
+		captionElements = content.find( captionSelector ),
+		len = captionElements.length,
+		i, captionElement, json, begin, end;
+
+	for ( i = 0; i !== len; i += 1 ) {
+		captionElement = $( captionElements[ i ] );
+		begin = -1;
+		end = -1;
+
+		if ( captionElement.attr("data-begin") !== undef ) {
+			begin = parseTime( captionElement.attr( "data-begin" ) );
+			end = captionElement.attr( "data-end" ) !== undef ?
+				parseTime( captionElement.attr( "data-end" ) ) :
+				parseTime( captionElement.attr( "data-dur" ) ) + begin;
+		} else if (captionElement.attr("data") !== undef) {
+			json = captionElement.attr("data")
+				.replace( /(begin|dur|end)/g, "\"$1\"" )
+				.replace( /'/g, "\"" );
+			json = $.parseJSON(json);
+			begin = parseTime( json.begin );
+			end = json.end !== undefined ?
+				parseTime( json.end ) :
+				parseTime( json.dur ) + begin;
+		}
+
+		//Removes nested captions if an
+		captionElement = captionElement.clone();
+		captionElement.find(captionSelector).detach();
+
+		captions[ captions.length ] = {
+				text: captionElement.html(),
+				begin: begin,
+				end: end
+		};
+	}
+
+	return captions;
+};
+
+/*
+@method parseXml
+@description parse an TTML (Xml) document and extract captions
+@param {String} content The TTML fragment containing the captions
+@returns {Array} An array of captions objects (ex: {text: "Caption", begin: 0, end :10})
+*/
+parseXml = function( content ) {
+	var captions = [],
+		captionSelector = "[begin]",
+		captionElements = content.find( captionSelector ),
+		len = captionElements.length,
+		i, captionElement, begin, end;
+
+	for ( i = 0; i !== len; i += 1 ) {
+		captionElement = $( captionElements[ i ] );
+		begin = parseTime( captionElement.attr( "begin" ) );
+		end = captionElement.attr("end") !== undef ?
+			parseTime(captionElement.attr("end")) :
+			parseTime(captionElement.attr("dur")) + begin;
+
+
+		captionElement = captionElement.clone();
+		captionElement.find( captionSelector ).detach();
+
+		captions[ captions.length ] = {
+			text: captionElement.html(),
+			begin: begin,
+			end: end
+		};
+	}
+	return captions;
+};
+
+/*
+@method loadCaptionsExternal
+@description Loads captions from an external source (HTML embed or TTML)
+@param {Object} elm The jQuery object for the multimedia player loading the captions
+@param {String} url The url for the captions resource to load
+@fires captionsloaded.multimedia.wb
+@fires captionsloadfailed.multimedia.wb
+*/
+loadCaptionsExternal = function( elm, url ) {
+	$.ajax({
+		url: url,
+		dataType: "html",
+		dataFilter: function( data ) {
+			//Filters out images and objects from the content to avoid loading them
+			return data.replace( /<img|object [^>]*>/g, "" );
+		},
+		success: function( data ) {
+			elm.trigger({
+				type: "captionsloaded.multimedia.wb",
+				captions: data.indexOf( "<html" ) !== -1 ?
+					parseHtml( $( data ) ) :
+					parseXml( $( data ) )
+			});
+		},
+		error: function( response, textStatus, errorThrown ) {
+			elm.trigger({
+				type: "captionsloadfailed.multimedia.wb",
+				error: errorThrown
+			});
+		}
+	});
+};
+
+/*
+@method loadCaptionsInternal
+@description Loads same page captions emebed in HTML
+@param {Object} elm The jQuery object for the multimedia player loading the captions
+@param {Object} obj The jQUery object containing the captions
+@fires captionsloaded.multimedia.wb
+*/
+loadCaptionsInternal = function( elm, obj ) {
+	elm.trigger({
+		type: "captionsloaded.multimedia.wb",
+		captions: parseHtml( obj )
+	});
+};
+
+/*
+@method updateCaptions
+@description Update the captions for a multimedia player (called from the timeupdate event of the HTML5 media API)
+@param {Object} area The jQuery object for the element where captions are displayed
+@param {Float} seconds The current time of the media (use to sync the captions)
+@param {Object} captions The JavaScript object containing the captions
+*/
+updateCaptions = function( area, seconds, captions ) {
+	var caption, _c,
+		_clen = captions.length;
+
+	area.empty();
+
+	for ( _c = 0; _c < _clen; _c += 1 ) {
+		caption = captions[ _c ];
+		if ( seconds >= caption.begin && seconds <= caption.end ) {
+			area.append( $( "<div>" + caption.text + "</div>" ) );
+		}
+	}
+};
+
+/*
+@method playerApi
+@description Normalizes the calls to the HTML5 media API and Flash Fallback
+@param {String} fn The function to call
+@param {} Args The arguments to send to the function call
+*/
+playerApi = function( fn, args ) {
+	var $this, captionsArea, method;
+
+	switch ( fn ) {
+		case "play":
+			try {
+				return this.object.play();
+			} catch ( ex ) {
+				return this.object.doPlay();
+			}
+			break;
+		case "pause":
+			try {
+				return this.object.pause();
+			} catch ( ex ) {
+				return this.object.doPause();
+			}
+			break;
+		case "getCaptionsVisible":
+			return $( this ).find( ".wb-mm-cc" ).hasClass( "on" );
+		case "setCaptionsVisible":
+			$this = $( this );
+			captionsArea = $this.find( ".wb-mm-cc" );
+			if ( args ) {
+				captionsArea.addClass("on");
+			} else {
+				captionsArea.removeClass("on");
+			}
+			return $this.trigger( "captionsvisiblechange.multimedia.wb" );
+		case "setPreviousTime":
+			return this.object.previousTime = args;
+		case "setBuffering":
+			return this.object.buffering = args;
+		default:
+			method = fn.charAt( 3 ).toLowerCase() + fn.substr( 4 );
+			switch ( fn.substr( 0, 3 ) ) {
+			case "get":
+				return typeof this.object[ method ] !== "function" ?
+					this.object[ method ] :
+					this.object[ method ]();
+			case "set":
+				return typeof this.object[ method ] !== "function" ?
+					this.object[ method ] = args :
+					this.object[ fn ]( args );
+			}
+	}
+};
+
+$document.on( "timerpoke.wb", $selector, function() {
+	window._timer.remove( $selector );
+
+	// Only initialize the i18nText once
+	if ( !i18nText ) {
+		i18n = window.i18n;
+		i18nText = {
+			rewind: i18n( "%rew" ),
+			ff: i18n( "%ffwd" ),
+			play: i18n( "%play" ),
+			pause: i18n( "%pause" ),
+			cc_on: i18n( "%cc", "on" ),
+			cc_off: i18n( "%cc", "off"),
+			cc_error: i18n ( "%cc-err" ),
+			mute_on: i18n( "%mute", "on"),
+			mute_off: i18n( "%mute", "off"),
+			duration: i18n( "%dur"),
+			position: i18n( "%pos")
+		};
+	}
+
+	if ( !$templatetriggered ) {
+		$templatetriggered = true;
+		return $document.trigger({
+			type: "ajax-fetch.wb",
+			element: $( $selector ),
+			fetch: "" + vapour.getPath( "/assets" ) + "/mediacontrols.html"
+		});
+	}
+});
+
+$document.on( "ajax-fetched.wb", $selector, function( event ) {
+	var $this = $( this ),
+		$template = event.pointer.html();
+
+	$this.data( "template", $template );
+	return $this.trigger({
+		type: "init.multimedia.wb"
+	});
+});
+
+$document.on( "init.multimedia.wb", $selector, function() {
+
+	var $this = $( this ),
+		$id = $this.attr( "id" ) !== undef ? $this.attr( "id" ) : "wb-mediaplayer-" + ( $seed++ ),
+		$media = $this.children( "audio, video" ).eq( 0 ),
+		$m_id = $media.attr( "id" ) !== undef ? $media.attr( "id" ) : "" + $id + "-media",
+		$type = $media.is( "video" ) ? "video" : "audio",
+		$width = $type === "video" ? $media.attr( "width" ) : "0",
+		$height = $type === "video" ? $media.attr( "height" ) : "0",
+		$captions = $media.children("track[kind='captions']") ? $media.children("track[kind='captions']").attr("src") : undef,
+		data = $.extend({
+			id: $id,
+			media: $media,
+			m_id: $m_id,
+			type: $type,
+			height: $height,
+			width: $width,
+			captions: $captions,
+			object: ""
+		}, i18nText);
+
+	if ( $media.attr( "id" ) === undef ) {
+		$media.attr( "id", $m_id );
+	}
+
+	$this.data( "properties", data );
+
+	if ( $media.get( 0 ).error === null && $media.get( 0 ).currentSrc !== "" && $media.get( 0 ).currentSrc !== undef ) {
+		return $this.trigger( "" + $type + ".multimedia.wb" );
+	} else {
+		return $this.trigger( "fallback.multimedia.wb" );
+	}
+
+	// FIXME: This is unreachable
+	// Where does this come from?
+	return $.error( "[web-boew] Mediaplayer :: error - mp003 :: Cannot play listed media" );
+});
+
+$document.on( "fallback.multimedia.wb", $selector, function() {
+	var _ref = expand( this ),
+		$this = _ref[ 0 ],
+		$data = _ref[ 1 ],
+		$media = $data.media,
+		$poster = $media.attr( "poster" ),
+		$source = $data.media.find( "source" ),
+		$playerresource;
+
+
+	$data.flashvars = "id=" + $data.id;
+	$playerresource = vapour.getPath( "/assets" ) + "/multimedia.swf?" + $data.flashvars;
+	$data.poster = "";
+	if ( $data.type === "video" ) {
+		$data.poster = "<img src='" + $poster + " class='img-responsive' height='" +
+			$data.height + "' width='" + $data.width + "' alt='" + $media.attr( "title" ) + "'/>";
+		$data.flashvars = "&height=" + $media.height() + "&width=" +
+			$media.width() + "&posterimg=" +
+			encodeURI( vapour.getUrlParts( $poster ).absolute ) + "&media=" +
+			encodeURI( vapour.getUrlParts( $source.filter( "[type='video/mp4']" ).attr( "src" ) ).absolute );
+	} else {
+		$data.flashvars = "&media=" + encodeURI( vapour.getUrlParts( $source.filter( "[type='audio/mp3']" ).attr( "src" ) ).absolute );
+	}
+	$data.sObject = "<object id='" + $data.m_id + "' width='" + $data.width +
+		"' height='" + $data.height + "' class='" + $data.type +
+		"' type='application/x-shockwave-flash' data='" +
+		$playerresource + "' tabindex='-1'>" +
+		"<param name='movie' value='" + $playerresource + "'/>" +
+		"<param name='flashvars' value='" + $data.flashvars + "'/>" +
+		"<param name='allowScriptAccess' value='always'/>" +
+		"<param name='bgcolor' value='#000000'/>" +
+		"<param name='wmode' value='opaque'/>" +
+		$data.poster + "</object>";
+	$this.data( "properties", $data );
+
+	return $this.trigger( "renderui.multimedia.wb" );
+});
+
+$document.on( "video.multimedia.wb", $selector, function() {
+	var _ref = expand( this ),
+		$this = _ref[ 0 ],
+		$data = _ref[ 1 ];
+
+	$data.sObject = $data.media.wrap( "<div />" ).parent().html();
+	$data.poster = "<img src='" + $data.media.attr( "poster" ) +
+		"' class='img-responsive' height='" + $data.height +
+		"' width='" + $data.width + "' alt='" + $data.media.attr( "title" ) + "'/>";
+
+	$this.data( "properties", $data );
+
+	return $this.trigger( "renderui.multimedia.wb" );
+});
+
+$document.on("audio.multimedia.wb", $selector, function() {
+	// Implement audio player
+	var $data, $this, _ref;
+	return _ref = expand(this), $this = _ref[0], $data = _ref[1], _ref;
+});
+
+$document.on("renderui.multimedia.wb", $selector, function() {
+	var _ref = expand( this ),
+		$this = _ref[ 0 ],
+		$data = _ref[ 1 ],
+		$player,
+		captionsUrl = vapour.getUrlParts( $data.captions ).absolute;
+
+
+	$this.html( window.tmpl( $this.data( "template" ), $data ) );
+	$player = $( "#" + $data.m_id );
+	$data.player = $player.is( "object") ? $player.children( ":first-child" ) : $player.load();
+
+	// Create an adapter for the event management
+	$data.player.on( "durationchange play pause ended volumechange timeupdate captionsloaded captionsloadfailed captionsvisiblechange waiting canplay progress", function( event ) {
+		$this.trigger( event );
+	});
+
+	this.object = $player.get( 0 );
+	this.player = playerApi;
+	$this.data( "properties", $data );
+
+	if ( $data.captions === undefined ) {
+		return 1;
+	}
+
+	if ( captionsUrl !== window.location.href ) {
+		loadCaptionsExternal( $player, captionsUrl );
+	} else {
+		loadCaptionsInternal( $player, captionsUrl );
+	}
+});
+
+/*
+UI Bindings
+*/
+
+$document.on( "click", $selector, function( event ) {
+	var eventTarget = event.target,
+		playerTarget = event.currentTarget,
+		which = event.which,
+		className = eventTarget.className,
+		$target;
+
+	// Ignore middle and right mouse buttons
+	if ( !which || which === 1 ) {
+		$target = $( eventTarget );
+
+		if ( className.match( /playpause|-(play|pause)|wb-mm-ovrly/ ) ) {
+			playerTarget.player( playerTarget.player( "getPaused" ) ? "play" : "pause" );
+		} else if ( className.match( /\bcc\b|-subtitles/ )  ) {
+			playerTarget.player( "setCaptionsVisible", !playerTarget.player( "getCaptionsVisible" ) );
+		} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
+			playerTarget.player( "setMuted", !playerTarget.player( "getMuted" ) );
+		} else if ( $target.is( "progress" ) || className.indexOf( "wb-progress-inner") !== -1 || className.indexOf( "wb-progress-outer" ) !== -1 ) {
+			playerTarget.player( "setCurrentTime", playerTarget.player( "getDuration" ) * ( ( event.pageX - $target.offset().left ) / $target.width() ) );
+		} else if ( className.match( /\brewind\b|-backwards/ ) ) {
+			playerTarget.player( "setCurrentTime", playerTarget.player( "getCurrentTime" ) - playerTarget.player( "getDuration" ) * 0.05 );
+		} else if ( className.match( /\bfastforward\b|-forward/ ) ) {
+			playerTarget.player( "setCurrentTime", playerTarget.player( "getCurrentTime" ) + playerTarget.player( "getDuration" ) * 0.05 );
+		}
+
+		return false;
+	}
+
+	return true;
+});
+
+$document.on( "keydown", $selector, function( event ) {
+	var playerTarget = event.currentTarget,
+		which = event.which,
+		ctrls = ".wb-mm-ctrls",
+		ref = expand( playerTarget ),
+		$this = ref[ 0 ],
+		volume = 0;
+
+	switch ( which ) {
+	case 32:
+		$this.find( ctrls + " .playpause" ).trigger( "click" );
+		break;
+
+	case 37:
+		$this.find( ctrls + " .rewind ").trigger( "click" );
+		break;
+
+	case 39:
+		$this.find( ctrls + " .fastforward" ).trigger( "click" );
+		break;
+
+	case 38:
+		volume = Math.round( playerTarget.player( "getVolume" ) * 10 ) / 10 + 0.1;
+		playerTarget.player( "setVolume", volume < 1 ? volume : 1 );
+		break;
+
+	case 40:
+		volume = Math.round( playerTarget.player( "getVolume" ) * 10 ) / 10 - 0.1;
+		playerTarget.player( "setVolume",  volume > 0 ? volume : 0 );
+		break;
+
+	default:
+		return true;
+	}
+	return false;
+});
+
+$document.on( "keyup", $selector, function( event ) {
+	if ( event.which === 32 ) {
+		//Allows the spacebar to be used for play/pause without double triggering
+		return false;
+	}
+});
+
+$document.on( "durationchange play pause ended volumechange timeupdate captionsloaded.multimedia.wb captionsloadfailed.multimedia.wb captionsvisiblechange waiting canplay progress", $selector, function( event ) {
+	var eventTarget = event.currentTarget,
+		eventType = event.type,
+		$this = $( eventTarget ),
+		currentTime,
+		button;
+
+	switch ( eventType ) {
+	case "play":
+		button = $this.find( ".playpause .glyphicon" )
+			.removeClass( "glyphicon-play" )
+			.addClass( "glyphicon-pause" )
+			.parent();
+
+		button.attr( "title", button.data( "state-off" ) );
+
+		$this.find( ".wb-mm-ovrly" ).addClass( "playing" );
+
+		$this.find( ".progress" ).addClass( "active" );
+		break;
+
+	case "pause":
+		button = $this.find( ".playpause .glyphicon" )
+			.removeClass( "glyphicon-pause" )
+			.addClass( "glyphicon-play" )
+			.parent();
+
+		button.attr( "title", button.data( "state-on" ) );
+
+		$this.find( ".progress" ).removeClass( "active" );
+		break;
+
+	case "ended":
+		button = $this.find( ".playpause .glyphicon" )
+			.removeClass( "glyphicon-pause" )
+			.addClass( "glyphicon-play" )
+			.parent();
+
+		button.attr( "title", button.data( "state-on" ) );
+		$this.find( ".wb-mm-ovrly" ).removeClass( "playing" );
+		break;
+
+	case "volumechange":
+		// TODO: Think can be optimized for the minifier with some ternaries
+		button = $this.find( ".mute .glyphicon" );
+		if ( eventTarget.player( "getMuted" ) ) {
+			button = button.removeClass( "glyphicon-volume-up" )
+				.addClass( "glyphicon-volume-off" )
+				.parent();
+
+			button.attr( "title" , button.data( "state-off" ) );
+		} else {
+			button = button.removeClass( "glyphicon-volume-off" )
+				.addClass( "glyphicon-volume-up" )
+				.parent();
+			button.attr( "title", button.data( "state-on" ) );
+		}
+		break;
+
+	case "timeupdate":
+		currentTime = eventTarget.player( "getCurrentTime" );
+		$this.find( "progress" )
+			.attr(
+				"value",
+				Math.round( currentTime / eventTarget.player( "getDuration" ) * 1000 ) / 10
+			);
+
+		$this.find( ".wb-mm-tline-current span" )
+			.text( formatTime( currentTime ) );
+
+		if ( $.data( eventTarget, "captions" ) !== undef ) {
+			updateCaptions(
+				$this.find( ".wb-mm-cc" ),
+				currentTime,
+				$.data( eventTarget, "captions" )
+			);
+		}
+		break;
+
+	case "captionsloaded":
+		$.data( eventTarget, "captions", event.captions );
+		break;
+
+	case "captionsloadfailed":
+		$this.find( ".wb-mm-cc" )
+		.append( "<p class='errmsg'><span>" + i18nText.cc_error + "</span></p>" )
+		.end()
+		.find( ".cc" )
+		.attr( "disabled", "" );
+		break;
+
+	case "captionsvisiblechange":
+		// TODO: Think can be optimized for the minifier with some ternarie
+		button = $this.find( ".cc" );
+		if ( eventTarget.player( "getCaptionsVisible" ) ) {
+			button.attr( "title", button.data( "state-on" ) )
+				.css( "opacity", "1" );
+		} else {
+			button.attr( "title", button.data( "state-off" ) )
+				.css( "opacity", ".5" );
+		}
+	}
+});
+
+window._timer.add( $selector );
+
+})( jQuery, window, document, vapour, undefined );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var $document = vapour.doc,
+	breadcrumbLinksArray, breadcrumbLinksUrlArray,
+	navClass = "wb-navcurrent",
+
+	/*
+	 * We start the logic for what the plugin truly does
+	 * For demonstration purposes lets display some text with an alert 
+	 * @method otherEvent
+	 * @param {jQuery Event} event The event that triggered this method call
+	 * @param {jQuery DOM element | DOM element} breadcrumb Optional breadcrumb element
+	 */
+	navCurrent = function( event, breadcrumb ) {
+		var menuLinks = event.target.getElementsByTagName( "a" ),
+			menuLinksArray = [],
+			menuLinksUrlArray = [],
+			windowLocation = window.location,
+			pageUrl = windowLocation.hostname + windowLocation.pathname.replace( /^([^\/])/, "/$1" ),
+			pageUrlQuery = windowLocation.search,
+			match = false,
+			len = menuLinks.length,
+			i, j, link, linkHref, linkUrl, linkUrlLen, linkQuery, linkQueryLen,
+			_breadcrumbLinks, _breadcrumbLinksArray, _breadcrumbLinksUrlArray;
+
+		// Try to find a match with the page Url and cache link + Url for later if no match found
+		for ( i = 0; i !== len; i += 1 ) {
+			link = menuLinks[ i ];
+			linkHref = link.getAttribute( "href" );
+			if ( linkHref !== null ) {
+				if ( linkHref.length !== 0 && linkHref.slice( 0, 1 ) !== "#" ) {
+					linkUrl = link.hostname + link.pathname.replace( /^([^\/])/, "/$1" );
+					linkQuery = link.search;
+					linkQueryLen = linkQuery.length;
+					if ( pageUrl.slice( -linkUrl.length ) === linkUrl && ( linkQueryLen === 0 || pageUrlQuery.slice( -linkQueryLen ) === linkQuery ) ) {
+						match = true;
+						break;
+					}
+					menuLinksArray.push( link );
+					menuLinksUrlArray.push( linkUrl );
+				}
+			}
+		}
+
+		// No page Url match found, try a breadcrumb link match instead
+		if ( !match && breadcrumb ) {
+			// Check to see if the data has been cached already
+			if ( !_breadcrumbLinksArray ) {
+				// Pre-process the breadcrumb links
+				_breadcrumbLinksArray = [];
+				_breadcrumbLinksUrlArray = [];
+				_breadcrumbLinks = ( !breadcrumb.jquery ? breadcrumb[ 0 ] : breadcrumb ).getElementsByTagName( "a" );
+				len = _breadcrumbLinks.length;
+				for ( i = 0; i !== len; i += 1) {
+					link = _breadcrumbLinks[ i ];
+					linkHref = link.getAttribute( "href" );
+					if ( linkHref.length !== 0 && linkHref.slice( 0, 1 ) !== "#" ) {
+						_breadcrumbLinksArray.push( link );
+						_breadcrumbLinksUrlArray.push( link.hostname + link.pathname.replace( /^([^\/])/, "/$1" ) );
+					}
+				}
+				
+				// Cache the data in case of more than one execution (e.g., site menu + secondary navigation)
+				breadcrumbLinksArray = _breadcrumbLinksArray;
+				breadcrumbLinksUrlArray = _breadcrumbLinksUrlArray;
+			} else {
+				// Retrieve the cached data
+				_breadcrumbLinksArray = breadcrumbLinksArray;
+				_breadcrumbLinksUrlArray = breadcrumbLinksUrlArray;
+			}
+		
+			// Try to match each breadcrumb link
+			len = menuLinksArray.length;
+			for ( i = 0; i !== len; i += 1 ) {
+				link = menuLinksArray[ i ];
+				linkUrl = menuLinksUrlArray[ i ];
+				linkUrlLen = linkUrl.length;
+				linkQuery = link.search;
+				linkQueryLen = linkQuery.length;
+				j = _breadcrumbLinksArray.length - 1;
+				for ( j = _breadcrumbLinksArray.length - 1; j !== -1; j -= 1 ) {
+					if ( _breadcrumbLinksUrlArray[ j ].slice( -linkUrlLen ) === linkUrl && ( linkQueryLen === 0 || _breadcrumbLinksArray[ j ].search.slice( -linkQueryLen ) === linkQuery ) ) {
+						match = true;
+						break;
+					}
+				}
+				if ( match ) {
+					break;
+				}
+			}
+		}
+
+		if ( match ) {
+			link.className += " " + navClass;
+		}
+	};
+
+// Bind the navcurrent event of the plugin
+$document.on( "navcurrent.wb", navCurrent );
+
+})( jQuery, window, vapour );
+(function ( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-overlay",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === event.target ) {
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			/*
+			 *	@todo	Add ARIA attributes.
+			 */
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-prettify",
+	$document = vapour.doc,
+
+	/*
+	 * Plugin users can override these defaults by setting attributes on the html elements that the
+	 * selector matches.
+	 */
+	defaults = {
+		linenums: false,
+		allpre: false
+	},
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered this handler
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			modeJS = vapour.getMode() + ".js",
+			deps = [ "site!deps/prettify" + modeJS ],
+			$elm, classes, settings, i, len, $pre;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+			classes = elm.className.split( " " );
+	
+			// Merge default settings with overrides from the selected plugin element. There may be more than one, so don't override defaults globally!
+			settings = $.extend( {}, defaults, $elm.data() );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Check the element for `lang-*` syntax CSS classes
+			for ( i = 0, len = classes.length; i !== len; i += 1 ) {
+				if ( classes[ i ].indexOf( "lang-" ) === 0 ) {
+					deps.push( "site!deps/" + classes[ i ] + modeJS );
+				}
+			}
+
+			// CSS class overides of settings
+			settings.allpre = settings.allpre || $elm.hasClass( "all-pre" );
+			settings.linenums = settings.linenums || $elm.hasClass( "linenums" );
+
+			// Apply global settings
+			if ( settings.allpre || settings.linenums ) {
+				$pre = $document.find( "pre" );
+				if ( settings.allpre ) {
+					$pre.addClass( "prettyprint" );
+				}
+				if ( settings.linenums ) {
+					$pre.filter( ".prettyprint" ).addClass( "linenums" );
+				}
+			}
+
+			// Load the required dependencies and prettify the code once finished
+			Modernizr.load({
+				load: deps,
+				complete: function() {
+					$document.trigger( "prettyprint.wb-prettify" );
+				}
+			});
+		}
+	},
+
+	/*
+	 * Invoke the Google pretty print library if it has been initialized
+	 * @method prettyprint
+	 */
+	prettyprint = function() {
+		if ( typeof window.prettyPrint === "function" ) {
+			window.prettyPrint();
+		}
+	};
+
+// Bind the plugin events
+$document
+	.on( "timerpoke.wb", selector, init )
+	.on( "prettyprint.wb-prettify", prettyprint );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var id = "wb-resize",
+	selector = "#" + id,
+	$window = vapour.win,
+	$document = vapour.doc,
+	sizes= [],
+	events = [
+		"text-resize.wb",
+		"window-resize-width.wb",
+		"window-resize-height.wb"
+	],
+	eventsAll, resizeTest,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * @method init
+	 */
+	init = function() {
+		var _resizeTest = document.createElement( "span" );
+
+		// Set up the DOM element used for resize testing
+		_resizeTest.innerHTML = "&#160;";
+		_resizeTest.setAttribute( "id", id );
+		document.body.appendChild( _resizeTest );
+		resizeTest = _resizeTest;
+
+		// Get a snapshot of the current sizes
+		sizes = [
+			_resizeTest.offsetHeight,
+			$window.width(),
+			$window.height()
+		];
+
+		// Create a string containing all the events
+		eventsAll = events.join( " " );
+	},
+
+	/*
+	 * Tests for text size, window width and window height changes and triggers an event when a change is found
+	 * @method test
+	 */
+	test = function() {
+		var currentSizes = [
+				resizeTest.offsetHeight,
+				$window.width(),
+				$window.height()
+			],
+			i,
+			len = currentSizes.length;
+
+		for ( i = 0; i !== len; i += 1 ) {
+			if ( currentSizes[ i ] !== sizes[ i ] ) {
+				$document.trigger( events[ i ], currentSizes );
+			}
+		}
+		sizes = currentSizes;
+		return;
+	};
+
+// Initialize the handler resources
+init();
+	
+// Re-test on each timerpoke
+$document.on( "timerpoke.wb", selector, test );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-session-timeout",
+	$document = vapour.doc,
+	i18n, i18nText,
+
+	/*
+	 * Plugin users can override these defaults by setting attributes on the html elements that the
+	 * selector matches.
+	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
+	 */
+	defaults = {
+		inactivity: 1200000,		// default inactivity period 20 minutes
+		reactionTime: 180000,		// default confirmation period of 3 minutes
+		sessionalive: 1200000,		// default keepalive period of 20 minutes
+		refreshCallbackUrl: null,	// refresh callback if using AJAX keepalive (no default)
+		logouturl: "./",			// logout URL once the session has expired
+		refreshOnClick: true,		// refresh session if user clicks on the page
+		refreshLimit: 200000		// default period of 2 minutes (ajax calls happen only once during this period)
+	},
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @function init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			$elm, settings;
+	
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+
+			// Merge default settings with overrides from the selected plugin element. There may be more than one, so don't override defaults globally!
+			settings = $.extend( {}, defaults, $elm.data( "wet-boew" ) );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Only initialize the i18nText once
+			if ( !i18nText ) {
+				i18n = window.i18n;
+				i18nText = {
+					buttonContinue: i18n( "%st-btn-cont" ),
+					buttonEnd: i18n( "%st-btn-end" ),
+					buttonSignin: i18n( "%tmpl-signin" ),
+					timeoutBegin: i18n( "%st-to-msg-bgn" ),
+					timeoutEnd: i18n( "%st-to-msg-end" ),
+					timeoutTitle: i18n( "%st-msgbx-ttl" ),
+					timeoutAlready: i18n( "%st-alrdy-to-msg" )
+				};
+			}
+
+			// Setup the modal dialog behaviour
+			$document.one( "ready.wb-modal", function() {
+				// Initialize the keepalive and inactive timeouts of the plugin
+				$elm.trigger( "reset.wb-session-timeout", settings );
+
+				// Setup the refresh on click behaviour
+				initRefreshOnClick( $elm, settings );
+			});
+		}
+	},
+
+	/*
+	 * Initialize the refresh on click keepalive behaviour. This will cause a `keepalive.wb-session-timeout`
+	 * event to be triggered when the document is clicked, limited by the settings.refreshLimit value.
+	 * @function initRefreshOnClick
+	 * @param {jQuery DOM Element} $elm DOM element to trigger the event on
+	 * @param {Object} settings Key-value object that will be passed when event is triggered.
+	 */
+	initRefreshOnClick = function( $elm, settings ) {
+		if ( settings.refreshOnClick ) {
+			$document.on( "click", function() {
+				var lastActivity = $elm.data( "lastActivity" ),
+					currentTime = getCurrentTime();
+				if ( !lastActivity || ( currentTime - lastActivity ) > settings.refreshLimit ) {
+					$elm
+						.trigger( "reset.wb-session-timeout", settings )
+						.trigger( "keepalive.wb-session-timeout", settings );
+				}
+				$elm.data( "lastActivity", currentTime );
+			});
+		}
+	},
+
+	/*
+	 * Keepalive session event handler. Sends the POST request to determine if the session is still alive.
+	 * @function keepalive
+	 * @param {jQuery Event} event `keepalive.wb-session-timeout` event that triggered the function call
+	 * @param {Object} settings Key-value object
+	 */
+	keepalive = function( event, settings ) {
+		var $buttonSignin, building,
+			$elm = $( event.target );
+		if ( settings.refreshCallbackUrl !== null ) {
+			$.post( settings.refreshCallbackUrl, function( response ) {
+				// Session is valid
+				if ( response && response.replace( /\s/g, "" ) === "true" ) {
+					$elm.trigger( "reset.wb-session-timeout", settings );
+
+				// Session has timed out - let the user know they need to sign in again
+				} else {
+					building = $.Deferred();
+					$buttonSignin = $( "<button type='button' class='wb-session-timeout-confirm btn btn-primary'>" + i18nText.buttonSignin + "</button>" );
+					$buttonSignin.data( "logouturl", settings.logouturl );
+
+					// Build the modal dialog
+					$document.trigger( "build.wb-modal", {
+						content: "<p>" + i18nText.timeoutAlready + "</p>",
+						buttons: $buttonSignin,
+						deferred: building
+					});
+
+					building.done( function( $modal ) {
+						// End the inactivity timeouts since the session is already kaput
+						clearTimeout( $elm.data( "inactivity.wb-session-timeout" ) );
+						clearTimeout( $elm.data( "keepalive.wb-session-timeout" ) );
+
+						// Let the user know their session is dead
+						setTimeout(function() {
+							// Open the popup
+							$document.trigger( "show.wb-modal", {
+								modal: true,
+								mainClass: "mfp-zoom-in",
+								items: { src: $modal, type: "inline" }
+							});
+						}, Modernizr.csstransitions ? 500 : 0 );
+					});
+				}
+			});
+		}
+	},
+
+	/**
+	 * Inactivity check event handler. Displays the modal dialog to allow the user to confirm their activity.
+	 * @function inactivity
+	 * @param {jQuery Event} event `inactivity.wb-session-timeout` event that triggered the function call
+	 * @param {Object} settings Key-value object
+	 */
+	inactivity = function( event, settings ) {
+		var $buttonContinue, $buttonEnd, countdownInterval,
+			activeElement = $document[ 0 ].activeElement,
+			building = $.Deferred(),
+			time = getTime( settings.reactionTime ),
+			timeoutBegin = i18nText.timeoutBegin
+				.replace( "#min#", "<span class='min'>" + time.minutes + "</span>" )
+				.replace( "#sec#", "<span class='sec'>" + time.seconds + "</span>" ),
+			$modal = $( "#wb-session-modal" );
+
+		// Modal does not exists: build it
+		if ( $modal.length === 0 ) {
+			$buttonContinue = $( "<button type='button' class='wb-session-timeout-confirm btn btn-primary'>" +
+				i18nText.buttonContinue + "</button>" );
+			$buttonEnd = $( "<button type='button' class='wb-session-timeout-confirm btn btn-default'>" +
+				i18nText.buttonEnd + "</button>" );
+
+			// Build the modal
+			$document.trigger( "build.wb-modal", {
+				id: "wb-session-modal",
+				title: i18nText.timeoutTitle,
+				content: "<p class='content'>" + timeoutBegin + "<br />" + i18nText.timeoutEnd + "</p>",
+				buttons: [ $buttonContinue, $buttonEnd ],
+				deferred: building
+			});
+
+		// Modal already exists: get element references and resolve the deferred object (causes the modal to be displayed)
+		} else {
+			$buttonContinue = $modal.find( ".btn-primary" );
+			$buttonEnd = $modal.find( ".btn-default" );
+			$modal.find( ".content" ).html( timeoutBegin + "<br />" + i18nText.timeoutEnd );
+
+			// Trigger the deferred object's done callback by resolving it
+			building.resolve( $modal );
+		}
+
+		// Display the modal when it's finished being built
+		building.done( function( $modal, isNew ) {
+
+			if ( isNew === true ) {
+				$document.find( "body" ).append( $modal );
+			}
+
+			// Add the session timeout settings to the buttons
+			$buttonEnd.data( "logouturl", settings.logouturl );
+			$buttonContinue
+				.data( settings )
+				.data( "start", getCurrentTime() );
+
+			// Open the modal dialog
+			$document.trigger( "show.wb-modal", {
+				modal: true,
+				mainClass: "mfp-zoom-in",
+				removalDelay: Modernizr.csstransitions ? 500 : 0,
+				items: {
+					src: $modal,
+					type: "inline"
+				},
+				callbacks: {
+					// Start the time countdown when the popup opens
+					open: function() {
+						var $minutes = $modal.find( ".min" ),
+							$seconds = $modal.find( ".sec" );
+						countdownInterval = setInterval(function() {
+							if ( countdown( $minutes, $seconds ) ) {
+								clearInterval( countdownInterval );
+
+								// Let the user know their session has timed out
+								$modal.find( ".content" ).text( i18nText.timeoutAlready );
+								$buttonContinue.text( i18nText.buttonSignin );
+								$buttonEnd.hide();
+							}
+						}, 1000 );
+					},
+
+					// Stop the countdown and restore focus to the original active element
+					afterClose: function() {
+						clearInterval( countdownInterval );
+
+						// Assign focus to activeElement
+						$( activeElement ).trigger( "focus.wb" );
+					}
+				}
+			});
+		});
+	},
+
+	/*
+	 * Initialize the inactivity and keepalive timeouts of the plugin
+	 * @function reset
+	 * @param {jQuery Event} event `reset.wb-session-timeout` event that triggered the function call
+	 * @param {Object} settings Key-value object
+	 */
+	reset = function( event, settings ) {
+		var $elm = $( event.target );
+
+		initEventTimeout( $elm, "inactivity.wb-session-timeout", settings.inactivity, settings );
+		if ( settings.refreshCallbackUrl !== null ) {
+			initEventTimeout( $elm, "keepalive.wb-session-timeout", settings.sessionalive, settings );
+		}
+	},
+
+	/*
+	 * Checks if the user wants to keep their session alive.
+	 * @function inactivity
+	 * @param {jQuery Event} event `confirm.wb-session-timeout` event that triggered the function call
+	 */
+	confirm = function( event ) {
+		var elm = event.target,
+			$elm = $( elm ),
+			settings = $elm.data();
+
+		event.preventDefault();
+		$.magnificPopup.close();
+
+		// User wants their session maintained
+		if ( settings.start !== undefined && ( getCurrentTime() - settings.start ) <= settings.reactionTime ) {
+			$( selector )
+				.trigger( "reset.wb-session-timeout", settings )
+				.trigger( "keepalive.wb-session-timeout", settings );
+
+		// Negative confirmation or the user took too long; logout
+		} else {
+			window.location.href = settings.logouturl;
+		}
+	},
+
+	/*
+	 * Initializes a timeout that triggers an event
+	 * @function initEventTimeout
+	 * @param {jQuery DOM Element} $elm Element to trigger the event on
+	 * @param {string} eventName Name of the event to trigger on setTimeout
+	 * @param {mixed} time Time to wait before triggering the event
+	 * @param {Object} settings Key-value object
+	 */
+	initEventTimeout = function( $elm, eventName, time, settings ) {
+		// Clear any existing timeout for the event
+		clearTimeout( $elm.data( eventName ) );
+
+		// Create the new timeout that will trigger the event
+		$elm.data( eventName, setTimeout(function() {
+			$elm.trigger( eventName, settings );
+		}, parseTime( time ) ) );
+	},
+
+	/*
+	 * Returns the current time in milliseconds
+	 * @function getCurrentTime
+	 * @returns {integer} Current time in milliseconds
+	 */
+	getCurrentTime = function() {
+		return ( new Date() ).getTime();
+	},
+
+	/*
+	 * Parses a time value into a milliseconds integer value.
+	 * @function parseTime
+	 * @param {Mixed} value The time value to parse (integer or string)
+	 * @returns {integer} Millisecond integer value parsed from the time value
+	 */
+	parseTime = function( value ) {
+		var result, num, mult,
+			powers = {
+				"ms": 1,
+				"cs": 10,
+				"ds": 100,
+				"s": 1000,
+				"das": 10000,
+				"hs": 100000,
+				"ks": 1000000
+			};
+
+		if ( value == null ) {
+			return null;
+		}
+
+		result = /^([0-9]+(?:\.[0-9]*)?)\s*(.*s)?$/.exec( $.trim( value.toString() ) );
+		if ( result[ 2 ] ) {
+			num = parseFloat( result[ 1 ] );
+			mult = powers[ result[ 2 ] ] || 1;
+			return num * mult;
+		}
+		return value;
+	},
+
+	/*
+	 * Converts a millisecond value into minutes and seconds
+	 * @function getTime
+	 * @param {integer} milliseconds The time value in milliseconds
+	 * @returns {Object} An object with a seconds and minutes property
+	 */
+	getTime = function( milliseconds ) {
+		var time = { minutes: "", seconds: "" };
+
+		if ( milliseconds != null ) {
+			time.minutes = parseInt( ( milliseconds / ( 1000 * 60 ) ) % 60, 10 );
+			time.seconds = parseInt( ( milliseconds / 1000 ) % 60, 10 );
+		}
+		return time;
+	},
+
+	/*
+	 * Given 2 elements representing minutes and seconds, decrement their time value by 1 second
+	 * @function countdown
+	 * @param {jQuery DOM Element} $minutes Element that contains the minute value
+	 * @param {jQuery DOM Element} $seconds Element that contains the second value
+	 * @returns {boolean} Is the countdown finished?
+	 */
+	countdown = function( $minutes, $seconds ) {
+		var minutes = parseInt( $minutes.text(), 10 ),
+			seconds = parseInt( $seconds.text(), 10 );
+
+		// Decrement seconds and minutes
+		if ( seconds > 0 ) {
+			seconds -= 1;
+		} else if ( minutes > 0 ) {
+			minutes -= 1;
+			seconds = 59;
+		}
+
+		// Update the DOM elements
+		$minutes.text( minutes );
+		$seconds.text( seconds );
+
+		return minutes === 0 && seconds === 0;
+	};
+
+// Bind the plugin events
+$document.on( "timerpoke.wb keepalive.wb-session-timeout inactivity.wb-session-timeout reset.wb-session-timeout", selector, function( event, settings ) {
+	var eventType = event.type;
+
+	switch ( eventType ) {
+	case "timerpoke":
+		init( event );
+		break;
+
+	case "keepalive":
+		keepalive( event, settings );
+		break;
+
+	case "inactivity":
+		inactivity( event, settings );
+		break;
+
+	case "reset":
+		reset( event, settings );
+		break;
+	}
+});
+
+$document.on( "click", ".wb-session-timeout-confirm", confirm );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-share",
+	$document = vapour.doc,
+	i18n, i18nText,
+
+	/*
+	 * Plugin users can override these defaults by setting attributes on the html elements that the
+	 * selector matches.
+	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
+	 */
+	defaults = {
+		sites: {
+
+			// The definitions of the available bookmarking sites, in URL use
+			// '{u}' for the page URL, '{t}' for the page title, {i} for the image, and '{d}' for the description
+			bitly: {
+				name: "bitly",
+				url: "http://bitly.com/?url={u}"
+			},
+			blogger: {
+				name: "Blogger",
+				url: "http://www.blogger.com/blog_this.pyra?t=&amp;u={u}&amp;n={t}"
+			},
+			delicious: {
+				name: "Delicious",
+				url: "http://delicious.com/post?url={u}&amp;title={t}"
+			},
+			digg: {
+				name: "Digg",
+				url: "http://digg.com/submit?phase=2&amp;url={u}&amp;title={t}"
+			},
+			diigo: {
+				name: "Diigo",
+				url: "http://www.diigo.com/post?url={u}&amp;title={t}"
+			},
+			dzone: {
+				name: "DZone",
+				url: "http://www.dzone.com/links/add.html?url={u}&amp;title={t}"
+			},
+			facebook: {
+				name: "Facebook",
+				url: "http://www.facebook.com/sharer.php?u={u}&amp;t={t}"
+			},
+			fark: {
+				name: "Fark",
+				url: "http://cgi.fark.com/cgi/fark/submit.pl?new_url={u}&amp;new_comment={t}"
+			},
+			googleplus: {
+				name: "Google+",
+				url: "https://plus.google.com/share?url={u}&amp;hl=" + document.documentElement.lang,
+			},
+			linkedin: {
+				name: "LinkedIn",
+				url: "http://www.linkedin.com/shareArticle?mini=true&amp;url={u}&amp;title={t}&amp;ro=false&amp;summary={d}&amp;source="
+			},
+			myspace: {
+				name: "MySpace",
+				url: "http://www.myspace.com/Modules/PostTo/Pages/?u={u}&amp;t={t}"
+			},
+			netvibes: {
+				name: "Netvibes",
+				url: "http://www.netvibes.com/share?url={u}&amp;title={t}"
+			},
+			newsvine: {
+				name: "Newsvine",
+				url: "http://www.newsvine.com/_wine/save?u={u}&amp;h={t}"
+			},
+			pinterest: {
+				name: "Pinterest",
+				url: "http://www.pinterest.com/pin/create/button/?url={u}&amp;media={i}&amp;description={d}"
+			},
+			reddit: {
+				name: "reddit",
+				url: "http://reddit.com/submit?url={u}&amp;title={t}"
+			},
+			stumbleupon: {
+				name: "StumbleUpon",
+				url: "http://www.stumbleupon.com/submit?url={u}&amp;title={t}"
+			},
+			technorati: {
+				name: "Technorati",
+				url: "http://www.technorati.com/faves?add={u}"
+			},
+			tumblr: {
+				name: "tumblr",
+				url: "http://www.tumblr.com/share?v=3&amp;u={u}&amp;t={t}"
+			},
+			twitter: {
+				name: "Twitter",
+				url: "http://twitter.com/home?status={t}%20{u}"
+			}
+		}
+	},
+
+	/*
+	* Init runs once per plugin element on the page. There may be multiple elements. 
+	* It will run more than once per plugin if you don't remove the selector from the timer.
+	* @method init
+	* @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	*/
+	init = function( event ) {
+		var elm = event.target,
+			sites = defaults.sites,
+			links = "<ul>",
+			$elm, pageHref, pageTitle, pageImage, pageDescription,
+			site, siteProperties, url;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+			pageHref = vapour.pageUrlParts.href;
+			pageTitle = encodeURIComponent( document.title || $document.find( "h1:first" ).text() );
+
+			// Placeholders until source(s) can be determined and implemented
+			pageImage = encodeURIComponent( "" ),
+			pageDescription = encodeURIComponent( "" );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Only initialize the i18nText once
+			if ( !i18nText ) {
+				i18n = window.i18n;
+				i18nText = {
+					disclaimer: i18n( "%shr-disc" )
+				};
+			}
+			
+			for ( site in sites ) {
+				siteProperties = sites[ site ];
+				url = siteProperties.url
+						.replace( /\{u\}/, pageHref )
+						.replace( /\{t\}/, pageTitle )
+						.replace( /\{i\}/, pageImage )
+						.replace( /\{d\}/, pageDescription );
+				links += "<li><a href='" + url + "' class='shr-lnk " + site + " btn btn-default'>" + siteProperties.name + "</a></li>";
+			}
+
+			links += "</ul><p>" + i18nText.disclaimer + "</p>";
+
+			$elm.append( links );
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-tables",
+	$document = vapour.doc,
+	i18n, i18nText, defaults,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			$elm;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Only initialize the i18nText once
+			if ( !i18nText ) {
+				i18n = window.i18n;
+				i18nText = {
+					oAria: {
+						sSortAscending: i18n( "%sortAsc" ),
+						sSortDescending: i18n( "%sortDesc" )
+					},
+					oPaginate: {
+						sFirst: i18n( "%first" ),
+						sLast: i18n( "%last" ),
+						sNext: i18n( "%nxt" ),
+						sPrevious: i18n( "%prv" )
+					},
+					sEmptyTable: i18n( "%emptyTbl" ),
+					sInfo: i18n( "%infoEntr" ),
+					sInfoEmpty: i18n( "%infoEmpty" ),
+					sInfoFiltered: i18n( "%infoFilt" ),
+					sInfoThousands: i18n( "%info1000" ),
+					sLengthMenu: i18n( "%lenMenu" ),
+					sLoadingRecords: i18n( "%load" ),
+					sProcessing: i18n( "%process" ),
+					sSearch: i18n( "%srch" ),
+					sZeroRecords: i18n( "%infoEmpty" )
+				};
+			}
+
+			defaults = {
+				asStripeClasses : [],
+				oLanguage: i18nText
+			};
+
+
+			Modernizr.load([{
+				load: [ "site!deps/jquery.dataTables" + vapour.getMode() + ".js" ],
+				complete: function() {
+					$elm.dataTable( $.extend( true, defaults, vapour.getData( $elm, "wet-boew" ) ) );
+				}
+			}]);
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+/*jshint unused: false */
+/*global console */
+(function ( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-tabs",
+	$document = vapour.doc,
+	i18n, i18nText,
+
+	/*
+	 * Plugin users can override these defaults by setting attributes on the html elements that the
+	 * selector matches.
+	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
+	 */
+	defaults = {
+		option1: true,
+		option2: false,
+		debug: false
+	},
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			$elm, modeJS, settings,	style, controls, tabs, defaultTab,
+			panels, defaultPanel;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+			modeJS = vapour.getMode() + ".js";
+
+			// Merge default settings with overrides from the selected plugin element. There may be more than one, so don't override defaults globally!
+			settings = $.extend( {}, defaults, $elm.data() );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Only initialize the i18nText once
+			if ( !i18nText ) {
+				i18n = window.i18n;
+				i18nText = {
+					prev: i18n( "%prv" ),
+					next: i18n( "%nxt" ),
+					play: i18n( "%play" ),
+					rotStart: i18n( "%tab-rot" ).on,
+					rotStop: i18n( "%tab-rot" ).off,
+					space: i18n( "%space" ),
+					hyphen: i18n( "%hyphen" )
+				};
+			}
+
+			// Use the carousel plugin to do the cycling
+			$elm.addClass( "wb-carousel" );
+			// Set up the clickable tabs
+			tabs = $elm.find( ".tabs li" );
+			defaultTab = $elm.find( ".tabs li.default" ).addClass( "active" );
+			// Set up the stacked panels
+			panels = $elm.children( ".tabs-panel" ).children();
+			panels.addClass( "item fade" );
+			defaultPanel = panels.filter( function( index ) {
+				return index === tabs.index( defaultTab );
+			} );
+			defaultPanel.addClass( "in" );
+			style = $elm.attr( "class" ).match( /tabs-style-(\d+)/ );
+			// style is something like ["tabs-style-2", "2", index: 25, input: "wet-boew-tabbedinterface tabs-style-2 cycle-slow animate slide-horz wb-carousel"]
+			if ( style && $.inArray( style[1], ["2","3","4","5","6"] ) > -1 ) {
+				controls = $( "<ul class='tabs-controls'><li class='tabs-toggle'><a class='prv' href='javascript:;' role='button'>&nbsp;&nbsp;&nbsp;<span class='wb-inv'>" +
+					i18nText.prev + "</span></a></li><li class='tabs-toggle'><a class='nxt' href='javascript:;' role='button'>&nbsp;&nbsp;&nbsp;<span class='wb-inv'>" +
+					i18nText.next + "</span></a></li><li class='tabs-toggle'><a class='plypause' href='javascript:;' role='button'>" +
+					i18nText.play + "<span class='wb-inv'>" + i18nText.space +
+					i18nText.hyphen + i18nText.space + i18nText.rotStart +
+					"</span></a></li></ul>" );
+				$elm.append( controls );
+			}
+			
+			$elm.trigger( "carousel.init.wb" );
+
+			// Bind the merged settings to the element node for faster access in other events.
+			$elm.data({ settings: settings });
+		}
+	};
+
+	// Bind the init event of the plugin
+	$document.on( "timerpoke.wb", selector, init );
+	
+	// Add the timer poke to initialize the plugin
+	window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, document, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-texthighlight",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	init = function( event ) {
+		var elm = event.target,
+			$elm, searchCriteria, newText;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+			$elm = $( elm );
+			searchCriteria = vapour.pageUrlParts.params.texthighlight;
+
+			// all plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			if ( searchCriteria ) {
+				// clean up the search criteria and OR each value
+				searchCriteria = searchCriteria.replace( /^\s+|\s+$|\|+|\"|\(|\)/g, "" ).replace( /\++/g, "|" );
+				searchCriteria = decodeURIComponent( searchCriteria );
+
+				// Make sure that we're not checking for text within a tag; only the text outside of tags.
+				searchCriteria = "(?=([^>]*<))([\\s'])?(" + searchCriteria + ")(?!>)";
+
+				newText = $elm.html().replace( new RegExp( searchCriteria, "gi" ), function( match, group1, group2, group3 ) {
+					return ( !group2 ? "" : group2 ) + "<span class='txthlt'><mark>" + group3 + "</mark></span>";
+				});
+				$elm.html( newText );
+			}
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb", selector, init );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, document, vapour );
+(function( $, window, vapour ) {
+"use strict";
+
+/* 
+ * Variable and function definitions. 
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-toggle",
+	$document = vapour.doc,
+	state = {},
+	stateOn = "on",
+	stateOff = "off",
+
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	init = function( event ) {
+		var link = event.target,
+			$link, selector;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === link ) {
+			$link = $( link );
+			selector = $link.data( "selector" );
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			// Initialize the aria-controls attribute of the link
+			if ( selector ) {
+				$link.trigger( "ariaControls.wb-toggle", {
+					selector: selector,
+					parent: $link.data( "parent" )
+				});
+			} else {
+				$.error(
+					".wb-toggle: you must specify a [data-selector] attribute with the CSS selector of the element(s) the toggle link controls."
+				);
+			}
+		}
+	},
+
+	/*
+	* Sets the aria-controls attribute for a given link element
+	* @param {jQuery Event} event The event that triggered this invocation
+	* @param {Object} data Simple key/value data object passed when the event was triggered
+	*/
+	setAriaControls = function( event, data ) {
+		var elm, i, len,
+			elms = data.parent !== undefined ? $( data.parent ).find( data.selector ) : $( data.selector ),
+			ariaControls = "",
+			link = event.target;
+
+		// Find the elements this link controls
+		for ( i = 0, len = elms.length; i < len; i++ ) {
+			elm = elms.eq( i );
+			if ( elm.attr( "id" ) === undefined ) {
+				elm.attr( "id", "wb-toggle_" + i );
+			}
+			ariaControls += elm.attr( "id" ) + " ";
+		}
+		link.setAttribute( "aria-controls", ariaControls.slice( 0, -1 ) );
+	},
+
+	/*
+	 * Click handler for the toggle links
+	 * @param {jQuery Event} event The event that triggered this invocation
+	 */
+	click = function( event ) {
+		var eventTarget = event.target,
+			$link = $( eventTarget );
+
+		$link.trigger( "toggle.wb-toggle", {
+			selector: $link.data( "selector" ),
+			parent: $link.data( "parent" ),
+			type: $link.data( "type" )
+		});
+
+		event.preventDefault();
+		
+		// Assign focus to eventTarget
+		$( eventTarget ).trigger( "focus.wb" );
+	},
+
+	/*
+	 * Toggles the elements a link controls between the on and off states.
+	 * @param {jQuery Event} event The event that triggered this invocation
+	 * @param {Object} data Simple key/value data object passed when the event was triggered
+	 */
+	toggle = function( event, data ) {
+		var $elms = data.parent !== undefined ? $( data.parent ).find( data.selector ) : $( data.selector ),
+
+			// Current state of elements
+			stateFrom = getState( data.selector, data.parent, data.type ),
+
+			// State to set the elements
+			stateTo = stateFrom === stateOn ? stateOff : stateOn;
+
+		// Update the element state and store the new state
+		$elms.wb( "toggle", stateTo, stateFrom );
+		setState( data.selector, data.parent, stateTo );
+	},
+
+	/*
+	 * Gets the current toggle state of a link given set of elements (based on selector and parent).
+	 * @param {String} selector CSS selector of the elements the link controls
+	 * @param {String} parent CSS selector of the parent DOM element the link is restricted to.
+	 * @param {String} type The type of link: undefined (toggle), "on" or "off"
+	 */
+	getState = function( selector, parent, type ) {
+
+		// No toggle type: get the current on/off state of the elements specified by the selector and parent
+		if ( !type ) {
+			if ( state.hasOwnProperty( selector ) ) {
+				return state[ selector ].hasOwnProperty( parent ) ?
+					state[ selector ][ parent ] :
+					state[ selector ].all;
+			}
+			return stateOff;
+		}
+
+		// Toggle type: get opposite state of the requested type. toggle will then reverse this to the requested state
+		return type === stateOn ? stateOff : stateOn;
+	},
+
+	/*
+	 * Sets the current toggle state of a links given set of elements (based on selector and parent)
+	 * @param {String} selector CSS selector of the elements the link controls
+	 * @param {String} parent CSS selector of the parent DOM element the link is restricted to.
+	 * @param {String} state Current state of the elements: "on" or "off"
+	 */
+	setState = function( selector, parent, state ) {
+		var prop;
+
+		// Check the selector object has been created
+		if ( !state[ selector ] ) {
+			state[ selector ] = {
+				all: stateOff
+			};
+		}
+
+		// If there's a parent, set its state
+		if ( parent ) {
+			state[ selector ][ parent ] = state;
+
+			// No parent means set all states for the given selector. This is
+			// because toggle links that apply to the entire DOM also affect
+			// links that are restricted by parent.
+		} else {
+			for ( prop in state[ selector ] ) {
+				if ( state[ selector ].hasOwnProperty( prop ) ) {
+					state[ selector ][ prop ] = state;
+				}
+			}
+		}
+	};
+
+// Bind the plugin's events
+$document.on( "timerpoke.wb ariaControls.wb-toggle toggle.wb-toggle click",	selector, function( event, data ) {
+	var eventType = event.type;
+
+	switch ( eventType ) {
+	case "click":
+		click( event );
+		break;
+	case "toggle":
+		toggle( event, data );
+		break;
+	case "ariaControls":
+		setAriaControls( event, data );
+		break;
+	case "timerpoke":
+		init( event );
+		break;
+	}
+});
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var selector = ".wb-twitter",
+	$document = vapour.doc,
+
+	/*
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === event.target ) {
+			var protocol = vapour.pageUrlParts.protocol;
+
+			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
+			window._timer.remove( selector );
+
+			Modernizr.load( {
+				load: ( protocol.indexOf( "http" ) === -1 ? "http:" : protocol ) + "//platform.twitter.com/widgets.js"
+			});
+		}
+	};
+
+$document.on( "timerpoke.wb", selector, init );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );
+
+(function( $, window, vapour ) {
+"use strict";
+
+/*
+ * Variable and function definitions.
+ * These are global to the event - meaning that they will be initialized once per page,
+ * not once per instance of event on the page.
+ */
+var selector = vapour.sDisabled,
+	$document = vapour.doc,
+
+	/*
+	 * createOffer runs once per plugin element on the page.
+	 * @method createOffer
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
+	createOffer = function( event ) {
+		var elm = event.target,
+			nQuery = "?",
+			$html = vapour.html,
+			i18n = window.i18n,
+			pageUrl = vapour.pageUrlParts,
+			li, param;
+
+		// Filter out any events triggered by descendants
+		if ( event.currentTarget === elm ) {
+
+			// Let remove ourselves from the queue we only run once
+			window._timer.remove( selector );
+
+			li = document.createElement( "li" );
+			li.className = "wb-slc";
+
+			// Rebuild the query string
+			for ( param in pageUrl.params ) {
+				if ( pageUrl.params.hasOwnProperty( param ) && param !== "wbdisable" ) {
+					nQuery += param + "=" + pageUrl.params[ param ] + "&#38;";
+				}
+			}
+
+			if ( vapour.isDisabled || ( vapour.ie && vapour.ielt7 ) ) {
+				$html.addClass( "no-js wb-disable" );
+				if ( localStorage ) {
+
+					// Store preference for WET plugins and polyfills to be disabled in localStorage
+					localStorage.setItem( "wbdisable", "true");
+				}
+
+				// Append the Standard version link
+				li.innerHTML = "<a class='wb-sl' href='" + nQuery + "wbdisable=false'>" + i18n( "%wb-enable" ) + "</a>";
+
+				// Add link to re-enable WET plugins and polyfills
+				elm.appendChild( li );
+				return true;
+			} else if ( localStorage ) {
+
+				// Store preference for WET plugins and polyfills to be enabled in localStorage
+				localStorage.setItem( "wbdisable", "false" );
+			}
+
+			// Append the Basic HTML version link version
+			li.innerHTML = "<a class='wb-sl' href='" + nQuery + "wbdisable=true'>" + i18n( "%wb-disable" ) + "</a>";
+			elm.appendChild( li ); // Add link to disable WET plugins and polyfills
+		}
+	};
+
+// Bind the events
+$document.on( "timerpoke.wb", selector, createOffer );
+
+// Add the timer poke to initialize the plugin
+window._timer.add( selector );
+
+})( jQuery, window, vapour );

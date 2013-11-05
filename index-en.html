@@ -1,1 +1,355 @@
-<!DOCTYPE html> <!--[if IE 8]><html class="no-js ie8" lang="en"><![endif]--> <!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]--> <head> <meta charset="utf-8"> <title>Web Experience Toolkit (WET) - Web Experience Toolkit (WET)</title> <link href="./assets/favicon.ico" rel="shortcut icon"> <meta content="width=device-width, initial-scale=1" name="viewport"> <meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities"/> <link rel="stylesheet" href="./css/base.min.css"> <link rel="stylesheet" href="./css/theme.min.css"> <!--[if IE 8]><script src="./js/ie8-vapour.min.js"></script><![endif]--> </head> <body vocab="http://schema.org/" typeof="WebPage"> <ul id="wb-tphp"> <li class="wb-slc"> <a class="wb-sl" href="#wb-cont">Skip to content</a> </li> <li class="wb-slc"> <a class="wb-sl" href="#wb-nav">Skip to footer</a> </li> </ul> <header role="banner"> <div id="wb-bnr"> <section id="wb-lng"> <h2>Language selection</h2> <div class="container"> <div class="row text-right"> <ul data-ajax-before="./ajax/mobmenu-en.txt" class="visible-md visible-lg"> <li> <a lang="fr" href="index-fr.html">Français</a> </li> <li class="curr"> English&#32;<span>(current)</span> </li> </ul> </div> </div> </section> <div class="container"> <div class="row"> <section id="wb-sttl" class="col-md-8"> <a href="index-en.html"> <object type="image/svg+xml" tabindex="-1" role="img" data="./assets/logo.svg" aria-label="Web Experience Toolkit (WET)"></object> <span>Web Experience Toolkit (WET) <small>Collaborative open source project led by the Government of Canada</small></span> </a> </section> <section id="wb-srch" class="col-md-4 visible-md visible-lg"> <h2>Search</h2> <form action="#" method="post" role="search" class="form-inline"> <div class="form-group"> <label for="wb-srch-q">Search website</label> <input id="wb-srch-q" class="form-control" name="wb-srch-q" type="search" value="" size="27" maxlength="150"/> </div> <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">Search</button> </form> </section> </div> </div> </div> <nav role="navigation" id="wb-sm" typeof="SiteNavigationElement"> <h2>Site menu</h2> <div class="container visible-md visible-lg nvbar"> <div class="row"> <ul class="list-inline menu"> <li><a href="/index-en.html">WET project</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a></li> </ul> </div> </div> </nav> </header> <main role="main" property="mainContentOfPage" class="container"> <div class="row"> <div class="col-md-12"> <h1 id="wb-cont" property="name">Web Experience Toolkit (WET)</h1> <h2 id="about">What is the Web Experience Toolkit?</h2> <ul> <li>Collaborative open source project led by the Government of Canada</li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Accolades#wiki-Awards">Award-winning</a> code library for building innovative websites that are: <ul> <li><a href="#accessibility">Accessible</a>, <a href="#usability">usable</a> and <a href="#interoperability">interoperable</a></li> <li><a href="#mobile-friendly-responsive-design">Mobile friendly</a></li> <li><a href="#multilingual">Multilingual</a></li> </ul> </li> <li><a href="#themeable-and-reusable">Flexible and themeable templates and reusable components</a></li> <li>Open source software <ul> <li>Free to use for commercial and non-commercial purposes (MIT license - <a href="http://wet-boew.github.io/wet-boew/License-en.html">Terms and conditions</a>)</li> <li><a href="#collaborative-approach">Developed openly by the community on GitHub</a></li> </ul> </li> </ul> </section> <section> <h2 id="key">Key resources</h2> <ul> <li><a href="#benefits">Benefits</a></li> <li><a href="demos/index-en.html">Working examples</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki#wiki-Documentation">Documentation</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Downloads">Downloads</a></li> <li><a href="https://github.com/wet-boew/wet-boew/">Main project</a></li> <li><a href="License-en.html">Terms and conditions</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contributor guidelines</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Versioning">Versioning</a></li> <li><a href="#version-history">Version history</a></li> <li><a href="https://github.com/wet-boew/wet-boew/wiki/Roadmap">Roadmap</a></li> </ul> </section> <section> <h2 id="benefits">Benefits</h2> <section> <h3 id="accessibility">Accessibility</h3> <ul> <li>Conforms to <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> level AA</li> <li>Leverages <a href="http://www.w3.org/TR/wai-aria/">WAI-ARIA</a> to further enhance accessibility</li> <li>Assistive technology testing (Access Working Group)</li> </ul> </section> <section> <h3 id="usability">Usability</h3> <ul> <li>Iterative approach to design</li> <li>Design patterns and usability testing (User Experience Working Group)</li> </ul> </section> <section> <h3 id="interoperability">Interoperability</h3> <ul> <li><a href="http://www.w3.org/TR/html5/">HTML5</a>-first approach (leveraging native HTML5 support and filling support gaps with “polyfills”)</li> <li>Supporting a wide variety of browsers (IE, Firefox, Chrome, Safari, Opera)</li> <li>Building support for HTML data (<a href="http://www.w3.org/TR/rdfa-lite/">RDFa 1.1 Lite</a>, <a href="http://www.schema.org/">Schema.org</a>)</li> </ul> </section> <section> <h3 id="mobile-friendly-responsive-design">Mobile friendly responsive design</h3> <ul> <li>Adapts to different screen sizes and device capabilities</li> <li>Touchscreen support (<a href="http://www.jquerymobile.com">jQuery Mobile</a>)</li> <li>Optimized for performance</li> <li>Building support for device-based mobile applications</li> </ul> </section> <section><h3 id="multilingual">Multilingual</h3> <ul> <li>Currently supports 33 languages (including right-to-left languages) <ul> <li>English</li> <li>French</li> <li>Afrikaans</li> <li>Albanian</li> <li>Arabic</li> <li>Armenian</li> <li>Bulgarian</li> <li>Chinese</li> <li>Chinese (Simplified)</li> <li>Czech</li> <li>Dutch</li> <li>Estonian</li> <li>German</li> <li>Greek</li> <li>Hindi</li> <li>Hungarian</li> <li>Icelandic</li> <li>Indonesian</li> <li>Italian</li> <li>Japanese</li> <li>Korean</li> <li>Latvian</li> <li>Lithuanian</li> <li>Polish</li> <li>Portuguese</li> <li>Portuguese (Brazilian)</li> <li>Russian</li> <li>Slovak</li> <li>Spanish</li> <li>Thai</li> <li>Turkish</li> <li>Ukranian</li> <li>Vietnamese</li> </ul> </li> </ul> </section> <section> <h3 id="themeable-and-reusable">Themeable and reusable</h3> <ul> <li>Flexible framework that supports custom themes</li> <li>Includes support for 5 different themes including a “Base” theme to use as a template</li> <li>Reusable templates, plugins and widgets</li> <li>Adapted to various CMS and programming frameworks (Drupal, WordPress, SharePoint (in development), DotNetNuke (in development), PHP, SSI and Java/Maven) </ul> </section> <section> <h3>Reduces costs by openly sharing and collaborating</h3> <ul> <li>Drives down research and development costs</li> <li>Avoids duplication of effort</li> <li>Produces better quality results</li> </ul> </section> <section> <h3 id="collaborative-approach">Collaborative approach</h3> <ul> <li>Project managed openly on GitHub, including discussion through the issues tracker</li> <li>Encouraging a free flow of ideas, dialogue and innovation including sharing of challenges and ideas</li> <li>External contributions welcome <ul> <li>Pull requests</li> <li>Design patterns</li> <li>Issues and suggestions</li> <li>Documentation</li> <li>Testing</li> </ul> <li>Multi-level review process for contributions to ensure code integrity (combination of automated and manual reviews)</li> </ul> </section> </section> <section> <h2 id="version-history">Version history</h2> <section> <h3>v3.1</h3> <ul> <li><a href="https://github.com/wet-boew/wet-boew/wiki/v3.1-changelog">v3.1 changelog</a></li> <li><strong>WET v3.1.4 was released on September 17, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.4-release-notes">v3.1.4 release notes</a>)</li> <li><strong>WET v3.1.3 was released on August 6, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.3-release-notes">v3.1.3 release notes</a>)</li> <li><strong>WET v3.1.2 was released on June 27, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.2-release-notes">v3.1.2 release notes</a>)</li> <li><strong>WET v3.1.1 was released on May 16, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.1-release-notes">v3.1.1 release notes</a>)</li> <li><strong>WET v3.1.0 was released on April 11, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-release-notes">v3.1.0 release notes</a>)</li> <li><strong>WET v3.1.0 Release Candidate 1 was released on April 3, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-Release-Candidate-1-release-notes">v3.1.0 Release Candidate 1 release notes</a>)</li> <li><strong>WET v3.1.0 Beta 2 was released on February 15, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-Beta-2-release-notes">v3.1.0 Beta 2 release notes</a>)</li> <li><strong>WET v3.1.0 Beta 1 was released on December 21, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-Beta-1-release-notes">v3.1.0 Beta 1 release notes</a>)</li> </ul> </section> <section> <h3>v3.0</h3> <ul> <li><a href="https://github.com/wet-boew/wet-boew/wiki/v3.0-changelog">v3.0 changelog</a></li> <li><strong>WET v3.0.10 was released on September 17, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.10-release-notes">v3.0.10 release notes</a>)</li> <li><strong>WET v3.0.9 was released on August 6, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.9-release-notes">v3.0.9 release notes</a>)</li> <li><strong>WET v3.0.8 was released on June 27, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.8-release-notes">v3.0.8 release notes</a>)</li> <li><strong>WET v3.0.7 was released on May 16, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.7-release-notes">v3.0.7 release notes</a>)</li> <li><strong>WET v3.0.6 was released on April 11, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.6-release-notes">v3.0.6 release notes</a>)</li> <li><strong>WET v3.0.5 was released on February 15, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.5-release-notes">v3.0.5 release notes</a>)</li> <li><strong>WET v3.0.4 was released on January 24, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.4-release-notes">v3.0.4 release notes</a>)</li> <li><strong>WET v3.0.3 was released on December 21, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.3-release-notes">v3.0.3 release notes</a>)</li> <li><strong>WET v3.0.2 was released on November 15, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.2-release-notes">v3.0.2 release notes</a>)</li> <li><strong>WET v3.0.1 was released on October 9, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.1-release-notes">v3.0.1 release notes</a>)</li> <li><strong>WET v3.0 was released on September 17, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/V3.0-release-notes">v3.0 release notes</a>)</li> </ul> </section> </div> </div> </main> <footer role="contentinfo" id="wb-nav" class="container"> <nav role="navigation" class="row"> <h2>Site Information</h2> <section class="col-sm-3"> <h3>About</h3> <ul class="list-unstyled"> <li><a href="/index-en.html#about">About the Web Experience Toolkit</a></li> <li><a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li> </ul> </section> <section class="col-sm-3"> <h3>Contact us</h3> <ul class="list-unstyled"> <li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li> </ul> </section> <section class="col-sm-3"> <h3>News</h3> <ul class="list-unstyled"> <li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li> <li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li> </ul> </section> <section class="col-sm-3"> <h3>Stay connected</h3> <ul class="list-unstyled"> <li><a href="https://twitter.com/WebExpToolkit">Twitter</a></li> </ul> </section> </nav> </footer> <!--[if gte IE 9 | !IE ]><!--> <script src="./js/jquery.min.js"></script> <script src="./js/vapour.min.js"></script> <!--<![endif]--> <script src="./js/wet-boew.min.js"></script> </body> </html>
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Web Experience Toolkit (WET) - Web Experience Toolkit (WET)</title>
+		<link href="./assets/favicon.ico" rel="shortcut icon">
+		<meta content="width=device-width, initial-scale=1" name="viewport">
+		<!-- Meta data -->
+		<meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities" />
+		<!-- Meta data-->
+		<link rel="stylesheet" href="./css/base.min.css">
+		<link rel="stylesheet" href="./css/theme.min.css">
+
+		<!-- IE8 Support -->
+		<!--[if IE 8]>
+		<script src="./js/ie8-vapour.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		<ul id="wb-tphp">
+			<li class="wb-slc">
+				<a class="wb-sl" href="#wb-cont">Skip to content</a>
+			</li>
+			<li class="wb-slc">
+				<a class="wb-sl" href="#wb-nav">Skip to footer</a>
+			</li>
+		</ul>
+		<header role="banner">
+			<div id="wb-bnr">
+				<section id="wb-lng">
+					<h2>Language selection</h2>
+					<div class="container">
+	<div class="row text-right">
+		<ul data-ajax-before="./ajax/mobmenu-en.txt" class="visible-md visible-lg">
+
+	
+			<li>
+				<a lang="fr" href="index-fr.html">Français</a>
+			</li>
+	
+
+			<li class="curr">
+				English&#32;<span>(current)</span>
+			</li>
+
+		</ul>
+	</div>
+</div>
+
+				</section>
+
+				<div class="container">
+					<div class="row">
+
+						<section id="wb-sttl" class="col-md-8">
+							<a href="index-en.html">
+	<object type="image/svg+xml" tabindex="-1" role="img" data="./assets/logo.svg" aria-label="Web Experience Toolkit (WET)"></object>
+	<span>Web Experience Toolkit (WET) <small>Collaborative open source project led by the Government of Canada</small></span>
+</a>
+
+						</section>
+
+						<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+							<h2>Search</h2>
+							<form action="#" method="post" role="search" class="form-inline">
+
+	<div class="form-group">
+		<label for="wb-srch-q">Search website</label>
+		<input id="wb-srch-q" class="form-control" name="wb-srch-q" type="search" value="" size="27" maxlength="150" />
+	</div>
+
+	<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">Search</button>
+
+</form>
+
+						</section>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-fetch="./ajax/sitemenu-en.txt" typeof="SiteNavigationElement"> -->
+			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
+				<h2>Site menu</h2>
+				
+<div class="container visible-md visible-lg nvbar">
+    <div class="row">
+        <ul class="list-inline menu">
+			<li><a href="/index-en.html">WET project</a></li>
+			<li><a href="https://github.com/wet-boew/wet-boew/wiki/Implementing-WET">Implement WET</a></li>
+			<li><a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contribute to WET</a></li>
+        </ul>
+    </div>
+</div>
+
+ 
+			</nav>
+
+		</header>
+
+		<main role="main" property="mainContentOfPage" class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 id="wb-cont" property="name">Web Experience Toolkit (WET)</h1>
+					
+<section>
+	<h2 id="about">What is the Web Experience Toolkit?</h2>
+	<ul>
+		<li>Collaborative open source project led by the Government of Canada</li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Accolades#wiki-Awards">Award-winning</a> code library for building innovative websites that are:
+			<ul>
+				<li><a href="#accessibility">Accessible</a>, <a href="#usability">usable</a> and <a href="#interoperability">interoperable</a></li>
+				<li><a href="#mobile-friendly-responsive-design">Mobile friendly</a></li>
+				<li><a href="#multilingual">Multilingual</a></li>
+			</ul>
+		</li>
+		<li><a href="#themeable-and-reusable">Flexible and themeable templates and reusable components</a></li>
+		<li>Open source software
+			<ul>
+				<li>Free to use for commercial and non-commercial purposes (MIT license - <a href="http://wet-boew.github.io/wet-boew/License-en.html">Terms and conditions</a>)</li>
+				<li><a href="#collaborative-approach">Developed openly by the community on GitHub</a></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h2 id="key">Key resources</h2>
+	<ul>
+		<li><a href="#benefits">Benefits</a></li>
+		<li><a href="demos/index-en.html">Working examples</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki#wiki-Documentation">Documentation</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Downloads">Downloads</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/">Main project</a></li>
+		<li><a href="License-en.html">Terms and conditions</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Contributor-guidelines">Contributor guidelines</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Versioning">Versioning</a></li>
+		<li><a href="#version-history">Version history</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/wiki/Roadmap">Roadmap</a></li>
+	</ul>
+</section>
+
+<section>
+	<h2 id="benefits">Benefits</h2>
+
+	<section>
+		<h3 id="accessibility">Accessibility</h3>
+		<ul>
+			<li>Conforms to <a href="http://www.w3.org/TR/WCAG20/">WCAG 2.0</a> level AA</li>
+			<li>Leverages <a href="http://www.w3.org/TR/wai-aria/">WAI-ARIA</a> to further enhance accessibility</li>
+			<li>Assistive technology testing (Access Working Group)</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3 id="usability">Usability</h3>
+		<ul>
+			<li>Iterative approach to design</li>
+			<li>Design patterns and usability testing (User Experience Working Group)</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3 id="interoperability">Interoperability</h3>
+		<ul>
+			<li><a href="http://www.w3.org/TR/html5/">HTML5</a>-first approach (leveraging native HTML5 support and filling support gaps with “polyfills”)</li>
+			<li>Supporting a wide variety of browsers (IE, Firefox, Chrome, Safari, Opera)</li>
+			<li>Building support for HTML data (<a href="http://www.w3.org/TR/rdfa-lite/">RDFa 1.1 Lite</a>, <a href="http://www.schema.org/">Schema.org</a>)</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3 id="mobile-friendly-responsive-design">Mobile friendly responsive design</h3>
+		<ul>
+			<li>Adapts to different screen sizes and device capabilities</li>
+			<li>Touchscreen support (<a href="http://www.jquerymobile.com">jQuery Mobile</a>)</li>
+			<li>Optimized for performance</li>
+			<li>Building support for device-based mobile applications</li>
+		</ul>
+	</section>
+
+	<section><h3 id="multilingual">Multilingual</h3>
+		<ul>
+			<li>Currently supports 33 languages (including right-to-left languages)
+				<ul>
+					<li>English</li>
+					<li>French</li>
+					<li>Afrikaans</li>
+					<li>Albanian</li>
+					<li>Arabic</li>
+					<li>Armenian</li>
+					<li>Bulgarian</li>
+					<li>Chinese</li>
+					<li>Chinese (Simplified)</li>
+					<li>Czech</li>
+					<li>Dutch</li>
+					<li>Estonian</li>
+					<li>German</li>
+					<li>Greek</li>
+					<li>Hindi</li>
+					<li>Hungarian</li>
+					<li>Icelandic</li>
+					<li>Indonesian</li>
+					<li>Italian</li>
+					<li>Japanese</li>
+					<li>Korean</li>
+					<li>Latvian</li>
+					<li>Lithuanian</li>
+					<li>Polish</li>
+					<li>Portuguese</li>
+					<li>Portuguese (Brazilian)</li>
+					<li>Russian</li>
+					<li>Slovak</li>
+					<li>Spanish</li>
+					<li>Thai</li>
+					<li>Turkish</li>
+					<li>Ukranian</li>
+					<li>Vietnamese</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3 id="themeable-and-reusable">Themeable and reusable</h3>
+		<ul>
+			<li>Flexible framework that supports custom themes</li>
+			<li>Includes support for 5 different themes including a “Base” theme to use as a template</li>
+			<li>Reusable templates, plugins and widgets</li>
+			<li>Adapted to various CMS and programming frameworks (Drupal, WordPress, SharePoint (in development), DotNetNuke (in development), PHP, SSI and Java/Maven)
+		</ul>
+	</section>
+
+	<section>
+		<h3>Reduces costs by openly sharing and collaborating</h3>
+		<ul>
+			<li>Drives down research and development costs</li>
+			<li>Avoids duplication of effort</li>
+			<li>Produces better quality results</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3 id="collaborative-approach">Collaborative approach</h3>
+		<ul>
+			<li>Project managed openly on GitHub, including discussion through the issues tracker</li>
+			<li>Encouraging a free flow of ideas, dialogue and innovation including sharing of challenges and ideas</li>
+			<li>External contributions welcome
+				<ul>
+					<li>Pull requests</li>
+					<li>Design patterns</li>
+					<li>Issues and suggestions</li>
+					<li>Documentation</li>
+					<li>Testing</li>
+				</ul>
+			<li>Multi-level review process for contributions to ensure code integrity (combination of automated and manual reviews)</li>
+		</ul>
+	</section>
+</section>
+
+<section>
+	<h2 id="version-history">Version history</h2>
+	<section>
+		<h3>v3.1</h3>
+		<ul>
+			<li><a href="https://github.com/wet-boew/wet-boew/wiki/v3.1-changelog">v3.1 changelog</a></li>
+			<li><strong>WET v3.1.4 was released on September 17, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.4-release-notes">v3.1.4 release notes</a>)</li>
+			<li><strong>WET v3.1.3 was released on August 6, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.3-release-notes">v3.1.3 release notes</a>)</li>
+			<li><strong>WET v3.1.2 was released on June 27, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.2-release-notes">v3.1.2 release notes</a>)</li>
+			<li><strong>WET v3.1.1 was released on May 16, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.1-release-notes">v3.1.1 release notes</a>)</li>
+			<li><strong>WET v3.1.0 was released on April 11, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-release-notes">v3.1.0 release notes</a>)</li>
+			<li><strong>WET v3.1.0 Release Candidate 1 was released on April 3, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-Release-Candidate-1-release-notes">v3.1.0 Release Candidate 1 release notes</a>)</li>
+			<li><strong>WET v3.1.0 Beta 2 was released on February 15, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-Beta-2-release-notes">v3.1.0 Beta 2 release notes</a>)</li>
+			<li><strong>WET v3.1.0 Beta 1 was released on December 21, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.1.0-Beta-1-release-notes">v3.1.0 Beta 1 release notes</a>)</li>
+		</ul>
+	</section>
+
+	<section>
+		<h3>v3.0</h3>
+		<ul>
+			<li><a href="https://github.com/wet-boew/wet-boew/wiki/v3.0-changelog">v3.0 changelog</a></li>
+			<li><strong>WET v3.0.10 was released on September 17, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.10-release-notes">v3.0.10 release notes</a>)</li>
+			<li><strong>WET v3.0.9 was released on August 6, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.9-release-notes">v3.0.9 release notes</a>)</li>
+			<li><strong>WET v3.0.8 was released on June 27, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.8-release-notes">v3.0.8 release notes</a>)</li>
+			<li><strong>WET v3.0.7 was released on May 16, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.7-release-notes">v3.0.7 release notes</a>)</li>
+			<li><strong>WET v3.0.6 was released on April 11, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.6-release-notes">v3.0.6 release notes</a>)</li>
+			<li><strong>WET v3.0.5 was released on February 15, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.5-release-notes">v3.0.5 release notes</a>)</li>
+			<li><strong>WET v3.0.4 was released on January 24, 2013</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.4-release-notes">v3.0.4 release notes</a>)</li>
+			<li><strong>WET v3.0.3 was released on December 21, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.3-release-notes">v3.0.3 release notes</a>)</li>
+			<li><strong>WET v3.0.2 was released on November 15, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.2-release-notes">v3.0.2 release notes</a>)</li>
+			<li><strong>WET v3.0.1 was released on October 9, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/v3.0.1-release-notes">v3.0.1 release notes</a>)</li>
+			<li><strong>WET v3.0 was released on September 17, 2012</strong> (<a href="https://github.com/wet-boew/wet-boew/wiki/V3.0-release-notes">v3.0 release notes</a>)</li>
+		</ul>
+	</section>
+
+				</div>
+
+			</div>
+		</main>
+
+		<!-- Secondary Menu
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+			<h2>Secondary menu</h2>
+			
+		</nav>
+		[optional] -->
+
+		<footer role="contentinfo" id="wb-nav" class="container">
+			<nav role="navigation" class="row">
+				<h2>Site Information</h2>
+				
+<section class="col-sm-3">
+	<h3>About</h3>
+	<ul class="list-unstyled">
+		<li><a href="/index-en.html#about">About the Web Experience Toolkit</a></li>
+                <li><a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+	</ul>
+</section>
+<section class="col-sm-3">
+	<h3>Contact us</h3>
+	<ul class="list-unstyled">
+		<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+	</ul>
+</section>
+<section class="col-sm-3">
+	<h3>News</h3>
+	<ul class="list-unstyled">
+		<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+			<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+	</ul>
+</section>
+<section class="col-sm-3">
+	<h3>Stay connected</h3>
+	<ul class="list-unstyled">
+		<li><a href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+	</ul>
+</section>
+
+ 
+			</nav>
+		</footer>
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/vapour.min.js"></script>
+		<!--<![endif]-->
+		<script src="./js/wet-boew.min.js"></script>
+		
+	</body>
+</html>

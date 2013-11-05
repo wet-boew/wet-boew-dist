@@ -1,0 +1,240 @@
+/*
+ *
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ *
+ */
+
+body {
+  background: #f9f9f9;
+}
+
+/* Shouldn't be needed. Only being used to override Bootstrap default colours which fails WCAG 2.0 contrast */
+
+a {
+  color: #295376;
+}
+
+/*
+ Default Mixins and namespace variables
+ */
+
+#wb-lng .curr span {
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute;
+  width: 0 !important;
+  margin: 0 !important;
+}
+
+.wb-sl {
+  background-color: black;
+  color: white;
+  font-weight: 700;
+}
+
+.wb-sl:focus {
+  color: white;
+  text-decoration: none;
+  /* Shouldn't be needed. Only here because Bootstrap forces an outline colour */
+  outline-color: white;
+}
+
+#wb-lng {
+  background: #474747;
+  color: white;
+  border-bottom: 1px solid white;
+  z-index: 1;
+  min-height: 2.2em;
+}
+
+#wb-lng .btn-group {
+  text-align: right;
+  margin: 5px 0;
+  float: right;
+}
+
+#wb-lng a {
+  color: white;
+  text-decoration: none;
+}
+
+#wb-lng ul {
+  float: right;
+  margin: 0;
+}
+
+#wb-lng ul li {
+  border-left: 1px solid #777777;
+  list-style-type: none;
+  float: left;
+  padding: 6px 10px;
+}
+
+#wb-lng ul li:first-child {
+  border-left: none;
+}
+
+#wb-lng .curr {
+  display: block;
+  color: #cccccc;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAYAAAB8ZH1oAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAA6SURBVAiZY/z//z8DMvj14+s+BgYGBjYObicUif///8Pxz+9f9v2HAigbLodVETbFOBWhK8arCFkxABifl5syjffvAAAAAElFTkSuQmCC) no-repeat scroll center bottom;
+}
+
+#wb-bnr {
+  background: #114f7a;
+  background: -webkit-gradient(linear, top left, bottom left, from(#176ca7), to(#114f7a));
+  background: -webkit-linear-gradient(#176ca7, #114f7a);
+  background: linear-gradient(#176ca7, #114f7a);
+}
+
+#wb-sttl a {
+  color: white;
+  font-size: 2.1em;
+  line-height: normal;
+  text-shadow: 1px 1px 1px #333333;
+  text-decoration: none;
+  display: table-row;
+}
+
+#wb-sttl span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#wb-sttl small {
+  display: block;
+  font-size: 0.4em;
+}
+
+#wb-sttl object {
+  height: 65px;
+  margin: 9px 15px 9px 0;
+  width: 141px;
+  float: left;
+}
+
+#wb-srch {
+  text-align: right;
+  padding-top: 2em;
+  padding-right: 10px;
+}
+
+#wb-srch .form-group {
+  width: 70%;
+}
+
+[lang=fr] #wb-srch .form-group {
+  width: 60%;
+}
+
+/*
+ Site menu
+ */
+
+#wb-sm {
+  background: none repeat scroll 0 0 #0e4164;
+  border-top: 1px solid #0b3048;
+}
+
+#wb-sm ul {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+
+#wb-sm ul li {
+  display: inline;
+  float: left;
+}
+
+#wb-sm ul li a {
+  border-left: 1px solid #0b3048;
+  border-right: 1px solid #135480;
+  color: white;
+  display: block;
+  padding: 0.8em;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  text-decoration: none;
+}
+
+#wb-sm ul li a:focus,
+#wb-sm ul li a:hover {
+  text-decoration: underline;
+}
+
+#wb-sm .menu {
+  display: table;
+  width: 100%;
+  margin: 0;
+}
+
+#wb-sm .menu > li {
+  display: table-cell;
+  padding: 0;
+}
+
+#wb-sm .menu li a:hover,
+#wb-sm .menu li a:focus,
+#wb-sm .menu li a:active {
+  background: #243850;
+}
+
+#wb-sm .menu li li a:hover,
+#wb-sm .menu li li a:focus,
+#wb-sm .menu li li a:active {
+  background: none;
+}
+
+#wb-sm .menu .expicon {
+  border-top-color: #bbbbbb;
+}
+
+/*
+ Breadcrumbs
+ */
+
+#wb-bc {
+  background: #f9f9f9;
+}
+
+#wb-bc ol {
+  background: white;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+#wb-bc ol> li+ li:before {
+  display: none;
+}
+
+#wb-bc li {
+  background: url("data:image/gif;base64,R0lGODlhBgAGAMQAAAAAAP///5aWlpCQkI+Pj42NjYyMjImJiYiIiIaGhoCAgHh4eHNzc25ubmxsbGhoaGdnZ2VlZWRkZFFRUQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAABMALAAAAAAGAAYAAAUa4MEsQmAiTjOYARFFiVlAkhIYknQESfSsgRAAOw==") no-repeat scroll 0 50%;
+  margin-right: 5px;
+  padding-left: 11px;
+  white-space: nowrap;
+}
+
+#wb-bc li:first-child {
+  background: none;
+  padding-left: 0;
+}
+
+/*
+ Main Element
+ */
+
+main {
+  background: white;
+  padding-bottom: 2em;
+}
+
+#wb-cont {
+  font-size: 2.25em;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 5px;
+  margin-top: 0.45em;
+}
