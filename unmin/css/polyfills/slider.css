@@ -160,7 +160,7 @@ input[type="range"] {
 
 .fd-slider-handle {
   background-color: transparent;
-  background-image: url(../assets/fd-slider-sprite.png);
+  background-image: url(../../js/assets/fd-slider-sprite.png);
   background-position: 0 0;
   cursor: W-resize;
   line-height: 20px;
