@@ -2508,6 +2508,10 @@ window._timer.add( selector );
 var selector = ".wb-menu",
 	$document = vapour.doc,
 
+	// Used for half second delay on showing/hiding menus because of mouse hover
+	hoverDelay = 500,
+	globalTimeout,
+
 /*
  * Lets leverage JS assigment deconstruction to reduce the code output
  * @method expand
@@ -2553,7 +2557,7 @@ drizzleAria = function( $elements ){
 	var length = $elements.length,
 		elm, subMenu, i;
 
-	// lets tweak for aria
+	// Lets tweak for aria
 	for ( i = 0; i <= length; i++ ) {
 		elm = $elements.eq( i );
 		subMenu = elm.siblings( ".sm" );
@@ -2606,10 +2610,10 @@ onAjaxLoaded = function( $elm, $ajaxed ) {
 			.removeAttr( "data-post-remove" );
 	}
 
-	// replace elements
+	// Replace elements
 	$elm.html( $ajaxed.html() );
 
-	// recalibrate context
+	// Recalibrate context
 	$elm.data({
 		self: $elm,
 		menu: $elm.find( "[role=menubar] .item" ),
@@ -2657,28 +2661,44 @@ onIncrement = function( $elm, event ) {
 
 /*
  * @method onReset
- * @param {jQuery DOM element} element The plugin element
+ * @param {jQuery DOM element} $elm The plugin element
+ * @param {boolean} cancelDelay Whether or not to delay the closing of the menus
  */
-onReset = function( $elm ) {
-	$elm.find( ".open, .active" ).removeClass( "open active" );
+onReset = function( $elm, cancelDelay ) {
+
+	// Clear the any timeouts for open/closing menus
+	clearTimeout( globalTimeout );
+
+	if ( cancelDelay ) {
+		$elm.find( ".open, .active" ).removeClass( "open active" );
+	} else {
+
+		// Delay the closing of the menus
+		globalTimeout = setTimeout( function() {
+			$elm.find( ".open, .active" ).removeClass( "open active" );
+		}, hoverDelay );
+	}
 },
 
 /*
  * @method onDisplay
- * @param {jQuery DOM element} element The plugin element
+ * @param {jQuery DOM element} $elm The plugin element
  * @param {jQuery event} event The current event
  */
 onDisplay = function( $elm, event ) {
 	var $item = event.ident;
 
-	// lets reset the menus to ensure no overlap
-	$elm.trigger({
-		type: "reset.wb-menu"
-	});
-	// add the open state classes
-	$item.addClass( "active" )
-		.find( ".sm" )
-		.addClass( "open" );
+	// Delay the opening/closing of the menus
+	globalTimeout = setTimeout( function() {
+
+		// Lets reset the menus with no delay to ensure no overlap
+		onReset( $elm, true );
+
+		// Add the open state classes
+		$item.addClass( "active" )
+			.find( ".sm" )
+			.addClass( "open" );
+	}, hoverDelay );
 },
 
 /*
@@ -2686,6 +2706,10 @@ onDisplay = function( $elm, event ) {
  * @param {jQuery event} event The current event
  */
 onHoverFocus = function( event ) {
+
+	// Clear the any timeouts for open/closing menus
+	clearTimeout( globalTimeout );
+
 	var ref = expand( event.target ),
 		$container = ref[ 0 ],
 		$elm = ref[ 3 ];
@@ -2697,7 +2721,7 @@ onHoverFocus = function( event ) {
 };
 
 // Bind the events of the plugin
-$document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.wb-menu reset.wb-menu display.wb-menu", selector, function( event ) {
+$document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.wb-menu display.wb-menu", selector, function( event ) {
 	var elm = event.target,
 		eventType = event.type,
 		$elm = $( elm );
@@ -2733,10 +2757,6 @@ $document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.
 		if ( !$elm.hasClass( "wb-menu" ) ) {
 			$elm = $elm.closest( ".wb-menu" );
 		}
-		onReset( $elm );
-		break;
-
-	case "reset":
 		onReset( $elm );
 		break;
 
