@@ -5,13 +5,6 @@
 
 /* Details/summary polyfill */
 
-/* <details> and <summary> are block level elements */
-
-summary,
-details[open] {
-  display: block;
-}
-
 summary {
   cursor: pointer;
   /* Apply a pointer cursor upon hover to indicate it’s a clickable element. These styles can be applied regardless of whether the fallback is needed */
@@ -27,6 +20,10 @@ summary:focus {
 details> summary:before {
   /* Add the closed pointer */
   content: "\25BA\a0";
+}
+
+details[open] {
+  display: block;
 }
 
 details[open]> summary:before {
