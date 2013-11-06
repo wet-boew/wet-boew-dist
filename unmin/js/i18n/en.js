@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-05
+ - v4.0.0-a1-development - 2013-11-06
 */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
@@ -156,7 +156,7 @@ var ind = {
 	"%st-to-msg-bgn": "Your session will expire automatically in #min# min #sec# sec.",
 	"%st-to-msg-end": "Select \"Continue session\" to extend your session.",
 	"%st-msgbx-ttl": "Session timeout warning",
-	"%st-alrdy-to-msg": "Sorry your session has already expired. Please login again.",
+	"%st-alrdy-to-msg": "Sorry your session has already expired. Please sign in again.",
 	"%st-btn-cont": "Continue session",
 	"%st-btn-end": "End session now",
 	/* Toggle details */
