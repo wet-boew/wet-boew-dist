@@ -9186,8 +9186,21 @@ table.dataTable tfoot th {
   font-weight: 700;
 }
 
-table.dataTable thead th {
+.sorting,
+.sorting_asc,
+.sorting_desc,
+.sorting_asc_disabled,
+.sorting_desc_disabled {
   cursor: pointer;
+}
+
+.sorting,
+.sorting_asc,
+.sorting_desc,
+.sorting_asc_disabled,
+.sorting_desc_disabled {
+  padding-left: 10px;
+  padding-right: 18px;
 }
 
 table.dataTable {
