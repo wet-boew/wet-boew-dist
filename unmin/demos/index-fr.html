@@ -77,7 +77,7 @@
 		<input id="wb-srch-q" class="form-control" name="wb-srch-q" type="search" value="" size="27" maxlength="150" />
 	</div>
 
-	<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">Recherche</button>
+	<button type="submit" id="wb-srch-sub" class="btn btn-small" name="wb-srch-sub">Recherche</button>
 
 </form>
 
@@ -87,11 +87,10 @@
 				</div>
 			</div>
 
-			<!-- <nav role="navigation" id="wb-sm" class="wb-menu" data-ajax-fetch="../ajax/sitemenu-fr.html" typeof="SiteNavigationElement"> -->
-			<nav role="navigation" id="wb-sm" typeof="SiteNavigationElement">
-				<h2>Menu du site</h2>
+			<nav role="navigation" id="wb-sm" data-ajax-fetch="../ajax/sitemenu-fr.html" data-post-remove="remove after init" class="wb-menu remove after init" typeof="SiteNavigationElement">
 				
  <div class="container visible-md visible-lg nvbar">
+	<h2>Menu du site</h2>
     <div class="row">
         <ul class="list-inline menu">
 			<li><a href="/index-fr.html">Projet de la BOEW</a></li>

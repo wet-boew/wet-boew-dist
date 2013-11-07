@@ -8022,6 +8022,11 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
  Menu Sass
  */
 
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
 .wb-menu .menu> li a:hover,
 .wb-menu .menu> li a:focus,
 .wb-menu .active> a {
@@ -8037,6 +8042,12 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   left: 0.75em;
   position: relative;
   top: 0.75em;
+}
+
+.wb-menu {
+  /*
+	Mobile view
+	*/
 }
 
 .wb-menu .sm {
@@ -8080,6 +8091,53 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 .wb-menu .sm-open .expicon {
   border-color: transparent !important;
+}
+
+@media screen and (max-width: 991px) {
+  .wb-menu {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: -100%;
+    display: block !important;
+  }
+
+  .wb-menu:target {
+    width: 75%;
+    right: 0;
+  }
+
+  .wb-menu:target .container {
+    display: block !important;
+  }
+
+  .wb-menu .nav-close {
+    text-align: right;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+  }
+
+  .wb-menu .menu {
+    display: block;
+  }
+
+  .wb-menu .menu> li {
+    display: block;
+  }
+
+  .wb-menu .menu> li a {
+    text-align: left;
+  }
+
+  .wb-menu .sm,
+  .wb-menu .sm.open {
+    display: block;
+    position: relative;
+    z-index: auto;
+    text-transform: none;
+    top: auto;
+    min-width: 0;
+  }
 }
 
 /*
