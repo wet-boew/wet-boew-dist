@@ -7123,6 +7123,11 @@ a + .wb-st-nav h2,
   padding: 5px;
 }
 
+q:before,
+q:after {
+  content: "";
+}
+
 /*
   WET-BOEW
   @title: Bootstrap overrides for WET-BOEW
