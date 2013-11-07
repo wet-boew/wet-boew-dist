@@ -130,7 +130,7 @@ a {
 
 /*
  Site menu
- */
+*/
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -265,7 +265,7 @@ a {
     background: transparent;
   }
 
-  #wb-sm .menu > li:last-child a {
+  #wb-sm .menu> li:last-child a {
     border: none;
   }
 
