@@ -8022,12 +8022,21 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
  Menu Sass
  */
 
+.wb-menu .menu> li a:hover,
+.wb-menu .menu> li a:focus,
+.wb-menu .active> a {
+  text-decoration: none;
+}
+
 .expicon {
   width: 0;
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid white;
+  left: 0.75em;
+  position: relative;
+  top: 0.75em;
 }
 
 .wb-menu .sm {
@@ -8038,8 +8047,39 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 }
 
 .wb-menu .sm.open {
-  display: block;
   max-height: 1000px;
+  display: inline;
+  position: absolute;
+  z-index: 100;
+  text-transform: none;
+  top: auto;
+}
+
+.wb-menu .sm.open li {
+  display: block;
+}
+
+.wb-menu .sm.open li a {
+  text-align: left;
+}
+
+.wb-menu .menu {
+  display: table;
+  position: relative;
+}
+
+.wb-menu .menu> li {
+  position: relative;
+  display: table-cell;
+}
+
+.wb-menu .menu> li a {
+  text-align: center;
+  display: block;
+}
+
+.wb-menu .sm-open .expicon {
+  border-color: transparent !important;
 }
 
 /*
