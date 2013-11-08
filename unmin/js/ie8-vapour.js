@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-07
+ - v4.0.0-a1-development - 2013-11-08
 */
 /*!
  * jQuery JavaScript Library v1.10.2
@@ -11819,7 +11819,6 @@ var getUrlParts = function( url ) {
 		doc: $( document ),
 		win: $( window ),
 		html: $( "html" ),
-		sDisabled: "#wb-tphp",
 		pageUrlParts: currentpage,
 		getUrlParts: getUrlParts,
 		isDisabled : disabled,
@@ -11929,9 +11928,9 @@ window._timer = {
 	nodes: $(),
 
 	add: function( selector ) {
-	
+
 		// Lets ensure we are not running if things are disabled
-		if ( vapour.isDisabled && selector !== vapour.sDisabled ) {
+		if ( vapour.isDisabled && selector !== "#wb-tphp" ) {
 			return 0;
 		}
 

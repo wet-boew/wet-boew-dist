@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-07
+ - v4.0.0-a1-development - 2013-11-08
 */
 (function( $ ) {
 	vapour.getData = function( element, dataName ) {
@@ -5122,7 +5122,7 @@ window._timer.add( selector );
  * These are global to the event - meaning that they will be initialized once per page,
  * not once per instance of event on the page.
  */
-var selector = vapour.sDisabled,
+var selector = "#wb-tphp",
 	$document = vapour.doc,
 
 	/*
