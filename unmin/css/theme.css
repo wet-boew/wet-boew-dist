@@ -217,6 +217,10 @@ a {
   margin-right: 5px;
 }
 
+#wb-sm #wb-sec-p {
+  display: none;
+}
+
 @media screen and (max-width: 991px) {
   #wb-sm {
     background: #dddddd;
@@ -273,6 +277,16 @@ a {
     border-bottom: 1px solid #dddddd;
     border-top: 1px solid white;
     background: #eeeeee;
+  }
+
+  #wb-sm #wb-sec-p {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #wb-sec {
+    display: none;
   }
 }
 

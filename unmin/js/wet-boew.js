@@ -2391,9 +2391,9 @@ onInit = function( $elm ) {
 			element: $elm,
 			fetch: $elm.data( "ajax-fetch" )
 		});
+	} else {
+		$elm.trigger( "loaded.wb-menu" );
 	}
-
-	//anything else
 },
 
 /*
@@ -2469,6 +2469,18 @@ onAjaxLoaded = function( $elm, $ajaxed ) {
 		items: $elm.find( ".sm" )
 	});
 
+	$elm.trigger( "loaded.wb-menu" );
+},
+
+/*
+ * Adds the secondary menu to the medium view (and below) menu panel
+ * @method onMenuLoaded
+ */
+onMenuLoaded = function() {
+	var $wbsec = $( "#wb-sec" );
+	if ( $wbsec.length !== 0 ) {
+		$( this ).find( ".nav-close" ).after( $wbsec.clone().attr( "id", "wb-sec-p" ) );
+	}
 },
 
 /*
@@ -2567,7 +2579,7 @@ onHoverFocus = function( event ) {
 		$elm = ref[ 3 ];
 
 	if ( $container ) {
-	
+
 		// Clear the any timeouts for open/closing menus
 		clearTimeout( globalTimeout[ $container.attr( "id" ) ] );
 
@@ -2577,6 +2589,18 @@ onHoverFocus = function( event ) {
 			cancelDelay: event.type === "focusin"
 		});
 	}
+},
+
+/*
+ * Causes virtual clicks on menu items to open submenus
+ * @method onVirtualClick
+ * @param {jQuery event} event The current event
+ */
+onVirtualClick = function( event ) {
+	if ( $( "#wb-sm" ).find( ".nav-close:visible" ) ) {
+		event.preventDefault();
+		$( this ).trigger( "focusin" );
+	}
 };
 
 // Bind the events of the plugin
@@ -2584,7 +2608,7 @@ $document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.
 	var elm = event.target,
 		eventType = event.type,
 		$elm = $( elm );
-	
+
 	switch ( eventType ) {
 	case "ajax-fetched":
 
@@ -2611,7 +2635,7 @@ $document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.
 		break;
 
 	case "mouseleave":
-	
+
 		// Make sure we are dealing with the top level container
 		if ( !$elm.hasClass( "wb-menu" ) ) {
 			$elm = $elm.closest( ".wb-menu" );
@@ -2637,6 +2661,11 @@ $document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.
 	return true;
 });
 
+// Post processing for the site menu once it's finished loading
+$document.on( "loaded.wb-menu", "#wb-sm", onMenuLoaded );
+
+// Virtual clicks on menu items should open submenus
+$document.on( "vclick", selector + " .item", onVirtualClick );
 
 /*
  * Menu Keyboard bindings
@@ -2664,7 +2693,7 @@ $document.on( "keydown", selector + " .item", function( event ) {
 			$parent = $elm.parent();
 			$subMenu = $parent.find( ".sm" );
 			$goto = $subMenu.find( "a" ).first();
-			
+
 			// Open the submenu if it is not already open
 			if ( !$subMenu.hasClass( "open" ) ) {
 				$container.trigger({
