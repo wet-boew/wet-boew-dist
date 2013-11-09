@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-08
+ - v4.0.0-a1-development - 2013-11-09
 */
 (function( $ ) {
 	vapour.getData = function( element, dataName ) {
@@ -3535,7 +3535,7 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 				Math.round( currentTime / eventTarget.player( "getDuration" ) * 1000 ) / 10
 			);
 
-		$this.find( ".wb-mm-tline-current span" )
+		$this.find( ".wb-mm-tmln-crrnt span" )
 			.text( formatTime( currentTime ) );
 
 		if ( $.data( eventTarget, "captions" ) !== undef ) {
@@ -3545,6 +3545,11 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 				$.data( eventTarget, "captions" )
 			);
 		}
+		break;
+
+	case "durationchange":
+		$this.find( ".wb-mm-tmln-ttl span" )
+			.text( formatTime( eventTarget.player( "getDuration" ) ) );
 		break;
 
 	case "captionsloaded":

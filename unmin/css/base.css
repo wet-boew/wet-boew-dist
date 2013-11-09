@@ -8413,7 +8413,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
  */
 
 .wb-mltmd {
-  color: white;
   display: block;
   /*
 	  Light Skinning of mediacontrols
@@ -8501,18 +8500,19 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 }
 
 .wb-mltmd.skn-lt {
-  color: black !important;
+  color: black;
   border-bottom: 1px solid #dddddd;
 }
 
 .wb-mltmd.skn-lt .wb-mm-ctrls {
   background: white;
+  color: black;
 }
 
 .wb-mltmd.skn-lt .btn {
   background: white;
+  color: black;
   border: 0;
-  color: black !important;
 }
 
 .wb-mm-cc {
@@ -8533,36 +8533,39 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 .wb-mm-ctrls {
   display: table;
   background: black;
+  color: white;
   position: relative;
   width: 100%;
+  /* Progress Bar */
+}
+
+.wb-mm-ctrls .frstpnl,
+.wb-mm-ctrls .lastpnl,
+.wb-mm-ctrls .tline {
+  vertical-align: middle;
+  display: table-cell;
 }
 
 .wb-mm-ctrls .frstpnl {
-  width: 10em;
-  vertical-align: top;
-  display: table-cell;
+  width: 6em;
 }
 
 .wb-mm-ctrls .lastpnl {
   text-align: right;
-  width: 7em;
-  display: table-cell;
-  vertical-align: top;
-}
-
-.wb-mm-ctrls .tline {
-  display: table-cell;
-  vertical-align: top;
-  padding-top: 0.55em;
-  /* Progress Bar */
+  width: 4em;
 }
 
 .wb-mm-ctrls .tline .textonly p {
   display: inline !important;
   float: left;
+  margin: 0;
 }
 
-.wb-mm-ctrls .tline progress {
+.wb-mm-ctrls .tline .textonly p:last-child {
+  float: right;
+}
+
+.wb-mm-ctrls progress {
   width: 100%;
   height: 14px;
   display: block;
@@ -8572,12 +8575,12 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   /* Now the value part */
 }
 
-.wb-mm-ctrls .tline progress::-webkit-progress-bar,
-.wb-mm-ctrls .tline progress::-moz-progress-bar {
+.wb-mm-ctrls progress::-webkit-progress-bar,
+.wb-mm-ctrls progress::-moz-progress-bar {
   background: white;
 }
 
-.wb-mm-ctrls .tline progress::-webkit-progress-value {
+.wb-mm-ctrls progress::-webkit-progress-value {
   background: #176ca7;
 }
 
