@@ -8307,9 +8307,10 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid white;
-  left: 0.75em;
   position: relative;
+  left: 0.75em;
   top: 0.75em;
+  margin-right: 5px;
 }
 
 .wb-menu {
@@ -8406,6 +8407,17 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
     top: auto;
     min-width: 0;
   }
+}
+
+[dir=rtl] .wb-menu .menu {
+  padding-right: 0;
+}
+
+[dir=rtl] .expicon {
+  left: auto;
+  right: 0.75em;
+  margin-right: 0;
+  margin-left: 5px;
 }
 
 /*
