@@ -3,4 +3,4 @@
  - v4.0.0-a1-development - 2013-11-10
 */
 
-details> *{display:block!important}.datepicker-format{display:inline}
+.wb-fdbck #fbweb,.wb-fdbck #fbmob,.wb-fdbck #fbcomp,.wb-fdbck #fbinfo{display:block}details> *{display:block!important}.datepicker-format{display:inline}

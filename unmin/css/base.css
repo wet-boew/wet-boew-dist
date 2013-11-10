@@ -8664,29 +8664,22 @@ div.errCnt ul li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.wb-feedback #web,
-.wb-feedback #mobile,
-.wb-feedback #computer,
-.wb-feedback #info {
+.wb-fdbck #fbweb,
+.wb-fdbck #fbmob,
+.wb-fdbck #fbcomp,
+.wb-fdbck #fbinfo {
   display: none;
 }
 
-.no-js .wb-feedback #web,
-.no-js .wb-feedback #mobile,
-.no-js .wb-feedback #computer,
-.no-js .wb-feedback #info {
-  display: block;
-}
-
-.wb-feedback #web label[for=otherprob] {
+.wb-fdbck #fbweb label[for=fbop] {
   display: inline;
 }
 
-.wb-feedback #complete {
+.wb-fdbck #fbcmplt {
   text-align: center;
 }
 
-.wb-feedback #complete p strong {
+.wb-fdbck #fbcmplt p strong {
   font-size: 110%;
 }
 
