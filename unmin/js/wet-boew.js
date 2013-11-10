@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-09
+ - v4.0.0-a1-development - 2013-11-10
 */
 (function( $ ) {
 	vapour.getData = function( element, dataName ) {
@@ -2589,14 +2589,25 @@ onHoverFocus = function( event ) {
 },
 
 /*
- * Causes clicks on panel menu items to open submenus
+ * Causes clicks on panel menu items to open and close submenus (except for mouse)
  * @method onPanelClick
  * @param {jQuery event} event The current event
  */
 onPanelClick = function( event ) {
-	if ( $( "#wb-sm" ).find( ".nav-close" ).is( ":visible" ) ) {
+	var which = event.which,
+		$this;
+
+	if ( which === 1 ) {
 		event.preventDefault();
-		$( this ).trigger( "focusin" );
+	} else if ( !which ) {
+		event.preventDefault();
+		$this = $( this );
+		if ( $( "#wb-sm" ).find( ".nav-close" ).is( ":visible" ) ) {
+			$this.trigger( "focusin" );
+		} else if ( !which ) {
+			event.preventDefault();
+			onReset( $this, true );
+		}
 	}
 };
 
@@ -2665,7 +2676,7 @@ $document.on( "click vclick", selector + " .item", onPanelClick );
 /*
  * Menu Keyboard bindings
  */
-$document.on( "mouseover focusin", selector + " .item", onHoverFocus );
+$document.on( "mouseover focusin", selector + " .item[aria-haspopup]", onHoverFocus );
 
 $document.on( "keydown", selector + " .item", function( event ) {
 	var elm = event.target,
