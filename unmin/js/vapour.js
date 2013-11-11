@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-10
+ - v4.0.0-a1-development - 2013-11-11
 */
 /* Modernizr (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-elem_details-load-mq-css3-input-inputtypes-cssclasses-csstransitions-fontface-backgroundsize-borderimage-teststyles-testprops-testallprops-hasevents-prefixes-domprefixes
@@ -273,6 +273,13 @@ window._timer = {
 	}
 };
 
+// @TODO: Upstream Modernizr Tests to remove after Modernizr v3.0 release
+// Tests for progressbar-support. All browsers that don't support progressbar returns undefined =)
+Modernizr.addTest( "progressbar", document.createElement( "progress" ).max !== undef );
+
+// Tests for meter-support. All browsers that don't support meters returns undefined =)
+Modernizr.addTest( "meter", document.createElement( "meter" ).max !== undef );
+
 /*-----------------------------
  * Modernizr Polyfill Loading
  *-----------------------------*/
@@ -312,7 +319,7 @@ Modernizr.load([
 			}
 		}
 	}, {
-		test: Modernizr.progress,
+		test: Modernizr.progressbar,
 		nope: [
 			"plyfll!progress.min.js",
 			"plyfll!progress.min.css"
