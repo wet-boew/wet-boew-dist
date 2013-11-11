@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "lv",
-	"%lang-en": "Latvian",
-	"%lang-fr": "letton",
 	"%lang-nat": "Latviešu valoda",
 	"%all": "Visi",
-	"%home": "Sākums",
-	"%main-page": "Galvenā",
 	"%tphp": "Lapas augša",
-	"%you-are-in": "Jūs esat:",
-	"%welcome-to": "Laipni lūgti:",
 	"%load": "ielādēšana ...",
 	"%process": "pārstrādes ...",
 	"%srch": "Meklēt",
-	"%srch-terms": "Meklēt terminu:",
 	"%no-match": "Atbilstība nav atrasta",
 	"%matches": {
 		"mixin": "[MIXIN] atbilstība(s) nav atrasta(s)"
 	},
-	"%menu": "Izvēlne",
-	"%settings": "Iestatījumi",
-	"%langs": "Valodas",
-	"%about": "Par",
 	"%curr": "(pašreizējais)",
 	"%hide": "Slēpt",
 	"%err": "Kļūda",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Pārtraukt",
 	"%back": "Atpakaļ",
 	"%cancel": "Atcelt",
-	"%new-win": " (atveras jaunā logā)",
 	"%min-ago": "pirms minūtes",
 	"%coup-mins": "pirms dažām minūtēm",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Aizvērt (escape taustiņu)",
 	"%show": "Rādīt",
 
-	/* Archived Web page template */
-	"%arch-pg": "Šī mājas lapa ir arhivēta.",
-	/* Menu bar */
-	"%sm-hlp": "(atvērt apakšizvēlni ar enter taustiņu un aizvērt ar escape taustiņu)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Pārtraukt rotāciju",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Ieslēgt audio aprakstu",
 		"off": "Izslēgt audio aprakstu"
 	},
-	"%prog-bar": "Lietot taustiņus kreisā bulta un labā bultiņa, lai patītu uz priekšu vai atgrieztos",
-	"%no-video": "Jūsu tīmekļa pārlūks nespēj parādīt šo video, lūdzu lejuplādejiet  video lejāk",
 	"%pos": "Šobdrīdējā pozīcija:",
-	"%perc": "Atskaņošana procentos:",
 	"%dur": "Kopējais laiks:",
-	"%buff": "Īslaicīgā atmiņā:",
 	/* Share widget */
-	"%fav": "Vēlamā saite",
-	"%email": "e-pasts",
 	"%shr-txt": "Ieteikt šo lapu",
 	"%shr-hnt": " ar {s} ",
-	"%shr-email-sub": "Interesanta lapa",
-	"%shr-email-bd": "Šī lapa var jūs interesēt:\n{t} ({u})",
-	"%shr-fav-ttl": "(grāmatzīmi šo lapu)",
-	"%shr-man": "Lūdzu aizveriet šo dialogu un spiediet Ctrl+D, lai pievienotu grāmatzīmi.",
-	"%shr-all": "Rādīt visu ({n})",
-	"%shr-all-ttl": "Visas atzīmējamās lapas",
 	"%shr-disc": "Neviena jebkuru produktu vai pakalpojumu apstiprināšanu vai ietverta.",
 	/* Form validation */
 	"%frm-nosubmit": "Formu nav iespējams iesniegt, jo ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Iet uz",
 	"%prvMnth": "Iepriekšējais mēnesis: ",
 	"%nxtMnth": "Nākošais mēnesis: ",
-	/* Slideout */
-	"%show-toc": "Parādīt satura",
-	"%hide-toc": "Slēpt satura",
-	"%toc": "saturs",
 	/* Lightbox */
 	"%lb-curr": "Vienums %curr% no %total%",
 	"%lb-xhr-err": "Šo saturu nevar ielādēt",

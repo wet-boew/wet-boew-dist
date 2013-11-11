@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "es",
-	"%lang-en": "Spanish",
-	"%lang-fr": "espagnol",
 	"%lang-nat": "Español",
 	"%all": "Todo",
-	"%home": "Página de inicio",
-	"%main-page": "Página principal",
 	"%tphp": "Arriba",
-	"%you-are-in": "Usted está en:",
-	"%welcome-to": "Bienvenido a:",
 	"%load": "cargando …",
 	"%process": "en proceso …",
 	"%srch": "Búsqueda",
-	"%srch-terms": "Buscar por palabra(s):",
 	"%no-match": "0 resultados encontrados",
 	"%matches": {
 		"mixin": "[MIXIN] resultado(s) encontrados"
 	},
-	"%menu": "Menú",
-	"%settings": "Configuración",
-	"%langs": "Idiomas",
-	"%about": "Acerca de",
 	"%curr": "(actual)",
 	"%hide": "Ocultar",
 	"%err": "Error",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Detener",
 	"%back": "Volver",
 	"%cancel": "Cancelar",
-	"%new-win": " (Abre en una nueva ventana)",
 	"%min-ago": "hace un minuto",
 	"%coup-mins": "hace algunos minutos",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Cerrar (tecla \"esc\")",
 	"%show": "Mostrar",
 
-	/* Archived Web page template */
-	"%arch-pg": "Esta página ha sido archivada en la web.",
-	/* Menu bar */
-	"%sm-hlp": "(pulse \"enter\" para abrir el submenú y ciérrelo con la tecla \"esc\")",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Detener rotación de pestañas",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Habilitar audio descripción ",
 		"off": "Deshabilitar audio descripción"
 	},
-	"%prog-bar": "Usar las flechas IZQUIERDA y DERECHA para avanzar o retroceder la presentación multimedia",
-	"%no-video": "Su navegador no es compatible con este video, por favor descargue el video que aparece abajo",
 	"%pos": "Posición actual:",
-	"%perc": "Porcentaje de reproducción:",
 	"%dur": "Tiempo total:",
-	"%buff": "Almacenado en memoria intermedia:",
 	/* Share widget */
-	"%fav": "Favorito",
-	"%email": "Correo electrónico",
 	"%shr-txt": "Compartir esta página",
 	"%shr-hnt": " con {s} ",
-	"%shr-email-sub": "Página de interés",
-	"%shr-email-bd": "Pienso que te podría interesar esta página:\n{t} ({u})",
-	"%shr-fav-ttl": "(marcar página como favorita)",
-	"%shr-man": "Cierre esta notificación y presione Ctrl-D para marcar esta página como favorita.",
-	"%shr-all": "Mostrar todo ({п})",
-	"%shr-all-ttl": "Todos los sitios marcados como favoritos",
 	"%shr-disc": "No implica la promoción ni recomendación de ningún producto o servicio.",
 	/* Form validation */
 	"%frm-nosubmit": "El formulario no pudo ser enviado debido a ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Ir",
 	"%prvMnth": "Mes anterior: ",
 	"%nxtMnth": "Mes siguiente: ",
-	/* Slideout */
-	"%show-toc": "Mostrar el índice",
-	"%hide-toc": "Ocultar el índice",
-	"%toc": "índice",
 	/* Lightbox */
 	"%lb-curr": "Artículo %curr% de %total%",
 	"%lb-xhr-err": "Este contenido no pudo ser cargado.",

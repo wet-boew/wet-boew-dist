@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "fr",
-	"%lang-en": "French",
-	"%lang-fr": "français",
 	"%lang-nat": "Français",
 	"%all": "Tous",
-	"%home": "Accueil",
-	"%main-page": "Page principale",
 	"%tphp": "Haut de la page",
-	"%you-are-in": "Vous êtes dans :",
-	"%welcome-to": "Bienvenue à :",
 	"%load": "chargement...",
 	"%process": "traitement...",
 	"%srch": "Recherche",
-	"%srch-terms": "Recherche de terme(s)&#160;:",
 	"%no-match": "Aucune correspondance trouvée",
 	"%matches": {
 		"mixin": "[MIXIN] correspondance(s) trouvées"
 	},
-	"%menu": "Menu",
-	"%settings": "Paramètres",
-	"%langs": "Langues",
-	"%about": "À propos",
 	"%curr": "(actuel)",
 	"%hide": "Masquer",
 	"%err": "Erreur",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Arrêter",
 	"%back": "Précédent",
 	"%cancel": "Annuler",
-	"%new-win": " (Ouvre dans une nouvelle fenêtre)",
 	"%min-ago": "il y a une minute",
 	"%coup-mins": "il y a quelques minutes",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Fermer (touche d'échappement)",
 	"%show": "Afficher",
 
-	/* Archived Web page template */
-	"%arch-pg": "Cette page Web a été archivée dans le Web.",
-	/* Menu bar */
-	"%sm-hlp": "(ouvrir le sous-menu avec la touche d'entrée et le fermer avec la touche d'échappement)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Arrêter la rotation d'onglets",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Activer l'audiodescription",
 		"off": "Désactiver l'audiodescription"
 	},
-	"%prog-bar": "utilisez les touches gauche ou droite pour avancer ou reculer le progrès des médias",
-	"%no-video": "Votre navigateur ne semble pas avoir les capacité nécessaires pour lire cette vidéo, s'il vous plaît télécharger la vidéo ci-dessous",
 	"%pos": "Position actuelle :",
-	"%perc": "Pourcentage de lecture :",
 	"%dur": "Temps total :",
-	"%buff": "Mis en mémoire-tampon :",
 	/* Share widget */
-	"%fav": "Lien préféré",
-	"%email": "Courriel",
 	"%shr-txt": "Partagez cette page",
 	"%shr-hnt": " avec {s} ",
-	"%shr-email-sub": "Page qui est intéressante",
-	"%shr-email-bd": "J'espère que cette page vous intéresse :\n{t} ({u})",
-	"%shr-fav-ttl": "(ajouter cette page à vos signets)",
-	"%shr-man": "S'il vous plaît fermer ce dialogue et appuyer sur Ctrl-D pour ajouter cette page à vos signets.",
-	"%shr-all": "Tous montrer ({n})",
-	"%shr-all-ttl": "Tout les sites de mise en signet",
 	"%shr-disc": "Aucun appui n’est accordé, soit de façon expresse ou tacite, à aucun produit ou service.",
 	/* Form validation */
 	"%frm-nosubmit": "Le formulaire n'a pu être soumis car ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Aller",
 	"%prvMnth": "Mois précédent : ",
 	"%nxtMnth": "Mois suivant : ",
-	/* Slideout */
-	"%show-toc": "Afficher la table des matières",
-	"%hide-toc": "Cacher la table des matières",
-	"%toc": "la table des matières",
 	/* Lightbox */
 	"%lb-curr": "Article %curr% de %total%",
 	"%lb-xhr-err": "Le chargement de ce contenu a échoué.",

@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "is",
-	"%lang-en": "Icelandic",
-	"%lang-fr": "islandais",
 	"%lang-nat": "Íslenska",
 	"%all": "Allt",
-	"%home": "Heima",
-	"%main-page": "Aðalsíða",
 	"%tphp": "Efst á síðu",
-	"%you-are-in": "Þú ert á:",
-	"%welcome-to": "Velkomin á:",
 	"%load": "hleðsla ...",
 	"%process": "vinnslu ...",
 	"%srch": "Leita",
-	"%srch-terms": "Leita að orðum:",
 	"%no-match": "Engin samsvörun fannst",
 	"%matches": {
 		"mixin": "[MIXIN] niðurstöður fundust"
 	},
-	"%menu": "Valmynd",
-	"%settings": "Stillingar",
-	"%langs": "Tungumál",
-	"%about": "Um",
 	"%curr": "(núverandi)",
 	"%hide": "Fela",
 	"%err": "Villa",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stöðva",
 	"%back": "Til baka",
 	"%cancel": "Hætta við",
-	"%new-win": " (Opnast í nýjum glugga)",
 	"%min-ago": "mínútu síðan",
 	"%coup-mins": "nokkrar mínútur síðan",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Loka (flýja lykill)",
 	"%show": "Sýna",
 
-	/* Archived Web page template */
-	"%arch-pg": "Þessi vefsíða hefur verið sett í geymslu á vefnum.",
-	/* Menu bar */
-	"%sm-hlp": "(opna undirvalmynd með enter og loka með flýja lykill)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Stöðva flipann snúningur",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Virkja hljóð lýsingu",
 		"off": "Gera hljóð lýsingu"
 	},
-	"%prog-bar": "nota vinstri ör og hægri örvatakkana til að fara fram og til baka framfarir fjölmiðla",
-	"%no-video": "Vafrinn þinn virðist ekki hafa getu til að spila þetta vídeó skaltu sækja vídeó hér að neðan",
 	"%pos": "Núverandi staða:",
-	"%perc": "Spilun hlutfall:",
 	"%dur": "Samtals tími:",
-	"%buff": "Biðminni:",
 	/* Share widget */
-	"%fav": "Uppáhalds",
-	"%email": "Email",
 	"%shr-txt": "Deila þessari síðu",
 	"%shr-hnt": " með {s} ",
-	"%shr-email-sub": "Áhugavert síða",
-	"%shr-email-bd": "Ég hélt að þú gætir fundið þessa síðu áhugavert:\n{t} ({u})",
-	"%shr-fav-ttl": "(bókamerki þessa síðu)",
-	"%shr-man": "Lokaðu þessum glugga og ýta á Ctrl-D til bókamerki þessa síðu.",
-	"%shr-all": "Sýna allt ({n})",
-	"%shr-all-ttl": "Allar bókamerki staður",
 	"%shr-disc": "Engin áritun allar vörur eða þjónustu er gefið eða gefið í skyn.",
 	/* Form validation */
 	"%frm-nosubmit": "Eyðublaðið var ekki hægt að skila því ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Farðu",
 	"%prvMnth": "Fyrri mánuður: ",
 	"%nxtMnth": "Næsti mánuður: ",
-	/* Slideout */
-	"%show-toc": "Sýna efnisyfirlit",
-	"%hide-toc": "Fela efnisyfirlit",
-	"%toc": "efnisyfirlit",
 	/* Lightbox */
 	"%lb-curr": "Item %curr% af %total%",
 	"%lb-xhr-err": "Þetta efni tókst að hlaða.",

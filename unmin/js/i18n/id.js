@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "id",
-	"%lang-en": "Indonesian",
-	"%lang-fr": "indonésien",
 	"%lang-nat": "Bahasa Indonesia",
 	"%all": "Semua",
-	"%home": "Halaman Awal",
-	"%main-page": "Halaman utama",
 	"%tphp": "Halaman Atas",
-	"%you-are-in": "Anda berada di:",
-	"%welcome-to": "Selamat datang di:",
 	"%load": "memuat ...",
 	"%process": "pengolahan ...",
 	"%srch": "Cari",
-	"%srch-terms": "Cari istilah:",
 	"%no-match": "Tidak ditemukan kecocokan",
 	"%matches": {
 		"mixin": "Ditemukan [MIXIN] kecocokan"
 	},
-	"%menu": "Menu",
-	"%settings": "Pengaturan",
-	"%langs": "Bahasa",
-	"%about": "Tentang",
 	"%curr": "(saat ini)",
 	"%hide": "Sembunyikan",
 	"%err": "Error",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stop",
 	"%back": "Kembali",
 	"%cancel": "Batal",
-	"%new-win": " (Akan terbuka di jendela yang baru)",
 	"%min-ago": "Satu menit yang lalu",
 	"%coup-mins": "Beberapa menit yang lalu",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Tutup (tombol \"escape\")",
 	"%show": "Tampilkan",
 
-	/* Archived Web page template */
-	"%arch-pg": "Halaman ini telah diarsip di dalam jejaring.",
-	/* Menu bar */
-	"%sm-hlp": "(buka submenu dengan menekan tombol \"enter\" dan tutup dengan menekan tombol \"escape\")",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Hentikan rotasi tab",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Fungsikan desktripsi audio",
 		"off": "Disfungsikan deskripsi audio"
 	},
-	"%prog-bar": "gunakan tombol panah kiri dan kanan untuk memajukan dan memundurkan kemajuan media",
-	"%no-video": "Il tuo browser non sembra avere le capacità per riprodurre il video, scarica il video qui sotto",
 	"%pos": "Posisi saat ini:",
-	"%perc": "Playback persentase:",
 	"%dur": "Total waktu:",
-	"%buff": "Terbuffer:",
 	/* Share widget */
-	"%fav": "Favorit",
-	"%email": "Email",
 	"%shr-txt": "Bagi halaman ini",
 	"%shr-hnt": " dengan {s} ",
-	"%shr-email-sub": "Halaman menarik",
-	"%shr-email-bd": "Ho pensato che si potrebbe trovare interessante questa pagina:\n{t} ({u})",
-	"%shr-fav-ttl": "(bookmark halaman ini)",
-	"%shr-man": "Silakan tutup dialog ini dan tekan Ctrl-D untuk menyimpan.",
-	"%shr-all": "Tampilkan semua ({n})",
-	"%shr-all-ttl": "Semua halaman yang disimpan",
 	"%shr-disc": "Tidak ada dukungan dari produk atau jasa yang tersurat maupun tersi",
 	/* Form validation */
 	"%frm-nosubmit": "Il modulo non poteva essere presentata in quanto ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Pilih",
 	"%prvMnth": "Bulan sebelumnya: ",
 	"%nxtMnth": "Bulan berikutnya: ",
-	/* Slideout */
-	"%show-toc": "Tampilkan daftar isi",
-	"%hide-toc": "Menyembunyikan daftar isi",
-	"%toc": "daftar isi",
 	/* Lightbox */
 	"%lb-curr": "Artikel ke-%curr% dari %total%",
 	"%lb-xhr-err": "Halaman tidak berhasil ditampilkan.",

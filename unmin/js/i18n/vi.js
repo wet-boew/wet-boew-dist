@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "vi",
-	"%lang-en": "Vietnamese",
-	"%lang-fr": "vietnamien",
 	"%lang-nat": "Tiếng Việt",
 	"%all": "Tất cả",
-	"%home": "Quê hương",
-	"%main-page": "Trang chính",
 	"%tphp": "Trở về đầu trang",
-	"%you-are-in": "Bạn đang ở trong",
-	"%welcome-to": "Chào mừng bạn đến với",
 	"%load": "tải ...",
 	"%process": "xử lý ...",
 	"%srch": "Tìm kiếm",
-	"%srch-terms": "Tìm kiếm với các điều kiện:",
 	"%no-match": "Không hợp được tìm thấy",
 	"%matches": {
 		"mixin": "[MIXIN] trận được tìm thấy"
 	},
-	"%menu": "Thực đơn",
-	"%settings": "Cài đặt",
-	"%langs": "Ngôn ngữ",
-	"%about": "Giới thiệu",
 	"%curr": "(hiện tại)",
 	"%hide": "Che",
 	"%err": "Lôi",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Thôi",
 	"%back": "Lưng",
 	"%cancel": "Hủy bỏ",
-	"%new-win": " (Mở trong một cửa sổ mới)",
 	"%min-ago": "một phút trước",
 	"%coup-mins": "vài phút trước đây",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Đóng (phím thoát)",
 	"%show": "Hiện",
 
-	/* Archived Web page template */
-	"%arch-pg": "Trang web này đã được lưu trữ trên Web.",
-	/* Menu bar */
-	"%sm-hlp": "(mở menu con vào quan trọng và gần gũi với phím thoát)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Ngừng xoay tab",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Kích hoạt tính năng mô tả âm thanh",
 		"off": "Vô hiệu hoá mô tả âm thanh"
 	},
-	"%prog-bar": "sử dụng mũi tên trái và phím mũi tên bên phải để thăng tiến và tua lại sự tiến bộ của các phương tiện truyền thông",
-	"%no-video": "Trình duyệt của bạn không xuất hiện có khả năng để chơi video này, xin vui lòng tải về các đoạn video dưới đây",
 	"%pos": "Chức vụ hiện tại:",
-	"%perc": "Playback tỷ lệ phần trăm:",
 	"%dur": "Tổng thời gian:",
-	"%buff": "Buffered:",
 	/* Share widget */
-	"%fav": "Được yêu thích nhất",
-	"%email": "Email",
 	"%shr-txt": "Chia sẻ trang này",
 	"%shr-hnt": " với {s} ",
-	"%shr-email-sub": "Thú vị trang",
-	"%shr-email-bd": "Tôi nghĩ rằng bạn có thể tìm thấy trang này thú vị:\n{t} ({u})",
-	"%shr-fav-ttl": "(đánh dấu trang này)",
-	"%shr-man": "Vui lòng đóng hộp thoại này và nhấn Ctrl-D để đánh dấu trang này.",
-	"%shr-all": "Hiển thị tất cả ({n})",
-	"%shr-all-ttl": "Tất cả dấu các trang web",
 	"%shr-disc": "Không có chứng thực của bất kỳ sản phẩm hoặc dịch vụ được thể hiện hay ngụ ý.",
 	/* Form validation */
 	"%frm-nosubmit": "Dạng không thể được nộp bởi vì ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Đi",
 	"%prvMnth": "Tháng trước: ",
 	"%nxtMnth": "Tháng sau: ",
-	/* Slideout */
-	"%show-toc": "Hiển thị mục lục",
-	"%hide-toc": "Ẩn bảng nội dung",
-	"%toc": "bảng nội dung",
 	/* Lightbox */
 	"%lb-curr": "Khoản %curr% của %total%",
 	"%lb-xhr-err": "Nội dung này không thể tải.",

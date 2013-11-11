@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "sq",
-	"%lang-en": "Albanian",
-	"%lang-fr": "albanais",
 	"%lang-nat": "Shqip",
 	"%all": "Të gjithë",
-	"%home": "Shtëpi",
-	"%main-page": "Faqja kryesore",
 	"%tphp": "Fillimi i faqes",
-	"%you-are-in": "Ju jeni në",
-	"%welcome-to": "Mirë se vini në",
 	"%load": "ngarkimin ...",
 	"%process": "përpunimit të ...",
 	"%srch": "Kërko",
-	"%srch-terms": "Kërko për fjalë:",
 	"%no-match": "Nuk është gjetur përputhje",
 	"%matches": {
 		"mixin": "[MIXIN] ndeshjet gjet"
 	},
-	"%menu": "Menu",
-	"%settings": "Cilësimet",
-	"%langs": "Gjuhë",
-	"%about": "Për",
 	"%curr": "(aktual)",
 	"%hide": "Fsheh",
 	"%err": "Gabim",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stop",
 	"%back": "Prapa",
 	"%cancel": "Anuloj",
-	"%new-win": " (Hapet në një dritare të re)",
 	"%min-ago": "një minutë më parë",
 	"%coup-mins": "disa minuta më parë",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Mbylle (kyç shpëtojnë)",
 	"%show": "Shfaq",
 
-	/* Archived Web page template */
-	"%arch-pg": "Kjo faqe Web është arkivuar në Web.",
-	/* Menu bar */
-	"%sm-hlp": "(hapet submenu me tastin Enter dhe të afërt me kyç shpëtojnë)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Stop rotacionin tab",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Aktivizo përshkrimin audio",
 		"off": "Disable përshkrimin audio"
 	},
-	"%prog-bar": "përdorim çelësat e majtë dhe të djathtë për të çuar përpara dhe Rewind progresin e medias",
-	"%no-video": "Shfletuesi juaj nuk duket të ketë aftësitë për të luajtur këtë video, ju lutem shkarkoni video më poshtë",
 	"%pos": "Pozicioni aktual:",
-	"%perc": "Përqindja playback:",
 	"%dur": "Koha totale:",
-	"%buff": "Buffered:",
 	/* Share widget */
-	"%fav": "Pijet",
-	"%email": "Email",
 	"%shr-txt": "Share këtë faqe",
 	"%shr-hnt": " me {s} ",
-	"%shr-email-sub": "Faqe interesante",
-	"%shr-email-bd": "Mendova se ju mund të gjeni këtë faqe interesante:\n{t} ({u})",
-	"%shr-fav-ttl": "(Bookmark këtë faqe)",
-	"%shr-man": "Ju lutemi ti mbyllni këtë dialog dhe shtypni Ctrl-D të bookmark këtë faqe.",
-	"%shr-all": "Trego të gjitha ({n})",
-	"%shr-all-ttl": "Të gjitha faqet bookmarking",
 	"%shr-disc": "Asnjë miratimi i ndonjë produkteve apo shërbimeve është shprehur apo të nënkuptuar",
 	/* Form validation */
 	"%frm-nosubmit": "Formulari nuk mund të paraqitet për shkak ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Shkoj",
 	"%prvMnth": "Muajin e kaluar: ",
 	"%nxtMnth": "Muajin e ardhshëm: ",
-	/* Slideout */
-	"%show-toc": "Trego tabelën e përmbajtjeve",
-	"%hide-toc": "Hide tabelën e përmbajtjeve",
-	"%toc": "përmbajtje",
 	/* Lightbox */
 	"%lb-curr": "Pika %curr% e %total%",
 	"%lb-xhr-err": "Kjo përmbajtje nuk arriti të ngarkesës.",

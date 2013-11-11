@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "et",
-	"%lang-en": "Estonian",
-	"%lang-fr": "estonien",
 	"%lang-nat": "Eesti keel",
 	"%all": "Kõik",
-	"%home": "Kodu",
-	"%main-page": "Pealeht",
 	"%tphp": "Lehekülje algusesse",
-	"%you-are-in": "Olete lehel",
-	"%welcome-to": "Tere tulemast lehele",
 	"%load": "laadimine....",
 	"%process": "töötlemine ...",
 	"%srch": "Otsi",
-	"%srch-terms": "Otsi mõistet",
 	"%no-match": "Vastet ei leitud",
 	"%matches": {
 		"mixin": "Leitud [MIXIN] vaste(t)"
 	},
-	"%menu": "Menüü",
-	"%settings": "Seaded",
-	"%langs": "Keeled",
-	"%about": "Teave",
 	"%curr": "(praegune)",
 	"%hide": "Peida",
 	"%err": "Viga",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Lõpeta",
 	"%back": "Tagasi",
 	"%cancel": "Loobu",
-	"%new-win": " (Avaneb uues aknas)",
 	"%min-ago": "minut tagasi",
 	"%coup-mins": "mõni minut tagasi",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Sule (klahviga Escape)",
 	"%show": "Näita",
 
-	/* Archived Web page template */
-	"%arch-pg": "See veebileht on arhiveeritud.",
-	/* Menu bar */
-	"%sm-hlp": "(ava alamenüü klahviga Enter ja sulge klahviga Escape)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Seiska sakkide rotatsioon",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Luba audio kirjeldus",
 		"off": "Sulge audio kirjeldus"
 	},
-	"%prog-bar": "kasuta vasakut ja paremat nooleklahvi edasi-tagasi liikumiseks",
-	"%no-video": "Sinu brauser ei võimalda seda videot mängida, palun lae video alla",
 	"%pos": "Praegune asukoht",
-	"%perc": "Taasesituse protsent:",
 	"%dur": "Kogu kestvus:",
-	"%buff": "Puhverdatud:",
 	/* Share widget */
-	"%fav": "Lemmik",
-	"%email": "E-post",
 	"%shr-txt": "Jaga seda lehekülge",
 	"%shr-hnt": "koos {s}",
-	"%shr-email-sub": "Huvitav lehekülg",
-	"%shr-email-bd": "Ma arvan, et see leht pakub sulle huvi:\n{t} ({u})",
-	"%shr-fav-ttl": "(lisa järjehoidja)",
-	"%shr-man": "Palun sulge see dialoogiaken ja vajuta Ctrl-D lehele järjehoidja lisamiseks.",
-	"%shr-all": "Näita kõiki ({n})",
-	"%shr-all-ttl": "Kõik märgitud leheküljed",
 	"%shr-disc": "Mistahes tootele või teenusele pole otseselt ega kaudselt toetust avaldatud.",
 	/* Form validation */
 	"%frm-nosubmit": "Ankeeti ei saa esitada, kuna",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Mine",
 	"%prvMnth": "Eelmine kuu: ",
 	"%nxtMnth": "Järgmine kuu: ",
-	/* Slideout */
-	"%show-toc": "Näita sisukorda",
-	"%hide-toc": "Peida sisukord",
-	"%toc": "sisukord",
 	/* Lightbox */
 	"%lb-curr": "Kirje %curr% koguhulgast %total%",
 	"%lb-xhr-err": "Sisu laadimine ebaõnnestus",

@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "hu",
-	"%lang-en": "Hungarian",
-	"%lang-fr": "hongrois",
 	"%lang-nat": "Magyar",
 	"%all": "Mind",
-	"%home": "Honlap",
-	"%main-page": "Főoldal",
 	"%tphp": "Oldal teteje",
-	"%you-are-in": "Ön itt van:",
-	"%welcome-to": "Üdvözöljük",
 	"%load": "betöltése ...",
 	"%process": "feldolgozás ...",
 	"%srch": "Keresés",
-	"%srch-terms": "Keresett kifejezés:",
 	"%no-match": "Nincs találat",
 	"%matches": {
 		"mixin": "[MIXIN] találat"
 	},
-	"%menu": "Menü",
-	"%settings": "Beállítások",
-	"%langs": "Nyelvek",
-	"%about": "Erről",
 	"%curr": "(jelenlegi)",
 	"%hide": "Elrejtés",
 	"%err": "Hiba",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Leállítás",
 	"%back": "Vissza",
 	"%cancel": "Mégsem",
-	"%new-win": " (Megnyitás új ablakban)",
 	"%min-ago": "egy perce",
 	"%coup-mins": "pár perce",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Zárja (escape billentyűvel)",
 	"%show": "Mutat",
 
-	/* Archived Web page template */
-	"%arch-pg": "Ezt az oldalt az interneten archiváltuk.",
-	/* Menu bar */
-	"%sm-hlp": "(Az almenüt az enter billentyűvel tudja lenyitni, és az escape billentyűvel bezárni.)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Tabulálás engedélyezése",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Narráció bekapcsolása",
 		"off": "Narráció kikapcsolása"
 	},
-	"%prog-bar": "a jobb vagy a bal nyíllal tud előre vagy hátra lépni a lejátszásban",
-	"%no-video": "Az ön böngészője valószínűleg nem alkalmas a lejátszásra. Kérem, töltse le a videót itt:",
 	"%pos": "Jelenlegi pozíció:",
-	"%perc": "Lejátszás százalék:",
 	"%dur": "Összidő:",
-	"%buff": "Pufferelt:",
 	/* Share widget */
-	"%fav": "Kedvencek",
-	"%email": "Email",
 	"%shr-txt": "Oldal megosztása",
 	"%shr-hnt": " a {s} ",
-	"%shr-email-sub": "Érdekes oldal",
-	"%shr-email-bd": "Arra gondoltam, ez az oldal érdekes lehet az ön számára:\n{t} ({u})",
-	"%shr-fav-ttl": "(könyvjelzőt ezt az oldalt)",
-	"%shr-man": "Kérem, zárja be ezt az ablakot és a könyvjelzőhöz nyomja meg a Ctrl+D-t.",
-	"%shr-all": "Mutassa mindet - Mutassa mind a {n}-t",
-	"%shr-all-ttl": "Az összes könyvjelzős oldal",
 	"%shr-disc": "I jóváhagyását olyan termékek vagy szolgáltatások kifejezett vagy hallgatólagos.",
 	/* Form validation */
 	"%frm-nosubmit": "Az adatokat nem lehet elküldeni mert ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Indít",
 	"%prvMnth": "Előző hónap: ",
 	"%nxtMnth": "Következő hónap: ",
-	/* Slideout */
-	"%show-toc": "Megjelenítés tartalomjegyzék",
-	"%hide-toc": "Hide tartalomjegyzék",
-	"%toc": "tartalomjegyzék",
 	/* Lightbox */
 	"%lb-curr": "%total%-ből %curr%",
 	"%lb-xhr-err": "A tartalom betöltése nem sikerült.",

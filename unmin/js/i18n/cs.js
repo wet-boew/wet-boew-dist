@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "cs",
-	"%lang-en": "Czech",
-	"%lang-fr": "tchèque",
 	"%lang-nat": "Čeština",
 	"%all": "Vše",
-	"%home": "Domácí",
-	"%main-page": "Hlavní stránka",
 	"%tphp": "Na začátek stránky",
-	"%you-are-in": "Nyní se nacházíte v:",
-	"%welcome-to": "Vítejte:",
 	"%load": "nakládání ...",
 	"%process": "zpracování ...",
 	"%srch": "Hledat",
-	"%srch-terms": "Hledat podmínek:",
 	"%no-match": "No nalezena shoda",
 	"%matches": {
 		"mixin": "[MIXIN] zápasů nenalezen"
 	},
-	"%menu": "Menu",
-	"%settings": "Nastavení",
-	"%langs": "Jazyky",
-	"%about": "O",
 	"%curr": "(aktuální)",
 	"%hide": "Schovat",
 	"%err": "Chyba",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Zastavit",
 	"%back": "Zpátky",
 	"%cancel": "Zrušit",
-	"%new-win": " (Otevře se v novém okně)",
 	"%min-ago": "minutou",
 	"%coup-mins": "pár minut před",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Zavřít (klávesy ESC)",
 	"%show": "Ukázat",
 
-	/* Archived Web page template */
-	"%arch-pg": "Tato webová stránka byla archivována na webu.",
-	/* Menu bar */
-	"%sm-hlp": "(otevřít podnabídku s enter a zavírají s klávesy ESC)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Zastavit kartě otáčení",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Povolit zvukový popis",
 		"off": "Zakázat zvukový popis"
 	},
-	"%prog-bar": "použijte šipka vlevo a pravé šipky k podpoře a vzad pokrok sdělovacích prostředků",
-	"%no-video": "Váš prohlížeč nepodporuje Zdá se, že se schopnosti přehrání tohoto videa, stáhněte si video níže",
 	"%pos": "Aktuální pozice:",
-	"%perc": "Přehrávání úspěšnost:",
 	"%dur": "Celkový čas:",
-	"%buff": "Pufrovaný:",
 	/* Share widget */
-	"%fav": "Oblíbené",
-	"%email": "Emailová",
 	"%shr-txt": "Sdílet tuto stránku",
 	"%shr-hnt": " s {s} ",
-	"%shr-email-sub": "Zajímavá stránka",
-	"%shr-email-bd": "Myslel jsem, že byste mohli najít na tuto stránku zajímavé:\n{t} ({u})",
-	"%shr-fav-ttl": "(oblíbené stránky)",
-	"%shr-man": "Prosím, zavřete tento dialog a stiskněte Ctrl-D na záložku této stránky.",
-	"%shr-all": "Zobrazit všechny ({n})",
-	"%shr-all-ttl": "Všechny bookmarking stránky",
 	"%shr-disc": "Č. schválení jakýchkoli výrobků nebo služeb je vyjádřené nebo předpokládané.",
 	/* Form validation */
 	"%frm-nosubmit": "Formulář nelze předloženy, protože ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Jít",
 	"%prvMnth": "Předchozí měsíc: ",
 	"%nxtMnth": "Příští měsíc: ",
-	/* Slideout */
-	"%show-toc": "Zobrazit obsah",
-	"%hide-toc": "Skrýt obsah",
-	"%toc": "obsah",
 	/* Lightbox */
 	"%lb-curr": "Bod %curr% %total%",
 	"%lb-xhr-err": "Tento obsah se nepodařilo načíst.",

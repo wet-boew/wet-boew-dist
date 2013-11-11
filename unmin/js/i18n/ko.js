@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "ko",
-	"%lang-en": "Korean",
-	"%lang-fr": "coréen",
 	"%lang-nat": "한국어",
 	"%all": "모든",
-	"%home": "집",
-	"%main-page": "메인 페이지",
 	"%tphp": "맨 위로",
-	"%you-are-in": "당신은에",
-	"%welcome-to": "에 오신 것을 환영합니다:",
 	"%load": "로드 중 ...",
 	"%process": "처리 중 ...",
 	"%srch": "검색",
-	"%srch-terms": "용어 검색 :",
 	"%no-match": "일치하는 결과가 없습니다",
 	"%matches": {
 		"mixin": "[MIXIN] 일치하는 검색 결과가"
 	},
-	"%menu": "메뉴",
-	"%settings": "설정",
-	"%langs": "언어",
-	"%about": "약",
 	"%curr": "(현재)",
 	"%hide": "숨기기",
 	"%err": "오류",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "정지",
 	"%back": "뒤로",
 	"%cancel": "취소",
-	"%new-win": " (새 창에서 열립니다)",
 	"%min-ago": "분 전",
 	"%coup-mins": "분 전에 몇",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "닫다 (Esc 키와)",
 	"%show": "표시",
 
-	/* Archived Web page template */
-	"%arch-pg": "이 웹 페이지는 웹에 보관되었습니다.",
-	/* Menu bar */
-	"%sm-hlp": "(키와 Esc 키와 밀접한 입력으로 하위 메뉴를 엽니 다)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "탭 회전을 중지",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "오디오 설명을 사용",
 		"off": "오디오 설명을 해제합니다"
 	},
-	"%prog-bar": "미디어의 진행 상황을 향상하고 되감기 할 왼쪽 화살표 및 오른쪽 화살표 키를 사용하여",
-	"%no-video": "귀하의 브라우저가 기능이 동영상을 재생해야 할 표시되지 않습니다 아래의 동영상을 다운로드하십시오",
 	"%pos": "현재 위치 :",
-	"%perc": "재생 비율 :",
 	"%dur": "총 시간",
-	"%buff": "버퍼",
 	/* Share widget */
-	"%fav": "누나 찾아서 병원에",
-	"%email": "이메일",
 	"%shr-txt": "이 페이지를 공유",
 	"%shr-hnt": "{s} 로 ",
-	"%shr-email-sub": "흥미 페이지",
-	"%shr-email-bd": "당신이이 페이지가 재미있을 거라고 생각:\n{t} ({u})",
-	"%shr-fav-ttl": "(이 페이지를 즐겨 찾기에)",
-	"%shr-man": "이 대화 상자를 닫고이 페이지를 즐겨 찾기에 추가 Ctrl 키를-D를 누르십시오.",
-	"%shr-all": "모두 ({n}) 표시",
-	"%shr-all-ttl": "모든 북마크 사이트",
 	"%shr-disc": "제품이나 서비스의 어떠한 보증을 표현하거나 암시합니다.",
 	/* Form validation */
 	"%frm-nosubmit": "양식을 제출 할 수 없습니다 때문에 ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "가다",
 	"%prvMnth": "이전 월: ",
 	"%nxtMnth": "다음 월: ",
-	/* Slideout */
-	"%show-toc": "목차보기",
-	"%hide-toc": "목차 숨기기",
-	"%toc": "차례",
 	/* Lightbox */
 	"%lb-curr": "%total% 항목 %curr%",
 	"%lb-xhr-err": "이 콘텐츠를로드하지 못했습니다.",

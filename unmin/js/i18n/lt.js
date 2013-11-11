@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "lt",
-	"%lang-en": "Lithuanian",
-	"%lang-fr": "lituanien",
 	"%lang-nat": "Lietuvių kalba",
 	"%all": "Visi",
-	"%home": "Pradžia",
-	"%main-page": "Pagrindinis puslapis",
 	"%tphp": "Puslapio viršus",
-	"%you-are-in": "Esate",
-	"%welcome-to": "Sveiki atvykę į",
 	"%load": "pakrovimo ...",
 	"%process": "perdirbimo ...",
 	"%srch": "Paieška",
-	"%srch-terms": "Terminoų paieška:",
 	"%no-match": "Atitikmenų nerasta",
 	"%matches": {
 		"mixin": "[MIXIN] atitikmuo (-enys) rasti"
 	},
-	"%menu": "Meniu",
-	"%settings": "Nustatymai",
-	"%langs": "Kalbos",
-	"%about": "Apie",
 	"%curr": "(dabartinė)",
 	"%hide": "Slėpti",
 	"%err": "Klaida",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Sustoti",
 	"%back": "Atgal",
 	"%cancel": "Atšaukti",
-	"%new-win": " (atsidaro naujas puslapis)",
 	"%min-ago": "Prieš minutę",
 	"%coup-mins": "Prieš kelias minutes",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Uždaryti (\"escape\" klavišu)",
 	"%show": "Rodyti",
 
-	/* Archived Web page template */
-	"%arch-pg": "Šis Web puslapis yra archyvuotas Web'e.",
-	/* Menu bar */
-	"%sm-hlp": "(atidaryti submeniu su \"enter\" klavišu, o uždaryti su \"escape\" klavišu)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Sustabdyti rotaciją",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Aktyvuoti audio aprašą",
 		"off": "Išjungti audio aprašą"
 	},
-	"%prog-bar": "naudokite kairės ir dešinės rodyklės klavišus pagreitinti arba atsukti",
-	"%no-video": "Jūsų naršyklė neturi galimybių paleisti šio video, prašome atsisiųsti žemiau esantį  video",
 	"%pos": "Esama pozicija:",
-	"%perc": "Atkūrimo procentas:",
 	"%dur": "Visas laikas:",
-	"%buff": "Užkrautas:",
 	/* Share widget */
-	"%fav": "Mėgstamas",
-	"%email": "El. paštas",
 	"%shr-txt": "Dalintis",
 	"%shr-hnt": " su {s} ",
-	"%shr-email-sub": "Įdomus puslapis",
-	"%shr-email-bd": "Manau, kad Jums patiks šis puslapis:\n{t} ({u})",
-	"%shr-fav-ttl": "(bookmark šį puslapį)",
-	"%shr-man": "Prašome uždaryti dialogą ir spausti  Ctrl-D pažymėti puslapį.",
-	"%shr-all": "Rodyti visus ({n})",
-	"%shr-all-ttl": "Visos žymės",
 	"%shr-disc": "Išreikštų ar numanomų ne bet kokius produktus ar paslaugas įrašas.",
 	/* Form validation */
 	"%frm-nosubmit": "Formos pateikti negalima, nes ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Eiti",
 	"%prvMnth": "Ankstesnis mėnuo: ",
 	"%nxtMnth": "Sekantis mėnuo: ",
-	/* Slideout */
-	"%show-toc": "Rodyti turinį",
-	"%hide-toc": "Slėpti turinys",
-	"%toc": "turinys",
 	/* Lightbox */
 	"%lb-curr": "Punktas %curr% iš %total%",
 	"%lb-xhr-err": "Turinio nepavyko užkrauti.",

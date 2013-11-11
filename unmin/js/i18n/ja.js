@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "ja",
-	"%lang-en": "Japanese",
-	"%lang-fr": "japonais",
 	"%lang-nat": "日本語",
 	"%all": "すべて",
-	"%home": "ホーム",
-	"%main-page": "メインページ",
 	"%tphp": "ページの先頭",
-	"%you-are-in": "現在位置：",
-	"%welcome-to": "[xxx] へようこそ",
 	"%load": "ロード中･･･",
 	"%process": "処理中･･･",
 	"%srch": "検索",
-	"%srch-terms": "検索キーワード：",
 	"%no-match": "次の条件に一致する情報は見つかりませんでした。",
 	"%matches": {
 		"mixin": "検索結果： [MIXIN] 件"
 	},
-	"%menu": "メニュー",
-	"%settings": "設定",
-	"%langs": "言語",
-	"%about": "約",
 	"%curr": "（現在）",
 	"%hide": "非表示",
 	"%err": "エラー",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "終了",
 	"%back": "戻る",
 	"%cancel": "取消",
-	"%new-win": " （新しいウィンドウで開く）",
 	"%min-ago": "1分前",
 	"%coup-mins": "数分前",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "閉じる(「Esc」キ)",
 	"%show": "表示",
 
-	/* Archived Web page template */
-	"%arch-pg": "このページはウェブ上にアーカイブされています。",
-	/* Menu bar */
-	"%sm-hlp": "（サブメニューを開くには「エンター」キーを、閉じるには「Esc」キーを押す。）",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "タブローテーションを停止",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "音声ガイドを有効にする",
 		"off": "音声ガイドを無効にする"
 	},
-	"%prog-bar": "左矢印キーで戻る／右矢印キーで進む",
-	"%no-video": "ご利用のブラウザではこの動画を再生できません。以下の動画をダウンロードしてください。",
 	"%pos": "現在位置：",
-	"%perc": "再生率：",
 	"%dur": "合計時間：",
-	"%buff": "バッファリングの進行状況：",
 	/* Share widget */
-	"%fav": "お気に入り",
-	"%email": "メール",
 	"%shr-txt": "このページを共有する",
 	"%shr-hnt": "{s}と",
-	"%shr-email-sub": "注目のページ",
-	"%shr-email-bd": "おすすめのページ：\n{t} ({u})",
-	"%shr-fav-ttl": "（ブックマークに登録する）",
-	"%shr-man": "ブックマークに登録するには、このダイアログを閉じて「Ctrl＋D」を押してください。",
-	"%shr-all": "({n})をすべて表示",
-	"%shr-all-ttl": "ブックマークサイト一覧",
 	"%shr-disc": "製品またはサービスを推薦／保証するものではありません。",
 	/* Form validation */
 	"%frm-nosubmit": "フォームを送信できませんでした。原因：",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "進む",
 	"%prvMnth": "前の月へ",
 	"%nxtMnth": "次の月へ",
-	/* Slideout */
-	"%show-toc": "目次を表示する",
-	"%hide-toc": "目次を表示しない",
-	"%toc": "目次",
 	/* Lightbox */
 	"%lb-curr": "%total% 件中 %curr% 件目",
 	"%lb-xhr-err": "コンテンツをロードできませんでした。",

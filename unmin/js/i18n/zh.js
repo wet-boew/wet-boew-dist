@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "zh",
-	"%lang-en": "Chinese",
-	"%lang-fr": "chinois",
 	"%lang-nat": "繁體字",
 	"%all": "全部",
-	"%home": "首頁",
-	"%main-page": "主頁",
 	"%tphp": "頁首",
-	"%you-are-in": "你目前在",
-	"%welcome-to": "歡迎",
 	"%load": "下載中…",
 	"%process": "處理...",
 	"%srch": "搜尋",
-	"%srch-terms": "搜尋項目",
 	"%no-match": "找不到合適項目",
 	"%matches": {
 		"mixin": "找到[MIXIN]項目"
 	},
-	"%menu": "選單",
-	"%settings": "目前",
-	"%langs": "語言",
-	"%about": "關於",
 	"%curr": "目前",
 	"%hide": "隱藏",
 	"%err": "錯誤",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "停止",
 	"%back": "返回",
 	"%cancel": "取消",
-	"%new-win": "用新視窗打開",
 	"%min-ago": "一分鐘前",
 	"%coup-mins": "數分鐘前",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "關閉（Esc鍵）",
 	"%show": "顯示",
 
-	/* Archived Web page template */
-	"%arch-pg": "此網頁已經封存。",
-	/* Menu bar */
-	"%sm-hlp": "使用 『確定』鍵進入次選單，離開請按Esc鍵",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "旋轉鍵-停止",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "有音訊說明",
 		"off": "無音訊說明"
 	},
-	"%prog-bar": "使用左或右箭頭鍵來前進或倒轉音訊資料",
-	"%no-video": "你的瀏覽器並不支援播放此視訊。",
 	"%pos": "目前位置：",
-	"%perc": "播放百分比：",
 	"%dur": "所有時間：",
-	"%buff": "緩衝中：",
 	/* Share widget */
-	"%fav": "最愛",
-	"%email": "電子郵件",
 	"%shr-txt": "分享此頁",
 	"%shr-hnt": "與{s}",
-	"%shr-email-sub": "有興趣的網頁",
-	"%shr-email-bd": "我想你對此網頁可能有興趣\n{t}{u}",
-	"%shr-fav-ttl": "（收藏此頁）",
-	"%shr-man": "關閉對話框，並用Ctrl-D標記此頁。",
-	"%shr-all": "顯示全部{n}",
-	"%shr-all-ttl": "所有書籤網站",
 	"%shr-disc": "沒有明示或暗示保證代言任何產品或服務。",
 	/* Form validation */
 	"%frm-nosubmit": "本表格不能傳送因為",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "前往",
 	"%prvMnth": "上一月：",
 	"%nxtMnth": "下一月：",
-	/* Slideout */
-	"%show-toc": "顯示表的內容",
-	"%hide-toc": "隱藏表格的內容",
-	"%toc": "目錄",
 	/* Lightbox */
 	"%lb-curr": "所有項目%curr%的%total%",
 	"%lb-xhr-err": "本內容無法載入。",

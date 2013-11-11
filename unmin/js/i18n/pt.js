@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "pt",
-	"%lang-en": "Portuguese",
-	"%lang-fr": "portugais",
 	"%lang-nat": "Português",
 	"%all": "Todos",
-	"%home": "Página inicial",
-	"%main-page": "Página principal",
 	"%tphp": "Início da Página",
-	"%you-are-in": "Você está no:",
-	"%welcome-to": "Bem-vindo à:",
 	"%load": "carregamento ...",
 	"%process": "processamento ...",
 	"%srch": "Buscar",
-	"%srch-terms": "Buscar por termo(s):",
 	"%no-match": "Nenhuma correspondência encontrada",
 	"%matches": {
 		"mixin": "[MIXIN] Encontrada(s) correspondência(s)"
 	},
-	"%menu": "Menu",
-	"%settings": "Configurações",
-	"%langs": "Idiomas",
-	"%about": "Sobre",
 	"%curr": "(atual)",
 	"%hide": "Ocultar",
 	"%err": "Erro",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Parar",
 	"%back": "Anterior",
 	"%cancel": "Cancelar",
-	"%new-win": " (Abre em uma nova janela)",
 	"%min-ago": "há um minuto",
 	"%coup-mins": "há dois minutos",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Fechar (botão ESC)",
 	"%show": "Exibir",
 
-	/* Archived Web page template */
-	"%arch-pg": "Está página foi arquiva na Web.",
-	/* Menu bar */
-	"%sm-hlp": "(abrir o sub-menu com o botão ENTER e fechá-lo com o botão ESC)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Interromper a rotação das abas",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Ativar a descrição de áudio",
 		"off": "Desativar a descrição de áudio"
 	},
-	"%prog-bar": "usar os botões das setas esquerda e direita para voltar ou avançar a execução das mídias",
-	"%no-video": "Seu navegador não parece ter capacidade para reproduzir este vídeo. Favor baixar o vídeo abaixo.",
 	"%pos": "Posição atual:",
-	"%perc": "Porcentagem de reprodução:",
 	"%dur": "Tempo total:",
-	"%buff": "Armazenado em área de memória temporária",
 	/* Share widget */
-	"%fav": "Favoritos",
-	"%email": "Correio eletrônico",
 	"%shr-txt": "Compartilhar esta página",
 	"%shr-hnt": " com {s} ",
-	"%shr-email-sub": "Página interessante",
-	"%shr-email-bd": "Espero que esta página seja do seu interesse:\n{t} ({u})",
-	"%shr-fav-ttl": "(marcar esta página)",
-	"%shr-man": "Favor fechar este diálogo e teclar Ctrl+D para adicionar esta página aos seus favoritos.",
-	"%shr-all": "Mostrar tudo ({n})",
-	"%shr-all-ttl": "Todas as páginas salvas nos favoritos",
 	"%shr-disc": "Não endosso de quaisquer produtos ou serviços é expressa ou implícita",
 	/* Form validation */
 	"%frm-nosubmit": "O formulário não pode ser submetido porque ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Ir",
 	"%prvMnth": "Mês anterior: ",
 	"%nxtMnth": "Próximo mês: ",
-	/* Slideout */
-	"%show-toc": "Ver tabela de conteúdos",
-	"%hide-toc": "Ocultar tabela de conteúdos",
-	"%toc": "conteúdo",
 	/* Lightbox */
 	"%lb-curr": "Ítem %curr% de %total%",
 	"%lb-xhr-err": "O carragemento deste conteúdo falhou.",

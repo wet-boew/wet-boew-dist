@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "de",
-	"%lang-en": "German",
-	"%lang-fr": "allemand",
 	"%lang-nat": "Deutsch",
 	"%all": "Alle",
-	"%home": "Zuhause",
-	"%main-page": "Startseite",
 	"%tphp": "Zum Seitenanfang",
-	"%you-are-in": "Sie sind in",
-	"%welcome-to": "Willkommen bei",
 	"%load": "Be ...",
 	"%process": "Verarbeitung ...",
 	"%srch": "Suchen",
-	"%srch-terms": "Suche nach Begriffen:",
 	"%no-match": "Keine Übereinstimmung gefunden",
 	"%matches": {
 		"mixin": "[MIXIN] Ergebnisse gefunden"
 	},
-	"%menu": "Menü",
-	"%settings": "Einstellungen",
-	"%langs": "Sprachen",
-	"%about": "Über",
 	"%curr": "(Aktuell)",
 	"%hide": "Verbergen",
 	"%err": "Fehler",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stoppen",
 	"%back": "Zurück",
 	"%cancel": "Kündigen",
-	"%new-win": " (Öffnet in einem neuen Fenster)",
 	"%min-ago": "Vor einer Minute",
 	"%coup-mins": "paar Minuten",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Schließen (Escape-Taste)",
 	"%show": "Zeigen",
 
-	/* Archived Web page template */
-	"%arch-pg": "Diese Web-Seite wurde auf der Web archiviert.",
-	/* Menu bar */
-	"%sm-hlp": "(Öffnen Sie das Untermenü mit der Eingabetaste und schließen mit der Escape-Taste)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Stoppen Registerkarte Drehung",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Aktivieren Sie Audio-Beschreibung",
 		"off": "Deaktivieren Sie Audio-Beschreibung"
 	},
-	"%prog-bar": "Verwenden linke und rechte Pfeiltaste, um Vor-und Rückspulen der Medien Fortschritte",
-	"%no-video": "Ihr Browser unterstützt keine zu haben scheinen die Fähigkeiten, um dieses Video abzuspielen, laden Sie sich bitte das Video unten",
 	"%pos": "Aktuelle Position:",
-	"%perc": "Wiedergabe Prozentsatz:",
 	"%dur": "Insgesamt benötigte Zeit",
-	"%buff": "Buffered:",
 	/* Share widget */
-	"%fav": "Favorit",
-	"%email": "E-Mail",
 	"%shr-txt": "Teilen Sie diese Seite",
 	"%shr-hnt": " mit {s} ",
-	"%shr-email-sub": "Interessante Seite",
-	"%shr-email-bd": "Vielleicht haben Sie diese Seite interessant:\n{t} ({u})",
-	"%shr-fav-ttl": "(Bookmark auf diese Seite)",
-	"%shr-man": "Bitte schließen Sie diesen Dialog und drücken Sie Strg-D, um diese Seite einzurichten.",
-	"%shr-all": "Alle anzeigen ({n})",
-	"%shr-all-ttl": "Alle bookmarking sites",
 	"%shr-disc": "Keine Unterstützung von Produkten oder Dienstleistungen ausdrücklich oder stillschweigend.",
 	/* Form validation */
 	"%frm-nosubmit": "Das Formular konnte nicht vorgelegt werden, da ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Gehen",
 	"%prvMnth": "Vorheriger Monat: ",
 	"%nxtMnth": "Nächster Monat: ",
-	/* Slideout */
-	"%show-toc": "Inhaltsverzeichnis anzeigen",
-	"%hide-toc": "Ausblenden des Inhaltsverzeichnisses",
-	"%toc": "Inhaltsverzeichnis",
 	/* Lightbox */
 	"%lb-curr": "Artikel %curr% von %total%",
 	"%lb-xhr-err": "Dieser Inhalt wurde nicht geladen.",

@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "zh-Hans",
-	"%lang-en": "Chinese (Simplified)",
-	"%lang-fr": "chinois (simplifié)",
 	"%lang-nat": "繁体字",
 	"%all": "全部",
-	"%home": "首页",
-	"%main-page": "主页",
 	"%tphp": "页首",
-	"%you-are-in": "您在：",
-	"%welcome-to": "欢迎到：",
 	"%load": "装载...",
 	"%process": "处理...",
 	"%srch": "搜索",
-	"%srch-terms": "搜索短语",
 	"%no-match": "无匹配结果",
 	"%matches": {
 		"mixin": "找到[MIXIN]项目"
 	},
-	"%menu": "菜单",
-	"%settings": "设置",
-	"%langs": "语言",
-	"%about": "关于",
 	"%curr": "（电流）",
 	"%hide": "隐藏",
 	"%err": "错误",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "停止",
 	"%back": "返回",
 	"%cancel": "取消",
-	"%new-win": "以新窗口打开",
 	"%min-ago": "一分钟前",
 	"%coup-mins": "一两分钟前",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "关闭（逃生键）",
 	"%show": "展示",
 
-	/* Archived Web page template */
-	"%arch-pg": "该网页已过期。",
-	/* Menu bar */
-	"%sm-hlp": "（以输入键打开子菜单，退出键退出）",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "停止标签旋转",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "使用音频描述",
 		"off": "停止音频描述"
 	},
-	"%prog-bar": "使用左和右箭头前进和后退",
-	"%no-video": "您的浏览器无法播放该视频，请下载。",
 	"%pos": "现在位置：",
-	"%perc": "播放百分比：",
 	"%dur": "总时间：",
-	"%buff": "缓冲：",
 	/* Share widget */
-	"%fav": "喜爱",
-	"%email": "电釉",
 	"%shr-txt": "分享该页面",
 	"%shr-hnt": "与{s}",
-	"%shr-email-sub": "有趣的页面",
-	"%shr-email-bd": "我认为您也许觉得这个页面不错\n{t}{u}",
-	"%shr-fav-ttl": "（收藏此页）",
-	"%shr-man": "请关闭对话框，并按Ctrl-D收藏此页面。",
-	"%shr-all": "展示全部{n}",
-	"%shr-all-ttl": "所有收藏的页面",
 	"%shr-disc": "没有代言的任何产品或服务的明示或暗示的保证。",
 	/* Form validation */
 	"%frm-nosubmit": "表格无法提交，因为",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "去",
 	"%prvMnth": "上个月：",
 	"%nxtMnth": "下个月：",
-	/* Slideout */
-	"%show-toc": "显示表的内容",
-	"%hide-toc": "隐藏表格的内容",
-	"%toc": "内容表",
 	/* Lightbox */
 	"%lb-curr": "项目%curr%的%total%",
 	"%lb-xhr-err": "该内容无法下载。",

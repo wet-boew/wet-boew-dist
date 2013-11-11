@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "sk",
-	"%lang-en": "Slovak",
-	"%lang-fr": "slovaque",
 	"%lang-nat": "Slovenčina",
 	"%all": "Všetko",
-	"%home": "Domáce",
-	"%main-page": "Hlavná stránka",
 	"%tphp": "Na začiatok stránky",
-	"%you-are-in": "Teraz sa nachádzate v:",
-	"%welcome-to": "Vitajte:",
 	"%load": "nakladanie ...",
 	"%process": "spracovanie ...",
 	"%srch": "Hľadať",
-	"%srch-terms": "Hľadať podmienok:",
 	"%no-match": "No nájdená zhoda",
 	"%matches": {
 		"mixin": "[MIXIN] zápasov nenájdený"
 	},
-	"%menu": "Menu",
-	"%settings": "Nastavenie",
-	"%langs": "Jazyky",
-	"%about": "O",
 	"%curr": "(aktuálne)",
 	"%hide": "Schovať",
 	"%err": "Chyba",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stop",
 	"%back": "Staré",
 	"%cancel": "Zrušiť",
-	"%new-win": " (Otvorí sa v novom okne)",
 	"%min-ago": "minútou",
 	"%coup-mins": "pár minút pred",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Zavrieť (klávesy ESC)",
 	"%show": "Ukázať",
 
-	/* Archived Web page template */
-	"%arch-pg": "Táto webová stránka bola archivovaná na webe.",
-	/* Menu bar */
-	"%sm-hlp": "(otvoriť podponuku s enter a zatvárajú s klávesy ESC)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Zastaviť kartu otáčania",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Povoliť zvukový opis",
 		"off": "Zakázať zvukový opis"
 	},
-	"%prog-bar": "použite ľavej a pravej šípky na podporu a vzad pokrok médií",
-	"%no-video": "Váš prehliadač nepodporuje Zdá sa, že sa schopnosti prehranie tohto videa, stiahnite si video nižšie.",
 	"%pos": "Aktuálna pozícia:",
-	"%perc": "Prehrávanie úspešnosť:",
 	"%dur": "Celkový čas:",
-	"%buff": "Pufrovaný:",
 	/* Share widget */
-	"%fav": "Obľúbené",
-	"%email": "E-mail",
 	"%shr-txt": "Zdieľať túto stránku",
 	"%shr-hnt": " s {s} ",
-	"%shr-email-sub": "Zaujímavá stránka",
-	"%shr-email-bd": "Myslel som, že by ste mohli nájsť na túto stránku zaujímavé:\n{t} ({u})",
-	"%shr-fav-ttl": "(obľúbené stránky)",
-	"%shr-man": "Prosím, zatvorte tento dialóg a stlačte Ctrl-D na záložku tejto stránky.",
-	"%shr-all": "Zobraziť všetky ({n})",
-	"%shr-all-ttl": "Všetky bookmarking stránky",
 	"%shr-disc": "Č schválenie akýchkoľvek výrobkov alebo služieb je vyjadrené alebo predpokladané.",
 	/* Form validation */
 	"%frm-nosubmit": "Formulár nemožno predložené, pretože ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Ísť",
 	"%prvMnth": "Predchádzajúci mesiac: ",
 	"%nxtMnth": "Budúci mesiac: ",
-	/* Slideout */
-	"%show-toc": "Zobraziť obsah",
-	"%hide-toc": "Skryť obsah",
-	"%toc": "obsah",
 	/* Lightbox */
 	"%lb-curr": "Bod %curr% %total%",
 	"%lb-xhr-err": "Tento obsah sa nepodarilo načítať.",

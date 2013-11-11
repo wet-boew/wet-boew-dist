@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "nl",
-	"%lang-en": "Dutch",
-	"%lang-fr": "néerlandais",
 	"%lang-nat": "Nederlands",
 	"%all": "Allen",
-	"%home": "Home",
-	"%main-page": "Hoofdpagina",
 	"%tphp": "Bovenkant pagina",
-	"%you-are-in": "U bent hier:",
-	"%welcome-to": "Welkom bij:",
 	"%load": "het laden van ...",
 	"%process": "verwerking ...",
 	"%srch": "Zoeken",
-	"%srch-terms": "Zoeken naar trefwoorden:",
 	"%no-match": "Er zijn geen resultaten gevonden voor uw zoekopdracht",
 	"%matches": {
 		"mixin": "[MIXIN] gevonden zoekresultaten"
 	},
-	"%menu": "Menu",
-	"%settings": "Instellingen",
-	"%langs": "Talen",
-	"%about": "Over",
 	"%curr": "(actueel)",
 	"%hide": "Verbergen",
 	"%err": "Fout",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stoppen",
 	"%back": "Terug",
 	"%cancel": "Annuleren",
-	"%new-win": " (Opent in een nieuw venster)",
 	"%min-ago": "Een minuut geleden",
 	"%coup-mins": "Enkele minuten geleden",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Sluit (Escape-toets)",
 	"%show": "Toon",
 
-	/* Archived Web page template */
-	"%arch-pg": "Deze pagina is gearchiveerd.",
-	/* Menu bar */
-	"%sm-hlp": "(open het submenu via de Enter-toets en sluit het met de Escape-toets af)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Stop de tabrotatie",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Audiobeschrijving activeren",
 		"off": "Audiobeschrijving opheffen"
 	},
-	"%prog-bar": "gebruik linkse en rechtse pijlen om verder te gaan of terug te keren",
-	"%no-video": "Uw browser is blijkbaar niet in staat om deze video af te spelen; gelieve de video hieronder te downloaden",
 	"%pos": "Huidige positie:",
-	"%perc": "Percentage van het afspelen:",
 	"%dur": "Totale afspeelduur:",
-	"%buff": "Gebufferd:",
 	/* Share widget */
-	"%fav": "Favoriet",
-	"%email": "E-mail",
 	"%shr-txt": "Deel deze pagina met anderen",
 	"%shr-hnt": " met {s} ",
-	"%shr-email-sub": "Interessante pagina",
-	"%shr-email-bd": "Misschien vindt u deze pagina interessant",
-	"%shr-fav-ttl": "(bookmark deze pagina)",
-	"%shr-man": "Gelieve dit dialoogvenster te sluiten en met Ctrl-D te bewaren",
-	"%shr-all": "Toon alles ({n})",
-	"%shr-all-ttl": "Alle bookmark sites",
 	"%shr-disc": "Er wordt hier geen goedkeuring van producten of diensten uitgedrukt.",
 	/* Form validation */
 	"%frm-nosubmit": "Het formulier kon niet worden verwerkt omdat ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Ga",
 	"%prvMnth": "Vorige maand: ",
 	"%nxtMnth": "Volgende maand: ",
-	/* Slideout */
-	"%show-toc": "Inhoudsopgave tonen",
-	"%hide-toc": "Inhoudsopgave verbergen",
-	"%toc": "inhoudsopgave",
 	/* Lightbox */
 	"%lb-curr": "Onderdeel %curr% van een totaal van %total%",
 	"%lb-xhr-err": "De inhoud is niet geladen",

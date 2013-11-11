@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "en",
-	"%lang-en": "English",
-	"%lang-fr": "anglais",
 	"%lang-nat": "English",
 	"%all": "All",
-	"%home": "Home",
-	"%main-page": "Main page",
 	"%tphp": "Top of page",
-	"%you-are-in": "You are in:",
-	"%welcome-to": "Welcome to:",
 	"%load": "loading...",
 	"%process": "processing...",
 	"%srch": "Search",
-	"%srch-terms": "Search for term(s):",
 	"%no-match": "No match found",
 	"%matches": {
 		"mixin": "[MIXIN] match(es) found"
 	},
-	"%menu": "Menu",
-	"%settings": "Settings",
-	"%langs": "Languages",
-	"%about": "About",
 	"%curr": "(current)",
 	"%hide": "Hide",
 	"%err": "Error",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stop",
 	"%back": "Back",
 	"%cancel": "Cancel",
-	"%new-win": " (Opens in a new window)",
 	"%min-ago": "a minute ago",
 	"%coup-mins": "couple of minutes ago",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Close (escape key)",
 	"%show": "Show",
 
-	/* Archived Web page template */
-	"%arch-pg": "This Web page has been archived on the Web.",
-	/* Menu bar */
-	"%sm-hlp": "(open the submenu with the enter key and close with the escape key)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Stop tab rotation",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Enable audio description",
 		"off": "Disable audio description"
 	},
-	"%prog-bar": "use left and right arrow keys to advance and rewind the media's progress",
-	"%no-video": "Your browser does not appear to have the capabilities to play this video, please download the video below",
 	"%pos": "Current position:",
-	"%perc": "Playback percentage:",
 	"%dur": "Total time:",
-	"%buff": "Buffered:",
 	/* Share widget */
-	"%fav": "Favourite",
-	"%email": "Email",
 	"%shr-txt": "Share this page",
 	"%shr-hnt": " with {s} ",
-	"%shr-email-sub": "Interesting page",
-	"%shr-email-bd": "I thought you might find this page interesting:\n{t} ({u})",
-	"%shr-fav-ttl": "(bookmark this page)",
-	"%shr-man": "Please close this dialog and press Ctrl-D to bookmark this page.",
-	"%shr-all": "Show all ({n})",
-	"%shr-all-ttl": "All bookmarking sites",
 	"%shr-disc": "No endorsement of any products or services is expressed or implied.",
 	/* Form validation */
 	"%frm-nosubmit": "The form could not be submitted because ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Go",
 	"%prvMnth": "Previous Month: ",
 	"%nxtMnth": "Next Month: ",
-	/* Slideout */
-	"%show-toc": "Show table of contents",
-	"%hide-toc": "Hide table of contents",
-	"%toc": "table of contents",
 	/* Lightbox */
 	"%lb-curr": "Item %curr% of %total%",
 	"%lb-xhr-err": "This content failed to load.",

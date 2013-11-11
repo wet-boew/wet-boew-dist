@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "af",
-	"%lang-en": "Afrikaans",
-	"%lang-fr": "afrikaans",
 	"%lang-nat": "Afrikaans",
 	"%all": "Alle",
-	"%home": "Home",
-	"%main-page": "Main bladsy",
 	"%tphp": "Top van die bladsy",
-	"%you-are-in": "Jy is in",
-	"%welcome-to": "Welkom by",
 	"%load": "loading ...",
 	"%process": "verwerking ...",
 	"%srch": "Soek",
-	"%srch-terms": "Soek vir terme:",
 	"%no-match": "Geen wedstryd gevind",
 	"%matches": {
 		"mixin": "[MIXIN] wedstryde"
 	},
-	"%menu": "Menu",
-	"%settings": "Stellings",
-	"%langs": "Tale",
-	"%about": "Oor",
 	"%curr": "(Huidige)",
 	"%hide": "Steek",
 	"%err": "Fout",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Stop",
 	"%back": "Terug",
 	"%cancel": "Kanselleer",
-	"%new-win": " (Maak in 'n nuwe venster)",
 	"%min-ago": "n minuut gelede",
 	"%coup-mins": "paar minute gelede",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Close (Escape-sleutel)",
 	"%show": "Toon",
 
-	/* Archived Web page template */
-	"%arch-pg": "Hierdie webblad is in die argief op die web.",
-	/* Menu bar */
-	"%sm-hlp": "(maak die submenu met die Enter-sleutel en sluit af met die Escape-sleutel)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Stop tab rotasie",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Aktiveer klank beskrywing",
 		"off": "Deaktiveer audio-beskrywing"
 	},
-	"%prog-bar": "gebruik links en regs pyltjie sleutels om die media se vordering te bevorder en te rewind",
-	"%no-video": "Jou blaaier nie verskyn het die vermo롯m hierdie video te speel, laai asseblief die video hieronder",
 	"%pos": "Huidige posisie:",
-	"%perc": "Playback persentasie:",
 	"%dur": "Totale tyd:",
-	"%buff": "Gebufferde:",
 	/* Share widget */
-	"%fav": "Gunsteling",
-	"%email": "Stuur 'n e-pos aan",
 	"%shr-txt": "Deel hierdie bladsy",
 	"%shr-hnt": " met {s} ",
-	"%shr-email-sub": "Interessante bladsy",
-	"%shr-email-bd": "Ek het gedink jy kan hierdie bladsy interessant vind:\n{t} ({u})",
-	"%shr-fav-ttl": "(Bookmark hierdie bladsy)",
-	"%shr-man": "Asseblief hierdie dialoog sluit en Ctrl-D druk om hierdie bladsy te boekmerk.",
-	"%shr-all": "Toon alle  ({n})",
-	"%shr-all-ttl": "Alle boekmerkwebwerf webwerwe",
 	"%shr-disc": "Geen endossement van enige produkte of dienste is uitgedruk of geரliseer",
 	/* Form validation */
 	"%frm-nosubmit": "Die vorm kon nie voorgel꡷ord nie, want ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Gaan",
 	"%prvMnth": "Vorige Maand: ",
 	"%nxtMnth": "Volgende Maand: ",
-	/* Slideout */
-	"%show-toc": "Wys inhoudsopgawe",
-	"%hide-toc": "Steek inhoudsopgawe",
-	"%toc": "inhoudsopgawe",
 	/* Lightbox */
 	"%lb-curr": "Item %curr% van %total%",
 	"%lb-xhr-err": "Hierdie inhoud het misluk om te laai.",

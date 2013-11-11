@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "tr",
-	"%lang-en": "Turkish",
-	"%lang-fr": "turc",
 	"%lang-nat": "Türkçe",
 	"%all": "Tüm",
-	"%home": "Ev",
-	"%main-page": "Ana sayfa",
 	"%tphp": "Sayfa Başı",
-	"%you-are-in": "Şuradasınız:",
-	"%welcome-to": "Hoşgeldiniz:",
 	"%load": "yükleniyor ...",
 	"%process": "işleme ...",
 	"%srch": "Ara",
-	"%srch-terms": "Terimler için ara:",
 	"%no-match": "Eşleşme bulunamadı",
 	"%matches": {
 		"mixin": "[MIXIN] eşleşme bulundu"
 	},
-	"%menu": "Menü",
-	"%settings": "Ayarlar",
-	"%langs": "Diller",
-	"%about": "Hakkında",
 	"%curr": "(güncel)",
 	"%hide": "Sakla",
 	"%err": "Hata",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Bitir",
 	"%back": "Geri",
 	"%cancel": "İptal",
-	"%new-win": " (Yeni pencerede açılır)",
 	"%min-ago": "bir dakika önce",
 	"%coup-mins": "birkaç dakika önce",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Kapat (escape tuşu)",
 	"%show": "Göster",
 
-	/* Archived Web page template */
-	"%arch-pg": "Bu web sitesi web üzerinde arşivlenmiştir.",
-	/* Menu bar */
-	"%sm-hlp": "(alt menüyü enter tuşu ile açıp escape tuşu ile kapatınız)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Tab dönüşünü durdur",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Sesli açıklama açık",
 		"off": "Sesli açıklama kapalı"
 	},
-	"%prog-bar": "sağ ok ve sol ok tuşlarını kullanarak medyayı ileri ya da geri sarınız",
-	"%no-video": "Tarayıcınız bu videoyu oynatma kapasitesine sahip değil, lütfen videoyu aşağıdan indiriniz",
 	"%pos": "Geçerli pozisyon:",
-	"%perc": "Oynatma yüzdesi:",
 	"%dur": "Toplam zaman:",
-	"%buff": "Arabelleklenen:",
 	/* Share widget */
-	"%fav": "Favori",
-	"%email": "E-posta",
 	"%shr-txt": "Bu sayfayı paylaş",
 	"%shr-hnt": " ile {s} ",
-	"%shr-email-sub": "İlginç sayfa",
-	"%shr-email-bd": "Bu sayfayı ilginç bulacağını düşünüyorum:\n{t} ({u})",
-	"%shr-fav-ttl": "(bu sayfa imi)",
-	"%shr-man": "Lütfen bu diyaloğu kapatıp Ctrl-D ye basarak sayfayı kaydediniz.",
-	"%shr-all": "Tümünü göster ({n})",
-	"%shr-all-ttl": "Kaydedilmiş tüm sayfalar",
 	"%shr-disc": "Herhangi bir ürün veya hizmet yok onaylandığı ifade ya da ima edilir.",
 	/* Form validation */
 	"%frm-nosubmit": "Form gönderilemiyor, çünkü ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Git",
 	"%prvMnth": "Önceki ay: ",
 	"%nxtMnth": "Sonraki ay: ",
-	/* Slideout */
-	"%show-toc": "Içindekiler göster",
-	"%hide-toc": "Içindekiler gizle",
-	"%toc": "içindekiler",
 	/* Lightbox */
 	"%lb-curr": "%total% de %curr% inci madde",
 	"%lb-xhr-err": "İçerik yükleme hatası.",

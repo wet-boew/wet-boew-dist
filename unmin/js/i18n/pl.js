@@ -13,27 +13,16 @@
 /* main index */
 var ind = {
 	"%lang-code": "pl",
-	"%lang-en": "Polish",
-	"%lang-fr": "polonais",
 	"%lang-nat": "Język polski",
 	"%all": "Wszystko",
-	"%home": "Strona główna",
-	"%main-page": "Strona główna",
 	"%tphp": "Góra strony",
-	"%you-are-in": "Jesteś w:",
-	"%welcome-to": "Witamy",
 	"%load": "ładowanie ...",
 	"%process": "przetwarzanie ...",
 	"%srch": "Szukaj",
-	"%srch-terms": "Szukaj frazy:",
 	"%no-match": "Nie znaleziono odpowiedników",
 	"%matches": {
 		"mixin": "Znaleziono [MIXIN] odpowiedników"
 	},
-	"%menu": "Menu",
-	"%settings": "Ustawienia",
-	"%langs": "Języki",
-	"%about": "O",
 	"%curr": "(bieżący)",
 	"%hide": "Ukryj",
 	"%err": "Błąd",
@@ -46,7 +35,6 @@ var ind = {
 	"%stop": "Zatrzymaj",
 	"%back": "Wstecz",
 	"%cancel": "Anuluj",
-	"%new-win": " (Otwiera się w nowym oknie)",
 	"%min-ago": "minutę temu",
 	"%coup-mins": "kilka minut temu",
 	"%mins-ago": {
@@ -70,10 +58,6 @@ var ind = {
 	"%close-esc": "Zamknij (klawisz Esc)",
 	"%show": "Pokaż",
 
-	/* Archived Web page template */
-	"%arch-pg": "Ta strona internetowa została zarchiwizowana.",
-	/* Menu bar */
-	"%sm-hlp": "(dostęp do menu - klawisz Enter; wyjście z menu - klawisz Esc)",
 	/* Tabbed interface */
 	"%tab-rot": {
 		"off": "Zatrzymaj przewijanie zakładek",
@@ -103,23 +87,11 @@ var ind = {
 		"on": "Włącz informację audio",
 		"off": "Wyłącz informację audio"
 	},
-	"%prog-bar": "przewijanie do przodu - prawa strzałka, przewijanie do tyłu - lewa strzałka",
-	"%no-video": "Aktualna wersja przeglądarki nie pozwala na odtworzenie tego pliku video, można go ściągnąć klikając poniżej",
 	"%pos": "Aktualna pozycja:",
-	"%perc": "% odtwarzania",
 	"%dur": "Czas całkowity:",
-	"%buff": "Zachowane w pamięci:",
 	/* Share widget */
-	"%fav": "Ulubione",
-	"%email": "Email",
 	"%shr-txt": "Prześlij tę stronę",
 	"%shr-hnt": " do {s} ",
-	"%shr-email-sub": "Interesująca strona",
-	"%shr-email-bd": "Wydaje mi się że ta strona może cię zainteresować:\n{t} ({u})",
-	"%shr-fav-ttl": "(zaznacz tę stronę)",
-	"%shr-man": "Proszę zamknąć to okienko i nacisnąć Ctrl-D aby zaznaczyć te stronę.",
-	"%shr-all": "Pokaż wszystko ({n})",
-	"%shr-all-ttl": "Wszystkie strony w zakładkach",
 	"%shr-disc": "Nie wyrażamy bezposrednio lub pośrednio poparcia dla żadnych produktów ani usług.",
 	/* Form validation */
 	"%frm-nosubmit": "Nie można było wysłać formularza, ponieważ ",
@@ -141,10 +113,6 @@ var ind = {
 	"%cal-goToBtn": "Przejdź",
 	"%prvMnth": "Poprzedni miesiąc: ",
 	"%nxtMnth": "Następny miesiąc: ",
-	/* Slideout */
-	"%show-toc": "Pokaż spis treści",
-	"%hide-toc": "Ukryj spis treści",
-	"%toc": "spis treści",
 	/* Lightbox */
 	"%lb-curr": "Pozycja %curr% z %total%",
 	"%lb-xhr-err": "Nie udało się załadować treści.",
