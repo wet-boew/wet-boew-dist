@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Vorige (linkse pijlen-toets)",
 	"%first": "Eerste",
 	"%last": "Laatste",
-	"%close-esc": "Sluit (Escape-toets)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Toon",
 
 	/* Tabbed interface */

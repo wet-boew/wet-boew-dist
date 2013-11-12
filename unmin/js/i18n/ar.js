@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "مفتاح السهم الأيسر - سابق",
 	"%first": "الأول",
 	"%last": "آخر",
-	"%close-esc": "إغلاق - مفتاح الهروب",
+	"%close-esc": "@%close-esc@",
 	"%show": "عرض",
 
 	/* Tabbed interface */

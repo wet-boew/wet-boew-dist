@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "I mëparshëm (kyç majtë arrow)",
 	"%first": "I parë",
 	"%last": "I fundit",
-	"%close-esc": "Mbylle (kyç shpëtojnë)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Shfaq",
 
 	/* Tabbed interface */

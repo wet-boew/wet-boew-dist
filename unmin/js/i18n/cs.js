@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Předchozí (klávesy šipka vpravo)",
 	"%first": "První",
 	"%last": "Poslední",
-	"%close-esc": "Zavřít (klávesy ESC)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Ukázat",
 
 	/* Tabbed interface */

@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "上一筆（左箭頭鍵）",
 	"%first": "第一筆",
 	"%last": "最後一筆",
-	"%close-esc": "關閉（Esc鍵）",
+	"%close-esc": "@%close-esc@",
 	"%show": "顯示",
 
 	/* Tabbed interface */

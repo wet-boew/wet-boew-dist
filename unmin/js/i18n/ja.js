@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "前へ（左矢印キー）",
 	"%first": "最初",
 	"%last": "最後",
-	"%close-esc": "閉じる(「Esc」キ)",
+	"%close-esc": "@%close-esc@",
 	"%show": "表示",
 
 	/* Tabbed interface */

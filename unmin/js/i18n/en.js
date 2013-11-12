@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Previous (left arrow key)",
 	"%first": "First",
 	"%last": "Last",
-	"%close-esc": "Close (escape key)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Show",
 
 	/* Tabbed interface */

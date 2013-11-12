@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Предыдущий (клавишей стрелка влево)",
 	"%first": "Первое",
 	"%last": "Последнее",
-	"%close-esc": "Закрыть (клавишей Escape)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Показать",
 
 	/* Tabbed interface */

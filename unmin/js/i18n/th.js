@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "ก่อน (คีย์ลูกศรซ้าย)",
 	"%first": "แรก",
 	"%last": "ล่าสุด",
-	"%close-esc": "ปิด (คีย์หนี)",
+	"%close-esc": "@%close-esc@",
 	"%show": "แสดง",
 
 	/* Tabbed interface */

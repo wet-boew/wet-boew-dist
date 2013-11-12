@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Sebelumnya (tombol panah kiri)",
 	"%first": "Pertama",
 	"%last": "Terakhir",
-	"%close-esc": "Tutup (tombol \"escape\")",
+	"%close-esc": "@%close-esc@",
 	"%show": "Tampilkan",
 
 	/* Tabbed interface */

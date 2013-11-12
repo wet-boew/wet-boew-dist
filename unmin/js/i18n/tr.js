@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Bir önceki (sol ok tuşu)",
 	"%first": "İlk",
 	"%last": "Son",
-	"%close-esc": "Kapat (escape tuşu)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Göster",
 
 	/* Tabbed interface */

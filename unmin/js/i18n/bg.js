@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Предишен (лява стрелка ключ)",
 	"%first": "Първи",
 	"%last": "Последно",
-	"%close-esc": "Затворете (бягство ключ)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Показване",
 
 	/* Tabbed interface */

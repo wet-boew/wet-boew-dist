@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "上一个（左箭头键）",
 	"%first": "开始",
 	"%last": "末",
-	"%close-esc": "关闭（逃生键）",
+	"%close-esc": "@%close-esc@",
 	"%show": "展示",
 
 	/* Tabbed interface */

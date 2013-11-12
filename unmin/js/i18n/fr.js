@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Précedent (touche gauche)",
 	"%first": "Premier",
 	"%last": "Dernier",
-	"%close-esc": "Fermer (touche d'échappement)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Afficher",
 
 	/* Tabbed interface */

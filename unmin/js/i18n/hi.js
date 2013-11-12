@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "पिछला (बाएँ तीर कुंजी)",
 	"%first": "पहले",
 	"%last": "अंतिम",
-	"%close-esc": "बंद कर(भागने कुंजी)",
+	"%close-esc": "@%close-esc@",
 	"%show": "दिखाना",
 
 	/* Tabbed interface */

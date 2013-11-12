@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Fyrri (vinstri ör lykill)",
 	"%first": "First",
 	"%last": "Síðasta",
-	"%close-esc": "Loka (flýja lykill)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Sýna",
 
 	/* Tabbed interface */

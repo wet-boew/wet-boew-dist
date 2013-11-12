@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Előző (bal nyíl gomb)",
 	"%first": "Első",
 	"%last": "Utolsó",
-	"%close-esc": "Zárja (escape billentyűvel)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Mutat",
 
 	/* Tabbed interface */

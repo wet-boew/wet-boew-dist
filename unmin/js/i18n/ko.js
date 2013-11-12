@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "이전 (왼쪽 화살표 키)",
 	"%first": "처음으로",
 	"%last": "마지막",
-	"%close-esc": "닫다 (Esc 키와)",
+	"%close-esc": "@%close-esc@",
 	"%show": "표시",
 
 	/* Tabbed interface */

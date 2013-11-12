@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Eelmine (vasakut nooleklahvi)",
 	"%first": "Esimene",
 	"%last": "Viimane",
-	"%close-esc": "Sule (klahviga Escape)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Näita",
 
 	/* Tabbed interface */

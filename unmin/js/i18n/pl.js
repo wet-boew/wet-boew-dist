@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Poprzedni (klawisz strzałka w lewo)",
 	"%first": "Pierwszy",
 	"%last": "Ostatni",
-	"%close-esc": "Zamknij (klawisz Esc)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Pokaż",
 
 	/* Tabbed interface */

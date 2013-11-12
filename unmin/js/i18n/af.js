@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Vorige (links pyltjie sleutel)",
 	"%first": "Eerste",
 	"%last": "Laaste",
-	"%close-esc": "Close (Escape-sleutel)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Toon",
 
 	/* Tabbed interface */

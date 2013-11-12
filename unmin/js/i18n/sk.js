@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Predchádzajúci (klávesy šípka doľava)",
 	"%first": "Prvé",
 	"%last": "Posledný",
-	"%close-esc": "Zavrieť (klávesy ESC)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Ukázať",
 
 	/* Tabbed interface */

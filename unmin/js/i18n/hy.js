@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Նախորդ (ձախ սլաքների բանալին)",
 	"%first": "Առաջին",
 	"%last": "Անցյալ",
-	"%close-esc": "Փակել (փախչել բանալին)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Ցուցադրում",
 
 	/* Tabbed interface */

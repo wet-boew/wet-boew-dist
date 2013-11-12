@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Попередній (клавішею ліва стрілка)",
 	"%first": "Перший",
 	"%last": "Oстанній",
-	"%close-esc": "Закрити (клавішею «escape»)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Показати",
 
 	/* Tabbed interface */

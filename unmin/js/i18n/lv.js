@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Lepriekšējais (pa kreisi bulta taustiņu)",
 	"%first": "Pirmā",
 	"%last": "Pēdējā",
-	"%close-esc": "Aizvērt (escape taustiņu)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Rādīt",
 
 	/* Tabbed interface */

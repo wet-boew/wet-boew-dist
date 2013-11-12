@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Trang trước (phím mũi tên trái)",
 	"%first": "Đầu tiên",
 	"%last": "Cuối cùng",
-	"%close-esc": "Đóng (phím thoát)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Hiện",
 
 	/* Tabbed interface */

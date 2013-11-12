@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Früher (linke Pfeiltaste)",
 	"%first": "Erste",
 	"%last": "Letzte",
-	"%close-esc": "Schließen (Escape-Taste)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Zeigen",
 
 	/* Tabbed interface */

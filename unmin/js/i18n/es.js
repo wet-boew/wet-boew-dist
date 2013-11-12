@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Anterior (tecla flecha izquierda)",
 	"%first": "Primero",
 	"%last": "Último",
-	"%close-esc": "Cerrar (tecla \"esc\")",
+	"%close-esc": "@%close-esc@",
 	"%show": "Mostrar",
 
 	/* Tabbed interface */

@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Ankstenis (rodyklės dešinėn klavišu)",
 	"%first": "Pirmasis",
 	"%last": "Paskutinis",
-	"%close-esc": "Uždaryti (\"escape\" klavišu)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Rodyti",
 
 	/* Tabbed interface */

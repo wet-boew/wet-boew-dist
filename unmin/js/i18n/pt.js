@@ -55,7 +55,7 @@ var ind = {
 	"%prv-l": "Anterior (tecla seta para a esquerda)",
 	"%first": "Primeiro",
 	"%last": "Último",
-	"%close-esc": "Fechar (botão ESC)",
+	"%close-esc": "@%close-esc@",
 	"%show": "Exibir",
 
 	/* Tabbed interface */
