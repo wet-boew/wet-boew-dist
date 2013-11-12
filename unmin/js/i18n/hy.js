@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Ցուցադրել _MENU_ գրառում",
 	/* Geomap */
-	"%geo-mapctrl": "Քարտեզ հսկողություն",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Խոշորացնել",
 	"%geo-zmout": "Փոքրացնել",
 	"%geo-zmwrld": "Մեծացնել քարտեզը չափը",

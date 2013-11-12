@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Tampilkan _MENU_ entri",
 	/* Geomap */
-	"%geo-mapctrl": "Peta kontrol",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Perbesar",
 	"%geo-zmout": "Perkecil",
 	"%geo-zmwrld": "Zoom untuk memetakan sejauh",

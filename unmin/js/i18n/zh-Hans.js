@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "显示_MENU_项",
 	/* Geomap */
-	"%geo-mapctrl": "地图控制",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "放大",
 	"%geo-zmout": "缩小",
 	"%geo-zmwrld": "缩放地图范围",

@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "_MENU_ प्रविष्टियों दिखाएं",
 	/* Geomap */
-	"%geo-mapctrl": "नक्शा नियंत्रण",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "ज़ूम इन करें",
 	"%geo-zmout": "ज़ूम आउट करें",
 	"%geo-zmwrld": "हद तक ज़ूम",

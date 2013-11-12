@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ".",
 	"%lenMenu": "Mostrar _MENU_ entradas",
 	/* Geomap */
-	"%geo-mapctrl": "Control de mapa",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Aumentar",
 	"%geo-zmout": "Reducir",
 	"%geo-zmwrld": "Reducir al mapa completo",

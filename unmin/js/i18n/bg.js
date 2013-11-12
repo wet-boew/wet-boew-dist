@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Покажи _MENU_ вписвания",
 	/* Geomap */
-	"%geo-mapctrl": "Карта контрол",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Увеличаване на мащаба",
 	"%geo-zmout": "Намаляване на мащаба",
 	"%geo-zmwrld": "Мащаба, за да картата степен",

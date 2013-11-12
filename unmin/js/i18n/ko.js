@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "_MENU_ 항목을 표시",
 	/* Geomap */
-	"%geo-mapctrl": "지도 제어",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "확대",
 	"%geo-zmout": "축소",
 	"%geo-zmwrld": "범위를 매핑 할 수 확대",

@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": "&#160;",
 	"%lenMenu": "Megjelenítés _MENU_ bejegyzés",
 	/* Geomap */
-	"%geo-mapctrl": "Térkép ellenőrzés",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Nagyítás",
 	"%geo-zmout": "Kicsinyítés",
 	"%geo-zmwrld": "Nagyítás feltérképezésére mértékben",

@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": "&#160;",
 	"%lenMenu": "Näita _MENU_ kandeid",
 	/* Geomap */
-	"%geo-mapctrl": "Kaardi kontroll",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Suumi",
 	"%geo-zmout": "Vähenda",
 	"%geo-zmwrld": "Suumi kaardi ulatuses",

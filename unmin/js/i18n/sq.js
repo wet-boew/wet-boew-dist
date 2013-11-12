@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": "&#160;",
 	"%lenMenu": "Trego _MENU_ hyra",
 	/* Geomap */
-	"%geo-mapctrl": "Harta e kontrollit",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Zoom në",
 	"%geo-zmout": "Zoom out",
 	"%geo-zmwrld": "Zoom në hartë shtrirjen",

@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": "&#160;",
 	"%lenMenu": "Zobraziť _MENU_ položiek",
 	/* Geomap */
-	"%geo-mapctrl": "Mapa ovládanie",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Priblížiť",
 	"%geo-zmout": "Vzdialiť",
 	"%geo-zmwrld": "Priblížiť zmapovať rozsah",

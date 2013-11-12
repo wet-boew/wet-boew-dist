@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "_MENU_エントリーを表示",
 	/* Geomap */
-	"%geo-mapctrl": "マップコントロール",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "ズームイン",
 	"%geo-zmout": "ズームアウト",
 	"%geo-zmwrld": "地図を最大に拡大表示する",

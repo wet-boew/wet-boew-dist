@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Hiển thị _MENU_ mục",
 	/* Geomap */
-	"%geo-mapctrl": "Điều khiển bản đồ",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Phóng to",
 	"%geo-zmout": "Thu nhỏ",
 	"%geo-zmwrld": "Phóng to bản đồ mức độ",

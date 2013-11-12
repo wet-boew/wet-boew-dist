@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Sýna _MENU_ færslur",
 	/* Geomap */
-	"%geo-mapctrl": "Kort stjórn",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Auka aðdrátt",
 	"%geo-zmout": "Minnka aðdrátt",
 	"%geo-zmwrld": "Aðdráttur til að kortleggja umfang",

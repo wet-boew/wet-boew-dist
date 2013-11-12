@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "عرض _MENU_ مقالات",
 	/* Geomap */
-	"%geo-mapctrl": "خريطة مراقبة",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "تكبير",
 	"%geo-zmout": "تصغير",
 	"%geo-zmwrld": "التكبير لتعيين حد",

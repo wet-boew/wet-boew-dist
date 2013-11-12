@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Parādīt _MENU_ ieraksti",
 	/* Geomap */
-	"%geo-mapctrl": "Karte kontrole",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Pievelciet",
 	"%geo-zmout": "Attāliniet",
 	"%geo-zmwrld": "Zoom uz kartes robežas",

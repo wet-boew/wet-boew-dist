@@ -122,7 +122,7 @@ var ind = {
 	"%table-following": "Grafik. Detaylar takip eden tablodadır.",
 	/* Session timeout */
 	"%st-to-msg-bgn": "Oturumunuz #min# dk #sec# sn otomatik olarak sona erecek.",
-	"%st-to-msg-end": "Oturum uzatmak için \"oturum devam\" seçin.",
+	"%st-to-msg-end": "turum uzatmak için \"oturum devam\" seçin.",
 	"%st-msgbx-ttl": "Oturum zaman aşımı uyarısı",
 	"%st-alrdy-to-msg": "Üzgünüz oturumu zaten doldu. Lütfen tekrar giriş yapın.",
 	"%st-btn-cont": "oturumu devam",
@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "_MENU_ girdileri göster",
 	/* Geomap */
-	"%geo-mapctrl": "Harita kontrol",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Yakınlaştır",
 	"%geo-zmout": "Uzaklaştır",
 	"%geo-zmwrld": "Ölçüde haritaya zoom",

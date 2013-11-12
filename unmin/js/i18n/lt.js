@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Rodyti _MENU_ įrašai",
 	/* Geomap */
-	"%geo-mapctrl": "Žemėlapis kontrolė",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Artinti",
 	"%geo-zmout": "Tolinti",
 	"%geo-zmwrld": "Padidinti iki map mastą",

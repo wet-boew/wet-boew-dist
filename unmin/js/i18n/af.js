@@ -122,7 +122,7 @@ var ind = {
 	"%table-following": "Chart. Besonderhede in die volgende tabel.",
 	/* Session timeout */
 	"%st-to-msg-bgn": "Jou sessie sal outomaties verval in #min# min #sec# sek aan.",
-	"%st-to-msg-end": "Kies \"Gaan voort sessie\" jou sessie te brei.",
+	"%st-to-msg-end": "Kies \"Gaan voort sessie\" om jou sessie te brei.",
 	"%st-msgbx-ttl": "Time-outsessie waarskuwing",
 	"%st-alrdy-to-msg": "Jammer jou sessie reeds verstryk het. Log weer in.",
 	"%st-btn-cont": "Gaan voort sessie",
@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Wys _MENU_ inskrywings",
 	/* Geomap */
-	"%geo-mapctrl": "Map beheer",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Zoom in",
 	"%geo-zmout": "Zoem uit",
 	"%geo-zmwrld": "Zoom mate kaart",

@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Показати _MENU_ записів",
 	/* Geomap */
-	"%geo-mapctrl": "Управління картою",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Збільшити",
 	"%geo-zmout": "Зменшити",
 	"%geo-zmwrld": "Збільшити до повного розміру",

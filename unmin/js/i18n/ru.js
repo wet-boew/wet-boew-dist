@@ -143,7 +143,7 @@ var ind = {
 	"%info1000": ",",
 	"%lenMenu": "Показать _MENU_ записей",
 	/* Geomap */
-	"%geo-mapctrl": "Привязка аэроснимков к карте",
+	"%geo-mapctrl": "@%geo-mapctrl@",
 	"%geo-zmin": "Приблизить",
 	"%geo-zmout": "Отдалить",
 	"%geo-zmwrld": "Увеличить для сопоставления степени",
