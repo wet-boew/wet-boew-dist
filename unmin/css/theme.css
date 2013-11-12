@@ -40,39 +40,10 @@ a {
   outline-color: white;
 }
 
-#wb-lng {
-  background: #474747;
-  color: white;
-  border-bottom: 1px solid white;
-  z-index: 1;
-  min-height: 2.2em;
-}
-
 #wb-lng .btn-group {
   text-align: right;
   margin: 5px 0;
   float: right;
-}
-
-#wb-lng a {
-  color: white;
-  text-decoration: none;
-}
-
-#wb-lng ul {
-  float: right;
-  margin: 0;
-}
-
-#wb-lng ul li {
-  border-left: 1px solid #777777;
-  list-style-type: none;
-  float: left;
-  padding: 6px 10px;
-}
-
-#wb-lng ul li:first-child {
-  border-left: none;
 }
 
 #wb-lng .curr {
@@ -81,15 +52,40 @@ a {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAYAAAB8ZH1oAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAA6SURBVAiZY/z//z8DMvj14+s+BgYGBjYObicUif///8Pxz+9f9v2HAigbLodVETbFOBWhK8arCFkxABifl5syjffvAAAAAElFTkSuQmCC) no-repeat scroll center bottom;
 }
 
-[dir=rtl] #wb-lng ul {
-  float: left;
-}
-
 #wb-bnr {
   background: #114f7a;
   background: -webkit-gradient(linear, top left, bottom left, from(#176ca7), to(#114f7a));
   background: -webkit-linear-gradient(#176ca7, #114f7a);
   background: linear-gradient(#176ca7, #114f7a);
+}
+
+#wb-bar {
+  background: #474747;
+  color: white;
+  border-bottom: 1px solid white;
+  z-index: 1;
+  min-height: 2.2em;
+}
+
+#wb-bar a {
+  color: white;
+  text-decoration: none;
+}
+
+#wb-bar ul {
+  float: right;
+  margin: 0;
+}
+
+#wb-bar ul li {
+  border-left: 1px solid #777777;
+  list-style-type: none;
+  float: left;
+  padding: 6px 10px;
+}
+
+#wb-bar ul li:first-child {
+  border-left: none;
 }
 
 #wb-sttl a {
@@ -115,6 +111,10 @@ a {
   height: 65px;
   margin: 9px 15px 9px 0;
   width: 141px;
+  float: left;
+}
+
+[dir=rtl] #wb-bar ul {
   float: left;
 }
 
