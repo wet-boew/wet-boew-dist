@@ -10168,14 +10168,6 @@ table.dataTable tr.even td.sorting_3 {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.no-js .wb-tabs [role="tablist"] {
-  display: none;
-}
-
-.no-js .wb-tabs [role="tabpanel"] {
-  display: block;
-}
-
 .wb-tabs {
   /**
 	 * Default, minimal, shared style
@@ -10188,26 +10180,43 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs [role="tablist"] {
   position: relative;
-  z-index: 100;
-  display: none;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .wb-tabs [role="tablist"] li {
   display: inline-block;
+  cursor: pointer;
+  padding: 7px;
+  margin: 0 1px 0 0;
+  color: black;
+  background: #eeeeee;
+  background: rgba(238, 238, 238, 0.9);
+  border: 1px solid #cccccc;
+  text-align: center;
+  position: relative;
 }
 
 .wb-tabs [role="tablist"] li a {
   text-decoration: none;
+  color: black;
 }
 
-.wb-tabs.inited [role="tablist"] {
-  display: block;
+.wb-tabs [role="tablist"] li:focus,
+.wb-tabs [role="tablist"] li:hover {
+  background: #cccccc;
+  background: rgba(204, 204, 204, 0.9);
 }
 
-.wb-tabs [role="tabpanel"] {
-  display: relative;
-  z-index: 1;
+.wb-tabs [role="tablist"] li.active {
+  background: #cccccc;
+  background: rgba(204, 204, 204, 0.9);
+  cursor: default;
+}
+
+.wb-tabs [role="tablist"] li.active a {
+  cursor: default;
 }
 
 .wb-tabs [role="tabpanel"].out {
@@ -10218,32 +10227,17 @@ table.dataTable tr.even td.sorting_3 {
   position: absolute;
   bottom: 1em;
   left: 1em;
-  margin: 0;
-  padding: 0;
+  z-index: 100;
 }
 
-.wb-tabs.tabs-s1 [role="tablist"] li {
-  display: inline-block;
-  cursor: pointer;
-  padding: 0.4em;
-  margin: 0 0.1em 0 0;
-  color: black;
-  background: #eeeeee;
-  background: rgba(238, 238, 238, 0.9);
-  border: 1px solid #cccccc;
-  text-align: center;
-  position: relative;
-}
-
-.wb-tabs.tabs-s1 [role="tablist"] li a {
-  color: black;
-}
-
+.wb-tabs.tabs-s1 [role="tablist"] li.active,
 .wb-tabs.tabs-s1 [role="tablist"] li:focus,
 .wb-tabs.tabs-s1 [role="tablist"] li:hover {
-  background: #cccccc;
-  background: rgba(204, 204, 204, 0.9);
   top: 1px;
+}
+
+.wb-tabs.tabs-s1 [role="tabpanel"] {
+  z-index: 1;
 }
 
 .wb-tabs.tabs-s1 [role="tabpanel"] figure {
@@ -10267,6 +10261,15 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption a {
   color: white;
+}
+
+.no-js .wb-tabs [role="tablist"] {
+  display: none;
+}
+
+.no-js .wb-tabs [role="tabpanel"] {
+  display: block;
+  opacity: 1;
 }
 
 /*

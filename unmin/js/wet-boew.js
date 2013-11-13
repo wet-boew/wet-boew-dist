@@ -1,5 +1,5 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-12
+ - v4.0.0-a1-development - 2013-11-13
 */
 (function( $ ) {
 	vapour.getData = function( element, dataName ) {
@@ -2632,7 +2632,7 @@ var selector = ".wb-menu",
 	};
 
 // Bind the events of the plugin
-$document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.wb-menu display.wb-menu", selector, function( event ) {
+$document.on( "timerpoke.wb select.wb-menu ajax-fetched.wb increment.wb-menu display.wb-menu", selector, function( event ) {
 	var elm = event.target,
 		eventType = event.type,
 		$elm = $( elm );
@@ -2662,15 +2662,6 @@ $document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.
 		onIncrement( $elm, event );
 		break;
 
-	case "mouseleave":
-
-		// Make sure we are dealing with the top level container
-		if ( !$elm.hasClass( "wb-menu" ) ) {
-			$elm = $elm.closest( ".wb-menu" );
-		}
-		onReset( $elm );
-		break;
-
 	case "display":
 		if ( event.cancelDelay ) {
 			onDisplay( $elm, event );
@@ -2689,14 +2680,18 @@ $document.on( "timerpoke.wb mouseleave select.wb-menu ajax-fetched.wb increment.
 	return true;
 });
 
+$document.on( "mouseleave", selector + " .menu", function( event ) {
+	onReset( $( event.target ).closest( ".wb-menu" ) );
+});
+
 
 // Panel clicks on menu items should open submenus
-$document.on( "click vclick", selector + " .item", onPanelClick );
+$document.on( "click vclick", selector + " .item[aria-haspopup]", onPanelClick );
 
 /*
  * Menu Keyboard bindings
  */
-$document.on( "mouseover focusin", selector + " .item[aria-haspopup]", onHoverFocus );
+$document.on( "mouseover focusin", selector + " .item", onHoverFocus );
 
 $document.on( "keydown", selector + " .item", function( event ) {
 	var elm = event.target,
@@ -4817,7 +4812,8 @@ window._timer.add( selector );
 
 	/*
 	 * @method onShift
-	 * @param {jQuery DOM element} $elm The plugin element
+	 * @param {jQuery DOM element} $sldr The plugin element
+	 * @param {jQuery DOM element} $elm The selected link from the tablist
 	 */
 	onPick = function( $sldr, $elm ) {
 		var $items = $sldr.data( "tabs" ),
@@ -4843,6 +4839,7 @@ window._timer.add( selector );
 			.attr( "aria-selected", "false" )
 			.end()
 			.find( $elm )
+			.parent()
 			.addClass( "active" )
 			.attr( "aria-selected", "true" );
 	},
@@ -4882,6 +4879,7 @@ window._timer.add( selector );
 			.attr( "aria-selected", "false" )
 			.end()
 			.find( "[href=#" + $next.attr( "id" ) + "]" )
+			.parent()
 			.addClass( "active" )
 			.attr( "aria-selected", "true" );
 	},
