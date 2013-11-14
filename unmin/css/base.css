@@ -10168,6 +10168,55 @@ table.dataTable tr.even td.sorting_3 {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+ul.ev-details,
+ul.ev-details a {
+  background-color: white;
+}
+
+tbody.cal-days ul.ev-details li a:hover,
+tbody.cal-days ul.ev-details li a:focus,
+tbody.cal-days a.cal-event,
+tbody.cal-days a.cal-event:link {
+  color: white !important;
+}
+
+ul.ev-details {
+  padding: 0;
+  position: absolute;
+  z-index: 5;
+  border: 1px solid #333333;
+  width: 10em;
+  margin: 0;
+  margin-top: -0.5em;
+  font-weight: 400;
+}
+
+ul.ev-details a {
+  padding: 0.5em;
+}
+
+tbody.cal-days ul.ev-details li {
+  border: none;
+  width: 100%;
+  list-style-type: none !important;
+}
+
+tbody.cal-days ul.ev-details li a,
+tbody.cal-days ul.ev-details li a:link {
+  color: black;
+  width: auto;
+}
+
+tbody.cal-days a.cal-event,
+tbody.cal-days a.cal-event:link {
+  background: #176ca7;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
 .wb-tabs {
   /**
 	 * Default, minimal, shared style
