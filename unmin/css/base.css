@@ -10240,6 +10240,9 @@ tbody.cal-days a.cal-event:link {
   /**
 	 * Style 1 - Basic carousel style
 	 */
+  /**
+	 * Style 2 - Slider-like carousel style
+	 */
 }
 
 .wb-tabs [role="tablist"] {
@@ -10325,6 +10328,165 @@ tbody.cal-days a.cal-event:link {
 
 .wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption a {
   color: white;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li {
+  border: none;
+  visibility: visible;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle).active,
+.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle):focus,
+.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle):hover {
+  top: 1px;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle {
+  position: absolute;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv {
+  left: 0;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt {
+  right: 0;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.plypause {
+  display: none;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt {
+  height: 100%;
+  width: 3em;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #243850;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border: none;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.prv,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.prv {
+  background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.prv .glyphicon,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.prv .glyphicon {
+  left: 0.25em;
+  padding-top: 1px;
+  padding-right: 2px;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.nxt,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.nxt {
+  background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.nxt .glyphicon,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.nxt .glyphicon {
+  right: 0.25em;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover {
+  background: white;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus .glyphicon,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover .glyphicon,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus .glyphicon,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover .glyphicon {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a .glyphicon,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a .glyphicon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  height: 1.75em;
+  width: 1.75em;
+  font-size: 1.75em;
+  line-height: 1.75em;
+  text-align: center;
+  background: white;
+  border-radius: 999px;
+  -webkit-box-shadow: 0 0 4px #243850;
+  box-shadow: 0 0 4px #243850;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a .glyphicon:focus,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a .glyphicon:hover,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a .glyphicon:focus,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a .glyphicon:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.wb-tabs.tabs-s2 [role="tabpanel"] {
+  z-index: 1;
+}
+
+.wb-tabs.tabs-s2 [role="tabpanel"] figure {
+  position: relative;
+}
+
+.wb-tabs.tabs-s2 [role="tabpanel"] figure img {
+  width: 100%;
+  height: auto;
+}
+
+.wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption {
+  position: absolute;
+  bottom: 1em;
+  left: 3em;
+  color: white;
+  background: #243850;
+  background: rgba(36, 56, 80, 0.9);
+  padding: 1em;
+}
+
+.wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption a {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  figcaption {
+    position: relative !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+  }
 }
 
 .no-js .wb-tabs [role="tablist"] {
