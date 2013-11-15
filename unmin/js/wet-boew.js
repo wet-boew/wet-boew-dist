@@ -1,7 +1,7 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW) wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-14
+ - v4.0.0-a1-development - 2013-11-15
 */
-(function( $ ) {
+(function( $ , vapour ) {
 	vapour.getData = function( element, dataName ) {
 		var elm = !element.jquery ? element : element[ 0 ],
 			dataAttr = elm.getAttribute( "data-" + dataName ),
@@ -18,7 +18,7 @@
 		$.data( elm, dataName, dataObj );
 		return dataObj;
 	};
-})( jQuery );
+})( jQuery, vapour );
 
 (function( vapour ) {
 	"use strict";
@@ -147,14 +147,14 @@
 
 (function( $ ) {
 	"use strict";
-	
+
 	var methods,
 		_settings = {
 			"default": "wet-boew"
 		};
-	
+
 	methods = {
-	
+
 		init: function( options ) {
 			return $.extend( _settings, options || {} );
 		},
@@ -165,9 +165,9 @@
 				.removeClass( from );
 		}
 	};
-	
+
 	$.fn.wb = function( method ) {
-	
+
 		if ( methods[ method ] ) {
 			methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ) );
 		}
@@ -186,7 +186,7 @@
 */
 (function ( $ ) {
 	"use strict";
-	
+
 	function focusable( element, isTabIndexNotNaN, visibility ) {
 		var map, mapName, img,
 			nodeName = element.nodeName.toLowerCase( );
@@ -214,7 +214,7 @@
 				isTabIndexNotNaN );
 		}
 	}
-	
+
 	function visible( element ) {
 		return $.expr.filters.visible( element ) && !$( element )
 			.parents( )
@@ -224,7 +224,7 @@
 			})
 			.length;
 	}
-	
+
 	$.extend( $.expr[ ":" ], {
 		data: $.expr.createPseudo ? $.expr.createPseudo(function(dataName ) {
 			return function( elem ) {
@@ -232,7 +232,7 @@
 			};
 		} ) :
 		// support: jQuery <1.8
-	
+
 		function( elem, i, match ) {
 			return !!$.data( elem, match[ 3 ] );
 		},
@@ -284,10 +284,11 @@ Peformant micro templater
 			});
 		};
 	}());
-	
+
 	window.tmpl = tmpl;
 
 })( window );
+
 (function( $, vapour ) {
 "use strict";
 
@@ -370,8 +371,8 @@ var selector = ".wb-cal-evt",
 		if ( !i18nText ) {
 			i18n = window.i18n;
 			i18nText = {
-				monthNames: i18n( "%calendar-monthNames" ),
-				calendar: i18n( "%calendar" )
+				monthNames: i18n( "calendar-monthNames" ),
+				calendar: i18n( "calendar" )
 			};
 		}
 
@@ -840,17 +841,17 @@ var $document = vapour.doc,
 		if ( !i18nText ) {
 			i18n = window.i18n;
 			i18nText = {
-				monthNames: i18n( "%mnths" ),
-				prevMonth: i18n( "%prvMnth" ),
-				nextMonth: i18n( "%nxtMnth" ),
-				goToTitle: i18n( "%cal-goToTtl" ),
-				goToYear: i18n( "%cal-goToYr" ),
-				goToMonth: i18n( "%cal-goToMnth" ),
-				goToLink: i18n( "%cal-goToLnk" ),
-				goToBtn: i18n( "%cal-goToBtn" ),
-				cancelBtn: i18n( "%cancel" ),
-				dayNames: i18n( "%days" ),
-				currDay: i18n( "%currDay" )
+				monthNames: i18n( "mnths" ),
+				prevMonth: i18n( "prvMnth" ),
+				nextMonth: i18n( "nxtMnth" ),
+				goToTitle: i18n( "cal-goToTtl" ),
+				goToYear: i18n( "cal-goToYr" ),
+				goToMonth: i18n( "cal-goToMnth" ),
+				goToLink: i18n( "cal-goToLnk" ),
+				goToBtn: i18n( "cal-goToBtn" ),
+				cancelBtn: i18n( "cancel" ),
+				dayNames: i18n( "days" ),
+				currDay: i18n( "currDay" )
 			};
 		}
 
@@ -2347,12 +2348,12 @@ var selector = ".wb-formvalid",
 			if ( !i18nText ) {
 				i18n = window.i18n;
 				i18nText = {
-					colon: i18n( "%colon" ),
-					hyphen: i18n( "%hyphen" ),
-					error: i18n( "%err" ),
-					errorFound: i18n( "%err-fnd" ),
-					errorsFound: i18n( "%errs-fnd" ),
-					formNotSubmitted: i18n( "%frm-nosubmit" )
+					colon: i18n( "colon" ),
+					hyphen: i18n( "hyphen" ),
+					error: i18n( "err" ),
+					errorFound: i18n( "err-fnd" ),
+					errorsFound: i18n( "errs-fnd" ),
+					formNotSubmitted: i18n( "frm-nosubmit" )
 				};
 			}
 
@@ -2633,18 +2634,18 @@ var selector = ".wb-lightbox",
 			if ( !i18nText ) {
 				i18n = window.i18n;
 				i18nText = {
-					tClose: i18n( "%dlg-close" ) + i18n( "%space" ) + i18n( "%esc-key" ),
-					tLoading: i18n( "%load" ),
+					tClose: i18n( "close-esc" ),
+					tLoading: i18n( "load" ),
 					gallery: {
-						tPrev: i18n( "%prv-l" ),
-						tNext: i18n( "%nxt-r" ),
-						tCounter: i18n( "%lb-curr" )
+						tPrev: i18n( "prv-l" ),
+						tNext: i18n( "nxt-r" ),
+						tCounter: i18n( "lb-curr" )
 					},
 					image: {
-						tError: i18n( "%lb-img-err" ) + " (<a href=\"%url%\">)"
+						tError: i18n( "lb-img-err" ) + " (<a href=\"url%\">)"
 					},
 					ajax: {
-						tError: i18n( "%lb-xhr-err" ) + " (<a href=\"%url%\">)"
+						tError: i18n( "lb-xhr-err" ) + " (<a href=\"url%\">)"
 					}
 				};
 			}
@@ -3745,17 +3746,17 @@ $document.on( "timerpoke.wb", $selector, function() {
 	if ( !i18nText ) {
 		i18n = window.i18n;
 		i18nText = {
-			rewind: i18n( "%rew" ),
-			ff: i18n( "%ffwd" ),
-			play: i18n( "%play" ),
-			pause: i18n( "%pause" ),
-			cc_on: i18n( "%cc", "on" ),
-			cc_off: i18n( "%cc", "off"),
-			cc_error: i18n ( "%cc-err" ),
-			mute_on: i18n( "%mute", "on"),
-			mute_off: i18n( "%mute", "off"),
-			duration: i18n( "%dur"),
-			position: i18n( "%pos")
+			rewind: i18n( "rew" ),
+			ff: i18n( "ffwd" ),
+			play: i18n( "play" ),
+			pause: i18n( "pause" ),
+			cc_on: i18n( "cc", "on" ),
+			cc_off: i18n( "cc", "off"),
+			cc_error: i18n ( "cc-err" ),
+			mute_on: i18n( "mute", "on"),
+			mute_off: i18n( "mute", "off"),
+			duration: i18n( "dur"),
+			position: i18n( "pos")
 		};
 	}
 
@@ -4520,13 +4521,13 @@ var selector = ".wb-session-timeout",
 			if ( !i18nText ) {
 				i18n = window.i18n;
 				i18nText = {
-					buttonContinue: i18n( "%st-btn-cont" ),
-					buttonEnd: i18n( "%st-btn-end" ),
-					buttonSignin: i18n( "%tmpl-signin" ),
-					timeoutBegin: i18n( "%st-to-msg-bgn" ),
-					timeoutEnd: i18n( "%st-to-msg-end" ),
-					timeoutTitle: i18n( "%st-msgbx-ttl" ),
-					timeoutAlready: i18n( "%st-alrdy-to-msg" )
+					buttonContinue: i18n( "st-btn-cont" ),
+					buttonEnd: i18n( "st-btn-end" ),
+					buttonSignin: i18n( "tmpl-signin" ),
+					timeoutBegin: i18n( "st-to-msg-bgn" ),
+					timeoutEnd: i18n( "st-to-msg-end" ),
+					timeoutTitle: i18n( "st-msgbx-ttl" ),
+					timeoutAlready: i18n( "st-alrdy-to-msg" )
 				};
 			}
 
@@ -5006,7 +5007,7 @@ var selector = ".wb-share",
 			if ( !i18nText ) {
 				i18n = window.i18n;
 				i18nText = {
-					disclaimer: i18n( "%shr-disc" )
+					disclaimer: i18n( "shr-disc" )
 				};
 			}
 			
@@ -5069,25 +5070,25 @@ var selector = ".wb-tables",
 				i18n = window.i18n;
 				i18nText = {
 					oAria: {
-						sSortAscending: i18n( "%sortAsc" ),
-						sSortDescending: i18n( "%sortDesc" )
+						sSortAscending: i18n( "sortAsc" ),
+						sSortDescending: i18n( "sortDesc" )
 					},
 					oPaginate: {
-						sFirst: i18n( "%first" ),
-						sLast: i18n( "%last" ),
-						sNext: i18n( "%nxt" ),
-						sPrevious: i18n( "%prv" )
+						sFirst: i18n( "first" ),
+						sLast: i18n( "last" ),
+						sNext: i18n( "nxt" ),
+						sPrevious: i18n( "prv" )
 					},
-					sEmptyTable: i18n( "%emptyTbl" ),
-					sInfo: i18n( "%infoEntr" ),
-					sInfoEmpty: i18n( "%infoEmpty" ),
-					sInfoFiltered: i18n( "%infoFilt" ),
-					sInfoThousands: i18n( "%info1000" ),
-					sLengthMenu: i18n( "%lenMenu" ),
-					sLoadingRecords: i18n( "%load" ),
-					sProcessing: i18n( "%process" ),
-					sSearch: i18n( "%srch" ),
-					sZeroRecords: i18n( "%infoEmpty" )
+					sEmptyTable: i18n( "emptyTbl" ),
+					sInfo: i18n( "infoEntr" ),
+					sInfoEmpty: i18n( "infoEmpty" ),
+					sInfoFiltered: i18n( "infoFilt" ),
+					sInfoThousands: i18n( "info1000" ),
+					sLengthMenu: i18n( "lenMenu" ),
+					sLoadingRecords: i18n( "load" ),
+					sProcessing: i18n( "process" ),
+					sSearch: i18n( "srch" ),
+					sZeroRecords: i18n( "infoEmpty" )
 				};
 			}
 
@@ -5240,14 +5241,14 @@ window._timer.add( selector );
 		if ( !i18nText ) {
 			   i18n = window.i18n;
 			   i18nText = {
-					   prev: i18n( "%prv" ),
-					   next: i18n( "%nxt" ),
-					   play: i18n( "%play" ),
-					   rotStart: i18n( "%tab-rot" ).on,
-					   rotStop: i18n( "%tab-rot" ).off,
-					   space: i18n( "%space" ),
-					   hyphen: i18n( "%hyphen" ),
-					   pause: i18n( "%pause" )
+					   prev: i18n( "prv" ),
+					   next: i18n( "nxt" ),
+					   play: i18n( "play" ),
+					   rotStart: i18n( "tab-rot" ).on,
+					   rotStop: i18n( "tab-rot" ).off,
+					   space: i18n( "space" ),
+					   hyphen: i18n( "hyphen" ),
+					   pause: i18n( "pause" )
 			   };
 		}
 
@@ -5805,7 +5806,7 @@ var selector = "#wb-tphp",
 				}
 
 				// Append the Standard version link
-				li.innerHTML = "<a class='wb-sl' href='" + nQuery + "wbdisable=false'>" + i18n( "%wb-enable" ) + "</a>";
+				li.innerHTML = "<a class='wb-sl' href='" + nQuery + "wbdisable=false'>" + i18n( "wb-enable" ) + "</a>";
 
 				// Add link to re-enable WET plugins and polyfills
 				elm.appendChild( li );
@@ -5817,7 +5818,7 @@ var selector = "#wb-tphp",
 			}
 
 			// Append the Basic HTML version link version
-			li.innerHTML = "<a class='wb-sl' href='" + nQuery + "wbdisable=true'>" + i18n( "%wb-disable" ) + "</a>";
+			li.innerHTML = "<a class='wb-sl' href='" + nQuery + "wbdisable=true'>" + i18n( "wb-disable" ) + "</a>";
 			elm.appendChild( li ); // Add link to disable WET plugins and polyfills
 		}
 	};
