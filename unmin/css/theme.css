@@ -157,7 +157,7 @@ a {
 }
 
 #wb-sm .menu {
-  text-shadow: 1px 1px 1px #222222;
+  text-shadow: 1px 1px 1px #666666;
   margin-bottom: 0;
 }
 
@@ -187,7 +187,8 @@ a {
 }
 
 #wb-sm .menu> li.active> a {
-  background: #243850;
+  color: black;
+  background: #cccccc;
 }
 
 #wb-sm .sm.open {
