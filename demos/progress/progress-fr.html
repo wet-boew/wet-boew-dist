@@ -95,11 +95,11 @@
 
 			<nav role="navigation" id="wb-sm" data-ajax-fetch="../../ajax/sitemenu-fr.html" data-post-remove="remove after init" class="wb-menu remove after init" typeof="SiteNavigationElement">
 				
- <div class="container visible-md visible-lg nvbar">
+	<div class="container visible-md visible-lg nvbar">
 	<h2>Menu du site</h2>
     <div class="row">
         <ul class="list-inline menu">
-			<li><a href="/index-fr.html">Projet de la BOEW</a></li>
+			<li><a href="../../index-fr.html">Projet de la BOEW</a></li>
 			<li><a href="https://github.com/wet-boew/wet-boew/wiki/Mise-en-%C5%93uvre-de-la-BOEW">Mise en œuvre de la BOEW</a></li>
 			<li><a href="https://github.com/wet-boew/wet-boew/wiki/Lignes-directrices-pour-les-contributeurs">Contribuer à la BOEW</a></li>
         </ul>
@@ -177,9 +177,23 @@ progress {
 				<td>500</td>
 				<td><progress value="500" max="500"><span class="wb-inv">100 %</span></progress></td>
 			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="Réactualiser" onclick="increaseProgress();" /></td>
+				<td><progress id="updateTest" value="82" max="100"><span class="wb-inv">82%</span></progress></td>
+			</tr>
 		</tbody>
 	</table>
 </section>
+
+<script>
+	function increaseProgress() {
+		var $elm = $( "#updateTest" ),
+			valuenow = parseInt( $elm.attr( "value" ), 10 );
+
+		$elm.attr( "value", ( valuenow === parseInt( $elm.attr( "max" ) ) ? 0 : valuenow + 1 ) );
+	}
+</script>
+
 
 				</div>
 

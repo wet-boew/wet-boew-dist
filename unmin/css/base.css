@@ -7135,6 +7135,21 @@ q:after {
  */
 
 /*
+ *	Table stripes and hover -- Increased the contrast for the table stripes
+ *	and hover
+ */
+
+.table-striped > tbody > tr:nth-child(odd)> td,
+.table-striped > tbody > tr:nth-child(odd)> th {
+  background-color: whitesmoke;
+}
+
+.table-hover > tbody > tr:hover> td,
+.table-hover > tbody > tr:hover> th {
+  background-color: #f0f0f0;
+}
+
+/*
  *	Font size -- Reset base font size to 16px as required by the Technical
  *	specifications for the Web and mobile presence.
  */

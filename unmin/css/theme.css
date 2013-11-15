@@ -178,11 +178,15 @@ a {
   text-decoration: underline;
 }
 
+#wb-sm .menu> li> a.wb-navcurr {
+  background: #0b3048;
+}
+
 #wb-sm .menu> li:last-child a {
   border-right: 1px solid #135480;
 }
 
-#wb-sm .menu> li.active {
+#wb-sm .menu> li.active> a {
   background: #243850;
 }
 

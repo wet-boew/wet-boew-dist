@@ -292,8 +292,6 @@ Peformant micro templater
 (function( $, vapour ) {
 "use strict";
 
-$.ajaxSettings.cache = false;
-
 /* 
  * Variable and function definitions. 
  * These are global to the plugin - meaning that they will be initialized once per page,
@@ -1424,8 +1422,6 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 (function( $, window, vapour ) {
 "use strict";
 
-$.ajaxSettings.cache = false;
-
 /*
  * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once
@@ -2065,8 +2061,6 @@ window._timer.add( selector );
 })( jQuery, window, document, vapour );
 (function( $, window, vapour ) {
 "use strict";
-
-$.ajaxSettings.cache = false;
 
 /* 
  * Variable and function definitions. 
@@ -2798,7 +2792,7 @@ window._timer.add( selector );
 
 })( jQuery, window, document, vapour );
 
-(function( $, window, vapour ) {
+(function( $, window, document, vapour ) {
 "use strict";
 
 /*
@@ -2809,6 +2803,7 @@ window._timer.add( selector );
  */
 var selector = ".wb-menu",
 	$document = vapour.doc,
+	breadcrumb = document.getElementById( "wb-bc" ),
 
 	// Used for half second delay on showing/hiding menus because of mouse hover
 	hoverDelay = 500,
@@ -2855,7 +2850,10 @@ var selector = ".wb-menu",
 				fetch: $elm.data( "ajax-fetch" )
 			});
 		} else {
-			$elm.trigger( "loaded.wb-menu" );
+
+			// Trigger the navcurrent plugin
+			$elm.trigger( "navcurrent.wb", breadcrumb );
+			$( "#wb-sec" ).trigger( "navcurrent.wb", breadcrumb );
 		}
 	},
 
@@ -2906,6 +2904,10 @@ var selector = ".wb-menu",
 
 		// lets see if we need to add a dynamic navigation section ( secondary nav )
 		if ( $wbsec.length !== 0 ) {
+
+			// Trigger the navcurrent plugin
+			$wbsec.trigger( "navcurrent.wb", breadcrumb );
+		
 			$panel = $ajaxed.find( ".pnl-strt" );
 			$panel.before( "<section id='dyn-nvgtn' class='" +
 				$panel.siblings( ".wb-info" ).eq( 0 ).attr( "class" ) +
@@ -2937,6 +2939,8 @@ var selector = ".wb-menu",
 			items: $elm.find( ".sm" )
 		});
 
+		// Trigger the navcurrent plugin
+		$elm.trigger( "navcurrent.wb", breadcrumb );
 	},
 
 
@@ -3308,7 +3312,7 @@ $document.on( "keydown", selector + " [role=menu]", function( event ) {
 // Add the timer poke to initialize the plugin
 window._timer.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, document, vapour );
 
 (function( $, window, document, vapour ) {
 "use strict";
@@ -4112,7 +4116,7 @@ window._timer.add( $selector );
  */
 var $document = vapour.doc,
 	breadcrumbLinksArray, breadcrumbLinksUrlArray,
-	navClass = "wb-navcurrent",
+	navClass = "wb-navcurr",
 
 	/*
 	 * We start the logic for what the plugin truly does
@@ -4122,7 +4126,8 @@ var $document = vapour.doc,
 	 * @param {jQuery DOM element | DOM element} breadcrumb Optional breadcrumb element
 	 */
 	navCurrent = function( event, breadcrumb ) {
-		var menuLinks = event.target.getElementsByTagName( "a" ),
+		var menu = event.target,
+			menuLinks = menu.getElementsByTagName( "a" ),
 			menuLinksArray = [],
 			menuLinksUrlArray = [],
 			windowLocation = window.location,
@@ -4130,8 +4135,9 @@ var $document = vapour.doc,
 			pageUrlQuery = windowLocation.search,
 			match = false,
 			len = menuLinks.length,
-			i, j, link, linkHref, linkUrl, linkUrlLen, linkQuery, linkQueryLen,
-			_breadcrumbLinks, _breadcrumbLinksArray, _breadcrumbLinksUrlArray;
+			i, j, link, linkHref, linkUrl, linkQuery, linkQueryLen,
+			localBreadcrumbLinks, localBreadcrumbLinksArray, localBreadcrumbLinksUrlArray,
+			localBreadcrumbQuery, localBreadcrumbLinkUrl;
 
 		// Try to find a match with the page Url and cache link + Url for later if no match found
 		for ( i = 0; i !== len; i += 1 ) {
@@ -4154,42 +4160,47 @@ var $document = vapour.doc,
 
 		// No page Url match found, try a breadcrumb link match instead
 		if ( !match && breadcrumb ) {
+
 			// Check to see if the data has been cached already
-			if ( !_breadcrumbLinksArray ) {
+			if ( !localBreadcrumbLinksArray ) {
+
 				// Pre-process the breadcrumb links
-				_breadcrumbLinksArray = [];
-				_breadcrumbLinksUrlArray = [];
-				_breadcrumbLinks = ( !breadcrumb.jquery ? breadcrumb[ 0 ] : breadcrumb ).getElementsByTagName( "a" );
-				len = _breadcrumbLinks.length;
+				localBreadcrumbLinksArray = [];
+				localBreadcrumbLinksUrlArray = [];
+				localBreadcrumbLinks = ( breadcrumb.jquery ? breadcrumb[ 0 ] : breadcrumb ).getElementsByTagName( "a" );
+				len = localBreadcrumbLinks.length;
 				for ( i = 0; i !== len; i += 1) {
-					link = _breadcrumbLinks[ i ];
+					link = localBreadcrumbLinks[ i ];
 					linkHref = link.getAttribute( "href" );
 					if ( linkHref.length !== 0 && linkHref.slice( 0, 1 ) !== "#" ) {
-						_breadcrumbLinksArray.push( link );
-						_breadcrumbLinksUrlArray.push( link.hostname + link.pathname.replace( /^([^\/])/, "/$1" ) );
+						localBreadcrumbLinksArray.push( link );
+						localBreadcrumbLinksUrlArray.push( link.hostname + link.pathname.replace( /^([^\/])/, "/$1" ) );
 					}
 				}
 				
 				// Cache the data in case of more than one execution (e.g., site menu + secondary navigation)
-				breadcrumbLinksArray = _breadcrumbLinksArray;
-				breadcrumbLinksUrlArray = _breadcrumbLinksUrlArray;
+				breadcrumbLinksArray = localBreadcrumbLinksArray;
+				breadcrumbLinksUrlArray = localBreadcrumbLinksUrlArray;
 			} else {
+
 				// Retrieve the cached data
-				_breadcrumbLinksArray = breadcrumbLinksArray;
-				_breadcrumbLinksUrlArray = breadcrumbLinksUrlArray;
+				localBreadcrumbLinksArray = breadcrumbLinksArray;
+				localBreadcrumbLinksUrlArray = breadcrumbLinksUrlArray;
 			}
 		
 			// Try to match each breadcrumb link
 			len = menuLinksArray.length;
-			for ( i = 0; i !== len; i += 1 ) {
-				link = menuLinksArray[ i ];
-				linkUrl = menuLinksUrlArray[ i ];
-				linkUrlLen = linkUrl.length;
-				linkQuery = link.search;
-				linkQueryLen = linkQuery.length;
-				j = _breadcrumbLinksArray.length - 1;
-				for ( j = _breadcrumbLinksArray.length - 1; j !== -1; j -= 1 ) {
-					if ( _breadcrumbLinksUrlArray[ j ].slice( -linkUrlLen ) === linkUrl && ( linkQueryLen === 0 || _breadcrumbLinksArray[ j ].search.slice( -linkQueryLen ) === linkQuery ) ) {
+			for ( j = localBreadcrumbLinksArray.length - 1; j !== -1; j -= 1 ) {
+				localBreadcrumbLinkUrl = localBreadcrumbLinksUrlArray[ j ];
+				localBreadcrumbQuery = localBreadcrumbLinksArray[ j ].search;
+
+				for ( i = 0; i !== len; i += 1 ) {
+					link = menuLinksArray[ i ];
+					linkUrl = menuLinksUrlArray[ i ];
+					linkQuery = link.search;
+					linkQueryLen = linkQuery.length;
+
+					if ( localBreadcrumbLinkUrl.slice( -linkUrl.length ) === linkUrl && ( linkQueryLen === 0 || localBreadcrumbQuery.slice( -linkQueryLen ) === linkQuery ) ) {
 						match = true;
 						break;
 					}
@@ -4202,6 +4213,9 @@ var $document = vapour.doc,
 
 		if ( match ) {
 			link.className += " " + navClass;
+			if ( menu.className.indexOf( "wb-menu" ) !== -1 && link.className.indexOf( "item" ) === -1 ) {
+				link.parentNode.parentNode.parentNode.getElementsByTagName( "a" )[ 0 ].className += " " + navClass;
+			}
 		}
 	};
 
