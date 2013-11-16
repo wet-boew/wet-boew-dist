@@ -7057,6 +7057,10 @@ td.visible-print {
     display: none !important;
   }
 }
+/*!
+
+/*! WET-BOEW Core and Plugins */
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -9863,97 +9867,148 @@ table.dataTable tr.even td.sorting_3 {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+.wb-share .bitly:before,
+.wb-share .blogger:before,
+.wb-share .delicious:before,
+.wb-share .digg:before,
+.wb-share .diigo:before,
+.wb-share .dzone:before,
+.wb-share .facebook:before,
+.wb-share .fark:before,
+.wb-share .feed:before,
+.wb-share .googleplus:before,
+.wb-share .linkedin:before,
+.wb-share .myspace:before,
+.wb-share .netvibes:before,
+.wb-share .newsvine:before,
+.wb-share .pinterest:before,
+.wb-share .reddit:before,
+.wb-share .stumbleupon:before,
+.wb-share .technorati:before,
+.wb-share .tumblr:before,
+.wb-share .twitter:before {
+  content: " ";
+  display: block;
+  float: left;
+  height: 32px;
+  width: 32px;
+  margin-right: 42px;
+}
+
+.wb-share {
+  /*
+		TODO: Convert @include to @extend when libsass supports nested extends
+	*/
+}
+
 .wb-share .shr-lnk {
   display: block;
-  padding-left: 42px;
   min-height: 32px;
   line-height: 32px;
-  background-repeat: no-repeat;
-  background-position: 5px center;
   margin-bottom: 8px;
   text-align: left;
   text-decoration: none;
   font-size: 115%;
 }
 
-.wb-share .bitly {
-  background-image: url(../js/assets/bitly.png);
+.wb-share .bitly:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 0px;
 }
 
-.wb-share .blogger {
-  background-image: url(../js/assets/blogger.png);
+.wb-share .blogger:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -32px;
 }
 
-.wb-share .delicious {
-  background-image: url(../js/assets/delicious.png);
+.wb-share .delicious:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -64px;
 }
 
-.wb-share .digg {
-  background-image: url(../js/assets/digg.png);
+.wb-share .digg:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -96px;
 }
 
-.wb-share .diigo {
-  background-image: url(../js/assets/diigo.png);
+.wb-share .diigo:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -128px;
 }
 
-.wb-share .dzone {
-  background-image: url(../js/assets/dzone.png);
+.wb-share .dzone:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -160px;
 }
 
-.wb-share .facebook {
-  background-image: url(../js/assets/facebook.png);
+.wb-share .facebook:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -192px;
 }
 
-.wb-share .fark {
-  background-image: url(../js/assets/fark.png);
+.wb-share .fark:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -224px;
 }
 
-.wb-share .feed {
-  background-image: url(../js/assets/feed.png);
+.wb-share .feed:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -256px;
 }
 
-.wb-share .googleplus {
-  background-image: url(../js/assets/googleplus.png);
+.wb-share .googleplus:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -288px;
 }
 
-.wb-share .linkedin {
-  background-image: url(../js/assets/linkedin.png);
+.wb-share .linkedin:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -320px;
 }
 
-.wb-share .myspace {
-  background-image: url(../js/assets/myspace.png);
+.wb-share .myspace:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -352px;
 }
 
-.wb-share .netvibes {
-  background-image: url(../js/assets/netvibes.png);
+.wb-share .netvibes:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -384px;
 }
 
-.wb-share .newsvine {
-  background-image: url(../js/assets/newsvine.png);
+.wb-share .newsvine:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -416px;
 }
 
-.wb-share .pinterest {
-  background-image: url(../js/assets/pinterest.png);
+.wb-share .pinterest:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -448px;
 }
 
-.wb-share .reddit {
-  background-image: url(../js/assets/reddit.png);
+.wb-share .reddit:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -480px;
 }
 
-.wb-share .stumbleupon {
-  background-image: url(../js/assets/stumbleupon.png);
+.wb-share .stumbleupon:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -512px;
 }
 
-.wb-share .technorati {
-  background-image: url(../js/assets/technorati.png);
+.wb-share .technorati:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -544px;
 }
 
-.wb-share .tumblr {
-  background-image: url(../js/assets/tumblr.png);
+.wb-share .tumblr:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -576px;
 }
 
-.wb-share .twitter {
-  background-image: url(../js/assets/twitter.png);
+.wb-share .twitter:before {
+  background: url("sprites/sprites_share.png") no-repeat;
+  background-position: 0 -608px;
 }
 
 .wb-share ul {
