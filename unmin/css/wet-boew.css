@@ -8882,9 +8882,11 @@ ol.linenums li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-%fnote-link-background-light-border-medium-padding-whitespace:hover,
-%fnote-link-background-light-border-medium-padding-whitespace:focus,
-.wb-fnote dl dd:focus p.fn-rtn a {
+sup a.fn-lnk:hover,
+sup a.fn-lnk:focus,
+.wb-fnote dl dd:focus p.fn-rtn a,
+.wb-fnote dl dd p.fn-rtn a:hover,
+.wb-fnote dl dd p.fn-rtn a:focus {
   color: white !important;
   background-color: #555555;
   border-color: #555555;

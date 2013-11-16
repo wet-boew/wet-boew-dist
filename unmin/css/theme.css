@@ -107,7 +107,8 @@ a {
   font-size: 0.4em;
 }
 
-#wb-sttl object {
+#wb-sttl object,
+#wb-sttl img {
   height: 65px;
   margin: 9px 15px 9px 0;
   width: 141px;
