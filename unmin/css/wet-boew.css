@@ -9945,12 +9945,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .facebook:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -192px;
+  background-position: 0 -224px;
 }
 
 .wb-share .fark:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -224px;
+  background-position: 0 -192px;
 }
 
 .wb-share .feed:before {
