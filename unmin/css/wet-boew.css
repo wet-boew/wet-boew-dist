@@ -9930,12 +9930,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .digg:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -128px;
+  background-position: 0 -96px;
 }
 
 .wb-share .diigo:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -96px;
+  background-position: 0 -128px;
 }
 
 .wb-share .dzone:before {
@@ -9960,12 +9960,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .googleplus:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -320px;
+  background-position: 0 -288px;
 }
 
 .wb-share .linkedin:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -288px;
+  background-position: 0 -320px;
 }
 
 .wb-share .myspace:before {
@@ -9995,22 +9995,22 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .stumbleupon:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -512px;
+  background-position: 0 -576px;
 }
 
 .wb-share .technorati:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -544px;
+  background-position: 0 -608px;
 }
 
 .wb-share .tumblr:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -576px;
+  background-position: 0 -512px;
 }
 
 .wb-share .twitter:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -608px;
+  background-position: 0 -544px;
 }
 
 .wb-share ul {
