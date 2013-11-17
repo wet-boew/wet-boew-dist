@@ -9930,12 +9930,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .digg:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -96px;
+  background-position: 0 -128px;
 }
 
 .wb-share .diigo:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -128px;
+  background-position: 0 -96px;
 }
 
 .wb-share .dzone:before {
@@ -9945,12 +9945,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .facebook:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -224px;
+  background-position: 0 -192px;
 }
 
 .wb-share .fark:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -192px;
+  background-position: 0 -224px;
 }
 
 .wb-share .feed:before {
@@ -9960,12 +9960,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .googleplus:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -288px;
+  background-position: 0 -320px;
 }
 
 .wb-share .linkedin:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -320px;
+  background-position: 0 -288px;
 }
 
 .wb-share .myspace:before {
