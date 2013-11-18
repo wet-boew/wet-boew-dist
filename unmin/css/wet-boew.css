@@ -9929,17 +9929,17 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .delicious:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -128px;
+  background-position: 0 -64px;
 }
 
 .wb-share .digg:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -64px;
+  background-position: 0 -96px;
 }
 
 .wb-share .diigo:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -96px;
+  background-position: 0 -128px;
 }
 
 .wb-share .dzone:before {
@@ -9994,22 +9994,22 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .reddit:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -576px;
+  background-position: 0 -480px;
 }
 
 .wb-share .stumbleupon:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -480px;
+  background-position: 0 -512px;
 }
 
 .wb-share .technorati:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -512px;
+  background-position: 0 -544px;
 }
 
 .wb-share .tumblr:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -544px;
+  background-position: 0 -576px;
 }
 
 .wb-share .twitter:before {

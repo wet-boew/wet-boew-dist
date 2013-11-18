@@ -1,6 +1,6 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-17
+ - v4.0.0-a1-development - 2013-11-18
 */
 /*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -4284,10 +4284,6 @@ $document.on( "init.multimedia.wb", $selector, function() {
 	} else {
 		return $this.trigger( "fallback.multimedia.wb" );
 	}
-
-	// FIXME: This is unreachable
-	// Where does this come from?
-	return $.error( "[web-boew] Mediaplayer :: error - mp003 :: Cannot play listed media" );
 });
 
 $document.on( "fallback.multimedia.wb", $selector, function() {
@@ -4356,8 +4352,7 @@ $document.on("renderui.multimedia.wb", $selector, function() {
 		$player,
 		captionsUrl = vapour.getUrlParts( $data.captions ).absolute;
 
-
-	$this.html( window.tmpl( $this.data( "template" ), $data ) );
+	$this.find( "video, audio" ).replaceWith( window.tmpl( $this.data( "template" ), $data ) );
 	$player = $( "#" + $data.m_id );
 	$data.player = $player.is( "object") ? $player.children( ":first-child" ) : $player.load();
 
