@@ -9557,6 +9557,27 @@ img.mfp-img {
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
  */
 
+.paginate_enabled_previous:before,
+.paginate_enabled_previous:hover:before,
+.paginate_enabled_previous:focus:before,
+.paginate_disabled_previous:before,
+.paginate_enabled_next:after,
+.paginate_enabled_next:hover:after,
+.paginate_enabled_next:focus:after,
+.paginate_disabled_next:after,
+.sorting:after,
+.sorting_asc:after,
+.sorting_desc:after,
+.sorting_asc_disabled:after,
+.sorting_desc_disabled:after {
+  content: " ";
+  display: inline-block;
+  height: 19px;
+  width: 19px;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
 table.dataTable,
 .dataTables_wrapper,
 .dataTables_info,
@@ -9577,6 +9598,15 @@ table.dataTable thead td:active,
 .dataTables_length,
 .dataTables_info {
   float: left;
+}
+
+.sorting:after,
+.sorting_asc:after,
+.sorting_desc:after,
+.sorting_asc_disabled:after,
+.sorting_desc_disabled:after {
+  float: right;
+  margin-right: -20px;
 }
 
 table.dataTable td.center,
@@ -9604,22 +9634,13 @@ table.dataTable tfoot th {
   cursor: pointer;
 }
 
-.sorting,
-.sorting_asc,
-.sorting_desc,
-.sorting_asc_disabled,
-.sorting_desc_disabled {
-  padding-left: 10px;
-  padding-right: 18px;
-}
-
 table.dataTable {
   margin: 0 auto;
   width: 100% !important;
 }
 
 table.dataTable thead th {
-  padding-right: 20px;
+  padding-right: 30px;
 }
 
 table.dataTable tr.odd {
@@ -9697,30 +9718,36 @@ table.dataTable tr.even td.sorting_3 {
   margin-left: 10px;
 }
 
-.paginate_enabled_previous {
-  background: url('../assets/back_enabled.png') no-repeat top left;
+.paginate_enabled_previous:before {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -19px;
 }
 
-.paginate_enabled_previous:hover,
-.paginate_enabled_previous:focus {
-  background: url('../assets/back_enabled_hover.png') no-repeat top left;
+.paginate_enabled_previous:hover:before,
+.paginate_enabled_previous:focus:before {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -38px;
 }
 
-.paginate_disabled_previous {
-  background: url('../assets/back_disabled.png') no-repeat top left;
+.paginate_disabled_previous:before {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 0px;
 }
 
-.paginate_enabled_next {
-  background: url('../assets/forward_enabled.png') no-repeat top right;
+.paginate_enabled_next:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -76px;
 }
 
-.paginate_enabled_next:hover,
-.paginate_enabled_next:focus {
-  background: url('../assets/forward_enabled_hover.png') no-repeat top right;
+.paginate_enabled_next:hover:after,
+.paginate_enabled_next:focus:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -95px;
 }
 
-.paginate_disabled_next {
-  background: url('../assets/forward_disabled.png') no-repeat top right;
+.paginate_disabled_next:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -57px;
 }
 
 /* Full number pagination */
@@ -9782,24 +9809,29 @@ table.dataTable tr.even td.sorting_3 {
  * Sorting
  */
 
-.sorting {
-  background: url("../assets/sort_both.png") no-repeat center right;
+.sorting:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -152px;
 }
 
-.sorting_asc {
-  background: url("../assets/sort_asc.png") no-repeat center right;
+.sorting_asc:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -114px;
 }
 
-.sorting_desc {
-  background: url("../assets/sort_desc.png") no-repeat center right;
+.sorting_desc:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -171px;
 }
 
-.sorting_asc_disabled {
-  background: url("../assets/sort_asc_disabled.png") no-repeat center right;
+.sorting_asc_disabled:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -133px;
 }
 
-.sorting_desc_disabled {
-  background: url("../assets/sort_desc_disabled.png") no-repeat center right;
+.sorting_desc_disabled:after {
+  background: url("sprites/sprites_tables.png") no-repeat;
+  background-position: 0 -190px;
 }
 
 /*
