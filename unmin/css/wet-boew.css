@@ -9698,29 +9698,29 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .paginate_enabled_previous {
-  background: url('../js/assets/back_enabled.png') no-repeat top left;
+  background: url('../assets/back_enabled.png') no-repeat top left;
 }
 
 .paginate_enabled_previous:hover,
 .paginate_enabled_previous:focus {
-  background: url('../js/assets/back_enabled_hover.png') no-repeat top left;
+  background: url('../assets/back_enabled_hover.png') no-repeat top left;
 }
 
 .paginate_disabled_previous {
-  background: url('../js/assets/back_disabled.png') no-repeat top left;
+  background: url('../assets/back_disabled.png') no-repeat top left;
 }
 
 .paginate_enabled_next {
-  background: url('../js/assets/forward_enabled.png') no-repeat top right;
+  background: url('../assets/forward_enabled.png') no-repeat top right;
 }
 
 .paginate_enabled_next:hover,
 .paginate_enabled_next:focus {
-  background: url('../js/assets/forward_enabled_hover.png') no-repeat top right;
+  background: url('../assets/forward_enabled_hover.png') no-repeat top right;
 }
 
 .paginate_disabled_next {
-  background: url('../js/assets/forward_disabled.png') no-repeat top right;
+  background: url('../assets/forward_disabled.png') no-repeat top right;
 }
 
 /* Full number pagination */
@@ -9783,23 +9783,23 @@ table.dataTable tr.even td.sorting_3 {
  */
 
 .sorting {
-  background: url("../js/assets/sort_both.png") no-repeat center right;
+  background: url("../assets/sort_both.png") no-repeat center right;
 }
 
 .sorting_asc {
-  background: url("../js/assets/sort_asc.png") no-repeat center right;
+  background: url("../assets/sort_asc.png") no-repeat center right;
 }
 
 .sorting_desc {
-  background: url("../js/assets/sort_desc.png") no-repeat center right;
+  background: url("../assets/sort_desc.png") no-repeat center right;
 }
 
 .sorting_asc_disabled {
-  background: url("../js/assets/sort_asc_disabled.png") no-repeat center right;
+  background: url("../assets/sort_asc_disabled.png") no-repeat center right;
 }
 
 .sorting_desc_disabled {
-  background: url("../js/assets/sort_desc_disabled.png") no-repeat center right;
+  background: url("../assets/sort_desc_disabled.png") no-repeat center right;
 }
 
 /*

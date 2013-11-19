@@ -2462,7 +2462,7 @@ var getUrlParts = function( url ) {
 	 *-----------------------------*/
 	vapour = {
 		"/": $homepath,
-		"/assets": "" + $homepath + "/assets",
+		"/assets": "" + $homepath + "/../assets",
 		"/templates": "" + $homepath + "/assets/templates",
 		"/deps": "" + $homepath + "/deps",
 		mode: $mode,
