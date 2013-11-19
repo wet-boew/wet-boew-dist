@@ -9944,12 +9944,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .dzone:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -192px;
+  background-position: 0 -160px;
 }
 
 .wb-share .facebook:before {
   background: url("sprites/sprites_share.png") no-repeat;
-  background-position: 0 -160px;
+  background-position: 0 -192px;
 }
 
 .wb-share .fark:before {
