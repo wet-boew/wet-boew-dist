@@ -1,6 +1,6 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-18
+ - v4.0.0-a1-development - 2013-11-19
 */
 /*
  * @title WET-BOEW JQuery Helper Methods
@@ -568,7 +568,7 @@ var selector = ".wb-cal-evt",
 					date.setFullYear( strDate1[ 0 ], strDate1[ 1 ], strDate1[ 2 ] );
 
 					// Now loop in events to load up all the days that it would be on tomorrow.setDate(tomorrow.getDate() + 1);
-					for ( z = 0, zLen = daysBetween( strDate1, strDate2 ) + 1; z <= zLen; z += 1 ) {
+					for ( z = 0, zLen = daysBetween( strDate1, strDate2 ); z <= zLen; z += 1 ) {
 						if ( events.minDate === null || date < events.minDate ) {
 							events.minDate = date;
 						}
@@ -4542,7 +4542,7 @@ var id = "wb-resize",
 	selector = "#" + id,
 	$window = vapour.win,
 	$document = vapour.doc,
-	sizes= [],
+	sizes = [],
 	events = [
 		"text-resize.wb",
 		"window-resize-width.wb",
@@ -4635,7 +4635,7 @@ var id = "wb-resize",
 			// Check for a viewport or text size change
 			for ( i = 0; i !== len; i += 1 ) {
 				if ( currentSizes[ i ] !== sizes[ i ] ) {
-				
+
 					// Change detected so trigger related event
 					$document.trigger( events[ i ], currentSizes );
 
@@ -4645,15 +4645,14 @@ var id = "wb-resize",
 			}
 			sizes = currentSizes;
 			return;
-		} else {
-
-			// Initialize the handler resources
-			init();
 		}
 	};
 	
 // Re-test on each timerpoke
 $document.on( "timerpoke.wb", selector, test );
+
+// Initialize the resources
+init();
 
 // Add the timer poke to initialize the plugin
 window._timer.add( selector );
