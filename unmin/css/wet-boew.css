@@ -9719,34 +9719,34 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .paginate_enabled_previous:before {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -19px;
 }
 
 .paginate_enabled_previous:hover:before,
 .paginate_enabled_previous:focus:before {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -38px;
 }
 
 .paginate_disabled_previous:before {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 0px;
 }
 
 .paginate_enabled_next:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -76px;
 }
 
 .paginate_enabled_next:hover:after,
 .paginate_enabled_next:focus:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -95px;
 }
 
 .paginate_disabled_next:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -57px;
 }
 
@@ -9810,27 +9810,27 @@ table.dataTable tr.even td.sorting_3 {
  */
 
 .sorting:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -152px;
 }
 
 .sorting_asc:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -114px;
 }
 
 .sorting_desc:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -171px;
 }
 
 .sorting_asc_disabled:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -133px;
 }
 
 .sorting_desc_disabled:after {
-  background: url("sprites/sprites_tables.png") no-repeat;
+  background: url("../assets/sprites_tables.png") no-repeat;
   background-position: 0 -190px;
 }
 
@@ -9959,102 +9959,102 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .wb-share .bitly:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 0px;
 }
 
 .wb-share .blogger:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -32px;
 }
 
 .wb-share .delicious:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -64px;
 }
 
 .wb-share .digg:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -96px;
 }
 
 .wb-share .diigo:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -128px;
 }
 
 .wb-share .dzone:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -160px;
 }
 
 .wb-share .facebook:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -192px;
 }
 
 .wb-share .fark:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -224px;
 }
 
 .wb-share .feed:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -256px;
 }
 
 .wb-share .googleplus:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -288px;
 }
 
 .wb-share .linkedin:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -320px;
 }
 
 .wb-share .myspace:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -352px;
 }
 
 .wb-share .netvibes:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -384px;
 }
 
 .wb-share .newsvine:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -416px;
 }
 
 .wb-share .pinterest:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -448px;
 }
 
 .wb-share .reddit:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -480px;
 }
 
 .wb-share .stumbleupon:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -512px;
 }
 
 .wb-share .technorati:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -544px;
 }
 
 .wb-share .tumblr:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -576px;
 }
 
 .wb-share .twitter:before {
-  background: url("sprites/sprites_share.png") no-repeat;
+  background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -608px;
 }
 
