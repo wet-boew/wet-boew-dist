@@ -653,7 +653,7 @@ var selector = ".wb-cal-evt",
 			$children = $this.closest( "ul" ).children( "li" );
 			length = $children.length;
 			$children.eq( ( $this.closest( "li" ).index() - 1 ) % length )
-				.children( "a" ).trigger( "focus.wb" );
+				.children( "a" ).trigger( "setfocus.wb" );
 			return false;
 
 		// Down arrow
@@ -661,26 +661,26 @@ var selector = ".wb-cal-evt",
 			$children = $this.closest( "ul" ).children( "li" );
 			length = $children.length;
 			$children.eq( ( $this.closest( "li" ).index() + 1 ) % length )
-				.children( "a" ).trigger( "focus.wb" );
+				.children( "a" ).trigger( "setfocus.wb" );
 			return false;
 
 		// Left arrow
 		case 37:
 			$this.closest( "ol" )
 				.children( "li:lt(" + $this.closest( "li[id^=cal-]" ).index() + ")" )
-				.children( "a" ).last().trigger( "focus.wb" );
+				.children( "a" ).last().trigger( "setfocus.wb" );
 			return false;
 
 		// Right arrow
 		case 39:
 			$this.closest( "ol" )
 				.children( "li:gt(" + $this.closest( "li[id^=cal-]" ).index() + ")" )
-				.children( "a" ).first().trigger( "focus.wb" );
+				.children( "a" ).first().trigger( "setfocus.wb" );
 			return false;
 
 		// Escape
 		case 27:
-			$this.closest( "li[id^=cal-]" ).children( ".cal-event" ).trigger( "focus.wb" );
+			$this.closest( "li[id^=cal-]" ).children( ".cal-event" ).trigger( "setfocus.wb" );
 			return false;
 		}
 	},
@@ -1049,9 +1049,9 @@ var $document = vapour.doc,
 			]);
 
 			if ( $btn.hasClass( "wb-inv" ) ) {
-				$container.find( ".cal-goto-lnk a" ).trigger( "focus.wb" );
+				$container.find( ".cal-goto-lnk a" ).trigger( "setfocus.wb" );
 			} else {
-				$btn.trigger( "focus.wb" );
+				$btn.trigger( "setfocus.wb" );
 			}
 		}
 	},
@@ -1253,7 +1253,7 @@ var $document = vapour.doc,
 		// TODO: Replace with CSS animation
 		link.stop().slideUp( 0 );
 		form.stop().slideDown( 0 ).queue(function() {
-			$( this ).find( ":input:eq(0)" ).trigger( "focus.wb" );
+			$( this ).find( ":input:eq(0)" ).trigger( "setfocus.wb" );
 		});
 
 		link
@@ -1307,7 +1307,7 @@ var $document = vapour.doc,
 			// Go to the first day to avoid having to tab over the navigation again.
 			$( "#cal-" + calendarId + "-days a" )
 				.eq( 0 )
-				.trigger( "focus.wb" );
+				.trigger( "setfocus.wb" );
 		}
 	},
 	
@@ -1433,7 +1433,7 @@ $document.on( "keydown", ".cal-days a", function ( event ) {
 		);
 		return false;
 	} else if ( currDay !== date.getDate() ) {
-		$( days[ date.getDate() - 1 ] ).trigger( "focus.wb" );
+		$( days[ date.getDate() - 1 ] ).trigger( "setfocus.wb" );
 		return false;
 	}
 });
@@ -2286,19 +2286,74 @@ window._timer.add( selector );
 (function( $, vapour ) {
 "use strict";
 
-// Bind the focus event
-vapour.doc.on( "focus.wb", function ( event ) {
-	var eventTarget = event.target;
+var $document = vapour.doc,
+	linkFocusTested = false,
+	clickEvents = "click.wb-focus vclick.wb-focus",
+	focusOutEvent = "focusout.wb-focus",
+	linkSelector = "a[href]",
+	testHref = "",
+	testTimeout;
 
-	// Ignore focus events that are not in the wb namespace and
-	// filter out any events triggered by descendants
-	if ( event.namespace === "wb" && event.currentTarget === eventTarget ) {
+// Test and helper for browsers that can't change focus on a same page link click
+$document.on( clickEvents, linkSelector, function( event ) {
+	var testElm = event.target,
+		$linkTarget;
 
-		// Assigns focus to an element
-		setTimeout(function () {
-			return $( eventTarget ).focus();
-		}, 0 );
+	testHref = testElm.getAttribute( "href" );
+
+	// Same page links only
+	if ( testHref.charAt( 0 ) === "#" &&
+		( $linkTarget = $( testHref ) ).length !== 0 ) {
+
+		// Ensure the test is run only once
+		if ( linkFocusTested ) {
+			$linkTarget.trigger( "setfocus.wb" );
+		} else {
+
+			// If the focus changes before the timeout expires, then the
+			// browser can change focus on a same page link click
+			$document.one( focusOutEvent, testHref, function() {
+
+				// Browser can change focus on a same page link click so disable help
+				clearTimeout( testTimeout );
+				$document.off( clickEvents, linkSelector );
+			});
+
+			// If the timeout expires before focus changes, then the browser
+			// can't change focus on a same page link click
+			testTimeout = setTimeout(function() {
+
+				// Browser can't change focus on a same page link click so enable help
+				$document.off( focusOutEvent, testHref );
+				linkFocusTested = true;
+
+				$linkTarget.trigger( "setfocus.wb" );
+			}, 10 );
+		}
 	}
+});
+
+
+// Bind the setfocus event
+$document.on( "setfocus.wb", function ( event ) {
+	var $elm = $( event.target );
+
+	// If link focus test is underway and hasn't been completed then stop the test
+	if ( !linkFocusTested && testHref.length !== 0 ) {
+		clearTimeout( testTimeout );
+		$document.off( focusOutEvent, testHref );
+		testHref = "";
+	}
+	
+	// Set the tabindex to -1 (as needed) to ensure the element is focusable
+	$elm
+		.filter( ":not([tabindex], a, button, input, textarea, select)" )
+			.attr( "tabindex", "-1" );
+
+	// Assigns focus to an element
+	setTimeout(function () {
+		return $elm.focus();
+	}, 0 );
 });
 
 })( jQuery, vapour );
@@ -2374,7 +2429,7 @@ $document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", functi
 					.attr( "href", "#" + eventTarget.parentNode.id );
 
 		// Assign focus to $refLinkDest
-		$refLinkDest.trigger( "focus.wb" );
+		$refLinkDest.trigger( "setfocus.wb" );
 		return false;
 	}
 } );
@@ -2389,7 +2444,7 @@ $document.on( "click vclick", selector + " dd p.fn-rtn a", function( event ) {
 		refId = "#" + vapour.jqEscape( event.target.getAttribute( "href" ).substring( 1 ) );
 
 		// Assign focus to the link
-		$document.find( refId + " a" ).trigger( "focus.wb" );
+		$document.find( refId + " a" ).trigger( "setfocus.wb" );
 		return false;
 	}
 });
@@ -2587,7 +2642,7 @@ var selector = ".wb-formvalid",
 								if ( submitted ) {
 
 									// Assign focus to $summaryContainer
-									$summaryContainer.trigger( "focus.wb" );
+									$summaryContainer.trigger( "setfocus.wb" );
 								} else {
 
 									// Update the aria-live region as necessary
@@ -2676,7 +2731,7 @@ $document.on( "click vclick", selector + " .errCnt a", function( event ) {
 		errorTop = $label.length !== 0 ? $label.offset().top : ( $legend.length !== 0 ? $legend.offset().top : -1 );
 
 		// Assign focus to $input
-		$input.trigger( "focus.wb" );
+		$input.trigger( "setfocus.wb" );
 
 		if ( errorTop !== -1 ) {
 			window.scroll( 0, errorTop );
@@ -2875,12 +2930,12 @@ $document.on( "keydown", ".mfp-wrap", function( event ) {
 
 		if ( event.shiftKey ) {
 			if ( event.currentTarget === eventTarget ) {
-				$elm.find( ":focusable" ).last().trigger( "focus.wb" );
+				$elm.find( ":focusable" ).last().trigger( "setfocus.wb" );
 				return false;
 			}
 		} else {
 			if ( $elm.find( ":focusable" ).last()[ 0 ] === eventTarget ) {
-				$elm.trigger( "focus.wb" );
+				$elm.trigger( "setfocus.wb" );
 				return false;
 			}
 		}
@@ -3065,7 +3120,7 @@ var selector = ".wb-menu",
 		var $goto = event.goto,
 			special = event.special;
 
-		$goto.trigger( "focus.wb" );
+		$goto.trigger( "setfocus.wb" );
 		if ( special || ( $goto.hasClass( "item" ) && !$goto.attr( "aria-haspopup" ) ) ) {
 			onReset( $goto.parents( selector ), true, special );
 		}
@@ -4271,7 +4326,7 @@ var $document = vapour.doc,
 			link = menuLinks[ i ];
 			linkHref = link.getAttribute( "href" );
 			if ( linkHref !== null ) {
-				if ( linkHref.length !== 0 && linkHref.slice( 0, 1 ) !== "#" ) {
+				if ( linkHref.length !== 0 && linkHref.charAt( 0 ) !== "#" ) {
 					linkUrl = link.hostname + link.pathname.replace( /^([^\/])/, "/$1" );
 					linkQuery = link.search;
 					linkQueryLen = linkQuery.length;
@@ -4299,7 +4354,7 @@ var $document = vapour.doc,
 				for ( i = 0; i !== len; i += 1) {
 					link = localBreadcrumbLinks[ i ];
 					linkHref = link.getAttribute( "href" );
-					if ( linkHref.length !== 0 && linkHref.slice( 0, 1 ) !== "#" ) {
+					if ( linkHref.length !== 0 && linkHref.charAt( 0 ) !== "#" ) {
 						localBreadcrumbLinksArray.push( link );
 						localBreadcrumbLinksUrlArray.push( link.hostname + link.pathname.replace( /^([^\/])/, "/$1" ) );
 					}
@@ -4894,7 +4949,7 @@ var selector = ".wb-session-timeout",
 						clearInterval( countdownInterval );
 
 						// Assign focus to activeElement
-						$( activeElement ).trigger( "focus.wb" );
+						$( activeElement ).trigger( "setfocus.wb" );
 					}
 				}
 			});
@@ -5798,7 +5853,7 @@ var selector = ".wb-toggle",
 		event.preventDefault();
 
 		// Assign focus to eventTarget
-		$link.trigger( "focus.wb" );
+		$link.trigger( "setfocus.wb" );
 	},
 
 	/*
