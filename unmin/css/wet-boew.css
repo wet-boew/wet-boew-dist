@@ -7138,12 +7138,8 @@ q:after {
  */
 
 /*
- *	Anchor outline and colour
+ *	Anchor outline
  */
-
-a {
-  color: #295376;
-}
 
 a:focus {
   outline: invert dotted thin;

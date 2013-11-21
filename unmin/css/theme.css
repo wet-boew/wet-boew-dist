@@ -5,10 +5,14 @@
  *
  */
 
-@media screen {
-  body {
-    background: #f9f9f9;
-  }
+body {
+  background: #f9f9f9;
+}
+
+/* Shouldn't be needed. Only being used to override Bootstrap default colours which fails WCAG 2.0 contrast */
+
+a {
+  color: #295376;
 }
 
 /*
@@ -16,12 +20,11 @@
  */
 
 #wb-lng .curr span {
-  height: 1px;
-  width: 1px;
-  clip: rect(1px, 1px, 1px, 1px);
-  overflow: hidden;
+  height: 0 !important;
+  overflow: hidden !important;
   position: absolute;
-  margin: 0;
+  width: 0 !important;
+  margin: 0 !important;
 }
 
 .wb-sl {
@@ -363,19 +366,4 @@ main {
   border-bottom: 1px solid #eeeeee;
   padding-bottom: 5px;
   margin-top: 0.45em;
-}
-
-@media print {
-  /*
- Default Mixins and namespace variables
- */
-
-  #wb-bar,
-  #wb-sttl a:after,
-  #wb-srch,
-  #wb-sm,
-  #wb-sec,
-  #wb-info {
-    display: none !important;
-  }
 }
