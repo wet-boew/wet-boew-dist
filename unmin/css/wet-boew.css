@@ -10008,7 +10008,6 @@ table.dataTable tr.even td.sorting_3 {
   background-color: black;
   color: white;
   display: block;
-  padding: 10px 26px 10px 10px;
 }
 
 .overlay-header h1,
@@ -10019,15 +10018,21 @@ table.dataTable tr.even td.sorting_3 {
 .overlay-header h6 {
   font-size: 1.15em;
   font-weight: normal;
-  margin: 0 1em;
+  margin: 0 26px 0 0;
+  padding: 10px 1em;
 }
 
 .overlay-close {
+  background-color: black;
+  border-radius: 999px;
   color: white;
+  height: 1.5em;
+  padding: 2px 0 0 4px;
   position: absolute;
-  right: 10px;
+  right: 5px;
   text-decoration: none;
-  top: 10px;
+  top: 7px;
+  width: 1.5em;
 }
 
 /*
