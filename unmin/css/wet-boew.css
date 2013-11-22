@@ -8410,7 +8410,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
     z-index: 1000;
     top: 0;
     right: -100%;
-    display: block !important;
+    display: none !important;
   }
 
   .wb-menu:target {
