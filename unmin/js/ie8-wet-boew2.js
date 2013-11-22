@@ -1,6 +1,6 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-21
+ - v4.0.0-a1-development - 2013-11-22
 */
 /*
  * @title WET-BOEW JQuery Helper Methods
@@ -1752,8 +1752,8 @@ window._timer.add( selector );
 (function( $, window, vapour ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
@@ -1762,7 +1762,7 @@ var selector = ".wb-equalheight",
 	$document = vapour.doc,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered this handler
@@ -1771,10 +1771,10 @@ var selector = ".wb-equalheight",
 
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === event.target ) {
-		
+
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
 			window._timer.remove( selector );
-			
+
 			// Remove the event handler since only want init fired once per page (not per element)
 			$document.off( "timerpoke.wb", selector );
 
@@ -1833,7 +1833,7 @@ var selector = ".wb-equalheight",
 	 */
 	setRowHeight = function( row, height ) {
 		for ( var i = row.length - 1; i >= 0; i-- ) {
-			row[ i ].style.height = height + "px";
+			row[ i ].style.minHeight = height + "px";
 		}
 		row.length = 0;
 	};
@@ -3904,16 +3904,16 @@ playerApi = function( fn, args ) {
 	switch ( fn ) {
 		case "play":
 			try {
-				return this.object.play();
+				this.object.play();
 			} catch ( ex ) {
-				return this.object.doPlay();
+				this.object.doPlay();
 			}
 			break;
 		case "pause":
 			try {
-				return this.object.pause();
+				this.object.pause();
 			} catch ( ex ) {
-				return this.object.doPause();
+				this.object.doPause();
 			}
 			break;
 		case "getCaptionsVisible":
@@ -3926,11 +3926,21 @@ playerApi = function( fn, args ) {
 			} else {
 				captionsArea.removeClass("on");
 			}
-			return $this.trigger( "captionsvisiblechange.multimedia.wb" );
+			$this.trigger( "captionsvisiblechange.multimedia.wb" );
+			break;
 		case "setPreviousTime":
-			return this.object.previousTime = args;
+			this.object.previousTime = args;
+			break;
+		case "getBuffering":
+			return this.object.buffering || false;
 		case "setBuffering":
-			return this.object.buffering = args;
+			this.object.buffering = args;
+			break;
+		case "getPreviousTime":
+			return this.object.previousTime;
+		case "setPreviousTime":
+			this.object.previousTime = args;
+			break;
 		default:
 			method = fn.charAt( 3 ).toLowerCase() + fn.substr( 4 );
 			switch ( fn.substr( 0, 3 ) ) {
@@ -3939,7 +3949,7 @@ playerApi = function( fn, args ) {
 					this.object[ method ] :
 					this.object[ method ]();
 			case "set":
-				return typeof this.object[ method ] !== "function" ?
+				typeof this.object[ method ] !== "function" ?
 					this.object[ method ] = args :
 					this.object[ fn ]( args );
 			}
@@ -3969,7 +3979,7 @@ $document.on( "timerpoke.wb", $selector, function() {
 
 	if ( !$templatetriggered ) {
 		$templatetriggered = true;
-		return $document.trigger({
+		$document.trigger({
 			type: "ajax-fetch.wb",
 			element: $( $selector ),
 			fetch: "" + vapour.getPath( "/assets" ) + "/mediacontrols.html"
@@ -3982,7 +3992,7 @@ $document.on( "ajax-fetched.wb", $selector, function( event ) {
 		$template = event.pointer.html();
 
 	$this.data( "template", $template );
-	return $this.trigger({
+	$this.trigger({
 		type: "init.multimedia.wb"
 	});
 });
@@ -4015,9 +4025,9 @@ $document.on( "init.multimedia.wb", $selector, function() {
 	$this.data( "properties", data );
 
 	if ( $media.get( 0 ).error === null && $media.get( 0 ).currentSrc !== "" && $media.get( 0 ).currentSrc !== undef ) {
-		return $this.trigger( "" + $type + ".multimedia.wb" );
+		$this.trigger( "" + $type + ".multimedia.wb" );
 	} else {
-		return $this.trigger( "fallback.multimedia.wb" );
+		$this.trigger( "fallback.multimedia.wb" );
 	}
 });
 
@@ -4056,7 +4066,7 @@ $document.on( "fallback.multimedia.wb", $selector, function() {
 		$data.poster + "</object>";
 	$this.data( "properties", $data );
 
-	return $this.trigger( "renderui.multimedia.wb" );
+	$this.trigger( "renderui.multimedia.wb" );
 });
 
 $document.on( "video.multimedia.wb", $selector, function() {
@@ -4071,7 +4081,7 @@ $document.on( "video.multimedia.wb", $selector, function() {
 
 	$this.data( "properties", $data );
 
-	return $this.trigger( "renderui.multimedia.wb" );
+	$this.trigger( "renderui.multimedia.wb" );
 });
 
 $document.on("audio.multimedia.wb", $selector, function() {
@@ -4300,6 +4310,30 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 			button.attr( "title", button.data( "state-off" ) )
 				.css( "opacity", ".5" );
 		}
+		break;
+
+	case "waiting":
+		$this.find( ".display" ).addClass( "waiting" );
+		break;
+
+	case "canplay":
+		$this.find( ".display" ).removeClass( "waiting" );
+		break;
+
+	// Fallback for browsers that don't implement the waiting events
+	case "progress":
+        // Waiting detected, display the loading icon
+        if ( this.player( "getPaused" ) === false && this.player( "getCurrentTime" ) === this.player( "getPreviousTime" ) ) {
+                if ( eventTarget.player( "getBuffering" ) === false ) {
+                        eventTarget.player( "setBuffering", true );
+                        $this.trigger( "waiting" );
+                }
+        // Waiting has ended, but icon is still visible - remove it.
+        } else if ( eventTarget.player( "getBuffering" ) === true ) {
+                eventTarget.player( "setBuffering", false );
+                $this.trigger( "canplay" );
+        }
+        eventTarget.player( "setPreviousTime", eventTarget.player( "getCurrentTime" ) );
 	}
 });
 
