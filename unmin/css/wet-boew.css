@@ -10501,6 +10501,9 @@ tbody.cal-days a.cal-event:link {
 
 .wb-tabs {
   /**
+	 * Shared variables
+	 */
+  /**
 	 * Default, minimal, shared style
 	 */
   position: relative;
@@ -10597,6 +10600,10 @@ tbody.cal-days a.cal-event:link {
   color: white;
 }
 
+.wb-tabs.tabs-s2 {
+  margin-bottom: 60px;
+}
+
 .wb-tabs.tabs-s2 [role="tablist"] {
   position: absolute;
   width: 100%;
@@ -10610,14 +10617,43 @@ tbody.cal-days a.cal-event:link {
   visibility: visible;
 }
 
+.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle) {
+  padding: 4px;
+  top: 100%;
+  background: #eeeeee;
+  background: rgba(238, 238, 238, 0.9);
+}
+
 .wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle).active,
 .wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle):focus,
 .wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle):hover {
-  top: 1px;
+  -webkit-box-shadow: 0 0 4px #243850;
+  box-shadow: 0 0 4px #243850;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle).active a img {
+  /* Firefox 10+, Firefox on Android */
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+  -webkit-filter: grayscale(0%);
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle) a img {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /* Firefox 10+, Firefox on Android */
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  /* IE6-9 */
+  filter: gray;
+  /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+  -webkit-filter: grayscale(100%);
+  max-height: 50px;
 }
 
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle {
   position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv {
@@ -10626,10 +10662,6 @@ tbody.cal-days a.cal-event:link {
 
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt {
   right: 0;
-}
-
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.plypause {
-  display: none;
 }
 
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv,
@@ -10649,7 +10681,6 @@ tbody.cal-days a.cal-event:link {
   left: 0;
   width: 100%;
   color: #243850;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   border: none;
 }
 
@@ -10683,7 +10714,25 @@ tbody.cal-days a.cal-event:link {
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover,
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus,
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover {
-  background: white;
+  background: transparent;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus.prv,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover.prv,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus.prv,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover.prv {
+  background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus.nxt,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover.nxt,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus.nxt,
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover.nxt {
+  background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus .glyphicon,
@@ -10719,6 +10768,21 @@ tbody.cal-days a.cal-event:link {
   box-shadow: none;
 }
 
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.plypause {
+  background: none;
+  border: none;
+  display: inline-block !important;
+  font-size: 0.75em;
+  top: 100%;
+  right: 0;
+  padding: 2px 10px;
+}
+
+.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.plypause i {
+  color: black !important;
+  font-style: normal;
+}
+
 .wb-tabs.tabs-s2 [role="tabpanel"] {
   z-index: 1;
 }
@@ -10746,13 +10810,23 @@ tbody.cal-days a.cal-event:link {
   color: white;
 }
 
+/**
+ * Mobile-friendly styles
+ */
+
 @media (max-width: 768px) {
-  figcaption {
-    position: relative !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
+  .wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption,
+  .wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption {
+    position: relative;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .wb-tabs.tabs-s1 [role="tablist"] {
+    bottom: auto;
+    top: 1em;
   }
 }
 

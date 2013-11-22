@@ -1554,8 +1554,8 @@ window._timer.add( selector );
 (function( $, window, vapour ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
@@ -1566,7 +1566,7 @@ var selector = ".wb-inview",
 	$window = vapour.win,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery DOM element} $elm The plugin element being initialized
@@ -1594,16 +1594,23 @@ var selector = ".wb-inview",
 			x2 = x1 + elementWidth,
 			y1 = $elm.offset().top,
 			y2 = y1 + elementHeight,
-			inView = ( scrollBottom < y1 || scrollTop > y2 ) || ( scrollRight < x1 || scrollRight > x2 );
+			inView = ( scrollBottom < y1 || scrollTop > y2 ) || ( scrollRight < x1 || scrollRight > x2 ),
 
-		$elm
+			// this is a bit of a play on true/false to get the desired effect. In short this variable depicts
+			// the view state of the element
+			// all - the whole element is in the viewport
+			// partial - part of the element is in the viewport
+			// none - no part of the element is in the viewport
+			viewstate = ( scrollBottom > y2 && scrollTop < y1 ) ? "all" : ( inView ) ? "none" : "partial";
+
+		$elm.attr( "data-inviewstate", viewstate )
 			.find( ".pg-banner, .pg-panel" )
-				.attr({
-					"role": "toolbar",
-					"aria-hidden": !inView
-				})
-				.toggleClass( "in", !inView )
-				.toggleClass( "out", inView );
+			.attr({
+				"role": "toolbar",
+				"aria-hidden": !inView
+			})
+			.toggleClass( "in", !inView )
+			.toggleClass( "out", inView );
 	};
 
 // Bind the init event of the plugin
@@ -1627,7 +1634,7 @@ $document.on( "timerpoke.wb scroll.wb-inview", selector, function( event ) {
 	}
 
 	/*
-	 * Since we are working with events we want to ensure that we are being passive about our control, 
+	 * Since we are working with events we want to ensure that we are being passive about our control,
 	 * so returning true allows for events to always continue
 	 */
 	return true;
@@ -4135,29 +4142,20 @@ $document.on( "click", $selector, function( event ) {
 	// Ignore middle and right mouse buttons
 	if ( !which || which === 1 ) {
 		$target = $( eventTarget );
-
 		if ( className.match( /playpause|-(play|pause)|wb-mm-ovrly/ ) ) {
 			playerTarget.player( playerTarget.player( "getPaused" ) ? "play" : "pause" );
-			return false;
 		} else if ( className.match( /\bcc\b|-subtitles/ )  ) {
 			playerTarget.player( "setCaptionsVisible", !playerTarget.player( "getCaptionsVisible" ) );
-			return false;
 		} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
 			playerTarget.player( "setMuted", !playerTarget.player( "getMuted" ) );
-			return false;
 		} else if ( $target.is( "progress" ) || className.indexOf( "wb-progress-inner") !== -1 || className.indexOf( "wb-progress-outer" ) !== -1 ) {
 			playerTarget.player( "setCurrentTime", playerTarget.player( "getDuration" ) * ( ( event.pageX - $target.offset().left ) / $target.width() ) );
-			return false;
 		} else if ( className.match( /\brewind\b|-backwards/ ) ) {
 			playerTarget.player( "setCurrentTime", playerTarget.player( "getCurrentTime" ) - playerTarget.player( "getDuration" ) * 0.05 );
-			return false;
 		} else if ( className.match( /\bfastforward\b|-forward/ ) ) {
 			playerTarget.player( "setCurrentTime", playerTarget.player( "getCurrentTime" ) + playerTarget.player( "getDuration" ) * 0.05 );
-			return false;
 		}
 	}
-
-	return true;
 });
 
 $document.on( "keydown", $selector, function( event ) {
@@ -5458,6 +5456,11 @@ var selector = ".wb-tables",
 				asStripeClasses : [],
 				oLanguage: i18nText,
 				fnDrawCallback: function() {
+
+					if ( $elm.data( "inviewstate" ) === "partial" ){
+						$( "html, body" ).scrollTop( $elm.prev().offset().top );
+					}
+
 					$elm.trigger( "tables-draw.wb" );
 				}
 			};
@@ -5520,8 +5523,8 @@ window._timer.add( selector );
 			return false;
 		}
 
-		/* state stopped*/
-		if ( $elm.hasClass( "stopped" ) ) {
+		/* state playing*/
+		if ( !$elm.hasClass( "playing" ) ) {
 			return false;
 		}
 		/* continue;*/
@@ -5544,23 +5547,22 @@ window._timer.add( selector );
 	 */
 	createControls = function( $tablist ) {
 		var $sldr = $tablist.parents( selector ),
-			state = $sldr.hasClass( "stopped" ) ? i18nText.play :  i18nText.pause,
-			hidden = $sldr.hasClass( "stopped" ) ? i18nText.rotStart  :  i18nText.rotStop,
-			controls = "<li class='tabs-toggle prv'><a class='prv' href='javascript:;' role='button'>" +
+			state = $sldr.hasClass( "playing" ) ? i18nText.pause :  i18nText.play,
+			hidden = $sldr.hasClass( "playing" ) ? i18nText.rotStop  :  i18nText.rotStart,
+			iconState = $sldr.hasClass( "playing" ) ? "<span class='glyphicon glyphicon-pause'></span>" : "<span class='glyphicon glyphicon-play'></span>",
+			controls = "<li class='tabs-toggle prv'><a class='prv' href='javascript:;' role='button' title='" + i18nText.prev + "'>" +
 						"<span class='glyphicon glyphicon-chevron-left'></span>" +
 						"<span class='wb-inv'>" +
 						i18nText.prev +
 						"</span></a></li> " +
-						"<li class='tabs-toggle nxt'><a class='nxt' href='javascript:;' role='button'>" +
+						"<li class='tabs-toggle plypause'><a class='plypause' href='javascript:;' role='button' title='" + state + "'>" +
+						iconState + "<i>" + state + "</i>" +
+						"<span class='wb-inv'>" + i18nText.space + i18nText.hyphen + i18nText.space + hidden + "</span></a></li> " +
+						"<li class='tabs-toggle nxt'><a class='nxt' href='javascript:;' role='button' title='" + i18nText.next + "'>" +
 						"<span class='glyphicon glyphicon-chevron-right'></span>" +
 						"<span class='wb-inv'>" +
 						i18nText.next +
-						"</span></a></li> " +
-						"<li class='tabs-toggle plypause'><a class='plypause' href='javascript:;' role='button'><i>" +
-						state +
-						"</i><span class='wb-inv'>" +
-						i18nText.space + i18nText.hyphen + i18nText.space + hidden +
-						"</span></a></li>";
+						"</span></a></li> ";
 
 		$tablist.append( controls );
 		$sldr.addClass( "inited" );
@@ -5801,7 +5803,7 @@ window._timer.add( selector );
 		$inv.text(
 			$inv.text() === i18nText.rotStop ? i18nText.rotStart : i18nText.rotStop
 		);
-		$sldr.toggleClass( "stopped" );
+		$sldr.toggleClass( "playing" );
 	}
 	$sldr.attr( "data-ctime", 0 );
 
