@@ -5573,7 +5573,7 @@ window._timer.add( selector );
 
 /*
  * @title WET-BOEW Share widget
- * @overview Facilitates sharing Web panel on social media platforms.
+ * @overview Facilitates sharing Web content on social media platforms.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
@@ -5623,7 +5623,7 @@ var selector = ".wb-share",
 			},
 			dzone: {
 				name: "DZone",
-				url: "http://www.dzone.com/panel/add.html?url={u}&amp;title={t}"
+				url: "http://www.dzone.com/link/add.html?url={u}&amp;title={t}"
 			},
 			facebook: {
 				name: "Facebook",
