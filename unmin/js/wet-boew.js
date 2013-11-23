@@ -1,6 +1,6 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-22
+ - v4.0.0-a1-development - 2013-11-23
 */
 /*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -4882,8 +4882,14 @@ var selector = ".wb-panel-left, .wb-panel-right, .wb-bar-top, .wb-bar-bottom, .w
 		}
 	};
 
-// Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb keydown", selector, function( event ) {
+	if ( event.type === "timerpoke" ) {
+		init( event );
+	} else if ( event.which === 27 ) {
+		window.location.hash += "_0";
+		$( "[href='#" + event.currentTarget.id + "']" ).trigger( "setfocus.wb" );
+	}
+});
 
 // Add the timer poke to initialize the plugin
 window._timer.add( selector );
@@ -5567,7 +5573,7 @@ window._timer.add( selector );
 
 /*
  * @title WET-BOEW Share widget
- * @overview Facilitates sharing Web content on social media platforms.
+ * @overview Facilitates sharing Web panel on social media platforms.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
@@ -5590,6 +5596,7 @@ var selector = ".wb-share",
 	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
 	 */
 	defaults = {
+		heading: "h2",
 		sites: {
 
 			// The definitions of the available bookmarking sites, in URL use
@@ -5616,7 +5623,7 @@ var selector = ".wb-share",
 			},
 			dzone: {
 				name: "DZone",
-				url: "http://www.dzone.com/links/add.html?url={u}&amp;title={t}"
+				url: "http://www.dzone.com/panel/add.html?url={u}&amp;title={t}"
 			},
 			facebook: {
 				name: "Facebook",
@@ -5681,14 +5688,15 @@ var selector = ".wb-share",
 	*/
 	init = function( event ) {
 		var elm = event.target,
-			sites = defaults.sites,
-			links = "<ul>",
-			$elm, pageHref, pageTitle, pageImage, pageDescription,
-			site, siteProperties, url;
+			sites, heading, settings, panel, link, $share, $elm, pageHref,
+			pageTitle, pageImage, pageDescription, site, siteProperties, url;
 
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
 			$elm = $( elm );
+			settings = $.extend( true, defaults, vapour.getData( $elm, "wet-boew" ) );
+			sites = settings.sites;
+			heading = settings.heading;
 			pageHref = vapour.pageUrlParts.href;
 			pageTitle = encodeURIComponent( document.title || $document.find( "h1:first" ).text() );
 
@@ -5703,10 +5711,16 @@ var selector = ".wb-share",
 			if ( !i18nText ) {
 				i18n = window.i18n;
 				i18nText = {
+					shareText: i18n( "shr-txt" ),
 					disclaimer: i18n( "shr-disc" )
 				};
 			}
-			
+
+			panel = "<section id='shr-pg' class='shr-pg wb-panel-" +
+				( vapour.html.attr( "dir" ) === "rtl" ? "left" : "right" ) +
+				"'><div class='overlay-header'><" + heading + ">" +
+				i18nText.shareText + "</" + heading + "></div><ul>";
+
 			for ( site in sites ) {
 				siteProperties = sites[ site ];
 				url = siteProperties.url
@@ -5714,12 +5728,18 @@ var selector = ".wb-share",
 						.replace( /\{t\}/, pageTitle )
 						.replace( /\{i\}/, pageImage )
 						.replace( /\{d\}/, pageDescription );
-				links += "<li><a href='" + url + "' class='shr-lnk " + site + " btn btn-default'>" + siteProperties.name + "</a></li>";
+				panel += "<li><a href='" + url + "' class='shr-lnk " + site + " btn btn-default'>" + siteProperties.name + "</a></li>";
 			}
 
-			links += "</ul><p>" + i18nText.disclaimer + "</p>";
+			panel += "</ul><p>" + i18nText.disclaimer + "</p></section>";
+			link = "<a href='#shr-pg' class='shr-opn'><span class='glyphicon glyphicon-share'></span> " +
+				i18nText.shareText + "</a>";
+			
+			$share = $( panel + link );
 
-			$elm.append( links );
+			$elm.append( $share );
+
+			$share.trigger( "timerpoke" );
 		}
 	};
 
