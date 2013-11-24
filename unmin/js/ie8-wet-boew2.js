@@ -4431,9 +4431,9 @@ $document.on( "navcurrent.wb", navCurrent );
  * @title Responsive overlay
  * @overview Provides multiple styles of overlays such as panels and pop-ups
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * @author @thomasgohard
+ * @author @thomasgohard, @pjackson28
  */
-(function ( $, window, vapour ) {
+(function ( $, window, document, vapour ) {
 "use strict";
 
 /* 
@@ -4501,42 +4501,76 @@ var selector = ".wb-panel-l, .wb-panel-r, .wb-bar-t, .wb-bar-b, .wb-popup-mid, .
 
 			overlayHeader.appendChild( overlayClose );
 
-			/*
-			 *	@todo	Add ARIA attributes.
-			 */
+			elm.setAttribute( "aria-hidden", "true" );
 		}
+	},
+
+	closeOverlay = function( overlayId ) {
+		var overlay = document.getElementById( overlayId );
+
+		// Hides the overlay
+		window.location.hash += "_0";
+		overlay.setAttribute( "aria-hidden", "true" );
+
+		// Returns focus to the source link for the overlay
+		$( sourceLinks[ overlayId ] ).trigger( "setfocus.wb" );
+
+		// Delete the source link reference
+		delete sourceLinks[ overlayId ];
 	};
 
 $document.on( "timerpoke.wb keydown", selector, function( event ) {
 	if ( event.type === "timerpoke" ) {
 		init( event );
 	} else if ( event.which === 27 ) {
-
-		// Hides the overlay
-		window.location.hash += "_0";
-
-		// Returns focus to the source link for the overlay
-		$( sourceLinks[ event.currentTarget.id ] ).trigger( "setfocus.wb" );
+		closeOverlay( event.currentTarget.id );
 	}
 });
 
-// Returns focus to the source link for the overlay
+// Handler for clicking on the close button of the overlay
 $document.on( "click vclick", "." + closeClass, function( event ) {
-	$( sourceLinks[ event.currentTarget.parentNode.parentNode.id ] ).trigger( "setfocus.wb" );
+	closeOverlay( event.currentTarget.parentNode.parentNode.id );
 });
 
-// Stores the source link for the overlay
+// Handler for clicking on a source link for the overlay
 $document.on( "click vclick", "." + linkClass, function( event ) {
 	var sourceLink = event.target,
-		hash = sourceLink.hash;
+		overlayId = sourceLink.hash.substring( 1 ),
+		overlay = document.getElementById( overlayId );
 
-	sourceLinks[ hash.substring( 1 ) ] = sourceLink;
+	// Introduce a delay to prevent outside activity detection
+	setTimeout(function() {
+
+		// Stores the source link for the overlay
+		sourceLinks[ overlayId ] = sourceLink;
+
+		overlay.setAttribute( "aria-hidden", "false" );
+	}, 1 );
+});
+
+// Outside activity detection
+$document.on( "click vclick touchstart focusin", function ( event ) {
+	var eventTarget = event.target,
+		which = event.which,
+		overlayId, overlay;
+
+	// Ignore middle/right mouse buttons
+	if ( !which || which === 1 ) {
+
+		// Close any overlays with outside activity
+		for ( overlayId in sourceLinks ) {
+			overlay = document.getElementById( overlayId );
+			if ( overlay.getAttribute( "aria-hidden" ) === "false" && !$.contains( overlay, eventTarget ) ) {
+				closeOverlay( overlayId );
+			}
+		}
+	}
 });
 
 // Add the timer poke to initialize the plugin
 window._timer.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, document, vapour );
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * @title Prettify Plugin
@@ -5229,6 +5263,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-share",
+	shareLink = "shr-lnk",
 	$document = vapour.doc,
 	i18n, i18nText,
 
@@ -5370,7 +5405,7 @@ var selector = ".wb-share",
 						.replace( /\{t\}/, pageTitle )
 						.replace( /\{i\}/, pageImage )
 						.replace( /\{d\}/, pageDescription );
-				panel += "<li><a href='" + url + "' class='shr-lnk overlay-lnk" + site + " btn btn-default'>" + siteProperties.name + "</a></li>";
+				panel += "<li><a href='" + url + "' class='" + shareLink + " " + site + " btn btn-default' target='_blank'>" + siteProperties.name + "</a></li>";
 			}
 
 			panel += "</ul><p>" + i18nText.disclaimer + "</p></section>";
@@ -5387,6 +5422,20 @@ var selector = ".wb-share",
 
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb", selector, init );
+
+$document.on( "click vclick", "." + shareLink, function( event) {
+	var which = event.which;
+
+	// Ignore middle and right mouse buttons
+	if ( !which || which === 1 ) {
+
+		// Close the overlay by emulating an escape key keydown
+		$( event.target ).trigger({
+			type: "keydown",
+			which: 27
+		});
+	}
+});
 
 // Add the timer poke to initialize the plugin
 window._timer.add( selector );
