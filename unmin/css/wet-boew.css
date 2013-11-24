@@ -9959,7 +9959,7 @@ table.dataTable tr.even td.sorting_3 {
   display: block;
   visibility: visible;
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 100%;
 }
 
@@ -9979,7 +9979,7 @@ table.dataTable tr.even td.sorting_3 {
   display: block;
   visibility: visible;
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 100%;
 }
 
@@ -9999,7 +9999,7 @@ table.dataTable tr.even td.sorting_3 {
   display: block;
   visibility: visible;
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 100%;
 }
 
@@ -10019,7 +10019,7 @@ table.dataTable tr.even td.sorting_3 {
   display: block;
   visibility: visible;
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 100%;
 }
 
@@ -10043,7 +10043,7 @@ table.dataTable tr.even td.sorting_3 {
   display: block;
   visibility: visible;
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 100%;
 }
 
@@ -10066,7 +10066,7 @@ table.dataTable tr.even td.sorting_3 {
   display: block;
   visibility: visible;
   z-index: 999;
-  overflow: auto;
+  overflow-y: auto;
   max-height: 100%;
 }
 
@@ -10257,14 +10257,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-share ul {
   list-style-type: none;
   padding-left: 0;
-}
-
-.wb-share p {
-  margin: 5px 10px;
-}
-
-#shr-pg {
-  width: 250px;
+  margin-top: 10px;
 }
 
 [dir=rtl] .wb-share .shr-lnk {

@@ -4560,7 +4560,11 @@ $document.on( "click vclick touchstart focusin", function ( event ) {
 		// Close any overlays with outside activity
 		for ( overlayId in sourceLinks ) {
 			overlay = document.getElementById( overlayId );
-			if ( overlay.getAttribute( "aria-hidden" ) === "false" && !$.contains( overlay, eventTarget ) ) {
+			if ( overlay.getAttribute( "aria-hidden" ) === "false" &&
+				eventTarget.id !== overlayId &&
+				!$.contains( overlay, eventTarget ) ) {
+		
+				// Close the overlay
 				closeOverlay( overlayId );
 			}
 		}
@@ -5405,10 +5409,10 @@ var selector = ".wb-share",
 						.replace( /\{t\}/, pageTitle )
 						.replace( /\{i\}/, pageImage )
 						.replace( /\{d\}/, pageDescription );
-				panel += "<li><a href='" + url + "' class='" + shareLink + " " + site + " btn btn-default' target='_blank'>" + siteProperties.name + "</a></li>";
+				panel += "<li class='col-md-4 col-sm-6'><a href='" + url + "' class='" + shareLink + " " + site + " btn btn-default' target='_blank'>" + siteProperties.name + "</a></li>";
 			}
 
-			panel += "</ul><p>" + i18nText.disclaimer + "</p></section>";
+			panel += "</ul><div class='clearfix'></div><p class='col-sm-12'>" + i18nText.disclaimer + "</p></section>";
 			link = "<a href='#shr-pg' aria-controls='shr-pg' class='shr-opn overlay-lnk'><span class='glyphicon glyphicon-share'></span> " +
 				i18nText.shareText + "</a>";
 			
