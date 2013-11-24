@@ -4480,6 +4480,9 @@ $document.on( "navcurrent.wb", navCurrent );
  */
 var selector = ".wb-panel-l, .wb-panel-r, .wb-bar-t, .wb-bar-b, .wb-popup-mid, .wb-popup-full",
 	headerClass = "overlay-hd",
+	closeClass = "overlay-close",
+	linkClass = "overlay-lnk",
+	sourceLinks = {},
 	$document = vapour.doc,
 	i18n, i18nText,
 
@@ -4520,7 +4523,7 @@ var selector = ".wb-panel-l, .wb-panel-r, .wb-bar-t, .wb-bar-b, .wb-popup-mid, .
 			overlayClose = document.createElement( "a" );
 			overlayClose.id = elm.id + "_0";
 			overlayClose.href = "#" + overlayClose.id;
-			overlayClose.className = "overlay-close";
+			overlayClose.className = closeClass;
 			overlayClose.setAttribute( "role", "button" );
 
 			closeIcon = document.createElement( "span" );
@@ -4545,8 +4548,20 @@ $document.on( "timerpoke.wb keydown", selector, function( event ) {
 		init( event );
 	} else if ( event.which === 27 ) {
 		window.location.hash += "_0";
-		$( "[href='#" + event.currentTarget.id + "']" ).trigger( "setfocus.wb" );
+		$( sourceLinks[ event.currentTarget.id ] ).trigger( "setfocus.wb" );
 	}
+});
+
+$document.on( "click vclick", "." + closeClass, function( event ) {
+	$( sourceLinks[ event.currentTarget.parentNode.parentNode.id ] ).trigger( "setfocus.wb" );
+});
+
+$document.on( "click vclick", "." + linkClass, function( event ) {
+	var sourceLink = event.target,
+		hash = sourceLink.hash;
+
+	// Store the source link
+	sourceLinks[ hash.substring( 1 ) ] = sourceLink;
 });
 
 // Add the timer poke to initialize the plugin
@@ -5375,7 +5390,7 @@ var selector = ".wb-share",
 			}
 
 			panel = "<section id='shr-pg' class='shr-pg wb-panel-" +
-				( vapour.html.attr( "dir" ) === "rtl" ? "left" : "right" ) +
+				( vapour.html.attr( "dir" ) === "rtl" ? "l" : "r" ) +
 				"'><div class='overlay-hd'><" + heading + ">" +
 				i18nText.shareText + "</" + heading + "></div><ul>";
 
@@ -5386,11 +5401,11 @@ var selector = ".wb-share",
 						.replace( /\{t\}/, pageTitle )
 						.replace( /\{i\}/, pageImage )
 						.replace( /\{d\}/, pageDescription );
-				panel += "<li><a href='" + url + "' class='shr-lnk " + site + " btn btn-default'>" + siteProperties.name + "</a></li>";
+				panel += "<li><a href='" + url + "' class='shr-lnk overlay-lnk" + site + " btn btn-default'>" + siteProperties.name + "</a></li>";
 			}
 
 			panel += "</ul><p>" + i18nText.disclaimer + "</p></section>";
-			link = "<a href='#shr-pg' class='shr-opn'><span class='glyphicon glyphicon-share'></span> " +
+			link = "<a href='#shr-pg' aria-controls='shr-pg' class='shr-opn overlay-lnk'><span class='glyphicon glyphicon-share'></span> " +
 				i18nText.shareText + "</a>";
 			
 			$share = $( panel + link );
