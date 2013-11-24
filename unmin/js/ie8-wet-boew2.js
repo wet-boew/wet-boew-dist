@@ -1,6 +1,6 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-23
+ - v4.0.0-a1-development - 2013-11-24
 */
 /*
  * @title WET-BOEW JQuery Helper Methods
@@ -4478,8 +4478,8 @@ $document.on( "navcurrent.wb", navCurrent );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var selector = ".wb-panel-left, .wb-panel-right, .wb-bar-top, .wb-bar-bottom, .wb-pop-up-centred, .wb-pop-up-full-screen",
-	headerClass = "overlay-header",
+var selector = ".wb-panel-l, .wb-panel-r, .wb-bar-t, .wb-bar-b, .wb-popup-mid, .wb-popup-full",
+	headerClass = "overlay-hd",
 	$document = vapour.doc,
 	i18n, i18nText,
 
@@ -4504,7 +4504,7 @@ var selector = ".wb-panel-left, .wb-panel-right, .wb-bar-top, .wb-bar-bottom, .w
 			if ( !i18nText ) {
 				i18n = window.i18n;
 				i18nText = {
-					close: i18n( "close" )
+					close: i18n( "close-esc" )
 				};
 			}
 
@@ -5376,7 +5376,7 @@ var selector = ".wb-share",
 
 			panel = "<section id='shr-pg' class='shr-pg wb-panel-" +
 				( vapour.html.attr( "dir" ) === "rtl" ? "left" : "right" ) +
-				"'><div class='overlay-header'><" + heading + ">" +
+				"'><div class='overlay-hd'><" + heading + ">" +
 				i18nText.shareText + "</" + heading + "></div><ul>";
 
 			for ( site in sites ) {

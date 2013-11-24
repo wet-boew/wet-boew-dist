@@ -9920,21 +9920,21 @@ table.dataTable tr.even td.sorting_3 {
  *	Overlay base
  */
 
-.wb-panel-left,
-.wb-panel-right {
+.wb-panel-l,
+.wb-panel-r {
   top: 0;
   min-height: 100%;
   max-width: 90%;
 }
 
-.wb-bar-top,
-.wb-bar-bottom {
+.wb-bar-t,
+.wb-bar-b {
   max-height: 90%;
   min-width: 100%;
   left: 0;
 }
 
-.wb-pop-up-centred {
+.wb-popup-mid {
   max-height: 90%;
   max-width: 90%;
 }
@@ -9943,7 +9943,7 @@ table.dataTable tr.even td.sorting_3 {
  *	Overlay styles
  */
 
-.wb-panel-left {
+.wb-panel-l {
   background-color: white;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
@@ -9954,7 +9954,7 @@ table.dataTable tr.even td.sorting_3 {
   left: 0;
 }
 
-.wb-panel-left:target {
+.wb-panel-l:target {
   position: fixed;
   display: block;
   visibility: visible;
@@ -9963,7 +9963,7 @@ table.dataTable tr.even td.sorting_3 {
   max-height: 100%;
 }
 
-.wb-panel-right {
+.wb-panel-r {
   background-color: white;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
@@ -9974,7 +9974,7 @@ table.dataTable tr.even td.sorting_3 {
   right: 0;
 }
 
-.wb-panel-right:target {
+.wb-panel-r:target {
   position: fixed;
   display: block;
   visibility: visible;
@@ -9983,7 +9983,7 @@ table.dataTable tr.even td.sorting_3 {
   max-height: 100%;
 }
 
-.wb-bar-top {
+.wb-bar-t {
   background-color: white;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
@@ -9994,7 +9994,7 @@ table.dataTable tr.even td.sorting_3 {
   top: 0;
 }
 
-.wb-bar-top:target {
+.wb-bar-t:target {
   position: fixed;
   display: block;
   visibility: visible;
@@ -10003,7 +10003,7 @@ table.dataTable tr.even td.sorting_3 {
   max-height: 100%;
 }
 
-.wb-bar-bottom {
+.wb-bar-b {
   background-color: white;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
@@ -10014,7 +10014,7 @@ table.dataTable tr.even td.sorting_3 {
   bottom: 0;
 }
 
-.wb-bar-bottom:target {
+.wb-bar-b:target {
   position: fixed;
   display: block;
   visibility: visible;
@@ -10023,7 +10023,7 @@ table.dataTable tr.even td.sorting_3 {
   max-height: 100%;
 }
 
-.wb-pop-up-centred {
+.wb-popup-mid {
   background-color: white;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
@@ -10038,7 +10038,7 @@ table.dataTable tr.even td.sorting_3 {
   margin: auto;
 }
 
-.wb-pop-up-centred:target {
+.wb-popup-mid:target {
   position: fixed;
   display: block;
   visibility: visible;
@@ -10047,7 +10047,7 @@ table.dataTable tr.even td.sorting_3 {
   max-height: 100%;
 }
 
-.wb-pop-up-full-screen {
+.wb-popup-full {
   background-color: white;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
@@ -10061,7 +10061,7 @@ table.dataTable tr.even td.sorting_3 {
   left: 0;
 }
 
-.wb-pop-up-full-screen:target {
+.wb-popup-full:target {
   position: fixed;
   display: block;
   visibility: visible;
@@ -10074,18 +10074,18 @@ table.dataTable tr.even td.sorting_3 {
  *	Overlay parts
  */
 
-.overlay-header {
+.overlay-hd {
   background-color: black;
   color: white;
   display: block;
 }
 
-.overlay-header h1,
-.overlay-header h2,
-.overlay-header h3,
-.overlay-header h4,
-.overlay-header h5,
-.overlay-header h6 {
+.overlay-hd h1,
+.overlay-hd h2,
+.overlay-hd h3,
+.overlay-hd h4,
+.overlay-hd h5,
+.overlay-hd h6 {
   font-size: 1.15em;
   font-weight: normal;
   margin: 0 26px 0 0;
