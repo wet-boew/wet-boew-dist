@@ -10331,7 +10331,6 @@ tbody.cal-days a.cal-event:link {
 .wb-tabs [role="tablist"] li {
   display: inline-block;
   cursor: pointer;
-  padding: 7px;
   margin: 0 1px 0 0;
   color: black;
   background: #eeeeee;
@@ -10344,6 +10343,8 @@ tbody.cal-days a.cal-event:link {
 .wb-tabs [role="tablist"] li a {
   text-decoration: none;
   color: black;
+  display: inline-block;
+  padding: 7px;
 }
 
 .wb-tabs [role="tablist"] li:focus,
