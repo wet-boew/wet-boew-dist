@@ -23,3 +23,24 @@
 .lt-ie9 details[open]> * {
   display: block !important;
 }
+
+/* Print view */
+
+@media print {
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  .ie8 .wb-fnote dl dd {
+    display: block;
+  }
+
+  .ie8 .wb-fnote dl dd p {
+    display: inline-block;
+  }
+
+  .ie8 .wb-fnote dl dd p.fn-rtn {
+    display: block;
+  }
+}

@@ -5,11 +5,10 @@
  *
  */
 
-@media screen {
-  body {
-    background: #f9f9f9;
-  }
-}
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
 
 /*
  Default Mixins and namespace variables
@@ -24,6 +23,32 @@
   margin: 0;
 }
 
+.wb-slc {
+  float: left;
+  height: 0;
+}
+
+.wb-slc ul {
+  list-style-type: none;
+  margin-top: -1.8em;
+}
+
+.wb-slc li {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 100%;
+  z-index: 3;
+}
+
+.wb-slc a {
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+}
+
 .wb-sl {
   background-color: black;
   color: white;
@@ -33,6 +58,7 @@
 .wb-sl:focus {
   color: white;
   text-decoration: none;
+  z-index: 501;
   /* Shouldn't be needed. Only here because Bootstrap forces an outline colour */
   outline-color: white;
 }
@@ -48,6 +74,10 @@
   color: #cccccc;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAYAAAB8ZH1oAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAA6SURBVAiZY/z//z8DMvj14+s+BgYGBjYObicUif///8Pxz+9f9v2HAigbLodVETbFOBWhK8arCFkxABifl5syjffvAAAAAElFTkSuQmCC) no-repeat scroll center bottom;
 }
+
+/*
+ Banner
+ */
 
 #wb-bnr {
   background: #114f7a;
@@ -124,6 +154,10 @@
   margin: 9px 0 9px 15px;
 }
 
+/*
+ Search
+ */
+
 #wb-srch {
   text-align: right;
   padding-top: 2em;
@@ -139,19 +173,19 @@
 }
 
 /*
- Site menu
+ Secondary menu
 */
 
 /*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
+ Site information
+*/
+
+/*
+ Site menu
+*/
 
 #wb-sm {
   background: #0e4164;
-  /*
-	Mobile view
-	*/
 }
 
 #wb-sm .menu {
@@ -232,75 +266,6 @@
   display: none;
 }
 
-@media screen and (max-width: 991px) {
-  #wb-sm {
-    background: #dddddd;
-  }
-
-  #wb-sm .menu li a:hover,
-  #wb-sm .menu li a:focus,
-  #wb-sm .menu li a:active {
-    background: #eeeeee;
-  }
-
-  #wb-sm .menu .active {
-    background: #dddddd !important;
-  }
-
-  #wb-sm .menu li li a:hover,
-  #wb-sm .menu li li a:focus,
-  #wb-sm .menu li li a:active {
-    background: none;
-  }
-
-  #wb-sm:target .container {
-    display: block !important;
-  }
-
-  #wb-sm .row {
-    border-bottom: 1px solid #bbbbbb;
-    padding-bottom: 10px;
-  }
-
-  #wb-sm .menu> li a {
-    text-shadow: none;
-    color: #333333;
-    border: none;
-    padding: 0.5em;
-  }
-
-  #wb-sm .sm,
-  #wb-sm .sm.open {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid #dddddd;
-    padding: 0;
-    background: transparent;
-  }
-
-  #wb-sm .menu> li:last-child a {
-    border: none;
-  }
-
-  #wb-sm .menu ul li {
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid white;
-    background: #eeeeee;
-  }
-
-  #wb-sm #wb-sec-p {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  #wb-sec {
-    display: none;
-  }
-}
-
 /*
  Breadcrumbs
  */
@@ -365,17 +330,256 @@ main {
   margin-top: 0.45em;
 }
 
+/*
+ Views
+ */
+
+/* All screen views */
+
+@media screen {
+  /*
+  WET-BOEW
+  @title: All screen views
+ */
+
+  body {
+    background: #f9f9f9;
+  }
+}
+
+/* Extra-small view and under */
+
+@media screen and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and under (screen only)
+ */
+}
+
+/* Small view and under */
+
+@media screen and (max-width: 991px) {
+  /*
+  WET-BOEW
+  @title: Small view and under (screen only)
+ */
+
+  /*
+ Secondary menu (small view and under)
+*/
+
+  /*
+ Site menu (small view and under)
+*/
+
+  #wb-sec {
+    display: none;
+  }
+
+  #wb-sm {
+    background: #dddddd;
+  }
+
+  #wb-sm .menu li a:hover,
+  #wb-sm .menu li a:focus,
+  #wb-sm .menu li a:active {
+    background: #eeeeee;
+  }
+
+  #wb-sm .menu .active {
+    background: #dddddd !important;
+  }
+
+  #wb-sm .menu li li a:hover,
+  #wb-sm .menu li li a:focus,
+  #wb-sm .menu li li a:active {
+    background: none;
+  }
+
+  #wb-sm:target .container {
+    display: block !important;
+  }
+
+  #wb-sm .row {
+    border-bottom: 1px solid #bbbbbb;
+    padding-bottom: 10px;
+  }
+
+  #wb-sm .menu> li a {
+    text-shadow: none;
+    color: #333333;
+    border: none;
+    padding: 0.5em;
+  }
+
+  #wb-sm .sm,
+  #wb-sm .sm.open {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #dddddd;
+    padding: 0;
+    background: transparent;
+  }
+
+  #wb-sm .menu> li:last-child a {
+    border: none;
+  }
+
+  #wb-sm .menu ul li {
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid white;
+    background: #eeeeee;
+  }
+
+  #wb-sm #wb-sec-p {
+    display: block;
+  }
+}
+
+/* Medium view and under */
+
+@media screen and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view and under (screen only)
+ */
+}
+
+/* Large view and under */
+
+@media screen and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view and under (screen only)
+ */
+}
+
+/* Extra-small view and over */
+
+@media screen and (min-width: 480px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and over (screen only)
+ */
+}
+
+/* Small view and over */
+
+@media screen and (min-width: 768px) {
+  /*
+  WET-BOEW
+  @title: Small view and over (screen only)
+ */
+}
+
+/* Medium view and over */
+
+@media screen and (min-width: 992px) {
+  /*
+  WET-BOEW
+  @title: Medium view and over (screen only)
+ */
+}
+
+/* Large view and over */
+
+@media screen and (min-width: 1200px) {
+  /*
+  WET-BOEW
+  @title: Large view and over (screen only)
+ */
+}
+
+/* Extra-extra-small view */
+
+@media screen and (max-width: 479px) {
+  /*
+  WET-BOEW
+  @title: Extra-extra-small view (screen only)
+ */
+}
+
+/* Extra-small view */
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view (screen only)
+ */
+}
+
+/* Small view */
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /*
+  WET-BOEW
+  @title: Small view (screen only)
+ */
+}
+
+/* Medium view */
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view (screen only)
+ */
+}
+
+/* Large view */
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view (screen only)
+ */
+}
+
+/* Extra-large view */
+
+@media screen and (min-width: 1600px) {
+  /*
+  WET-BOEW
+  @title: Extra-large view (screen only)
+ */
+}
+
+/* Print view */
+
 @media print {
   /*
- Default Mixins and namespace variables
+  WET-BOEW
+  @title: Print view
  */
+
+  /*
+ Banner (print view)
+ */
+
+  /*
+ Search (print view)
+ */
+
+  /*
+ Secondary menu (print view)
+*/
+
+  /*
+ Site information (print view)
+*/
+
+  /*
+ Site menu (print view)
+*/
 
   #wb-bar,
   #wb-sttl a:after,
   #wb-srch,
-  #wb-sm,
   #wb-sec,
-  #wb-info {
+  #wb-info,
+  #wb-sm {
     display: none !important;
   }
 }

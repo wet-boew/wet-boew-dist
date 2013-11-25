@@ -74,7 +74,7 @@
       color: white; }
 
 /* Mobile flyout */
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 767px) {
   #wb-sm {
     background: #114f7a; }
     #wb-sm .nav-close {

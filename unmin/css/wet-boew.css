@@ -7067,6 +7067,11 @@ td.visible-print {
  */
 
 /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
  Global placeholder
  */
 
@@ -7270,12 +7275,6 @@ textarea.input-lg {
   font-size: 24px;
 }
 
-@media screen and (min-width: 768px) {
-  h1 {
-    font-size: 72px;
-  }
-}
-
 .navbar-brand {
   font-size: 20px;
 }
@@ -7338,12 +7337,6 @@ body {
 
 .lead {
   font-size: 18.4px;
-}
-
-@media (min-width: 768px) {
-  .lead {
-    font-size: 24px;
-  }
 }
 
 h1,
@@ -8332,11 +8325,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
  Menu Sass
 */
 
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
 .wb-menu .menu> li a:hover,
 .wb-menu .menu> li a:focus,
 .wb-menu .active> a {
@@ -8353,12 +8341,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   left: 0.75em;
   top: 0.75em;
   margin-right: 0.35em;
-}
-
-.wb-menu {
-  /*
-	Mobile view
-	*/
 }
 
 .wb-menu .sm {
@@ -8402,53 +8384,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 
 .wb-menu .sm-open .expicon {
   border-color: transparent !important;
-}
-
-@media screen and (max-width: 991px) {
-  .wb-menu {
-    position: absolute;
-    z-index: 1000;
-    top: 0;
-    right: -100%;
-    display: none !important;
-  }
-
-  .wb-menu:target {
-    width: 75%;
-    right: 0;
-  }
-
-  .wb-menu:target .container {
-    display: block !important;
-  }
-
-  .wb-menu .nav-close {
-    text-align: right;
-    margin-bottom: 5px;
-    padding: 5px 10px;
-  }
-
-  .wb-menu .menu {
-    display: block;
-  }
-
-  .wb-menu .menu> li {
-    display: block;
-  }
-
-  .wb-menu .menu> li a {
-    text-align: left;
-  }
-
-  .wb-menu .sm,
-  .wb-menu .sm.open {
-    display: block;
-    position: relative;
-    z-index: auto;
-    text-transform: none;
-    top: auto;
-    min-width: 0;
-  }
 }
 
 [dir=rtl] .wb-menu .menu {
@@ -8700,13 +8635,6 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
   background: #176ca7;
 }
 
-@media print {
-  .wb-mm-ctrls,
-  .wb-mm-ovrly {
-    display: none;
-  }
-}
-
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -8812,110 +8740,6 @@ div.errCnt ul li {
 }
 
 /* plain text */
-
-@media screen {
-  /* string content - from #080 */
-
-  /* a keyword - from #008 */
-
-  /* a comment */
-
-  /* a type name */
-
-  /* a literal value */
-
-  /* punctuation, lisp open bracket, lisp close bracket */
-
-  /* a markup tag name - from #008 */
-
-  /* a markup attribute name */
-
-  /* a markup attribute value - from #080 */
-
-  /* a declaration */
-
-  /* a variable name */
-
-  /* a function name */
-
-  .typ,
-  .atn,
-  .dec,
-  .var {
-    color: #660066;
-  }
-
-  .pun,
-  .opn,
-  .clo {
-    color: #666600;
-  }
-
-  .str,
-  .atv {
-    color: #2f6d2f;
-  }
-
-  .kwd {
-    color: #024b6e;
-  }
-
-  .com {
-    color: #880000;
-  }
-
-  .lit {
-    color: #006666;
-  }
-
-  .tag {
-    color: #125b7e;
-  }
-
-  .fun {
-    color: red;
-  }
-}
-
-/* Use higher contrast and text-weight for printable form. */
-
-@media print, projection {
-  .kwd,
-  .typ,
-  .tag {
-    font-weight: 700;
-  }
-
-  .kwd,
-  .tag {
-    color: #000066;
-  }
-
-  .str,
-  .atv {
-    color: #006600;
-  }
-
-  .pun,
-  .opn,
-  .clo {
-    color: #444400;
-  }
-
-  .typ,
-  .atn {
-    color: #440044;
-  }
-
-  .com {
-    color: #660000;
-    font-style: italic;
-  }
-
-  .lit {
-    color: #004444;
-  }
-}
 
 pre.prettyprint {
   background-color: whitesmoke;
@@ -9038,38 +8862,6 @@ sup a.fn-lnk,
 [dir="rtl"] .wb-fnote dl dd p.fn-rtn {
   margin-right: 0;
   padding-right: 0;
-}
-
-/*Print SCSS*/
-
-@media print {
-  sup a.fn-lnk,
-  .wb-fnote dl dd p.fn-rtn a {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-  }
-
-  .wb-fnote {
-    margin-left: 0;
-    margin-right: 0;
-    margin-bottom: 1em;
-  }
-
-  .wb-fnote border {
-    left: 0;
-    right: 0;
-  }
-
-  .wb-fnote dl dd {
-    border: 0;
-    width: 100%;
-    display: inline-block;
-  }
-
-  .wb-fnote dl dd p.fn-rtn {
-    overflow: visible;
-  }
 }
 
 /*
@@ -10824,26 +10616,6 @@ tbody.cal-days a.cal-event:link {
   color: white;
 }
 
-/**
- * Mobile-friendly styles
- */
-
-@media (max-width: 768px) {
-  .wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption,
-  .wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption {
-    position: relative;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  .wb-tabs.tabs-s1 [role="tablist"] {
-    bottom: auto;
-    top: 1em;
-  }
-}
-
 .no-js .wb-tabs [role="tablist"] {
   display: none;
 }
@@ -10903,4 +10675,384 @@ details summary:hover {
 
 .datepicker-format {
   display: none;
+}
+
+/*
+ Views
+ */
+
+/* All screen views */
+
+@media screen {
+  /*
+  WET-BOEW
+  @title: All screen views
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /* Pretty printing styles. Used with prettify.js. */
+
+  /* string content - from #080 */
+
+  /* a keyword - from #008 */
+
+  /* a comment */
+
+  /* a type name */
+
+  /* a literal value */
+
+  /* punctuation, lisp open bracket, lisp close bracket */
+
+  /* a markup tag name - from #008 */
+
+  /* a markup attribute name */
+
+  /* a markup attribute value - from #080 */
+
+  /* a declaration */
+
+  /* a variable name */
+
+  /* a function name */
+
+  .typ,
+  .atn,
+  .dec,
+  .var {
+    color: #660066;
+  }
+
+  .pun,
+  .opn,
+  .clo {
+    color: #666600;
+  }
+
+  .str,
+  .atv {
+    color: #2f6d2f;
+  }
+
+  .kwd {
+    color: #024b6e;
+  }
+
+  .com {
+    color: #880000;
+  }
+
+  .lit {
+    color: #006666;
+  }
+
+  .tag {
+    color: #125b7e;
+  }
+
+  .fun {
+    color: red;
+  }
+}
+
+/* Extra-small view and under */
+
+@media screen and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and under (screen only)
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /**
+ * Mobile-friendly styles
+ */
+
+  .wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption,
+  .wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption {
+    position: relative;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .wb-tabs.tabs-s1 [role="tablist"] {
+    bottom: auto;
+    top: 1em;
+  }
+}
+
+/* Small view and under */
+
+@media screen and (max-width: 991px) {
+  /*
+  WET-BOEW
+  @title: Small view and under (screen only)
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /*
+ Menu Sass (small view and under)
+*/
+
+  .wb-menu {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    right: -100%;
+    display: none !important;
+  }
+
+  .wb-menu:target {
+    width: 75%;
+    right: 0;
+    display: block !important;
+  }
+
+  .wb-menu .nav-close {
+    text-align: right;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+  }
+
+  .wb-menu .menu {
+    display: block;
+  }
+
+  .wb-menu .menu> li {
+    display: block;
+  }
+
+  .wb-menu .menu> li a {
+    text-align: left;
+  }
+
+  .wb-menu .sm,
+  .wb-menu .sm.open {
+    display: block;
+    position: relative;
+    z-index: auto;
+    text-transform: none;
+    top: auto;
+    min-width: 0;
+  }
+}
+
+/* Medium view and under */
+
+@media screen and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view and under (screen only)
+ */
+}
+
+/* Large view and under */
+
+@media screen and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view and under (screen only)
+ */
+}
+
+/* Extra-small view and over */
+
+@media screen and (min-width: 480px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and over (screen only)
+ */
+}
+
+/* Small view and over */
+
+@media screen and (min-width: 768px) {
+  /*
+  WET-BOEW
+  @title: Small view and over (screen only)
+ */
+
+  /*
+  WET-BOEW
+  @title: Bootstrap overrides for WET-BOEW (small view and over)
+ */
+
+  h1 {
+    font-size: 72px;
+  }
+
+  .lead {
+    font-size: 24px;
+  }
+}
+
+/* Medium view and over */
+
+@media screen and (min-width: 992px) {
+  /*
+  WET-BOEW
+  @title: Medium view and over (screen only)
+ */
+}
+
+/* Large view and over */
+
+@media screen and (min-width: 1200px) {
+  /*
+  WET-BOEW
+  @title: Large view and over (screen only)
+ */
+}
+
+/* Extra-extra-small view */
+
+@media screen and (max-width: 479px) {
+  /*
+  WET-BOEW
+  @title: Extra-extra-small view (screen only)
+ */
+}
+
+/* Extra-small view */
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view (screen only)
+ */
+}
+
+/* Small view */
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /*
+  WET-BOEW
+  @title: Small view (screen only)
+ */
+}
+
+/* Medium view */
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view (screen only)
+ */
+}
+
+/* Large view */
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view (screen only)
+ */
+}
+
+/* Extra-large view */
+
+@media screen and (min-width: 1600px) {
+  /*
+  WET-BOEW
+  @title: Extra-large view (screen only)
+ */
+}
+
+/* Print view */
+
+@media print {
+  /*
+  WET-BOEW
+  @title: Print view
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /* Use higher contrast and text-weight for printable form. */
+
+  sup a.fn-lnk,
+  .wb-fnote dl dd p.fn-rtn a {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .wb-fnote {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+  }
+
+  .wb-fnote border {
+    left: 0;
+    right: 0;
+  }
+
+  .wb-fnote dl dd {
+    border: 0;
+    width: 100%;
+    display: inline-block;
+  }
+
+  .wb-fnote dl dd p.fn-rtn {
+    overflow: visible;
+  }
+
+  .kwd,
+  .typ,
+  .tag {
+    font-weight: 700;
+  }
+
+  .kwd,
+  .tag {
+    color: #000066;
+  }
+
+  .str,
+  .atv {
+    color: #006600;
+  }
+
+  .pun,
+  .opn,
+  .clo {
+    color: #444400;
+  }
+
+  .typ,
+  .atn {
+    color: #440044;
+  }
+
+  .com {
+    color: #660000;
+    font-style: italic;
+  }
+
+  .lit {
+    color: #004444;
+  }
 }
