@@ -5992,10 +5992,10 @@ window._timer.add( selector );
 })( jQuery, window, vapour );
 
 /*
- * @title Tabbed Interface Plugin
- * @overview Explain the plug-in or any third party lib that it is inspired by
+ * @title Tabbed Interface
+ * @overview Dynamically stacks multiple sections of content, transforming them into a tabbed interface
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * @author @YOU or WET Community
+ * @author WET Community
  */
  (function( $, window, vapour ) {
  "use strict";
@@ -6016,26 +6016,24 @@ window._timer.add( selector );
 	 * @param {jQuery DOM element} $elm The plugin element
 	 */
 	onTimerPoke = function( $elm ) {
-		var setting,
-			dataDelay = $elm.data( "delay" ),
-			delay;
+		var dataDelay = $elm.data( "delay" ),
+			setting, delay;
 
 		if ( !dataDelay ) {
 			$elm.trigger( "init.wb-carousel" );
 			return false;
 		}
 
-		/* state playing*/
+		// State playing
 		if ( !$elm.hasClass( "playing" ) ) {
 			return false;
 		}
-		/* continue;*/
 
-		/* add settings and counter*/
+		// Add settings and counter
 		setting = parseFloat( dataDelay );
 		delay = parseFloat( $elm.data( "ctime" ) ) + 0.5;
 
-		/* check if we need*/
+		// Check if we need
 		if ( setting < delay ) {
 			$elm.trigger( "shift.wb-carousel" );
 			delay = 0;
@@ -6049,22 +6047,27 @@ window._timer.add( selector );
 	 */
 	createControls = function( $tablist ) {
 		var $sldr = $tablist.parents( selector ),
-			state = $sldr.hasClass( "playing" ) ? i18nText.pause :  i18nText.play,
-			hidden = $sldr.hasClass( "playing" ) ? i18nText.rotStop  :  i18nText.rotStart,
-			iconState = $sldr.hasClass( "playing" ) ? "<span class='glyphicon glyphicon-pause'></span>" : "<span class='glyphicon glyphicon-play'></span>",
-			controls = "<li class='tabs-toggle prv'><a class='prv' href='javascript:;' role='button' title='" + i18nText.prev + "'>" +
-						"<span class='glyphicon glyphicon-chevron-left'></span>" +
-						"<span class='wb-inv'>" +
-						i18nText.prev +
-						"</span></a></li> " +
-						"<li class='tabs-toggle plypause'><a class='plypause' href='javascript:;' role='button' title='" + state + "'>" +
-						iconState + "<i>" + state + "</i>" +
-						"<span class='wb-inv'>" + i18nText.space + i18nText.hyphen + i18nText.space + hidden + "</span></a></li> " +
-						"<li class='tabs-toggle nxt'><a class='nxt' href='javascript:;' role='button' title='" + i18nText.next + "'>" +
-						"<span class='glyphicon glyphicon-chevron-right'></span>" +
-						"<span class='wb-inv'>" +
-						i18nText.next +
-						"</span></a></li> ";
+			prevText = i18nText.prev,
+			nextText = i18nText.next,
+			spaceText = i18nText.space,
+			isPlaying = $sldr.hasClass( "playing" ),
+			state = isPlaying ? i18nText.pause : i18nText.play,
+			hidden = isPlaying ? i18nText.rotStop : i18nText.rotStart,
+			glyphiconStart = "<span class='glyphicon glyphicon-",
+			wbInvStart = "<span class='wb-inv'>",
+			tabsToggleStart = "<li class='tabs-toggle ",
+			btnMiddle = "' href='javascript:;' role='button' title='",
+			btnEnd = "</span></a></li> ",
+			iconState = glyphiconStart + ( isPlaying ? "pause" : "play" ) + "'></span>",
+			controls = tabsToggleStart + "prv'><a class='prv" + btnMiddle +
+				prevText + "'>" + glyphiconStart + "chevron-left'></span>" +
+				wbInvStart + prevText + btnEnd + tabsToggleStart +
+				"plypause'><a class='plypause" + btnMiddle + state + "'>" +
+				iconState + "<i>" + state + "</i>" + wbInvStart + spaceText +
+				i18nText.hyphen + spaceText + hidden + "</span></a></li> " +
+				tabsToggleStart + "nxt'><a class='nxt" + btnMiddle + nextText +
+				"'>" + glyphiconStart + "chevron-right'></span>" + wbInvStart +
+				nextText + btnEnd;
 
 		$tablist.append( controls );
 		$sldr.addClass( "inited" );
@@ -6083,7 +6086,7 @@ window._timer.add( selector );
 			$item;
 
 
-		for ( tabscounter; tabscounter >= 0; tabscounter-- ) {
+		for ( tabscounter; tabscounter !== -1; tabscounter -= 1 ) {
 			$item = $tabs.eq( tabscounter );
 			$item.attr({
 				tabindex: "-1",
@@ -6091,9 +6094,9 @@ window._timer.add( selector );
 				"aria-expanded": "false",
 				"aria-labelledby": $item.attr( "id" ) + "-lnk"
 			});
-		 }
+		}
 
-		 for ( listcounter; listcounter >= 0; listcounter-- ) {
+		for ( listcounter; listcounter !== -1; listcounter -= 1 ) {
 			$item = $listitems.eq( listcounter ).find( "a" );
 			$item.attr({
 				tabindex: "0",
@@ -6101,11 +6104,11 @@ window._timer.add( selector );
 				"aria-controls": $item.attr( "href" ).replace( "#", "" ) + "-lnk",
 			});
 			$item.parent().attr( "role", "presentation" );
-		  }
+		}
 
 		 $tabslist.attr( "aria-live", "off" );
-
 	},
+
 	/*
 	 * @method onInit
 	 * @param {jQuery DOM element} $elm The plugin element
@@ -6117,17 +6120,17 @@ window._timer.add( selector );
 
 		// Only initialize the i18nText once
 		if ( !i18nText ) {
-			   i18n = window.i18n;
-			   i18nText = {
-					   prev: i18n( "prv" ),
-					   next: i18n( "nxt" ),
-					   play: i18n( "play" ),
-					   rotStart: i18n( "tab-rot" ).on,
-					   rotStop: i18n( "tab-rot" ).off,
-					   space: i18n( "space" ),
-					   hyphen: i18n( "hyphen" ),
-					   pause: i18n( "pause" )
-			   };
+			i18n = window.i18n;
+			i18nText = {
+				prev: i18n( "prv" ),
+				next: i18n( "nxt" ),
+				play: i18n( "play" ),
+				rotStart: i18n( "tab-rot" ).on,
+				rotStop: i18n( "tab-rot" ).off,
+				space: i18n( "space" ),
+				hyphen: i18n( "hyphen" ),
+				pause: i18n( "pause" )
+			};
 		}
 
 		if ( $elm.hasClass( "slow" ) ) {
@@ -6138,7 +6141,7 @@ window._timer.add( selector );
 
 		$tabs.filter( ":not(.in)" )
 			.addClass( "out" );
-		$elm.data( {
+		$elm.data({
 			"delay": interval,
 			"ctime": 0
 		});
@@ -6169,7 +6172,8 @@ window._timer.add( selector );
 				"aria-expanded": "false"
 			});
 
-		$items.filter( "[aria-labelledby=" + $elm.attr( "aria-controls" ) + "]" ).removeClass( "out" )
+		$items.filter( "[aria-labelledby=" + $elm.attr( "aria-controls" ) + "]" )
+			.removeClass( "out" )
 			.addClass( "in" )
 			.attr({
 				"aria-hidden": "false",
@@ -6180,10 +6184,10 @@ window._timer.add( selector );
 			.removeClass( "active" )
 			.attr( "aria-selected", "false" )
 			.end()
-			.find( $elm )
-			.parent()
-			.addClass( "active" )
-			.attr( "aria-selected", "true" );
+				.find( $elm )
+					.parent()
+						.addClass( "active" )
+						.attr( "aria-selected", "true" );
 	},
 
 	/*
@@ -6195,7 +6199,7 @@ window._timer.add( selector );
 			$controls = $elm.data( "tablist" ),
 			len = $items.length,
 			current = $elm.find( ".in" ).prevAll( "[role=tabpanel]" ).length,
-			shiftto = ( event.shiftto ) ? event.shiftto : 1,
+			shiftto = event.shiftto ? event.shiftto : 1,
 			next = current > len ? 0 : current + shiftto,
 			$next;
 
@@ -6220,10 +6224,10 @@ window._timer.add( selector );
 			.removeClass( "active" )
 			.attr( "aria-selected", "false" )
 			.end()
-			.find( "[href=#" + $next.attr( "id" ) + "]" )
-			.parent()
-			.addClass( "active" )
-			.attr( "aria-selected", "true" );
+				.find( "[href=#" + $next.attr( "id" ) + "]" )
+					.parent()
+						.addClass( "active" )
+						.attr( "aria-selected", "true" );
 	},
 
 	/*
@@ -6232,7 +6236,7 @@ window._timer.add( selector );
 	 * @param {integer} shifto The item to shift to
 	 */
 	onCycle = function( $elm, shifto ) {
-		$elm.trigger( {
+		$elm.trigger({
 			type: "shift.wb-carousel",
 			shiftto: shifto
 		});
@@ -6279,11 +6283,12 @@ window._timer.add( selector );
 	event.preventDefault();
 	var $elm = $( this ),
 		$text, $inv,
+		rotStopText = i18nText.rotStop,
+		playText = i18nText.play,
 		$sldr = $elm.parents( ".wb-tabs" ),
 		action = $elm.hasClass( "prv" ) ? "prv" :
 					$elm.hasClass( "nxt" ) ? "nxt" :
-					$elm.attr( "href" ).indexOf( "#" ) > -1 ? "select" :
-					"0";
+					$elm.attr( "href" ).indexOf( "#" ) > -1 ? "select" : "0";
 
 	switch ( action ) {
 	case "prv":
@@ -6298,12 +6303,12 @@ window._timer.add( selector );
 	default:
 		$text = $elm.find( "i" );
 		$inv = $elm.find( ".wb-inv" );
-		$elm.find( ".glyphicon" ).toggleClass( "glyphicon-play" ).toggleClass( "glyphicon-pause" );
+		$elm.find( ".glyphicon" ).toggleClass( "glyphicon-play glyphicon-pause" );
 		$text.text(
-			$text.text() === i18nText.play ? i18nText.pause : i18nText.play
+			$text.text() === playText ? i18nText.pause : playText
 		);
 		$inv.text(
-			$inv.text() === i18nText.rotStop ? i18nText.rotStart : i18nText.rotStop
+			$inv.text() === rotStopText ? i18nText.rotStart : rotStopText
 		);
 		$sldr.toggleClass( "playing" );
 	}
