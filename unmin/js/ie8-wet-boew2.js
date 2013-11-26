@@ -1,6 +1,6 @@
 /*! Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- - v4.0.0-a1-development - 2013-11-25
+ - v4.0.0-a1-development - 2013-11-26
 */
 /*
  * @title WET-BOEW JQuery Helper Methods
@@ -5548,8 +5548,8 @@ var selector = ".wb-share",
 
 			panel = "<section id='shr-pg' class='shr-pg wb-overlay wb-panel-" +
 				( vapour.html.attr( "dir" ) === "rtl" ? "l" : "r" ) +
-				"'><div class='overlay-hd'><" + heading + ">" +
-				i18nText.shareText + "</" + heading + "></div><ul class='colcount-xs-2 colcount-sm-3'>";
+				"'><header class='overlay-hd'><" + heading + ">" +
+				i18nText.shareText + "</" + heading + "></header><ul class='colcount-xs-2 colcount-sm-3'>";
 
 			for ( site in sites ) {
 				siteProperties = sites[ site ];

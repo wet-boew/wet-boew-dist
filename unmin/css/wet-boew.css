@@ -9714,7 +9714,8 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-overlay {
   background-color: white;
-  border: 1px solid black;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -9768,6 +9769,7 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .wb-popup-mid {
+  border-radius: 6px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -9805,8 +9807,6 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .overlay-close {
-  background-color: black;
-  border-radius: 999px;
   color: white;
   height: 1.5em;
   padding: 2px 0 0 4px;
@@ -9820,6 +9820,11 @@ table.dataTable tr.even td.sorting_3 {
 .overlay-close:hover,
 .overlay-close:focus {
   color: #999999;
+}
+
+div.overlay-hd .overlay-close {
+  background-color: black;
+  border-radius: 999px;
 }
 
 /*
