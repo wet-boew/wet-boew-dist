@@ -9,4 +9,8 @@
   margin-bottom: 10px; }
 
 .wb-bar-t ul, .wb-bar-b ul {
-  margin-bottom: 5px; }
+  margin-bottom: 0; }
+  .wb-bar-t ul li, .wb-bar-b ul li {
+    margin-bottom: 5px; }
+  .wb-bar-t ul > li:first-child, .wb-bar-b ul > li:first-child {
+    padding-left: 5px; }

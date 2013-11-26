@@ -8691,6 +8691,15 @@ div.errCnt ul li {
   display: block;
 }
 
+.mfp-close {
+  font-weight: 700;
+}
+
+.mfp-close:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
+}
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -9373,10 +9382,6 @@ img.mfp-img {
   left: auto;
 }
 
-.mfp-content .modal-title {
-  font-size: 130%;
-}
-
 .mfp-zoom-in .modal-dialog {
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out;
@@ -9714,19 +9719,13 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-overlay {
   background-color: white;
-  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   display: none;
+  border-radius: 0;
 }
 
 .wb-overlay.open {
   position: fixed;
-  display: block;
-  z-index: 999;
-  overflow-y: auto;
+  display: inline-block;
 }
 
 .wb-panel-l,
@@ -9741,6 +9740,7 @@ table.dataTable tr.even td.sorting_3 {
   max-height: 90%;
   min-width: 100%;
   left: 0;
+  border-bottom: none;
 }
 
 .wb-popup-mid {
@@ -9778,8 +9778,8 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .wb-popup-full {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
 }
@@ -9788,43 +9788,40 @@ table.dataTable tr.even td.sorting_3 {
  *	Overlay parts
  */
 
-.overlay-hd {
+.overlay-def {
+  overflow-y: auto;
+}
+
+.overlay-def header {
   background-color: black;
   color: white;
   display: block;
+  padding: 0;
 }
 
-.overlay-hd h1,
-.overlay-hd h2,
-.overlay-hd h3,
-.overlay-hd h4,
-.overlay-hd h5,
-.overlay-hd h6 {
+.overlay-def header h1,
+.overlay-def header h2,
+.overlay-def header h3,
+.overlay-def header h4 {
   font-size: 1.15em;
-  font-weight: normal;
-  margin: 0 26px 0 0;
   padding: 10px 1em;
 }
 
-.overlay-close {
+.overlay-def.wb-bar-t,
+.overlay-def.wb-bar-b {
+  background-color: black;
+}
+
+.overlay-def .mfp-close {
   color: white;
-  height: 1.5em;
-  padding: 2px 0 0 4px;
-  position: absolute;
-  right: 5px;
-  text-decoration: none;
-  top: 7px;
-  width: 1.5em;
 }
 
-.overlay-close:hover,
-.overlay-close:focus {
-  color: #999999;
-}
-
-div.overlay-hd .overlay-close {
+.hidden-hd .overlay-close {
   background-color: black;
   border-radius: 999px;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
 }
 
 /*
