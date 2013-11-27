@@ -9979,7 +9979,6 @@ table.dataTable tr.even td.sorting_3 {
 
 .cal-cnt {
   width: 18em;
-  margin-top: 0.5em;
   text-shadow: none;
 }
 
@@ -10001,17 +10000,8 @@ table.dataTable tr.even td.sorting_3 {
   font-size: 110%;
 }
 
-.cal-cnt .cal-goto {
-  margin-left: 16px;
-}
-
-.cal-cnt .cal-goto p {
-  float: left;
-  width: 15.2em;
-}
-
-.cal-cnt .cal-goto fieldset> * {
-  margin: 0;
+.cal-cnt .cal-goto legend {
+  margin-bottom: 10px;
 }
 
 .cal-cnt .cal-goto-lnk {
@@ -10026,23 +10016,16 @@ table.dataTable tr.even td.sorting_3 {
   position: relative;
 }
 
-.cal-cnt .cal-goto-mnth {
-  width: 60%;
-  float: right;
-}
-
-.cal-cnt .cal-goto-yr {
-  width: 39%;
-  float: left;
-}
-
+.cal-cnt .cal-goto-mnth,
+.cal-cnt .cal-goto-yr,
 .cal-cnt .cal-goto-btn {
-  margin: 0 10px 0 5px;
-  float: left;
+  display: inline-block;
+  margin: 10px 5px;
 }
 
 .cal-cnt .cal-goto-btn input {
   padding: 0.1em 0.2em;
+  min-width: 5em;
 }
 
 .cal-cnt td {
@@ -10053,24 +10036,26 @@ table.dataTable tr.even td.sorting_3 {
 
 .cal-nxtmnth,
 .cal-prvmnth {
-  margin-bottom: -15px;
   display: block;
+  background: none;
+  border: none;
+  position: absolute;
+  width: 44px;
+  height: 44px;
 }
 
-.cal-nxtmnth img,
-.cal-prvmnth img {
-  margin: 0;
-  vertical-align: middle;
+.cal-nxtmnth:focus,
+.cal-prvmnth:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
 }
 
 .cal-prvmnth {
-  float: left;
-  text-align: left;
+  left: 0;
 }
 
 .cal-nxtmnth {
-  float: right;
-  text-align: right;
+  right: 0;
 }
 
 .cal-wd {
@@ -10107,8 +10092,7 @@ table.dataTable tr.even td.sorting_3 {
   color: white;
 }
 
-.cal-cnt .cal-goto-lnk a:link,
-.cal-cnt .cal-goto-lnk a:visited,
+.cal-cnt .cal-goto-lnk a,
 .cal-days a:hover,
 .cal-days a:focus,
 .cal-currday a {
@@ -10135,24 +10119,13 @@ table.dataTable tr.even td.sorting_3 {
   font-weight: 700;
 }
 
-.cal-cnt .cal-nxtmnth:link,
-.cal-cnt .cal-nxtmnth:visited,
-.cal-cnt .cal-prvmnth:link,
-.cal-cnt .cal-prvmnth:visited {
-  border: 1px solid #333333;
+.cal-cnt .cal-nxtmnth,
+.cal-cnt .cal-prvmnth {
+  color: #cccccc;
 }
 
-.cal-cnt .cal-nxtmnth:hover,
-.cal-cnt .cal-nxtmnth:focus,
-.cal-cnt .cal-prvmnth:hover,
-.cal-cnt .cal-prvmnth:focus {
-  border: 1px solid white;
-}
-
-.cal-cnt .cal-goto-lnk a:focus,
-.cal-cnt .cal-goto-lnk a:hover {
-  color: #3366cc !important;
-  background-color: white;
+.cal-cnt .cal-goto-lnk a:focus {
+  outline-offset: 0;
 }
 
 .cal-days a {

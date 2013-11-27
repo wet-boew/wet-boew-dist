@@ -14,11 +14,6 @@
   display: inline;
 }
 
-.picker-close img,
-.picker-toggle img {
-  margin: 0;
-}
-
 .cal-cnt.picker-overlay {
   position: absolute;
   z-index: 498 !important;
@@ -26,9 +21,7 @@
 }
 
 .picker-close {
-  position: absolute;
-  right: 0.3em;
-  top: 10px;
+  font-size: 1.7em;
 }
 
 .picker-field {
@@ -36,16 +29,19 @@
 }
 
 .picker-toggle {
-  padding: 10px;
-}
-
-.picker-toggle img {
+  margin: 0;
+  background: none;
+  border: none;
   vertical-align: middle;
-  width: auto;
 }
 
-.picker-toggle a {
-  margin-left: 0.5em;
+.picker-toggle:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
+}
+
+.picker-toggle span {
+  font-size: 1.3em;
 }
 
 .cal-days a {
