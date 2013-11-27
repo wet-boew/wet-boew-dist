@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Früher (linke Pfeiltaste)",
 	"first": "Erste",
 	"last": "Letzte",
-	"close-esc": "Schließen (Escape-Taste)",
+	"menu-close": "Schließen Sie das Menü",
+	"overlay-close": "Schließen Sie das Pop-up",
+	"esc-key": "(Escape-Taste)",
 	"show": "Zeigen",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Vorheriger Monat: ",
 	"nxtMnth": "Nächster Monat: ",
 	/* Lightbox */
-	"lb-curr": "Artikel curr von total",
+	"lb-curr": "Artikel %curr% von %total%",
 	"lb-xhr-err": "Dieser Inhalt wurde nicht geladen.",
 	"lb-img-err": "Dieses Bild konnte nicht geladen werden.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Zeige _MENU_ Einträge",
 	/* Geomap */
-	"geo-mapctrl": "Kartensteuerelement",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Vergrößern",
 	"geo-zmout": "Verkleinern",
 	"geo-zmwrld": "Zoom auf weit Karte",

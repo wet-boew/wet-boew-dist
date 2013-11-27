@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "上一个（左箭头键）",
 	"first": "开始",
 	"last": "末",
-	"close-esc": "关闭（逃生键）",
+	"menu-close": "关闭菜单",
+	"overlay-close": "关闭叠加",
+	"esc-key": "（逃生键）",
 	"show": "展示",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "上个月：",
 	"nxtMnth": "下个月：",
 	/* Lightbox */
-	"lb-curr": "项目curr的total",
+	"lb-curr": "项目%curr%的%total%",
 	"lb-xhr-err": "该内容无法下载。",
 	"lb-img-err": "该图像无法下载。",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "显示_MENU_项",
 	/* Geomap */
-	"geo-mapctrl": "地图控制",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "放大",
 	"geo-zmout": "缩小",
 	"geo-zmwrld": "缩放地图范围",

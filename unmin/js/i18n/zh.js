@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "上一筆（左箭頭鍵）",
 	"first": "第一筆",
 	"last": "最後一筆",
-	"close-esc": "關閉（Esc鍵）",
+	"menu-close": "關閉菜單",
+	"overlay-close": "關閉疊加",
+	"esc-key": "（Esc鍵）",
 	"show": "顯示",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "上一月：",
 	"nxtMnth": "下一月：",
 	/* Lightbox */
-	"lb-curr": "所有項目curr的total",
+	"lb-curr": "所有項目%curr%的%total%",
 	"lb-xhr-err": "本內容無法載入。",
 	"lb-img-err": "圖形無法顯示。",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "顯示_MENU_項",
 	/* Geomap */
-	"geo-mapctrl": "地圖控制",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "放大",
 	"geo-zmout": "缩小",
 	"geo-zmwrld": "縮放地圖範圍",

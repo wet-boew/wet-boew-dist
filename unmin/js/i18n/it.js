@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Precedente (tasto freccia sinistra)",
 	"first": "Primo",
 	"last": "Ultimo",
-	"close-esc": "Chiudere (tasto ESC)",
+	"menu-close": "Chiudere il menu",
+	"overlay-close": "Chiudere la sovrapposizione",
+	"esc-key": "(tasto ESC)",
 	"show": "Mostra",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Mese Precedente: ",
 	"nxtMnth": "Prossimo Mese: ",
 	/* Lightbox */
-	"lb-curr": "Articolo curr di total",
+	"lb-curr": "Articolo %curr% di %total%",
 	"lb-xhr-err": "Questo contenuto non è stato caricato.",
 	"lb-img-err": "Questa immagine non è stata caricata.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Mostra _MENU_ voci",
 	/* Geomap */
-	"geo-mapctrl": "Controllo di mappa",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom avanti",
 	"geo-zmout": "Zoom indietro",
 	"geo-zmwrld": "Zoom sull'estensione della mappa",

@@ -8640,6 +8640,13 @@ div.errCnt ul li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+.mfp-close:focus,
+.mfp-arrow:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
+  outline-color: white;
+}
+
 .lb-hide-gal li {
   list-style-type: none;
   display: none;
@@ -8651,11 +8658,24 @@ div.errCnt ul li {
 
 .mfp-close {
   font-weight: 700;
+  /* Should fix upstream rather than overriding in WET */
 }
 
-.mfp-close:focus {
-  outline: 1px dotted;
-  outline-offset: -2px;
+.mfp-arrow {
+  /* Should fix upstream rather than overriding in WET */
+}
+
+/* Should fix upstream rather than overriding in WET */
+
+.mfp-bottom-bar .mfp-title {
+  width: 75%;
+  padding-right: 5px;
+}
+
+.mfp-bottom-bar .mfp-counter {
+  font-size: 1em;
+  width: 25%;
+  text-align: right;
 }
 
 /*

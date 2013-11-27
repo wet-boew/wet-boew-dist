@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Lepriekšējais (pa kreisi bulta taustiņu)",
 	"first": "Pirmā",
 	"last": "Pēdējā",
-	"close-esc": "Aizvērt (escape taustiņu)",
+	"menu-close": "Aizveriet izvēlni",
+	"overlay-close": "Aizveriet pārklāt",
+	"esc-key": "(escape taustiņu)",
 	"show": "Rādīt",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Iepriekšējais mēnesis: ",
 	"nxtMnth": "Nākošais mēnesis: ",
 	/* Lightbox */
-	"lb-curr": "Vienums curr no total",
+	"lb-curr": "Vienums %curr% no %total%",
 	"lb-xhr-err": "Šo saturu nevar ielādēt",
 	"lb-img-err": "Šo attēlu nevar ielādēt",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Parādīt _MENU_ ieraksti",
 	/* Geomap */
-	"geo-mapctrl": "Karte kontrole",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Pievelciet",
 	"geo-zmout": "Attāliniet",
 	"geo-zmwrld": "Zoom uz kartes robežas",

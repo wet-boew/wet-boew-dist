@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Eelmine (vasakut nooleklahvi)",
 	"first": "Esimene",
 	"last": "Viimane",
-	"close-esc": "Sule (klahviga Escape)",
+	"menu-close": "Sulge menüü",
+	"overlay-close": "Sulge pop-up",
+	"esc-key": "(klahviga Escape)",
 	"show": "Näita",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Eelmine kuu: ",
 	"nxtMnth": "Järgmine kuu: ",
 	/* Lightbox */
-	"lb-curr": "Kirje curr koguhulgast total",
+	"lb-curr": "Kirje %curr% koguhulgast %total%",
 	"lb-xhr-err": "Sisu laadimine ebaõnnestus",
 	"lb-img-err": "Pildi laadimine ebaõnnestus",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Näita _MENU_ kandeid",
 	/* Geomap */
-	"geo-mapctrl": "Kaardi kontroll",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Suumi",
 	"geo-zmout": "Vähenda",
 	"geo-zmwrld": "Suumi kaardi ulatuses",

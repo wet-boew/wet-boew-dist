@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "이전 (왼쪽 화살표 키)",
 	"first": "처음으로",
 	"last": "마지막",
-	"close-esc": "닫다 (Esc 키와)",
+	"menu-close": "메뉴를 닫습니다",
+	"overlay-close": "오버레이에게 닫습니다",
+	"esc-key": "(Esc 키와)",
 	"show": "표시",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "이전 월: ",
 	"nxtMnth": "다음 월: ",
 	/* Lightbox */
-	"lb-curr": "total 항목 curr",
+	"lb-curr": "%total% 항목 %curr%",
 	"lb-xhr-err": "이 콘텐츠를로드하지 못했습니다.",
 	"lb-img-err": "이 이미지를로드하지 못했습니다.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "_MENU_ 항목을 표시",
 	/* Geomap */
-	"geo-mapctrl": "지도 제어",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "확대",
 	"geo-zmout": "축소",
 	"geo-zmwrld": "범위를 매핑 할 수 확대",

@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "前へ（左矢印キー）",
 	"first": "最初",
 	"last": "最後",
-	"close-esc": "閉じる(「Esc」キ)",
+	"menu-close": "メニューを閉じる",
+	"overlay-close": "オーバーレイを閉じる",
+	"esc-key": "(「Esc」キ)",
 	"show": "表示",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "前の月へ",
 	"nxtMnth": "次の月へ",
 	/* Lightbox */
-	"lb-curr": "total 件中 curr 件目",
+	"lb-curr": "%total% 件中 %curr% 件目",
 	"lb-xhr-err": "コンテンツをロードできませんでした。",
 	"lb-img-err": "画像をロードできませんでした。",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "_MENU_エントリーを表示",
 	/* Geomap */
-	"geo-mapctrl": "マップコントロール",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ズームイン",
 	"geo-zmout": "ズームアウト",
 	"geo-zmwrld": "地図を最大に拡大表示する",

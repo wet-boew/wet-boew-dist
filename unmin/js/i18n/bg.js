@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Предишен (лява стрелка ключ)",
 	"first": "Първи",
 	"last": "Последно",
-	"close-esc": "Затворете (бягство ключ)",
+	"menu-close": "Затворете менюто",
+	"overlay-close": "Затворете наслагването",
+	"esc-key": "(бягство ключ)",
 	"show": "Показване",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Предходния месец: ",
 	"nxtMnth": "Следващия месец: ",
 	/* Lightbox */
-	"lb-curr": "Член curr от total",
+	"lb-curr": "Член %curr% от %total%",
 	"lb-xhr-err": "Това съдържание не успя да се зареди.",
 	"lb-img-err": "Това изображение не успя да се зареди.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Покажи _MENU_ вписвания",
 	/* Geomap */
-	"geo-mapctrl": "Карта контрол",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Увеличаване на мащаба",
 	"geo-zmout": "Намаляване на мащаба",
 	"geo-zmwrld": "Мащаба, за да картата степен",

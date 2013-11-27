@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Sebelumnya (tombol panah kiri)",
 	"first": "Pertama",
 	"last": "Terakhir",
-	"close-esc": "Tutup (tombol \"escape\")",
+	"menu-close": "Tutup menu",
+	"overlay-close": "Tutup hamparan",
+	"esc-key": "(tombol \"escape\")",
 	"show": "Tampilkan",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Bulan sebelumnya: ",
 	"nxtMnth": "Bulan berikutnya: ",
 	/* Lightbox */
-	"lb-curr": "Artikel ke-curr dari total",
+	"lb-curr": "Artikel ke-%curr% dari %total%",
 	"lb-xhr-err": "Halaman tidak berhasil ditampilkan.",
 	"lb-img-err": "Gambar ini tidak berhasil ditampilkan.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Tampilkan _MENU_ entri",
 	/* Geomap */
-	"geo-mapctrl": "Peta kontrol",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Perbesar",
 	"geo-zmout": "Perkecil",
 	"geo-zmwrld": "Zoom untuk memetakan sejauh",

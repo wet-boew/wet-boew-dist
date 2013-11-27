@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Предыдущий (клавишей стрелка влево)",
 	"first": "Первое",
 	"last": "Последнее",
-	"close-esc": "Закрыть (клавишей Escape)",
+	"menu-close": "Закройте меню",
+	"overlay-close": "Закройте вспомогательных линий",
+	"esc-key": "(клавишей Escape)",
 	"show": "Показать",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Предыдущий месяц: ",
 	"nxtMnth": "Следующий месяц: ",
 	/* Lightbox */
-	"lb-curr": "Пункт curr из total",
+	"lb-curr": "Пункт %curr% из %total%",
 	"lb-xhr-err": "Этот контент не удалось загрузить.",
 	"lb-img-err": "Это изображение не удалось загрузить.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Показать _MENU_ записей",
 	/* Geomap */
-	"geo-mapctrl": "Привязка аэроснимков к карте",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Приблизить",
 	"geo-zmout": "Отдалить",
 	"geo-zmwrld": "Увеличить для сопоставления степени",

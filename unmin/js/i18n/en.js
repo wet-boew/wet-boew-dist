@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Previous (left arrow key)",
 	"first": "First",
 	"last": "Last",
-	"close-esc": "Close (escape key)",
+	"menu-close": "Close menu",
+	"overlay-close": "Close overlay",
+	"esc-key": "(escape key)",
 	"show": "Show",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Previous Month: ",
 	"nxtMnth": "Next Month: ",
 	/* Lightbox */
-	"lb-curr": "Item curr of total",
+	"lb-curr": "Item %curr% of %total%",
 	"lb-xhr-err": "This content failed to load.",
 	"lb-img-err": "This image failed to load.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Show _MENU_ entries",
 	/* Geomap */
-	"geo-mapctrl": "Map control",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom in",
 	"geo-zmout": "Zoom out",
 	"geo-zmwrld": "Zoom to map extent",

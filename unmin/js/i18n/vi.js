@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Trang trước (phím mũi tên trái)",
 	"first": "Đầu tiên",
 	"last": "Cuối cùng",
-	"close-esc": "Đóng (phím thoát)",
+	"menu-close": "Đóng menu",
+	"overlay-close": "Đóng lớp phủ",
+	"esc-key": "(phím thoát)",
 	"show": "Hiện",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Tháng trước: ",
 	"nxtMnth": "Tháng sau: ",
 	/* Lightbox */
-	"lb-curr": "Khoản curr của total",
+	"lb-curr": "Khoản %curr% của %total%",
 	"lb-xhr-err": "Nội dung này không thể tải.",
 	"lb-img-err": "Hình ảnh này không tải.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Hiển thị _MENU_ mục",
 	/* Geomap */
-	"geo-mapctrl": "Điều khiển bản đồ",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Phóng to",
 	"geo-zmout": "Thu nhỏ",
 	"geo-zmwrld": "Phóng to bản đồ mức độ",

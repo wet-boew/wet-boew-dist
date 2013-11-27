@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "I mëparshëm (kyç majtë arrow)",
 	"first": "I parë",
 	"last": "I fundit",
-	"close-esc": "Mbylle (kyç shpëtojnë)",
+	"menu-close": "Mbylle menu",
+	"overlay-close": "Mbylle mbulesë",
+	"esc-key": "(kyç shpëtojnë)",
 	"show": "Shfaq",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Muajin e kaluar: ",
 	"nxtMnth": "Muajin e ardhshëm: ",
 	/* Lightbox */
-	"lb-curr": "Pika curr e total",
+	"lb-curr": "Pika %curr% e %total%",
 	"lb-xhr-err": "Kjo përmbajtje nuk arriti të ngarkesës.",
 	"lb-img-err": "Ky imazh nuk arriti të ngarkesës.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Trego _MENU_ hyra",
 	/* Geomap */
-	"geo-mapctrl": "Harta e kontrollit",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom në",
 	"geo-zmout": "Zoom out",
 	"geo-zmwrld": "Zoom në hartë shtrirjen",

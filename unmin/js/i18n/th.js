@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "ก่อน (คีย์ลูกศรซ้าย)",
 	"first": "แรก",
 	"last": "ล่าสุด",
-	"close-esc": "ปิด (คีย์หนี)",
+	"menu-close": "ปิดเมนู",
+	"overlay-close": "ปิดการแสดงข้อมูล",
+	"esc-key": "(คีย์หนี)",
 	"show": "แสดง",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "เดือนก่อน: ",
 	"nxtMnth": "เดือนถัดไป: ",
 	/* Lightbox */
-	"lb-curr": "curr รายการจาก total",
+	"lb-curr": "%curr% รายการจาก %total%",
 	"lb-xhr-err": "เนื้อหานี้ไม่สามารถโหลด.",
 	"lb-img-err": "ภาพนี้ไม่สามารถโหลด.",
 	/* Charts widget */
@@ -124,7 +126,7 @@ var ind = {
 	"table-following": "แผนภูมิ รายละเอียดในตารางต่อไปนี้.",
 	/* Session timeout */
 	"st-to-msg-bgn": "เซสชั่นของคุณจะหมดอายุโดยอัตโนมัติใน #min# นาที #sec# วินาที.ที่จะขยายเซสชั่นของคุณ",
-	"st-to-msg-end": "เลือก \"Continue เซสชั่น\" ",
+	"st-to-msg-end": "เลือก \"Continue เซสชั่น\" ที่จะขยายเซสชั่นของคุณ",
 	"st-msgbx-ttl": "เตือนหมดเวลา",
 	"st-alrdy-to-msg": "ขออภัยเซสชันของคุณหมดอายุแล้ว กรุณาเข้าสู่ระบบอีกครั้ง.",
 	"st-btn-cont": "ดำเนินการต่อเซสชั่น",
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "แสดงรายการ _MENU_",
 	/* Geomap */
-	"geo-mapctrl": "การควบคุมแผนที่",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ขยาย",
 	"geo-zmout": "ย่อ",
 	"geo-zmwrld": "การซูมที่ต้องการ map ขอบเขต",

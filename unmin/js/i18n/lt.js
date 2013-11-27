@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Ankstenis (rodyklės dešinėn klavišu)",
 	"first": "Pirmasis",
 	"last": "Paskutinis",
-	"close-esc": "Uždaryti (\"escape\" klavišu)",
+	"menu-close": "Uždaryti meniu",
+	"overlay-close": "Uždaryti perdangos",
+	"esc-key": "(\"escape\" klavišu)",
 	"show": "Rodyti",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Ankstesnis mėnuo: ",
 	"nxtMnth": "Sekantis mėnuo: ",
 	/* Lightbox */
-	"lb-curr": "Punktas curr iš total",
+	"lb-curr": "Punktas %curr% iš %total%",
 	"lb-xhr-err": "Turinio nepavyko užkrauti.",
 	"lb-img-err": "Nuotraukos nepavyko užkrauti.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Rodyti _MENU_ įrašai",
 	/* Geomap */
-	"geo-mapctrl": "Žemėlapis kontrolė",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Artinti",
 	"geo-zmout": "Tolinti",
 	"geo-zmwrld": "Padidinti iki map mastą",

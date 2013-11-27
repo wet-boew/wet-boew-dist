@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Poprzedni (klawisz strzałka w lewo)",
 	"first": "Pierwszy",
 	"last": "Ostatni",
-	"close-esc": "Zamknij (klawisz Esc)",
+	"menu-close": "Zamknij menu",
+	"overlay-close": "Zamknij nakładkę",
+	"esc-key": "(klawisz Esc)",
 	"show": "Pokaż",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Poprzedni miesiąc: ",
 	"nxtMnth": "Następny miesiąc: ",
 	/* Lightbox */
-	"lb-curr": "Pozycja curr z total",
+	"lb-curr": "Pozycja %curr% z %total%",
 	"lb-xhr-err": "Nie udało się załadować treści.",
 	"lb-img-err": "Nie udało się załadować obrazu.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Pokaż _MENU_ wpisów",
 	/* Geomap */
-	"geo-mapctrl": "Kontrola mapy",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Powiększ",
 	"geo-zmout": "Pomniejsz",
 	"geo-zmwrld": "Powiększenie do zasięgu mapy",

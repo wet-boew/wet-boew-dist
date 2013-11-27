@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Попередній (клавішею ліва стрілка)",
 	"first": "Перший",
 	"last": "Oстанній",
-	"close-esc": "Закрити (клавішею «escape»)",
+	"menu-close": "Закрийте меню",
+	"overlay-close": "Закрийте допоміжних ліній",
+	"esc-key": "(клавішею «escape»)",
 	"show": "Показати",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Попередній місяць: ",
 	"nxtMnth": "Наступний місяць: ",
 	/* Lightbox */
-	"lb-curr": "Знайдено curr із total",
+	"lb-curr": "Знайдено %curr% із %total%",
 	"lb-xhr-err": "Цей зміст не завантажується.",
 	"lb-img-err": "Це зображення не завантажується.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Показати _MENU_ записів",
 	/* Geomap */
-	"geo-mapctrl": "Управління картою",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Збільшити",
 	"geo-zmout": "Зменшити",
 	"geo-zmwrld": "Збільшити до повного розміру",

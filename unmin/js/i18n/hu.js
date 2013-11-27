@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Előző (bal nyíl gomb)",
 	"first": "Első",
 	"last": "Utolsó",
-	"close-esc": "Zárja (escape billentyűvel)",
+	"menu-close": "Zárja be a menüt",
+	"overlay-close": "Zárja be az overlay",
+	"esc-key": "(escape billentyűvel)",
 	"show": "Mutat",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Előző hónap: ",
 	"nxtMnth": "Következő hónap: ",
 	/* Lightbox */
-	"lb-curr": "total-ből curr",
+	"lb-curr": "%total%-ből %curr%",
 	"lb-xhr-err": "A tartalom betöltése nem sikerült.",
 	"lb-img-err": "A kép betöltése nem sikerült.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Megjelenítés _MENU_ bejegyzés",
 	/* Geomap */
-	"geo-mapctrl": "Térkép ellenőrzés",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Nagyítás",
 	"geo-zmout": "Kicsinyítés",
 	"geo-zmwrld": "Nagyítás feltérképezésére mértékben",

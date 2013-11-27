@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Précedent (touche gauche)",
 	"first": "Premier",
 	"last": "Dernier",
-	"close-esc": "Fermer (touche d'échappement)",
+	"menu-close": "Fermer le menu",
+	"overlay-close": "Fermer l'incrustation",
+	"esc-key": "(touche d'échappement)",
 	"show": "Afficher",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Mois précédent : ",
 	"nxtMnth": "Mois suivant : ",
 	/* Lightbox */
-	"lb-curr": "Article curr de total",
+	"lb-curr": "Article %curr% de %total%",
 	"lb-xhr-err": "Le chargement de ce contenu a échoué.",
 	"lb-img-err": "Le chargement de cette image a échoué.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Montrer _MENU_ entrées",
 	/* Geomap */
-	"geo-mapctrl": "Contrôle de la carte",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom avant",
 	"geo-zmout": "Zoom arrière",
 	"geo-zmwrld": "Zoom sur l'étendue de la carte",

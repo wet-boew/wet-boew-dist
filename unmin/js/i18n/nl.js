@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Vorige (linkse pijlen-toets)",
 	"first": "Eerste",
 	"last": "Laatste",
-	"close-esc": "Sluit (Escape-toets)",
+	"menu-close": "Sluit het menu",
+	"overlay-close": "Sluit het dialoogvenster",
+	"esc-key": "(Escape-toets)",
 	"show": "Toon",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Vorige maand: ",
 	"nxtMnth": "Volgende maand: ",
 	/* Lightbox */
-	"lb-curr": "Onderdeel curr van een totaal van total",
+	"lb-curr": "Onderdeel %curr% van een totaal van %total%",
 	"lb-xhr-err": "De inhoud is niet geladen",
 	"lb-img-err": "Het beeld is niet geladen",
 	/* Charts widget */
@@ -124,7 +126,7 @@ var ind = {
 	"table-following": "Grafiek. Meer details in volgende tabel",
 	/* Session timeout */
 	"st-to-msg-bgn": "Uw sessie zal automatisch vervallen in #min# min. #sec# sec.",
-	"st-to-msg-end": "Kies \"Doorgaan sessie\" om uw sessie te verlengen.",
+	"st-to-msg-end": "Kies \"Doorgaan sessie\" om uw sessie te verlengen",
 	"st-msgbx-ttl": "Sessie timeout waarschuwing",
 	"st-alrdy-to-msg": "Excuses, uw sessie is verlopen. Log opnieuw in.",
 	"st-btn-cont": "Doorgaan sessie",
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Toon _MENU_ lemma's",
 	/* Geomap */
-	"geo-mapctrl": "Kaart controle",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Inzoomen",
 	"geo-zmout": "Uitzoomen",
 	"geo-zmwrld": "Zoomen naar kaartgrootte",

@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Předchozí (klávesy šipka vpravo)",
 	"first": "První",
 	"last": "Poslední",
-	"close-esc": "Zavřít (klávesy ESC)",
+	"menu-close": "Zavřete menu",
+	"overlay-close": "Zavřete se šablonou",
+	"esc-key": "(klávesy ESC)",
 	"show": "Ukázat",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Předchozí měsíc: ",
 	"nxtMnth": "Příští měsíc: ",
 	/* Lightbox */
-	"lb-curr": "Bod curr total",
+	"lb-curr": "Bod %curr% %total%",
 	"lb-xhr-err": "Tento obsah se nepodařilo načíst.",
 	"lb-img-err": "Tento obrázek se nepodařilo načíst.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": "&#160;",
 	"lenMenu": "Zobrazit _MENU_ položek",
 	/* Geomap */
-	"geo-mapctrl": "Mapa ovládání",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Přiblížit",
 	"geo-zmout": "Oddálit",
 	"geo-zmwrld": "Přiblížit zmapovat rozsah",

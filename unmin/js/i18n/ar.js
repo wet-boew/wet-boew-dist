@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "مفتاح السهم الأيسر - سابق",
 	"first": "الأول",
 	"last": "آخر",
-	"close-esc": "إغلاق - مفتاح الهروب",
+	"menu-close": "إغلاق القائمة",
+	"overlay-close": "إغلاق تراكب",
+	"esc-key": "مفتاح الهروب",
 	"show": "عرض",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "الشهر الماضي: ",
 	"nxtMnth": "الشهر المقبل: ",
 	/* Lightbox */
-	"lb-curr": "البند curr من total",
+	"lb-curr": "البند %curr% من %total%",
 	"lb-xhr-err": "فشل هذا المحتوى ليتم تحميلها.",
 	"lb-img-err": "فشلت هذه الصورة ليتم تحميلها.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "عرض _MENU_ مقالات",
 	/* Geomap */
-	"geo-mapctrl": "خريطة مراقبة",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "تكبير",
 	"geo-zmout": "تصغير",
 	"geo-zmwrld": "التكبير لتعيين حد",

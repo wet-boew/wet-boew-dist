@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "पिछला (बाएँ तीर कुंजी)",
 	"first": "पहले",
 	"last": "अंतिम",
-	"close-esc": "बंद कर(भागने कुंजी)",
+	"menu-close": "मेनू बंद",
+	"overlay-close": "पॉपअप बंद",
+	"esc-key": "(भागने कुंजी)",
 	"show": "दिखाना",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "पिछले माह: ",
 	"nxtMnth": "अगला महीना: ",
 	/* Lightbox */
-	"lb-curr": "total में से curr आइटम",
+	"lb-curr": "%total% में से %curr% आइटम",
 	"lb-xhr-err": "इस सामग्री को लोड करने में विफल.",
 	"lb-img-err": "इस छवि को लोड करने में विफल रहा.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "_MENU_ प्रविष्टियों दिखाएं",
 	/* Geomap */
-	"geo-mapctrl": "नक्शा नियंत्रण",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ज़ूम इन करें",
 	"geo-zmout": "ज़ूम आउट करें",
 	"geo-zmwrld": "हद तक ज़ूम",

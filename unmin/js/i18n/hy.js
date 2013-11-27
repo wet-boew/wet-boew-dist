@@ -57,7 +57,9 @@ var ind = {
 	"prv-l": "Նախորդ (ձախ սլաքների բանալին)",
 	"first": "Առաջին",
 	"last": "Անցյալ",
-	"close-esc": "Փակել (փախչել բանալին)",
+	"menu-close": "Փակել մենյուն",
+	"overlay-close": "Փակեք կափարիչ",
+	"esc-key": "(փախչել բանալին)",
 	"show": "Ցուցադրում",
 
 	/* Tabbed interface */
@@ -116,7 +118,7 @@ var ind = {
 	"prvMnth": "Էջանշան դնել Դարձնել սկզբնական: ",
 	"nxtMnth": "Հաջորդ ամիս: ",
 	/* Lightbox */
-	"lb-curr": "Կոդ curr total - ից",
+	"lb-curr": "Կոդ %curr% %total% - ից",
 	"lb-xhr-err": "Բեռնվում այս պարունակությունը չի հաջողվել.",
 	"lb-img-err": "Բեռնվում է պատկերը ձախողվել է.",
 	/* Charts widget */
@@ -145,7 +147,7 @@ var ind = {
 	"info1000": ",",
 	"lenMenu": "Ցուցադրել _MENU_ գրառում",
 	/* Geomap */
-	"geo-mapctrl": "Քարտեզ հսկողություն",
+	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Խոշորացնել",
 	"geo-zmout": "Փոքրացնել",
 	"geo-zmwrld": "Մեծացնել քարտեզը չափը",
