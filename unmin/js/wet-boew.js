@@ -1991,7 +1991,7 @@ window._timer.add( selector );
 })( jQuery, window, vapour );
 
 /*
- * @title WET-BOEW Data Inview
+ * @title WET-BOEW Data InView
  * @overview A simplified data-attribute driven plugin that responds to moving in and out of the viewport.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
@@ -2025,11 +2025,11 @@ var selector = ".wb-inview",
 	},
 
 	/*
-	 * @method onInview
+	 * @method onInView
 	 * @param {jQuery DOM element} $elm The plugin element
 	 * @param {jQuery Event} event The event that triggered this method call
 	 */
-	onInview = function( $elm ) {
+	onInView = function( $elm ) {
 		var elementWidth = $elm.outerWidth(),
 			elementHeight = $elm.outerHeight(),
 			scrollTop = $window.scrollTop(),
@@ -2039,6 +2039,7 @@ var selector = ".wb-inview",
 			x2 = x1 + elementWidth,
 			y1 = $elm.offset().top,
 			y2 = y1 + elementHeight,
+			oldViewState = $elm.attr( "data-inviewstate" ),
 			inView = ( scrollBottom < y1 || scrollTop > y2 ) || ( scrollRight < x1 || scrollRight > x2 ),
 
 			// this is a bit of a play on true/false to get the desired effect. In short this variable depicts
@@ -2046,16 +2047,31 @@ var selector = ".wb-inview",
 			// all - the whole element is in the viewport
 			// partial - part of the element is in the viewport
 			// none - no part of the element is in the viewport
-			viewstate = ( scrollBottom > y2 && scrollTop < y1 ) ? "all" : ( inView ) ? "none" : "partial";
+			viewState = ( scrollBottom > y2 && scrollTop < y1 ) ? "all" : ( inView ) ? "none" : "partial",
+			$dataInView;
 
-		$elm.attr( "data-inviewstate", viewstate )
-			.find( ".pg-banner, .pg-panel" )
-			.attr({
-				"role": "toolbar",
-				"aria-hidden": !inView
-			})
-			.toggleClass( "in", !inView )
-			.toggleClass( "out", inView );
+		// Only if the view state has changed
+		if ( viewState !== oldViewState ) {
+			$elm.attr( "data-inviewstate", viewState );
+			$dataInView = $( "#" + $elm.attr( "data-inview" ) );
+
+			// Keep closed if the user closed the inView result
+			if ( !$dataInView.hasClass( "user-closed" ) ) {
+				if ( $dataInView.hasClass( "wb-overlay" ) ) {
+					if ( !oldViewState ) {
+						$dataInView.addClass( "outside-off" );
+					}
+					$dataInView.trigger(
+						( inView ? "open" : "close" ) + ".wb-overlay"
+					);
+				} else {
+					$dataInView
+						.attr( "aria-hidden", !inView )
+						.toggleClass( "in", !inView )
+						.toggleClass( "out", inView );
+				}
+			}
+		}
 	};
 
 // Bind the init event of the plugin
@@ -2073,7 +2089,7 @@ $document.on( "timerpoke.wb scroll.wb-inview", selector, function( event ) {
 			init( $elm );
 			break;
 		case "scroll":
-			onInview( $elm );
+			onInView( $elm );
 			break;
 		}
 	}
@@ -4899,6 +4915,7 @@ $document.on( "navcurrent.wb", navCurrent );
 var selector = ".wb-overlay",
 	closeClass = "overlay-close",
 	linkClass = "overlay-lnk",
+	ignoreOutsideClass = "outside-off",
 	sourceLinks = {},
 	$document = vapour.doc,
 	i18n, i18nText,
@@ -4936,27 +4953,38 @@ var selector = ".wb-overlay",
 		}
 	},
 
-	openOverlay = function( overlayId ) {
+	openOverlay = function( overlayId, noFocus ) {
 		var $overlay = $( "#" + overlayId );
 
 		$overlay
 			.addClass( "open" )
-			.attr( "aria-hidden", "false" )
-			.trigger( "setfocus.wb" );
+			.attr( "aria-hidden", "false" );
+
+		if ( !noFocus ) {
+			$overlay.trigger( "setfocus.wb" );
+		}
 	},
 
-	closeOverlay = function( overlayId ) {
-		var $overlay = $( "#" + overlayId );
+	closeOverlay = function( overlayId, noFocus, userClosed ) {
+		var $overlay = $( "#" + overlayId ),
+			sourceLink = sourceLinks[ overlayId ];
 
 		$overlay
 			.removeClass( "open" )
 			.attr( "aria-hidden", "true" );
 
-		// Returns focus to the source link for the overlay
-		$( sourceLinks[ overlayId ] ).trigger( "setfocus.wb" );
+		if ( userClosed ) {
+			$overlay.addClass( "user-closed" );
+		}
 
-		// Delete the source link reference
-		delete sourceLinks[ overlayId ];
+		if ( !noFocus && sourceLink ) {
+
+			// Returns focus to the source link for the overlay
+			$( sourceLink ).trigger( "setfocus.wb" );
+
+			// Delete the source link reference
+			delete sourceLinks[ overlayId ];
+		}
 	};
 
 $document.on( "timerpoke.wb keydown open.wb-overlay close.wb-overlay", selector, function( event ) {
@@ -4985,26 +5013,25 @@ $document.on( "timerpoke.wb keydown open.wb-overlay close.wb-overlay", selector,
 
 		// Tab key
 		case 9:
-			event.preventDefault();
-			$focusable = $( overlay ).find( ":focusable" );
-			length = $focusable.length;
-			index = $focusable.index( event.target ) + ( event.shiftKey ? -1 : 1 );
-			if ( index === -1 ) {
-				index = length - 1;
-			} else if ( index === length ) {
-				index = 0;
+
+			// No special tab handling when ignoring outside activity
+			if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
+				event.preventDefault();
+				$focusable = $( overlay ).find( ":focusable" );
+				length = $focusable.length;
+				index = $focusable.index( event.target ) + ( event.shiftKey ? -1 : 1 );
+				if ( index === -1 ) {
+					index = length - 1;
+				} else if ( index === length ) {
+					index = 0;
+				}
+				$focusable.eq( index ).trigger( "setfocus.wb" );
 			}
-			$focusable.eq( index ).trigger( "setfocus.wb" );
 			break;
 
 		// Escape key
 		case 27:
-			closeOverlay( overlayId );
-			break;
-
-		// Up/down arrow
-		case 38:
-		case 40:
+			closeOverlay( overlayId, false, true );
 			break;
 		}
 	}
@@ -5016,7 +5043,11 @@ $document.on( "click vclick", "." + closeClass, function( event ) {
 
 	// Ignore middle/right mouse buttons
 	if ( !which || which === 1 ) {
-		closeOverlay( $( event.currentTarget ).closest( ".wb-overlay" ).attr( "id" ) );
+		closeOverlay(
+			$( event.currentTarget ).closest( ".wb-overlay" ).attr( "id" ),
+			false,
+			true
+		);
 	}
 });
 
@@ -5056,6 +5087,7 @@ $document.on( "click vclick touchstart focusin", "body", function ( event ) {
 			overlay = document.getElementById( overlayId );
 			if ( overlay.getAttribute( "aria-hidden" ) === "false" &&
 				eventTarget.id !== overlayId &&
+				overlay.className.indexOf( ignoreOutsideClass ) === -1 &&
 				!$.contains( overlay, eventTarget ) ) {
 
 				// Close the overlay

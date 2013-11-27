@@ -8275,48 +8275,6 @@ code {
  */
 
 /*
-Data Inview Plugin v1.0 - A simplified data-attribute driven plugin that responds to being in and out of the viewport.
-Release: 31/07/2013
-Author: WET Community
-
-
-Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
-
- */
-
-.pg-banner.out,
-.pg-panel.out {
-  display: block;
-  background: #eeeeee;
-  border: 1px solid #999999;
-  color: black;
-}
-
-.pg-banner {
-  display: none;
-}
-
-.pg-banner.out {
-  position: fixed;
-  top: 0;
-  padding: 20px;
-  width: 100%;
-  left: 0;
-  text-align: center;
-}
-
-.pg-panel {
-  display: block;
-}
-
-.pg-panel.out {
-  top: 30%;
-  position: absolute;
-  right: 0;
-}
-
-/*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
@@ -9721,7 +9679,14 @@ table.dataTable tr.even td.sorting_3 {
   background-color: white;
   display: none;
   border-radius: 0;
+  border: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
   z-index: 1050;
+}
+
+.wb-overlay.wb-inview {
+  display: block;
 }
 
 .wb-overlay.open {
