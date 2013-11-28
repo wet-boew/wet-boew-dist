@@ -9767,6 +9767,11 @@ table.dataTable tr.even td.sorting_3 {
   line-height: 1em;
 }
 
+[dir=rtl] .mfp-close {
+  right: auto;
+  left: 0;
+}
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -9793,11 +9798,11 @@ table.dataTable tr.even td.sorting_3 {
 .wb-share .tumblr:before,
 .wb-share .twitter:before {
   content: " ";
-  display: block;
-  float: left;
+  display: inline-block;
   height: 32px;
   width: 32px;
-  margin-right: 42px;
+  margin-right: 12px;
+  vertical-align: middle;
 }
 
 .wb-share {
@@ -9918,15 +9923,8 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share ul {
   list-style-type: none;
-  padding-left: 0;
+  padding: 0;
   margin: 10px;
-}
-
-[dir=rtl] .wb-share .shr-lnk {
-  padding-left: 12px;
-  padding-right: 42px;
-  background-position: 97% center;
-  text-align: right;
 }
 
 /*
