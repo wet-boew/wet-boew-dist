@@ -9934,6 +9934,13 @@ table.dataTable tr.even td.sorting_3 {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+.cal-cnt .cal-goto legend,
+.cal-cnt .cal-goto-mnth,
+.cal-cnt .cal-goto-yr,
+.cal-cnt .cal-goto-btn {
+  position: relative;
+}
+
 .cal-cnt {
   width: 18em;
   text-shadow: none;
@@ -9951,10 +9958,16 @@ table.dataTable tr.even td.sorting_3 {
   overflow: hidden;
   padding: 0.5em 4px;
   text-align: center;
+  position: relative;
 }
 
 .cal-cnt .cal-mnth {
   font-size: 110%;
+}
+
+.cal-cnt .cal-goto fieldset {
+  margin-bottom: 34px;
+  border-bottom: 1px solid white;
 }
 
 .cal-cnt .cal-goto legend {
@@ -9964,13 +9977,6 @@ table.dataTable tr.even td.sorting_3 {
 .cal-cnt .cal-goto-lnk {
   margin: 0 0 0.5em 0;
   padding: 0 !important;
-}
-
-.cal-cnt .cal-goto legend,
-.cal-cnt .cal-goto-mnth,
-.cal-cnt .cal-goto-yr,
-.cal-cnt .cal-goto-btn {
-  position: relative;
 }
 
 .cal-cnt .cal-goto-mnth,
@@ -9997,6 +10003,7 @@ table.dataTable tr.even td.sorting_3 {
   background: none;
   border: none;
   position: absolute;
+  bottom: 0;
   width: 44px;
   height: 44px;
 }

@@ -1355,6 +1355,7 @@ var $document = vapour.doc,
 					( buttonSpec[ 0 ] === "prvmnth" ? "left" : "right" ) + "'></span></button>" );
 				$monthNav[ buttonSpec[ 3 ] ]( $btn );
 			}
+
 			$btn
 				.toggleClass( "hide", hideButton )
 				.attr( "aria-hidden", hideButton );
@@ -1381,14 +1382,17 @@ var $document = vapour.doc,
 
 		// Ignore middle/right mouse buttons
 		if ( !which || which === 1 ) {
-			$document.trigger( "create.wb-cal", [
-				eventData.calID,
-				eventData.year,
-				eventData.month,
-				true,
-				eventData.mindate,
-				eventData.maxdate
-			]);
+		
+			if ( typeof eventData !== "undefined" ) {
+				$document.trigger( "create.wb-cal", [
+					eventData.calID,
+					eventData.year,
+					eventData.month,
+					true,
+					eventData.mindate,
+					eventData.maxdate
+				]);
+			}
 
 			if ( $btn.hasClass( "wb-inv" ) ) {
 				$container.find( ".cal-goto-lnk a" ).trigger( "setfocus.wb" );
@@ -1587,22 +1591,16 @@ var $document = vapour.doc,
 	},
 
 	showGoToForm = function( calendarId ) {
-		var link = $("#cal-" + calendarId + "-goto-lnk"),
-			form = $("#cal-" + calendarId + "-goto");
-
-		// Hide the month navigation
-		$( "#cal-" + calendarId +  "-mnthnav" )
-			.children( ".cal-prvmnth, .cal-nxtmnth" )
-				.addClass( "hide" )
-				.attr( "aria-hidden", "true" );
+		var gotoId = "#cal-" + calendarId + "-goto",
+			$link = $( gotoId + "-lnk" ),
+			$form = $( gotoId );
 
 		// TODO: Replace with CSS animation
-		link.stop().slideUp( 0 );
-		form.stop().slideDown( 0 ).queue(function() {
+		$link.stop().slideUp( 0 );
+		$form.stop().slideDown( 0 ).queue(function() {
 			$( this ).find( ":input:eq(0)" ).trigger( "setfocus.wb" );
 		});
-
-		link
+		$link
 			.children( "a" )
 				.attr({
 					"aria-hidden": "true",
@@ -1612,17 +1610,12 @@ var $document = vapour.doc,
 
 	hideGoToFrm = function( event ) {
 		var calendarId = event.target.id,
-			$link = $( "#cal-" + calendarId + "-goto-lnk" ),
-			$form = $( "#cal-" + calendarId + "-goto" );
+			gotoId = "#cal-" + calendarId + "-goto",
+			$link = $( gotoId + "-lnk" ),
+			$form = $( gotoId );
 
 		// TODO: Replace with CSS animation
-		$form.stop().slideUp( 0 ).queue(function () {
-			// Show the month navigation
-			$( "#cal-" + calendarId +  "-mnthnav" )
-				.children( ".cal-prvmnth, .cal-nxtmnth" )
-					.removeClass( "hide" )
-					.attr( "aria-hidden", "false" );
-		});
+		$form.stop().slideUp( 0 );
 		$link
 			.stop()
 			.slideDown( 0 )
