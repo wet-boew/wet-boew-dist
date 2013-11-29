@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Multimedia Player - Web Experience Toolkit</title>
+		<title>Multimedia Player - Audio-only - Web Experience Toolkit</title>
 		<link href="../../assets/favicon.ico" rel="shortcut icon" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
@@ -134,7 +134,7 @@
 				<a href="../../demos/index-en.html">Working examples</a>
 			</li>
 
-			<li>Multimedia Player</li>
+			<li>Multimedia Player - Audio-only</li>
 		</ol>
 	</div>
 </div>
@@ -146,15 +146,19 @@
 		<main role="main" property="mainContentOfPage" class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 id="wb-cont" property="name">Multimedia Player</h1>
+					<h1 id="wb-cont" property="name">Multimedia Player - Audio-only</h1>
 					
 <div class="row">
+	<div class="col-md-12">
+		<p>For audio-only, the multimedia player leverages the native HTML5 audio tag and relies on Flash as a fallback mechanism when the HTML5 audio tag is not implemented.</p>
+		<p>The multimedia player's timeline relies on the HTML5 progress element and uses a polyfill when the element is not supported.</p>
+		<p>The MP3 format (H264 codec) is the minimum requirement for the player because the Flash fallback relies on it and MP3 is a widely supported format on many mobile devices. An optional but highly recommended format, OGG Vorbis, should be added as well to allow some browsers such as Firefox that do not include native support for MP3 to leverage the HTML5 native performance gains.</p>
+	</div>
+</div>
+
+<div class="row">
 	<section class="wb-mltmd col-md-12">
-		<h3 class="wb-inv">Audio</h3>
-		<audio title="Audio Example">
-			<source src="http://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.mp3" type="audio/mp3" />
-			<source src="http://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.ogg" type="audio/ogg" />
-		</audio>
+		<h2>Example (Ride of the Valkyries)</h2 avec sous-titres de HTML
 	</section>
 </div>
 
