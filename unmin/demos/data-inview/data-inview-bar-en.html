@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Data Inview: Banner - Web Experience Toolkit</title>
+		<title>Data Inview: Bar - Web Experience Toolkit</title>
 		<link href="../../assets/favicon.ico" rel="shortcut icon" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
@@ -15,7 +15,7 @@
 		<!-- Meta data-->
 		<link rel="stylesheet" href="../../css/wet-boew.css" />
 <link rel="stylesheet" href="../../css/theme.css" />
-<link rel="stylesheet" href="demo/data-inview-banner.css" />
+<link rel="stylesheet" href="demo/data-inview-bar.css" />
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="../../css/ie8-wet-boew.css" />
@@ -50,7 +50,7 @@
 
 	
 			<li>
-				<a lang="fr" href="data-inview-banner-fr.html">Français</a>
+				<a lang="fr" href="data-inview-bar-fr.html">Français</a>
 			</li>
 	
 
@@ -134,7 +134,7 @@
 				<a href="../../demos/index-en.html">Working examples</a>
 			</li>
 
-			<li>Data Inview: Banner</li>
+			<li>Data Inview: Bar</li>
 		</ol>
 	</div>
 </div>
@@ -146,25 +146,32 @@
 		<main role="main" property="mainContentOfPage" class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 id="wb-cont" property="name">Data Inview: Banner</h1>
+					<h1 id="wb-cont" property="name">Data Inview: Bar</h1>
 					
 <section>
 	<h2>Example</h2>
 
-	<section class="wb-inview banner-demo" data-inview="top-bar">
-		<h3 class="no-gutter">Section with a conditional top bar</h3>
-		<p class="col-md-12">A bar will be displayed at the top when this section is out of the viewport.</p>
-	</section>
-
-	<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
-	<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
-	
-	<section class="wb-inview banner-demo" data-inview="bottom-bar">
+	<section class="wb-inview bar-demo" data-inview="bottom-bar">
 		<h3 class="no-gutter">Section with a conditional bottom bar</h3>
-		<p class="col-md-12">A bar will be displayed at the bottom when this section is out of the viewport.</p>
+		<div class="col-md-12">
+			<p>A bar will be displayed at the bottom when this section is <strong>partially out</strong> of the viewport.</p>
+			<hr />
+			<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>			
+		</div>
 	</section>
 
-	<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+	<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
+	<p>Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text.</p>
+	
+	<section class="wb-inview show-none bar-demo" data-inview="top-bar">
+		<h3 class="no-gutter">Section with a conditional top bar</h3>
+		<div class="col-md-12">
+			<p>A bar will be displayed at the top when this section is <strong>fully out</strong> of the viewport (<code>class="show-none"</code>).</p>
+			<hr />
+			<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+		</div>
+	</section>
+
 	<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
 	<p>Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text.</p>
 	<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>

@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Data Inview : Bannière - Boîte à outils de l'expérience Web</title>
+		<title>Data Inview : Barre - Boîte à outils de l'expérience Web</title>
 		<link href="../../assets/favicon.ico" rel="shortcut icon" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
@@ -15,7 +15,7 @@
 		<!-- Meta data-->
 		<link rel="stylesheet" href="../../css/wet-boew.css" />
 <link rel="stylesheet" href="../../css/theme.css" />
-<link rel="stylesheet" href="demo/data-inview-banner.css" />
+<link rel="stylesheet" href="demo/data-inview-bar.css" />
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="../../css/ie8-wet-boew.css" />
@@ -54,7 +54,7 @@
 
 	
 			<li>
-				<a lang="en" href="data-inview-banner-en.html">English</a>
+				<a lang="en" href="data-inview-bar-en.html">English</a>
 			</li>
 	
 
@@ -134,7 +134,7 @@
 				<a href="../../demos/index-fr.html">Exemples pratiques</a>
 			</li>
 
-			<li>Data Inview : Bannière</li>
+			<li>Data Inview : Barre</li>
 		</ol>
 	</div>
 </div>
@@ -146,26 +146,32 @@
 		<main role="main" property="mainContentOfPage" class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 id="wb-cont" property="name">Data Inview : Bannière</h1>
+					<h1 id="wb-cont" property="name">Data Inview : Barre</h1>
 					
 <section>
 	<h2>Exemple</h2>
 
-	<section class="wb-inview banner-demo" data-inview="barre-haut">
-		<h3 class="no-gutter">Section avec une barre en haut conditionnelle</h3>
-		<p class="col-md-12">Une barre sera affichée en haut lors de cette section est hors de la clôture.</p>
+	<section class="wb-inview bar-demo" data-inview="barre-bas">
+		<h3 class="no-gutter">Section avec une barre en bas conditionnelle</h3>
+		<div class="col-md-12">
+			<p>Une barre sera affichée en bas lors de cette section est <strong>partiellement hors</strong> de la clôture.</p>
+			<hr />
+			<p>Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte.</p>
+		</div>
 	</section>
 
-	<p>Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte.</p>
 	<p>Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent.</p>
 	<p>Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte.</p>
 
-	<section class="wb-inview banner-demo" data-inview="barre-bas">
-		<h3 class="no-gutter">Section avec une barre en bas conditionnelle</h3>
-		<p class="col-md-12">Une barre sera affichée en bas lors de cette section est hors de la clôture.</p>
+	<section class="wb-inview show-none bar-demo" data-inview="barre-haut">
+		<h3 class="no-gutter">Section avec une barre en haut conditionnelle</h3>
+		<div class="col-md-12">
+			<p>Une barre sera affichée en haut lors de cette section est <strong>entièrement hors</strong> de la clôture (<code>class="show-none"</code>).</p>
+			<hr />
+			<p>Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte.</p>
+		</div>
 	</section>
 
-	<p>Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte.</p>
 	<p>Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent. Exemple de texte différent.</p>
 	<p>Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte. Autre exemple de texte.</p>
 	<p>Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte. Exemple de texte.</p>
