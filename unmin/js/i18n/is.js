@@ -11,10 +11,10 @@
 /*
 ----- Icelandic dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "is",
 	"lang-nat": "Íslenska",
 	"all": "Allt",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Skrá inn"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

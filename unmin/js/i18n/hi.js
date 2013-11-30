@@ -11,10 +11,10 @@
 /*
 ----- Hindi dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "hi",
 	"lang-nat": "मानक हिन्दी",
 	"all": "सब",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "साइन इन करें"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

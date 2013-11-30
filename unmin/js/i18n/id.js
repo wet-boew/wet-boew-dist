@@ -11,10 +11,10 @@
 /*
 ----- Indonesian dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "id",
 	"lang-nat": "Bahasa Indonesia",
 	"all": "Semua",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Masuk"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

@@ -11,10 +11,10 @@
 /*
 ----- Slovak dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "sk",
 	"lang-nat": "Slovenčina",
 	"all": "Všetko",
@@ -174,11 +174,9 @@ var ind = {
 	"tmpl-signin": "Prihlásiť"
 };
 
-window.i18nObj = ind;
+})( wb );
 
-})( window );
-
-vapour.doc.one( "formLanguages.wb", function() {
+wb.doc.one( "formLanguages.wb", function() {
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: SK (Slovak; slovenčina, slovenský jazyk)

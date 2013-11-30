@@ -11,10 +11,10 @@
 /*
 ----- Thai dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "th",
 	"lang-nat": "ภาษาไทย",
 	"all": "ทั้งหมด",
@@ -174,11 +174,9 @@ var ind = {
 	"tmpl-signin": "เข้าสู่ระบบ"
 };
 
-window.i18nObj = ind;
+})( wb );
 
-})( window );
-
-vapour.doc.one( "formLanguages.wb", function() {
+wb.doc.one( "formLanguages.wb", function() {
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: TH (Thai; ไทย)

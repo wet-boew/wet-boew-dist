@@ -10,8 +10,8 @@
  * @author WET Community
  * Credits: http://kaibun.net/blog/2013/04/19/a-fully-fledged-coffeescript-boilerplate-for-jquery-plugins/
  */
-(function( $, vapour ) {
-	vapour.getData = function( element, dataName ) {
+(function( $, wb ) {
+	wb.getData = function( element, dataName ) {
 		var elm = !element.jquery ? element : element[ 0 ],
 			dataAttr = elm.getAttribute( "data-" + dataName ),
 			dataObj;
@@ -27,24 +27,24 @@
 		$.data( elm, dataName, dataObj );
 		return dataObj;
 	};
-})( jQuery, vapour );
+})( jQuery, wb );
 
-(function( vapour ) {
+(function( wb ) {
 	"use strict";
 
 	// Escapes the characters in a string for use in a jQuery selector
 	// Based on http://totaldev.com/content/escaping-characters-get-valid-jquery-id
-	vapour.jqEscape = function( selector ) {
+	wb.jqEscape = function( selector ) {
 		return selector.replace( /([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, "\\$1" );
 	};
 
 	/*
-	 * @namespace vapour.string
+	 * @namespace wb.string
 	 */
-	vapour.string = {
+	wb.string = {
 		/*
 		 * Left-pads a number with zeros.
-		 * @memberof vapour.string
+		 * @memberof wb.string
 		 * @param {number} number The original number to pad.
 		 * @param {number} length The width of the resulting padded number, not the number of zeros to add to the front of the string.
 		 * @return {string} The padded string
@@ -62,9 +62,9 @@
 
 	/*
 	 * A suite of date related functions for easier parsing of dates
-	 * @namespace vapour.date
+	 * @namespace wb.date
 	 */
-	vapour.date = {
+	wb.date = {
 		/*
 		 * Converts the date to a date-object. The input can be:
 		 * <ul>
@@ -74,7 +74,7 @@
 		 * <li>a string: Any format supported by the javascript engine, like 'YYYY/MM/DD', 'MM/DD/YYYY', 'Jan 31 2009' etc.</li>
 		 * <li>an object: Interpreted as an object with year, month and date attributes. **NOTE** month is 0-11.</li>
 		 * </ul>
-		 * @memberof vapour.date
+		 * @memberof wb.date
 		 * @param {Date | number[] | number | string | object} dateValue
 		 * @return {Date | NaN}
 		 */
@@ -96,7 +96,7 @@
 
 		/*
 		 * Compares two dates (input can be any type supported by the convert function).
-		 * @memberof vapour.date
+		 * @memberof wb.date
 		 * @param {Date | number[] | number | string | object} dateValue1
 		 * @param {Date | number[] | number | string | object} dateValue2
 		 * @return {number | NaN}
@@ -107,7 +107,7 @@
 		 * NaN if dateValue1 or dateValue2 is an illegal date
 		 */
 		compare: function( dateValue1, dateValue2 ) {
-			var convert = vapour.date.convert;
+			var convert = wb.date.convert;
 
 			if ( isFinite( dateValue1 = convert( dateValue1 ).valueOf() ) && isFinite( dateValue2 = convert( dateValue2 ).valueOf() ) ) {
 				return ( dateValue1 > dateValue2 ) - ( dateValue1 < dateValue2 );
@@ -117,7 +117,7 @@
 
 		/*
 		 * Cross-browser safe way of translating a date to ISO format
-		 * @memberof vapour.date
+		 * @memberof wb.date
 		 * @param {Date | number[] | number | string | object} dateValue
 		 * @param {boolean} withTime Optional. Whether to include the time in the result, or just the date. False if blank.
 		 * @return {string}
@@ -128,8 +128,8 @@
 		 * returns "2012-04-27 13:46"
 		 */
 		toDateISO: function( dateValue, withTime ) {
-			var date = vapour.date.convert( dateValue ),
-				pad = vapour.string.pad;
+			var date = wb.date.convert( dateValue ),
+				pad = wb.string.pad;
 
 			return date.getFullYear() + "-" + pad( date.getMonth() + 1, 2, "0" ) + "-" + pad( date.getDate(), 2, "0" ) +
 				( withTime ? " " + pad( date.getHours(), 2, "0" ) + ":" + pad( date.getMinutes(), 2, "0" ) : "" );
@@ -137,7 +137,7 @@
 
 		/*
 		 * Cross-browser safe way of creating a date object from a date string in ISO format
-		 * @memberof vapour.date
+		 * @memberof wb.date
 		 * @param {string} dateISO Date string in ISO format
 		 * @return {Date}
 		 */
@@ -152,7 +152,7 @@
 		}
 	};
 
-})( vapour );
+})( wb );
 
 (function( $, undef ) {
 	"use strict";
@@ -325,16 +325,16 @@ Peformant micro templater
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
  */
-(function( $, vapour ) {
+(function( $, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var $document = vapour.doc,
+var $document = wb.doc,
 
 	/*
 	 * @method generateSerial
@@ -383,7 +383,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
 	}
 });
 
-})( jQuery, vapour );
+})( jQuery, wb );
 
 /*
  * @title WET-BOEW Events Calendar
@@ -391,7 +391,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -401,15 +401,15 @@ $document.on( "ajax-fetch.wb", function( event ) {
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-cal-evt",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 
 	init = function( $elm ) {
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		// Only initialize the i18nText once
 		if ( !i18nText ) {
-			i18n = window.i18n;
+			i18n = wb.i18n;
 			i18nText = {
 				monthNames: i18n( "calendar-monthNames" ),
 				calendar: i18n( "calendar" )
@@ -486,8 +486,8 @@ var selector = ".wb-cal-evt",
 
 	daysBetween = function ( dateLow, dateHigh ) {
 		// Simplified conversion to date object
-		var date1 = vapour.date.convert( dateLow ),
-			date2 = vapour.date.convert( dateHigh ),
+		var date1 = wb.date.convert( dateLow ),
+			date2 = wb.date.convert( dateHigh ),
 			dstAdjust = 0,
 			oneMinute = 1000 * 60,
 			oneDay = oneMinute * 60 * 24,
@@ -555,7 +555,7 @@ var selector = ".wb-cal-evt",
 					 * Fixes IE tabbing error:
 					 * http://www.earthchronicle.com/ECv1point8/Accessibility01IEAnchoredKeyboardNavigation.aspx
 					 */
-					if ( vapour.ie ) {
+					if ( wb.ie ) {
 						event.attr( "tabindex", "-1" );
 					}
 					link = "#" + linkId;
@@ -602,7 +602,7 @@ var selector = ".wb-cal-evt",
 						date = new Date( date.setDate( date.getDate() + 1 ) );
 
 						// Add a viewfilter
-						className = "filter-" + ( date.getFullYear() ) + "-" + vapour.string.pad( date.getMonth() + 1, 2 );
+						className = "filter-" + ( date.getFullYear() ) + "-" + wb.string.pad( date.getMonth() + 1, 2 );
 						if ( !objTitle.hasClass( className ) ) {
 							objTitle.addClass( className );
 						}
@@ -623,7 +623,7 @@ var selector = ".wb-cal-evt",
 					events.list[ events.iCount ] = {"title" : title, "date" : date, "href" : link};
 
 					// Add a viewfilter
-					className = "filter-" + ( date.getFullYear() ) + "-" + vapour.string.pad( date.getMonth() + 1, 2 );
+					className = "filter-" + ( date.getFullYear() ) + "-" + wb.string.pad( date.getMonth() + 1, 2 );
 					if ( !objTitle.hasClass( className ) ) {
 						objTitle.addClass( className );
 					}
@@ -831,7 +831,7 @@ var selector = ".wb-cal-evt",
 		$( "." + calendarId + " li.calendar-display-onshow" )
 			.addClass( "wb-inv" )
 			.has( ":header[class*=filter-" + year + "-" +
-				vapour.string.pad( parseInt( month, 10 ) + 1, 2 ) + "]" )
+				wb.string.pad( parseInt( month, 10 ) + 1, 2 ) + "]" )
 			.removeClass( "wb-inv" );
 	};
 
@@ -847,9 +847,9 @@ $document.on( "timerpoke.wb", selector, function() {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( ".wb-cal-evt" );
+wb.add( ".wb-cal-evt" );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 
 /*
@@ -858,7 +858,7 @@ window._timer.add( ".wb-cal-evt" );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -868,7 +868,7 @@ window._timer.add( ".wb-cal-evt" );
  * place to define variables that are common to all instances of the plugin on a
  * page.
  */
-var $document = vapour.doc,
+var $document = wb.doc,
 	i18n, i18nText,
 
 	/*
@@ -879,13 +879,13 @@ var $document = vapour.doc,
 		var calendar = document.getElementById( calendarId ),
 			$calendar = $( calendar ),
 			objCalendarId = "#cal-" + calendarId + "-cnt",
-			fromDateISO = vapour.date.fromDateISO,
+			fromDateISO = wb.date.fromDateISO,
 			$objCalendar, $calendarHeader, $oldCalendarHeader, $days, $daysList,
 			maxDateYear, maxDateMonth, minDateYear, minDateMonth;
 
 		// Only initialize the i18nText once
 		if ( !i18nText ) {
-			i18n = window.i18n;
+			i18n = wb.i18n;
 			i18nText = {
 				monthNames: i18n( "mnths" ),
 				prevMonth: i18n( "prvMnth" ),
@@ -952,7 +952,7 @@ var $document = vapour.doc,
 		if ( shownav ) {
 			$calendarHeader.append( createMonthNav( calendarId, year, month, mindate, maxdate, minDateYear, maxDateYear ) );
 		}
-		
+
 		$oldCalendarHeader = $objCalendar.prev( ".cal-hd" );
 		if ( $oldCalendarHeader.length === 0 ) {
 			$objCalendar.before( $calendarHeader );
@@ -998,7 +998,7 @@ var $document = vapour.doc,
 		if ( $monthNav.length === 0 ) {
 			$monthNav = $( "<div id='cal-" + calendarId + "-mnthnav'></div>" );
 		}
-		
+
 		// Create the go to form if one doesn't already exist
 		if ( $( "#" + calendarId + " .cal-goto" ).length === 0 ) {
 			$monthNav.append( createGoToForm( calendarId, year, month, minDate, maxDate ) );
@@ -1024,7 +1024,7 @@ var $document = vapour.doc,
 			);
 			alt = buttonSpec[ 2 ] + monthNames[ newMonth ] + " " + newYear;
 			$btn = $monthNav.find( ".cal-" + buttonClass );
-			
+
 			if ( $btn.length !== 0 ) {
 				$btn
 					.off()
@@ -1062,7 +1062,7 @@ var $document = vapour.doc,
 
 		// Ignore middle/right mouse buttons
 		if ( !which || which === 1 ) {
-		
+
 			if ( typeof eventData !== "undefined" ) {
 				$document.trigger( "create.wb-cal", [
 					eventData.calID,
@@ -1150,7 +1150,7 @@ var $document = vapour.doc,
 
 		// Update the list of available months when changing the year
 		$yearField.on( "change", {minDate: minDate, maxDate: maxDate, $monthField: $monthField}, yearChanged );
-		
+
 		// Populate initial month list
 		$yearField.trigger( "change" );
 
@@ -1234,11 +1234,11 @@ var $document = vapour.doc,
 		for ( week = 1; week < 7; week += 1 ) {
 			cells += "<tr>";
 			for ( day = 0; day < 7; day += 1 ) {
-				
+
 				id = "cal-" + calendarId + "-w" + week + "d" + ( day + 1 );
 				className = ( day === 0 || day === 6 ? "cal-we " : "" ) +
 					"cal-w" + week + "d" + ( day + 1 ) + " cal-index-" + ( dayCount + 1 );
-				
+
 				if ( ( week === 1 && day < firstDay ) || ( dayCount > lastDay ) ) {
 
 					// Creates empty cells | Cree les cellules vides
@@ -1254,7 +1254,7 @@ var $document = vapour.doc,
 						( frenchLang ? ( " </span>" + dayCount + "<span class='wb-inv'> " + textMonthNames[ month ].toLowerCase() + " " ) :
 						( " " + textMonthNames[ month ] + " </span>" + dayCount + "<span class='wb-inv'> " ) ) + year +
 						( isCurrentDate ?  textCurrentDay : "" ) + "</span></time></div></td>";
-						
+
 					if ( dayCount > lastDay ) {
 						breakAtEnd = true;
 					}
@@ -1329,7 +1329,7 @@ var $document = vapour.doc,
 				.trigger( "setfocus.wb" );
 		}
 	},
-	
+
 	setFocus = function( event, calendarId, year, month, minDate, maxDate, targetDate ) {
 		var time = targetDate.getTime();
 
@@ -1365,7 +1365,7 @@ $document.on( "keydown", ".cal-days a", function ( event ) {
 		calendarId = $container.attr( "id" ),
 		fieldId = $container.attr( "aria-controls" ),
 		which = event.which,
-		fromDateISO = vapour.date.fromDateISO,
+		fromDateISO = wb.date.fromDateISO,
 		date = fromDateISO( elm.getElementsByTagName( "time" )[ 0 ].getAttribute( "datetime" ) ),
 		currYear = date.getFullYear(),
 		currMonth = date.getMonth(),
@@ -1385,7 +1385,7 @@ $document.on( "keydown", ".cal-days a", function ( event ) {
 
 	minDate = fromDateISO( ( minDate ? minDate : "1800-01-01" ) );
 	maxDate = fromDateISO( ( maxDate ? maxDate : "2100-01-01" ) );
-	
+
 	if ( !event.altKey && !event.metaKey && which > 31 && which < 41 ) {
 		switch ( which ) {
 
@@ -1462,14 +1462,15 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
+
 /*
  * @title WET-BOEW Country Content
  * @overview A basic AjaxLoader wrapper that inserts AJAXed in content based on a visitors country as resolved by http://freegeoip.net
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @nschonni
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -1479,7 +1480,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
  * place to define variables that are common to all instances of the plugin on a
  * page.
  */
-var $document = vapour.doc,
+var $document = wb.doc,
 	selector = "[data-country-content]",
 
 	/**
@@ -1495,7 +1496,7 @@ var $document = vapour.doc,
 
 		// All plugins need to remove their reference from the timer in the init
 		// sequence unless they have a requirement to be poked every 0.5 seconds
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		$.when( getCountry() ).then( function( countryCode ) {
 
@@ -1562,9 +1563,9 @@ $document.on( "timerpoke.wb", selector, function( event ) {
 } );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Data Ajax [data-ajax-after], [data-ajax-append],
@@ -1573,7 +1574,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -1583,7 +1584,7 @@ window._timer.add( selector );
  * place to define variables that are common to all instances of the plugin on a
  * page.
  */
-var $document = vapour.doc,
+var $document = wb.doc,
 	selector = "[data-ajax-after], [data-ajax-append], [data-ajax-before], " +
 		"[data-ajax-prepend], [data-ajax-replace]",
 
@@ -1601,7 +1602,7 @@ var $document = vapour.doc,
 
 		// All plugins need to remove their reference from the timer in the init
 		// sequence unless they have a requirement to be poked every 0.5 seconds
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		$document.trigger({
 			type: "ajax-fetch.wb",
@@ -1662,9 +1663,9 @@ $document.on( "timerpoke.wb ajax-fetched.wb", selector, function( event ) {
 } );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Data InView
@@ -1672,7 +1673,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -1683,8 +1684,8 @@ window._timer.add( selector );
  */
 var selector = ".wb-inview",
 	$elms = $( selector ),
-	$document = vapour.doc,
-	$window = vapour.win,
+	$document = wb.doc,
+	$window = wb.win,
 
 	/*
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -1695,7 +1696,7 @@ var selector = ".wb-inview",
 	init = function( $elm ) {
 
 		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		$elm.trigger( "scroll.wb-inview" );
 	},
@@ -1791,9 +1792,9 @@ $document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", f
 
 // Add the timer poke to initialize the plugin
 
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Data Picture
@@ -1801,7 +1802,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @patheard
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -1811,7 +1812,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = "[data-picture]",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -1822,7 +1823,7 @@ var selector = "[data-picture]",
 	init = function( $elm ) {
 
 		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		$elm.trigger( "picturefill.wb-data-picture" );
 	},
@@ -1867,7 +1868,7 @@ var selector = "[data-picture]",
 $document.on( "timerpoke.wb picturefill.wb-data-picture", selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type;
-		
+
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === eventTarget ) {
 		switch ( eventType ) {
@@ -1887,9 +1888,9 @@ $document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", f
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Responsive equal height
@@ -1897,7 +1898,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @thomasgohard
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -1907,7 +1908,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-equalheight",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -1921,7 +1922,7 @@ var selector = ".wb-equalheight",
 		if ( event.currentTarget === event.target ) {
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Remove the event handler since only want init fired once per page (not per element)
 			$document.off( "timerpoke.wb", selector );
@@ -1993,9 +1994,9 @@ $document.on( "timerpoke.wb", selector, init );
 $document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb tables-draw.wb", onResize );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Favicon Plugin
@@ -2016,17 +2017,17 @@ window._timer.add( selector );
  *
  *     <link href="favion.ico" rel="shortcut icon" data-rel="apple-touch-icon-precomposed" data-filename="my-mobile-favicon.ico">
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = "link[rel='shortcut icon']",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -2041,7 +2042,7 @@ var selector = "link[rel='shortcut icon']",
 	},
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery DOM element} $favicon The plugin element being initialized
@@ -2051,7 +2052,7 @@ var selector = "link[rel='shortcut icon']",
 		var settings = $.extend( {}, defaults, $favicon.data() );
 
 		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		$favicon.trigger( "mobile.wb-favicon", settings );
 	},
@@ -2110,7 +2111,7 @@ var selector = "link[rel='shortcut icon']",
 // Bind the plugin events
 $document.on( "timerpoke.wb mobile.wb-favicon icon.wb-favicon", selector, function( event, data ) {
 	var eventTarget = event.target;
-	
+
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === eventTarget ) {
 		switch ( event.type ) {
@@ -2127,16 +2128,16 @@ $document.on( "timerpoke.wb mobile.wb-favicon icon.wb-favicon", selector, functi
 	}
 
 	/*
-	 * Since we are working with events we want to ensure that we are being passive about our control, 
+	 * Since we are working with events we want to ensure that we are being passive about our control,
 	 * so returning true allows for events to always continue
 	 */
 	return true;
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Feedback form
@@ -2144,21 +2145,21 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-fdbck",
-	$document = vapour.doc,
+	$document = wb.doc,
 	fbrsn, fbaxs, fbcntc1, fbcntc2, $fbweb, $fbmob, $fbcomp, $fbinfo,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered this handler
@@ -2172,7 +2173,7 @@ var selector = ".wb-fdbck",
 		if ( event.currentTarget === eventTarget ) {
 			$elm = $( eventTarget );
 			$fbrsn = $elm.find( "#fbrsn" );
-			urlParams = vapour.pageUrlParts.params;
+			urlParams = wb.pageUrlParts.params;
 
 			// Cache the form areas
 			fbrsn = $fbrsn[ 0 ];
@@ -2183,9 +2184,9 @@ var selector = ".wb-fdbck",
 			$fbmob = $fbweb.find( "#fbmob" );
 			$fbcomp = $fbweb.find( "#fbcomp" );
 			$fbinfo = $elm.find( "#fbinfo" );
-				
+
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Set the initial value for the fbrsn field based on the query string
 			if ( !urlParams.submit && urlParams.fbrsn ) {
@@ -2195,7 +2196,7 @@ var selector = ".wb-fdbck",
 			// Set aria-controls
 			fbrsn.setAttribute( "aria-controls", "fbweb" );
 			fbaxs.setAttribute( "aria-controls", "fbmob fbcomp" );
-		
+
 			// Set the initial show/hide state of the form
 			showHide( fbrsn );
 			showHide( fbaxs );
@@ -2242,7 +2243,7 @@ var selector = ".wb-fdbck",
 			}
 			break;
 		}
-				
+
 		// Element to show
 		if ( $show ) {
 			// TODO: Use CSS transitions instead
@@ -2283,29 +2284,30 @@ $document.on( "click", selector + " input[type=reset]", function( event ) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
+
 /*
  * @title WET-BOEW Feeds
  * @overview Aggregates and displays entries from one or more Web feeds.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-feeds",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered this handler
@@ -2316,7 +2318,7 @@ var selector = ".wb-feeds",
 		if ( event.currentTarget === event.target ) {
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			var elm = event.target,
 				$content = $( elm ).find( ".feeds-cont" ),
@@ -2375,7 +2377,7 @@ var selector = ".wb-feeds",
 		}
 		return Number( count[ 0 ].replace( /limit-/i, "" ) );
 	},
-	
+
 	/*
 	 * Builds the URL for the JSON request
 	 * @method jsonRequest
@@ -2385,7 +2387,7 @@ var selector = ".wb-feeds",
 	 */
 	jsonRequest = function( url, limit ) {
 		var requestURL = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" + encodeURIComponent( decodeURIComponent( url ) );
-		
+
 		// API returns a maximum of 4 entries by default so only override if more entries should be returned
 		if ( limit > 4 ) {
 			requestURL += "&num=" + limit;
@@ -2404,10 +2406,10 @@ var selector = ".wb-feeds",
 	parseEntries = function( entries, limit, $elm ) {
 		var cap = ( limit > 0 && limit < entries.length ? limit : entries.length ),
 			result = "",
-			toDateISO = vapour.date.toDateISO,
-			compare = vapour.date.compare,
+			toDateISO = wb.date.toDateISO,
+			compare = wb.date.compare,
 			i, sorted, sortedEntry;
-		
+
 		sorted = entries.sort( function( a, b ) {
 			return compare( b.publishedDate, a.publishedDate );
 		});
@@ -2424,9 +2426,9 @@ var selector = ".wb-feeds",
 $document.on( "timerpoke.wb", selector, init );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Focus
@@ -2434,11 +2436,11 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, vapour ) {
+(function( $, wb ) {
 "use strict";
 
-var $document = vapour.doc,
-	hash = vapour.pageUrlParts.hash,
+var $document = wb.doc,
+	hash = wb.pageUrlParts.hash,
 	clickEvents = "click.wb-focus vclick.wb-focus",
 	linkSelector = "a[href]",
 	$linkTarget;
@@ -2464,7 +2466,7 @@ $document.on( "setfocus.wb", function ( event ) {
 if ( hash && ( $linkTarget = $( hash ) ).length !== 0 ) {
 	$linkTarget.trigger( "setfocus.wb" );
 }
-	
+
 // Helper for browsers that can't change keyboard and/or event focus on a same page link click
 $document.on( clickEvents, linkSelector, function( event ) {
 	var testHref = event.currentTarget.getAttribute( "href" );
@@ -2475,7 +2477,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 	}
 });
 
-})( jQuery, vapour );
+})( jQuery, wb );
 
 /*
  * @title WET-BOEW Footnotes
@@ -2483,20 +2485,20 @@ $document.on( clickEvents, linkSelector, function( event ) {
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @EricDunsworth
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-fnote",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered this handler
@@ -2510,9 +2512,9 @@ var selector = ".wb-fnote",
 			$elm = $( elm );
 			footnoteDd = elm.getElementsByTagName( "dd" );
 			footnoteDt = elm.getElementsByTagName( "dt" );
-		
+
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Apply aria-labelledby and set initial event handlers for return to referrer links
 			len = footnoteDd.length;
@@ -2541,9 +2543,9 @@ $document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", functi
 
 	// Ignore middle/right mouse button
 	if ( !which || which === 1 ) {
-		refId = "#" + vapour.jqEscape( eventTarget.getAttribute( "href" ).substring( 1 ) );
+		refId = "#" + wb.jqEscape( eventTarget.getAttribute( "href" ).substring( 1 ) );
 		$refLinkDest = $document.find( refId );
-	
+
 		$refLinkDest.find( "p.fn-rtn a" )
 					.attr( "href", "#" + eventTarget.parentNode.id );
 
@@ -2560,7 +2562,7 @@ $document.on( "click vclick", selector + " dd p.fn-rtn a", function( event ) {
 
 	// Ignore middle/right mouse button
 	if ( !which || which === 1 ) {
-		refId = "#" + vapour.jqEscape( event.target.getAttribute( "href" ).substring( 1 ) );
+		refId = "#" + wb.jqEscape( event.target.getAttribute( "href" ).substring( 1 ) );
 
 		// Assign focus to the link
 		$document.find( refId + " a" ).trigger( "setfocus.wb" );
@@ -2569,9 +2571,9 @@ $document.on( "click vclick", selector + " dd p.fn-rtn a", function( event ) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Form validation
@@ -2579,7 +2581,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -2589,7 +2591,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-formvalid",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 
 	/*
@@ -2606,15 +2608,15 @@ var selector = ".wb-formvalid",
 		if ( event.currentTarget === eventTarget ) {
 
 			// read the selector node for parameters
-			modeJS = vapour.getMode() + ".js";
+			modeJS = wb.getMode() + ".js";
 			$elm = $( eventTarget );
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
-				i18n = window.i18n;
+				i18n = wb.i18n;
 				i18nText = {
 					colon: i18n( "colon" ),
 					hyphen: i18n( "hyphen" ),
@@ -2662,7 +2664,7 @@ var selector = ".wb-formvalid",
 
 					// Change form attributes and values that interfere with validation in IE7/8
 					// TODO: Need better way of dealing with this rather than browser sniffing
-					if ( vapour.ieVersion > 0 && vapour.ieVersion < 9 ) {
+					if ( wb.ieVersion > 0 && wb.ieVersion < 9 ) {
 						len = $required.length;
 						$required.removeAttr( "required" );
 						for ( i = 0; i !== len; i += 1) {
@@ -2860,9 +2862,9 @@ $document.on( "click vclick", selector + " .errCnt a", function( event ) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /*
  * @title WET-BOEW Lightbox
@@ -2870,7 +2872,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -2880,7 +2882,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-lightbox",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 	extendedGlobal = false,
 
@@ -2898,15 +2900,15 @@ var selector = ".wb-lightbox",
 		if ( event.currentTarget === elm ) {
 
 			// read the selector node for parameters
-			modeJS = vapour.getMode() + ".js";
+			modeJS = wb.getMode() + ".js";
 			$elm = $( elm );
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
-				i18n = window.i18n;
+				i18n = wb.i18n;
 				i18nText = {
 					tClose: i18n( "overlay-close" ) + i18n( "space" ) + i18n( "esc-key" ),
 					tLoading: i18n( "load" ),
@@ -3024,17 +3026,17 @@ var selector = ".wb-lightbox",
 					} else {
 						settings.type = "image";
 					}
-					
+
 					if ( elm.className.indexOf( "lb-modal" ) !== -1 ) {
 						settings.modal = true;
 					}
 
-					// Extend the settings with data-wet-boew then 
+					// Extend the settings with data-wet-boew then
 					$elm.magnificPopup(
 						$.extend(
 							true,
 							settings,
-							vapour.getData( $elm, "wet-boew" )
+							wb.getData( $elm, "wet-boew" )
 						)
 					);
 				}
@@ -3077,9 +3079,9 @@ $(document).on( "click", ".popup-modal-dismiss", function ( event ) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /*
  * @title WET-BOEW Menu plugin
@@ -3088,7 +3090,7 @@ window._timer.add( selector );
  * @author WET community
  */
 
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -3098,7 +3100,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-menu",
-	$document = vapour.doc,
+	$document = wb.doc,
 	breadcrumb = document.getElementById( "wb-bc" ),
 
 	// Used for half second delay on showing/hiding menus because of mouse hover
@@ -3130,7 +3132,7 @@ var selector = ".wb-menu",
 
 		// All plugins need to remove their reference from the timer in the init
 		// sequence unless they have a requirement to be poked every 0.5 seconds
-		window._timer.remove( selector );
+		wb.remove( selector );
 
 		// Ensure the container has an id attribute
 		if ( !$elm.attr( "id" ) ) {
@@ -3621,9 +3623,9 @@ $document.on( "keydown", selector + " [role=menu]", function( event ) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /*
  * @title WET-BOEW Modal
@@ -3631,7 +3633,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @patheard
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -3641,7 +3643,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-modal",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -3666,11 +3668,11 @@ var selector = ".wb-modal",
 		if ( event.currentTarget === event.target ) {
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Load the magnific popup dependency
 			Modernizr.load({
-				load: "site!deps/jquery.magnific-popup" + vapour.getMode() + ".js",
+				load: "site!deps/jquery.magnific-popup" + wb.getMode() + ".js",
 				complete: function() {
 					$document.trigger( "ready.wb-modal" );
 				}
@@ -3768,9 +3770,9 @@ $document
 	});
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /**
  * @title WET-BOEW Multimedia PLayer
@@ -3779,11 +3781,11 @@ window._timer.add( selector );
  * @author WET Community
  */
 /* globals YT */
-(function( $, window, vapour, undef ) {
+(function( $, window, wb, undef ) {
 "use strict";
 
 /* Local scoped variables*/
-var $document = vapour.doc,
+var $document = wb.doc,
 	selector = ".wb-mltmd",
 	seed = 0,
 	templatetriggered = false,
@@ -4175,11 +4177,11 @@ youTubeEvents = function ( event ) {
 
 
 $document.on( "timerpoke.wb", selector, function() {
-	window._timer.remove( selector );
+	wb.remove( selector );
 
 	// Only initialize the i18nText once
 	if ( !i18nText ) {
-		i18n = window.i18n;
+		i18n = wb.i18n;
 		i18nText = {
 			rewind: i18n( "rew" ),
 			ff: i18n( "ffwd" ),
@@ -4200,7 +4202,7 @@ $document.on( "timerpoke.wb", selector, function() {
 		$document.trigger({
 			type: "ajax-fetch.wb",
 			element: $( selector ),
-			fetch: vapour.getPath( "/assets" ) + "/mediacontrols.html"
+			fetch: wb.getPath( "/assets" ) + "/mediacontrols.html"
 		});
 	}
 });
@@ -4244,7 +4246,7 @@ $document.on( "init.multimedia.wb", selector, function() {
 
 	if ( $media.find( "[type='video/youtube']" ).length > 0 ){
 		// lets tweak some variables and start the load sequence
-		url = vapour.getUrlParts( $this.find( "[type='video/youtube']").attr( "src") );
+		url = wb.getUrlParts( $this.find( "[type='video/youtube']").attr( "src") );
 
 		// lets set the flag for the call back
 		$this.data( "youtube", url.params.v );
@@ -4287,17 +4289,17 @@ $document.on( "fallback.multimedia.wb", selector, function() {
 
 
 	$data.flashvars = "id=" + $data.mId;
-	$playerresource = vapour.getPath( "/assets" ) + "/multimedia.swf?" + $data.flashvars;
+	$playerresource = wb.getPath( "/assets" ) + "/multimedia.swf?" + $data.flashvars;
 	$data.poster = "";
 	if ( $data.type === "video" ) {
 		$data.poster = "<img src='" + $poster + " class='img-responsive' height='" +
 			$data.height + "' width='" + $data.width + "' alt='" + $media.attr( "title" ) + "'/>";
 		$data.flashvars += "&height=" + $media.height() + "&width=" +
 			$media.width() + "&posterimg=" +
-			encodeURI( vapour.getUrlParts( $poster ).absolute ) + "&media=" +
-			encodeURI( vapour.getUrlParts( $source.filter( "[type='video/mp4']" ).attr( "src" ) ).absolute );
+			encodeURI( wb.getUrlParts( $poster ).absolute ) + "&media=" +
+			encodeURI( wb.getUrlParts( $source.filter( "[type='video/mp4']" ).attr( "src" ) ).absolute );
 	} else {
-		$data.flashvars += "&media=" + encodeURI( vapour.getUrlParts( $source.filter( "[type='audio/mp3']" ).attr( "src" ) ).absolute );
+		$data.flashvars += "&media=" + encodeURI( wb.getUrlParts( $source.filter( "[type='audio/mp3']" ).attr( "src" ) ).absolute );
 	}
 	$this.find( "video, audio" ).replaceWith( "<object id='" + $data.mId + "' width='" + $data.width +
 		"' height='" + $data.height + "' class='" + $data.type +
@@ -4331,7 +4333,7 @@ $document.on( "youtube.multimedia.wb", selector, function() {
 		playerVars: {
 			autoplay: 0,
 			controls: 0,
-			origin: vapour.pageUrlParts.host,
+			origin: wb.pageUrlParts.host,
 			modestbranding: 1,
 			rel: 0,
 			showinfo: 0
@@ -4390,8 +4392,8 @@ $document.on( "renderui.multimedia.wb", selector, function( event, type ) {
 		$this = ref[ 0 ],
 		$data = ref[ 1 ],
 		$player,
-		captionsUrl = vapour.getUrlParts( $data.captions ),
-		currentUrl = vapour.getUrlParts( window.location.href ),
+		captionsUrl = wb.getUrlParts( $data.captions ),
+		currentUrl = wb.getUrlParts( window.location.href ),
 		media = $this.find( "video, audio, iframe, object" );
 
 	media.after( window.tmpl( $this.data( "template" ), $data ) );
@@ -4632,9 +4634,9 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 	}
 });
 
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW NavCurrent
@@ -4642,22 +4644,22 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var $document = vapour.doc,
+var $document = wb.doc,
 	breadcrumbLinksArray, breadcrumbLinksUrlArray,
 	navClass = "wb-navcurr",
 
 	/*
 	 * We start the logic for what the plugin truly does
-	 * For demonstration purposes lets display some text with an alert 
+	 * For demonstration purposes lets display some text with an alert
 	 * @method otherEvent
 	 * @param {jQuery Event} event The event that triggered this method call
 	 * @param {jQuery DOM element | DOM element} breadcrumb Optional breadcrumb element
@@ -4714,7 +4716,7 @@ var $document = vapour.doc,
 						localBreadcrumbLinksUrlArray.push( link.hostname + link.pathname.replace( /^([^\/])/, "/$1" ) );
 					}
 				}
-				
+
 				// Cache the data in case of more than one execution (e.g., site menu + secondary navigation)
 				breadcrumbLinksArray = localBreadcrumbLinksArray;
 				breadcrumbLinksUrlArray = localBreadcrumbLinksUrlArray;
@@ -4724,7 +4726,7 @@ var $document = vapour.doc,
 				localBreadcrumbLinksArray = breadcrumbLinksArray;
 				localBreadcrumbLinksUrlArray = breadcrumbLinksUrlArray;
 			}
-		
+
 			// Try to match each breadcrumb link
 			len = menuLinksArray.length;
 			for ( j = localBreadcrumbLinksArray.length - 1; j !== -1; j -= 1 ) {
@@ -4759,18 +4761,19 @@ var $document = vapour.doc,
 // Bind the navcurrent event of the plugin
 $document.on( "navcurrent.wb", navCurrent );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
+
 /*
  * @title Responsive overlay
  * @overview Provides multiple styles of overlays such as panels and pop-ups
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @thomasgohard, @pjackson28
  */
-(function ( $, window, document, vapour ) {
+(function ( $, window, document, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
@@ -4780,7 +4783,7 @@ var selector = ".wb-overlay",
 	linkClass = "overlay-lnk",
 	ignoreOutsideClass = "outside-off",
 	sourceLinks = {},
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 
 	/*
@@ -4797,11 +4800,11 @@ var selector = ".wb-overlay",
 		if ( event.currentTarget === event.target ) {
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
-				i18n = window.i18n;
+				i18n = wb.i18n;
 				i18nText = {
 					close: i18n( "overlay-close" ) + i18n( "space" ) + i18n( "esc-key" )
 				};
@@ -4961,9 +4964,10 @@ $document.on( "click vclick touchstart focusin", "body", function ( event ) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * @title Prettify Plugin
@@ -4996,7 +5000,7 @@ window._timer.add( selector );
  *    - lang-xq
  *    - lang-yaml
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -5006,7 +5010,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-prettify",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -5025,7 +5029,7 @@ var selector = ".wb-prettify",
 	 */
 	init = function( event ) {
 		var elm = event.target,
-			modeJS = vapour.getMode() + ".js",
+			modeJS = wb.getMode() + ".js",
 			deps = [ "site!deps/prettify" + modeJS ],
 			$elm, classes, settings, i, len, $pre;
 
@@ -5033,12 +5037,12 @@ var selector = ".wb-prettify",
 		if ( event.currentTarget === elm ) {
 			$elm = $( elm );
 			classes = elm.className.split( " " );
-	
+
 			// Merge default settings with overrides from the selected plugin element. There may be more than one, so don't override defaults globally!
 			settings = $.extend( {}, defaults, $elm.data() );
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Check the element for `lang-*` syntax CSS classes
 			for ( i = 0, len = classes.length; i !== len; i += 1 ) {
@@ -5088,9 +5092,9 @@ $document
 	.on( "prettyprint.wb-prettify", prettyprint );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Resize
@@ -5098,19 +5102,19 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var id = "wb-resize",
 	selector = "#" + id,
-	$window = vapour.win,
-	$document = vapour.doc,
+	$window = wb.win,
+	$document = wb.doc,
 	sizes = [],
 	events = [
 		"text-resize.wb",
@@ -5177,7 +5181,7 @@ var id = "wb-resize",
 		if ( viewName !== currentView ) {
 
 			// Change the breakpoint class on the html element
-			vapour.html
+			wb.html
 				.removeClass( currentView )
 				.addClass( viewName );
 
@@ -5218,7 +5222,7 @@ var id = "wb-resize",
 			return;
 		}
 	};
-	
+
 // Re-test on each timerpoke
 $document.on( "timerpoke.wb", selector, test );
 
@@ -5226,9 +5230,9 @@ $document.on( "timerpoke.wb", selector, test );
 init();
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /*
  * @title WET-BOEW Session Timeout
@@ -5236,7 +5240,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @patheard
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -5246,7 +5250,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-session-timeout",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 
 	/*
@@ -5273,7 +5277,7 @@ var selector = ".wb-session-timeout",
 	init = function( event ) {
 		var elm = event.target,
 			$elm, settings;
-	
+
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
 			$elm = $( elm );
@@ -5282,11 +5286,11 @@ var selector = ".wb-session-timeout",
 			settings = $.extend( {}, defaults, $elm.data( "wet-boew" ) );
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
-				i18n = window.i18n;
+				i18n = wb.i18n;
 				i18nText = {
 					buttonContinue: i18n( "st-btn-cont" ),
 					buttonEnd: i18n( "st-btn-end" ),
@@ -5638,9 +5642,9 @@ $document.on( "timerpoke.wb keepalive.wb-session-timeout inactivity.wb-session-t
 $document.on( "click", ".wb-session-timeout-confirm", confirm );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /*
  * @title WET-BOEW Share widget
@@ -5648,18 +5652,18 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-share",
 	shareLink = "shr-lnk",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 
 	/*
@@ -5753,7 +5757,7 @@ var selector = ".wb-share",
 	},
 
 	/*
-	* Init runs once per plugin element on the page. There may be multiple elements. 
+	* Init runs once per plugin element on the page. There may be multiple elements.
 	* It will run more than once per plugin if you don't remove the selector from the timer.
 	* @method init
 	* @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
@@ -5766,10 +5770,10 @@ var selector = ".wb-share",
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
 			$elm = $( elm );
-			settings = $.extend( true, defaults, vapour.getData( $elm, "wet-boew" ) );
+			settings = $.extend( true, defaults, wb.getData( $elm, "wet-boew" ) );
 			sites = settings.sites;
 			heading = settings.heading;
-			pageHref = vapour.pageUrlParts.href;
+			pageHref = wb.pageUrlParts.href;
 			pageTitle = encodeURIComponent( document.title || $document.find( "h1:first" ).text() );
 
 			// Placeholders until source(s) can be determined and implemented
@@ -5777,11 +5781,11 @@ var selector = ".wb-share",
 			pageDescription = encodeURIComponent( "" );
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
-				i18n = window.i18n;
+				i18n = wb.i18n;
 				i18nText = {
 					shareText: i18n( "shr-txt" ),
 					disclaimer: i18n( "shr-disc" )
@@ -5789,7 +5793,7 @@ var selector = ".wb-share",
 			}
 
 			panel = "<section id='shr-pg' class='shr-pg wb-overlay modal-content overlay-def wb-panel-" +
-				( vapour.html.attr( "dir" ) === "rtl" ? "l" : "r" ) +
+				( wb.html.attr( "dir" ) === "rtl" ? "l" : "r" ) +
 				"'><header class='modal-header'><" + heading + " class='modal-title'>" +
 				i18nText.shareText + "</" + heading + "></header><ul class='colcount-xs-2'>";
 
@@ -5806,7 +5810,7 @@ var selector = ".wb-share",
 			panel += "</ul><div class='clearfix'></div><p class='col-sm-12'>" + i18nText.disclaimer + "</p></section>";
 			link = "<a href='#shr-pg' aria-controls='shr-pg' class='shr-opn overlay-lnk'><span class='glyphicon glyphicon-share'></span> " +
 				i18nText.shareText + "</a>";
-			
+
 			$share = $( panel + link );
 
 			$elm.append( $share );
@@ -5830,9 +5834,9 @@ $document.on( "click vclick", "." + shareLink, function( event) {
 });
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
 
 /*
  * @title WET-BOEW Tables
@@ -5840,7 +5844,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @jeresiv
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -5850,7 +5854,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-tables",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText, defaults,
 
 	/*
@@ -5868,11 +5872,11 @@ var selector = ".wb-tables",
 			$elm = $( elm );
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
-				i18n = window.i18n;
+				i18n = wb.i18n;
 				i18nText = {
 					oAria: {
 						sSortAscending: i18n( "sortAsc" ),
@@ -5912,9 +5916,9 @@ var selector = ".wb-tables",
 
 
 			Modernizr.load([{
-				load: [ "site!deps/jquery.dataTables" + vapour.getMode() + ".js" ],
+				load: [ "site!deps/jquery.dataTables" + wb.getMode() + ".js" ],
 				complete: function() {
-					$elm.dataTable( $.extend( true, defaults, vapour.getData( $elm, "wet-boew" ) ) );
+					$elm.dataTable( $.extend( true, defaults, wb.getData( $elm, "wet-boew" ) ) );
 				}
 			}]);
 		}
@@ -5924,9 +5928,9 @@ var selector = ".wb-tables",
 $document.on( "timerpoke.wb", selector, init );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title Tabbed Interface
@@ -5934,7 +5938,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
  */
- (function( $, window, vapour ) {
+ (function( $, window, wb ) {
  "use strict";
 
  /*
@@ -5944,7 +5948,7 @@ window._timer.add( selector );
   * variables that are common to all instances of the plugin on a page.
   */
  var selector = ".wb-tabs",
-	$document = vapour.doc,
+	$document = wb.doc,
 	i18n, i18nText,
 	controls = selector + " [role=tablist] a",
 
@@ -6027,7 +6031,7 @@ window._timer.add( selector );
 		for ( ; tabCounter !== -1; tabCounter -= 1 ) {
 			item = tabs[ tabCounter ];
 			isActive = item.className.indexOf( "in" ) !== -1;
-			
+
 			item.tabIndex = isActive ? "0" : "-1";
 			item.setAttribute( "aria-hidden", isActive ? "false" : "true" );
 			item.setAttribute( "aria-expanded", isActive ? "true" : "false" );
@@ -6059,7 +6063,7 @@ window._timer.add( selector );
 
 		// Only initialize the i18nText once
 		if ( !i18nText ) {
-			i18n = window.i18n;
+			i18n = wb.i18n;
 			i18nText = {
 				prev: i18n( "prv" ),
 				next: i18n( "nxt" ),
@@ -6242,7 +6246,7 @@ window._timer.add( selector );
 		$sldr = $elm
 			.parents( ".wb-tabs" )
 			.attr( "data-ctime", 0 );
-			
+
 		// Spacebar
 		if ( which > 36 ) {
 			onCycle( $elm, which < 39 ? -1 : 1 );
@@ -6257,7 +6261,7 @@ window._timer.add( selector );
 
 				text = elm.getElementsByTagName( "i" )[ 0 ];
 				text.innerHTML = text.innerHTML === playText ? i18nText.pause : playText;
-				
+
 				inv = $elm.find( ".wb-inv" )[ 0 ];
 				inv.innerHTML = inv.innerHTML === rotStopText ? i18nText.rotStart : rotStopText;
 			} else {
@@ -6274,9 +6278,9 @@ window._timer.add( selector );
  });
 
  // Add the timer poke to initialize the plugin
- window._timer.add( ".wb-tabs" );
+ wb.add( ".wb-tabs" );
 
- })( jQuery, window, vapour );
+ })( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Text highlighting
@@ -6284,20 +6288,20 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, vapour ) {
+(function( $, window, document, wb ) {
 "use strict";
 
-/* 
- * Variable and function definitions. 
+/*
+ * Variable and function definitions.
  * These are global to the plugin - meaning that they will be initialized once per page,
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-texthighlight",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
@@ -6309,10 +6313,10 @@ var selector = ".wb-texthighlight",
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
 			$elm = $( elm );
-			searchCriteria = vapour.pageUrlParts.params.texthighlight;
+			searchCriteria = wb.pageUrlParts.params.texthighlight;
 
 			// all plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			if ( searchCriteria ) {
 				// clean up the search criteria and OR each value
@@ -6334,16 +6338,17 @@ var selector = ".wb-texthighlight",
 $document.on( "timerpoke.wb", selector, init );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, document, vapour );
+})( jQuery, window, document, wb );
+
 /*
  * @title WET-BOEW Toggle
  * @overview Plugin that allows a link to toggle elements between on and off states.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @patheard
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -6353,8 +6358,8 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-toggle",
-	$document = vapour.doc,
-	$window = vapour.win,
+	$document = wb.doc,
+	$window = wb.win,
 	states = {},
 	defaults = {
 		stateOn: "on",
@@ -6375,7 +6380,7 @@ var selector = ".wb-toggle",
 		if ( event.currentTarget === link ) {
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			// Merge the elements settings with the defaults
 			$link = $( link );
@@ -6649,9 +6654,9 @@ $document.on( "timerpoke.wb aria.wb-toggle toggle.wb-toggle toggled.wb-toggle cl
 $document.on( "toggled.wb-toggle", "details", toggleDetails );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Twitter embedded timeline
@@ -6659,7 +6664,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -6669,7 +6674,7 @@ window._timer.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var selector = ".wb-twitter",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -6681,10 +6686,10 @@ var selector = ".wb-twitter",
 
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === event.target ) {
-			var protocol = vapour.pageUrlParts.protocol;
+			var protocol = wb.pageUrlParts.protocol;
 
 			// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			Modernizr.load( {
 				load: ( protocol.indexOf( "http" ) === -1 ? "http:" : protocol ) + "//platform.twitter.com/widgets.js"
@@ -6695,9 +6700,9 @@ var selector = ".wb-twitter",
 $document.on( "timerpoke.wb", selector, init );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );
 
 /*
  * @title WET-BOEW Disable Event
@@ -6705,7 +6710,7 @@ window._timer.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @gc
  */
-(function( $, window, vapour ) {
+(function( $, window, wb ) {
 "use strict";
 
 /*
@@ -6714,7 +6719,7 @@ window._timer.add( selector );
  * not once per instance of event on the page.
  */
 var selector = "#wb-tphp",
-	$document = vapour.doc,
+	$document = wb.doc,
 
 	/*
 	 * createOffer runs once per plugin element on the page.
@@ -6724,16 +6729,16 @@ var selector = "#wb-tphp",
 	createOffer = function( event ) {
 		var elm = event.target,
 			nQuery = "?",
-			$html = vapour.html,
-			i18n = window.i18n,
-			pageUrl = vapour.pageUrlParts,
+			$html = wb.html,
+			i18n = wb.i18n,
+			pageUrl = wb.pageUrlParts,
 			li, param;
 
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
 
 			// Let remove ourselves from the queue we only run once
-			window._timer.remove( selector );
+			wb.remove( selector );
 
 			li = document.createElement( "li" );
 			li.className = "wb-slc";
@@ -6745,7 +6750,7 @@ var selector = "#wb-tphp",
 				}
 			}
 
-			if ( vapour.isDisabled || ( vapour.ie && vapour.ielt7 ) ) {
+			if ( wb.isDisabled || ( wb.ie && wb.ielt7 ) ) {
 				$html.addClass( "no-js wb-disable" );
 				if ( localStorage ) {
 
@@ -6775,6 +6780,6 @@ var selector = "#wb-tphp",
 $document.on( "timerpoke.wb", selector, createOffer );
 
 // Add the timer poke to initialize the plugin
-window._timer.add( selector );
+wb.add( selector );
 
-})( jQuery, window, vapour );
+})( jQuery, window, wb );

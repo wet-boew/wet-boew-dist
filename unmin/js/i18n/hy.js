@@ -11,10 +11,10 @@
 /*
 ----- Armenian dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "hy",
 	"lang-nat": "Հայերեն",
 	"all": "Բոլորը",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Գրանցվել"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

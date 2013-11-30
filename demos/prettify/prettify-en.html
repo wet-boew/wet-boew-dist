@@ -59,11 +59,11 @@ div#gcwu-headlines ul li,div#gcwu-headlines ul{
 init = function() {
 	var cssClass, cssClasses, i, len, $pre,
 		$elm = $( this ),
-		modeJS = vapour.getMode() + ".js",
+		modeJS = wb.getMode() + ".js",
 		deps = [ "site!deps/prettify" + modeJS ],
 		settings = $.extend( {}, defaults, $elm.data() );
 
-	window._timer.remove( selector );
+	wb.remove( selector );
 
 	// Check the element for `lang-*` syntax CSS classes
 	cssClasses = typeof $elm[0].className === "string" ? $elm[0].className.split( " " ) : [];
@@ -93,7 +93,7 @@ init = function() {
 	Modernizr.load({
 		load: deps,
 		complete: function() {
-			vapour.doc.trigger( "prettyprint.wb-prettify" );
+			wb.doc.trigger( "prettyprint.wb-prettify" );
 		}
 	});
 }</code></pre> </section> </section> </div> </div> </main> <footer role="contentinfo" id="wb-info" class="container visible-md visible-lg"> <nav role="navigation" class="row"> <h2>Site Information</h2> <section class="col-sm-3"> <h3>About</h3> <ul class="list-unstyled"> <li><a href="/v4.0-ci/index-en.html#about">About the Web Experience Toolkit</a></li> <li><a href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li> </ul> </section> <section class="col-sm-3"> <h3>Contact us</h3> <ul class="list-unstyled"> <li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li> </ul> </section> <section class="col-sm-3"> <h3>News</h3> <ul class="list-unstyled"> <li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li> <li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li> </ul> </section> <section class="col-sm-3"> <h3>Stay connected</h3> <ul class="list-unstyled"> <li><a href="https://twitter.com/WebExpToolkit">Twitter</a></li> </ul> </section> </nav> </footer> <!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> <script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]><script src="../../js/ie8-wet-boew2.min.js"></script><![endif]--> </body> </html>

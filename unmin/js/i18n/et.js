@@ -11,10 +11,10 @@
 /*
 ----- Estonian dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "et",
 	"lang-nat": "Eesti keel",
 	"all": "Kõik",
@@ -174,11 +174,9 @@ var ind = {
 	"tmpl-signin": "Logi sisse"
 };
 
-window.i18nObj = ind;
+})( wb );
 
-})( window );
-
-vapour.doc.one( "formLanguages.wb", function() {
+wb.doc.one( "formLanguages.wb", function() {
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: ET (Estonian; eesti, eesti keel)

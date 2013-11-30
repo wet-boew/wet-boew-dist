@@ -11,10 +11,10 @@
 /*
 ----- Portuguese dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "pt",
 	"lang-nat": "Português",
 	"all": "Todos",
@@ -174,11 +174,9 @@ var ind = {
 	"tmpl-signin": "Entrar"
 };
 
-window.i18nObj = ind;
+})( wb );
 
-})( window );
-
-vapour.doc.one( "formLanguages.wb", function() {
+wb.doc.one( "formLanguages.wb", function() {
 
 /*
  * Localized default methods for the jQuery validation plugin.

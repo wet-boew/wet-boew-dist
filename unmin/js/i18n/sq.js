@@ -11,10 +11,10 @@
 /*
 ----- Albanian dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "sq",
 	"lang-nat": "Shqip",
 	"all": "Të gjithë",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Kyqeni në"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

@@ -11,10 +11,10 @@
 /*
 ----- Afrikaans dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "af",
 	"lang-nat": "Afrikaans",
 	"all": "Alle",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Teken In"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

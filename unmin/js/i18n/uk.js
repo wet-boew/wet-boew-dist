@@ -11,10 +11,10 @@
 /*
 ----- Ukrainian dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "uk",
 	"lang-nat": "Українська мова",
 	"all": "Все",
@@ -174,11 +174,9 @@ var ind = {
 	"tmpl-signin": "Увійти"
 };
 
-window.i18nObj = ind;
+})( wb );
 
-})( window );
-
-vapour.doc.one( "formLanguages.wb", function() {
+wb.doc.one( "formLanguages.wb", function() {
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: UK (Ukrainian; українська мова)

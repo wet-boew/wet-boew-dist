@@ -11,10 +11,10 @@
 /*
 ----- Korean dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "ko",
 	"lang-nat": "한국어",
 	"all": "모든",
@@ -174,11 +174,9 @@ var ind = {
 	"tmpl-signin": "로그인"
 };
 
-window.i18nObj = ind;
+})( wb );
 
-})( window );
-
-vapour.doc.one( "formLanguages.wb", function() {
+wb.doc.one( "formLanguages.wb", function() {
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: KO (Korean; 한국어)

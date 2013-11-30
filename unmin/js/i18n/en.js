@@ -11,10 +11,10 @@
 /*
 ----- English dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "en",
 	"lang-nat": "English",
 	"all": "All",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Sign in"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );

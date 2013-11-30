@@ -11,10 +11,10 @@
 /*
 ----- Portuguese (Brazilian) dictionary (il8n) ---
  */
-( function( window ) {
+( function( wb ) {
 "use strict";
 /* main index */
-var ind = {
+wb.i18nDict = {
 	"lang-code": "pt-BR",
 	"lang-nat": "Português do Brasil",
 	"all": "Tudo",
@@ -174,6 +174,4 @@ var ind = {
 	"tmpl-signin": "Iniciar a sessão"
 };
 
-window.i18nObj = ind;
-
-})( window );
+})( wb );
