@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-11-29
+ * v4.0.0-a1-development - 2013-11-30
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -278,7 +278,7 @@ window._timer = {
 
 	}
 };
- 
+
 /*-----------------------------
  * Modernizr Polyfill Loading
  *-----------------------------*/
@@ -307,14 +307,9 @@ Modernizr.load([
 			"plyfll!slider.min.js",
 			"plyfll!slider.min.css"
 		],
-		callback: function() {
-
-			// If the slider file has loaded then fire the onDomReady event
-			if ( "fdSlider" in window && typeof ( window.fdSlider.onDomReady ) !== "undefined" ) {
-				try {
-					window.fdSlider.onDomReady();
-				} catch( err ) {
-				}
+		callback: function( url ) {
+			if ( url === "slider.min.js" ) {
+				window.fdSlider.onDomReady();
 			}
 		}
 	}, {
