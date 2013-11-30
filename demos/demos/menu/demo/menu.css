@@ -137,14 +137,14 @@
           #wb-sm .menu .sm.open li a {
             padding-left: 35px;
             color: white; }
-      #wb-sm .menu:target .wb-nav {
+      #wb-sm .menu:target .wb-info {
         background: #1b3452;
         padding: 20px 0;
         font-size: 14px;
         color: #90a4b4; }
-    #wb-sm .wb-nav > ul > li {
+    #wb-sm .wb-info > ul > li {
       padding: 0 10px 0 25px; }
-    #wb-sm .wb-nav a {
+    #wb-sm .wb-info a {
       padding: 5px 5px 5px 10px;
       color: white;
       text-decoration: none;
