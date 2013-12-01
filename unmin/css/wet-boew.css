@@ -10139,6 +10139,83 @@ tbody.cal-days a.cal-event {
  */
 
 .wb-tabs {
+  /*
+	 * Large screen styles
+	 */
+  /**
+	 * Mobile-friendly styles
+	 */
+}
+
+@media (min-width: 785px) {
+  .wb-tabs > details {
+    border: 1px solid #adadad;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
+    padding: 6px 12px;
+    margin-top: -1px;
+    /* ie 8 doesn't support :not selector */
+    /* work-around for ie 8 */
+    display: none;
+    /* remove work-around once ie 8 support is dropped */
+  }
+
+  .wb-tabs > details:not([open]),
+  .wb-tabs > details.out {
+    display: none;
+  }
+
+  .wb-tabs > details[open],
+  .wb-tabs > details.in {
+    display: block;
+  }
+
+  .wb-tabs > details > summary {
+    font-size: 0;
+  }
+
+  .wb-tabs > [role=tablist] > button {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .wb-tabs > [role=tablist] > button.active {
+    font-weight: bold;
+  }
+
+  .wb-tabs > [role=tablist] > button:focus {
+    outline: 1px solid #5e9ed6;
+  }
+}
+
+@media (max-width: 784px) {
+  .wb-tabs > details {
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+  }
+
+  .wb-tabs > [role=tablist] > button {
+    display: none;
+  }
+}
+
+/**
+ * Javascript disabled styles
+ */
+
+.no-js .wb-tabs > details > summary {
+  font-size: 1em;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+.wb-carousel {
   /**
 	 * Shared variables
 	 */
@@ -10154,14 +10231,14 @@ tbody.cal-days a.cal-event {
 	 */
 }
 
-.wb-tabs [role="tablist"] {
+.wb-carousel [role="tablist"] {
   position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.wb-tabs [role="tablist"] li {
+.wb-carousel [role="tablist"] li {
   display: inline-block;
   cursor: pointer;
   margin: 0 1px 0 0;
@@ -10173,60 +10250,60 @@ tbody.cal-days a.cal-event {
   position: relative;
 }
 
-.wb-tabs [role="tablist"] li a {
+.wb-carousel [role="tablist"] li a {
   text-decoration: none;
   color: black;
   display: inline-block;
   padding: 7px;
 }
 
-.wb-tabs [role="tablist"] li:focus,
-.wb-tabs [role="tablist"] li:hover {
+.wb-carousel [role="tablist"] li:focus,
+.wb-carousel [role="tablist"] li:hover {
   background: #cccccc;
   background: rgba(204, 204, 204, 0.9);
 }
 
-.wb-tabs [role="tablist"] li.active {
+.wb-carousel [role="tablist"] li.active {
   background: #cccccc;
   background: rgba(204, 204, 204, 0.9);
   cursor: default;
 }
 
-.wb-tabs [role="tablist"] li.active a {
+.wb-carousel [role="tablist"] li.active a {
   cursor: default;
 }
 
-.wb-tabs [role="tabpanel"].out {
+.wb-carousel [role="tabpanel"].out {
   display: none;
 }
 
-.wb-tabs.tabs-s1 [role="tablist"] {
+.wb-carousel.carousel-s1 [role="tablist"] {
   position: absolute;
   bottom: 1em;
   left: 1em;
   z-index: 100;
 }
 
-.wb-tabs.tabs-s1 [role="tablist"] li.active,
-.wb-tabs.tabs-s1 [role="tablist"] li:focus,
-.wb-tabs.tabs-s1 [role="tablist"] li:hover {
+.wb-carousel.carousel-s1 [role="tablist"] li.active,
+.wb-carousel.carousel-s1 [role="tablist"] li:focus,
+.wb-carousel.carousel-s1 [role="tablist"] li:hover {
   top: 1px;
 }
 
-.wb-tabs.tabs-s1 [role="tabpanel"] {
+.wb-carousel.carousel-s1 [role="tabpanel"] {
   z-index: 1;
 }
 
-.wb-tabs.tabs-s1 [role="tabpanel"] figure {
+.wb-carousel.carousel-s1 [role="tabpanel"] figure {
   position: relative;
 }
 
-.wb-tabs.tabs-s1 [role="tabpanel"] figure img {
+.wb-carousel.carousel-s1 [role="tabpanel"] figure img {
   width: 100%;
   height: auto;
 }
 
-.wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption {
+.wb-carousel.carousel-s1 [role="tabpanel"] figure figcaption {
   position: absolute;
   top: 3em;
   right: 1em;
@@ -10236,15 +10313,15 @@ tbody.cal-days a.cal-event {
   padding: 1em;
 }
 
-.wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption a {
+.wb-carousel.carousel-s1 [role="tabpanel"] figure figcaption a {
   color: white;
 }
 
-.wb-tabs.tabs-s2 {
+.wb-carousel.carousel-s2 {
   margin-bottom: 60px;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] {
+.wb-carousel.carousel-s2 [role="tablist"] {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -10252,33 +10329,33 @@ tbody.cal-days a.cal-event {
   visibility: hidden;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li {
+.wb-carousel.carousel-s2 [role="tablist"] li {
   border: none;
   visibility: visible;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle) {
+.wb-carousel.carousel-s2 [role="tablist"] li:not(.control) {
   padding: 4px;
   top: 100%;
   background: #eeeeee;
   background: rgba(238, 238, 238, 0.9);
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle).active,
-.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle):focus,
-.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle):hover {
+.wb-carousel.carousel-s2 [role="tablist"] li:not(.control).active,
+.wb-carousel.carousel-s2 [role="tablist"] li:not(.control):focus,
+.wb-carousel.carousel-s2 [role="tablist"] li:not(.control):hover {
   -webkit-box-shadow: 0 0 4px #243850;
   box-shadow: 0 0 4px #243850;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle).active a img {
+.wb-carousel.carousel-s2 [role="tablist"] li:not(.control).active a img {
   /* Firefox 10+, Firefox on Android */
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
   -webkit-filter: grayscale(0%);
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li:not(.tabs-toggle) a img {
+.wb-carousel.carousel-s2 [role="tablist"] li:not(.control) a img {
   -webkit-box-shadow: none;
   box-shadow: none;
   /* Firefox 10+, Firefox on Android */
@@ -10290,22 +10367,22 @@ tbody.cal-days a.cal-event {
   max-height: 50px;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle {
+.wb-carousel.carousel-s2 [role="tablist"] li.control {
   position: absolute;
   top: 0;
   bottom: 0;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv {
   left: 0;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt {
   right: 0;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt {
   height: 100%;
   width: 3em;
   background: none;
@@ -10313,8 +10390,8 @@ tbody.cal-days a.cal-event {
   padding: 0;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10324,67 +10401,67 @@ tbody.cal-days a.cal-event {
   border: none;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.prv,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.prv {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.prv,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.prv {
   background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.prv .glyphicon,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.prv .glyphicon {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.prv .glyphicon,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.prv .glyphicon {
   left: 0.25em;
   padding-top: 1px;
   padding-right: 2px;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.nxt,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.nxt {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.nxt,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.nxt {
   background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a.nxt .glyphicon,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a.nxt .glyphicon {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.nxt .glyphicon,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.nxt .glyphicon {
   right: 0.25em;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover {
   background: transparent;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus.prv,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover.prv,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus.prv,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover.prv {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus.prv,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover.prv,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus.prv,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover.prv {
   background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus.nxt,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover.nxt,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus.nxt,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover.nxt {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus.nxt,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover.nxt,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus.nxt,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover.nxt {
   background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:focus .glyphicon,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a:hover .glyphicon,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:focus .glyphicon,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a:hover .glyphicon {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus .glyphicon,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover .glyphicon,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus .glyphicon,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover .glyphicon {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a .glyphicon,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a .glyphicon {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a .glyphicon,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10400,43 +10477,42 @@ tbody.cal-days a.cal-event {
   box-shadow: 0 0 4px #243850;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a .glyphicon:focus,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.prv a .glyphicon:hover,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a .glyphicon:focus,
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.nxt a .glyphicon:hover {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:focus,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:hover,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:focus,
+.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.plypause {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.plypause {
   background: none;
   border: none;
   display: inline-block !important;
-  font-size: 0.75em;
   top: 100%;
   right: 0;
   padding: 2px 10px;
 }
 
-.wb-tabs.tabs-s2 [role="tablist"] li.tabs-toggle.plypause i {
+.wb-carousel.carousel-s2 [role="tablist"] li.control.plypause i {
   color: black !important;
   font-style: normal;
 }
 
-.wb-tabs.tabs-s2 [role="tabpanel"] {
+.wb-carousel.carousel-s2 [role="tabpanel"] {
   z-index: 1;
 }
 
-.wb-tabs.tabs-s2 [role="tabpanel"] figure {
+.wb-carousel.carousel-s2 [role="tabpanel"] figure {
   position: relative;
 }
 
-.wb-tabs.tabs-s2 [role="tabpanel"] figure img {
+.wb-carousel.carousel-s2 [role="tabpanel"] figure img {
   width: 100%;
   height: auto;
 }
 
-.wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption {
+.wb-carousel.carousel-s2 [role="tabpanel"] figure figcaption {
   position: absolute;
   bottom: 1em;
   left: 3em;
@@ -10446,15 +10522,15 @@ tbody.cal-days a.cal-event {
   padding: 1em;
 }
 
-.wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption a {
+.wb-carousel.carousel-s2 [role="tabpanel"] figure figcaption a {
   color: white;
 }
 
-.no-js .wb-tabs [role="tablist"] {
+.no-js .wb-carousel [role="tablist"] {
   display: none;
 }
 
-.no-js .wb-tabs [role="tabpanel"] {
+.no-js .wb-carousel [role="tabpanel"] {
   display: block;
   opacity: 1;
 }
@@ -10610,8 +10686,8 @@ details summary:hover {
  * Mobile-friendly styles
  */
 
-  .wb-tabs.tabs-s1 [role="tabpanel"] figure figcaption,
-  .wb-tabs.tabs-s2 [role="tabpanel"] figure figcaption {
+  .wb-carousel.carousel-s1 [role="tabpanel"] figure figcaption,
+  .wb-carousel.carousel-s2 [role="tabpanel"] figure figcaption {
     position: relative;
     top: auto;
     right: 0;
@@ -10619,9 +10695,13 @@ details summary:hover {
     left: 0;
   }
 
-  .wb-tabs.tabs-s1 [role="tablist"] {
+  .wb-carousel.carousel-s1 [role="tablist"] {
     bottom: auto;
     top: 1em;
+  }
+
+  .wb-carousel.carousel-s2 [role="tablist"] li:not(.control) {
+    display: none;
   }
 }
 
