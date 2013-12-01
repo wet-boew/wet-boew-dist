@@ -10138,6 +10138,11 @@ tbody.cal-days a.cal-event {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
 .wb-tabs {
   /*
 	 * Large screen styles
@@ -10147,6 +10152,10 @@ tbody.cal-days a.cal-event {
 	 */
 }
 
+.wb-tabs > details {
+  padding: 6px 12px;
+}
+
 @media (min-width: 785px) {
   .wb-tabs > details {
     border: 1px solid #adadad;
@@ -10154,22 +10163,12 @@ tbody.cal-days a.cal-event {
     border-bottom-right-radius: 4px;
     -webkit-box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
     box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
-    padding: 6px 12px;
     margin-top: -1px;
-    /* ie 8 doesn't support :not selector */
-    /* work-around for ie 8 */
-    display: none;
-    /* remove work-around once ie 8 support is dropped */
   }
 
   .wb-tabs > details:not([open]),
   .wb-tabs > details.out {
     display: none;
-  }
-
-  .wb-tabs > details[open],
-  .wb-tabs > details.in {
-    display: block;
   }
 
   .wb-tabs > details > summary {
