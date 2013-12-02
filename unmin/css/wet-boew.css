@@ -8610,6 +8610,7 @@ div.errCnt ul {
 
 .wb-formvalid label strong.error,
 .wb-formvalid legend .error {
+  display: block;
   font-weight: 700;
   color: #cc0000;
 }
