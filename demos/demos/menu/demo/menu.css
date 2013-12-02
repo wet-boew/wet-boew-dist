@@ -15,9 +15,9 @@
     .menu-demo .menu > li > a {
       color: white;
       padding: 1em;
-      border-left: 2px ridge #284468; }
-    .menu-demo .menu > li:last-child a {
       border-right: 2px ridge #284468; }
+    .menu-demo .menu > li:first-child a {
+      border-left: 2px ridge #284468; }
 .menu-demo .sm.open {
   box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
   border-left: none;

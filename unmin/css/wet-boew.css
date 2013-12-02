@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-01
+ * v4.0.0-a1-development - 2013-12-02
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -8557,13 +8557,17 @@ code {
   width: 4em;
 }
 
-.wb-mm-ctrls .tline .textonly p {
+.wb-mm-ctrls .tline .textonly .wb-mm-tmln-crrnt,
+.wb-mm-ctrls .tline .textonly .wb-mm-tmln-ttl {
   display: inline !important;
-  float: left;
   margin: 0;
 }
 
-.wb-mm-ctrls .tline .textonly p:last-child {
+.wb-mm-ctrls .tline .textonly .wb-mm-tmln-crrnt {
+  float: left;
+}
+
+.wb-mm-ctrls .tline .textonly .wb-mm-tmln-ttl {
   float: right;
 }
 
@@ -10166,7 +10170,7 @@ tbody.cal-days a.cal-event {
     margin-top: -1px;
   }
 
-  .wb-tabs > details:not([open]),
+  .wb-tabs > details[aria-expanded="false"],
   .wb-tabs > details.out {
     display: none;
   }
@@ -10333,28 +10337,28 @@ tbody.cal-days a.cal-event {
   visibility: visible;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li:not(.control) {
+.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"] {
   padding: 4px;
   top: 100%;
   background: #eeeeee;
   background: rgba(238, 238, 238, 0.9);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li:not(.control).active,
-.wb-carousel.carousel-s2 [role="tablist"] li:not(.control):focus,
-.wb-carousel.carousel-s2 [role="tablist"] li:not(.control):hover {
+.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"].active,
+.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"]:focus,
+.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"]:hover {
   -webkit-box-shadow: 0 0 4px #243850;
   box-shadow: 0 0 4px #243850;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li:not(.control).active a img {
+.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"].active a img {
   /* Firefox 10+, Firefox on Android */
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
   -webkit-filter: grayscale(0%);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li:not(.control) a img {
+.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"] a img {
   -webkit-box-shadow: none;
   box-shadow: none;
   /* Firefox 10+, Firefox on Android */
@@ -10564,7 +10568,7 @@ datalist {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-details:not([open])> * {
+details[aria-expanded="false"]> * {
   display: none;
 }
 
@@ -10699,7 +10703,7 @@ details summary:hover {
     top: 1em;
   }
 
-  .wb-carousel.carousel-s2 [role="tablist"] li:not(.control) {
+  .wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"] {
     display: none;
   }
 }
