@@ -8595,12 +8595,10 @@ code {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-%formvalid-error,
 div.errCnt p {
   font-weight: 700;
 }
 
-%formvalid-error,
 .wb-formvalid label {
   display: block;
 }
@@ -8612,6 +8610,7 @@ div.errCnt ul {
 
 .wb-formvalid label strong.error,
 .wb-formvalid legend .error {
+  font-weight: 700;
   color: #cc0000;
 }
 
@@ -9800,12 +9799,6 @@ table.dataTable tr.even td.sorting_3 {
   width: 32px;
   margin-right: 12px;
   vertical-align: middle;
-}
-
-.wb-share {
-  /*
-		TODO: Convert @include to @extend when libsass supports nested extends
-	*/
 }
 
 .wb-share .shr-lnk {
