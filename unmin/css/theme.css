@@ -210,8 +210,9 @@
   text-decoration: underline;
 }
 
-#wb-sm .menu> li> a.wb-navcurr {
+#wb-sm .menu> li> a.wb-navcurr:link {
   background: #0b3048;
+  color: white;
 }
 
 #wb-sm .menu> li:last-child a {
