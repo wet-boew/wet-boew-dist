@@ -9847,7 +9847,7 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-share .bitly:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 0px;
+  background-position: 0 0;
 }
 
 .wb-share .blogger:before {

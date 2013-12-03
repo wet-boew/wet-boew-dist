@@ -4880,6 +4880,7 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 		break;
 
 	case "ended":
+		this.loading = clearTimeout( this.loading );
 		button = $this.find( ".playpause .glyphicon" )
 			.removeClass( "glyphicon-pause" )
 			.addClass( "glyphicon-play" )
@@ -4956,10 +4957,13 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 		break;
 
 	case "waiting":
-		$this.find( ".display" ).addClass( "waiting" );
+		this.loading = setTimeout( function() {
+			$this.find( ".display" ).addClass( "waiting" );
+		}, 500 );
 		break;
 
 	case "canplay":
+		this.loading = clearTimeout( this.loading );
 		$this.find( ".display" ).removeClass( "waiting" );
 		break;
 
