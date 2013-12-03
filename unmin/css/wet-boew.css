@@ -8262,7 +8262,10 @@ code {
   margin-right: 50px;
 }
 
-[class*=brdr] {
+.brdr-lft,
+.brdr-rght,
+.brdr-tp,
+.brdr-bttm {
   border: solid 0 #cccccc;
 }
 
@@ -8291,335 +8294,44 @@ code {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-/*
- Menu Sass
-*/
-
-.wb-menu .menu> li a:hover,
-.wb-menu .menu> li a:focus,
-.wb-menu .active> a {
-  text-decoration: none;
+ul.ev-details,
+ul.ev-details a {
+  background-color: white;
 }
 
-.expicon {
-  width: 0;
-  height: 0;
-  border-left: 0.35em solid transparent;
-  border-right: 0.35em solid transparent;
-  border-top: 0.35em solid white;
-  position: relative;
-  left: 0.75em;
-  top: 0.75em;
-  margin-right: 0.35em;
+tbody.cal-days ul.ev-details li a:hover,
+tbody.cal-days ul.ev-details li a:focus,
+tbody.cal-days a.cal-event {
+  color: white !important;
 }
 
-.wb-menu .sm {
-  display: none;
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-}
-
-.wb-menu .sm.open {
-  max-height: 1000px;
-  display: inline;
-  position: absolute;
-  z-index: 100;
-  text-transform: none;
-  top: auto;
-}
-
-.wb-menu .sm.open li {
-  display: block;
-}
-
-.wb-menu .sm.open li a {
-  text-align: left;
-}
-
-.wb-menu .menu {
-  display: table;
-  position: relative;
-}
-
-.wb-menu .menu> li {
-  position: relative;
-  display: table-cell;
-}
-
-.wb-menu .menu> li a {
-  text-align: center;
-  display: block;
-}
-
-.wb-menu .sm-open .expicon {
-  border-color: transparent !important;
-}
-
-[dir=rtl] .wb-menu .menu {
-  padding-right: 0;
-}
-
-[dir=rtl] .wb-menu .sm.open li a {
-  text-align: right;
-}
-
-[dir=rtl] .expicon {
-  left: auto;
-  right: 0.75em;
-  margin-right: 0;
-  margin-left: 0.35em;
-}
-
-/*
-  Multimedia Player Code
- */
-
-.wb-mm-ctrls .wb-mm-txtonly,
-.xxsmallview .wb-mm-prgrss,
-.mediumview .col-md-1 .wb-mm-prgrss,
-.mediumview .col-md-2 .wb-mm-prgrss,
-.mediumview .col-md-3 .wb-mm-prgrss,
-.largeview .col-md-1 .wb-mm-prgrss,
-.largeview .col-md-2 .wb-mm-prgrss,
-.largeview .col-md-3 .wb-mm-prgrss,
-.xlargeview .col-md-1 .wb-mm-prgrss,
-.xlargeview .col-md-2 .wb-mm-prgrss,
-.xlargeview .col-md-3 .wb-mm-prgrss,
-.xxlargeview .col-md-1 .wb-mm-prgrss,
-.xxlargeview .col-md-2 .wb-mm-prgrss,
-.xxlargeview .col-md-3 .wb-mm-prgrss {
-  display: none;
-}
-
-.xxsmallview .wb-mm-txtonly,
-.mediumview .col-md-1 .wb-mm-txtonly,
-.mediumview .col-md-2 .wb-mm-txtonly,
-.mediumview .col-md-3 .wb-mm-txtonly,
-.largeview .col-md-1 .wb-mm-txtonly,
-.largeview .col-md-2 .wb-mm-txtonly,
-.largeview .col-md-3 .wb-mm-txtonly,
-.xlargeview .col-md-1 .wb-mm-txtonly,
-.xlargeview .col-md-2 .wb-mm-txtonly,
-.xlargeview .col-md-3 .wb-mm-txtonly,
-.xxlargeview .col-md-1 .wb-mm-txtonly,
-.xxlargeview .col-md-2 .wb-mm-txtonly,
-.xxlargeview .col-md-3 .wb-mm-txtonly {
-  display: block;
-}
-
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-
-  to {
-    -webkit-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.wb-mltmd .display.waiting:after,
-.wb-mltmd .display.waiting:before {
-  content: " ";
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.wb-mltmd {
-  display: block;
-  /*
-	  Light Skinning of mediacontrols
-	 */
-}
-
-.wb-mltmd video {
-  width: 100%;
-  height: auto;
-}
-
-.wb-mltmd .btn {
-  border-top-right-radius: 0 !important;
-  border-top-left-radius: 0 !important;
-  background: transparent;
-  border: 0;
-  color: white;
-}
-
-.wb-mltmd progress:focus,
-.wb-mltmd .btn:focus {
-  outline: white thin dotted;
-}
-
-.wb-mltmd .display {
-  position: relative;
-  padding-bottom: 52.25%;
-  padding-top: 22px;
-  background: black;
-  height: 0;
-}
-
-.wb-mltmd .display iframe,
-.wb-mltmd .display video,
-.wb-mltmd .display object,
-.wb-mltmd .display embed,
-.wb-mltmd .display .wb-mm-ovrly {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.wb-mltmd .display.waiting:after {
-  background: url(../assets/loading.png) center center no-repeat;
-  -webkit-animation-name: spin;
-  animation-name: spin;
-  -webkit-animation-duration: 1000ms;
-  animation-duration: 1000ms;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  z-index: 2;
-}
-
-.wb-mltmd .display.waiting:before {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  z-index: 1;
-}
-
-.wb-mltmd .wb-mm-ovrly {
-  background: transparent;
-  text-indent: -9999px;
-  border: 0;
+ul.ev-details {
   padding: 0;
-}
-
-.wb-mltmd .wb-mm-ovrly img {
-  width: 100%;
-}
-
-.wb-mltmd .wb-mm-ovrly.playing img {
-  visibility: hidden;
-}
-
-.wb-mltmd .wb-mm-ovrly.playing .errmsg {
-  display: none;
-}
-
-.wb-mltmd[data-youtube] .wb-mm-ovrly {
-  visibility: hidden;
-}
-
-.wb-mltmd.skn-lt {
-  color: black;
-  border-bottom: 1px solid #dddddd;
-}
-
-.wb-mltmd.skn-lt .wb-mm-ctrls {
-  background: white;
-  color: black;
-}
-
-.wb-mltmd.skn-lt .btn {
-  background: white;
-  color: black;
-  border: 0;
-}
-
-.wb-mm-cc {
-  background-color: black;
-  color: white;
-  text-align: center;
-  padding: 0;
-  max-height: 0;
-  -webkit-transition: all 0.26s ease;
-  transition: all 0.26s ease;
-}
-
-.wb-mm-cc.on {
-  padding: 0.5em;
-  max-height: 999em;
-}
-
-.wb-mm-ctrls {
-  display: table;
-  background: black;
-  color: white;
-  position: relative;
-  width: 100%;
-  /* Progress Bar */
-}
-
-.wb-mm-ctrls .frstpnl,
-.wb-mm-ctrls .lastpnl,
-.wb-mm-ctrls .tline {
-  vertical-align: middle;
-  display: table-cell;
-}
-
-.wb-mm-ctrls .frstpnl {
-  width: 6em;
-}
-
-.wb-mm-ctrls .lastpnl {
-  text-align: right;
-  width: 4em;
-}
-
-.wb-mm-ctrls .tline .wb-mm-tmln-crrnt,
-.wb-mm-ctrls .tline .wb-mm-tmln-ttl {
-  display: inline !important;
+  position: absolute;
+  z-index: 5;
+  border: 1px solid #333333;
+  width: 10em;
   margin: 0;
+  margin-top: -0.5em;
+  font-weight: 400;
 }
 
-.wb-mm-ctrls .tline .wb-mm-tmln-crrnt {
-  float: left;
+ul.ev-details a {
+  padding: 0.5em;
 }
 
-.wb-mm-ctrls .tline .wb-mm-tmln-ttl {
-  float: right;
-}
-
-.wb-mm-ctrls progress {
-  width: 100%;
-  height: 14px;
-  display: block;
-  /* Important Thing */
-  -webkit-appearance: none;
+tbody.cal-days ul.ev-details li {
   border: none;
-  /* Now the value part */
+  width: 100%;
+  list-style-type: none !important;
 }
 
-.wb-mm-ctrls progress::-webkit-progress-bar,
-.wb-mm-ctrls progress::-moz-progress-bar {
-  background: white;
+tbody.cal-days ul.ev-details li a {
+  color: black;
+  width: auto;
 }
 
-.wb-mm-ctrls progress::-webkit-progress-value {
+tbody.cal-days a.cal-event {
   background: #176ca7;
 }
 
@@ -8628,41 +8340,111 @@ code {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-div.errCnt p {
-  font-weight: 700;
+.cal-cnt .cal-goto legend,
+.cal-cnt .cal-goto-mnth,
+.cal-cnt .cal-goto-yr,
+.cal-cnt .cal-goto-btn {
+  position: relative;
 }
 
-.wb-formvalid label {
+.cal-cnt {
+  width: 18em;
+  text-shadow: none;
+}
+
+.cal-cnt {
+  background: white;
+}
+
+.cal-cnt * {
+  font-size: 100%;
+}
+
+.cal-cnt .cal-hd {
+  overflow: hidden;
+  padding: 0.5em 4px;
+  text-align: center;
+  position: relative;
+}
+
+.cal-cnt .cal-mnth {
+  font-size: 110%;
+}
+
+.cal-cnt .cal-goto fieldset {
+  margin-bottom: 34px;
+  border-bottom: 1px solid white;
+}
+
+.cal-cnt .cal-goto legend {
+  margin-bottom: 10px;
+}
+
+.cal-cnt .cal-goto-lnk {
+  margin: 0 0 0.5em 0;
+  padding: 0 !important;
+}
+
+.cal-cnt .cal-goto-mnth,
+.cal-cnt .cal-goto-yr,
+.cal-cnt .cal-goto-btn {
+  display: inline-block;
+  margin: 10px 5px;
+}
+
+.cal-cnt .cal-goto-btn input {
+  padding: 0.1em 0.2em;
+  min-width: 5em;
+}
+
+.cal-cnt td {
+  border: 1px solid #aaaaaa;
+  padding: 0;
+  text-align: center;
+}
+
+.cal-nxtmnth,
+.cal-prvmnth {
   display: block;
+  background: none;
+  border: none;
+  position: absolute;
+  bottom: 0;
+  width: 44px;
+  height: 44px;
 }
 
-div.errCnt p,
-div.errCnt ul {
-  margin-right: 0;
+.cal-nxtmnth:focus,
+.cal-prvmnth:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
 }
 
-.wb-formvalid label strong.error,
-.wb-formvalid legend .error {
+.cal-prvmnth {
+  left: 0;
+}
+
+.cal-nxtmnth {
+  right: 0;
+}
+
+.cal-wd {
+  color: white;
+  border: 1px solid #333333;
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+.cal-days a,
+.cal-days div {
   display: block;
-  font-weight: 700;
-  color: #cc0000;
+  height: 100%;
+  padding: 0.5em 0;
+  width: 100%;
 }
 
-.wb-formvalid input[type=checkbox]+ label {
-  display: inline;
-  margin-top: 0;
-}
-
-div.errCnt p {
-  margin-left: 0;
-}
-
-div.errCnt ul {
-  margin-left: 30px;
-}
-
-div.errCnt ul li {
-  margin-bottom: 5px;
+.cal-days .cal-currday {
+  font-weight: bolder;
 }
 
 /*
@@ -8670,42 +8452,54 @@ div.errCnt ul li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.mfp-close:focus,
-.mfp-arrow:focus {
-  outline: 1px dotted;
-  outline-offset: -2px;
-  outline-color: white;
+.cal-cnt .cal-hd,
+.cal-cnt .cal-nxtmnth:hover,
+.cal-cnt .cal-nxtmnth:focus,
+.cal-cnt .cal-prvmnth:hover,
+.cal-cnt .cal-prvmnth:focus,
+.cal-cnt .cal-goto legend,
+.cal-currday {
+  color: white;
 }
 
-.lb-hide-gal li {
-  list-style-type: none;
-  display: none;
+.cal-cnt .cal-goto-lnk a,
+.cal-days a:hover,
+.cal-days a:focus,
+.cal-currday a {
+  color: white !important;
 }
 
-.lb-hide-gal li:first-child {
-  display: block;
+.cal-cnt .cal-hd,
+.cal-days a:hover,
+.cal-days a:focus {
+  background: #333333;
 }
 
-.mfp-close {
+.cal-currday,
+.cal-currday a {
+  background-color: #333333;
+}
+
+.cal-cnt .cal-wd {
+  background: #555555;
+  border-color: #333333;
+}
+
+.cal-cnt .cal-hd {
   font-weight: 700;
-  /* Should fix upstream rather than overriding in WET */
 }
 
-.mfp-arrow {
-  /* Should fix upstream rather than overriding in WET */
+.cal-cnt .cal-nxtmnth,
+.cal-cnt .cal-prvmnth {
+  color: #cccccc;
 }
 
-/* Should fix upstream rather than overriding in WET */
-
-.mfp-bottom-bar .mfp-title {
-  width: 75%;
-  padding-right: 5px;
+.cal-cnt .cal-goto-lnk a:focus {
+  outline-offset: 0;
 }
 
-.mfp-bottom-bar .mfp-counter {
-  font-size: 1em;
-  width: 25%;
-  text-align: right;
+.cal-days a {
+  color: #111111;
 }
 
 /*
@@ -8730,61 +8524,6 @@ div.errCnt ul li {
 
 .wb-fdbck #fbcmplt p strong {
   font-size: 110%;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-.wb-texthighlight .txthlt {
-  background-color: yellow;
-  color: black;
-  font-weight: 700;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-/* Pretty printing styles. Used with prettify.js. */
-
-/* SPAN elements with the classes below are added by prettyprint. */
-
-.pln {
-  color: black;
-}
-
-/* plain text */
-
-pre.prettyprint {
-  background-color: whitesmoke;
-  border: 1px solid #dddddd;
-  color: #707070;
-  font-size: 95%;
-  padding: 8px;
-  /* Specify class=linenums on a pre to get line numbering */
-}
-
-pre.prettyprint.linenums {
-  -webkit-box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eeeeee inset;
-  box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eeeeee inset;
-}
-
-ol.linenums {
-  margin: 0 !important;
-}
-
-ol.linenums li {
-  padding-left: 10px;
-  text-shadow: 0 1px 0 white;
-}
-
-/* Right to left (RTL) CSS */
-
-[dir="rtl"] pre.prettyprint {
-  direction: ltr;
 }
 
 /*
@@ -8879,6 +8618,173 @@ sup a.fn-lnk,
 [dir="rtl"] .wb-fnote dl dd p.fn-rtn {
   margin-right: 0;
   padding-right: 0;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+div.errCnt p {
+  font-weight: 700;
+}
+
+.wb-formvalid label {
+  display: block;
+}
+
+div.errCnt p,
+div.errCnt ul {
+  margin-right: 0;
+}
+
+.wb-formvalid label strong.error,
+.wb-formvalid legend .error {
+  display: block;
+  font-weight: 700;
+  color: #cc0000;
+}
+
+.wb-formvalid input[type=checkbox]+ label {
+  display: inline;
+}
+
+div.errCnt p {
+  margin-left: 0;
+}
+
+div.errCnt ul {
+  margin-left: 30px;
+}
+
+div.errCnt ul li {
+  margin-bottom: 5px;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+.mfp-close:focus,
+.mfp-arrow:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
+  outline-color: white;
+}
+
+.lb-hide-gal li {
+  list-style-type: none;
+  display: none;
+}
+
+.lb-hide-gal li:first-child {
+  display: block;
+}
+
+.mfp-close {
+  font-weight: 700;
+  /* Should fix upstream rather than overriding in WET */
+}
+
+/* Should fix upstream rather than overriding in WET */
+
+/* Should fix upstream rather than overriding in WET */
+
+.mfp-bottom-bar .mfp-title {
+  width: 75%;
+  padding-right: 5px;
+}
+
+.mfp-bottom-bar .mfp-counter {
+  font-size: 1em;
+  width: 25%;
+  text-align: right;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
+ Menu Sass
+*/
+
+.wb-menu .menu> li a:hover,
+.wb-menu .menu> li a:focus,
+.wb-menu .active> a {
+  text-decoration: none;
+}
+
+.expicon {
+  width: 0;
+  height: 0;
+  border-left: 0.35em solid transparent;
+  border-right: 0.35em solid transparent;
+  border-top: 0.35em solid white;
+  position: relative;
+  left: 0.75em;
+  top: 0.75em;
+  margin-right: 0.35em;
+}
+
+.wb-menu .sm {
+  display: none;
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.wb-menu .sm.open {
+  max-height: 1000px;
+  display: inline;
+  position: absolute;
+  z-index: 100;
+  text-transform: none;
+  top: auto;
+}
+
+.wb-menu .sm.open li {
+  display: block;
+}
+
+.wb-menu .sm.open li a {
+  text-align: left;
+}
+
+.wb-menu .menu {
+  display: table;
+  position: relative;
+}
+
+.wb-menu .menu> li {
+  position: relative;
+  display: table-cell;
+}
+
+.wb-menu .menu> li a {
+  text-align: center;
+  display: block;
+}
+
+.wb-menu .sm-open .expicon {
+  border-color: transparent !important;
+}
+
+[dir=rtl] .wb-menu .menu {
+  padding-right: 0;
+}
+
+[dir=rtl] .wb-menu .sm.open li a {
+  text-align: right;
+}
+
+[dir=rtl] .expicon {
+  left: auto;
+  right: 0.75em;
+  margin-right: 0;
+  margin-left: 0.35em;
 }
 
 /*
@@ -9428,6 +9334,586 @@ img.mfp-img {
 }
 
 /*
+  Multimedia Player Code
+ */
+
+.wb-mm-ctrls .wb-mm-txtonly,
+.xxsmallview .wb-mm-prgrss,
+.mediumview .col-md-1 .wb-mm-prgrss,
+.mediumview .col-md-2 .wb-mm-prgrss,
+.mediumview .col-md-3 .wb-mm-prgrss,
+.largeview .col-md-1 .wb-mm-prgrss,
+.largeview .col-md-2 .wb-mm-prgrss,
+.largeview .col-md-3 .wb-mm-prgrss,
+.xlargeview .col-md-1 .wb-mm-prgrss,
+.xlargeview .col-md-2 .wb-mm-prgrss,
+.xlargeview .col-md-3 .wb-mm-prgrss,
+.xxlargeview .col-md-1 .wb-mm-prgrss,
+.xxlargeview .col-md-2 .wb-mm-prgrss,
+.xxlargeview .col-md-3 .wb-mm-prgrss {
+  display: none;
+}
+
+.xxsmallview .wb-mm-txtonly,
+.mediumview .col-md-1 .wb-mm-txtonly,
+.mediumview .col-md-2 .wb-mm-txtonly,
+.mediumview .col-md-3 .wb-mm-txtonly,
+.largeview .col-md-1 .wb-mm-txtonly,
+.largeview .col-md-2 .wb-mm-txtonly,
+.largeview .col-md-3 .wb-mm-txtonly,
+.xlargeview .col-md-1 .wb-mm-txtonly,
+.xlargeview .col-md-2 .wb-mm-txtonly,
+.xlargeview .col-md-3 .wb-mm-txtonly,
+.xxlargeview .col-md-1 .wb-mm-txtonly,
+.xxlargeview .col-md-2 .wb-mm-txtonly,
+.xxlargeview .col-md-3 .wb-mm-txtonly {
+  display: block;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.wb-mltmd .display.waiting:after,
+.wb-mltmd .display.waiting:before {
+  content: " ";
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.wb-mltmd {
+  display: block;
+  /*
+	  Light Skinning of mediacontrols
+	 */
+}
+
+.wb-mltmd video {
+  width: 100%;
+  height: auto;
+}
+
+.wb-mltmd .btn {
+  border-top-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  background: transparent;
+  border: 0;
+  color: white;
+}
+
+.wb-mltmd progress:focus,
+.wb-mltmd .btn:focus {
+  outline: white thin dotted;
+}
+
+.wb-mltmd .display {
+  position: relative;
+  padding-bottom: 52.25%;
+  padding-top: 22px;
+  background: black;
+  height: 0;
+}
+
+.wb-mltmd .display iframe,
+.wb-mltmd .display video,
+.wb-mltmd .display object,
+.wb-mltmd .display embed,
+.wb-mltmd .display .wb-mm-ovrly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wb-mltmd .display.waiting:after {
+  background: url(../assets/loading.png) center center no-repeat;
+  -webkit-animation-name: spin;
+  animation-name: spin;
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  z-index: 2;
+}
+
+.wb-mltmd .display.waiting:before {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.wb-mltmd .wb-mm-ovrly {
+  background: transparent;
+  direction: ltr;
+  text-indent: -9999px;
+  border: 0;
+  padding: 0;
+}
+
+.wb-mltmd .wb-mm-ovrly img {
+  width: 100%;
+}
+
+.wb-mltmd .wb-mm-ovrly.playing img {
+  visibility: hidden;
+}
+
+.wb-mltmd .wb-mm-ovrly.playing .errmsg {
+  display: none;
+}
+
+.wb-mltmd[data-youtube] .wb-mm-ovrly {
+  visibility: hidden;
+}
+
+.wb-mltmd.skn-lt {
+  color: black;
+  border-bottom: 1px solid #dddddd;
+}
+
+.wb-mltmd.skn-lt .wb-mm-ctrls {
+  background: white;
+  color: black;
+}
+
+.wb-mltmd.skn-lt .btn {
+  background: white;
+  color: black;
+  border: 0;
+}
+
+.wb-mm-cc {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 0;
+  max-height: 0;
+  -webkit-transition: all 0.26s ease;
+  transition: all 0.26s ease;
+}
+
+.wb-mm-cc.on {
+  padding: 0.5em;
+  max-height: 999em;
+}
+
+.wb-mm-ctrls {
+  display: table;
+  background: black;
+  color: white;
+  position: relative;
+  width: 100%;
+  /* Progress Bar */
+}
+
+.wb-mm-ctrls .frstpnl,
+.wb-mm-ctrls .lastpnl,
+.wb-mm-ctrls .tline {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.wb-mm-ctrls .frstpnl {
+  width: 6em;
+}
+
+.wb-mm-ctrls .lastpnl {
+  text-align: right;
+  width: 4em;
+}
+
+.wb-mm-ctrls .tline .wb-mm-tmln-crrnt,
+.wb-mm-ctrls .tline .wb-mm-tmln-ttl {
+  display: inline !important;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.wb-mm-ctrls progress {
+  width: 100%;
+  height: 14px;
+  display: block;
+  /* Important Thing */
+  -webkit-appearance: none;
+  border: none;
+  /* Now the value part */
+}
+
+.wb-mm-ctrls progress::-webkit-progress-bar,
+.wb-mm-ctrls progress::-moz-progress-bar {
+  background: white;
+}
+
+.wb-mm-ctrls progress::-webkit-progress-value {
+  background: #176ca7;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
+ *	Overlay base
+ */
+
+.wb-overlay {
+  background-color: white;
+  display: none;
+  border-radius: 0;
+  border: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  z-index: 1050;
+}
+
+.wb-overlay.wb-inview {
+  display: block;
+}
+
+.wb-overlay.open {
+  position: fixed;
+  display: inline-block;
+}
+
+.wb-panel-l,
+.wb-panel-r {
+  top: 0;
+  height: 100%;
+  max-width: 90%;
+}
+
+.wb-bar-t,
+.wb-bar-b {
+  max-height: 90%;
+  min-width: 100%;
+  left: 0;
+  border-bottom: none;
+}
+
+.wb-popup-mid {
+  max-height: 90%;
+  max-width: 90%;
+}
+
+/*
+ *	Overlay styles
+ */
+
+.wb-panel-l {
+  left: 0;
+}
+
+.wb-panel-r {
+  right: 0;
+}
+
+.wb-bar-t {
+  top: 0;
+}
+
+.wb-bar-b {
+  bottom: 0;
+}
+
+.wb-popup-mid {
+  border-radius: 6px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.wb-popup-full {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/*
+ *	Overlay parts
+ */
+
+.overlay-def {
+  overflow-y: auto;
+}
+
+.overlay-def header {
+  background-color: black;
+  color: white;
+  display: block;
+  padding: 0;
+}
+
+.overlay-def header h1,
+.overlay-def header h2,
+.overlay-def header h3,
+.overlay-def header h4 {
+  font-size: 1.15em;
+  padding: 10px 1em;
+}
+
+.overlay-def.wb-bar-t,
+.overlay-def.wb-bar-b {
+  background-color: black;
+}
+
+.overlay-def .mfp-close {
+  color: white;
+}
+
+.hidden-hd .overlay-close {
+  background-color: black;
+  border-radius: 999px;
+  height: 1em;
+  width: 1em;
+  line-height: 1em;
+}
+
+[dir=rtl] .mfp-close {
+  right: auto;
+  left: 0;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/* Pretty printing styles. Used with prettify.js. */
+
+/* SPAN elements with the classes below are added by prettyprint. */
+
+.pln {
+  color: black;
+}
+
+/* plain text */
+
+pre.prettyprint {
+  background-color: whitesmoke;
+  border: 1px solid #dddddd;
+  color: #707070;
+  font-size: 95%;
+  padding: 8px;
+  /* Specify class=linenums on a pre to get line numbering */
+}
+
+pre.prettyprint.linenums {
+  -webkit-box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eeeeee inset;
+  box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eeeeee inset;
+}
+
+ol.linenums {
+  margin: 0 !important;
+}
+
+ol.linenums li {
+  padding-left: 10px;
+  text-shadow: 0 1px 0 white;
+}
+
+/* Right to left (RTL) CSS */
+
+[dir="rtl"] pre.prettyprint {
+  direction: ltr;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+#wb-resize {
+  clip: rect(1px, 1px, 1px, 1px);
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+.wb-share .bitly:before,
+.wb-share .blogger:before,
+.wb-share .delicious:before,
+.wb-share .digg:before,
+.wb-share .diigo:before,
+.wb-share .dzone:before,
+.wb-share .facebook:before,
+.wb-share .fark:before,
+.wb-share .feed:before,
+.wb-share .googleplus:before,
+.wb-share .linkedin:before,
+.wb-share .myspace:before,
+.wb-share .netvibes:before,
+.wb-share .newsvine:before,
+.wb-share .pinterest:before,
+.wb-share .reddit:before,
+.wb-share .stumbleupon:before,
+.wb-share .technorati:before,
+.wb-share .tumblr:before,
+.wb-share .twitter:before {
+  content: " ";
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.wb-share .shr-lnk {
+  width: 100%;
+  min-height: 32px;
+  line-height: 32px;
+  margin-bottom: 8px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 115%;
+}
+
+.wb-share .bitly:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 0;
+}
+
+.wb-share .blogger:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -32px;
+}
+
+.wb-share .delicious:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -64px;
+}
+
+.wb-share .digg:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -96px;
+}
+
+.wb-share .diigo:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -128px;
+}
+
+.wb-share .dzone:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -160px;
+}
+
+.wb-share .facebook:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -192px;
+}
+
+.wb-share .fark:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -224px;
+}
+
+.wb-share .feed:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -256px;
+}
+
+.wb-share .googleplus:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -288px;
+}
+
+.wb-share .linkedin:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -320px;
+}
+
+.wb-share .myspace:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -352px;
+}
+
+.wb-share .netvibes:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -384px;
+}
+
+.wb-share .newsvine:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -416px;
+}
+
+.wb-share .pinterest:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -448px;
+}
+
+.wb-share .reddit:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -480px;
+}
+
+.wb-share .stumbleupon:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -512px;
+}
+
+.wb-share .technorati:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -544px;
+}
+
+.wb-share .tumblr:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -576px;
+}
+
+.wb-share .twitter:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -608px;
+}
+
+.wb-share ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px;
+}
+
+/*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
  */
@@ -9671,497 +10157,6 @@ table.dataTable tr.even td.sorting_3 {
 
 .dataTables_scrollBody {
   -webkit-overflow-scrolling: touch;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-/*
- *	Overlay base
- */
-
-.wb-overlay {
-  background-color: white;
-  display: none;
-  border-radius: 0;
-  border: none;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  z-index: 1050;
-}
-
-.wb-overlay.wb-inview {
-  display: block;
-}
-
-.wb-overlay.open {
-  position: fixed;
-  display: inline-block;
-}
-
-.wb-panel-l,
-.wb-panel-r {
-  top: 0;
-  height: 100%;
-  max-width: 90%;
-}
-
-.wb-bar-t,
-.wb-bar-b {
-  max-height: 90%;
-  min-width: 100%;
-  left: 0;
-  border-bottom: none;
-}
-
-.wb-popup-mid {
-  max-height: 90%;
-  max-width: 90%;
-}
-
-/*
- *	Overlay styles
- */
-
-.wb-panel-l {
-  left: 0;
-}
-
-.wb-panel-r {
-  right: 0;
-}
-
-.wb-bar-t {
-  top: 0;
-}
-
-.wb-bar-b {
-  bottom: 0;
-}
-
-.wb-popup-mid {
-  border-radius: 6px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.wb-popup-full {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-/*
- *	Overlay parts
- */
-
-.overlay-def {
-  overflow-y: auto;
-}
-
-.overlay-def header {
-  background-color: black;
-  color: white;
-  display: block;
-  padding: 0;
-}
-
-.overlay-def header h1,
-.overlay-def header h2,
-.overlay-def header h3,
-.overlay-def header h4 {
-  font-size: 1.15em;
-  padding: 10px 1em;
-}
-
-.overlay-def.wb-bar-t,
-.overlay-def.wb-bar-b {
-  background-color: black;
-}
-
-.overlay-def .mfp-close {
-  color: white;
-}
-
-.hidden-hd .overlay-close {
-  background-color: black;
-  border-radius: 999px;
-  height: 1em;
-  width: 1em;
-  line-height: 1em;
-}
-
-[dir=rtl] .mfp-close {
-  right: auto;
-  left: 0;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-.wb-share .bitly:before,
-.wb-share .blogger:before,
-.wb-share .delicious:before,
-.wb-share .digg:before,
-.wb-share .diigo:before,
-.wb-share .dzone:before,
-.wb-share .facebook:before,
-.wb-share .fark:before,
-.wb-share .feed:before,
-.wb-share .googleplus:before,
-.wb-share .linkedin:before,
-.wb-share .myspace:before,
-.wb-share .netvibes:before,
-.wb-share .newsvine:before,
-.wb-share .pinterest:before,
-.wb-share .reddit:before,
-.wb-share .stumbleupon:before,
-.wb-share .technorati:before,
-.wb-share .tumblr:before,
-.wb-share .twitter:before {
-  content: " ";
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  margin-right: 12px;
-  vertical-align: middle;
-}
-
-.wb-share .shr-lnk {
-  width: 100%;
-  min-height: 32px;
-  line-height: 32px;
-  margin-bottom: 8px;
-  text-align: left;
-  text-decoration: none;
-  font-size: 115%;
-}
-
-.wb-share .bitly:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 0;
-}
-
-.wb-share .blogger:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -32px;
-}
-
-.wb-share .delicious:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -64px;
-}
-
-.wb-share .digg:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -96px;
-}
-
-.wb-share .diigo:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -128px;
-}
-
-.wb-share .dzone:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -160px;
-}
-
-.wb-share .facebook:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -192px;
-}
-
-.wb-share .fark:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -224px;
-}
-
-.wb-share .feed:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -256px;
-}
-
-.wb-share .googleplus:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -288px;
-}
-
-.wb-share .linkedin:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -320px;
-}
-
-.wb-share .myspace:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -352px;
-}
-
-.wb-share .netvibes:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -384px;
-}
-
-.wb-share .newsvine:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -416px;
-}
-
-.wb-share .pinterest:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -448px;
-}
-
-.wb-share .reddit:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -480px;
-}
-
-.wb-share .stumbleupon:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -512px;
-}
-
-.wb-share .technorati:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -544px;
-}
-
-.wb-share .tumblr:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -576px;
-}
-
-.wb-share .twitter:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -608px;
-}
-
-.wb-share ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 10px;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-.cal-cnt .cal-goto legend,
-.cal-cnt .cal-goto-mnth,
-.cal-cnt .cal-goto-yr,
-.cal-cnt .cal-goto-btn {
-  position: relative;
-}
-
-.cal-cnt {
-  width: 18em;
-  text-shadow: none;
-}
-
-.cal-cnt {
-  background: white;
-}
-
-.cal-cnt * {
-  font-size: 100%;
-}
-
-.cal-cnt .cal-hd {
-  overflow: hidden;
-  padding: 0.5em 4px;
-  text-align: center;
-  position: relative;
-}
-
-.cal-cnt .cal-mnth {
-  font-size: 110%;
-}
-
-.cal-cnt .cal-goto fieldset {
-  margin-bottom: 34px;
-  border-bottom: 1px solid white;
-}
-
-.cal-cnt .cal-goto legend {
-  margin-bottom: 10px;
-}
-
-.cal-cnt .cal-goto-lnk {
-  margin: 0 0 0.5em 0;
-  padding: 0 !important;
-}
-
-.cal-cnt .cal-goto-mnth,
-.cal-cnt .cal-goto-yr,
-.cal-cnt .cal-goto-btn {
-  display: inline-block;
-  margin: 10px 5px;
-}
-
-.cal-cnt .cal-goto-btn input {
-  padding: 0.1em 0.2em;
-  min-width: 5em;
-}
-
-.cal-cnt td {
-  border: 1px solid #aaaaaa;
-  padding: 0;
-  text-align: center;
-}
-
-.cal-nxtmnth,
-.cal-prvmnth {
-  display: block;
-  background: none;
-  border: none;
-  position: absolute;
-  bottom: 0;
-  width: 44px;
-  height: 44px;
-}
-
-.cal-nxtmnth:focus,
-.cal-prvmnth:focus {
-  outline: 1px dotted;
-  outline-offset: -2px;
-}
-
-.cal-prvmnth {
-  left: 0;
-}
-
-.cal-nxtmnth {
-  right: 0;
-}
-
-.cal-wd {
-  color: white;
-  border: 1px solid #333333;
-  padding: 0.5em 0;
-  text-align: center;
-}
-
-.cal-days a,
-.cal-days div {
-  display: block;
-  height: 100%;
-  padding: 0.5em 0;
-  width: 100%;
-}
-
-.cal-days .cal-currday {
-  font-weight: bolder;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-.cal-cnt .cal-hd,
-.cal-cnt .cal-nxtmnth:hover,
-.cal-cnt .cal-nxtmnth:focus,
-.cal-cnt .cal-prvmnth:hover,
-.cal-cnt .cal-prvmnth:focus,
-.cal-cnt .cal-goto legend,
-.cal-currday {
-  color: white;
-}
-
-.cal-cnt .cal-goto-lnk a,
-.cal-days a:hover,
-.cal-days a:focus,
-.cal-currday a {
-  color: white !important;
-}
-
-.cal-cnt .cal-hd,
-.cal-days a:hover,
-.cal-days a:focus {
-  background: #333333;
-}
-
-.cal-currday,
-.cal-currday a {
-  background-color: #333333;
-}
-
-.cal-cnt .cal-wd {
-  background: #555555;
-  border-color: #333333;
-}
-
-.cal-cnt .cal-hd {
-  font-weight: 700;
-}
-
-.cal-cnt .cal-nxtmnth,
-.cal-cnt .cal-prvmnth {
-  color: #cccccc;
-}
-
-.cal-cnt .cal-goto-lnk a:focus {
-  outline-offset: 0;
-}
-
-.cal-days a {
-  color: #111111;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-ul.ev-details,
-ul.ev-details a {
-  background-color: white;
-}
-
-tbody.cal-days ul.ev-details li a:hover,
-tbody.cal-days ul.ev-details li a:focus,
-tbody.cal-days a.cal-event {
-  color: white !important;
-}
-
-ul.ev-details {
-  padding: 0;
-  position: absolute;
-  z-index: 5;
-  border: 1px solid #333333;
-  width: 10em;
-  margin: 0;
-  margin-top: -0.5em;
-  font-weight: 400;
-}
-
-ul.ev-details a {
-  padding: 0.5em;
-}
-
-tbody.cal-days ul.ev-details li {
-  border: none;
-  width: 100%;
-  list-style-type: none !important;
-}
-
-tbody.cal-days ul.ev-details li a {
-  color: black;
-  width: auto;
-}
-
-tbody.cal-days a.cal-event {
-  background: #176ca7;
 }
 
 /*
@@ -10503,11 +10498,76 @@ tbody.cal-days a.cal-event {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-#wb-resize {
-  clip: rect(1px, 1px, 1px, 1px);
-  margin: 0;
-  overflow: hidden;
-  position: absolute;
+.wb-disable .wb-twitter .twitter-timeline {
+  text-indent: 0 !important;
+}
+
+.wb-twitter .twitter-timeline a:link,
+.wb-twitter .twitter-timeline a:visited {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .stats span {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .byline {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .retweet-credit {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .no-more-pane {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .no-tweets-pane p {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .p-geo {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .cards-base .byline-user {
+  color: #707070;
+}
+
+.wb-twitter .twitter-timeline .tweet-box-button {
+  color: #707070;
+}
+
+.wb-twitter a.twitter-timeline {
+  display: block;
+  direction: ltr;
+  text-indent: -9999px;
+  font-size: 90%;
+  min-height: 50px;
+  overflow: auto;
+  background: white;
+  border: 1px solid #cccccc;
+  margin: 0 !important;
+  padding: 5px !important;
+}
+
+/* Right to left (RTL) CSS */
+
+[dir="rtl"] .wb-twitter .twitter-timeline {
+  direction: rtl;
+  text-indent: 9999px;
+}
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+.wb-texthighlight .txthlt {
+  background-color: yellow;
+  color: black;
+  font-weight: 700;
 }
 
 /*
