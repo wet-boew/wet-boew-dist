@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "zh-Hans",
 	"lang-nat": "繁体字",
-	"all": "全部",
-	"tphp": "页首",
-	"load": "装载...",
-	"process": "处理...",
-	"srch": "搜索",
+	all: "全部",
+	tphp: "页首",
+	load: "装载...",
+	process: "处理...",
+	srch: "搜索",
 	"no-match": "无匹配结果",
-	"matches": {
-		"mixin": "找到[MIXIN]项目"
+	matches: {
+		mixin: "找到[MIXIN]项目"
 	},
-	"curr": "（电流）",
-	"hide": "隐藏",
-	"err": "错误",
-	"colon": "：",
-	"hyphen": "-",
+	curr: "（电流）",
+	hide: "隐藏",
+	err: "错误",
+	colon: "：",
+	hyphen: "-",
 	"full-stop": "。",
 	"comma-space": "，",
-	"space": "&#173;",
-	"start": "开始",
-	"stop": "停止",
-	"back": "返回",
-	"cancel": "取消",
+	space: "&#173;",
+	start: "开始",
+	stop: "停止",
+	back: "返回",
+	cancel: "取消",
 	"min-ago": "一分钟前",
 	"coup-mins": "一两分钟前",
 	"mins-ago": {
-		"mixin": "[MIXIN]数分钟前"
+		mixin: "[MIXIN]数分钟前"
 	},
 	"hour-ago": "一小时前",
 	"hours-ago": {
-		"mixin": "[MIXIN]数小时前"
+		mixin: "[MIXIN]数小时前"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN]数天前"
+		mixin: "[MIXIN]数天前"
 	},
-	"yesterday": "昨天",
+	yesterday: "昨天",
 
-	"nxt": "下一个",
+	nxt: "下一个",
 	"nxt-r": "下一个（右箭头键）",
-	"prv": "上一个",
+	prv: "上一个",
 	"prv-l": "上一个（左箭头键）",
-	"first": "开始",
-	"last": "末",
+	first: "开始",
+	last: "末",
 	"menu-close": "关闭菜单",
 	"overlay-close": "关闭叠加",
 	"esc-key": "（逃生键）",
-	"show": "展示",
+	show: "展示",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "停止标签旋转",
-		"on": "开始标签旋转"
+		off: "停止标签旋转",
+		on: "开始标签旋转"
 	},
 	"tab-list": "标签列表",
 	"tab-pnl-end1": "此选项卡面板的结束。",
 	"tab-pnl-end2": "返回到标签列表",
 	"tab-pnl-end3": "或继续其余的页面。",
 	/* Multimedia player */
-	"play": "播放",
-	"pause": "暂停",
-	"open": "打开",
-	"close": "关闭",
-	"rew": "回放",
-	"ffwd": "快进",
-	"mute": {
-		"on": "静音",
-		"off": "打开声音"
+	play: "播放",
+	pause: "暂停",
+	open: "打开",
+	close: "关闭",
+	rew: "回放",
+	ffwd: "快进",
+	mute: {
+		on: "静音",
+		off: "打开声音"
 	},
-	"cc": {
-		"off": "隐藏字幕",
-		"on": "打开字幕"
+	cc: {
+		off: "隐藏字幕",
+		on: "打开字幕"
 	},
 	"cc-err": "加载字母错误",
-	"adesc": {
-		"on": "使用音频描述",
-		"off": "停止音频描述"
+	adesc: {
+		on: "使用音频描述",
+		off: "停止音频描述"
 	},
-	"pos": "现在位置：",
-	"dur": "总时间：",
+	pos: "现在位置：",
+	dur: "总时间：",
 	/* Share widget */
 	"shr-txt": "分享该页面",
 	"shr-hnt": "与{s}",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "从日历选择一个日期：",
 	"date-sel": "选中",
 	/* Calendar */
-	"days": ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
-	"mnths": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-	"cal": "日历",
-	"currDay": "当天",
+	days: [
+		"星期天",
+		"星期一",
+		"星期二",
+		"星期三",
+		"星期四",
+		"星期五",
+		"星期六"
+	],
+	mnths: [
+		"一月",
+		"二月",
+		"三月",
+		"四月",
+		"五月",
+		"六月",
+		"七月",
+		"八月",
+		"九月",
+		"十月",
+		"十一月",
+		"十二月"
+	],
+	cal: "日历",
+	currDay: "当天",
 	"cal-goToLnk": "转到<span class=\"wb-inv\">月份的一年</span>",
 	"cal-goToTtl": "转到月份的一年",
 	"cal-goToMnth": "月份：",
 	"cal-goToYr": "年份：",
 	"cal-goToBtn": "去",
-	"prvMnth": "上个月：",
-	"nxtMnth": "下个月：",
+	prvMnth: "上个月：",
+	nxtMnth: "下个月：",
 	/* Lightbox */
 	"lb-curr": "项目%curr%的%total%",
 	"lb-xhr-err": "该内容无法下载。",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "展开所有部分的内容",
 	"td-ttl-close": "关闭所有部分的内容",
 	/* Table enhancement */
-	"sortAsc": ": 激活升序排序",
-	"sortDesc": "：激活降序排序",
-	"emptyTbl": "没有可用的数据表中的",
-	"infoEntr": "显示_START_到_END_的_TOTAL_10个项目",
-	"infoEmpty": "显示0到0的0个项目",
-	"infoFilt": "（共_MAX_项过滤）",
-	"info1000": ",",
-	"lenMenu": "显示_MENU_项",
+	sortAsc: ": 激活升序排序",
+	sortDesc: "：激活降序排序",
+	emptyTbl: "没有可用的数据表中的",
+	infoEntr: "显示_START_到_END_的_TOTAL_10个项目",
+	infoEmpty: "显示0到0的0个项目",
+	infoFilt: "（共_MAX_项过滤）",
+	info1000: ",",
+	lenMenu: "显示_MENU_项",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "放大",

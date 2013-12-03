@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "de",
 	"lang-nat": "Deutsch",
-	"all": "Alle",
-	"tphp": "Zum Seitenanfang",
-	"load": "Be ...",
-	"process": "Verarbeitung ...",
-	"srch": "Suchen",
+	all: "Alle",
+	tphp: "Zum Seitenanfang",
+	load: "Be ...",
+	process: "Verarbeitung ...",
+	srch: "Suchen",
 	"no-match": "Keine Übereinstimmung gefunden",
-	"matches": {
-		"mixin": "[MIXIN] Ergebnisse gefunden"
+	matches: {
+		mixin: "[MIXIN] Ergebnisse gefunden"
 	},
-	"curr": "(Aktuell)",
-	"hide": "Verbergen",
-	"err": "Fehler",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(Aktuell)",
+	hide: "Verbergen",
+	err: "Fehler",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Starten",
-	"stop": "Stoppen",
-	"back": "Zurück",
-	"cancel": "Kündigen",
+	space: "&#32;",
+	start: "Starten",
+	stop: "Stoppen",
+	back: "Zurück",
+	cancel: "Kündigen",
 	"min-ago": "Vor einer Minute",
 	"coup-mins": "paar Minuten",
 	"mins-ago": {
-		"mixin": "Vor [MIXIN] Minuten"
+		mixin: "Vor [MIXIN] Minuten"
 	},
 	"hour-ago": "Vor einer Stunde",
 	"hours-ago": {
-		"mixin": "Vor [MIXIN] Stunden"
+		mixin: "Vor [MIXIN] Stunden"
 	},
 	"days-ago": {
-		"mixin": "Vor [MIXIN] Tagen"
+		mixin: "Vor [MIXIN] Tagen"
 	},
-	"yesterday": "gestern",
+	yesterday: "gestern",
 
-	"nxt": "Nächste",
+	nxt: "Nächste",
 	"nxt-r": "Nächste (rechte Pfeiltaste)",
-	"prv": "Früher",
+	prv: "Früher",
 	"prv-l": "Früher (linke Pfeiltaste)",
-	"first": "Erste",
-	"last": "Letzte",
+	first: "Erste",
+	last: "Letzte",
 	"menu-close": "Schließen Sie das Menü",
 	"overlay-close": "Schließen Sie das Pop-up",
 	"esc-key": "(Escape-Taste)",
-	"show": "Zeigen",
+	show: "Zeigen",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Stoppen Registerkarte Drehung",
-		"on": "Starten Registerkarte Drehung"
+		off: "Stoppen Registerkarte Drehung",
+		on: "Starten Registerkarte Drehung"
 	},
 	"tab-list": "Registerkarte-Liste",
 	"tab-pnl-end1": "Ende dieser Registerkarte angezeigt.",
 	"tab-pnl-end2": "Zurück zur Liste der Registerkarte",
 	"tab-pnl-end3": "oder der Rest der Seite fortzusetzen.",
 	/* Multimedia player */
-	"play": "Spielen",
-	"pause": "Pausieren",
-	"open": "Öffnen",
-	"close": "Schließen",
-	"rew": "Zurückspulen",
-	"ffwd": "Schnellvorlauf",
-	"mute": {
-		"on": "Stumm",
-		"off": "Stummschaltung"
+	play: "Spielen",
+	pause: "Pausieren",
+	open: "Öffnen",
+	close: "Schließen",
+	rew: "Zurückspulen",
+	ffwd: "Schnellvorlauf",
+	mute: {
+		on: "Stumm",
+		off: "Stummschaltung"
 	},
-	"cc": {
-		"off": "Ausblenden Untertitelung",
-		"on": "Zeige Untertitelung"
+	cc: {
+		off: "Ausblenden Untertitelung",
+		on: "Zeige Untertitelung"
 	},
 	"cc-err": "Fehler beim Laden Untertiteln",
-	"adesc": {
-		"on": "Aktivieren Sie Audio-Beschreibung",
-		"off": "Deaktivieren Sie Audio-Beschreibung"
+	adesc: {
+		on: "Aktivieren Sie Audio-Beschreibung",
+		off: "Deaktivieren Sie Audio-Beschreibung"
 	},
-	"pos": "Aktuelle Position:",
-	"dur": "Insgesamt benötigte Zeit",
+	pos: "Aktuelle Position:",
+	dur: "Insgesamt benötigte Zeit",
 	/* Share widget */
 	"shr-txt": "Teilen Sie diese Seite",
 	"shr-hnt": " mit {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Wählen Sie ein Datum aus einem Kalender für das Feld:",
 	"date-sel": "Ausgewählt",
 	/* Calendar */
-	"days": ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
-	"mnths": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
-	"cal": "Kalender",
-	"currDay": "(Aktueller Tag)",
+	days: [
+		"Sonntag",
+		"Montag",
+		"Dienstag",
+		"Mittwoch",
+		"Donnerstag",
+		"Freitag",
+		"Samstag"
+	],
+	mnths: [
+		"Januar",
+		"Februar",
+		"März",
+		"April",
+		"Mai",
+		"Juni",
+		"Juli",
+		"August",
+		"September",
+		"Oktober",
+		"November",
+		"Dezember"
+	],
+	cal: "Kalender",
+	currDay: "(Aktueller Tag)",
 	"cal-goToLnk": "Gehe zu<span class=\"wb-inv\"> Monat des Jahres</span>",
 	"cal-goToTtl": "Gehe zu Monat des Jahres",
 	"cal-goToMnth": "Monat",
 	"cal-goToYr": "Jahr",
 	"cal-goToBtn": "Gehen",
-	"prvMnth": "Vorheriger Monat: ",
-	"nxtMnth": "Nächster Monat: ",
+	prvMnth: "Vorheriger Monat: ",
+	nxtMnth: "Nächster Monat: ",
 	/* Lightbox */
 	"lb-curr": "Artikel %curr% von %total%",
 	"lb-xhr-err": "Dieser Inhalt wurde nicht geladen.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Erweitern Sie alle Teile der Inhalte",
 	"td-ttl-close": "Alles Teile der Inhalte",
 	/* Table enhancement */
-	"sortAsc": ": Aktivieren für aufsteigend sortieren",
-	"sortDesc": ": Aktivieren für absteigend sortieren",
-	"emptyTbl": "Keine Daten in der Tabelle verfügbaren",
-	"infoEntr": "Zeige _START_ bis _END_ von _TOTAL_ Einträge",
-	"infoEmpty": "Zeige 0 bis 0 von 0 Einträge",
-	"infoFilt": "(gefiltert aus insgesamt _MAX_ Einträge)",
-	"info1000": "&#160;",
-	"lenMenu": "Zeige _MENU_ Einträge",
+	sortAsc: ": Aktivieren für aufsteigend sortieren",
+	sortDesc: ": Aktivieren für absteigend sortieren",
+	emptyTbl: "Keine Daten in der Tabelle verfügbaren",
+	infoEntr: "Zeige _START_ bis _END_ von _TOTAL_ Einträge",
+	infoEmpty: "Zeige 0 bis 0 von 0 Einträge",
+	infoFilt: "(gefiltert aus insgesamt _MAX_ Einträge)",
+	info1000: "&#160;",
+	lenMenu: "Zeige _MENU_ Einträge",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Vergrößern",

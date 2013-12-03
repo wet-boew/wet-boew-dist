@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "id",
 	"lang-nat": "Bahasa Indonesia",
-	"all": "Semua",
-	"tphp": "Halaman Atas",
-	"load": "memuat ...",
-	"process": "pengolahan ...",
-	"srch": "Cari",
+	all: "Semua",
+	tphp: "Halaman Atas",
+	load: "memuat ...",
+	process: "pengolahan ...",
+	srch: "Cari",
 	"no-match": "Tidak ditemukan kecocokan",
-	"matches": {
-		"mixin": "Ditemukan [MIXIN] kecocokan"
+	matches: {
+		mixin: "Ditemukan [MIXIN] kecocokan"
 	},
-	"curr": "(saat ini)",
-	"hide": "Sembunyikan",
-	"err": "Error",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(saat ini)",
+	hide: "Sembunyikan",
+	err: "Error",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Mulai",
-	"stop": "Stop",
-	"back": "Kembali",
-	"cancel": "Batal",
+	space: "&#32;",
+	start: "Mulai",
+	stop: "Stop",
+	back: "Kembali",
+	cancel: "Batal",
 	"min-ago": "Satu menit yang lalu",
 	"coup-mins": "Beberapa menit yang lalu",
 	"mins-ago": {
-		"mixin": "[MIXIN] menit yang lalu"
+		mixin: "[MIXIN] menit yang lalu"
 	},
 	"hour-ago": "Satu jam yang lalu",
 	"hours-ago": {
-		"mixin": "[MIXIN] jam yang lalu"
+		mixin: "[MIXIN] jam yang lalu"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] hari yang lalu"
+		mixin: "[MIXIN] hari yang lalu"
 	},
-	"yesterday": "Kemarin",
+	yesterday: "Kemarin",
 
-	"nxt": "Berikutnya",
+	nxt: "Berikutnya",
 	"nxt-r": "Berikutnya (tombol panah kanan)",
-	"prv": "Sebelumnya",
+	prv: "Sebelumnya",
 	"prv-l": "Sebelumnya (tombol panah kiri)",
-	"first": "Pertama",
-	"last": "Terakhir",
+	first: "Pertama",
+	last: "Terakhir",
 	"menu-close": "Tutup menu",
 	"overlay-close": "Tutup hamparan",
 	"esc-key": "(tombol \"escape\")",
-	"show": "Tampilkan",
+	show: "Tampilkan",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Hentikan rotasi tab",
-		"on": "Mulai rotasi tab"
+		off: "Hentikan rotasi tab",
+		on: "Mulai rotasi tab"
 	},
 	"tab-list": "Tab daftar",
 	"tab-pnl-end1": "Akhir ini panel tab.",
 	"tab-pnl-end2": "Kembali ke daftar tab",
 	"tab-pnl-end3": "atau melanjutkan ke seluruh halaman.",
 	/* Multimedia player */
-	"play": "Main",
-	"pause": "Jeda",
-	"open": "Buka",
-	"close": "Tutup",
-	"rew": "Putar mundur",
-	"ffwd": "Putar maju",
-	"mute": {
-		"on": "Redam suara",
-		"off": "Aktifkan kembali suara"
+	play: "Main",
+	pause: "Jeda",
+	open: "Buka",
+	close: "Tutup",
+	rew: "Putar mundur",
+	ffwd: "Putar maju",
+	mute: {
+		on: "Redam suara",
+		off: "Aktifkan kembali suara"
 	},
-	"cc": {
-		"off": "Sembunyikan subtitel",
-		"on": "Tampilkan subtitel"
+	cc: {
+		off: "Sembunyikan subtitel",
+		on: "Tampilkan subtitel"
 	},
 	"cc-err": "Galat saat memuat subtitel",
-	"adesc": {
-		"on": "Fungsikan desktripsi audio",
-		"off": "Disfungsikan deskripsi audio"
+	adesc: {
+		on: "Fungsikan desktripsi audio",
+		off: "Disfungsikan deskripsi audio"
 	},
-	"pos": "Posisi saat ini:",
-	"dur": "Total waktu:",
+	pos: "Posisi saat ini:",
+	dur: "Total waktu:",
 	/* Share widget */
 	"shr-txt": "Bagi halaman ini",
 	"shr-hnt": " dengan {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Pilih satu tanggal pada kalender:",
 	"date-sel": "Sudah dipilih",
 	/* Calendar */
-	"days": ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"],
-	"mnths": ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
-	"cal": "Kalender",
-	"currDay": "Hari ini",
+	days: [
+		"Minggu",
+		"Senin",
+		"Selasa",
+		"Rabu",
+		"Kamis",
+		"Jum'at",
+		"Sabtu"
+	],
+	mnths: [
+		"Januari",
+		"Februari",
+		"Maret",
+		"April",
+		"Mei",
+		"Juni",
+		"Juli",
+		"Agustus",
+		"September",
+		"Oktober",
+		"November",
+		"Desember"
+	],
+	cal: "Kalender",
+	currDay: "Hari ini",
 	"cal-goToLnk": "Pilih<span class=\"invisible\"> bulan dan tahun</span>",
 	"cal-goToTtl": "Pilih bulan dan tahun",
 	"cal-goToMnth": "Bulan:",
 	"cal-goToYr": "Tahun:",
 	"cal-goToBtn": "Pilih",
-	"prvMnth": "Bulan sebelumnya: ",
-	"nxtMnth": "Bulan berikutnya: ",
+	prvMnth: "Bulan sebelumnya: ",
+	nxtMnth: "Bulan berikutnya: ",
 	/* Lightbox */
 	"lb-curr": "Artikel ke-%curr% dari %total%",
 	"lb-xhr-err": "Halaman tidak berhasil ditampilkan.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Memperluas semua bagian dari konten",
 	"td-ttl-close": "Perkecil semua bagian dari konten",
 	/* Table enhancement */
-	"sortAsc": ": aktifkan untuk menaik semacam",
-	"sortDesc": ": aktifkan untuk turun semacam",
-	"emptyTbl": "Tidak ada data yang tersedia dalam tabel",
-	"infoEntr": "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
-	"infoEmpty": "Menampilkan 0 sampai 0 dari 0 entri",
-	"infoFilt": "(disaring dari _MAX_ entri total)",
-	"info1000": ",",
-	"lenMenu": "Tampilkan _MENU_ entri",
+	sortAsc: ": aktifkan untuk menaik semacam",
+	sortDesc: ": aktifkan untuk turun semacam",
+	emptyTbl: "Tidak ada data yang tersedia dalam tabel",
+	infoEntr: "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+	infoEmpty: "Menampilkan 0 sampai 0 dari 0 entri",
+	infoFilt: "(disaring dari _MAX_ entri total)",
+	info1000: ",",
+	lenMenu: "Tampilkan _MENU_ entri",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Perbesar",

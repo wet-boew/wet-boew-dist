@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "sq",
 	"lang-nat": "Shqip",
-	"all": "Të gjithë",
-	"tphp": "Fillimi i faqes",
-	"load": "ngarkimin ...",
-	"process": "përpunimit të ...",
-	"srch": "Kërko",
+	all: "Të gjithë",
+	tphp: "Fillimi i faqes",
+	load: "ngarkimin ...",
+	process: "përpunimit të ...",
+	srch: "Kërko",
 	"no-match": "Nuk është gjetur përputhje",
-	"matches": {
-		"mixin": "[MIXIN] ndeshjet gjet"
+	matches: {
+		mixin: "[MIXIN] ndeshjet gjet"
 	},
-	"curr": "(aktual)",
-	"hide": "Fsheh",
-	"err": "Gabim",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(aktual)",
+	hide: "Fsheh",
+	err: "Gabim",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Fillim",
-	"stop": "Stop",
-	"back": "Prapa",
-	"cancel": "Anuloj",
+	space: "&#32;",
+	start: "Fillim",
+	stop: "Stop",
+	back: "Prapa",
+	cancel: "Anuloj",
 	"min-ago": "një minutë më parë",
 	"coup-mins": "disa minuta më parë",
 	"mins-ago": {
-		"mixin": "[MIXIN] minuta më parë"
+		mixin: "[MIXIN] minuta më parë"
 	},
 	"hour-ago": "një orë më parë",
 	"hours-ago": {
-		"mixin": "[MIXIN] orë më parë"
+		mixin: "[MIXIN] orë më parë"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] ditë më parë"
+		mixin: "[MIXIN] ditë më parë"
 	},
-	"yesterday": "dje",
+	yesterday: "dje",
 
-	"nxt": "Tjetër",
+	nxt: "Tjetër",
 	"nxt-r": "Tjetër (kyç djathtë arrow)",
-	"prv": "I mëparshëm",
+	prv: "I mëparshëm",
 	"prv-l": "I mëparshëm (kyç majtë arrow)",
-	"first": "I parë",
-	"last": "I fundit",
+	first: "I parë",
+	last: "I fundit",
 	"menu-close": "Mbylle menu",
 	"overlay-close": "Mbylle mbulesë",
 	"esc-key": "(kyç shpëtojnë)",
-	"show": "Shfaq",
+	show: "Shfaq",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Stop rotacionin tab",
-		"on": "Fillojnë rrotullimin tab"
+		off: "Stop rotacionin tab",
+		on: "Fillojnë rrotullimin tab"
 	},
 	"tab-list": "Lista tab",
 	"tab-pnl-end1": "Fundi i këtij paneli tab.",
 	"tab-pnl-end2": "Kthehuni tek lista tab",
 	"tab-pnl-end3": "ose të vazhdojë për pjesën tjetër të faqes.",
 	/* Multimedia player */
-	"play": "Luaj",
-	"pause": "Pushim",
-	"open": "Hapur",
-	"close": "Afër",
-	"rew": "Rewind",
-	"ffwd": "Fast përpara",
-	"mute": {
-		"on": "Memec",
-		"off": "Çheshtja"
+	play: "Luaj",
+	pause: "Pushim",
+	open: "Hapur",
+	close: "Afër",
+	rew: "Rewind",
+	ffwd: "Fast përpara",
+	mute: {
+		on: "Memec",
+		off: "Çheshtja"
 	},
-	"cc": {
-		"off": "Hide Mbyllur captioning",
-		"on": "Trego Mbyllur captioning"
+	cc: {
+		off: "Hide Mbyllur captioning",
+		on: "Trego Mbyllur captioning"
 	},
 	"cc-err": "Captions Gabim gjatë ngarkimit të mbyllura",
-	"adesc": {
-		"on": "Aktivizo përshkrimin audio",
-		"off": "Disable përshkrimin audio"
+	adesc: {
+		on: "Aktivizo përshkrimin audio",
+		off: "Disable përshkrimin audio"
 	},
-	"pos": "Pozicioni aktual:",
-	"dur": "Koha totale:",
+	pos: "Pozicioni aktual:",
+	dur: "Koha totale:",
 	/* Share widget */
 	"shr-txt": "Share këtë faqe",
 	"shr-hnt": " me {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Zgjidh një datë nga një kalendar për fushën:",
 	"date-sel": "I zgjedhur",
 	/* Calendar */
-	"days": ["E diel", "E hënë", "E martë", "E mërkurë", "E enjte", "E premte", "E shtunë"],
-	"mnths": ["Janar", "Shkurt", "Mars", "Prill", "Mund", "Qershor", "Korrik", "Gusht", "Shtator", "Tetor", "Nëntor", "Dhjetor"],
-	"cal": "Kalendar",
-	"currDay": "(Dita aktual)",
+	days: [
+		"E diel",
+		"E hënë",
+		"E martë",
+		"E mërkurë",
+		"E enjte",
+		"E premte",
+		"E shtunë"
+	],
+	mnths: [
+		"Janar",
+		"Shkurt",
+		"Mars",
+		"Prill",
+		"Mund",
+		"Qershor",
+		"Korrik",
+		"Gusht",
+		"Shtator",
+		"Tetor",
+		"Nëntor",
+		"Dhjetor"
+	],
+	cal: "Kalendar",
+	currDay: "(Dita aktual)",
 	"cal-goToLnk": "Shko tek<span class=\"wb-inv\"> muaji të vitit</span>",
 	"cal-goToTtl": "Shko tek muaji të vitit",
 	"cal-goToMnth": "Muaj:",
 	"cal-goToYr": "Vit:",
 	"cal-goToBtn": "Shkoj",
-	"prvMnth": "Muajin e kaluar: ",
-	"nxtMnth": "Muajin e ardhshëm: ",
+	prvMnth: "Muajin e kaluar: ",
+	nxtMnth: "Muajin e ardhshëm: ",
 	/* Lightbox */
 	"lb-curr": "Pika %curr% e %total%",
 	"lb-xhr-err": "Kjo përmbajtje nuk arriti të ngarkesës.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Expand gjitha seksionet e përmbajtjes",
 	"td-ttl-close": "Collapse gjitha seksionet e përmbajtjes",
 	/* Table enhancement */
-	"sortAsc": ": aktivizuar për ngjitje lloj",
-	"sortDesc": ": aktivizuar për zbritës lloj",
-	"emptyTbl": "Nuk ka të dhëna është në dispozicion në tryezë",
-	"infoEntr": "Duke shfaqur _START_ deri në _END_ prej _TOTAL_ hyra",
-	"infoEmpty": "Duke shfaqur 0 deri në 0 prej 0 hyra",
-	"infoFilt": "(Filtruar nga shënimet _MAX_ totalit)",
-	"info1000": "&#160;",
-	"lenMenu": "Trego _MENU_ hyra",
+	sortAsc: ": aktivizuar për ngjitje lloj",
+	sortDesc: ": aktivizuar për zbritës lloj",
+	emptyTbl: "Nuk ka të dhëna është në dispozicion në tryezë",
+	infoEntr: "Duke shfaqur _START_ deri në _END_ prej _TOTAL_ hyra",
+	infoEmpty: "Duke shfaqur 0 deri në 0 prej 0 hyra",
+	infoFilt: "(Filtruar nga shënimet _MAX_ totalit)",
+	info1000: "&#160;",
+	lenMenu: "Trego _MENU_ hyra",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom në",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "et",
 	"lang-nat": "Eesti keel",
-	"all": "Kõik",
-	"tphp": "Lehekülje algusesse",
-	"load": "laadimine....",
-	"process": "töötlemine ...",
-	"srch": "Otsi",
+	all: "Kõik",
+	tphp: "Lehekülje algusesse",
+	load: "laadimine....",
+	process: "töötlemine ...",
+	srch: "Otsi",
 	"no-match": "Vastet ei leitud",
-	"matches": {
-		"mixin": "Leitud [MIXIN] vaste(t)"
+	matches: {
+		mixin: "Leitud [MIXIN] vaste(t)"
 	},
-	"curr": "(praegune)",
-	"hide": "Peida",
-	"err": "Viga",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(praegune)",
+	hide: "Peida",
+	err: "Viga",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ",",
-	"space": "&#32;",
-	"start": "Alusta",
-	"stop": "Lõpeta",
-	"back": "Tagasi",
-	"cancel": "Loobu",
+	space: "&#32;",
+	start: "Alusta",
+	stop: "Lõpeta",
+	back: "Tagasi",
+	cancel: "Loobu",
 	"min-ago": "minut tagasi",
 	"coup-mins": "mõni minut tagasi",
 	"mins-ago": {
-		"mixin": "[MIXIN] minutit tagasi"
+		mixin: "[MIXIN] minutit tagasi"
 	},
 	"hour-ago": "tund aega tagasi",
 	"hours-ago": {
-		"mixin": "[MIXIN] tundi tagasi"
+		mixin: "[MIXIN] tundi tagasi"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] päeva tagasi"
+		mixin: "[MIXIN] päeva tagasi"
 	},
-	"yesterday": "eile",
+	yesterday: "eile",
 
-	"nxt": "Järgmine",
+	nxt: "Järgmine",
 	"nxt-r": "Järgmine (paremat nooleklahvi)",
-	"prv": "Eelmine",
+	prv: "Eelmine",
 	"prv-l": "Eelmine (vasakut nooleklahvi)",
-	"first": "Esimene",
-	"last": "Viimane",
+	first: "Esimene",
+	last: "Viimane",
 	"menu-close": "Sulge menüü",
 	"overlay-close": "Sulge pop-up",
 	"esc-key": "(klahviga Escape)",
-	"show": "Näita",
+	show: "Näita",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Seiska sakkide rotatsioon",
-		"on": "Alusta sakkide rotatsiooni"
+		off: "Seiska sakkide rotatsioon",
+		on: "Alusta sakkide rotatsiooni"
 	},
 	"tab-list": "Sakkide nimekiri",
 	"tab-pnl-end1": "Selle sakkide paneeli lõpp",
 	"tab-pnl-end2": "Tagasi sakkide nimekirja",
 	"tab-pnl-end3": "või edasi ülejäänud lehele",
 	/* Multimedia player */
-	"play": "Mängi",
-	"pause": "Paus",
-	"open": "Ava",
-	"close": "Sulge",
-	"rew": "Tagasi",
-	"ffwd": "Kiirkerimine",
-	"mute": {
-		"on": "Vaigista",
-		"off": "Heli tagasi"
+	play: "Mängi",
+	pause: "Paus",
+	open: "Ava",
+	close: "Sulge",
+	rew: "Tagasi",
+	ffwd: "Kiirkerimine",
+	mute: {
+		on: "Vaigista",
+		off: "Heli tagasi"
 	},
-	"cc": {
-		"off": "Peida subtiitrid",
-		"on": "Näita subtiitreid"
+	cc: {
+		off: "Peida subtiitrid",
+		on: "Näita subtiitreid"
 	},
 	"cc-err": "Viga subtiitrite avamisel",
-	"adesc": {
-		"on": "Luba audio kirjeldus",
-		"off": "Sulge audio kirjeldus"
+	adesc: {
+		on: "Luba audio kirjeldus",
+		off: "Sulge audio kirjeldus"
 	},
-	"pos": "Praegune asukoht",
-	"dur": "Kogu kestvus:",
+	pos: "Praegune asukoht",
+	dur: "Kogu kestvus:",
 	/* Share widget */
 	"shr-txt": "Jaga seda lehekülge",
 	"shr-hnt": "koos {s}",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Vali kalendrist kuupäev:",
 	"date-sel": "Valitud",
 	/* Calendar */
-	"days": ["Pühapäev", "Esmaspäev", "Teisipäev", "Kolmapäev", "Neljapäev", "Reede", "Laupäev"],
-	"mnths": ["Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "Juuli", "August", "September", "Oktoober", "November", "Detsember"],
-	"cal": "Kalender",
-	"currDay": "(Tänane päev)",
+	days: [
+		"Pühapäev",
+		"Esmaspäev",
+		"Teisipäev",
+		"Kolmapäev",
+		"Neljapäev",
+		"Reede",
+		"Laupäev"
+	],
+	mnths: [
+		"Jaanuar",
+		"Veebruar",
+		"Märts",
+		"Aprill",
+		"Mai",
+		"Juuni",
+		"Juuli",
+		"August",
+		"September",
+		"Oktoober",
+		"November",
+		"Detsember"
+	],
+	cal: "Kalender",
+	currDay: "(Tänane päev)",
 	"cal-goToLnk": "Mine aastas</span>  kuule <span class=\"wb-inv\"> ",
 	"cal-goToTtl": "Mine sellele kuule aastas",
 	"cal-goToMnth": "Kuu",
 	"cal-goToYr": "Aasta",
 	"cal-goToBtn": "Mine",
-	"prvMnth": "Eelmine kuu: ",
-	"nxtMnth": "Järgmine kuu: ",
+	prvMnth: "Eelmine kuu: ",
+	nxtMnth: "Järgmine kuu: ",
 	/* Lightbox */
 	"lb-curr": "Kirje %curr% koguhulgast %total%",
 	"lb-xhr-err": "Sisu laadimine ebaõnnestus",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Laienda kõiki sisu osasid",
 	"td-ttl-close": "Sulge kõik sisu osad",
 	/* Table enhancement */
-	"sortAsc": ": aktiveeri kasvavaks järjestuseks",
-	"sortDesc": ": aktiveeri kahanevaks järjestuseks",
-	"emptyTbl": "Tabelist puuduvad andmed",
-	"infoEntr": "Näitan _START_-_END_  _TOTAL_ kirjest",
-	"infoEmpty": "Näitan kirjeid 0-0 koguhulgast 0",
-	"infoFilt": "(filtreeritud _MAX_ sissekannete koguhulgast)",
-	"info1000": "&#160;",
-	"lenMenu": "Näita _MENU_ kandeid",
+	sortAsc: ": aktiveeri kasvavaks järjestuseks",
+	sortDesc: ": aktiveeri kahanevaks järjestuseks",
+	emptyTbl: "Tabelist puuduvad andmed",
+	infoEntr: "Näitan _START_-_END_  _TOTAL_ kirjest",
+	infoEmpty: "Näitan kirjeid 0-0 koguhulgast 0",
+	infoFilt: "(filtreeritud _MAX_ sissekannete koguhulgast)",
+	info1000: "&#160;",
+	lenMenu: "Näita _MENU_ kandeid",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Suumi",

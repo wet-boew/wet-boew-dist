@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "tr",
 	"lang-nat": "Türkçe",
-	"all": "Tüm",
-	"tphp": "Sayfa Başı",
-	"load": "yükleniyor ...",
-	"process": "işleme ...",
-	"srch": "Ara",
+	all: "Tüm",
+	tphp: "Sayfa Başı",
+	load: "yükleniyor ...",
+	process: "işleme ...",
+	srch: "Ara",
 	"no-match": "Eşleşme bulunamadı",
-	"matches": {
-		"mixin": "[MIXIN] eşleşme bulundu"
+	matches: {
+		mixin: "[MIXIN] eşleşme bulundu"
 	},
-	"curr": "(güncel)",
-	"hide": "Sakla",
-	"err": "Hata",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(güncel)",
+	hide: "Sakla",
+	err: "Hata",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Başla",
-	"stop": "Bitir",
-	"back": "Geri",
-	"cancel": "İptal",
+	space: "&#32;",
+	start: "Başla",
+	stop: "Bitir",
+	back: "Geri",
+	cancel: "İptal",
 	"min-ago": "bir dakika önce",
 	"coup-mins": "birkaç dakika önce",
 	"mins-ago": {
-		"mixin": "[MIXIN] dakika önce"
+		mixin: "[MIXIN] dakika önce"
 	},
 	"hour-ago": "bir saat önce",
 	"hours-ago": {
-		"mixin": "[MIXIN] saat önce"
+		mixin: "[MIXIN] saat önce"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] gün önce"
+		mixin: "[MIXIN] gün önce"
 	},
-	"yesterday": "dün",
+	yesterday: "dün",
 
-	"nxt": "Bir sonraki",
+	nxt: "Bir sonraki",
 	"nxt-r": "Bir sonraki (sağ ok tuşu)",
-	"prv": "Bir önceki",
+	prv: "Bir önceki",
 	"prv-l": "Bir önceki (sol ok tuşu)",
-	"first": "İlk",
-	"last": "Son",
+	first: "İlk",
+	last: "Son",
 	"menu-close": "Menüyü kapatmak",
 	"overlay-close": "Bindirme kapatmak",
 	"esc-key": "(escape tuşu)",
-	"show": "Göster",
+	show: "Göster",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Tab dönüşünü durdur",
-		"on": "Tab dönüşünü başlat"
+		off: "Tab dönüşünü durdur",
+		on: "Tab dönüşünü başlat"
 	},
 	"tab-list": "Tab listesi",
 	"tab-pnl-end1": "Bu tab paneli sonu.",
 	"tab-pnl-end2": "Tab listesine dön",
 	"tab-pnl-end3": "ya da geri kalan sayfa devam etmektedir.",
 	/* Multimedia player */
-	"play": "Oynat",
-	"pause": "Duraklat",
-	"open": "Açık",
-	"close": "Kapat",
-	"rew": "Geri sar",
-	"ffwd": "Hızlı sar",
-	"mute": {
-		"on": "Sessiz",
-		"off": "Sesi aç"
+	play: "Oynat",
+	pause: "Duraklat",
+	open: "Açık",
+	close: "Kapat",
+	rew: "Geri sar",
+	ffwd: "Hızlı sar",
+	mute: {
+		on: "Sessiz",
+		off: "Sesi aç"
 	},
-	"cc": {
-		"off": "Kapalı eklentileri gizle",
-		"on": "Kapalı eklentileri göster"
+	cc: {
+		off: "Kapalı eklentileri gizle",
+		on: "Kapalı eklentileri göster"
 	},
 	"cc-err": "Kapalı eklenti yükleme hatası",
-	"adesc": {
-		"on": "Sesli açıklama açık",
-		"off": "Sesli açıklama kapalı"
+	adesc: {
+		on: "Sesli açıklama açık",
+		off: "Sesli açıklama kapalı"
 	},
-	"pos": "Geçerli pozisyon:",
-	"dur": "Toplam zaman:",
+	pos: "Geçerli pozisyon:",
+	dur: "Toplam zaman:",
 	/* Share widget */
 	"shr-txt": "Bu sayfayı paylaş",
 	"shr-hnt": " ile {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Alan için takvimden bir tarih seçiniz:",
 	"date-sel": "Seçilmiş",
 	/* Calendar */
-	"days": ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"],
-	"mnths": ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
-	"cal": "Takvim",
-	"currDay": "(Geçerli gün)",
+	days: [
+		"Pazar",
+		"Pazartesi",
+		"Salı",
+		"Çarşamba",
+		"Perşembe",
+		"Cuma",
+		"Cumartesi"
+	],
+	mnths: [
+		"Ocak",
+		"Şubat",
+		"Mart",
+		"Nisan",
+		"Mayıs",
+		"Haziran",
+		"Temmuz",
+		"Ağustos",
+		"Eylül",
+		"Ekim",
+		"Kasım",
+		"Aralık"
+	],
+	cal: "Takvim",
+	currDay: "(Geçerli gün)",
 	"cal-goToLnk": "<span class=\"wb-inv\">Yılın ayına </span>Git",
 	"cal-goToTtl": "Yılın ayına git",
 	"cal-goToMnth": "Ay:",
 	"cal-goToYr": "Yıl:",
 	"cal-goToBtn": "Git",
-	"prvMnth": "Önceki ay: ",
-	"nxtMnth": "Sonraki ay: ",
+	prvMnth: "Önceki ay: ",
+	nxtMnth: "Sonraki ay: ",
 	/* Lightbox */
 	"lb-curr": "%total% de %curr% inci madde",
 	"lb-xhr-err": "İçerik yükleme hatası.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Içeriğin tüm bölümleri aç",
 	"td-ttl-close": "Içeriğin tüm bölümleri aç",
 	/* Table enhancement */
-	"sortAsc": ": sıralama Artan için etkinleştirmek",
-	"sortDesc": ": sıralama azalan için etkinleştirmek",
-	"emptyTbl": "Resim verileri tablosu içinde mevcut olan",
-	"infoEntr": "_TOTAL_ girdi _END_ ile _START_ arası gösteriliyor",
-	"infoEmpty": "0 girdi 0 ile 0 arası gösteriliyor",
-	"infoFilt": "(_MAX_ toplam girişler filtrelenir)",
-	"info1000": ",",
-	"lenMenu": "_MENU_ girdileri göster",
+	sortAsc: ": sıralama Artan için etkinleştirmek",
+	sortDesc: ": sıralama azalan için etkinleştirmek",
+	emptyTbl: "Resim verileri tablosu içinde mevcut olan",
+	infoEntr: "_TOTAL_ girdi _END_ ile _START_ arası gösteriliyor",
+	infoEmpty: "0 girdi 0 ile 0 arası gösteriliyor",
+	infoFilt: "(_MAX_ toplam girişler filtrelenir)",
+	info1000: ",",
+	lenMenu: "_MENU_ girdileri göster",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Yakınlaştır",

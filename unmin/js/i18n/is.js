@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "is",
 	"lang-nat": "Íslenska",
-	"all": "Allt",
-	"tphp": "Efst á síðu",
-	"load": "hleðsla ...",
-	"process": "vinnslu ...",
-	"srch": "Leita",
+	all: "Allt",
+	tphp: "Efst á síðu",
+	load: "hleðsla ...",
+	process: "vinnslu ...",
+	srch: "Leita",
 	"no-match": "Engin samsvörun fannst",
-	"matches": {
-		"mixin": "[MIXIN] niðurstöður fundust"
+	matches: {
+		mixin: "[MIXIN] niðurstöður fundust"
 	},
-	"curr": "(núverandi)",
-	"hide": "Fela",
-	"err": "Villa",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(núverandi)",
+	hide: "Fela",
+	err: "Villa",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Byrja",
-	"stop": "Stöðva",
-	"back": "Til baka",
-	"cancel": "Hætta við",
+	space: "&#32;",
+	start: "Byrja",
+	stop: "Stöðva",
+	back: "Til baka",
+	cancel: "Hætta við",
 	"min-ago": "mínútu síðan",
 	"coup-mins": "nokkrar mínútur síðan",
 	"mins-ago": {
-		"mixin": "[MIXIN] mínútur síðan"
+		mixin: "[MIXIN] mínútur síðan"
 	},
 	"hour-ago": "klukkutíma síðan",
 	"hours-ago": {
-		"mixin": "[MIXIN] klst síðan"
+		mixin: "[MIXIN] klst síðan"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] dögum síðan"
+		mixin: "[MIXIN] dögum síðan"
 	},
-	"yesterday": "í gær",
+	yesterday: "í gær",
 
-	"nxt": "Næsta",
+	nxt: "Næsta",
 	"nxt-r": "Næsta (hægri ör lykill)",
-	"prv": "Fyrri",
+	prv: "Fyrri",
 	"prv-l": "Fyrri (vinstri ör lykill)",
-	"first": "First",
-	"last": "Síðasta",
+	first: "First",
+	last: "Síðasta",
 	"menu-close": "Loka valmynd",
 	"overlay-close": "Loka yfirlagið",
 	"esc-key": "(flýja lykill)",
-	"show": "Sýna",
+	show: "Sýna",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Stöðva flipann snúningur",
-		"on": "Byrja flipann snúningur"
+		off: "Stöðva flipann snúningur",
+		on: "Byrja flipann snúningur"
 	},
 	"tab-list": "Flipann lista",
 	"tab-pnl-end1": "Lok þessa flipann spjaldið.",
 	"tab-pnl-end2": "Fara aftur á flipann lista",
 	"tab-pnl-end3": "eða halda áfram til the hvíla af síðunni.",
 	/* Multimedia player */
-	"play": "Spila",
-	"pause": "Brot",
-	"open": "Opinn",
-	"close": "Loka",
-	"rew": "Baka",
-	"ffwd": "Fljótur áfram",
-	"mute": {
-		"on": "Hljóðnemi",
-		"off": "Slökkva"
+	play: "Spila",
+	pause: "Brot",
+	open: "Opinn",
+	close: "Loka",
+	rew: "Baka",
+	ffwd: "Fljótur áfram",
+	mute: {
+		on: "Hljóðnemi",
+		off: "Slökkva"
 	},
-	"cc": {
-		"off": "Fela lokuðum skýringartextum",
-		"on": "Sýna lokuðum skýringartextum"
+	cc: {
+		off: "Fela lokuðum skýringartextum",
+		on: "Sýna lokuðum skýringartextum"
 	},
 	"cc-err": "Villa við að hlaða Skjátextar",
-	"adesc": {
-		"on": "Virkja hljóð lýsingu",
-		"off": "Gera hljóð lýsingu"
+	adesc: {
+		on: "Virkja hljóð lýsingu",
+		off: "Gera hljóð lýsingu"
 	},
-	"pos": "Núverandi staða:",
-	"dur": "Samtals tími:",
+	pos: "Núverandi staða:",
+	dur: "Samtals tími:",
 	/* Share widget */
 	"shr-txt": "Deila þessari síðu",
 	"shr-hnt": " með {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Veldu dagsetningu af dagatali fyrir akur:",
 	"date-sel": "Valin",
 	/* Calendar */
-	"days": ["Sunnudagur", "Mánudagur", "Þriðjudagur", "Miðvikudagur", "Fimmtudagur", "Föstudagur", "Laugardagur"],
-	"mnths": ["Janúar", "Febrúar", "Mars", "Apríl", "Maí", "Júní", "Júlí", "Ágúst", "September", "Október", "Nóvember", "Desember"],
-	"cal": "Dagbók",
-	"currDay": "(Núverandi dag)",
+	days: [
+		"Sunnudagur",
+		"Mánudagur",
+		"Þriðjudagur",
+		"Miðvikudagur",
+		"Fimmtudagur",
+		"Föstudagur",
+		"Laugardagur"
+	],
+	mnths: [
+		"Janúar",
+		"Febrúar",
+		"Mars",
+		"Apríl",
+		"Maí",
+		"Júní",
+		"Júlí",
+		"Ágúst",
+		"September",
+		"Október",
+		"Nóvember",
+		"Desember"
+	],
+	cal: "Dagbók",
+	currDay: "(Núverandi dag)",
 	"cal-goToLnk": "Fara í<span class=\"wb-inv\"> mánuð á ári</span>",
 	"cal-goToTtl": "Fara í mánuð á ári",
 	"cal-goToMnth": "Mánuður:",
 	"cal-goToYr": "Ár:",
 	"cal-goToBtn": "Farðu",
-	"prvMnth": "Fyrri mánuður: ",
-	"nxtMnth": "Næsti mánuður: ",
+	prvMnth: "Fyrri mánuður: ",
+	nxtMnth: "Næsti mánuður: ",
 	/* Lightbox */
 	"lb-curr": "Item %curr% af %total%",
 	"lb-xhr-err": "Þetta efni tókst að hlaða.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Stækka alla hluta af efni",
 	"td-ttl-close": "Fella alla hluta af efni",
 	/* Table enhancement */
-	"sortAsc": ": virkja til hækkandi raða",
-	"sortDesc": ": virkja til lækkandi konar",
-	"emptyTbl": "Engar upplýsingar liggja á borðinu",
-	"infoEntr": "Sýni _START_ til _END_ af _TOTAL_ færslum",
-	"infoEmpty": "Sýni 0 til 0 af 0 færslum",
-	"infoFilt": "(síað frá _MAX_ öllum færslum)",
-	"info1000": ",",
-	"lenMenu": "Sýna _MENU_ færslur",
+	sortAsc: ": virkja til hækkandi raða",
+	sortDesc: ": virkja til lækkandi konar",
+	emptyTbl: "Engar upplýsingar liggja á borðinu",
+	infoEntr: "Sýni _START_ til _END_ af _TOTAL_ færslum",
+	infoEmpty: "Sýni 0 til 0 af 0 færslum",
+	infoFilt: "(síað frá _MAX_ öllum færslum)",
+	info1000: ",",
+	lenMenu: "Sýna _MENU_ færslur",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Auka aðdrátt",

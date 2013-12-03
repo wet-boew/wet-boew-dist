@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "hu",
 	"lang-nat": "Magyar",
-	"all": "Mind",
-	"tphp": "Oldal teteje",
-	"load": "betöltése ...",
-	"process": "feldolgozás ...",
-	"srch": "Keresés",
+	all: "Mind",
+	tphp: "Oldal teteje",
+	load: "betöltése ...",
+	process: "feldolgozás ...",
+	srch: "Keresés",
 	"no-match": "Nincs találat",
-	"matches": {
-		"mixin": "[MIXIN] találat"
+	matches: {
+		mixin: "[MIXIN] találat"
 	},
-	"curr": "(jelenlegi)",
-	"hide": "Elrejtés",
-	"err": "Hiba",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(jelenlegi)",
+	hide: "Elrejtés",
+	err: "Hiba",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Indítás",
-	"stop": "Leállítás",
-	"back": "Vissza",
-	"cancel": "Mégsem",
+	space: "&#32;",
+	start: "Indítás",
+	stop: "Leállítás",
+	back: "Vissza",
+	cancel: "Mégsem",
 	"min-ago": "egy perce",
 	"coup-mins": "pár perce",
 	"mins-ago": {
-		"mixin": "[MIXIN] perccel ezelőtt"
+		mixin: "[MIXIN] perccel ezelőtt"
 	},
 	"hour-ago": "egy órával ezelőtt",
 	"hours-ago": {
-		"mixin": "[MIXIN] órával ezelőtt"
+		mixin: "[MIXIN] órával ezelőtt"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] nappal ezelőtt"
+		mixin: "[MIXIN] nappal ezelőtt"
 	},
-	"yesterday": "tegnap",
+	yesterday: "tegnap",
 
-	"nxt": "Következő",
+	nxt: "Következő",
 	"nxt-r": "Következő (jobb nyíl gomb)",
-	"prv": "Előző",
+	prv: "Előző",
 	"prv-l": "Előző (bal nyíl gomb)",
-	"first": "Első",
-	"last": "Utolsó",
+	first: "Első",
+	last: "Utolsó",
 	"menu-close": "Zárja be a menüt",
 	"overlay-close": "Zárja be az overlay",
 	"esc-key": "(escape billentyűvel)",
-	"show": "Mutat",
+	show: "Mutat",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Tabulálás engedélyezése",
-		"on": "Tabulálás kikapcsolása"
+		off: "Tabulálás engedélyezése",
+		on: "Tabulálás kikapcsolása"
 	},
 	"tab-list": "Lap listája",
 	"tab-pnl-end1": "Vége a lap panel.",
 	"tab-pnl-end2": "Vissza a lap listája",
 	"tab-pnl-end3": "vagy továbbra is a többi oldalon.",
 	/* Multimedia player */
-	"play": "Lejátszás",
-	"pause": "Pillanatmegállító",
-	"open": "Nyitva",
-	"close": "Bezárás",
-	"rew": "Vissza",
-	"ffwd": "Előre",
-	"mute": {
-		"on": "Lenémítás",
-		"off": "Hang bekapcsolása"
+	play: "Lejátszás",
+	pause: "Pillanatmegállító",
+	open: "Nyitva",
+	close: "Bezárás",
+	rew: "Vissza",
+	ffwd: "Előre",
+	mute: {
+		on: "Lenémítás",
+		off: "Hang bekapcsolása"
 	},
-	"cc": {
-		"off": "Feliratok kikapcsolása",
-		"on": "Feliratozás bekapcsolása"
+	cc: {
+		off: "Feliratok kikapcsolása",
+		on: "Feliratozás bekapcsolása"
 	},
 	"cc-err": "Hiba a felirat betöltése közben",
-	"adesc": {
-		"on": "Narráció bekapcsolása",
-		"off": "Narráció kikapcsolása"
+	adesc: {
+		on: "Narráció bekapcsolása",
+		off: "Narráció kikapcsolása"
 	},
-	"pos": "Jelenlegi pozíció:",
-	"dur": "Összidő:",
+	pos: "Jelenlegi pozíció:",
+	dur: "Összidő:",
 	/* Share widget */
 	"shr-txt": "Oldal megosztása",
 	"shr-hnt": " a {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Válasszon egy dátumot a naptárból:",
 	"date-sel": "Kijelölt",
 	/* Calendar */
-	"days": ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"],
-	"mnths": ["Január", "Február", "Március", "Április", "Május", "Június", "Július", "Augusztus", "Szeptember", "Október", "November", "December"],
-	"cal": "Naptár",
-	"currDay": "(Mai nap)",
+	days: [
+		"Vasárnap",
+		"Hétfő",
+		"Kedd",
+		"Szerda",
+		"Csütörtök",
+		"Péntek",
+		"Szombat"
+	],
+	mnths: [
+		"Január",
+		"Február",
+		"Március",
+		"Április",
+		"Május",
+		"Június",
+		"Július",
+		"Augusztus",
+		"Szeptember",
+		"Október",
+		"November",
+		"December"
+	],
+	cal: "Naptár",
+	currDay: "(Mai nap)",
 	"cal-goToLnk": "Ugrás<span class=\"wb-inv\"> erre a hónapra</span>",
 	"cal-goToTtl": "Ugrás erre a hónapra",
 	"cal-goToMnth": "Hónap:",
 	"cal-goToYr": "Év:",
 	"cal-goToBtn": "Indít",
-	"prvMnth": "Előző hónap: ",
-	"nxtMnth": "Következő hónap: ",
+	prvMnth: "Előző hónap: ",
+	nxtMnth: "Következő hónap: ",
 	/* Lightbox */
 	"lb-curr": "%total%-ből %curr%",
 	"lb-xhr-err": "A tartalom betöltése nem sikerült.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Az összes kibontása rétegei tartalom",
 	"td-ttl-close": "Elrejt minden rétege tartalom",
 	/* Table enhancement */
-	"sortAsc": ": aktiválja a növekvő sort",
-	"sortDesc": ": aktiválja csökkenő rendezési",
-	"emptyTbl": "Nem állnak rendelkezésre adatok a táblázatban",
-	"infoEntr": "Megjelenítése _START_-_END_ a _TOTAL_ bejegyzés",
-	"infoEmpty": "Megjelenítése 0-0 a 0 bejegyzés",
-	"infoFilt": "(kiszűrt összesen _MAX_ entries)",
-	"info1000": "&#160;",
-	"lenMenu": "Megjelenítés _MENU_ bejegyzés",
+	sortAsc: ": aktiválja a növekvő sort",
+	sortDesc: ": aktiválja csökkenő rendezési",
+	emptyTbl: "Nem állnak rendelkezésre adatok a táblázatban",
+	infoEntr: "Megjelenítése _START_-_END_ a _TOTAL_ bejegyzés",
+	infoEmpty: "Megjelenítése 0-0 a 0 bejegyzés",
+	infoFilt: "(kiszűrt összesen _MAX_ entries)",
+	info1000: "&#160;",
+	lenMenu: "Megjelenítés _MENU_ bejegyzés",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Nagyítás",

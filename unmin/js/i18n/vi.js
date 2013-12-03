@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "vi",
 	"lang-nat": "Tiếng Việt",
-	"all": "Tất cả",
-	"tphp": "Trở về đầu trang",
-	"load": "tải ...",
-	"process": "xử lý ...",
-	"srch": "Tìm kiếm",
+	all: "Tất cả",
+	tphp: "Trở về đầu trang",
+	load: "tải ...",
+	process: "xử lý ...",
+	srch: "Tìm kiếm",
 	"no-match": "Không hợp được tìm thấy",
-	"matches": {
-		"mixin": "[MIXIN] trận được tìm thấy"
+	matches: {
+		mixin: "[MIXIN] trận được tìm thấy"
 	},
-	"curr": "(hiện tại)",
-	"hide": "Che",
-	"err": "Lôi",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(hiện tại)",
+	hide: "Che",
+	err: "Lôi",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Bắt đầu",
-	"stop": "Thôi",
-	"back": "Lưng",
-	"cancel": "Hủy bỏ",
+	space: "&#32;",
+	start: "Bắt đầu",
+	stop: "Thôi",
+	back: "Lưng",
+	cancel: "Hủy bỏ",
 	"min-ago": "một phút trước",
 	"coup-mins": "vài phút trước đây",
 	"mins-ago": {
-		"mixin": "[MIXIN] phút trước"
+		mixin: "[MIXIN] phút trước"
 	},
 	"hour-ago": "một giờ trước đây",
 	"hours-ago": {
-		"mixin": "[MIXIN] giờ trước"
+		mixin: "[MIXIN] giờ trước"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] ngày trước"
+		mixin: "[MIXIN] ngày trước"
 	},
-	"yesterday": "hôm qua",
+	yesterday: "hôm qua",
 
-	"nxt": "Tiếp theo",
+	nxt: "Tiếp theo",
 	"nxt-r": "Tiếp theo (phím mũi tên bên phải)",
-	"prv": "Trang trước",
+	prv: "Trang trước",
 	"prv-l": "Trang trước (phím mũi tên trái)",
-	"first": "Đầu tiên",
-	"last": "Cuối cùng",
+	first: "Đầu tiên",
+	last: "Cuối cùng",
 	"menu-close": "Đóng menu",
 	"overlay-close": "Đóng lớp phủ",
 	"esc-key": "(phím thoát)",
-	"show": "Hiện",
+	show: "Hiện",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Ngừng xoay tab",
-		"on": "Bắt đầu luân chuyển tab"
+		off: "Ngừng xoay tab",
+		on: "Bắt đầu luân chuyển tab"
 	},
 	"tab-list": "Tab danh sách",
 	"tab-pnl-end1": "Kết thúc của bảng điều khiển tab.",
 	"tab-pnl-end2": "Quay trở lại danh sách tab",
 	"tab-pnl-end3": "hoặc tiếp tục với phần còn lại của trang.",
 	/* Multimedia player */
-	"play": "Chơi",
-	"pause": "Tạm dừng",
-	"open": "Mở",
-	"close": "Đóng",
-	"rew": "Tua lại",
-	"ffwd": "Nhanh chóng chuyển tiếp",
-	"mute": {
-		"on": "Tắt",
-		"off": "Bật tiếng"
+	play: "Chơi",
+	pause: "Tạm dừng",
+	open: "Mở",
+	close: "Đóng",
+	rew: "Tua lại",
+	ffwd: "Nhanh chóng chuyển tiếp",
+	mute: {
+		on: "Tắt",
+		off: "Bật tiếng"
 	},
-	"cc": {
-		"off": "Hide Đóng cửa phụ đề",
-		"on": "Hiện Đóng cửa phụ đề"
+	cc: {
+		off: "Hide Đóng cửa phụ đề",
+		on: "Hiện Đóng cửa phụ đề"
 	},
 	"cc-err": "Lỗi khi đang nạp chú thích đóng",
-	"adesc": {
-		"on": "Kích hoạt tính năng mô tả âm thanh",
-		"off": "Vô hiệu hoá mô tả âm thanh"
+	adesc: {
+		on: "Kích hoạt tính năng mô tả âm thanh",
+		off: "Vô hiệu hoá mô tả âm thanh"
 	},
-	"pos": "Chức vụ hiện tại:",
-	"dur": "Tổng thời gian:",
+	pos: "Chức vụ hiện tại:",
+	dur: "Tổng thời gian:",
 	/* Share widget */
 	"shr-txt": "Chia sẻ trang này",
 	"shr-hnt": " với {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Chọn một ngày từ lịch cho lĩnh vực:",
 	"date-sel": "Chọn",
 	/* Calendar */
-	"days": ["Chủ Nhật", "Thứ Hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"],
-	"mnths": ["Tháng một", "Tháng Hai", "Biên giới", "Tháng Tư", "May", "Tháng Sáu", "Tháng Bảy", "Oai phong", "Tháng Chín", "Tháng Mười", "Tháng mười một", "Tháng mười hai"],
-	"cal": "Lịch",
-	"currDay": "(Ngày hiện tại)",
+	days: [
+		"Chủ Nhật",
+		"Thứ Hai",
+		"Thứ ba",
+		"Thứ tư",
+		"Thứ năm",
+		"Thứ sáu",
+		"Thứ bảy"
+	],
+	mnths: [
+		"Tháng một",
+		"Tháng Hai",
+		"Biên giới",
+		"Tháng Tư",
+		"May",
+		"Tháng Sáu",
+		"Tháng Bảy",
+		"Oai phong",
+		"Tháng Chín",
+		"Tháng Mười",
+		"Tháng mười một",
+		"Tháng mười hai"
+	],
+	cal: "Lịch",
+	currDay: "(Ngày hiện tại)",
 	"cal-goToLnk": "Tới tháng trong năm",
 	"cal-goToTtl": "Tới tháng trong năm",
 	"cal-goToMnth": "Tháng:",
 	"cal-goToYr": "Năm:",
 	"cal-goToBtn": "Đi",
-	"prvMnth": "Tháng trước: ",
-	"nxtMnth": "Tháng sau: ",
+	prvMnth: "Tháng trước: ",
+	nxtMnth: "Tháng sau: ",
 	/* Lightbox */
 	"lb-curr": "Khoản %curr% của %total%",
 	"lb-xhr-err": "Nội dung này không thể tải.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Mở rộng tất cả các phần của nội dung",
 	"td-ttl-close": "Thu gọn tất cả các phần của nội dung",
 	/* Table enhancement */
-	"sortAsc": ": kích hoạt cho loại tăng dần",
-	"sortDesc": ": kích hoạt cho loại giảm dần",
-	"emptyTbl": "Không có dữ liệu có sẵn trong bảng",
-	"infoEntr": "Hiển thị từ _START_ đến _END_ của _TOTAL_ mục",
-	"infoEmpty": "Hiển thị từ 0 đến 0 của 0 mục",
-	"infoFilt": "(lọc từ tổng số _MAX_ mục)",
-	"info1000": ",",
-	"lenMenu": "Hiển thị _MENU_ mục",
+	sortAsc: ": kích hoạt cho loại tăng dần",
+	sortDesc: ": kích hoạt cho loại giảm dần",
+	emptyTbl: "Không có dữ liệu có sẵn trong bảng",
+	infoEntr: "Hiển thị từ _START_ đến _END_ của _TOTAL_ mục",
+	infoEmpty: "Hiển thị từ 0 đến 0 của 0 mục",
+	infoFilt: "(lọc từ tổng số _MAX_ mục)",
+	info1000: ",",
+	lenMenu: "Hiển thị _MENU_ mục",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Phóng to",

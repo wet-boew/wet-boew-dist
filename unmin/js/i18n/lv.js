@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "lv",
 	"lang-nat": "Latviešu valoda",
-	"all": "Visi",
-	"tphp": "Lapas augša",
-	"load": "ielādēšana ...",
-	"process": "pārstrādes ...",
-	"srch": "Meklēt",
+	all: "Visi",
+	tphp: "Lapas augša",
+	load: "ielādēšana ...",
+	process: "pārstrādes ...",
+	srch: "Meklēt",
 	"no-match": "Atbilstība nav atrasta",
-	"matches": {
-		"mixin": "[MIXIN] atbilstība(s) nav atrasta(s)"
+	matches: {
+		mixin: "[MIXIN] atbilstība(s) nav atrasta(s)"
 	},
-	"curr": "(pašreizējais)",
-	"hide": "Slēpt",
-	"err": "Kļūda",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(pašreizējais)",
+	hide: "Slēpt",
+	err: "Kļūda",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Sākt",
-	"stop": "Pārtraukt",
-	"back": "Atpakaļ",
-	"cancel": "Atcelt",
+	space: "&#32;",
+	start: "Sākt",
+	stop: "Pārtraukt",
+	back: "Atpakaļ",
+	cancel: "Atcelt",
 	"min-ago": "pirms minūtes",
 	"coup-mins": "pirms dažām minūtēm",
 	"mins-ago": {
-		"mixin": "pirms [MIXIN] minūtēm"
+		mixin: "pirms [MIXIN] minūtēm"
 	},
 	"hour-ago": "pirms stundas",
 	"hours-ago": {
-		"mixin": "pirms [MIXIN] stundām"
+		mixin: "pirms [MIXIN] stundām"
 	},
 	"days-ago": {
-		"mixin": "pirms [MIXIN] dienām"
+		mixin: "pirms [MIXIN] dienām"
 	},
-	"yesterday": "vakar",
+	yesterday: "vakar",
 
-	"nxt": "Nākošais",
+	nxt: "Nākošais",
 	"nxt-r": "Nākošais (labo bultiņu taustiņu)",
-	"prv": "Lepriekšējais",
+	prv: "Lepriekšējais",
 	"prv-l": "Lepriekšējais (pa kreisi bulta taustiņu)",
-	"first": "Pirmā",
-	"last": "Pēdējā",
+	first: "Pirmā",
+	last: "Pēdējā",
 	"menu-close": "Aizveriet izvēlni",
 	"overlay-close": "Aizveriet pārklāt",
 	"esc-key": "(escape taustiņu)",
-	"show": "Rādīt",
+	show: "Rādīt",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Pārtraukt rotāciju",
-		"on": "Sākt rotāciju"
+		off: "Pārtraukt rotāciju",
+		on: "Sākt rotāciju"
 	},
 	"tab-list": "Saraksts cilnes",
 	"tab-pnl-end1": "Beigas cilnes paneļa.",
 	"tab-pnl-end2": "Atgriezties uz sarakstu cilnēm",
 	"tab-pnl-end3": "vai turpināt uz pārējo lapu.",
 	/* Multimedia player */
-	"play": "Spēlēt",
-	"pause": "Pauze",
-	"open": "Atvērt",
-	"close": "Aizvērt",
-	"rew": "Attīt atpakaļ",
-	"ffwd": "Ātrā pārtīšana",
-	"mute": {
-		"on": "Izslēgt skaņu",
-		"off": "Ieslēgt skaņu"
+	play: "Spēlēt",
+	pause: "Pauze",
+	open: "Atvērt",
+	close: "Aizvērt",
+	rew: "Attīt atpakaļ",
+	ffwd: "Ātrā pārtīšana",
+	mute: {
+		on: "Izslēgt skaņu",
+		off: "Ieslēgt skaņu"
 	},
-	"cc": {
-		"off": "Slēpt subtitrus",
-		"on": "Rādīt subtitrus"
+	cc: {
+		off: "Slēpt subtitrus",
+		on: "Rādīt subtitrus"
 	},
 	"cc-err": "Kļūda lejuplādējot subtitrus",
-	"adesc": {
-		"on": "Ieslēgt audio aprakstu",
-		"off": "Izslēgt audio aprakstu"
+	adesc: {
+		on: "Ieslēgt audio aprakstu",
+		off: "Izslēgt audio aprakstu"
 	},
-	"pos": "Šobdrīdējā pozīcija:",
-	"dur": "Kopējais laiks:",
+	pos: "Šobdrīdējā pozīcija:",
+	dur: "Kopējais laiks:",
 	/* Share widget */
 	"shr-txt": "Ieteikt šo lapu",
 	"shr-hnt": " ar {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Izvēlēties datumu no kalendāra lauka:",
 	"date-sel": "Atlasīts",
 	/* Calendar */
-	"days": ["Pirmdiena", "Otrdiena", "Trešdiena", "Ceturtdiena", "Piektdiena", "Sestdiena", "Svētdiena"],
-	"mnths": ["Janvāris", "Februāris", "Marts", "Aprīlis", "Maijs", "Jūnijs", "Jūlijs", "Augusts", "Septembris", "Octobris", "Novembris", "Decembris"],
-	"cal": "Kalendārs",
-	"currDay": "(Šodien)",
+	days: [
+		"Pirmdiena",
+		"Otrdiena",
+		"Trešdiena",
+		"Ceturtdiena",
+		"Piektdiena",
+		"Sestdiena",
+		"Svētdiena"
+	],
+	mnths: [
+		"Janvāris",
+		"Februāris",
+		"Marts",
+		"Aprīlis",
+		"Maijs",
+		"Jūnijs",
+		"Jūlijs",
+		"Augusts",
+		"Septembris",
+		"Octobris",
+		"Novembris",
+		"Decembris"
+	],
+	cal: "Kalendārs",
+	currDay: "(Šodien)",
 	"cal-goToLnk": "Iet uz<span class=\"wb-inv\"> gada mēnesi</span>",
 	"cal-goToTtl": "Iet uz gada mēnesi",
 	"cal-goToMnth": "Mēnesis:",
 	"cal-goToYr": "Gads:",
 	"cal-goToBtn": "Iet uz",
-	"prvMnth": "Iepriekšējais mēnesis: ",
-	"nxtMnth": "Nākošais mēnesis: ",
+	prvMnth: "Iepriekšējais mēnesis: ",
+	nxtMnth: "Nākošais mēnesis: ",
 	/* Lightbox */
 	"lb-curr": "Vienums %curr% no %total%",
 	"lb-xhr-err": "Šo saturu nevar ielādēt",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Paplašināt visas sadaļas satura",
 	"td-ttl-close": "Sakļaut visas sadaļas satura",
 	/* Table enhancement */
-	"sortAsc": ": aktivizēt uz augošā šķirot",
-	"sortDesc": ": aktivizēt par dilstošā šķirot",
-	"emptyTbl": "Nav pieejami dati tabulā",
-	"infoEntr": "Rādu no _START_ līdz _END_ no _TOTAL_ ierakstiem",
-	"infoEmpty": "Rādu no 0 līdz 0 no 0 ierakstiem",
-	"infoFilt": "(filtrēts no _MAX_ kopējiem ierakstiem)",
-	"info1000": ",",
-	"lenMenu": "Parādīt _MENU_ ieraksti",
+	sortAsc: ": aktivizēt uz augošā šķirot",
+	sortDesc: ": aktivizēt par dilstošā šķirot",
+	emptyTbl: "Nav pieejami dati tabulā",
+	infoEntr: "Rādu no _START_ līdz _END_ no _TOTAL_ ierakstiem",
+	infoEmpty: "Rādu no 0 līdz 0 no 0 ierakstiem",
+	infoFilt: "(filtrēts no _MAX_ kopējiem ierakstiem)",
+	info1000: ",",
+	lenMenu: "Parādīt _MENU_ ieraksti",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Pievelciet",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "en",
 	"lang-nat": "English",
-	"all": "All",
-	"tphp": "Top of page",
-	"load": "loading...",
-	"process": "processing...",
-	"srch": "Search",
+	all: "All",
+	tphp: "Top of page",
+	load: "loading...",
+	process: "processing...",
+	srch: "Search",
 	"no-match": "No match found",
-	"matches": {
-		"mixin": "[MIXIN] match(es) found"
+	matches: {
+		mixin: "[MIXIN] match(es) found"
 	},
-	"curr": "(current)",
-	"hide": "Hide",
-	"err": "Error",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(current)",
+	hide: "Hide",
+	err: "Error",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Start",
-	"stop": "Stop",
-	"back": "Back",
-	"cancel": "Cancel",
+	space: "&#32;",
+	start: "Start",
+	stop: "Stop",
+	back: "Back",
+	cancel: "Cancel",
 	"min-ago": "a minute ago",
 	"coup-mins": "couple of minutes ago",
 	"mins-ago": {
-		"mixin": "[MIXIN] minutes ago"
+		mixin: "[MIXIN] minutes ago"
 	},
 	"hour-ago": "an hour ago",
 	"hours-ago": {
-		"mixin": "[MIXIN] hours ago"
+		mixin: "[MIXIN] hours ago"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] days ago"
+		mixin: "[MIXIN] days ago"
 	},
-	"yesterday": "yesterday",
+	yesterday: "yesterday",
 
-	"nxt": "Next",
+	nxt: "Next",
 	"nxt-r": "Next (right arrow key)",
-	"prv": "Previous",
+	prv: "Previous",
 	"prv-l": "Previous (left arrow key)",
-	"first": "First",
-	"last": "Last",
+	first: "First",
+	last: "Last",
 	"menu-close": "Close menu",
 	"overlay-close": "Close overlay",
 	"esc-key": "(escape key)",
-	"show": "Show",
+	show: "Show",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Stop tab rotation",
-		"on": "Start tab rotation"
+		off: "Stop tab rotation",
+		on: "Start tab rotation"
 	},
 	"tab-list": "Tab list",
 	"tab-pnl-end1": "End of this tab panel.",
 	"tab-pnl-end2": "Return to the tab list",
 	"tab-pnl-end3": "or continue to the rest of page.",
 	/* Multimedia player */
-	"play": "Play",
-	"pause": "Pause",
-	"open": "Open",
-	"close": "Close",
-	"rew": "Rewind",
-	"ffwd": "Fast forward",
-	"mute": {
-		"on": "Mute",
-		"off": "Unmute"
+	play: "Play",
+	pause: "Pause",
+	open: "Open",
+	close: "Close",
+	rew: "Rewind",
+	ffwd: "Fast forward",
+	mute: {
+		on: "Mute",
+		off: "Unmute"
 	},
-	"cc": {
-		"off": "Hide closed captioning",
-		"on": "Show closed captioning"
+	cc: {
+		off: "Hide closed captioning",
+		on: "Show closed captioning"
 	},
 	"cc-err": "Error loading closed captions",
-	"adesc": {
-		"on": "Enable audio description",
-		"off": "Disable audio description"
+	adesc: {
+		on: "Enable audio description",
+		off: "Disable audio description"
 	},
-	"pos": "Current position:",
-	"dur": "Total time:",
+	pos: "Current position:",
+	dur: "Total time:",
 	/* Share widget */
 	"shr-txt": "Share this page",
 	"shr-hnt": " with {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Pick a date from a calendar for field:",
 	"date-sel": "Selected",
 	/* Calendar */
-	"days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-	"mnths": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-	"cal": "Calendar",
-	"currDay": "(Current day)",
+	days: [
+		"Sunday",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday"
+	],
+	mnths: [
+		"January",
+		"February",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December"
+	],
+	cal: "Calendar",
+	currDay: "(Current day)",
 	"cal-goToLnk": "Go to<span class=\"wb-inv\"> month of year</span>",
 	"cal-goToTtl": "Go to month of year",
 	"cal-goToMnth": "Month:",
 	"cal-goToYr": "Year:",
 	"cal-goToBtn": "Go",
-	"prvMnth": "Previous Month: ",
-	"nxtMnth": "Next Month: ",
+	prvMnth: "Previous Month: ",
+	nxtMnth: "Next Month: ",
 	/* Lightbox */
 	"lb-curr": "Item %curr% of %total%",
 	"lb-xhr-err": "This content failed to load.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Expand all sections of content",
 	"td-ttl-close": "Collapse all sections of content",
 	/* Table enhancement */
-	"sortAsc": ": activate for ascending sort",
-	"sortDesc": ": activate for descending sort",
-	"emptyTbl": "No data is available in the table",
-	"infoEntr": "Showing _START_ to _END_ of _TOTAL_ entries",
-	"infoEmpty": "Showing 0 to 0 of 0 entries",
-	"infoFilt": "(filtered from _MAX_ total entries)",
-	"info1000": ",",
-	"lenMenu": "Show _MENU_ entries",
+	sortAsc: ": activate for ascending sort",
+	sortDesc: ": activate for descending sort",
+	emptyTbl: "No data is available in the table",
+	infoEntr: "Showing _START_ to _END_ of _TOTAL_ entries",
+	infoEmpty: "Showing 0 to 0 of 0 entries",
+	infoFilt: "(filtered from _MAX_ total entries)",
+	info1000: ",",
+	lenMenu: "Show _MENU_ entries",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom in",

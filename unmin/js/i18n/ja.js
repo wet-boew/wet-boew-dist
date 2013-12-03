@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "ja",
 	"lang-nat": "日本語",
-	"all": "すべて",
-	"tphp": "ページの先頭",
-	"load": "ロード中･･･",
-	"process": "処理中･･･",
-	"srch": "検索",
+	all: "すべて",
+	tphp: "ページの先頭",
+	load: "ロード中･･･",
+	process: "処理中･･･",
+	srch: "検索",
 	"no-match": "次の条件に一致する情報は見つかりませんでした。",
-	"matches": {
-		"mixin": "検索結果： [MIXIN] 件"
+	matches: {
+		mixin: "検索結果： [MIXIN] 件"
 	},
-	"curr": "（現在）",
-	"hide": "非表示",
-	"err": "エラー",
-	"colon": "：",
-	"hyphen": "-",
+	curr: "（現在）",
+	hide: "非表示",
+	err: "エラー",
+	colon: "：",
+	hyphen: "-",
 	"full-stop": "。",
 	"comma-space": "、",
-	"space": "&#173;",
-	"start": "開始",
-	"stop": "終了",
-	"back": "戻る",
-	"cancel": "取消",
+	space: "&#173;",
+	start: "開始",
+	stop: "終了",
+	back: "戻る",
+	cancel: "取消",
 	"min-ago": "1分前",
 	"coup-mins": "数分前",
 	"mins-ago": {
-		"mixin": "[MIXIN] 分前"
+		mixin: "[MIXIN] 分前"
 	},
 	"hour-ago": "1時間前",
 	"hours-ago": {
-		"mixin": "[MIXIN] 時間前"
+		mixin: "[MIXIN] 時間前"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] 日前"
+		mixin: "[MIXIN] 日前"
 	},
-	"yesterday": "昨日",
+	yesterday: "昨日",
 
-	"nxt": "次へ",
+	nxt: "次へ",
 	"nxt-r": "次へ（右矢印キー）",
-	"prv": "前へ",
+	prv: "前へ",
 	"prv-l": "前へ（左矢印キー）",
-	"first": "最初",
-	"last": "最後",
+	first: "最初",
+	last: "最後",
 	"menu-close": "メニューを閉じる",
 	"overlay-close": "オーバーレイを閉じる",
 	"esc-key": "(「Esc」キ)",
-	"show": "表示",
+	show: "表示",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "タブローテーションを停止",
-		"on": "タブローテーションを再生"
+		off: "タブローテーションを停止",
+		on: "タブローテーションを再生"
 	},
 	"tab-list": "タブリスト",
 	"tab-pnl-end1": "最後のタブパネル",
 	"tab-pnl-end2": "タブの一覧に戻る",
 	"tab-pnl-end3": "または、ページの残りの部分に進む。",
 	/* Multimedia player */
-	"play": "再生",
-	"pause": "一時停止",
-	"open": "開く",
-	"close": "閉じる",
-	"rew": "巻き戻し",
-	"ffwd": "早送り",
-	"mute": {
-		"on": "ミュート",
-		"off": "ミュート解除"
+	play: "再生",
+	pause: "一時停止",
+	open: "開く",
+	close: "閉じる",
+	rew: "巻き戻し",
+	ffwd: "早送り",
+	mute: {
+		on: "ミュート",
+		off: "ミュート解除"
 	},
-	"cc": {
-		"off": "クローズドキャプションを非表示",
-		"on": "クローズドキャプションを表示"
+	cc: {
+		off: "クローズドキャプションを非表示",
+		on: "クローズドキャプションを表示"
 	},
 	"cc-err": "クローズドキャプションを実行できませんでした。",
-	"adesc": {
-		"on": "音声ガイドを有効にする",
-		"off": "音声ガイドを無効にする"
+	adesc: {
+		on: "音声ガイドを有効にする",
+		off: "音声ガイドを無効にする"
 	},
-	"pos": "現在位置：",
-	"dur": "合計時間：",
+	pos: "現在位置：",
+	dur: "合計時間：",
 	/* Share widget */
 	"shr-txt": "このページを共有する",
 	"shr-hnt": "{s}と",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "カレンダーから日付を選択：",
 	"date-sel": "選択済み",
 	/* Calendar */
-	"days": ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"],
-	"mnths": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
-	"cal": "カレンダー",
-	"currDay": "（今日）",
+	days: [
+		"日曜日",
+		"月曜日",
+		"火曜日",
+		"水曜日",
+		"木曜日",
+		"金曜日",
+		"土曜日"
+	],
+	mnths: [
+		"1月",
+		"2月",
+		"3月",
+		"4月",
+		"5月",
+		"6月",
+		"7月",
+		"8月",
+		"9月",
+		"10月",
+		"11月",
+		"12月"
+	],
+	cal: "カレンダー",
+	currDay: "（今日）",
 	"cal-goToLnk": "<span class=\"wb-inv\">月</span>に移動",
 	"cal-goToTtl": "月移動",
 	"cal-goToMnth": "月：",
 	"cal-goToYr": "年：",
 	"cal-goToBtn": "進む",
-	"prvMnth": "前の月へ",
-	"nxtMnth": "次の月へ",
+	prvMnth: "前の月へ",
+	nxtMnth: "次の月へ",
 	/* Lightbox */
 	"lb-curr": "%total% 件中 %curr% 件目",
 	"lb-xhr-err": "コンテンツをロードできませんでした。",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "コンテンツの全てのセクションを開く",
 	"td-ttl-close": "コンテンツの全てのセクションを閉じる",
 	/* Table enhancement */
-	"sortAsc": "：昇順ソートをオンにする",
-	"sortDesc": "：降順ソートをオンにする",
-	"emptyTbl": "表の中にデータがありません",
-	"infoEntr": "_TOTAL_エントリーの_START_から_END_までを表示",
-	"infoEmpty": "0エントリーのうち、0から0までを表示",
-	"infoFilt": "（合計_MAX_エントリーからフィルタリング）",
-	"info1000": ",",
-	"lenMenu": "_MENU_エントリーを表示",
+	sortAsc: "：昇順ソートをオンにする",
+	sortDesc: "：降順ソートをオンにする",
+	emptyTbl: "表の中にデータがありません",
+	infoEntr: "_TOTAL_エントリーの_START_から_END_までを表示",
+	infoEmpty: "0エントリーのうち、0から0までを表示",
+	infoFilt: "（合計_MAX_エントリーからフィルタリング）",
+	info1000: ",",
+	lenMenu: "_MENU_エントリーを表示",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ズームイン",

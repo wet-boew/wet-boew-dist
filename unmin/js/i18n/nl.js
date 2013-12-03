@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "nl",
 	"lang-nat": "Nederlands",
-	"all": "Allen",
-	"tphp": "Bovenkant pagina",
-	"load": "het laden van ...",
-	"process": "verwerking ...",
-	"srch": "Zoeken",
+	all: "Allen",
+	tphp: "Bovenkant pagina",
+	load: "het laden van ...",
+	process: "verwerking ...",
+	srch: "Zoeken",
 	"no-match": "Er zijn geen resultaten gevonden voor uw zoekopdracht",
-	"matches": {
-		"mixin": "[MIXIN] gevonden zoekresultaten"
+	matches: {
+		mixin: "[MIXIN] gevonden zoekresultaten"
 	},
-	"curr": "(actueel)",
-	"hide": "Verbergen",
-	"err": "Fout",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(actueel)",
+	hide: "Verbergen",
+	err: "Fout",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Beginnen",
-	"stop": "Stoppen",
-	"back": "Terug",
-	"cancel": "Annuleren",
+	space: "&#32;",
+	start: "Beginnen",
+	stop: "Stoppen",
+	back: "Terug",
+	cancel: "Annuleren",
 	"min-ago": "Een minuut geleden",
 	"coup-mins": "Enkele minuten geleden",
 	"mins-ago": {
-		"mixin": "[MIXIN] minuten geleden"
+		mixin: "[MIXIN] minuten geleden"
 	},
 	"hour-ago": "een uur geleden",
 	"hours-ago": {
-		"mixin": "[MIXIN] uren geleden"
+		mixin: "[MIXIN] uren geleden"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN] dagen geleden"
+		mixin: "[MIXIN] dagen geleden"
 	},
-	"yesterday": "gisteren",
+	yesterday: "gisteren",
 
-	"nxt": "Volgende",
+	nxt: "Volgende",
 	"nxt-r": "Volgende (rechtse pijlen-toets)",
-	"prv": "Vorige",
+	prv: "Vorige",
 	"prv-l": "Vorige (linkse pijlen-toets)",
-	"first": "Eerste",
-	"last": "Laatste",
+	first: "Eerste",
+	last: "Laatste",
 	"menu-close": "Sluit het menu",
 	"overlay-close": "Sluit het dialoogvenster",
 	"esc-key": "(Escape-toets)",
-	"show": "Toon",
+	show: "Toon",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Stop de tabrotatie",
-		"on": "Start de tabrotatie"
+		off: "Stop de tabrotatie",
+		on: "Start de tabrotatie"
 	},
 	"tab-list": "Lijst van tabs",
 	"tab-pnl-end1": "Einde van het deelvenster met tabs.",
 	"tab-pnl-end2": "Terug naar de lijst met tabs",
 	"tab-pnl-end3": "of om met de rest van de pagina door te gaan.",
 	/* Multimedia player */
-	"play": "Afspelen",
-	"pause": "Pauze",
-	"open": "Openen",
-	"close": "Afsluiten",
-	"rew": "Terugspoelen",
-	"ffwd": "Snel vooruit spoelen",
-	"mute": {
-		"on": "Geluid uitzetten",
-		"off": "Geluid aanzetten"
+	play: "Afspelen",
+	pause: "Pauze",
+	open: "Openen",
+	close: "Afsluiten",
+	rew: "Terugspoelen",
+	ffwd: "Snel vooruit spoelen",
+	mute: {
+		on: "Geluid uitzetten",
+		off: "Geluid aanzetten"
 	},
-	"cc": {
-		"off": "Bijschrift verbergen",
-		"on": "Bijschrift tonen"
+	cc: {
+		off: "Bijschrift verbergen",
+		on: "Bijschrift tonen"
 	},
 	"cc-err": "Fout bij het tonen van de bijschriften",
-	"adesc": {
-		"on": "Audiobeschrijving activeren",
-		"off": "Audiobeschrijving opheffen"
+	adesc: {
+		on: "Audiobeschrijving activeren",
+		off: "Audiobeschrijving opheffen"
 	},
-	"pos": "Huidige positie:",
-	"dur": "Totale afspeelduur:",
+	pos: "Huidige positie:",
+	dur: "Totale afspeelduur:",
 	/* Share widget */
 	"shr-txt": "Deel deze pagina met anderen",
 	"shr-hnt": " met {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Kies een kalenderdatum voor het veld:",
 	"date-sel": "Geselecteerd",
 	/* Calendar */
-	"days": ["Zondag", "Maandag", "Dinsdag", "Woensdag", "Donderdag", "Vrijdag", "Zaterdag"],
-	"mnths": ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "Juli", "Augustus", "September", "Oktober", "November", "December"],
-	"cal": "Kalender",
-	"currDay": "(Vandaag)",
+	days: [
+		"Zondag",
+		"Maandag",
+		"Dinsdag",
+		"Woensdag",
+		"Donderdag",
+		"Vrijdag",
+		"Zaterdag"
+	],
+	mnths: [
+		"Januari",
+		"Februari",
+		"Maart",
+		"April",
+		"Mei",
+		"Juni",
+		"Juli",
+		"Augustus",
+		"September",
+		"Oktober",
+		"November",
+		"December"
+	],
+	cal: "Kalender",
+	currDay: "(Vandaag)",
 	"cal-goToLnk": "Ga naar<span class=\"wb-inv\"> de maand of het jaar</span>",
 	"cal-goToTtl": "Ga naar de maand of het jaar",
 	"cal-goToMnth": "Maand:",
 	"cal-goToYr": "Jaar:",
 	"cal-goToBtn": "Ga",
-	"prvMnth": "Vorige maand: ",
-	"nxtMnth": "Volgende maand: ",
+	prvMnth: "Vorige maand: ",
+	nxtMnth: "Volgende maand: ",
 	/* Lightbox */
 	"lb-curr": "Onderdeel %curr% van een totaal van %total%",
 	"lb-xhr-err": "De inhoud is niet geladen",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Alle onderdelen van de inhoud tonen",
 	"td-ttl-close": "Alle onderdelen van de inhoud verbergen",
 	/* Table enhancement */
-	"sortAsc": ": activeren voor oplopende sortering",
-	"sortDesc": ": activeren voor aflopende sortering",
-	"emptyTbl": "Geen gegevens beschikbaar in de tabel",
-	"infoEntr": "Toon _START_ tot _END_ van _TOTAL_ lemma's",
-	"infoEmpty": "Toon 0 tot 0 van 0 lemma's",
-	"infoFilt": "(gefilterd uit _MAX_ totaal aantal lemma's)",
-	"info1000": "&#160;",
-	"lenMenu": "Toon _MENU_ lemma's",
+	sortAsc: ": activeren voor oplopende sortering",
+	sortDesc: ": activeren voor aflopende sortering",
+	emptyTbl: "Geen gegevens beschikbaar in de tabel",
+	infoEntr: "Toon _START_ tot _END_ van _TOTAL_ lemma's",
+	infoEmpty: "Toon 0 tot 0 van 0 lemma's",
+	infoFilt: "(gefilterd uit _MAX_ totaal aantal lemma's)",
+	info1000: "&#160;",
+	lenMenu: "Toon _MENU_ lemma's",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Inzoomen",

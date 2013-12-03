@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "sk",
 	"lang-nat": "Slovenčina",
-	"all": "Všetko",
-	"tphp": "Na začiatok stránky",
-	"load": "nakladanie ...",
-	"process": "spracovanie ...",
-	"srch": "Hľadať",
+	all: "Všetko",
+	tphp: "Na začiatok stránky",
+	load: "nakladanie ...",
+	process: "spracovanie ...",
+	srch: "Hľadať",
 	"no-match": "No nájdená zhoda",
-	"matches": {
-		"mixin": "[MIXIN] zápasov nenájdený"
+	matches: {
+		mixin: "[MIXIN] zápasov nenájdený"
 	},
-	"curr": "(aktuálne)",
-	"hide": "Schovať",
-	"err": "Chyba",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(aktuálne)",
+	hide: "Schovať",
+	err: "Chyba",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Začať",
-	"stop": "Stop",
-	"back": "Staré",
-	"cancel": "Zrušiť",
+	space: "&#32;",
+	start: "Začať",
+	stop: "Stop",
+	back: "Staré",
+	cancel: "Zrušiť",
 	"min-ago": "minútou",
 	"coup-mins": "pár minút pred",
 	"mins-ago": {
-		"mixin": "pred [MIXIN] minútami"
+		mixin: "pred [MIXIN] minútami"
 	},
 	"hour-ago": "pred hodinou",
 	"hours-ago": {
-		"mixin": "pred [MIXIN] hodinami"
+		mixin: "pred [MIXIN] hodinami"
 	},
 	"days-ago": {
-		"mixin": "pred [MIXIN] dňami"
+		mixin: "pred [MIXIN] dňami"
 	},
-	"yesterday": "včera",
+	yesterday: "včera",
 
-	"nxt": "Ďalšie",
+	nxt: "Ďalšie",
 	"nxt-r": "Ďalšie (klávesy šípka vpravo)",
-	"prv": "Predchádzajúci",
+	prv: "Predchádzajúci",
 	"prv-l": "Predchádzajúci (klávesy šípka doľava)",
-	"first": "Prvé",
-	"last": "Posledný",
+	first: "Prvé",
+	last: "Posledný",
 	"menu-close": "Zavrite menu",
 	"overlay-close": "Zavrite so šablónou",
 	"esc-key": "(klávesy ESC)",
-	"show": "Ukázať",
+	show: "Ukázať",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Zastaviť kartu otáčania",
-		"on": "Dátum kartu otáčania"
+		off: "Zastaviť kartu otáčania",
+		on: "Dátum kartu otáčania"
 	},
 	"tab-list": "Tab Zoznam",
 	"tab-pnl-end1": "Koniec tejto záložke paneli.",
 	"tab-pnl-end2": "Návrat na kartu zoznamu",
 	"tab-pnl-end3": "alebo pokračovať až do konca stránky.",
 	/* Multimedia player */
-	"play": "Hrať",
-	"pause": "Pauza",
-	"open": "Otvoriť",
-	"close": "Zavrieť",
-	"rew": "Pretočiť",
-	"ffwd": "Rýchly posun vpred",
-	"mute": {
-		"on": "Vypnutie",
-		"off": "Nahlas"
+	play: "Hrať",
+	pause: "Pauza",
+	open: "Otvoriť",
+	close: "Zavrieť",
+	rew: "Pretočiť",
+	ffwd: "Rýchly posun vpred",
+	mute: {
+		on: "Vypnutie",
+		off: "Nahlas"
 	},
-	"cc": {
-		"off": "Skryť Skryté titulky",
-		"on": "Zobraziť Skryté titulky"
+	cc: {
+		off: "Skryť Skryté titulky",
+		on: "Zobraziť Skryté titulky"
 	},
 	"cc-err": "Chyba pri načítaní uzavreté titulkami",
-	"adesc": {
-		"on": "Povoliť zvukový opis",
-		"off": "Zakázať zvukový opis"
+	adesc: {
+		on: "Povoliť zvukový opis",
+		off: "Zakázať zvukový opis"
 	},
-	"pos": "Aktuálna pozícia:",
-	"dur": "Celkový čas:",
+	pos: "Aktuálna pozícia:",
+	dur: "Celkový čas:",
 	/* Share widget */
 	"shr-txt": "Zdieľať túto stránku",
 	"shr-hnt": " s {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Vyberte dátum z kalendára pre pole",
 	"date-sel": "Vybraný",
 	/* Calendar */
-	"days": ["Nedeľa", "Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota"],
-	"mnths": ["Január", "Február", "Marec", "Apríl", "Máj", "Jún", "Júl", "August", "Septembra", "Október", "November", "December"],
-	"cal": "Kalendár",
-	"currDay": "(Aktuálny deň)",
+	days: [
+		"Nedeľa",
+		"Pondelok",
+		"Utorok",
+		"Streda",
+		"Štvrtok",
+		"Piatok",
+		"Sobota"
+	],
+	mnths: [
+		"Január",
+		"Február",
+		"Marec",
+		"Apríl",
+		"Máj",
+		"Jún",
+		"Júl",
+		"August",
+		"Septembra",
+		"Október",
+		"November",
+		"December"
+	],
+	cal: "Kalendár",
+	currDay: "(Aktuálny deň)",
 	"cal-goToLnk": "Prejsť na<span class=\"wb-inv\">  mesiac roka</span>",
 	"cal-goToTtl": "Prejsť na mesiac roka",
 	"cal-goToMnth": "Mesiac:",
 	"cal-goToYr": "Rok:",
 	"cal-goToBtn": "Ísť",
-	"prvMnth": "Predchádzajúci mesiac: ",
-	"nxtMnth": "Budúci mesiac: ",
+	prvMnth: "Predchádzajúci mesiac: ",
+	nxtMnth: "Budúci mesiac: ",
 	/* Lightbox */
 	"lb-curr": "Bod %curr% %total%",
 	"lb-xhr-err": "Tento obsah sa nepodarilo načítať.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Rozbaliť všetky časti obsahu",
 	"td-ttl-close": "Minimalizovať všetky časti obsahu",
 	/* Table enhancement */
-	"sortAsc": ": aktivuje na vzostupne zoradiť",
-	"sortDesc": ": aktivujte pre zostupné radenie",
-	"emptyTbl": "K dispozícii žiadne údaje v tabuľke",
-	"infoEntr": "Zobrazené _START_-_END_ z _TOTAL_ položiek",
-	"infoEmpty": "Zobrazené 0-0 z 0 položiek",
-	"infoFilt": "(filtrovaná z _MAX_ celkom záznamov)",
-	"info1000": "&#160;",
-	"lenMenu": "Zobraziť _MENU_ položiek",
+	sortAsc: ": aktivuje na vzostupne zoradiť",
+	sortDesc: ": aktivujte pre zostupné radenie",
+	emptyTbl: "K dispozícii žiadne údaje v tabuľke",
+	infoEntr: "Zobrazené _START_-_END_ z _TOTAL_ položiek",
+	infoEmpty: "Zobrazené 0-0 z 0 položiek",
+	infoFilt: "(filtrovaná z _MAX_ celkom záznamov)",
+	info1000: "&#160;",
+	lenMenu: "Zobraziť _MENU_ položiek",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Priblížiť",

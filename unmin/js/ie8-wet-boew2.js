@@ -1,9 +1,9 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
- *//*
+ *//**
  * @title WET-BOEW JQuery Helper Methods
  * @overview Helper methods for WET
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -38,7 +38,7 @@
 		return selector.replace( /([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, "\\$1" );
 	};
 
-	/*
+	/**
 	 * @namespace wb.string
 	 */
 	wb.string = {
@@ -141,7 +141,7 @@
 		 * @param {string} dateISO Date string in ISO format
 		 * @return {Date}
 		 */
-		fromDateISO: function ( dateISO ) {
+		fromDateISO: function( dateISO ) {
 			var date = null;
 
 			if ( dateISO && dateISO.match( /\d{4}-\d{2}-\d{2}/ ) ) {
@@ -200,11 +200,9 @@
 
 		if ( methods[ method ] ) {
 			methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ) );
-		}
-		else if ( typeof method === "object" || !method ) {
+		} else if ( typeof method === "object" || !method ) {
 			methods.init.apply( this, arguments );
-		}
-		else {
+		} else {
 			$.error( "Method " + method + " does not exist on jquery.wb" );
 		}
 	};
@@ -214,7 +212,7 @@
 /*
 :focusable and :tabable jQuery helper expressions - https://github.com/jquery/jquery-ui/blob/24756a978a977d7abbef5e5bce403837a01d964f/ui/jquery.ui.core.js
 */
-(function ( $ ) {
+(function( $ ) {
 	"use strict";
 
 	function focusable( element, isTabIndexNotNaN, visibility ) {
@@ -236,8 +234,7 @@
 				isTabIndexNotNaN ) &&
 			// the element and all of its ancestors must be visible
 			visible( element );
-		}
-		else {
+		} else {
 			return ( /input|select|textarea|button|object/.test( nodeName ) ? !element.disabled :
 				"a" === nodeName ?
 				element.href || isTabIndexNotNaN :
@@ -275,8 +272,7 @@
 		tabbable: function( element ) {
 			var tabIndex = $.attr( element, "tabindex" ),
 				isTabIndexNaN = isNaN( tabIndex );
-			return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !
-				isTabIndexNaN );
+			return ( isTabIndexNaN || tabIndex >= 0 ) && focusable( element, !isTabIndexNaN );
 		}
 	});
 
@@ -286,9 +282,9 @@ Peformant micro templater
 @credit: https://github.com/premasagar/tim/blob/master/tinytim.js
 @todo: caching
 */
-(function ( window, undef ) {
+(function( window, undef ) {
 	"use strict";
-	var tmpl = (function () {
+	var tmpl = (function() {
 		var start = "{{",
 			end = "}}",
 			path = "[a-z0-9_$][\\.a-z0-9_]*", // e.g. config.person.name
@@ -319,7 +315,7 @@ Peformant micro templater
 
 })( window );
 
-/*
+/**
  * @title WET-BOEW Ajax Fetch [ ajax-fetch ]
  * @overview A basic AjaxLoader wrapper for WET-BOEW
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -336,9 +332,9 @@ Peformant micro templater
  */
 var $document = wb.doc,
 
-	/*
+	/**
 	 * @method generateSerial
-	 * @param {integer} Length of the random string to be generated
+	 * @param {integer} len Length of the random string to be generated
 	 */
 	generateSerial = function( len ) {
 		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz",
@@ -385,7 +381,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
 
 })( jQuery, wb );
 
-/*
+/**
  * @title WET-BOEW Events Calendar
  * @overview Dynamically generates a calendar interface for navigating a list of events.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -421,7 +417,7 @@ var selector = ".wb-cal-evt",
 			.always( function() { processEvents( $elm ); } );
 	},
 
-	getAjax = function ( ajaxContainer ) {
+	getAjax = function( ajaxContainer ) {
 		var $ajaxContainer = $( ajaxContainer ),
 			urls = $ajaxContainer.attr( "data-cal-events" ).split(/\s+/),
 			dfd = $.Deferred(),
@@ -429,7 +425,7 @@ var selector = ".wb-cal-evt",
 			promises = [],
 			i, appendData;
 
-		appendData = function ( data ) {
+		appendData = function( data ) {
 			$ajaxContainer.append( $.trim( data ) );
 		};
 
@@ -444,7 +440,7 @@ var selector = ".wb-cal-evt",
 		return dfd.promise();
 	},
 
-	processEvents = function ( $elm ) {
+	processEvents = function( $elm ) {
 		var date = new Date(),
 			year = date.getFullYear(),
 			month = date.getMonth(),
@@ -468,7 +464,7 @@ var selector = ".wb-cal-evt",
 			$containerId.css( "margin-left", "10px" );
 		}
 
-		$document.on( "displayed.wb-cal", "#" + containerId, function ( event, year, month, days ) {
+		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days ) {
 			addEvents(year, month, days, containerId, events.list);
 			showOnlyEventsFor(year, month, containerId);
 		});
@@ -481,10 +477,13 @@ var selector = ".wb-cal-evt",
 				events.maxDate
 			]
 		);
-		$containerId.attr({"role": "application", "aria-label": i18nText.calendar});
+		$containerId.attr({
+			role: "application",
+			"aria-label": i18nText.calendar
+		});
 	},
 
-	daysBetween = function ( dateLow, dateHigh ) {
+	daysBetween = function( dateLow, dateHigh ) {
 		// Simplified conversion to date object
 		var date1 = wb.date.convert( dateLow ),
 			date2 = wb.date.convert( dateHigh ),
@@ -511,7 +510,7 @@ var selector = ".wb-cal-evt",
 		return Math.ceil( diff / oneDay );
 	},
 
-	getEvents = function ( obj ) {
+	getEvents = function( obj ) {
 		var directLinking = !( $( obj ).hasClass( "event-anchoring" ) ),
 			events = {
 				minDate: null,
@@ -598,7 +597,12 @@ var selector = ".wb-cal-evt",
 							events.maxDate = date;
 						}
 
-						events.list[ events.iCount ] = { "title": title, "date": new Date( date.getTime() ), "href": link };
+						events.list[ events.iCount ] = {
+							title: title,
+							date: new Date( date.getTime() ),
+							href: link
+						};
+
 						date = new Date( date.setDate( date.getDate() + 1 ) );
 
 						// Add a viewfilter
@@ -620,7 +624,11 @@ var selector = ".wb-cal-evt",
 					if ( events.maxDate === null || date > events.maxDate ) {
 						events.maxDate = date;
 					}
-					events.list[ events.iCount ] = {"title" : title, "date" : date, "href" : link};
+					events.list[ events.iCount ] = {
+						title: title,
+						date: date,
+						href: link
+					};
 
 					// Add a viewfilter
 					className = "filter-" + ( date.getFullYear() ) + "-" + wb.string.pad( date.getMonth() + 1, 2 );
@@ -638,7 +646,7 @@ var selector = ".wb-cal-evt",
 		return events;
 	},
 
-	randomId = function ( sInt ) {
+	randomId = function( sInt ) {
 		var s = "",
 			randomChar, n;
 
@@ -664,7 +672,7 @@ var selector = ".wb-cal-evt",
 		return "id" + s;
 	},
 
-	keyboardNavEvents = function ( event ) {
+	keyboardNavEvents = function( event ) {
 		var $this = $( this ),
 			length, $children;
 
@@ -707,13 +715,13 @@ var selector = ".wb-cal-evt",
 		}
 	},
 
-	mouseOnDay = function ( dayEvents ) {
+	mouseOnDay = function( dayEvents ) {
 		dayEvents.dequeue()
 			.removeClass( "wb-inv" )
 			.addClass( "ev-details" );
 	},
 
-	mouseOutDay = function ( dayEvents ) {
+	mouseOutDay = function( dayEvents ) {
 		dayEvents.delay( 100 ).queue(function() {
 			$( this ).removeClass( "ev-details" )
 				.addClass( "wb-inv" )
@@ -721,12 +729,12 @@ var selector = ".wb-cal-evt",
 		});
 	},
 
-	focus = function ( dayEvents ) {
+	focus = function( dayEvents ) {
 		dayEvents.removeClass( "wb-inv" )
 			.addClass( "ev-details" );
 	},
 
-	blur = function ( dayEvents ) {
+	blur = function( dayEvents ) {
 		setTimeout(function() {
 			var $elm = dayEvents;
 
@@ -737,7 +745,7 @@ var selector = ".wb-cal-evt",
 		}, 5);
 	},
 
-	keyboardEvents = function ( event ) {
+	keyboardEvents = function( event ) {
 		var eventType = event.type,
 			dayEvents = event.data.details;
 
@@ -756,7 +764,7 @@ var selector = ".wb-cal-evt",
 		}
 	},
 
-	mouseEvents = function ( event ) {
+	mouseEvents = function( event ) {
 		var eventType = event.type,
 			dayEvents = event.data.details;
 
@@ -771,11 +779,11 @@ var selector = ".wb-cal-evt",
 		}
 	},
 
-	addEvents = function ( year, month, days, containerId, eventsList ) {
+	addEvents = function( year, month, days, containerId, eventsList ) {
 		var i, eLen, date, day, content, dayEvents, link, eventDetails, itemLink;
 
 		// Fix required to make up with the IE z-index behavior mismatch
-		days.each(function ( index, day ) {
+		days.each(function( index, day ) {
 			$( day ).css( "z-index", 31 - index );
 		});
 
@@ -816,7 +824,7 @@ var selector = ".wb-cal-evt",
 					dayEvents = day.find( "ul.wb-inv" );
 				}
 
-				eventDetails = $( "<li><a tabindex='-1' href='" + eventsList[ i ].href +  "'>" + eventsList[ i ].title + "</a></li>" );
+				eventDetails = $( "<li><a tabindex='-1' href='" + eventsList[ i ].href + "'>" + eventsList[ i ].title + "</a></li>" );
 
 				dayEvents.append( eventDetails );
 
@@ -827,7 +835,7 @@ var selector = ".wb-cal-evt",
 		}
 	},
 
-	showOnlyEventsFor = function ( year, month, calendarId ) {
+	showOnlyEventsFor = function( year, month, calendarId ) {
 		$( "." + calendarId + " li.calendar-display-onshow" )
 			.addClass( "wb-inv" )
 			.has( ":header[class*=filter-" + year + "-" +
@@ -851,8 +859,7 @@ wb.add( ".wb-cal-evt" );
 
 })( jQuery, window, wb );
 
-
-/*
+/**
  * @title WET-BOEW Calendar library
  * @overview A library for building calendar interfaces
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -871,7 +878,7 @@ wb.add( ".wb-cal-evt" );
 var $document = wb.doc,
 	i18n, i18nText,
 
-	/*
+	/**
 	 * Creates a calendar instance
 	 * @method create
 	 */
@@ -991,7 +998,7 @@ var $document = wb.doc,
 					1,
 					i18nText.nextMonth,
 					"append"
-				],
+				]
 			],
 			alt, $btn, buttonSpec, buttonClass, newMonth, newYear, hideButton, index;
 
@@ -1044,7 +1051,7 @@ var $document = wb.doc,
 				$btn.on( "click", {
 					calID: calendarId,
 					year: newYear,
-					month : newMonth,
+					month: newMonth,
 					mindate: minDate,
 					maxdate: maxDate
 				}, changeMonth );
@@ -1149,7 +1156,7 @@ var $document = wb.doc,
 			.append( "<span class='clearfix'></span>" );
 
 		// Update the list of available months when changing the year
-		$yearField.on( "change", {minDate: minDate, maxDate: maxDate, $monthField: $monthField}, yearChanged );
+		$yearField.on( "change", { minDate: minDate, maxDate: maxDate, $monthField: $monthField }, yearChanged );
 
 		// Populate initial month list
 		$yearField.trigger( "change" );
@@ -1253,7 +1260,7 @@ var $document = wb.doc,
 						( month < 9 ? "0" : "" ) + ( month + 1 ) + "-" + ( dayCount < 10 ? "0" : "" ) + dayCount + "'><span class='wb-inv'>" + textWeekDayNames[ day ] +
 						( frenchLang ? ( " </span>" + dayCount + "<span class='wb-inv'> " + textMonthNames[ month ].toLowerCase() + " " ) :
 						( " " + textMonthNames[ month ] + " </span>" + dayCount + "<span class='wb-inv'> " ) ) + year +
-						( isCurrentDate ?  textCurrentDay : "" ) + "</span></time></div></td>";
+						( isCurrentDate ? textCurrentDay : "" ) + "</span></time></div></td>";
 
 					if ( dayCount > lastDay ) {
 						breakAtEnd = true;
@@ -1354,10 +1361,10 @@ var $document = wb.doc,
 	};
 
 // Event binding
-$document.on( "create.wb-cal" , create );
+$document.on( "create.wb-cal", create );
 
 // Keyboard nav
-$document.on( "keydown", ".cal-days a", function ( event ) {
+$document.on( "keydown", ".cal-days a", function( event ) {
 	var elm = event.target,
 		$elm = $( elm ),
 		$monthContainer = $elm.closest( ".cal-cnt" ),
@@ -1464,7 +1471,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title Carousel
  * @overview Dynamically stacks multiple images and captions into a carousel (or slider) widget.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -1479,12 +1486,12 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
   * not once per instance of plugin on the page. So, this is a good place to define
   * variables that are common to all instances of the plugin on a page.
   */
- var selector = ".wb-carousel",
+var selector = ".wb-carousel",
 	$document = wb.doc,
 	i18n, i18nText,
 	controls = selector + " [role=tablist] a",
 
-	/*
+	/**
 	 * @method onTimerPoke
 	 * @param {jQuery DOM element} $elm The plugin element
 	 */
@@ -1514,7 +1521,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 		$elm.data( "ctime", delay );
 	},
 
-	/*
+	/**
 	 * @method createControls
 	 * @param {jQuery DOM element} $tablist The plugin element
 	 */
@@ -1546,9 +1553,10 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 		$sldr.addClass( "inited" );
 	},
 
-	/*
+	/**
 	 * @method drizzleAria
-	 * @param {2 jQuery DOM element} $tabs for the tabpanel grouping, and $tablist for the pointers to the groupings
+	 * @param {jQuery DOM element} $tabs The tabpanel grouping
+	 * @param {jQuery DOM element} $tabList The pointers to the groupings
 	 */
 	drizzleAria = function( $tabs, $tabList ) {
 
@@ -1559,11 +1567,10 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 			listCounter = listItems.length - 1,
 			isActive, item, link;
 
-
 		for ( ; tabCounter !== -1; tabCounter -= 1 ) {
 			item = tabs[ tabCounter ];
 			isActive = item.className.indexOf( "in" ) !== -1;
-			
+
 			item.tabIndex = isActive ? "0" : "-1";
 			item.setAttribute( "aria-hidden", isActive ? "false" : "true" );
 			item.setAttribute( "aria-expanded", isActive ? "true" : "false" );
@@ -1584,7 +1591,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 		$tabList.attr( "aria-live", "off" );
 	},
 
-	/*
+	/**
 	 * @method onInit
 	 * @param {jQuery DOM element} $elm The plugin element
 	 */
@@ -1617,27 +1624,27 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 		$tabs.filter( ":not(.in)" )
 			.addClass( "out" );
 		$elm.data({
-			"delay": interval,
-			"ctime": 0
+			delay: interval,
+			ctime: 0
 		});
 
 		drizzleAria( $tabs, $tablist );
 		createControls( $tablist );
 
 		$elm.data({
-			"tabs": $tabs,
-			"tablist": $tablist
+			tabs: $tabs,
+			tablist: $tablist
 		});
 	},
 
-	/*
+	/**
 	 * @method onShift
 	 * @param {jQuery DOM element} $sldr The plugin element
 	 * @param {jQuery DOM element} $elm The selected link from the tablist
 	 */
 	onPick = function( $sldr, $elm ) {
 		var $items = $sldr.data( "tabs" ),
-			$controls =  $sldr.data( "tablist" );
+			$controls = $sldr.data( "tablist" );
 
 		$items.filter( ".in" )
 			.removeClass( "in" )
@@ -1674,7 +1681,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 						.addClass( "active" );
 	},
 
-	/*
+	/**
 	 * @method onShift
 	 * @param {jQuery DOM element} $elm The plugin element
 	 */
@@ -1714,7 +1721,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 						.attr( "aria-selected", "true" );
 	},
 
-	/*
+	/**
 	 * @method onShift
 	 * @param {jQuery DOM element} $elm The plugin element
 	 * @param {integer} shifto The item to shift to
@@ -1778,7 +1785,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 		$sldr = $elm
 			.parents( selector )
 			.attr( "data-ctime", 0 );
-			
+
 		// Spacebar
 		if ( which > 36 ) {
 			onCycle( $elm, which < 39 ? -1 : 1 );
@@ -1793,7 +1800,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 
 				text = elm.getElementsByTagName( "i" )[ 0 ];
 				text.innerHTML = text.innerHTML === playText ? i18nText.pause : playText;
-				
+
 				inv = $elm.find( ".wb-inv" )[ 0 ];
 				inv.innerHTML = inv.innerHTML === rotStopText ? i18nText.rotStart : rotStopText;
 			} else {
@@ -1814,7 +1821,7 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
 
  })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Country Content
  * @overview A basic AjaxLoader wrapper that inserts AJAXed in content based on a visitors country as resolved by http://freegeoip.net
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -1878,14 +1885,14 @@ var $document = wb.doc,
 				cache: true,
 				jsonp: "callback",
 				success: function( data ) {
-					if( data ) {
+					if ( data ) {
 						countryCode = data.country_code;
 						localStorage.setItem( "countryCode", countryCode );
 					}
 
 					dfd.resolve( countryCode );
 				},
-				error: function(){
+				error: function() {
 					dfd.reject( "" );
 				}
 			});
@@ -1917,7 +1924,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Data Ajax [data-ajax-after], [data-ajax-append],
  * [data-ajax-before], [data-ajax-prepend] and [data-ajax-replace]
  * @overview A basic AjaxLoader wrapper that inserts AJAXed-in content
@@ -1938,7 +1945,7 @@ var $document = wb.doc,
 	selector = "[data-ajax-after], [data-ajax-append], [data-ajax-before], " +
 		"[data-ajax-prepend], [data-ajax-replace]",
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple
 	 * elements. It will run more than once per plugin if you don't remove the
 	 * selector from the timer.
@@ -2017,7 +2024,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Data InView
  * @overview A simplified data-attribute driven plugin that responds to moving in and out of the viewport.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2037,7 +2044,7 @@ var selector = ".wb-inview",
 	$document = wb.doc,
 	$window = wb.win,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2051,10 +2058,9 @@ var selector = ".wb-inview",
 		$elm.trigger( "scroll.wb-inview" );
 	},
 
-	/*
+	/**
 	 * @method onInView
 	 * @param {jQuery DOM element} $elm The plugin element
-	 * @param {jQuery Event} event The event that triggered this method call
 	 */
 	onInView = function( $elm ) {
 		var elementWidth = $elm.outerWidth(),
@@ -2146,7 +2152,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Data Picture
  * @overview Event driven port of the Picturefill library: https://github.com/scottjehl/picturefill
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2164,7 +2170,7 @@ wb.add( selector );
 var selector = "[data-picture]",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2178,7 +2184,7 @@ var selector = "[data-picture]",
 		$elm.trigger( "picturefill.wb-data-picture" );
 	},
 
-	/*
+	/**
 	 * Updates the image displayed according to media queries.
 	 * This is the logic ported from Picturefill.
 	 * @method picturefill
@@ -2242,7 +2248,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Responsive equal height
  * @overview Sets the same height for all elements in a container that are rendered on the same baseline (row). Adapted from http://codepen.io/micahgodbolt/pen/FgqLc.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2260,7 +2266,7 @@ wb.add( selector );
 var selector = ".wb-equalheight",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2281,7 +2287,7 @@ var selector = ".wb-equalheight",
 		}
 	},
 
-	/*
+	/**
 	 * Re-equalise any time the window/document or a child element of 'selector' is resized.
 	 * @method onResize
 	 */
@@ -2325,7 +2331,7 @@ var selector = ".wb-equalheight",
 		}
 	},
 
-	/*
+	/**
 	 * @method setRowHeight
 	 * @param {array} row The rows to be updated
 	 * @param {integer} height The new row height
@@ -2348,7 +2354,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Favicon Plugin
  * @overview Provides the ability to add and update a page's favicons
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2391,7 +2397,7 @@ var selector = "link[rel='shortcut icon']",
 		sizes: "57x57 72x72 114x114 144x144 150x150"
 	},
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2407,7 +2413,7 @@ var selector = "link[rel='shortcut icon']",
 		$favicon.trigger( "mobile.wb-favicon", settings );
 	},
 
-	/*
+	/**
 	 * Adds, or updates, the mobile favicon on a page. Mobile favicons are identified by the
 	 * `apple` prefix in the `<link>` elements rel attribute.
 	 * @method mobile
@@ -2436,7 +2442,7 @@ var selector = "link[rel='shortcut icon']",
 		}
 	},
 
-	/*
+	/**
 	 * Updates the the page's shortcut icon
 	 * @method icon
 	 * @param {DOM element} favicon Favicon element
@@ -2448,7 +2454,7 @@ var selector = "link[rel='shortcut icon']",
 		favicon.setAttribute( "href", faviconPath + data.filename );
 	},
 
-	/*
+	/**
 	 * Given a full file path, returns the path without the filename
 	 * @method getPath
 	 * @param {string} filepath The full path to file, including filename
@@ -2489,7 +2495,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Feedback form
  * @overview Allows users to submit feedback for a specific Web page or Web site.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2508,7 +2514,7 @@ var selector = ".wb-fdbck",
 	$document = wb.doc,
 	fbrsn, fbaxs, fbcntc1, fbcntc2, $fbweb, $fbmob, $fbcomp, $fbinfo,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2558,7 +2564,7 @@ var selector = ".wb-fdbck",
 		}
 	},
 
-	/*
+	/**
 	 * @method showHide
 	 * @param {DOM element} elm The element triggering the show/hide
 	 */
@@ -2638,7 +2644,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Feeds
  * @overview Aggregates and displays entries from one or more Web feeds.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2656,7 +2662,7 @@ wb.add( selector );
 var selector = ".wb-feeds",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2714,7 +2720,7 @@ var selector = ".wb-feeds",
 		}
 	},
 
-	/*
+	/**
 	 * Returns a class-based set limit on plugin instances
 	 * @method getLimit
 	 * @param {DOM object} elm The element to search for a class of the form blimit-5
@@ -2728,7 +2734,7 @@ var selector = ".wb-feeds",
 		return Number( count[ 0 ].replace( /limit-/i, "" ) );
 	},
 
-	/*
+	/**
 	 * Builds the URL for the JSON request
 	 * @method jsonRequest
 	 * @param {url} url URL of the feed.
@@ -2745,7 +2751,7 @@ var selector = ".wb-feeds",
 		return requestURL;
 	},
 
-	/*
+	/**
 	 * Parses the results from a JSON request and appends to an element
 	 * @method parseEntries
 	 * @param {object} entries Results from a JSON request.
@@ -2780,7 +2786,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Focus
  * @overview User agent safe way of assigning focus to an element
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2796,7 +2802,7 @@ var $document = wb.doc,
 	$linkTarget;
 
 // Bind the setfocus event
-$document.on( "setfocus.wb", function ( event ) {
+$document.on( "setfocus.wb", function( event ) {
 	var $elm = $( event.target );
 
 	// Set the tabindex to -1 (as needed) to ensure the element is focusable
@@ -2805,11 +2811,10 @@ $document.on( "setfocus.wb", function ( event ) {
 			.attr( "tabindex", "-1" );
 
 	// Assigns focus to an element (delay allows for revealing of hidden content)
-	setTimeout(function () {
+	setTimeout(function() {
 		return $elm.focus();
 	}, 1 );
 });
-
 
 // Set focus to the target of a deep link from a different page
 // (helps browsers that can't set the focus on their own)
@@ -2829,7 +2834,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 
 })( jQuery, wb );
 
-/*
+/**
  * @title WET-BOEW Footnotes
  * @overview Provides a consistent, accessible way of handling footnotes across websites.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2847,7 +2852,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 var selector = ".wb-fnote",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -2925,7 +2930,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Form validation
  * @overview Provides generic validation and error message handling for Web forms.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -2944,7 +2949,7 @@ var selector = ".wb-formvalid",
 	$document = wb.doc,
 	i18n, i18nText,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -3216,7 +3221,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Lightbox
  * @overview Helps build a photo gallery on a web page.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -3236,7 +3241,7 @@ var selector = ".wb-lightbox",
 	i18n, i18nText,
 	extendedGlobal = false,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -3300,9 +3305,9 @@ var selector = ".wb-lightbox",
 								$bottomBar;
 
 							this.wrap.attr({
-								"role": "dialog",
+								role: "dialog",
 								"aria-live": "polite",
-								"aria-labelledby": "lb-title",
+								"aria-labelledby": "lb-title"
 							});
 
 							if ( $item.type === "image" ) {
@@ -3359,13 +3364,12 @@ var selector = ".wb-lightbox",
 						// Is the element a gallery?
 						if ( elm.className.indexOf( "-gallery" ) !== -1 ) {
 							settings.gallery = {
-								enabled: true,
+								enabled: true
 							};
 						}
 					} else {
 						firstLink = elm;
 					}
-
 
 					if ( firstLink.getAttribute( "href" ).charAt( 0 ) === "#" ) {
 						settings.type = "inline";
@@ -3423,7 +3427,7 @@ $document.on( "keydown", ".mfp-wrap", function( event ) {
 });
 
 // Event handler for closing a modal popup
-$(document).on( "click", ".popup-modal-dismiss", function ( event ) {
+$(document).on( "click", ".popup-modal-dismiss", function( event ) {
 	event.preventDefault();
 	$.magnificPopup.close();
 });
@@ -3433,7 +3437,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Menu plugin
  * @overview A Menu plugin for WET
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -3458,7 +3462,7 @@ var selector = ".wb-menu",
 	menuCount = 0,
 	globalTimeout = {},
 
-	/*
+	/**
 	 * Lets leverage JS assigment deconstruction to reduce the code output
 	 * @method expand
 	 * @param {DOM element} element The plugin element
@@ -3473,10 +3477,10 @@ var selector = ".wb-menu",
 		return [ elm.self, elm.menu, items, $elm ];
 	},
 
-	/*
+	/**
 	 * Lets set some aria states and attributes
 	 * @method onInit
-	 * @param {jQuery DOM element} element The plugin element
+	 * @param {jQuery DOM element} $elm The plugin element
 	 */
 	onInit = function( $elm ) {
 
@@ -3505,10 +3509,10 @@ var selector = ".wb-menu",
 		}
 	},
 
-	/*
+	/**
 	 * Lets set some aria states and attributes
 	 * @method drizzleAria
-	 * @param {jQuery DOM elements} collection of elements
+	 * @param {jQuery DOM elements} $elements The collection of elements
 	 */
 	drizzleAria = function( $elements ) {
 		var length = $elements.length,
@@ -3522,7 +3526,7 @@ var selector = ".wb-menu",
 			$elm.attr({
 				"aria-posinset": ( i + 1 ),
 				"aria-setsize": length,
-				"role": "menuitem"
+				role: "menuitem"
 			});
 
 			// if there is a submenu lets put in the aria for it
@@ -3541,9 +3545,10 @@ var selector = ".wb-menu",
 		}
 	},
 
-	/*
+	/**
 	 * @method onAjaxLoaded
-	 * @param {jQuery DOM elements} element The plugin element
+	 * @param {jQuery DOM element} $elm The plugin element
+	 * @param {jQuery DOM element} $ajaxed The AJAX'd in menu content to import
 	 */
 	onAjaxLoaded = function( $elm, $ajaxed ) {
 		var $menu = $ajaxed.find( "[role='menubar'] .item" ),
@@ -3572,7 +3577,7 @@ var selector = ".wb-menu",
 				// ** note we need to ensure our content is ID safe since this will invalidate the DOM
 				$panel.before( "<section id='wb-imprt-" + i + "' class='" +
 					classList + "'>" +
-					$iElement.html().replace( /\b(id|for)="([^"]+)"/g , "$1='$2-imprt'" ) +
+					$iElement.html().replace( /\b(id|for)="([^"]+)"/g, "$1='$2-imprt'" ) +
 				"</section>" );
 			}
 		}
@@ -3606,25 +3611,24 @@ var selector = ".wb-menu",
 		$elm.trigger( "navcurrent.wb", breadcrumb );
 	},
 
-
-	/*
+	/**
 	 * @method onSelect
 	 * @param {jQuery event} event The current event
 	 */
 	onSelect = function( event ) {
-		var $goto = event.goto,
+		var $goTo = event.goTo,
 			special = event.special;
 
-		$goto.trigger( "setfocus.wb" );
-		if ( special || ( $goto.hasClass( "item" ) && !$goto.attr( "aria-haspopup" ) ) ) {
-			onReset( $goto.parents( selector ), true, special );
+		$goTo.trigger( "setfocus.wb" );
+		if ( special || ( $goTo.hasClass( "item" ) && !$goTo.attr( "aria-haspopup" ) ) ) {
+			onReset( $goTo.parents( selector ), true, special );
 		}
 
 	},
 
-	/*
+	/**
 	 * @method onIncrement
-	 * @param {jQuery DOM element} element The plugin element
+	 * @param {jQuery DOM element} $elm The plugin element
 	 * @param {jQuery event} event The current event
 	 */
 	onIncrement = function( $elm, event ) {
@@ -3634,15 +3638,15 @@ var selector = ".wb-menu",
 
 		$elm.trigger({
 			type: "select.wb-menu",
-			goto: $links.eq( index )
+			goTo: $links.eq( index )
 		});
 	},
 
-	/*
+	/**
 	 * @method onReset
 	 * @param {jQuery DOM element} $elm The plugin element
 	 * @param {boolean} cancelDelay Whether or not to delay the closing of the menus (false by default)
-	 * @param {boolean} keeptActive Whether or not to leave the active class alone (false by default)
+	 * @param {boolean} keepActive Whether or not to leave the active class alone (false by default)
 	 */
 	onReset = function( $elm, cancelDelay, keepActive ) {
 		var id = $elm.attr( "id" ),
@@ -3665,7 +3669,7 @@ var selector = ".wb-menu",
 		}
 	},
 
-	/*
+	/**
 	 * @method onDisplay
 	 * @param {jQuery DOM element} $elm The plugin element
 	 * @param {jQuery event} event The current event
@@ -3689,7 +3693,7 @@ var selector = ".wb-menu",
 		}
 	},
 
-	/*
+	/**
 	 * @method onHoverFocus
 	 * @param {jQuery event} event The current event
 	 */
@@ -3711,7 +3715,7 @@ var selector = ".wb-menu",
 		}
 	},
 
-	/*
+	/**
 	 * Causes clicks on panel menu items to open and close submenus (except for mouse)
 	 * @method onPanelClick
 	 * @param {jQuery event} event The current event
@@ -3734,7 +3738,7 @@ var selector = ".wb-menu",
 		}
 	},
 
-	/*
+	/**
 	 * Searches for the next link that has link text starting with a specific letter
 	 * @method selectByLetter
 	 * @param {integer} charCode The charCode of the letter to search for
@@ -3751,7 +3755,7 @@ var selector = ".wb-menu",
 			if ( link.innerHTML.charAt( 0 ) === keyChar ) {
 				$container.trigger({
 					type: "select.wb-menu",
-					goto: $( link )
+					goTo: $( link )
 				});
 				return true;
 			}
@@ -3813,7 +3817,6 @@ $document.on( "mouseleave", selector + " .menu", function( event ) {
 	onReset( $( event.target ).closest( ".wb-menu" ) );
 });
 
-
 // Panel clicks on menu items should open submenus
 $document.on( "click vclick", selector + " .item[aria-haspopup]", onPanelClick );
 
@@ -3853,7 +3856,7 @@ $document.on( "keydown", selector + " .item", function( event ) {
 
 			$container.trigger({
 				type: "select.wb-menu",
-				goto: $subMenu.find( "a" ).first()
+				goTo: $subMenu.find( "a" ).first()
 			});
 		}
 		break;
@@ -3912,7 +3915,7 @@ $document.on( "keydown", selector + " [role=menu]", function( event ) {
 		event.preventDefault();
 		$container.trigger({
 			type: "select.wb-menu",
-			goto: $menu.filter( selector ),
+			goTo: $menu.filter( selector ),
 			special: "reset"
 		});
 		break;
@@ -3977,7 +3980,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Modal
  * @overview Uses the Magnific Popup library to create a modal dialog
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -4006,7 +4009,7 @@ var selector = ".wb-modal",
 		removalDelay: 0		// Number of milliseconds to wait before removing modal element from DOM (use with closing animations)
 	},
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @function init
@@ -4030,35 +4033,32 @@ var selector = ".wb-modal",
 		}
 	},
 
-	/*
+	/**
 	 * Opens a popup defined by the settings object
 	 * @function show
-	 * @param {jQuery Event} event `modal.wb-session-timeout` event that triggered the function call
 	 * @param {Object} settings Key-value object
 	 */
-	show = function( event, settings ) {
+	show = function( settings ) {
 		$.magnificPopup.open( $.extend( {}, defaults, settings ) );
 	},
 
-	/*
-	 * Closes a popup defined by the settings object
+	/**
+	 * Closes a popup
 	 * @function hide
-	 * @param {jQuery Event} event `modal.wb-session-timeout` event that triggered the function call
-	 * @param {Object} settings Key-value object
 	 */
 	hide = function() {
 		$.magnificPopup.close();
 	},
 
-	/*
+	/**
 	 * Creates a modal dialog for use with the Magnific Popup library.
 	 * @function build
 	 * @param {Object} settings Key-value object used to build the modal dialog
 	 * @returns {jQuery Object} The modal jQuery DOM object
 	 */
-	build = function( event, settings ) {
+	build = function( settings ) {
 		// TODO: Add random serial to `id` attribute to prevent collisions
-		var $modal = $(	"<section class='modal-dialog modal-content overlay-def'>" +
+		var $modal = $( "<section class='modal-dialog modal-content overlay-def'>" +
 			"<div class='modal-body' id='lb-desc'>" + settings.content + "</div></section>" );
 
 		// Add modal's ID if it exists
@@ -4084,7 +4084,7 @@ var selector = ".wb-modal",
 		// Set modal's accessibility attributes
 		// TODO: Better if dealt with upstream by Magnific popup
 		$modal.attr({
-			"role": "dialog",
+			role: "dialog",
 			"aria-live": "polite",
 			"aria-describedby": "lb-desc"
 		});
@@ -4107,13 +4107,13 @@ $document
 		if ( event.currentTarget === event.target ) {
 			switch ( eventType ) {
 			case "build":
-				build( event, settings );
+				build( settings );
 				break;
 			case "show":
-				show( event, settings );
+				show( settings );
 				break;
 			case "hide":
-				hide( event, settings );
+				hide();
 				break;
 			}
 		}
@@ -4284,7 +4284,6 @@ parseXml = function( content ) {
 			parseTime( captionElement.attr( "end" ) ) :
 			parseTime( captionElement.attr( "dur" ) ) + begin;
 
-
 		captionElement = captionElement.clone();
 		captionElement.find( captionSelector ).detach();
 
@@ -4378,7 +4377,7 @@ updateCaptions = function( area, seconds, captions ) {
  * @method playerApi
  * @description Normalizes the calls to the HTML5 media API and Flash Fallback
  * @param {String} fn The function to call
- * @param {} Args The arguments to send to the function call
+ * @param {object} args The arguments to send to the function call
  */
 playerApi = function( fn, args ) {
 	var $this, captionsArea, method;
@@ -4442,7 +4441,7 @@ playerApi = function( fn, args ) {
  * @method youTubeApi
  * @description Normalizes the calls to the YouTube API
  * @param {String} fn The function to call
- * @param {object} Args The arguments to send to the function call
+ * @param {object} args The arguments to send to the function call
  */
 youTubeApi = function( fn, args ) {
 	var $this = $( this.object.a ),
@@ -4482,7 +4481,7 @@ youTubeApi = function( fn, args ) {
 		return this.object.getVolume() / 100;
 	case "setVolume":
 		this.object.setVolume( args * 100 );
-		setTimeout( function(){
+		setTimeout( function() {
 			$this.trigger( "volumechange" );
 		}, 50 );
 
@@ -4492,12 +4491,12 @@ youTubeApi = function( fn, args ) {
 /**
  * @method youTubeEvennts
  * @description Youtube API event manager
- * @param {} event The event object fior the triggered event
+ * @param {object} event The event object fior the triggered event
  */
-youTubeEvents = function ( event ) {
+youTubeEvents = function( event ) {
 	var target = event.target.a,
 		$target = $( event.target.a ),
-		timeline = function () {
+		timeline = function() {
 			$target.trigger( "timeupdate" );
 		};
 
@@ -4524,7 +4523,6 @@ youTubeEvents = function ( event ) {
 		break;
 	}
 };
-
 
 $document.on( "timerpoke.wb", selector, function() {
 	wb.remove( selector );
@@ -4620,7 +4618,6 @@ $document.on( "init.multimedia.wb", selector, function() {
 			load: "https://www.youtube.com/iframe_api"
 		} );
 
-
 	} else if ( media.error === null && media.currentSrc !== "" && media.currentSrc !== undef ) {
 		$this.trigger( type + ".multimedia.wb" );
 	} else {
@@ -4636,7 +4633,6 @@ $document.on( "fallback.multimedia.wb", selector, function() {
 		$poster = $media.attr( "poster" ),
 		$source = $data.media.find( "source" ),
 		$playerresource;
-
 
 	$data.flashvars = "id=" + $data.mId;
 	$playerresource = wb.getPath( "/assets" ) + "/multimedia.swf?" + $data.flashvars;
@@ -4689,8 +4685,8 @@ $document.on( "youtube.multimedia.wb", selector, function() {
 			showinfo: 0
 		},
 		events: {
-			"onReady": youTubeEvents,
-			"onStateChange": youTubeEvents
+			onReady: youTubeEvents,
+			onStateChange: youTubeEvents
 		}
 	});
 
@@ -4788,7 +4784,6 @@ $document.on( "click", selector, function( event ) {
 	if ( event.which === 2 || event.which === 3 ) {
 		return true;
 	}
-
 
 	// Opitmized multiple class tests to include child glyphicon because Safari was reporting the click event
 	// from the child span not the parent button, forcing us to have to check for both elements
@@ -4902,7 +4897,7 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 				.addClass( "glyphicon-volume-off" )
 				.parent();
 
-			button.attr( "title" , button.data( "state-off" ) );
+			button.attr( "title", button.data( "state-off" ) );
 		} else {
 			button = button.removeClass( "glyphicon-volume-off" )
 				.addClass( "glyphicon-volume-up" )
@@ -4988,7 +4983,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW NavCurrent
  * @overview Identify URL in a navigation system that matches current page URL or a URL in the breadcrumb trail. Call by applying .trigger( "navcurrent.wb", breadcrumb ) where the breadcrumb parameter is an optional object (DOM or jQuery)
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -5007,7 +5002,7 @@ var $document = wb.doc,
 	breadcrumbLinksArray, breadcrumbLinksUrlArray,
 	navClass = "wb-navcurr",
 
-	/*
+	/**
 	 * We start the logic for what the plugin truly does
 	 * For demonstration purposes lets display some text with an alert
 	 * @method otherEvent
@@ -5113,13 +5108,13 @@ $document.on( "navcurrent.wb", navCurrent );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title Responsive overlay
  * @overview Provides multiple styles of overlays such as panels and pop-ups
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @thomasgohard, @pjackson28
  */
-(function ( $, window, document, wb ) {
+(function( $, window, document, wb ) {
 "use strict";
 
 /*
@@ -5136,7 +5131,7 @@ var selector = ".wb-overlay",
 	$document = wb.doc,
 	i18n, i18nText,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -5290,7 +5285,7 @@ $document.on( "click vclick", "." + linkClass, function( event ) {
 });
 
 // Outside activity detection
-$document.on( "click vclick touchstart focusin", "body", function ( event ) {
+$document.on( "click vclick touchstart focusin", "body", function( event ) {
 	var eventTarget = event.target,
 		which = event.which,
 		overlayId, overlay;
@@ -5446,7 +5441,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Resize
  * @overview Text and window resizing event handler
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -5484,7 +5479,7 @@ var id = "wb-resize",
 	initialized = false,
 	eventsAll, resizeTest, currentView,
 
-	/*
+	/**
 	 * Init runs once
 	 * @method init
 	 */
@@ -5513,7 +5508,7 @@ var id = "wb-resize",
 		initialized = true;
 	},
 
-	viewChange = function ( viewportWidth ) {
+	viewChange = function( viewportWidth ) {
 		var breakpoint, viewName;
 
 		// Check for a change between views
@@ -5543,7 +5538,7 @@ var id = "wb-resize",
 		}
 	},
 
-	/*
+	/**
 	 * Tests for text size, window width and window height changes and triggers an event when a change is found
 	 * @method test
 	 */
@@ -5584,7 +5579,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Session Timeout
  * @overview Helps Web asset owners to provide session timeout and inactivity timeout functionality.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -5618,7 +5613,7 @@ var selector = ".wb-session-timeout",
 		refreshLimit: 200000		// default period of 2 minutes (ajax calls happen only once during this period)
 	},
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @function init
@@ -5663,7 +5658,7 @@ var selector = ".wb-session-timeout",
 		}
 	},
 
-	/*
+	/**
 	 * Initialize the refresh on click keepalive behaviour. This will cause a `keepalive.wb-session-timeout`
 	 * event to be triggered when the document is clicked, limited by the settings.refreshLimit value.
 	 * @function initRefreshOnClick
@@ -5685,7 +5680,7 @@ var selector = ".wb-session-timeout",
 		}
 	},
 
-	/*
+	/**
 	 * Keepalive session event handler. Sends the POST request to determine if the session is still alive.
 	 * @function keepalive
 	 * @param {jQuery Event} event `keepalive.wb-session-timeout` event that triggered the function call
@@ -5826,7 +5821,7 @@ var selector = ".wb-session-timeout",
 		});
 	},
 
-	/*
+	/**
 	 * Initialize the inactivity and keepalive timeouts of the plugin
 	 * @function reset
 	 * @param {jQuery Event} event `reset.wb-session-timeout` event that triggered the function call
@@ -5841,7 +5836,7 @@ var selector = ".wb-session-timeout",
 		}
 	},
 
-	/*
+	/**
 	 * Checks if the user wants to keep their session alive.
 	 * @function inactivity
 	 * @param {jQuery Event} event `confirm.wb-session-timeout` event that triggered the function call
@@ -5866,7 +5861,7 @@ var selector = ".wb-session-timeout",
 		}
 	},
 
-	/*
+	/**
 	 * Initializes a timeout that triggers an event
 	 * @function initEventTimeout
 	 * @param {jQuery DOM Element} $elm Element to trigger the event on
@@ -5884,7 +5879,7 @@ var selector = ".wb-session-timeout",
 		}, parseTime( time ) ) );
 	},
 
-	/*
+	/**
 	 * Returns the current time in milliseconds
 	 * @function getCurrentTime
 	 * @returns {integer} Current time in milliseconds
@@ -5893,7 +5888,7 @@ var selector = ".wb-session-timeout",
 		return ( new Date() ).getTime();
 	},
 
-	/*
+	/**
 	 * Parses a time value into a milliseconds integer value.
 	 * @function parseTime
 	 * @param {Mixed} value The time value to parse (integer or string)
@@ -5902,13 +5897,13 @@ var selector = ".wb-session-timeout",
 	parseTime = function( value ) {
 		var result, num, mult,
 			powers = {
-				"ms": 1,
-				"cs": 10,
-				"ds": 100,
-				"s": 1000,
-				"das": 10000,
-				"hs": 100000,
-				"ks": 1000000
+				ms: 1,
+				cs: 10,
+				ds: 100,
+				s: 1000,
+				das: 10000,
+				hs: 100000,
+				ks: 1000000
 			};
 
 		if ( value == null ) {
@@ -5924,7 +5919,7 @@ var selector = ".wb-session-timeout",
 		return value;
 	},
 
-	/*
+	/**
 	 * Converts a millisecond value into minutes and seconds
 	 * @function getTime
 	 * @param {integer} milliseconds The time value in milliseconds
@@ -5940,7 +5935,7 @@ var selector = ".wb-session-timeout",
 		return time;
 	},
 
-	/*
+	/**
 	 * Given 2 elements representing minutes and seconds, decrement their time value by 1 second
 	 * @function countdown
 	 * @param {jQuery DOM Element} $minutes Element that contains the minute value
@@ -5996,7 +5991,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Share widget
  * @overview Facilitates sharing Web content on social media platforms.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6061,7 +6056,7 @@ var selector = ".wb-share",
 			},
 			googleplus: {
 				name: "Google+",
-				url: "https://plus.google.com/share?url={u}&amp;hl=" + document.documentElement.lang,
+				url: "https://plus.google.com/share?url={u}&amp;hl=" + document.documentElement.lang
 			},
 			linkedin: {
 				name: "LinkedIn",
@@ -6106,12 +6101,12 @@ var selector = ".wb-share",
 		}
 	},
 
-	/*
-	* Init runs once per plugin element on the page. There may be multiple elements.
-	* It will run more than once per plugin if you don't remove the selector from the timer.
-	* @method init
-	* @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
-	*/
+	/**
+	 * Init runs once per plugin element on the page. There may be multiple elements.
+	 * It will run more than once per plugin if you don't remove the selector from the timer.
+	 * @method init
+	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call
+	 */
 	init = function( event ) {
 		var elm = event.target,
 			sites, heading, settings, panel, link, $share, $elm, pageHref,
@@ -6188,7 +6183,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Tables
  * @overview Integrates the DataTables plugin into WET providing searching, sorting, filtering, pagination and other advanced features for tables.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6207,7 +6202,7 @@ var selector = ".wb-tables",
 	$document = wb.doc,
 	i18n, i18nText, defaults,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -6252,7 +6247,7 @@ var selector = ".wb-tables",
 			}
 
 			defaults = {
-				asStripeClasses : [],
+				asStripeClasses: [],
 				oLanguage: i18nText,
 				fnDrawCallback: function() {
 
@@ -6264,13 +6259,12 @@ var selector = ".wb-tables",
 				}
 			};
 
-
-			Modernizr.load([{
+			Modernizr.load({
 				load: [ "site!deps/jquery.dataTables" + wb.getMode() + ".js" ],
 				complete: function() {
 					$elm.dataTable( $.extend( true, defaults, wb.getData( $elm, "wet-boew" ) ) );
 				}
-			}]);
+			});
 		}
 	};
 
@@ -6282,7 +6276,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title Tabbed Interface
  * @overview Dynamically stacks multiple sections of content, transforming them into a tabbed interface
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6300,7 +6294,7 @@ wb.add( selector );
 var selector = ".wb-tabs",
 	$document = wb.doc,
 	$window = wb.win,
-	tablistProps = { role: "tablist", class: "btn-group", "aria-live": "off" },
+	tablistProps = { role: "tablist", "class": "btn-group", "aria-live": "off" },
 	panelProps = { role: "tabpanel" },
 
 	// Includes "xsmallview" and "xxsmallview"
@@ -6316,12 +6310,12 @@ var selector = ".wb-tabs",
 	// wb.pageUrlParts.hash is a string - empty or otherwise.
 	// hash.match will return null if hash is empty or if no match is found.
 	hash = wb.pageUrlParts.hash.match( /#t(\d+)-p(\d+)/ ),
-	
+
 	// boolean to disable hashchange event listener on tab click,
 	// but re-enable it for any other case
 	ignoreHashChange = false,
-	
-	/*
+
+	/**
 	 * @method init
 	 * @param {jQuery DOM element} $elm The plugin element
 	 */
@@ -6331,10 +6325,10 @@ var selector = ".wb-tabs",
 			isMobile = document.documentElement.className.indexOf( mobileViewPattern ) !== -1,
 			classes = $elm.data( "btnClass" ) || "btn btn-default",
 			$tab, $tabs, $open;
-		
+
 		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
 		wb.remove( selector );
-		
+
 		if ( !$panels.length ) {
 			return false;
 		}
@@ -6343,7 +6337,7 @@ var selector = ".wb-tabs",
 		$panels
 			.each(function() {
 				var $summary = $( this ).children( "summary" );
-				$tab = $( "<button/>", { type: "button", role: "tab", class: classes, tabindex: -1 } )
+				$tab = $( "<button/>", { type: "button", role: "tab", "class": classes, tabindex: -1 } )
 					.text( $summary.text() );
 				$tablist.append( $tab );
 				$summary.attr( isMobile ? mobile.summaryProps : desktop.summaryProps );
@@ -6355,14 +6349,14 @@ var selector = ".wb-tabs",
 		// Make sure other events have access to this plugin instance's tabs and panels.
 		// $elm will be passed as event data when triggering events.
 		$elm.data({
-			"tabs": $tabs,
-			"panels": $panels
+			tabs: $tabs,
+			panels: $panels
 		});
-		
+
 		// Check if the developer set a details element to open by default.
 		// If they set more than one to open, pick the first one only.
 		$open = $panels.filter( "[open]" ).eq( 0 );
-		
+
 		// Default panel to show. Order of precedence is: 1. hash 2. open attribute 3. first panel.
 		if ( hash ) {
 
@@ -6385,7 +6379,7 @@ var selector = ".wb-tabs",
 			elm: "$elm"
 		});
 	},
-	
+
 	onClick = function( event ) {
 		var $tab = $( event.currentTarget ),
 			$elm = $tab.parent().parent(),
@@ -6398,11 +6392,11 @@ var selector = ".wb-tabs",
 			hasEqualize = $elm.hasClass( "equalize" );
 
 		$tabs.not( $tab ).attr({
-			class: classes,
+			"class": classes,
 			tabindex: -1
 		});
 		$tab.attr({
-			class: classes + " active",
+			"class": classes + " active",
 			tabindex: 0
 		});
 
@@ -6415,14 +6409,14 @@ var selector = ".wb-tabs",
 					.attr( "open", false );
 			$panel.attr( "open", true );
 		}
-		
+
 		// Don't trigger onHashChange
 		ignoreHashChange = true;
 		window.location.hash = "#t" +
 			( 1 + $( selector ).index( $tab.parent().parent() ) ) +
 			"-p" +
 			( 1 + tabsIndex );
-		
+
 		// Handle equalizing panel heights
 		if ( !isMobile && hasEqualize ) {
 			$panels.height( getMaxHeight( $panels ) );
@@ -6431,7 +6425,7 @@ var selector = ".wb-tabs",
 		}
 		event.preventDefault();
 	},
-	
+
 	onBtnKeyDown = function( event ) {
 		var which = event.which,
 			$tab = $( event.currentTarget ),
@@ -6441,13 +6435,13 @@ var selector = ".wb-tabs",
 			next;
 
 		switch ( which ) {
-		
+
 		// Left / up / right / down
 		case 37:
 		case 38:
 		case 39:
 		case 40:
-			
+
 			next = $tabs.eq( ( tabsIndex + ( which < 39 ? -1 : 1 ) ) % tabsLength );
 			next
 				.trigger( "click" )
@@ -6468,7 +6462,7 @@ var selector = ".wb-tabs",
 			break;
 		}
 	},
-	
+
 	onHashChange = function( event ) {
 		var pluginNum, panelNum;
 		hash = window.location.hash.match( /#t(\d+)-p(\d+)/ );
@@ -6494,7 +6488,7 @@ var selector = ".wb-tabs",
 		ignoreHashChange = false;
 		event.preventDefault();
 	},
-	
+
 	onResize = function( event ) {
 		var eventType = event.type,
 			$elms = $document.find( selector ),
@@ -6509,7 +6503,7 @@ var selector = ".wb-tabs",
 			$tabs = $tabs.add( $elm.data( "tabs" ) );
 		}
 
-		switch( eventType ) {
+		switch ( eventType ) {
 		case "xxsmallview":
 		case "xsmallview":
 
@@ -6535,7 +6529,7 @@ var selector = ".wb-tabs",
 			break;
 		}
 	},
-	
+
 	getHeight = function( elm ) {
 		var style = elm.style,
 			open = elm.open,
@@ -6554,14 +6548,14 @@ var selector = ".wb-tabs",
 		style.visibility = visibility;
 		return height;
 	},
-	
+
 	getMaxHeight = function( elms ) {
 		var i, height,
 			len = elms.length,
 			maxHeight = null;
 		for ( i = 0; i !== len; i += 1 ) {
 		    height = getHeight( elms[ i ] );
-		    maxHeight =  height > maxHeight ? height : maxHeight;
+		    maxHeight = height > maxHeight ? height : maxHeight;
 		}
 		return maxHeight;
 	};
@@ -6583,16 +6577,16 @@ $document.on( "click vclick keydown", selector + " [role=tab]", function( event 
 
 // These events only fire at the document level
 $document.on( "xxsmallview.wb xsmallview.wb smallview.wb mediumview.wb largeview.wb xlargeview.wb", onResize );
- 
+
 // This event only fires on the window
 $window.on( "hashchange", onHashChange );
- 
+
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Text highlighting
  * @overview Automatically highlights certain words on a Web page. The highlighted words can be selected via the query string.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6610,7 +6604,7 @@ wb.add( selector );
 var selector = ".wb-texthighlight",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -6652,7 +6646,7 @@ wb.add( selector );
 
 })( jQuery, window, document, wb );
 
-/*
+/**
  * @title WET-BOEW Toggle
  * @overview Plugin that allows a link to toggle elements between on and off states.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6676,7 +6670,7 @@ var selector = ".wb-toggle",
 		stateOff: "off"
 	},
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -6702,20 +6696,20 @@ var selector = ".wb-toggle",
 		}
 	},
 
-	/*
-	* Sets the aria attribute for a given toggle element
-	* @param {jQuery Event} event The event that triggered this invocation
-	* @param {Object} data Simple key/value data object passed when the event was triggered
-	*/
+	/**
+	 * Sets the aria attribute for a given toggle element
+	 * @param {jQuery Event} event The event that triggered this invocation
+	 * @param {Object} data Simple key/value data object passed when the event was triggered
+	 */
 	setAria = function( event, data ) {
 		var i, len, $elm, $parent, $tab,
 			ariaControls = "",
 			link = event.target,
 			prefix = "wb-" + new Date().getTime(),
-			$elms =  getElements( link, data );
+			$elms = getElements( link, data );
 
 		// Group toggle elements with a parent are assumed to be a tablist
-		if ( data.group != null &&  data.parent != null ) {
+		if ( data.group != null && data.parent != null ) {
 			$parent = $( data.parent );
 
 			// Check that the group toggle widget hasn't already been initialized
@@ -6730,7 +6724,7 @@ var selector = ".wb-toggle",
 					$elm = $elms.eq( i );
 					$tab = $elm.find( ".tab" );
 					if ( !$tab.attr( "id" ) ) {
-						$tab.attr( "id", prefix + i  );
+						$tab.attr( "id", prefix + i );
 					}
 					$elm.find( ".panel" ).attr( "aria-labelledby", $tab.attr( "id" ) );
 				}
@@ -6744,7 +6738,7 @@ var selector = ".wb-toggle",
 			for ( i = 0, len = $elms.length; i !== len; i += 1 ) {
 				$elm = $elms.eq( i );
 				if ( !$elm.attr( "id" ) ) {
-					$elm.attr( "id", prefix + i  );
+					$elm.attr( "id", prefix + i );
 				}
 				ariaControls += $elm.attr( "id" ) + " ";
 			}
@@ -6752,7 +6746,7 @@ var selector = ".wb-toggle",
 		}
 	},
 
-	/*
+	/**
 	 * Click handler for the toggle links
 	 * @param {jQuery Event} event The event that triggered this invocation
 	 * @param {DOM element} link The toggle link that was clicked
@@ -6767,7 +6761,7 @@ var selector = ".wb-toggle",
 		$link.trigger( "setfocus.wb" );
 	},
 
-	/*
+	/**
 	 * Toggles the elements a link controls between the on and off states.
 	 * @param {jQuery Event} event The event that triggered this invocation
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
@@ -6809,8 +6803,8 @@ var selector = ".wb-toggle",
 		});
 	},
 
-	/*
-	 * Executed once the toggle has been completed.  Used to set the aria
+	/**
+	 * Executed once the toggle has been completed. Used to set the aria
 	 * attributes and ensure opened group toggle element is visisble.
 	 * @param {jQuery Event} event The event that triggered this invocation
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
@@ -6839,7 +6833,7 @@ var selector = ".wb-toggle",
 		}
 	},
 
-	/*
+	/**
 	 * Sets the required property and attribute for toggling open/closed a details element
 	 * @param {jQuery Event} event The event that triggered this invocation
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
@@ -6858,7 +6852,7 @@ var selector = ".wb-toggle",
 		}
 	},
 
-	/*
+	/**
 	 * Returns the elements a given toggle element controls.
 	 * @param {DOM element} link Toggle element that was clicked
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
@@ -6871,7 +6865,7 @@ var selector = ".wb-toggle",
 		return parent !== null ? $( parent ).find( selector ) : $( selector );
 	},
 
-	/*
+	/**
 	 * Gets the current toggle state of elements controlled by the given link.
 	 * @param {DOM element} link Toggle link that was clicked
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
@@ -6883,7 +6877,7 @@ var selector = ".wb-toggle",
 
 		// No toggle type: get the current on/off state of the elements specified by the selector and parent
 		if ( !type ) {
-			if( !selector ) {
+			if ( !selector ) {
 				return $( link ).data( "state" ) || data.stateOff;
 
 			} else if ( states.hasOwnProperty( selector ) ) {
@@ -6898,7 +6892,7 @@ var selector = ".wb-toggle",
 		return type === data.stateOn ? data.stateOff : data.stateOn;
 	},
 
-	/*
+	/**
 	 * Sets the current toggle state of elements controlled by the given link.
 	 * @param {DOM element} link Toggle link that was clicked
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
@@ -6935,12 +6929,12 @@ var selector = ".wb-toggle",
 			}
 		}
 
-		// Store the state on the elements as well.  This allows a link to toggle itself.
+		// Store the state on the elements as well. This allows a link to toggle itself.
 		$elms.data( "state", state );
 	};
 
 // Bind the plugin's events
-$document.on( "timerpoke.wb aria.wb-toggle toggle.wb-toggle toggled.wb-toggle click",	selector, function( event, data ) {
+$document.on( "timerpoke.wb aria.wb-toggle toggle.wb-toggle toggled.wb-toggle click", selector, function( event, data ) {
 	var eventType = event.type;
 
 	switch ( eventType ) {
@@ -6968,7 +6962,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Twitter embedded timeline
  * @overview Helps with implementing Twitter embedded timelines.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -6986,7 +6980,7 @@ wb.add( selector );
 var selector = ".wb-twitter",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
@@ -7014,7 +7008,7 @@ wb.add( selector );
 
 })( jQuery, window, wb );
 
-/*
+/**
  * @title WET-BOEW Disable Event
  * @overview Event creates the active offer for users that have disabled the event.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -7031,7 +7025,7 @@ wb.add( selector );
 var selector = "#wb-tphp",
 	$document = wb.doc,
 
-	/*
+	/**
 	 * createOffer runs once per plugin element on the page.
 	 * @method createOffer
 	 * @param {jQuery Event} event `timerpoke.wb` event that triggered the function call

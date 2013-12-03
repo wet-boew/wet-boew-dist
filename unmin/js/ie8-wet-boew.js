@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -1434,10 +1434,7 @@ c=d.insertBefore(c.lastChild,d.firstChild);b.hasCSS=!!c}g||t(a,b);return a}var k
 "undefined"==typeof c.createDocumentFragment||"undefined"==typeof c.createElement}g=b}catch(d){g=j=!0}})();var e={elements:k.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",version:"3.7.0",shivCSS:!1!==k.shivCSS,supportsUnknownElements:g,shivMethods:!1!==k.shivMethods,type:"default",shivDocument:q,createElement:p,createDocumentFragment:function(a,b){a||(a=f);
 if(g)return a.createDocumentFragment();for(var b=b||i(a),c=b.frag.cloneNode(),d=0,e=m(),h=e.length;d<h;d++)c.createElement(e[d]);return c}};l.html5=e;q(f)})(this,document);
 
-/*!
-
-/*! WET-BOEW Core and Plugins */
-/*
+/**
  * @title WET-BOEW Vapour loader
  * @overview Helper methods for WET
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -1449,9 +1446,9 @@ if(g)return a.createDocumentFragment();for(var b=b||i(a),c=b.frag.cloneNode(),d=
 (function( $, window, document, undef ) {
 "use strict";
 
-/*
+/**
  * @method getUrlParts
- * @params: {String} of URL to examine
+ * @param {String} url of URL to examine
  * @return {Object} of the parts of passed URL
  */
 var getUrlParts = function( url ) {
@@ -1486,20 +1483,20 @@ var getUrlParts = function( url ) {
 		};
 	},
 
-	/*
+	/**
 	 * @variable $src
 	 * @return {jQuery Element} of wb script element
 	 */
 	$src = $( "script[src$='wet-boew.js'],script[src$='wet-boew.min.js']" )
 		.last(),
 
-	/*
+	/**
 	 * @variable i18n
 	 * @return {string} of HTML document language
 	 */
 	lang = document.documentElement.lang,
 
-	/*
+	/**
 	 * @variable $homepath
 	 * @return {string} of version current path to JS directory
 	 */
@@ -1508,20 +1505,20 @@ var getUrlParts = function( url ) {
 		.slice( 0, -1 )
 		.join( "/" ),
 
-	/*
+	/**
 	 * @variable $homecss
 	 * @return {string} of version current path to CSS directory
 	 */
 	$homecss = $homepath.substring( 0, $homepath.length - 2 ) + "css",
 
-	/*
+	/**
 	 * @variable $mode
 	 * @return {string} of version of JS [development or production]
 	 */
 	$mode = $src.prop( "src" )
 		.indexOf( ".min" ) < 0 ? "" : ".min",
 
-	/*
+	/**
 	 * @variable oldie
 	 * @return {integer} of IE version
 	 */
@@ -1539,13 +1536,13 @@ var getUrlParts = function( url ) {
 		return v > 4 ? v : undef;
 	}()),
 
-	/*
+	/**
 	 * @variable currentpage
 	 * @return {Object} of parts of the current page URL
 	 */
 	currentpage = getUrlParts( window.location.href ),
 
-	/*
+	/**
 	 * @variable disabled
 	 * @return {boolean} of state of disabled flag
 	 */
@@ -1569,7 +1566,7 @@ var getUrlParts = function( url ) {
 		html: $( "html" ),
 		pageUrlParts: currentpage,
 		getUrlParts: getUrlParts,
-		isDisabled : disabled,
+		isDisabled: disabled,
 
 		getPath: function( property ) {
 			return this.hasOwnProperty( property ) ? this[ property ] : undef;
@@ -1611,7 +1608,8 @@ var getUrlParts = function( url ) {
 
 		start: function() {
 
-			/* Lets start our clock right away. We we need to test to ensure that there will not be any
+			/*
+			 * Lets start our clock right away. We we need to test to ensure that there will not be any
 			 * instances on Mobile were the DOM is not ready before the timer starts. That is why 0.5 seconds
 			 * was used as a buffer.
 			 */
@@ -1660,7 +1658,7 @@ window.wb = wb;
  * increase performance due to redundant chaining of the prefixes.
  */
 
-/*
+/**
  * @prefix: site! - adds the root js directory of yepnope resources
  */
 yepnope.addPrefix( "site", function( resourceObj ) {
@@ -1668,7 +1666,7 @@ yepnope.addPrefix( "site", function( resourceObj ) {
 	return resourceObj;
 });
 
-/*
+/**
  * @prefix: plyfll! - builds the path for the polyfill resource
  */
 yepnope.addPrefix( "plyfll", function( resourceObj ) {
@@ -1691,7 +1689,7 @@ yepnope.addPrefix( "plyfll", function( resourceObj ) {
 	return resourceObj;
 });
 
-/*
+/**
  * @prefix: i18n! - adds the correct document language for our i18n library
  */
 yepnope.addPrefix( "i18n", function( resourceObj ) {
@@ -1757,7 +1755,7 @@ Modernizr.load([
 		]
 	}, {
 		test: Modernizr.touch,
-		yep: "plyfll!mobile.min.js",
+		yep: "plyfll!mobile.min.js"
 	}, {
 		test: Modernizr.svg,
 		nope: "plyfll!svg.min.js"

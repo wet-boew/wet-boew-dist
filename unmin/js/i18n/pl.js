@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "pl",
 	"lang-nat": "Język polski",
-	"all": "Wszystko",
-	"tphp": "Góra strony",
-	"load": "ładowanie ...",
-	"process": "przetwarzanie ...",
-	"srch": "Szukaj",
+	all: "Wszystko",
+	tphp: "Góra strony",
+	load: "ładowanie ...",
+	process: "przetwarzanie ...",
+	srch: "Szukaj",
 	"no-match": "Nie znaleziono odpowiedników",
-	"matches": {
-		"mixin": "Znaleziono [MIXIN] odpowiedników"
+	matches: {
+		mixin: "Znaleziono [MIXIN] odpowiedników"
 	},
-	"curr": "(bieżący)",
-	"hide": "Ukryj",
-	"err": "Błąd",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(bieżący)",
+	hide: "Ukryj",
+	err: "Błąd",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Rozpocznij",
-	"stop": "Zatrzymaj",
-	"back": "Wstecz",
-	"cancel": "Anuluj",
+	space: "&#32;",
+	start: "Rozpocznij",
+	stop: "Zatrzymaj",
+	back: "Wstecz",
+	cancel: "Anuluj",
 	"min-ago": "minutę temu",
 	"coup-mins": "kilka minut temu",
 	"mins-ago": {
-		"mixin": "[MIXIN] minut temu"
+		mixin: "[MIXIN] minut temu"
 	},
 	"hour-ago": "godzinę temu",
 	"hours-ago": {
-		"mixin": "[MIXIN] godzin temu"
+		mixin: "[MIXIN] godzin temu"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN} dni temu"
+		mixin: "[MIXIN} dni temu"
 	},
-	"yesterday": "wczoraj",
+	yesterday: "wczoraj",
 
-	"nxt": "Następny",
+	nxt: "Następny",
 	"nxt-r": "Następny (klawisz strzałki w prawo)",
-	"prv": "Poprzedni",
+	prv: "Poprzedni",
 	"prv-l": "Poprzedni (klawisz strzałka w lewo)",
-	"first": "Pierwszy",
-	"last": "Ostatni",
+	first: "Pierwszy",
+	last: "Ostatni",
 	"menu-close": "Zamknij menu",
 	"overlay-close": "Zamknij nakładkę",
 	"esc-key": "(klawisz Esc)",
-	"show": "Pokaż",
+	show: "Pokaż",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Zatrzymaj przewijanie zakładek",
-		"on": "Rozpocznij przewijanie zakładek"
+		off: "Zatrzymaj przewijanie zakładek",
+		on: "Rozpocznij przewijanie zakładek"
 	},
 	"tab-list": "Lista zakładek",
 	"tab-pnl-end1": "Koniec tego panelu zakładek.",
 	"tab-pnl-end2": "Powrót do listy zakładek",
 	"tab-pnl-end3": "lub kontynuuj do końca strony.",
 	/* Multimedia player */
-	"play": "Odtwarzanie",
-	"pause": "Pauza",
-	"open": "Otwórz",
-	"close": "Zamknij",
-	"rew": "Przewiń do tyłu",
-	"ffwd": "Szybkie przewijanie do przodu",
-	"mute": {
-		"on": "Bez dźwięku",
-		"off": "Przywróć dźwięk"
+	play: "Odtwarzanie",
+	pause: "Pauza",
+	open: "Otwórz",
+	close: "Zamknij",
+	rew: "Przewiń do tyłu",
+	ffwd: "Szybkie przewijanie do przodu",
+	mute: {
+		on: "Bez dźwięku",
+		off: "Przywróć dźwięk"
 	},
-	"cc": {
-		"off": "Ukryj podpisy",
-		"on": "Pokaż podpisy"
+	cc: {
+		off: "Ukryj podpisy",
+		on: "Pokaż podpisy"
 	},
 	"cc-err": "Błąd w ładowaniu podpisów",
-	"adesc": {
-		"on": "Włącz informację audio",
-		"off": "Wyłącz informację audio"
+	adesc: {
+		on: "Włącz informację audio",
+		off: "Wyłącz informację audio"
 	},
-	"pos": "Aktualna pozycja:",
-	"dur": "Czas całkowity:",
+	pos: "Aktualna pozycja:",
+	dur: "Czas całkowity:",
 	/* Share widget */
 	"shr-txt": "Prześlij tę stronę",
 	"shr-hnt": " do {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Proszę wybrać datę z kalendarza:",
 	"date-sel": "Wybrany",
 	/* Calendar */
-	"days": ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"],
-	"mnths": ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"],
-	"cal": "Kalendarz",
-	"currDay": "(Bieżący dzień)",
+	days: [
+		"Niedziela",
+		"Poniedziałek",
+		"Wtorek",
+		"Środa",
+		"Czwartek",
+		"Piątek",
+		"Sobota"
+	],
+	mnths: [
+		"Styczeń",
+		"Luty",
+		"Marzec",
+		"Kwiecień",
+		"Maj",
+		"Czerwiec",
+		"Lipiec",
+		"Sierpień",
+		"Wrzesień",
+		"Październik",
+		"Listopad",
+		"Grudzień"
+	],
+	cal: "Kalendarz",
+	currDay: "(Bieżący dzień)",
 	"cal-goToLnk": "Idź do<span class=\"wb-inv\"> miesiąca w roku</span>",
 	"cal-goToTtl": "Idź do miesiąca w roku",
 	"cal-goToMnth": "Miesiąc:",
 	"cal-goToYr": "Rok:",
 	"cal-goToBtn": "Przejdź",
-	"prvMnth": "Poprzedni miesiąc: ",
-	"nxtMnth": "Następny miesiąc: ",
+	prvMnth: "Poprzedni miesiąc: ",
+	nxtMnth: "Następny miesiąc: ",
 	/* Lightbox */
 	"lb-curr": "Pozycja %curr% z %total%",
 	"lb-xhr-err": "Nie udało się załadować treści.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Rozwiń wszystkie sekcje zawartości",
 	"td-ttl-close": "Zwiń wszystkie sekcje zawartości",
 	/* Table enhancement */
-	"sortAsc": ": włączyć dla sortowania rosnąco",
-	"sortDesc": ": włączyć dla sortowania malejąco",
-	"emptyTbl": "Nie ma danych w tabeli",
-	"infoEntr": "Wyświetlono _START_ do _END_ z _TOTAL_ pozycji",
-	"infoEmpty": "Wyświetlono 0 do 0 z 0 pozycji",
-	"infoFilt": "(filtrowane z _MAX_ wszystkich wpisów)",
-	"info1000": "&#160;",
-	"lenMenu": "Pokaż _MENU_ wpisów",
+	sortAsc: ": włączyć dla sortowania rosnąco",
+	sortDesc: ": włączyć dla sortowania malejąco",
+	emptyTbl: "Nie ma danych w tabeli",
+	infoEntr: "Wyświetlono _START_ do _END_ z _TOTAL_ pozycji",
+	infoEmpty: "Wyświetlono 0 do 0 z 0 pozycji",
+	infoFilt: "(filtrowane z _MAX_ wszystkich wpisów)",
+	info1000: "&#160;",
+	lenMenu: "Pokaż _MENU_ wpisów",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Powiększ",

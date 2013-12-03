@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "zh",
 	"lang-nat": "繁體字",
-	"all": "全部",
-	"tphp": "頁首",
-	"load": "下載中…",
-	"process": "處理...",
-	"srch": "搜尋",
+	all: "全部",
+	tphp: "頁首",
+	load: "下載中…",
+	process: "處理...",
+	srch: "搜尋",
 	"no-match": "找不到合適項目",
-	"matches": {
-		"mixin": "找到[MIXIN]項目"
+	matches: {
+		mixin: "找到[MIXIN]項目"
 	},
-	"curr": "目前",
-	"hide": "隱藏",
-	"err": "錯誤",
-	"colon": "：",
-	"hyphen": "-",
+	curr: "目前",
+	hide: "隱藏",
+	err: "錯誤",
+	colon: "：",
+	hyphen: "-",
 	"full-stop": "。",
 	"comma-space": "，",
-	"space": "&#173;",
-	"start": "開始",
-	"stop": "停止",
-	"back": "返回",
-	"cancel": "取消",
+	space: "&#173;",
+	start: "開始",
+	stop: "停止",
+	back: "返回",
+	cancel: "取消",
 	"min-ago": "一分鐘前",
 	"coup-mins": "數分鐘前",
 	"mins-ago": {
-		"mixin": "[MIXIN]分鐘前"
+		mixin: "[MIXIN]分鐘前"
 	},
 	"hour-ago": "一小時前",
 	"hours-ago": {
-		"mixin": "[MIXIN]數小時前"
+		mixin: "[MIXIN]數小時前"
 	},
 	"days-ago": {
-		"mixin": "[MIXIN]數天前"
+		mixin: "[MIXIN]數天前"
 	},
-	"yesterday": "昨天",
+	yesterday: "昨天",
 
-	"nxt": "下一筆",
+	nxt: "下一筆",
 	"nxt-r": "下一筆（右箭頭鍵）",
-	"prv": "上一筆",
+	prv: "上一筆",
 	"prv-l": "上一筆（左箭頭鍵）",
-	"first": "第一筆",
-	"last": "最後一筆",
+	first: "第一筆",
+	last: "最後一筆",
 	"menu-close": "關閉菜單",
 	"overlay-close": "關閉疊加",
 	"esc-key": "（Esc鍵）",
-	"show": "顯示",
+	show: "顯示",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "旋轉鍵-停止",
-		"on": "旋轉鍵-啟動"
+		off: "旋轉鍵-停止",
+		on: "旋轉鍵-啟動"
 	},
 	"tab-list": "籤頁列表",
 	"tab-pnl-end1": "此籤頁選項結束。",
 	"tab-pnl-end2": "返回到籤頁列表",
 	"tab-pnl-end3": "或繼續其餘的頁面。",
 	/* Multimedia player */
-	"play": "播放",
-	"pause": "暫停",
-	"open": "打開",
-	"close": "停止",
-	"rew": "倒轉",
-	"ffwd": "快轉",
-	"mute": {
-		"on": "靜音",
-		"off": "聲音"
+	play: "播放",
+	pause: "暫停",
+	open: "打開",
+	close: "停止",
+	rew: "倒轉",
+	ffwd: "快轉",
+	mute: {
+		on: "靜音",
+		off: "聲音"
 	},
-	"cc": {
-		"off": "隱藏字幕",
-		"on": "顯示字幕"
+	cc: {
+		off: "隱藏字幕",
+		on: "顯示字幕"
 	},
 	"cc-err": "載入字幕錯誤",
-	"adesc": {
-		"on": "有音訊說明",
-		"off": "無音訊說明"
+	adesc: {
+		on: "有音訊說明",
+		off: "無音訊說明"
 	},
-	"pos": "目前位置：",
-	"dur": "所有時間：",
+	pos: "目前位置：",
+	dur: "所有時間：",
 	/* Share widget */
 	"shr-txt": "分享此頁",
 	"shr-hnt": "與{s}",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "選擇一個日期：",
 	"date-sel": "選擇",
 	/* Calendar */
-	"days": ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
-	"mnths": ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-	"cal": "日曆",
-	"currDay": "現在日期",
+	days: [
+		"星期天",
+		"星期一",
+		"星期二",
+		"星期三",
+		"星期四",
+		"星期五",
+		"星期六"
+	],
+	mnths: [
+		"一月",
+		"二月",
+		"三月",
+		"四月",
+		"五月",
+		"六月",
+		"七月",
+		"八月",
+		"九月",
+		"十月",
+		"十一月",
+		"十二月"
+	],
+	cal: "日曆",
+	currDay: "現在日期",
 	"cal-goToLnk": "轉到<span class=\"wb-inv\">月份的一年</span>",
 	"cal-goToTtl": "轉到某年的某月份",
 	"cal-goToMnth": "月：",
 	"cal-goToYr": "年：",
 	"cal-goToBtn": "前往",
-	"prvMnth": "上一月：",
-	"nxtMnth": "下一月：",
+	prvMnth: "上一月：",
+	nxtMnth: "下一月：",
 	/* Lightbox */
 	"lb-curr": "所有項目%curr%的%total%",
 	"lb-xhr-err": "本內容無法載入。",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "展開所有內容",
 	"td-ttl-close": "關閉所有的內容",
 	/* Table enhancement */
-	"sortAsc": ": 使用大小排序",
-	"sortDesc": "：使用小大排序",
-	"emptyTbl": "沒有可用的數據",
-	"infoEntr": "顯示_START_到_END_的_TOTAL_個項目",
-	"infoEmpty": "顯示0到0的0個項目",
-	"infoFilt": "（共_MAX_項過濾）",
-	"info1000": ",",
-	"lenMenu": "顯示_MENU_項",
+	sortAsc: ": 使用大小排序",
+	sortDesc: "：使用小大排序",
+	emptyTbl: "沒有可用的數據",
+	infoEntr: "顯示_START_到_END_的_TOTAL_個項目",
+	infoEmpty: "顯示0到0的0個項目",
+	infoFilt: "（共_MAX_項過濾）",
+	info1000: ",",
+	lenMenu: "顯示_MENU_項",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "放大",

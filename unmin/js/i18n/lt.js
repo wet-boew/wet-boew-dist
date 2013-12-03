@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-02
+ * v4.0.0-a1-development - 2013-12-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -17,83 +17,83 @@
 wb.i18nDict = {
 	"lang-code": "lt",
 	"lang-nat": "Lietuvių kalba",
-	"all": "Visi",
-	"tphp": "Puslapio viršus",
-	"load": "pakrovimo ...",
-	"process": "perdirbimo ...",
-	"srch": "Paieška",
+	all: "Visi",
+	tphp: "Puslapio viršus",
+	load: "pakrovimo ...",
+	process: "perdirbimo ...",
+	srch: "Paieška",
 	"no-match": "Atitikmenų nerasta",
-	"matches": {
-		"mixin": "[MIXIN] atitikmuo (-enys) rasti"
+	matches: {
+		mixin: "[MIXIN] atitikmuo (-enys) rasti"
 	},
-	"curr": "(dabartinė)",
-	"hide": "Slėpti",
-	"err": "Klaida",
-	"colon": ":",
-	"hyphen": " - ",
+	curr: "(dabartinė)",
+	hide: "Slėpti",
+	err: "Klaida",
+	colon: ":",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
-	"space": "&#32;",
-	"start": "Pradėti",
-	"stop": "Sustoti",
-	"back": "Atgal",
-	"cancel": "Atšaukti",
+	space: "&#32;",
+	start: "Pradėti",
+	stop: "Sustoti",
+	back: "Atgal",
+	cancel: "Atšaukti",
 	"min-ago": "Prieš minutę",
 	"coup-mins": "Prieš kelias minutes",
 	"mins-ago": {
-		"mixin": "Prieš [MIXIN] minutes"
+		mixin: "Prieš [MIXIN] minutes"
 	},
 	"hour-ago": "Prieš valandą",
 	"hours-ago": {
-		"mixin": "Prieš [MIXIN] valandas"
+		mixin: "Prieš [MIXIN] valandas"
 	},
 	"days-ago": {
-		"mixin": "Prieš [MIXIN] dienas"
+		mixin: "Prieš [MIXIN] dienas"
 	},
-	"yesterday": "Vakar",
+	yesterday: "Vakar",
 
-	"nxt": "Sekantis",
+	nxt: "Sekantis",
 	"nxt-r": "Sekantis (rodyklės dešinėn klavišu)",
-	"prv": "Ankstenis",
+	prv: "Ankstenis",
 	"prv-l": "Ankstenis (rodyklės dešinėn klavišu)",
-	"first": "Pirmasis",
-	"last": "Paskutinis",
+	first: "Pirmasis",
+	last: "Paskutinis",
 	"menu-close": "Uždaryti meniu",
 	"overlay-close": "Uždaryti perdangos",
 	"esc-key": "(\"escape\" klavišu)",
-	"show": "Rodyti",
+	show: "Rodyti",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		"off": "Sustabdyti rotaciją",
-		"on": "Pradėti rotaciją"
+		off: "Sustabdyti rotaciją",
+		on: "Pradėti rotaciją"
 	},
 	"tab-list": "Skirtukas sąrašas",
 	"tab-pnl-end1": "Šio skirtuko skydelyje pabaiga.",
 	"tab-pnl-end2": "Grįžti į skirtukų sąrašą",
 	"tab-pnl-end3": "ar toliau likusia puslapio dalimi.",
 	/* Multimedia player */
-	"play": "Žaisti",
-	"pause": "Pauzė",
-	"open": "Atidaryti",
-	"close": "Uždaryti",
-	"rew": "Atsukti",
-	"ffwd": "Sukti į priekį",
-	"mute": {
-		"on": "Užtylinti",
-		"off": "Įjungti garsą"
+	play: "Žaisti",
+	pause: "Pauzė",
+	open: "Atidaryti",
+	close: "Uždaryti",
+	rew: "Atsukti",
+	ffwd: "Sukti į priekį",
+	mute: {
+		on: "Užtylinti",
+		off: "Įjungti garsą"
 	},
-	"cc": {
-		"off": "Slėpti didžiųjų raidžių įjungimą",
-		"on": "Rodyti didžiųjų raidžių įjungimą"
+	cc: {
+		off: "Slėpti didžiųjų raidžių įjungimą",
+		on: "Rodyti didžiųjų raidžių įjungimą"
 	},
 	"cc-err": "Klaida kraunant didžiųjų raidžių įjungimą",
-	"adesc": {
-		"on": "Aktyvuoti audio aprašą",
-		"off": "Išjungti audio aprašą"
+	adesc: {
+		on: "Aktyvuoti audio aprašą",
+		off: "Išjungti audio aprašą"
 	},
-	"pos": "Esama pozicija:",
-	"dur": "Visas laikas:",
+	pos: "Esama pozicija:",
+	dur: "Visas laikas:",
 	/* Share widget */
 	"shr-txt": "Dalintis",
 	"shr-hnt": " su {s} ",
@@ -107,17 +107,38 @@ wb.i18nDict = {
 	"date-show": "Pasirinkti datą iš kalendoriaus:",
 	"date-sel": "Atrinkta",
 	/* Calendar */
-	"days": ["Sekmadienis", "Pirmadienis", "Antradienis", "Trečiadienis", "Ketvirtadienis", "Penktadienis", "Šeštadienis"],
-	"mnths": ["Sausis", "Vasaris", "Kovas", "Balandis", "Gegužė", "Birželis", "Liepa", "Rugpjūtis", "Rugsėjis", "Spalis", "Lapkritis", "Gruodis"],
-	"cal": "Kalendorius",
-	"currDay": "(Šiandien)",
+	days: [
+		"Sekmadienis",
+		"Pirmadienis",
+		"Antradienis",
+		"Trečiadienis",
+		"Ketvirtadienis",
+		"Penktadienis",
+		"Šeštadienis"
+	],
+	mnths: [
+		"Sausis",
+		"Vasaris",
+		"Kovas",
+		"Balandis",
+		"Gegužė",
+		"Birželis",
+		"Liepa",
+		"Rugpjūtis",
+		"Rugsėjis",
+		"Spalis",
+		"Lapkritis",
+		"Gruodis"
+	],
+	cal: "Kalendorius",
+	currDay: "(Šiandien)",
 	"cal-goToLnk": "Eiti į<span class=\"wb-inv\"> mėnesius</span>",
 	"cal-goToTtl": "Eiti į mėnesius",
 	"cal-goToMnth": "Mėnesiai:",
 	"cal-goToYr": "Metai:",
 	"cal-goToBtn": "Eiti",
-	"prvMnth": "Ankstesnis mėnuo: ",
-	"nxtMnth": "Sekantis mėnuo: ",
+	prvMnth: "Ankstesnis mėnuo: ",
+	nxtMnth: "Sekantis mėnuo: ",
 	/* Lightbox */
 	"lb-curr": "Punktas %curr% iš %total%",
 	"lb-xhr-err": "Turinio nepavyko užkrauti.",
@@ -139,14 +160,14 @@ wb.i18nDict = {
 	"td-ttl-open": "Išskleisti visus turinio skyrius",
 	"td-ttl-close": "Sutraukti visus turinio skyrius",
 	/* Table enhancement */
-	"sortAsc": ": suaktyvinkite didėjimo tvarka rūšiuoti",
-	"sortDesc": ": suaktyvinkite rikiuojama",
-	"emptyTbl": "Nėra duomenų apie vaisto pateiktoje lentelėje",
-	"infoEntr": "Rodoma _START_ iki _END_ iš _TOTAL_ įrašų",
-	"infoEmpty": "Rodoma 0 iki 0 iš 0 įrašų",
-	"infoFilt": "(filtruojamas iš _MAX_ Iš viso įrašų)",
-	"info1000": ",",
-	"lenMenu": "Rodyti _MENU_ įrašai",
+	sortAsc: ": suaktyvinkite didėjimo tvarka rūšiuoti",
+	sortDesc: ": suaktyvinkite rikiuojama",
+	emptyTbl: "Nėra duomenų apie vaisto pateiktoje lentelėje",
+	infoEntr: "Rodoma _START_ iki _END_ iš _TOTAL_ įrašų",
+	infoEmpty: "Rodoma 0 iki 0 iš 0 įrašų",
+	infoFilt: "(filtruojamas iš _MAX_ Iš viso įrašų)",
+	info1000: ",",
+	lenMenu: "Rodyti _MENU_ įrašai",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Artinti",
