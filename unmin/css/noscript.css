@@ -20,6 +20,28 @@
 }
 
 /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/**
+ * Mobile-friendly styles
+ */
+
+.no-js .wb-tabs [role="tablist"] {
+  display: none;
+}
+
+.no-js .wb-tabs [role="tabpanel"] {
+  display: block;
+  opacity: 1;
+}
+
+.no-js .wb-tabs> details> summary {
+  display: block !important;
+}
+
+/*
  Polyfills
  */
 

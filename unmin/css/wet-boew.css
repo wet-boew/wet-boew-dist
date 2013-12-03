@@ -10175,77 +10175,6 @@ tbody.cal-days a.cal-event {
  */
 
 .wb-tabs {
-  /*
-	 * Large screen styles
-	 */
-  /**
-	 * Mobile-friendly styles
-	 */
-}
-
-.wb-tabs > details {
-  padding: 6px 12px;
-}
-
-@media (min-width: 785px) {
-  .wb-tabs > details {
-    border: 1px solid #adadad;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    -webkit-box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
-    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
-    margin-top: -1px;
-  }
-
-  .wb-tabs > details[aria-expanded="false"],
-  .wb-tabs > details.out {
-    display: none;
-  }
-
-  .wb-tabs > details > summary {
-    font-size: 0;
-  }
-
-  .wb-tabs > [role=tablist] > button {
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 0px;
-  }
-
-  .wb-tabs > [role=tablist] > button.active {
-    font-weight: bold;
-  }
-
-  .wb-tabs > [role=tablist] > button:focus {
-    outline: 1px solid #5e9ed6;
-  }
-}
-
-@media (max-width: 784px) {
-  .wb-tabs > details {
-    border: 1px solid #adadad;
-    border-radius: 4px;
-    margin-bottom: 0.5em;
-  }
-
-  .wb-tabs > [role=tablist] > button {
-    display: none;
-  }
-}
-
-/**
- * Javascript disabled styles
- */
-
-.no-js .wb-tabs > details > summary {
-  font-size: 1em;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-.wb-carousel {
   /**
 	 * Shared variables
 	 */
@@ -10261,14 +10190,14 @@ tbody.cal-days a.cal-event {
 	 */
 }
 
-.wb-carousel [role="tablist"] {
+.wb-tabs [role="tablist"] {
   position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.wb-carousel [role="tablist"] li {
+.wb-tabs [role="tablist"] li {
   display: inline-block;
   cursor: pointer;
   margin: 0 1px 0 0;
@@ -10280,60 +10209,60 @@ tbody.cal-days a.cal-event {
   position: relative;
 }
 
-.wb-carousel [role="tablist"] li a {
+.wb-tabs [role="tablist"] li a {
   text-decoration: none;
   color: black;
   display: inline-block;
   padding: 7px;
 }
 
-.wb-carousel [role="tablist"] li:focus,
-.wb-carousel [role="tablist"] li:hover {
+.wb-tabs [role="tablist"] li:focus,
+.wb-tabs [role="tablist"] li:hover {
   background: #cccccc;
   background: rgba(204, 204, 204, 0.9);
 }
 
-.wb-carousel [role="tablist"] li.active {
+.wb-tabs [role="tablist"] li.active {
   background: #cccccc;
   background: rgba(204, 204, 204, 0.9);
   cursor: default;
 }
 
-.wb-carousel [role="tablist"] li.active a {
+.wb-tabs [role="tablist"] li.active a {
   cursor: default;
 }
 
-.wb-carousel [role="tabpanel"].out {
+.wb-tabs [role="tabpanel"].out {
   display: none;
 }
 
-.wb-carousel.carousel-s1 [role="tablist"] {
+.wb-tabs.carousel-s1 [role="tablist"] {
   position: absolute;
   bottom: 1em;
   left: 1em;
   z-index: 100;
 }
 
-.wb-carousel.carousel-s1 [role="tablist"] li.active,
-.wb-carousel.carousel-s1 [role="tablist"] li:focus,
-.wb-carousel.carousel-s1 [role="tablist"] li:hover {
+.wb-tabs.carousel-s1 [role="tablist"] li.active,
+.wb-tabs.carousel-s1 [role="tablist"] li:focus,
+.wb-tabs.carousel-s1 [role="tablist"] li:hover {
   top: 1px;
 }
 
-.wb-carousel.carousel-s1 [role="tabpanel"] {
+.wb-tabs.carousel-s1 [role="tabpanel"] {
   z-index: 1;
 }
 
-.wb-carousel.carousel-s1 [role="tabpanel"] figure {
+.wb-tabs.carousel-s1 [role="tabpanel"] figure {
   position: relative;
 }
 
-.wb-carousel.carousel-s1 [role="tabpanel"] figure img {
+.wb-tabs.carousel-s1 [role="tabpanel"] figure img {
   width: 100%;
   height: auto;
 }
 
-.wb-carousel.carousel-s1 [role="tabpanel"] figure figcaption {
+.wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption {
   position: absolute;
   top: 3em;
   right: 1em;
@@ -10343,15 +10272,15 @@ tbody.cal-days a.cal-event {
   padding: 1em;
 }
 
-.wb-carousel.carousel-s1 [role="tabpanel"] figure figcaption a {
+.wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption a {
   color: white;
 }
 
-.wb-carousel.carousel-s2 {
+.wb-tabs.carousel-s2 {
   margin-bottom: 60px;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] {
+.wb-tabs.carousel-s2 [role="tablist"] {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -10359,33 +10288,33 @@ tbody.cal-days a.cal-event {
   visibility: hidden;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li {
+.wb-tabs.carousel-s2 [role="tablist"] li {
   border: none;
   visibility: visible;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"] {
+.wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] {
   padding: 4px;
   top: 100%;
   background: #eeeeee;
   background: rgba(238, 238, 238, 0.9);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"].active,
-.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"]:focus,
-.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"]:hover {
+.wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active,
+.wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"]:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"]:hover {
   -webkit-box-shadow: 0 0 4px #243850;
   box-shadow: 0 0 4px #243850;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"].active a img {
+.wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active a img {
   /* Firefox 10+, Firefox on Android */
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
   -webkit-filter: grayscale(0%);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"] a img {
+.wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] a img {
   -webkit-box-shadow: none;
   box-shadow: none;
   /* Firefox 10+, Firefox on Android */
@@ -10397,22 +10326,22 @@ tbody.cal-days a.cal-event {
   max-height: 50px;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control {
+.wb-tabs.carousel-s2 [role="tablist"] li.control {
   position: absolute;
   top: 0;
   bottom: 0;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv {
   left: 0;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt {
   right: 0;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt {
   height: 100%;
   width: 3em;
   background: none;
@@ -10420,8 +10349,8 @@ tbody.cal-days a.cal-event {
   padding: 0;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10431,67 +10360,67 @@ tbody.cal-days a.cal-event {
   border: none;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.prv,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.prv {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.prv {
   background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.prv .glyphicon,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.prv .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.prv .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.prv .glyphicon {
   left: 0.25em;
   padding-top: 1px;
   padding-right: 2px;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.nxt,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.nxt {
   background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a.nxt .glyphicon,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a.nxt .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.nxt .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.nxt .glyphicon {
   right: 0.25em;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover {
   background: transparent;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus.prv,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover.prv,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus.prv,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover.prv {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover.prv {
   background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus.nxt,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover.nxt,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus.nxt,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover.nxt {
   background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:focus .glyphicon,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a:hover .glyphicon,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:focus .glyphicon,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a:hover .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover .glyphicon {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a .glyphicon,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10507,15 +10436,15 @@ tbody.cal-days a.cal-event {
   box-shadow: 0 0 4px #243850;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:focus,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:hover,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:focus,
-.wb-carousel.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:hover {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:hover,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.plypause {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.plypause {
   background: none;
   border: none;
   display: inline-block !important;
@@ -10524,25 +10453,25 @@ tbody.cal-days a.cal-event {
   padding: 2px 10px;
 }
 
-.wb-carousel.carousel-s2 [role="tablist"] li.control.plypause i {
+.wb-tabs.carousel-s2 [role="tablist"] li.control.plypause i {
   color: black !important;
   font-style: normal;
 }
 
-.wb-carousel.carousel-s2 [role="tabpanel"] {
+.wb-tabs.carousel-s2 [role="tabpanel"] {
   z-index: 1;
 }
 
-.wb-carousel.carousel-s2 [role="tabpanel"] figure {
+.wb-tabs.carousel-s2 [role="tabpanel"] figure {
   position: relative;
 }
 
-.wb-carousel.carousel-s2 [role="tabpanel"] figure img {
+.wb-tabs.carousel-s2 [role="tabpanel"] figure img {
   width: 100%;
   height: auto;
 }
 
-.wb-carousel.carousel-s2 [role="tabpanel"] figure figcaption {
+.wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption {
   position: absolute;
   bottom: 1em;
   left: 3em;
@@ -10552,17 +10481,21 @@ tbody.cal-days a.cal-event {
   padding: 1em;
 }
 
-.wb-carousel.carousel-s2 [role="tabpanel"] figure figcaption a {
+.wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption a {
   color: white;
 }
 
-.no-js .wb-carousel [role="tablist"] {
-  display: none;
+.wb-tabs> details,
+.wb-tabs> details> summary {
+  padding: 6px 12px;
 }
 
-.no-js .wb-carousel [role="tabpanel"] {
-  display: block;
-  opacity: 1;
+.wb-tabs> details> summary {
+  margin: -6px -12px;
+}
+
+.wb-tabs> details[open]> summary {
+  margin-bottom: 0;
 }
 
 /*
@@ -10595,7 +10528,7 @@ datalist {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-details[aria-expanded="false"]> * {
+details:not([open])> * {
   display: none;
 }
 
@@ -10716,8 +10649,13 @@ details summary:hover {
  * Mobile-friendly styles
  */
 
-  .wb-carousel.carousel-s1 [role="tabpanel"] figure figcaption,
-  .wb-carousel.carousel-s2 [role="tabpanel"] figure figcaption {
+  .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"],
+  .wb-tabs.tabs-acc> ul {
+    display: none;
+  }
+
+  .wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption,
+  .wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption {
     position: relative;
     top: auto;
     right: 0;
@@ -10725,13 +10663,19 @@ details summary:hover {
     left: 0;
   }
 
-  .wb-carousel.carousel-s1 [role="tablist"] {
+  .wb-tabs.carousel-s1 [role="tablist"] {
     bottom: auto;
     top: 1em;
   }
 
-  .wb-carousel.carousel-s2 [role="tablist"] li[role="presentation"] {
-    display: none;
+  .wb-tabs> details {
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+  }
+
+  .wb-tabs> details[style] {
+    min-height: 0 !important;
   }
 }
 
@@ -10841,6 +10785,15 @@ details summary:hover {
   @title: Bootstrap overrides for WET-BOEW (small view and over)
  */
 
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /**
+ * Small view-friendly styles
+ */
+
   .colcount-sm-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -10859,6 +10812,19 @@ details summary:hover {
 
   .lead {
     font-size: 24px;
+  }
+
+  .wb-tabs> details {
+    border: 1px solid #adadad;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
+    margin-top: -1px;
+  }
+
+  .wb-tabs> details> summary {
+    display: none !important;
   }
 }
 
