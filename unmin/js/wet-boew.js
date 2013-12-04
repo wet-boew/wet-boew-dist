@@ -6596,7 +6596,7 @@ wb.add( selector );
 	},
 	
 	/*
-	 * @method onShift
+	 * @method onPick
 	 * @param {jQuery DOM element} $sldr The plugin element
 	 * @param {jQuery DOM element} $elm The selected link from the tablist
 	 */
@@ -6770,7 +6770,7 @@ wb.add( selector );
 		className = elm.className,
 		rotStopText = i18nText.rotStop,
 		playText = i18nText.play,
-		$elm, text, inv, $sldr;
+		$elm, text, inv, $sldr, $plypause;
 
 	// Ignore middle and right mouse buttons
 	if ( !which || which === 1 || which === 32 || ( which > 36 && which < 41 ) ) {
@@ -6781,14 +6781,15 @@ wb.add( selector );
 			.attr( "data-ctime", 0 );
 
 		// Stop the slider from playing unless it is already stopped and the play button is activated
-		if ( $sldr.hasClass( "playing" ) || ( which < 37 && className.indexOf( "plypause" ) !== -1 ) ) {
-			$elm.find( ".glyphicon" ).toggleClass( "glyphicon-play glyphicon-pause" );
+		if ( $sldr.hasClass( "playing" ) || which < 37 ) {
+			$plypause = $sldr.find( "a.plypause" );
+			$plypause.find( ".glyphicon" ).toggleClass( "glyphicon-play glyphicon-pause" );
 			$sldr.toggleClass( "playing" );
-
-			text = elm.getElementsByTagName( "i" )[ 0 ];
+			
+			text = $plypause[ 0 ].getElementsByTagName( "i" )[ 0 ];
 			text.innerHTML = text.innerHTML === playText ? i18nText.pause : playText;
 				
-			inv = $elm.find( ".wb-inv" )[ 0 ];
+			inv = $plypause.find( ".wb-inv" )[ 0 ];
 			inv.innerHTML = inv.innerHTML === rotStopText ? i18nText.rotStart : rotStopText;
 		}
 			

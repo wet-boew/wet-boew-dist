@@ -10699,44 +10699,6 @@ details summary:hover {
   WET-BOEW
   @title: Extra-small view and under (screen only)
  */
-
-  /*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-  /**
- * Mobile-friendly styles
- */
-
-  .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"],
-  .wb-tabs.tabs-acc> ul {
-    display: none;
-  }
-
-  .wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption,
-  .wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption {
-    position: relative;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  .wb-tabs.carousel-s1 [role="tablist"] {
-    bottom: auto;
-    top: 1em;
-  }
-
-  .wb-tabs> details {
-    border: 1px solid #adadad;
-    border-radius: 4px;
-    margin-bottom: 0.5em;
-  }
-
-  .wb-tabs> details[style] {
-    min-height: 0 !important;
-  }
 }
 
 /* Small view and under */
@@ -10755,6 +10717,15 @@ details summary:hover {
   /*
  Menu Sass (small view and under)
 */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /**
+ * Mobile-friendly styles
+ */
 
   .wb-menu {
     position: absolute;
@@ -10796,6 +10767,35 @@ details summary:hover {
     text-transform: none;
     top: auto;
     min-width: 0;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"],
+  .wb-tabs.tabs-acc> ul {
+    display: none;
+  }
+
+  .wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption,
+  .wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption {
+    position: relative;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  .wb-tabs.carousel-s1 [role="tablist"] {
+    bottom: auto;
+    top: 1em;
+  }
+
+  .wb-tabs> details {
+    border: 1px solid #adadad;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+  }
+
+  .wb-tabs> details[style] {
+    min-height: 0 !important;
   }
 }
 
