@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-03
+ * v4.0.0-a1-development - 2013-12-04
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -844,7 +844,7 @@ var selector = ".wb-cal-evt",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, function() {
+$document.on( "timerpoke.wb init.wb-cal-evt", selector, function() {
 	init( $( this ) );
 
 	/*
@@ -855,7 +855,7 @@ $document.on( "timerpoke.wb", selector, function() {
 });
 
 // Add the timer poke to initialize the plugin
-wb.add( ".wb-cal-evt" );
+wb.add( selector );
 
 })( jQuery, window, wb );
 
@@ -1553,7 +1553,7 @@ var $document = wb.doc,
 		return dfd.promise();
 	};
 
-$document.on( "timerpoke.wb", selector, function( event ) {
+$document.on( "timerpoke.wb init.wb-country-content", selector, function( event ) {
 	var eventTarget = event.target;
 
 	// Filter out any events triggered by descendants
@@ -1618,7 +1618,7 @@ var $document = wb.doc,
 		});
 	};
 
-$document.on( "timerpoke.wb ajax-fetched.wb", selector, function( event ) {
+$document.on( "timerpoke.wb init.wb-data-ajax ajax-fetched.wb", selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type,
 		ajaxTypes = [
@@ -1642,9 +1642,14 @@ $document.on( "timerpoke.wb ajax-fetched.wb", selector, function( event ) {
 			}
 		}
 
-		if ( eventType === "timerpoke" ) {
+		switch ( eventType ) {
+
+		case "timerpoke":
+		case "init":
 			init( $elm, ajaxType );
-		} else {
+			break;
+
+		default:
 
 			// ajax-fetched event
 			content = event.pointer.html();
@@ -1693,6 +1698,7 @@ var selector = ".wb-inview",
 	$elms = $( selector ),
 	$document = wb.doc,
 	$window = wb.win,
+	scrollEvent = "scroll.wb-inview",
 
 	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -1705,7 +1711,7 @@ var selector = ".wb-inview",
 		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
 		wb.remove( selector );
 
-		$elm.trigger( "scroll.wb-inview" );
+		$elm.trigger( scrollEvent );
 	},
 
 	/**
@@ -1762,7 +1768,7 @@ var selector = ".wb-inview",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb scroll.wb-inview", selector, function( event ) {
+$document.on( "timerpoke.wb init.wb-inview " + scrollEvent, selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type,
 		$elm;
@@ -1773,6 +1779,7 @@ $document.on( "timerpoke.wb scroll.wb-inview", selector, function( event ) {
 
 		switch ( eventType ) {
 		case "timerpoke":
+		case "init":
 			init( $elm );
 			break;
 		case "scroll":
@@ -1789,11 +1796,11 @@ $document.on( "timerpoke.wb scroll.wb-inview", selector, function( event ) {
 });
 
 $window.on( "scroll scrollstop", function() {
-	$elms.trigger( "scroll.wb-inview" );
+	$elms.trigger( scrollEvent );
 });
 
 $document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", function() {
-	$elms.trigger( "scroll.wb-inview" );
+	$elms.trigger( scrollEvent );
 });
 
 // Add the timer poke to initialize the plugin
@@ -1819,6 +1826,7 @@ wb.add( selector );
  */
 var selector = "[data-picture]",
 	$document = wb.doc,
+	picturefillEvent = "picturefill.wb-data-picture",
 
 	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -1831,7 +1839,7 @@ var selector = "[data-picture]",
 		// All plugins need to remove their reference from the timer in the init sequence unless they have a requirement to be poked every 0.5 seconds
 		wb.remove( selector );
 
-		$elm.trigger( "picturefill.wb-data-picture" );
+		$elm.trigger( picturefillEvent );
 	},
 
 	/**
@@ -1871,7 +1879,7 @@ var selector = "[data-picture]",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb picturefill.wb-data-picture", selector, function( event ) {
+$document.on( "timerpoke.wb init.wb-data-picture " + picturefillEvent, selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type;
 
@@ -1879,6 +1887,7 @@ $document.on( "timerpoke.wb picturefill.wb-data-picture", selector, function( ev
 	if ( event.currentTarget === eventTarget ) {
 		switch ( eventType ) {
 		case "timerpoke":
+		case "init":
 			init( $( eventTarget ) );
 			break;
 		case "picturefill":
@@ -1890,7 +1899,7 @@ $document.on( "timerpoke.wb picturefill.wb-data-picture", selector, function( ev
 
 // Handles window resize so images can be updated as new media queries match
 $document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", function() {
-	$( selector ).trigger( "picturefill.wb-data-picture" );
+	$( selector ).trigger( picturefillEvent );
 });
 
 // Add the timer poke to initialize the plugin
@@ -1994,7 +2003,7 @@ var selector = ".wb-equalheight",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-equalheight", selector, init );
 
 // Handle text and window resizing
 $document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb tables-draw.wb", onResize );
@@ -2115,13 +2124,14 @@ var selector = "link[rel='shortcut icon']",
 	};
 
 // Bind the plugin events
-$document.on( "timerpoke.wb mobile.wb-favicon icon.wb-favicon", selector, function( event, data ) {
+$document.on( "timerpoke.wb init.wb-favicon mobile.wb-favicon icon.wb-favicon", selector, function( event, data ) {
 	var eventTarget = event.target;
 
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === eventTarget ) {
 		switch ( event.type ) {
 		case "timerpoke":
+		case "init":
 			init( $( eventTarget ) );
 			break;
 		case "mobile":
@@ -2264,7 +2274,7 @@ var selector = ".wb-fdbck",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-fdbck", selector, init );
 
 // Show/hide form areas when certain form fields are changed
 $document.on( "keydown click change", "#fbrsn, #fbaxs, #fbcntc1, #fbcntc2", function( event ) {
@@ -2429,7 +2439,7 @@ var selector = ".wb-feeds",
 		return $elm.empty().append( result );
 	};
 
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-feeds", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -2448,11 +2458,12 @@ wb.add( selector );
 var $document = wb.doc,
 	hash = wb.pageUrlParts.hash,
 	clickEvents = "click.wb-focus vclick.wb-focus",
+	setFocusEvent = "setfocus.wb",
 	linkSelector = "a[href]",
 	$linkTarget;
 
 // Bind the setfocus event
-$document.on( "setfocus.wb", function( event ) {
+$document.on( setFocusEvent, function( event ) {
 	var $elm = $( event.target );
 
 	// Set the tabindex to -1 (as needed) to ensure the element is focusable
@@ -2469,7 +2480,7 @@ $document.on( "setfocus.wb", function( event ) {
 // Set focus to the target of a deep link from a different page
 // (helps browsers that can't set the focus on their own)
 if ( hash && ( $linkTarget = $( hash ) ).length !== 0 ) {
-	$linkTarget.trigger( "setfocus.wb" );
+	$linkTarget.trigger( setFocusEvent );
 }
 
 // Helper for browsers that can't change keyboard and/or event focus on a same page link click
@@ -2478,7 +2489,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 
 	// Same page links only
 	if ( testHref.charAt( 0 ) === "#" && ( $linkTarget = $( testHref ) ).length !== 0 ) {
-		$linkTarget.trigger( "setfocus.wb" );
+		$linkTarget.trigger( setFocusEvent );
 	}
 });
 
@@ -2538,7 +2549,7 @@ var selector = ".wb-fnote",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-fnote", selector, init );
 
 // Listen for footnote reference links that get clicked
 $document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
@@ -2840,7 +2851,7 @@ var selector = ".wb-formvalid",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-formvalid", selector, init );
 
 // Move the focus to the associated input when an error message link is clicked
 // and scroll to the top of the label or legend that contains the error
@@ -3049,7 +3060,7 @@ var selector = ".wb-lightbox",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-lightbox", selector, init );
 
 $document.on( "keydown", ".mfp-wrap", function( event ) {
 	var $elm, $focusable, index, length;
@@ -3415,7 +3426,7 @@ var selector = ".wb-menu",
 	};
 
 // Bind the events of the plugin
-$document.on( "timerpoke.wb select.wb-menu ajax-fetched.wb increment.wb-menu display.wb-menu", selector, function( event ) {
+$document.on( "timerpoke.wb init.wb-menu select.wb-menu ajax-fetched.wb increment.wb-menu display.wb-menu", selector, function( event ) {
 	var elm = event.target,
 		eventType = event.type,
 		$elm = $( elm );
@@ -3434,6 +3445,7 @@ $document.on( "timerpoke.wb select.wb-menu ajax-fetched.wb increment.wb-menu dis
 		break;
 
 	case "timerpoke":
+	case "init":
 
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
@@ -3749,7 +3761,7 @@ var selector = ".wb-modal",
 
 // Bind the plugin events
 $document
-	.on( "timerpoke.wb", selector, init )
+	.on( "timerpoke.wb init.wb-modal", selector, init )
 	.on( "build.wb-modal show.wb-modal hide.wb-modal", function( event, settings ) {
 		var eventType = event.type;
 
@@ -4174,7 +4186,7 @@ youTubeEvents = function( event ) {
 	}
 };
 
-$document.on( "timerpoke.wb", selector, function() {
+$document.on( "timerpoke.wb init.wb-mltmd", selector, function() {
 	wb.remove( selector );
 
 	// Only initialize the i18nText once
@@ -4852,7 +4864,7 @@ var selector = ".wb-overlay",
 		}
 	};
 
-$document.on( "timerpoke.wb keydown open.wb-overlay close.wb-overlay", selector, function( event ) {
+$document.on( "timerpoke.wb init.wb-overlay keydown open.wb-overlay close.wb-overlay", selector, function( event ) {
 	var eventType = event.type,
 		which = event.which,
 		overlayId = event.currentTarget.id,
@@ -4860,6 +4872,7 @@ $document.on( "timerpoke.wb keydown open.wb-overlay close.wb-overlay", selector,
 
 	switch ( eventType ) {
 	case "timerpoke":
+	case "init":
 		init( event );
 		break;
 
@@ -5087,7 +5100,7 @@ var selector = ".wb-prettify",
 
 // Bind the plugin events
 $document
-	.on( "timerpoke.wb", selector, init )
+	.on( "timerpoke.wb init.wb-prettify", selector, init )
 	.on( "prettyprint.wb-prettify", prettyprint );
 
 // Add the timer poke to initialize the plugin
@@ -5616,11 +5629,12 @@ var selector = ".wb-session-timeout",
 	};
 
 // Bind the plugin events
-$document.on( "timerpoke.wb keepalive.wb-session-timeout inactivity.wb-session-timeout reset.wb-session-timeout", selector, function( event, settings ) {
+$document.on( "timerpoke.wb init.wb-session-timeout keepalive.wb-session-timeout inactivity.wb-session-timeout reset.wb-session-timeout", selector, function( event, settings ) {
 	var eventType = event.type;
 
 	switch ( eventType ) {
 	case "timerpoke":
+	case "init":
 		init( event );
 		break;
 
@@ -5814,12 +5828,12 @@ var selector = ".wb-share",
 
 			$elm.append( $share );
 
-			$share.trigger( "timerpoke" );
+			$share.trigger( "init.wb-share" );
 		}
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-share", selector, init );
 
 $document.on( "click vclick", "." + shareLink, function( event) {
 	var which = event.which;
@@ -5923,7 +5937,7 @@ var selector = ".wb-tables",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-tables", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -6535,7 +6549,7 @@ var selector = ".wb-texthighlight",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-texthighlight", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -6911,7 +6925,7 @@ var selector = ".wb-twitter",
 		}
 	};
 
-$document.on( "timerpoke.wb", selector, init );
+$document.on( "timerpoke.wb init.wb-twitter", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
