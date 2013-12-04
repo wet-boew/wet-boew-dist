@@ -407,19 +407,19 @@ var selector = ".wb-cal-evt",
 		if ( !i18nText ) {
 			i18n = wb.i18n;
 			i18nText = {
-				monthNames: i18n( "calendar-monthNames" ),
-				calendar: i18n( "calendar" )
+				monthNames: i18n( "mnths" ),
+				calendar: i18n( "cal" )
 			};
 		}
 
 		// Load ajax content
-		$.when.apply($, $.map( $elm.find( "[data-cal-events]" ), getAjax))
+		$.when.apply($, $.map( $elm.find( "[data-calEvt]" ), getAjax))
 			.always( function() { processEvents( $elm ); } );
 	},
 
 	getAjax = function( ajaxContainer ) {
 		var $ajaxContainer = $( ajaxContainer ),
-			urls = $ajaxContainer.attr( "data-cal-events" ).split(/\s+/),
+			urls = $ajaxContainer.data( "calEvt" ).split(/\s+/),
 			dfd = $.Deferred(),
 			len = urls.length,
 			promises = [],
@@ -459,11 +459,6 @@ var selector = ".wb-cal-evt",
 		containerId = $elm.attr( "class" ).split( " " ).slice( -1 );
 		$containerId = $( "#" + containerId );
 
-		// jQuery returns 0px even if no units specified in CSS "padding-left: 0;"
-		if ( $( "#wb-main-in" ).css( "padding-left" ) === "0px" ) {
-			$containerId.css( "margin-left", "10px" );
-		}
-
 		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days ) {
 			addEvents(year, month, days, containerId, events.list);
 			showOnlyEventsFor(year, month, containerId);
@@ -484,6 +479,7 @@ var selector = ".wb-cal-evt",
 	},
 
 	daysBetween = function( dateLow, dateHigh ) {
+
 		// Simplified conversion to date object
 		var date1 = wb.date.convert( dateLow ),
 			date2 = wb.date.convert( dateHigh ),
@@ -511,7 +507,7 @@ var selector = ".wb-cal-evt",
 	},
 
 	getEvents = function( obj ) {
-		var directLinking = !( $( obj ).hasClass( "event-anchoring" ) ),
+		var directLinking = !( $( obj ).hasClass( "evt-anchor" ) ),
 			events = {
 				minDate: null,
 				maxDate: null,
@@ -537,14 +533,14 @@ var selector = ".wb-cal-evt",
 					title = objTitle.text(),
 					origLink = event.find( "a" ).first(),
 					link = origLink.attr( "href" ),
-					linkId, date, tCollection, $tCollection, strDate1,
-					strDate2, strDate, z, zLen, className;
+					linkId, date, tCollection, $tCollection, tCollectionTemp,
+					strDate1, strDate2, strDate, z, zLen, className;
 
 				/*
 				 * Modification direct-linking or page-linking
 				 *	- added the ability  to have class set the behaviour of the links
 				 *	- default is to use the link of the item as the event link in the calendar
-				 *	- 'event-anchoring' class dynamically generates page anchors on the links it maps to the event
+				 *	- 'evt-anchor' class dynamically generates page anchors on the links it maps to the event
 				 */
 				if ( !directLinking ) {
 					linkId = event.attr( "id" ) || randomId( 6 );
@@ -573,14 +569,17 @@ var selector = ".wb-cal-evt",
 				 *     the process is see how many time nodes are in the event. 2 nodes will trigger a span
 				 */
 				if ( tCollection.length > 1 ) {
-					// This is a spanning event
-					strDate1 = ( $( tCollection[ 0 ] ).get( 0 ).nodeName.toLowerCase() === "time" ) ?
-						$( tCollection[ 0 ] ).attr( "datetime" ).substr( 0, 10 ).split( "-" ) :
-						$( tCollection[ 0 ] ).attr( "class" ).match(/datetime\s+\{date\:\s*(\d+-\d+-\d+)\}/)[ 1 ].substr( 0, 10 ).split( "-" );
 
-					strDate2 = ( $( tCollection[ 1 ] ).get( 0 ).nodeName.toLowerCase() === "time" ) ?
-						$( tCollection[ 1 ] ).attr( "datetime" ).substr( 0, 10 ).split( "-" ) :
-						$( tCollection[ 1 ] ).attr( "class" ).match(/datetime\s+\{date\:\s*(\d+-\d+-\d+)\}/)[ 1 ].substr( 0, 10 ).split( "-" );
+					// This is a spanning event
+					tCollectionTemp = tCollection[ 0 ];
+					strDate1 = tCollectionTemp.nodeName.toLowerCase() === "time" ?
+						$( tCollectionTemp ).attr( "datetime" ).substr( 0, 10 ).split( "-" ) :
+						$( tCollectionTemp ).attr( "class" ).match( /datetime\s+\{date\:\s*(\d+-\d+-\d+)\}/ )[ 1 ].substr( 0, 10 ).split( "-" );
+
+					tCollectionTemp = tCollection[ 1 ];
+					strDate2 = tCollectionTemp.nodeName.toLowerCase() === "time" ?
+						$( tCollectionTemp ).attr( "datetime" ).substr( 0, 10 ).split( "-" ) :
+						$( tCollectionTemp ).attr( "class" ).match( /datetime\s+\{date\:\s*(\d+-\d+-\d+)\}/ )[ 1 ].substr( 0, 10 ).split( "-" );
 
 					// Convert to zero-base month
 					strDate1[ 1 ] = strDate1[ 1 ] - 1;
@@ -606,7 +605,8 @@ var selector = ".wb-cal-evt",
 						date = new Date( date.setDate( date.getDate() + 1 ) );
 
 						// Add a viewfilter
-						className = "filter-" + ( date.getFullYear() ) + "-" + wb.string.pad( date.getMonth() + 1, 2 );
+						className = "filter-" + ( date.getFullYear() ) + "-" +
+							wb.string.pad( date.getMonth() + 1, 2 );
 						if ( !objTitle.hasClass( className ) ) {
 							objTitle.addClass( className );
 						}
@@ -614,7 +614,9 @@ var selector = ".wb-cal-evt",
 					}
 				} else if ( tCollection.length === 1 ) {
 					$tCollection = $( tCollection[ 0 ] );
-					strDate = ( $tCollection.get( 0 ).nodeName.toLowerCase() === "time" ) ? $tCollection.attr( "datetime" ).substr( 0, 10 ).split( "-" ) : $tCollection.attr( "class" ).match(/datetime\s+\{date\:\s*(\d+-\d+-\d+)\}/)[ 1 ].substr( 0, 10 ).split( "-" );
+					strDate = ( $tCollection.get( 0 ).nodeName.toLowerCase() === "time" ) ?
+						$tCollection.attr( "datetime" ).substr( 0, 10 ).split( "-" ) :
+						$tCollection.attr( "class" ).match(/datetime\s+\{date\:\s*(\d+-\d+-\d+)\}/)[ 1 ].substr( 0, 10 ).split( "-" );
 
 					date.setFullYear( strDate[ 0 ], strDate[ 1 ] - 1, strDate[ 2 ] );
 
@@ -710,7 +712,7 @@ var selector = ".wb-cal-evt",
 
 		// Escape
 		case 27:
-			$this.closest( "li[id^=cal-]" ).children( ".cal-event" ).trigger( "setfocus.wb" );
+			$this.closest( "li[id^=cal-]" ).children( ".cal-evt" ).trigger( "setfocus.wb" );
 			return false;
 		}
 	},
@@ -806,7 +808,7 @@ var selector = ".wb-cal-evt",
 				// Lets see if the cell is empty is so lets create the cell
 				if ( day.children( "a" ).length < 1 ) {
 					day.empty();
-					link = $( "<a href='#ev-" + day.attr( "id" ) + "' class='cal-event'>" + content + "</a>" );
+					link = $( "<a href='#ev-" + day.attr( "id" ) + "' class='cal-evt'>" + content + "</a>" );
 					day.append( link );
 					dayEvents = $( "<ul class='wb-inv'></ul>" );
 
@@ -844,7 +846,7 @@ var selector = ".wb-cal-evt",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-cal-evt", selector, function() {
+$document.on( "timerpoke.wb wb-init.wb-cal-evt", selector, function() {
 	init( $( this ) );
 
 	/*
@@ -1553,7 +1555,7 @@ var $document = wb.doc,
 		return dfd.promise();
 	};
 
-$document.on( "timerpoke.wb init.wb-country-content", selector, function( event ) {
+$document.on( "timerpoke.wb wb-init.wb-country-content", selector, function( event ) {
 	var eventTarget = event.target;
 
 	// Filter out any events triggered by descendants
@@ -1618,7 +1620,7 @@ var $document = wb.doc,
 		});
 	};
 
-$document.on( "timerpoke.wb init.wb-data-ajax ajax-fetched.wb", selector, function( event ) {
+$document.on( "timerpoke.wb wb-init.wb-data-ajax ajax-fetched.wb", selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type,
 		ajaxTypes = [
@@ -1645,7 +1647,7 @@ $document.on( "timerpoke.wb init.wb-data-ajax ajax-fetched.wb", selector, functi
 		switch ( eventType ) {
 
 		case "timerpoke":
-		case "init":
+		case "wb-init":
 			init( $elm, ajaxType );
 			break;
 
@@ -1768,7 +1770,7 @@ var selector = ".wb-inview",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-inview " + scrollEvent, selector, function( event ) {
+$document.on( "timerpoke.wb wb-init.wb-inview " + scrollEvent, selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type,
 		$elm;
@@ -1779,7 +1781,7 @@ $document.on( "timerpoke.wb init.wb-inview " + scrollEvent, selector, function( 
 
 		switch ( eventType ) {
 		case "timerpoke":
-		case "init":
+		case "wb-init":
 			init( $elm );
 			break;
 		case "scroll":
@@ -1799,12 +1801,11 @@ $window.on( "scroll scrollstop", function() {
 	$elms.trigger( scrollEvent );
 });
 
-$document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", function() {
+$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb", function() {
 	$elms.trigger( scrollEvent );
 });
 
 // Add the timer poke to initialize the plugin
-
 wb.add( selector );
 
 })( jQuery, window, wb );
@@ -1826,7 +1827,7 @@ wb.add( selector );
  */
 var selector = "[data-picture]",
 	$document = wb.doc,
-	picturefillEvent = "picturefill.wb-data-picture",
+	picturefillEvent = "picfill.wb-data-pic",
 
 	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
@@ -1879,7 +1880,7 @@ var selector = "[data-picture]",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-data-picture " + picturefillEvent, selector, function( event ) {
+$document.on( "timerpoke.wb wb-init.wb-data-pic " + picturefillEvent, selector, function( event ) {
 	var eventTarget = event.target,
 		eventType = event.type;
 
@@ -1887,10 +1888,10 @@ $document.on( "timerpoke.wb init.wb-data-picture " + picturefillEvent, selector,
 	if ( event.currentTarget === eventTarget ) {
 		switch ( eventType ) {
 		case "timerpoke":
-		case "init":
+		case "wb-init":
 			init( $( eventTarget ) );
 			break;
-		case "picturefill":
+		case "picfill":
 			picturefill( eventTarget );
 			break;
 		}
@@ -1898,7 +1899,7 @@ $document.on( "timerpoke.wb init.wb-data-picture " + picturefillEvent, selector,
 });
 
 // Handles window resize so images can be updated as new media queries match
-$document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb", function() {
+$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb", function() {
 	$( selector ).trigger( picturefillEvent );
 });
 
@@ -2003,10 +2004,10 @@ var selector = ".wb-equalheight",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-equalheight", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-equalheight", selector, init );
 
 // Handle text and window resizing
-$document.on( "text-resize.wb window-resize-width.wb window-resize-height.wb tables-draw.wb", onResize );
+$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb tables-draw.wb", onResize );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -2124,14 +2125,14 @@ var selector = "link[rel='shortcut icon']",
 	};
 
 // Bind the plugin events
-$document.on( "timerpoke.wb init.wb-favicon mobile.wb-favicon icon.wb-favicon", selector, function( event, data ) {
+$document.on( "timerpoke.wb wb-init.wb-favicon mobile.wb-favicon icon.wb-favicon", selector, function( event, data ) {
 	var eventTarget = event.target;
 
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === eventTarget ) {
 		switch ( event.type ) {
 		case "timerpoke":
-		case "init":
+		case "wb-init":
 			init( $( eventTarget ) );
 			break;
 		case "mobile":
@@ -2274,7 +2275,7 @@ var selector = ".wb-fdbck",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-fdbck", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-fdbck", selector, init );
 
 // Show/hide form areas when certain form fields are changed
 $document.on( "keydown click change", "#fbrsn, #fbaxs, #fbcntc1, #fbcntc2", function( event ) {
@@ -2439,7 +2440,7 @@ var selector = ".wb-feeds",
 		return $elm.empty().append( result );
 	};
 
-$document.on( "timerpoke.wb init.wb-feeds", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-feeds", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -2457,7 +2458,7 @@ wb.add( selector );
 
 var $document = wb.doc,
 	hash = wb.pageUrlParts.hash,
-	clickEvents = "click.wb-focus vclick.wb-focus",
+	clickEvents = "click vclick",
 	setFocusEvent = "setfocus.wb",
 	linkSelector = "a[href]",
 	$linkTarget;
@@ -2549,7 +2550,7 @@ var selector = ".wb-fnote",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-fnote", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-fnote", selector, init );
 
 // Listen for footnote reference links that get clicked
 $document.on( "click vclick", "main :not(" + selector + ") sup a.fn-lnk", function( event ) {
@@ -2851,7 +2852,7 @@ var selector = ".wb-formvalid",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-formvalid", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-formvalid", selector, init );
 
 // Move the focus to the associated input when an error message link is clicked
 // and scroll to the top of the label or legend that contains the error
@@ -3060,7 +3061,7 @@ var selector = ".wb-lightbox",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-lightbox", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-lightbox", selector, init );
 
 $document.on( "keydown", ".mfp-wrap", function( event ) {
 	var $elm, $focusable, index, length;
@@ -3117,6 +3118,10 @@ wb.add( selector );
 var selector = ".wb-menu",
 	$document = wb.doc,
 	breadcrumb = document.getElementById( "wb-bc" ),
+	selectEvent = "sel.wb-menu",
+	incrementEvent = "inc.wb-menu",
+	displayEvent = "disp.wb-menu",
+	navCurrentEvent = "navcurr.wb",
 
 	// Used for half second delay on showing/hiding menus because of mouse hover
 	hoverDelay = 500,
@@ -3165,8 +3170,8 @@ var selector = ".wb-menu",
 		} else {
 
 			// Trigger the navcurrent plugin
-			$elm.trigger( "navcurrent.wb", breadcrumb );
-			$( "#wb-sec" ).trigger( "navcurrent.wb", breadcrumb );
+			$elm.trigger( navCurrentEvent, breadcrumb );
+			$( "#wb-sec" ).trigger( navCurrentEvent, breadcrumb );
 		}
 	},
 
@@ -3269,7 +3274,7 @@ var selector = ".wb-menu",
 		});
 
 		// Trigger the navcurrent plugin
-		$elm.trigger( "navcurrent.wb", breadcrumb );
+		$elm.trigger( navCurrentEvent, breadcrumb );
 	},
 
 	/**
@@ -3298,7 +3303,7 @@ var selector = ".wb-menu",
 			index = next >= $links.length ? 0 : next < 0 ? $links.length - 1 : next;
 
 		$elm.trigger({
-			type: "select.wb-menu",
+			type: selectEvent,
 			goTo: $links.eq( index )
 		});
 	},
@@ -3369,7 +3374,7 @@ var selector = ".wb-menu",
 			clearTimeout( globalTimeout[ $container.attr( "id" ) ] );
 
 			$container.trigger({
-				type: "display.wb-menu",
+				type: displayEvent,
 				ident: $elm.parent(),
 				cancelDelay: event.type === "focusin"
 			});
@@ -3415,7 +3420,7 @@ var selector = ".wb-menu",
 			link = links[ i ];
 			if ( link.innerHTML.charAt( 0 ) === keyChar ) {
 				$container.trigger({
-					type: "select.wb-menu",
+					type: selectEvent,
 					goTo: $( link )
 				});
 				return true;
@@ -3426,7 +3431,7 @@ var selector = ".wb-menu",
 	};
 
 // Bind the events of the plugin
-$document.on( "timerpoke.wb init.wb-menu select.wb-menu ajax-fetched.wb increment.wb-menu display.wb-menu", selector, function( event ) {
+$document.on( "timerpoke.wb wb-init.wb-menu " + selectEvent + " ajax-fetched.wb " + incrementEvent + " " + displayEvent, selector, function( event ) {
 	var elm = event.target,
 		eventType = event.type,
 		$elm = $( elm );
@@ -3440,7 +3445,7 @@ $document.on( "timerpoke.wb init.wb-menu select.wb-menu ajax-fetched.wb incremen
 		}
 		return false;
 
-	case "select":
+	case "sel":
 		onSelect( event );
 		break;
 
@@ -3453,11 +3458,11 @@ $document.on( "timerpoke.wb init.wb-menu select.wb-menu ajax-fetched.wb incremen
 		}
 		break;
 
-	case "increment":
+	case "inc":
 		onIncrement( $elm, event );
 		break;
 
-	case "display":
+	case "disp":
 		if ( event.cancelDelay ) {
 			onDisplay( $elm, event );
 		} else {
@@ -3510,14 +3515,14 @@ $document.on( "keydown", selector + " .item", function( event ) {
 			// Open the submenu if it is not already open
 			if ( !$subMenu.hasClass( "open" ) ) {
 				$container.trigger({
-					type: "display.wb-menu",
+					type: displayEvent,
 					ident: $parent,
 					cancelDelay: true
 				});
 			}
 
 			$container.trigger({
-				type: "select.wb-menu",
+				type: selectEvent,
 				goTo: $subMenu.find( "a" ).first()
 			});
 		}
@@ -3534,7 +3539,7 @@ $document.on( "keydown", selector + " .item", function( event ) {
 	case 39:
 		event.preventDefault();
 		$container.trigger({
-			type: "increment.wb-menu",
+			type: incrementEvent,
 			cnode: $menu,
 			increment: ( which === 37 ? -1 : 1 ),
 			current: $menu.index( $elm )
@@ -3576,7 +3581,7 @@ $document.on( "keydown", selector + " [role=menu]", function( event ) {
 	case 27:
 		event.preventDefault();
 		$container.trigger({
-			type: "select.wb-menu",
+			type: selectEvent,
 			goTo: $menu.filter( selector ),
 			special: "reset"
 		});
@@ -3587,7 +3592,7 @@ $document.on( "keydown", selector + " [role=menu]", function( event ) {
 	case 39:
 		event.preventDefault();
 		$container.trigger({
-			type: "increment.wb-menu",
+			type: incrementEvent,
 			cnode: $menu,
 			increment: ( which === 37 ? -1 : 1 ),
 			current: $menu.index( $menu.filter( selector ) )
@@ -3599,7 +3604,7 @@ $document.on( "keydown", selector + " [role=menu]", function( event ) {
 	case 40:
 		event.preventDefault();
 		$container.trigger({
-			type: "increment.wb-menu",
+			type: incrementEvent,
 			cnode: $links,
 			increment: ( which === 38 ? -1 : 1 ),
 			current: $links.index( $elm )
@@ -3761,7 +3766,7 @@ var selector = ".wb-modal",
 
 // Bind the plugin events
 $document
-	.on( "timerpoke.wb init.wb-modal", selector, init )
+	.on( "timerpoke.wb wb-init.wb-modal", selector, init )
 	.on( "build.wb-modal show.wb-modal hide.wb-modal", function( event, settings ) {
 		var eventType = event.type;
 
@@ -3802,6 +3807,13 @@ var $document = wb.doc,
 	seed = 0,
 	templatetriggered = false,
 	i18n, i18nText,
+	captionsLoadedEvent = "ccloaded" + selector,
+	captionsLoadFailedEvent = "ccloadfail" + selector,
+	captionsVisibleChangeEvent = "ccvischange" + selector,
+	renderUIEvent = "renderui" + selector,
+	initializedEvent = "inited" + selector,
+	fallbackEvent = "fallback" + selector,
+	youtubeEvent = "youtube" + selector,
 
 /* helper functions*/
 
@@ -3963,8 +3975,8 @@ parseXml = function( content ) {
  * @description Loads captions from an external source (HTML embed or TTML)
  * @param {Object} elm The jQuery object for the multimedia player loading the captions
  * @param {String} url The url for the captions resource to load
- * @fires captionsloaded.multimedia.wb
- * @fires captionsloadfailed.multimedia.wb
+ * @fires ccloaded.wb-mltmd
+ * @fires ccloadfail.wb-mltmd
  */
 loadCaptionsExternal = function( elm, url ) {
 	$.ajax({
@@ -3976,7 +3988,7 @@ loadCaptionsExternal = function( elm, url ) {
 		},
 		success: function( data ) {
 			elm.trigger({
-				type: "captionsloaded.multimedia.wb",
+				type: captionsLoadedEvent,
 				captions: data.indexOf( "<html" ) !== -1 ?
 					parseHtml( $( data ) ) :
 					parseXml( $( data ) )
@@ -3984,7 +3996,7 @@ loadCaptionsExternal = function( elm, url ) {
 		},
 		error: function( response, textStatus, errorThrown ) {
 			elm.trigger({
-				type: "captionsloadfailed.multimedia.wb",
+				type: captionsLoadFailedEvent,
 				error: errorThrown
 			});
 		}
@@ -3996,11 +4008,11 @@ loadCaptionsExternal = function( elm, url ) {
  * @description Loads same page captions emebed in HTML
  * @param {Object} elm The jQuery object for the multimedia player loading the captions
  * @param {Object} obj The jQUery object containing the captions
- * @fires captionsloaded.multimedia.wb
+ * @fires ccloaded.wb-mltmd
  */
 loadCaptionsInternal = function( elm, obj ) {
 	elm.trigger({
-		type: "captionsloaded.multimedia.wb",
+		type: captionsLoadedEvent,
 		captions: parseHtml( obj )
 	});
 },
@@ -4069,7 +4081,7 @@ playerApi = function( fn, args ) {
 		} else {
 			captionsArea.removeClass( "on" );
 		}
-		$this.trigger( "captionsvisiblechange.multimedia.wb" );
+		$this.trigger( captionsVisibleChangeEvent );
 		break;
 	case "setPreviousTime":
 		this.object.previousTime = args;
@@ -4186,7 +4198,7 @@ youTubeEvents = function( event ) {
 	}
 };
 
-$document.on( "timerpoke.wb init.wb-mltmd", selector, function() {
+$document.on( "timerpoke.wb wb-init" + selector, selector, function() {
 	wb.remove( selector );
 
 	// Only initialize the i18nText once
@@ -4223,11 +4235,11 @@ $document.on( "ajax-fetched.wb", selector, function( event ) {
 
 	$this.data( "template", $template );
 	$this.trigger({
-		type: "init.multimedia.wb"
+		type: initializedEvent
 	});
 });
 
-$document.on( "init.multimedia.wb", selector, function() {
+$document.on( initializedEvent, selector, function() {
 	var $this = $( this ),
 		$media = $this.children( "audio, video" ).eq( 0 ),
 		$captions = $media.children( "track[kind='captions']" ) ? $media.children( "track[kind='captions']" ).attr( "src" ) : undef,
@@ -4271,7 +4283,7 @@ $document.on( "init.multimedia.wb", selector, function() {
 
 			// lets bind youtubes global function
 			window.onYouTubeIframeAPIReady = function() {
-				  $this.trigger( "youtube.multimedia.wb" );
+				  $this.trigger( youtubeEvent );
 			};
 		}
 
@@ -4281,13 +4293,13 @@ $document.on( "init.multimedia.wb", selector, function() {
 		} );
 
 	} else if ( media.error === null && media.currentSrc !== "" && media.currentSrc !== undef ) {
-		$this.trigger( type + ".multimedia.wb" );
+		$this.trigger( type + selector );
 	} else {
-		$this.trigger( "fallback.multimedia.wb" );
+		$this.trigger( fallbackEvent );
 	}
 });
 
-$document.on( "fallback.multimedia.wb", selector, function() {
+$document.on( fallbackEvent, selector, function() {
 	var ref = expand( this ),
 		$this = ref[ 0 ],
 		$data = ref[ 1 ],
@@ -4321,13 +4333,13 @@ $document.on( "fallback.multimedia.wb", selector, function() {
 		$data.poster + "</object>" );
 	$this.data( "properties", $data );
 
-	$this.trigger( "renderui.multimedia.wb" );
+	$this.trigger( renderUIEvent );
 });
 
 /*
  *  Youtube Video mode Event
  */
-$document.on( "youtube.multimedia.wb", selector, function() {
+$document.on( youtubeEvent, selector, function() {
 	var ref = expand( this ),
 		ytPlayer,
 		$this = ref[ 0 ],
@@ -4360,13 +4372,13 @@ $document.on( "youtube.multimedia.wb", selector, function() {
 	$data.ytPlayer = ytPlayer;
 
 	$this.data( "properties", $data );
-	$this.trigger( "renderui.multimedia.wb", "video" );
+	$this.trigger( renderUIEvent, "video" );
 });
 
 /*
  *  Native Video mode Event
  */
-$document.on( "video.multimedia.wb", selector, function() {
+$document.on( "video.wb-mltmd", selector, function() {
 	var ref = expand( this ),
 		$this = ref[ 0 ],
 		$data = ref[ 1 ];
@@ -4377,13 +4389,13 @@ $document.on( "video.multimedia.wb", selector, function() {
 
 	$this.data( "properties", $data );
 
-	$this.trigger( "renderui.multimedia.wb", "video" );
+	$this.trigger( renderUIEvent, "video" );
 });
 
 /*
  *  Native Audio mode Event
  */
-$document.on( "audio.multimedia.wb", selector, function() {
+$document.on( "audio.wb-mltmd", selector, function() {
 	var ref = expand (this ),
 		$this = ref[ 0 ],
 		$data = ref[ 1 ];
@@ -4392,10 +4404,10 @@ $document.on( "audio.multimedia.wb", selector, function() {
 
 	$this.data( "properties", $data );
 
-	$this.trigger( "renderui.multimedia.wb", "audio" );
+	$this.trigger( renderUIEvent, "audio" );
 });
 
-$document.on( "renderui.multimedia.wb", selector, function( event, type ) {
+$document.on( renderUIEvent, selector, function( event, type ) {
 	var ref = expand( this ),
 		$this = ref[ 0 ],
 		$data = ref[ 1 ],
@@ -4415,7 +4427,10 @@ $document.on( "renderui.multimedia.wb", selector, function( event, type ) {
 	$data.player = $player.is( "object" ) ? $player.children( ":first-child" ) : $player.load();
 
 	// Create an adapter for the event management
-	$data.player.on( "durationchange play pause ended volumechange timeupdate captionsloaded captionsloadfailed captionsvisiblechange waiting canplay progress", function( event ) {
+	$data.player.on( "durationchange play pause ended volumechange timeupdate " +
+		captionsLoadedEvent + " " + captionsLoadFailedEvent + " " +
+		captionsVisibleChangeEvent + " waiting canplay progress", function( event ) {
+
 		$this.trigger( event );
 	});
 
@@ -4451,12 +4466,12 @@ $document.on( "click", selector, function( event ) {
 	// from the child span not the parent button, forcing us to have to check for both elements
 	// JSPerf for multiple class matching http://jsperf.com/hasclass-vs-is-stackoverflow/7
 	if ( className.match( /playpause|-play|-pause|wb-mm-overlay/ ) || $target.is( "object" ) ) {
-		this.player( "getPaused" ) ? this.player( "play") : this.player( "pause");
+		this.player( "getPaused" ) ? this.player( "play" ) : this.player( "pause" );
 	} else if ( className.match( /\bcc\b|-subtitles/ )  ) {
-		this.player( "setCaptionsVisible", !this.player( "getCaptionsVisible") );
+		this.player( "setCaptionsVisible", !this.player( "getCaptionsVisible" ) );
 	} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
 		this.player( "setMuted", !this.player( "getMuted" ) );
-	} else if ( $target.is( "progress" ) || $target.hasClass( "wb-progress-inner") || $target.hasClass( "wb-progress-outer" ) ) {
+	} else if ( $target.is( "progress" ) || $target.hasClass( "wb-progress-inner" ) || $target.hasClass( "wb-progress-outer" ) ) {
 		this.player( "setCurrentTime", this.player( "getDuration" ) * ( ( event.pageX - $target.offset().left ) / $target.width() ) );
 	} else if ( className.match( /\brewind\b|-backwards/ ) ) {
 		this.player( "setCurrentTime", this.player( "getCurrentTime" ) - this.player( "getDuration" ) * 0.05);
@@ -4504,12 +4519,16 @@ $document.on( "keydown", selector, function( event ) {
 
 $document.on( "keyup", selector, function( event ) {
 	if ( event.which === 32 ) {
-		//Allows the spacebar to be used for play/pause without double triggering
+		// Allows the spacebar to be used for play/pause without double triggering
 		return false;
 	}
 });
 
-$document.on( "durationchange play pause ended volumechange timeupdate captionsloaded.multimedia.wb captionsloadfailed.multimedia.wb captionsvisiblechange waiting canplay progress", selector, function( event ) {
+$document.on( "durationchange play pause ended volumechange timeupdate " +
+	captionsLoadedEvent + " " + captionsLoadFailedEvent + " " +
+	captionsVisibleChangeEvent +
+	" waiting canplay progress", selector, function( event ) {
+
 	var eventTarget = event.currentTarget,
 		eventType = event.type,
 		$this = $( eventTarget ),
@@ -4594,11 +4613,11 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 			.text( formatTime( eventTarget.player( "getDuration" ) ) );
 		break;
 
-	case "captionsloaded":
+	case "ccloaded":
 		$.data( eventTarget, "captions", event.captions );
 		break;
 
-	case "captionsloadfailed":
+	case "ccloadfail":
 		$this.find( ".wb-mm-cc" )
 			.append( "<p class='errmsg'><span>" + i18nText.cc_error + "</span></p>" )
 			.end()
@@ -4606,7 +4625,7 @@ $document.on( "durationchange play pause ended volumechange timeupdate captionsl
 			.attr( "disabled", "" );
 		break;
 
-	case "captionsvisiblechange":
+	case "ccvischange":
 		// TODO: Think can be optimized for the minifier with some ternarie
 		button = $this.find( ".cc" );
 		if ( eventTarget.player( "getCaptionsVisible" ) ) {
@@ -4651,7 +4670,7 @@ wb.add( selector );
 
 /**
  * @title WET-BOEW NavCurrent
- * @overview Identify URL in a navigation system that matches current page URL or a URL in the breadcrumb trail. Call by applying .trigger( "navcurrent.wb", breadcrumb ) where the breadcrumb parameter is an optional object (DOM or jQuery)
+ * @overview Identify URL in a navigation system that matches current page URL or a URL in the breadcrumb trail. Call by applying .trigger( "navcurr.wb", breadcrumb ) where the breadcrumb parameter is an optional object (DOM or jQuery)
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
@@ -4770,7 +4789,7 @@ var $document = wb.doc,
 	};
 
 // Bind the navcurrent event of the plugin
-$document.on( "navcurrent.wb", navCurrent );
+$document.on( "navcurr.wb", navCurrent );
 
 })( jQuery, window, wb );
 
@@ -4864,7 +4883,7 @@ var selector = ".wb-overlay",
 		}
 	};
 
-$document.on( "timerpoke.wb init.wb-overlay keydown open.wb-overlay close.wb-overlay", selector, function( event ) {
+$document.on( "timerpoke.wb wb-init.wb-overlay keydown open.wb-overlay close.wb-overlay", selector, function( event ) {
 	var eventType = event.type,
 		which = event.which,
 		overlayId = event.currentTarget.id,
@@ -4872,7 +4891,7 @@ $document.on( "timerpoke.wb init.wb-overlay keydown open.wb-overlay close.wb-ove
 
 	switch ( eventType ) {
 	case "timerpoke":
-	case "init":
+	case "wb-init":
 		init( event );
 		break;
 
@@ -5023,6 +5042,7 @@ wb.add( selector );
  */
 var selector = ".wb-prettify",
 	$document = wb.doc,
+	prettyPrintEvent = "prettyprint" + selector,
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -5082,7 +5102,7 @@ var selector = ".wb-prettify",
 			Modernizr.load({
 				load: deps,
 				complete: function() {
-					$document.trigger( "prettyprint.wb-prettify" );
+					$document.trigger( prettyPrintEvent );
 				}
 			});
 		}
@@ -5100,8 +5120,8 @@ var selector = ".wb-prettify",
 
 // Bind the plugin events
 $document
-	.on( "timerpoke.wb init.wb-prettify", selector, init )
-	.on( "prettyprint.wb-prettify", prettyprint );
+	.on( "timerpoke.wb wb-init" + selector, selector, init )
+	.on( prettyPrintEvent, prettyprint );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -5123,15 +5143,15 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var id = "wb-resize",
+var id = "wb-rsz",
 	selector = "#" + id,
 	$window = wb.win,
 	$document = wb.doc,
 	sizes = [],
 	events = [
-		"text-resize.wb",
-		"window-resize-width.wb",
-		"window-resize-height.wb"
+		"txt-rsz.wb",
+		"win-rsz-width.wb",
+		"win-rsz-height.wb"
 	],
 
 	// Breakpoint names and lower pixel limits
@@ -5261,9 +5281,14 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var selector = ".wb-session-timeout",
+var pluginName = "wb-session-timeout",
+	selector = "." + pluginName,
 	$document = wb.doc,
 	i18n, i18nText,
+	resetEvent = "reset" + selector,
+	keepaliveEvent = "keepalive" + selector,
+	inactivityEvent = "inactivity" + selector,
+	confirmSelector = pluginName + "-confirm",
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -5317,10 +5342,10 @@ var selector = ".wb-session-timeout",
 			// Setup the modal dialog behaviour
 			$elm
 				.addClass( "wb-modal" )
-				.trigger( "init.wb-modal" );
+				.trigger( "wb-init.wb-modal" );
 			$document.one( "ready.wb-modal", function() {
 				// Initialize the keepalive and inactive timeouts of the plugin
-				$elm.trigger( "reset.wb-session-timeout", settings );
+				$elm.trigger( resetEvent, settings );
 
 				// Setup the refresh on click behaviour
 				initRefreshOnClick( $elm, settings );
@@ -5342,8 +5367,8 @@ var selector = ".wb-session-timeout",
 					currentTime = getCurrentTime();
 				if ( !lastActivity || ( currentTime - lastActivity ) > settings.refreshLimit ) {
 					$elm
-						.trigger( "reset.wb-session-timeout", settings )
-						.trigger( "keepalive.wb-session-timeout", settings );
+						.trigger( resetEvent, settings )
+						.trigger( keepaliveEvent, settings );
 				}
 				$elm.data( "lastActivity", currentTime );
 			});
@@ -5363,12 +5388,14 @@ var selector = ".wb-session-timeout",
 			$.post( settings.refreshCallbackUrl, function( response ) {
 				// Session is valid
 				if ( response && response.replace( /\s/g, "" ) === "true" ) {
-					$elm.trigger( "reset.wb-session-timeout", settings );
+					$elm.trigger( resetEvent, settings );
 
 				// Session has timed out - let the user know they need to sign in again
 				} else {
 					building = $.Deferred();
-					$buttonSignin = $( "<button type='button' class='wb-session-timeout-confirm btn btn-primary'>" + i18nText.buttonSignin + "</button>" );
+					$buttonSignin = $( "<button type='button' class='" +
+						confirmSelector + " btn btn-primary'>" +
+						i18nText.buttonSignin + "</button>" );
 					$buttonSignin.data( "logouturl", settings.logouturl );
 
 					// Build the modal dialog
@@ -5380,8 +5407,8 @@ var selector = ".wb-session-timeout",
 
 					building.done( function( $modal ) {
 						// End the inactivity timeouts since the session is already kaput
-						clearTimeout( $elm.data( "inactivity.wb-session-timeout" ) );
-						clearTimeout( $elm.data( "keepalive.wb-session-timeout" ) );
+						clearTimeout( $elm.data( inactivityEvent ) );
+						clearTimeout( $elm.data( keepaliveEvent ) );
 
 						// Let the user know their session is dead
 						setTimeout(function() {
@@ -5412,14 +5439,16 @@ var selector = ".wb-session-timeout",
 			timeoutBegin = i18nText.timeoutBegin
 				.replace( "#min#", "<span class='min'>" + time.minutes + "</span>" )
 				.replace( "#sec#", "<span class='sec'>" + time.seconds + "</span>" ),
-			$modal = $( "#wb-session-modal" );
+			$modal = $( "#wb-session-modal" ),
+			buttonStart = "<button type='button' class='",
+			buttonEnd = "</button>";
 
 		// Modal does not exists: build it
 		if ( $modal.length === 0 ) {
-			$buttonContinue = $( "<button type='button' class='wb-session-timeout-confirm btn btn-primary'>" +
-				i18nText.buttonContinue + "</button>" );
-			$buttonEnd = $( "<button type='button' class='wb-session-timeout-confirm btn btn-default'>" +
-				i18nText.buttonEnd + "</button>" );
+			$buttonContinue = $( buttonStart + confirmSelector + " btn btn-primary'>" +
+				i18nText.buttonContinue + buttonEnd );
+			$buttonEnd = $( buttonStart + confirmSelector + " btn btn-default'>" +
+				i18nText.buttonEnd + buttonEnd );
 
 			// Build the modal
 			$document.trigger( "build.wb-modal", {
@@ -5500,9 +5529,9 @@ var selector = ".wb-session-timeout",
 	reset = function( event, settings ) {
 		var $elm = $( event.target );
 
-		initEventTimeout( $elm, "inactivity.wb-session-timeout", settings.inactivity, settings );
+		initEventTimeout( $elm, inactivityEvent, settings.inactivity, settings );
 		if ( settings.refreshCallbackUrl !== null ) {
-			initEventTimeout( $elm, "keepalive.wb-session-timeout", settings.sessionalive, settings );
+			initEventTimeout( $elm, keepaliveEvent, settings.sessionalive, settings );
 		}
 	},
 
@@ -5522,8 +5551,8 @@ var selector = ".wb-session-timeout",
 		// User wants their session maintained
 		if ( settings.start !== undefined && ( getCurrentTime() - settings.start ) <= settings.reactionTime ) {
 			$( selector )
-				.trigger( "reset.wb-session-timeout", settings )
-				.trigger( "keepalive.wb-session-timeout", settings );
+				.trigger( resetEvent, settings )
+				.trigger( keepaliveEvent, settings );
 
 		// Negative confirmation or the user took too long; logout
 		} else {
@@ -5632,12 +5661,14 @@ var selector = ".wb-session-timeout",
 	};
 
 // Bind the plugin events
-$document.on( "timerpoke.wb init.wb-session-timeout keepalive.wb-session-timeout inactivity.wb-session-timeout reset.wb-session-timeout", selector, function( event, settings ) {
+$document.on( "timerpoke.wb wb-init" + selector + " " + keepaliveEvent + " " +
+	inactivityEvent + " " + resetEvent, selector, function( event, settings ) {
+
 	var eventType = event.type;
 
 	switch ( eventType ) {
 	case "timerpoke":
-	case "init":
+	case "wb-init":
 		init( event );
 		break;
 
@@ -5655,7 +5686,7 @@ $document.on( "timerpoke.wb init.wb-session-timeout keepalive.wb-session-timeout
 	}
 });
 
-$document.on( "click", ".wb-session-timeout-confirm", confirm );
+$document.on( "click", "." + confirmSelector, confirm );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -5679,6 +5710,7 @@ wb.add( selector );
  */
 var selector = ".wb-share",
 	shareLink = "shr-lnk",
+	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	i18n, i18nText,
 
@@ -5831,12 +5863,12 @@ var selector = ".wb-share",
 
 			$elm.append( $share );
 
-			$share.trigger( "init.wb-share" );
+			$share.trigger( initEvent );
 		}
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-share", selector, init );
+$document.on( "timerpoke.wb " + initEvent, selector, init );
 
 $document.on( "click vclick", "." + shareLink, function( event) {
 	var which = event.which;
@@ -5940,7 +5972,7 @@ var selector = ".wb-tables",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-tables", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-tables", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -5971,6 +6003,11 @@ wb.add( selector );
 	initialized = false,
 	equalHeightClass = "wb-equalheight",
 	equalHeightOffClass = equalHeightClass + "-off",
+	initEvent = "wb-init" + selector,
+	shiftEvent = "shift" + selector,
+	ariaExpanded = "aria-expanded",
+	ariaHidden = "aria-hidden",
+	ariaSelected = "aria-selected",
 
 	// Includes "xsmallview" and "xxsmallview"
 	smallViewPattern = "xsmallview",
@@ -6050,7 +6087,7 @@ wb.add( selector );
 				.addClass( "wb-toggle" )
 				.attr( "data-toggle", "{\"parent\": \"." + accordionClass +
 					"\", \"group\": \"details\"}" )
-				.trigger( "init.wb-toggle" );
+				.trigger( "wb-init.wb-toggle" );
 
 			for ( i = 0; i !== len; i += 1 ) {
 				$panel = $panels.eq( i );
@@ -6068,8 +6105,8 @@ wb.add( selector );
 						$panel
 							.toggleClass( "open", !isOpen )
 							.attr({
-								"aria-expanded": !isOpen,
-								"aria-hidden": isOpen
+								ariaExpanded: !isOpen,
+								ariaHidden: isOpen
 							});
 					}
 				} else {
@@ -6119,7 +6156,7 @@ wb.add( selector );
 			setting, delay;
 
 		if ( !dataDelay ) {
-			$elm.trigger( "init.wb-tabs" );
+			$elm.trigger( initEvent );
 			return false;
 		}
 
@@ -6134,7 +6171,7 @@ wb.add( selector );
 
 		// Check if we need
 		if ( setting < delay ) {
-			$elm.trigger( "shift.wb-tabs" );
+			$elm.trigger( shiftEvent );
 			delay = 0;
 		}
 		$elm.data( "ctime", delay );
@@ -6194,8 +6231,8 @@ wb.add( selector );
 			isActive = item.className.indexOf( "in" ) !== -1;
 
 			if ( !isDetails ) {
-				item.setAttribute( "aria-hidden", isActive ? "false" : "true" );
-				item.setAttribute( "aria-expanded", isActive ? "true" : "false" );
+				item.setAttribute( ariaHidden, isActive ? "false" : "true" );
+				item.setAttribute( ariaExpanded, isActive ? "true" : "false" );
 			}
 			item.setAttribute( "aria-labelledby", item.id + "-lnk" );
 		}
@@ -6208,7 +6245,7 @@ wb.add( selector );
 			link = item.getElementsByTagName( "a" )[ 0 ];
 			link.tabIndex = isActive ? "0" : "-1";
 			link.setAttribute( "role", "tab" );
-			link.setAttribute( "aria-selected", isActive ? "true" : "false" );
+			link.setAttribute( ariaSelected, isActive ? "true" : "false" );
 			link.setAttribute( "aria-controls", link.getAttribute( "href" ).substring( 1 ) );
 		}
 		$tabList.attr( "aria-live", "off" );
@@ -6222,16 +6259,16 @@ wb.add( selector );
 				.removeClass( "in" )
 				.addClass( "out" )
 				.attr({
-					"aria-hidden": "true",
-					"aria-expanded": "false"
+					ariaHidden: "true",
+					ariaExpanded: "false"
 				});
 
 		$next
 			.removeClass( "out" )
 			.addClass( "in" )
 			.attr({
-				"aria-hidden": "false",
-				"aria-expanded": "true"
+				ariaHidden: "false",
+				ariaExpanded: "true"
 			});
 			
 		$controls
@@ -6239,13 +6276,13 @@ wb.add( selector );
 				.removeClass( "active" )
 				.children( "a" )
 					.attr({
-						"aria-selected": "false",
+						ariaSelected: "false",
 						tabindex: "-1"
 					});
 
 		$control
 			.attr({
-				"aria-selected": "true",
+				ariaSelected: "true",
 				tabindex: "0"
 			})
 			.parent()
@@ -6298,7 +6335,7 @@ wb.add( selector );
 	 */
 	onCycle = function( $elm, shifto ) {
 		$elm.trigger({
-			type: "shift.wb-tabs",
+			type: shiftEvent,
 			shiftto: shifto
 		});
 	},
@@ -6355,12 +6392,12 @@ wb.add( selector );
 				if ( !Modernizr.details ) {
 					$nonOpenDetails
 						.attr({
-							"aria-expanded": "false",
-							"aria-hidden": "true"
+							ariaExpanded: "false",
+							ariaHidden: "true"
 						});
 					$openDetails.attr({
-						"aria-expanded": "true",
-						"aria-hidden": "false"
+						ariaExpanded: "true",
+						ariaHidden: "false"
 					});
 				}
 			} else {
@@ -6386,12 +6423,12 @@ wb.add( selector );
 							.trigger( "click" );
 			}
 
-			$tablist.attr( "aria-hidden", isSmallView );
+			$tablist.attr( ariaHidden, isSmallView );
 		}
 	};
 
  // Bind the init event of the plugin
- $document.on( "timerpoke.wb init.wb-tabs shift.wb-tabs", selector, function( event ) {
+ $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent, selector, function( event ) {
 	var eventType = event.type,
 
 		// "this" is cached for all events to utilize
@@ -6405,7 +6442,7 @@ wb.add( selector );
 	/*
 	 * Init
 	 */
-	case "init":
+	case "wb-init":
 		onInit( $elm );
 		break;
 
@@ -6444,7 +6481,7 @@ wb.add( selector );
 			.attr( "data-ctime", 0 );
 
 		// Stop the slider from playing unless it is already stopped and the play button is activated
-		if ( $sldr.hasClass( "playing" ) || which < 37 ) {
+		if ( $sldr.hasClass( "playing" ) || ( which < 37 && className.indexOf( "plypause" ) !== -1 ) ) {
 			$plypause = $sldr.find( "a.plypause" );
 			$plypause.find( ".glyphicon" ).toggleClass( "glyphicon-play glyphicon-pause" );
 			$sldr.toggleClass( "playing" );
@@ -6553,7 +6590,7 @@ var selector = ".wb-texthighlight",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb init.wb-texthighlight", selector, init );
+$document.on( "timerpoke.wb wb-init.wb-texthighlight", selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -6578,6 +6615,9 @@ wb.add( selector );
 var selector = ".wb-toggle",
 	$document = wb.doc,
 	$window = wb.win,
+	ariaEvent = "aria" + selector,
+	toggleEvent = "toggle" + selector,
+	toggledEvent = "toggled" + selector,
 	states = {},
 	defaults = {
 		stateOn: "on",
@@ -6606,7 +6646,7 @@ var selector = ".wb-toggle",
 			$link.data( "toggle", data );
 
 			// Initialize the aria-controls attribute of the link
-			$link.trigger( "aria.wb-toggle", data );
+			$link.trigger( ariaEvent, data );
 		}
 	},
 
@@ -6672,7 +6712,7 @@ var selector = ".wb-toggle",
 	click = function( event, link ) {
 		var $link = $( link );
 
-		$link.trigger( "toggle.wb-toggle", $link.data( "toggle" ) );
+		$link.trigger( toggleEvent, $link.data( "toggle" ) );
 		event.preventDefault();
 
 		// Assign focus to eventTarget
@@ -6704,7 +6744,7 @@ var selector = ".wb-toggle",
 			// Toggle all grouped elements to "off"
 			setState( $elmsGroup, dataGroup, data.stateOff );
 			$elmsGroup.wb( "toggle", data.stateOff, data.stateOn );
-			$elmsGroup.trigger( "toggled.wb-toggle", {
+			$elmsGroup.trigger( toggledEvent, {
 				isOn: false,
 				isTablist: isTablist,
 				elms: $elmsGroup
@@ -6714,7 +6754,7 @@ var selector = ".wb-toggle",
 		// Toggle all elements identified by data.selector to the requested state
 		setState( $elms, data, stateTo );
 		$elms.wb( "toggle", stateTo, stateFrom );
-		$elms.trigger( "toggled.wb-toggle", {
+		$elms.trigger( toggledEvent, {
 			isOn: isToggleOn,
 			isTablist: isTablist,
 			elms: $elms
@@ -6861,7 +6901,9 @@ var selector = ".wb-toggle",
 	};
 
 // Bind the plugin's events
-$document.on( "timerpoke.wb init.wb-toggle aria.wb-toggle toggle.wb-toggle toggled.wb-toggle click", selector, function( event, data ) {
+$document.on( "timerpoke.wb wb-init" + selector + " " + ariaEvent + " " + toggleEvent +
+	" " + toggledEvent + " click", selector, function( event, data ) {
+
 	var eventType = event.type;
 
 	switch ( eventType ) {
@@ -6878,12 +6920,12 @@ $document.on( "timerpoke.wb init.wb-toggle aria.wb-toggle toggle.wb-toggle toggl
 		setAria( event, data );
 		break;
 	case "timerpoke":
-	case "init":
+	case "wb-init":
 		init( event );
 		break;
 	}
 });
-$document.on( "toggled.wb-toggle", "details", toggleDetails );
+$document.on( toggledEvent, "details", toggleDetails );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -6929,7 +6971,7 @@ var selector = ".wb-twitter",
 		}
 	};
 
-$document.on( "timerpoke.wb init.wb-twitter", selector, init );
+$document.on( "timerpoke.wb wb-init" + selector, selector, init );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
