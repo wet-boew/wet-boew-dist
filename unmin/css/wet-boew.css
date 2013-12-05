@@ -8688,7 +8688,7 @@ div.errCnt p {
   font-weight: 700;
 }
 
-.wb-formvalid label {
+.wb-frmvld label {
   display: block;
 }
 
@@ -8697,14 +8697,14 @@ div.errCnt ul {
   margin-right: 0;
 }
 
-.wb-formvalid label strong.error,
-.wb-formvalid legend .error {
+.wb-frmvld label strong.error,
+.wb-frmvld legend .error {
   display: block;
   font-weight: 700;
   color: #cc0000;
 }
 
-.wb-formvalid input[type=checkbox]+ label {
+.wb-frmvld input[type=checkbox]+ label {
   display: inline;
 }
 
@@ -10622,7 +10622,7 @@ table.dataTable tr.even td.sorting_3 {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.wb-texthighlight .txthlt {
+.wb-txthl .txthl {
   background-color: yellow;
   color: black;
   font-weight: 700;

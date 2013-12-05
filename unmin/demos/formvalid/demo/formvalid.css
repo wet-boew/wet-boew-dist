@@ -2,12 +2,12 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.wb-formvalid fieldset {
+.wb-frmvld fieldset {
   margin-bottom: 20px; }
-.wb-formvalid legend {
+.wb-frmvld legend {
   margin-bottom: 0; }
-.wb-formvalid label {
+.wb-frmvld label {
   display: block;
   margin-top: 15px; }
-.wb-formvalid .error {
+.wb-frmvld .error {
   display: block; }

@@ -736,7 +736,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var pluginName = "wb-cal-evt",
+var pluginName = "wb-calevt",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
@@ -766,7 +766,7 @@ var pluginName = "wb-cal-evt",
 			}
 
 			// Load ajax content
-			$.when.apply($, $.map( $elm.find( "[data-calEvt]" ), getAjax))
+			$.when.apply($, $.map( $elm.find( "[data-calevt]" ), getAjax))
 				.always( function() {
 					processEvents( $elm );
 				});
@@ -775,7 +775,7 @@ var pluginName = "wb-cal-evt",
 
 	getAjax = function( ajaxContainer ) {
 		var $ajaxContainer = $( ajaxContainer ),
-			urls = $ajaxContainer.data( "calEvt" ).split(/\s+/),
+			urls = $ajaxContainer.data( "calevt" ).split(/\s+/),
 			dfd = $.Deferred(),
 			len = urls.length,
 			promises = [],
@@ -1845,8 +1845,8 @@ $document.on( "click", ".cal-prvmnth, .cal-nxtmnth", changeMonth );
  * place to define variables that are common to all instances of the plugin on a
  * page.
  */
-var pluginName = "wb-ctry-cnt",
-	selector = "[data-country-content]",
+var pluginName = "wb-ctrycnt",
+	selector = "[data-ctrycnt]",
 	initEvent = "wb-init." + pluginName,
 	initedClass = pluginName + "-inited",
 	$document = wb.doc,
@@ -1865,7 +1865,7 @@ var pluginName = "wb-ctry-cnt",
 			wb.remove( selector );
 			$elm.addClass( initedClass );
 
-			var url = $elm.data( "countryContent" );
+			var url = $elm.data( "ctrycnt" );
 
 			// All plugins need to remove their reference from the timer in the init
 			// sequence unless they have a requirement to be poked every 0.5 seconds
@@ -1882,7 +1882,7 @@ var pluginName = "wb-ctry-cnt",
 
 				url = url.replace( "{country}", countryCode.toLowerCase() );
 
-				$elm.removeAttr( "data-country-content" );
+				$elm.removeAttr( "data-ctrycnt" );
 
 				$elm.load(url);
 			});
@@ -2202,7 +2202,7 @@ wb.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var pluginName = "wb-pic",
-	selector = "[data-picture]",
+	selector = "[data-pic]",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init." + pluginName,
 	picturefillEvent = "picfill." + pluginName,
@@ -2305,7 +2305,7 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var selector = ".wb-equalheight",
+var selector = ".wb-eqht",
 	$document = wb.doc,
 
 	/**
@@ -3015,7 +3015,7 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var pluginName = "wb-formvalid",
+var pluginName = "wb-frmvld",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
@@ -3312,7 +3312,7 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var pluginName = "wb-lightbox",
+var pluginName = "wb-lb",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
@@ -3443,7 +3443,7 @@ var pluginName = "wb-lightbox",
 						firstLink = elm.getElementsByTagName( "a" )[0];
 
 						// Is the element a gallery?
-						if ( elm.className.indexOf( "-gallery" ) !== -1 ) {
+						if ( elm.className.indexOf( "-gal" ) !== -1 ) {
 							settings.gallery = {
 								enabled: true
 							};
@@ -5743,7 +5743,7 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var pluginName = "wb-session-timeout",
+var pluginName = "wb-sessto",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
@@ -5823,7 +5823,7 @@ var pluginName = "wb-session-timeout",
 	},
 
 	/**
-	 * Initialize the refresh on click keepalive behaviour. This will cause a `keepalive.wb-session-timeout`
+	 * Initialize the refresh on click keepalive behaviour. This will cause a `keepalive.wb-sessto`
 	 * event to be triggered when the document is clicked, limited by the settings.refreshLimit value.
 	 * @function initRefreshOnClick
 	 * @param {jQuery DOM Element} $elm DOM element to trigger the event on
@@ -5847,7 +5847,7 @@ var pluginName = "wb-session-timeout",
 	/**
 	 * Keepalive session event handler. Sends the POST request to determine if the session is still alive.
 	 * @function keepalive
-	 * @param {jQuery Event} event `keepalive.wb-session-timeout` event that triggered the function call
+	 * @param {jQuery Event} event `keepalive.wb-sessto` event that triggered the function call
 	 * @param {Object} settings Key-value object
 	 */
 	keepalive = function( event, settings ) {
@@ -5897,7 +5897,7 @@ var pluginName = "wb-session-timeout",
 	/**
 	 * Inactivity check event handler. Displays the modal dialog to allow the user to confirm their activity.
 	 * @function inactivity
-	 * @param {jQuery Event} event `inactivity.wb-session-timeout` event that triggered the function call
+	 * @param {jQuery Event} event `inactivity.wb-sessto` event that triggered the function call
 	 * @param {Object} settings Key-value object
 	 */
 	inactivity = function( event, settings ) {
@@ -5992,7 +5992,7 @@ var pluginName = "wb-session-timeout",
 	/**
 	 * Initialize the inactivity and keepalive timeouts of the plugin
 	 * @function reset
-	 * @param {jQuery Event} event `reset.wb-session-timeout` event that triggered the function call
+	 * @param {jQuery Event} event `reset.wb-sessto` event that triggered the function call
 	 * @param {Object} settings Key-value object
 	 */
 	reset = function( event, settings ) {
@@ -6007,7 +6007,7 @@ var pluginName = "wb-session-timeout",
 	/**
 	 * Checks if the user wants to keep their session alive.
 	 * @function inactivity
-	 * @param {jQuery Event} event `confirm.wb-session-timeout` event that triggered the function call
+	 * @param {jQuery Event} event `confirm.wb-sessto` event that triggered the function call
 	 */
 	confirm = function( event ) {
 		var elm = event.target,
@@ -6479,7 +6479,7 @@ var pluginName = "wb-tabs",
 	controls = selector + " [role=tablist] a",
 	uniqueCount = 0,
 	initialized = false,
-	equalHeightClass = "wb-equalheight",
+	equalHeightClass = "wb-eqht",
 	equalHeightOffClass = equalHeightClass + "-off",
 	ariaExpanded = "aria-expanded",
 	ariaHidden = "aria-hidden",
@@ -7037,7 +7037,7 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var pluginName = "wb-texthighlight",
+var pluginName = "wb-txthl",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
@@ -7061,7 +7061,7 @@ var pluginName = "wb-texthighlight",
 			wb.remove( selector );
 			elm.className += " " + initedClass;
 
-			searchCriteria = wb.pageUrlParts.params.texthighlight;
+			searchCriteria = wb.pageUrlParts.params.txthl;
 
 			if ( searchCriteria ) {
 				// clean up the search criteria and OR each value
@@ -7072,7 +7072,7 @@ var pluginName = "wb-texthighlight",
 				searchCriteria = "(?=([^>]*<))([\\s'])?(" + searchCriteria + ")(?!>)";
 
 				newText = elm.innerHTML.replace( new RegExp( searchCriteria, "gi" ), function( match, group1, group2, group3 ) {
-					return ( !group2 ? "" : group2 ) + "<span class='txthlt'><mark>" + group3 + "</mark></span>";
+					return ( !group2 ? "" : group2 ) + "<span class='txthl'><mark>" + group3 + "</mark></span>";
 				});
 				elm.innerHTML = newText;
 			}
