@@ -15,7 +15,7 @@
 		<!-- Meta data-->
 		<link rel="stylesheet" href="../../css/wet-boew.css" />
 <link rel="stylesheet" href="../../css/theme.css" />
-
+<link rel="stylesheet" href="demo/meter.css" />
 
 <!--[if lt IE 9]>
 <link rel="stylesheet" href="../../css/ie8-wet-boew.css" />
@@ -199,6 +199,11 @@ The meter element also does not represent a scalar value of arbitrary range — 
 				<td>180</td>
 				<td><meter min="100" low="120" value="115" max="200" high="180">15% (too low)</meter></td>
 			</tr>
+			<tr>
+				<td colspan="3"><input type="button" id="decreaseMeter" value="Decrease" /></td>
+				<td colspan="3"><input type="button" id="increaseMeter" value="Increase" /></td>
+				<td><meter id="updateTest" min="100" low="120" value="150" max="200" high="180"><span class="wb-inv">150</span></meter>
+			</tr>
 		</tbody>
 	</table>
 </section>
@@ -254,7 +259,7 @@ The meter element also does not represent a scalar value of arbitrary range — 
 <!--[if lt IE 9]>
 <script src="../../js/ie8-wet-boew2.js"></script>
 <![endif]-->
-
+<script src="demo/meter.js"></script>
 
 		
 	</body>
