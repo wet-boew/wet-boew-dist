@@ -9767,6 +9767,16 @@ img.mfp-img {
   left: 0;
 }
 
+[dir=rtl] .wb-panel-l {
+  left: auto;
+  right: 0;
+}
+
+[dir=rtl] .wb-panel-r {
+  right: auto;
+  left: 0;
+}
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
