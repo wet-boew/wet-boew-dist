@@ -10845,15 +10845,6 @@ details summary:hover {
   @title: Bootstrap overrides for WET-BOEW (small view and over)
  */
 
-  /*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-  /**
- * Small view-friendly styles
- */
-
   .colcount-sm-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -10873,19 +10864,6 @@ details summary:hover {
   .lead {
     font-size: 24px;
   }
-
-  .wb-tabs> details {
-    border: 1px solid #adadad;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    -webkit-box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
-    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
-    margin-top: -1px;
-  }
-
-  .wb-tabs> details> summary {
-    display: none !important;
-  }
 }
 
 /* Medium view and over */
@@ -10894,6 +10872,15 @@ details summary:hover {
   /*
   WET-BOEW
   @title: Medium view and over (screen only)
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /**
+ * Small view-friendly styles
  */
 
   .colcount-md-2 {
@@ -10912,6 +10899,19 @@ details summary:hover {
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
+  }
+
+  .wb-tabs> details {
+    border: 1px solid #adadad;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    -webkit-box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.125);
+    margin-top: -1px;
+  }
+
+  .wb-tabs> details> summary {
+    display: none !important;
   }
 }
 
