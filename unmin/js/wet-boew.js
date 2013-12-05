@@ -1327,7 +1327,7 @@ var $document = wb.doc,
 	createMonthNav = function( calendarId, year, month, minDate, maxDate, minDateYear, maxDateYear ) {
 		var monthNames = i18nText.monthNames,
 			$monthNav = $( "#cal-" + calendarId + "-mnthnav" ),
-			buttonStart = "<button class='cal-",
+			buttonStart = "<button type='button' class='cal-",
 			buttonSpecs = [
 				[
 					"prvmnth",
