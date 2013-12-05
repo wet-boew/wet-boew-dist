@@ -9828,34 +9828,6 @@ ol.linenums li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.wb-share .bitly:before,
-.wb-share .blogger:before,
-.wb-share .delicious:before,
-.wb-share .digg:before,
-.wb-share .diigo:before,
-.wb-share .dzone:before,
-.wb-share .facebook:before,
-.wb-share .fark:before,
-.wb-share .feed:before,
-.wb-share .googleplus:before,
-.wb-share .linkedin:before,
-.wb-share .myspace:before,
-.wb-share .netvibes:before,
-.wb-share .newsvine:before,
-.wb-share .pinterest:before,
-.wb-share .reddit:before,
-.wb-share .stumbleupon:before,
-.wb-share .technorati:before,
-.wb-share .tumblr:before,
-.wb-share .twitter:before {
-  content: " ";
-  display: inline-block;
-  height: 32px;
-  width: 32px;
-  margin-right: 12px;
-  vertical-align: middle;
-}
-
 .wb-share .shr-lnk {
   width: 100%;
   min-height: 32px;
@@ -9864,6 +9836,15 @@ ol.linenums li {
   text-align: left;
   text-decoration: none;
   font-size: 115%;
+}
+
+.wb-share .shr-lnk:before {
+  content: " ";
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  margin-right: 12px;
+  vertical-align: middle;
 }
 
 .wb-share .bitly:before {
@@ -9966,10 +9947,27 @@ ol.linenums li {
   background-position: 0 -608px;
 }
 
+.wb-share .shr-pg {
+  text-align: left;
+}
+
 .wb-share ul {
   list-style-type: none;
   padding: 0;
   margin: 10px;
+}
+
+[dir=rtl] .wb-share .shr-lnk {
+  text-align: right;
+}
+
+[dir=rtl] .wb-share .shr-lnk:before {
+  margin-right: auto;
+  margin-left: 12px;
+}
+
+[dir=rtl] .wb-share .shr-pg {
+  text-align: right;
 }
 
 /*
