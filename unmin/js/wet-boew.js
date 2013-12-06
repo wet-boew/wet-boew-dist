@@ -5596,7 +5596,7 @@ wb.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-(function( $, window, document, wb ) {
+(function( $, document, wb ) {
 "use strict";
 
 /*
@@ -5607,7 +5607,6 @@ wb.add( selector );
  */
 var id = "wb-rsz",
 	selector = "#" + id,
-	$window = wb.win,
 	$document = wb.doc,
 	sizes = [],
 	events = [
@@ -5633,7 +5632,8 @@ var id = "wb-rsz",
 	 * @method init
 	 */
 	init = function() {
-		var localResizeTest = document.createElement( "span" );
+		var localResizeTest = document.createElement( "span" ),
+			docElm = document.documentElement;
 
 		// Set up the DOM element used for resize testing
 		localResizeTest.innerHTML = "&#160;";
@@ -5644,8 +5644,8 @@ var id = "wb-rsz",
 		// Get a snapshot of the current sizes
 		sizes = [
 			localResizeTest.offsetHeight,
-			$window.width(),
-			$window.height()
+			docElm.clientWidth,
+			docElm.clientHeight
 		];
 
 		// Create a string containing all the events
@@ -5693,10 +5693,11 @@ var id = "wb-rsz",
 	 */
 	test = function() {
 		if ( initialized ) {
-			var currentSizes = [
+			var docElm = document.documentElement,
+				currentSizes = [
 					resizeTest.offsetHeight,
-					$window.width(),
-					$window.height()
+					docElm.clientWidth,
+					docElm.clientHeight
 				],
 				len = currentSizes.length,
 				i;
@@ -5726,7 +5727,7 @@ init();
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
-})( jQuery, window, document, wb );
+})( jQuery, document, wb );
 
 /**
  * @title WET-BOEW Session Timeout
@@ -6850,18 +6851,18 @@ var pluginName = "wb-tabs",
 
 	onResize = function() {
 		var oldIsSmallView = isSmallView,
-			$details, $parent, $tablist, $openDetails, $nonOpenDetails, $active;
+			$elm, $details, $tablist, $openDetails, $nonOpenDetails, $active;
 
 		isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
 
 		if ( initialized && isSmallView !== oldIsSmallView ) {
-			$details = $( selector + " details" );
-			$parent = $details.parent();
-			$tablist = $parent.children( "ul" );
+			$elm = $( selector );
+			$details = $elm.children( "details" );
+			$tablist = $elm.children( "ul" );
 			
 			// Disable equal heights for small view and enable for large view
-			if ( $parent.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
-				$parent.toggleClass( equalHeightClass + " " + equalHeightOffClass );
+			if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
+				$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
 			}
 
 			if ( isSmallView ) {
