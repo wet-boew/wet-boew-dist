@@ -7221,10 +7221,6 @@ a {
   color: #295376;
 }
 
-a:focus {
-  outline: invert dotted thin;
-}
-
 /*
  *	Table stripes and hover -- Increased the contrast for the table stripes
  *	and hover
@@ -8743,12 +8739,12 @@ div.errCnt ul li {
 
 .mfp-close {
   font-weight: 700;
-  /* Should fix upstream rather than overriding in WET */
+  /* Should fix upstream in Magnific Popup rather than overriding in WET */
 }
 
-/* Should fix upstream rather than overriding in WET */
+/* Should fix upstream in Magnific Popup rather than overriding in WET */
 
-/* Should fix upstream rather than overriding in WET */
+/* Should fix upstream in Magnific Popup rather than overriding in WET */
 
 .mfp-bottom-bar .mfp-title {
   width: 75%;
@@ -9486,11 +9482,6 @@ img.mfp-img {
   background: transparent;
   border: 0;
   color: white;
-}
-
-.wb-mltmd progress:focus,
-.wb-mltmd .btn:focus {
-  outline: white thin dotted;
 }
 
 .wb-mltmd .display {
