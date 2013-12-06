@@ -1057,7 +1057,8 @@ var $document = wb.doc,
 			} else {
 				$btn = $( buttonStart + buttonClass + "' title='" + alt +
 					"'><span class='glyphicon glyphicon-arrow-" +
-					( buttonSpec[ 0 ] === "prvmnth" ? "left" : "right" ) + "'></span></button>" );
+					( buttonSpec[ 0 ] === "prvmnth" ? "left" : "right" ) +
+					"'></span><span class='wb-inv'>" + alt + "</button>" );
 				$monthNav[ buttonSpec[ 3 ] ]( $btn );
 			}
 
@@ -3043,13 +3044,14 @@ var pluginName = "wb-lbx",
 							// TODO: Better if dealt with upstream by Magnific popup
 							var $item = this.currItem,
 								$content = this.contentContainer,
-								$bottomBar;
+								$buttons = this.wrap.find( ".mfp-close, .mfp-arrow" ),
+								len = $buttons.length,
+								i, button, $bottomBar;
 
-							this.wrap.attr({
-								role: "dialog",
-								"aria-live": "polite",
-								"aria-labelledby": "lbx-title"
-							});
+							for ( i = 0; i !== len; i += 1 ) {
+								button = $buttons[ i ];
+								button.innerHTML += "<span class='wb-inv'>" + button.title + "</span>";
+							}
 
 							if ( $item.type === "image" ) {
 								$bottomBar = $content.find( ".mfp-bottom-bar" ).attr( "id", "lbx-title" );
@@ -3060,9 +3062,9 @@ var pluginName = "wb-lbx",
 						change: function() {
 							var $item = this.currItem,
 								$content = this.contentContainer,
-								$el, $bottomBar, $source, $target, description, altTitleId, altTitle;
+								$el, $bottomBar, $source, $target,
+								description, altTitleId, altTitle;
 
-							// TODO: Better if dealt with upstream by Magnific Popup
 							if ( $item.type === "image" ) {
 								$el = $item.el;
 								$source = $el.find( "img" );
@@ -4653,60 +4655,42 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 	var eventTarget = event.currentTarget,
 		eventType = event.type,
 		$this = $( eventTarget ),
-		currentTime,
-		button;
+		invStart = "<span class='wb-inv'>",
+		invEnd = "</span>",
+		currentTime, $button, buttonData, isPlay, getMuted, ccVis;
 
 	switch ( eventType ) {
 	case "play":
-		button = $this.find( ".playpause .glyphicon" )
-			.removeClass( "glyphicon-play" )
-			.addClass( "glyphicon-pause" )
-			.parent();
-
-		button.attr( "title", button.data( "state-off" ) );
-
-		$this.find( ".wb-mm-ovrly" ).addClass( "playing" );
-
-		$this.find( ".progress" ).addClass( "active" );
-		break;
-
 	case "pause":
-		button = $this.find( ".playpause .glyphicon" )
-			.removeClass( "glyphicon-pause" )
-			.addClass( "glyphicon-play" )
-			.parent();
-
-		button.attr( "title", button.data( "state-on" ) );
-
-		$this.find( ".progress" ).removeClass( "active" );
-		break;
-
 	case "ended":
-		this.loading = clearTimeout( this.loading );
-		button = $this.find( ".playpause .glyphicon" )
-			.removeClass( "glyphicon-pause" )
-			.addClass( "glyphicon-play" )
-			.parent();
-
-		button.attr( "title", button.data( "state-on" ) );
-		$this.find( ".wb-mm-ovrly" ).removeClass( "playing" );
+		isPlay = eventType === "play";
+		$button = $this.find( ".playpause" );
+		buttonData = $button.data( "state-" + ( isPlay ? "off" : "on" ) );
+		if ( isPlay ) {
+			$this.find( ".wb-mm-ovrly" ).addClass( "playing" );
+			$this.find( ".progress" ).addClass( "active" );
+		} else if ( eventType === "ended" ) {
+			this.loading = clearTimeout( this.loading );
+			$this.find( ".wb-mm-ovrly" ).removeClass( "playing" );
+		}
+		$button
+			.attr( "title", buttonData )
+			.children( "span" )
+				.toggleClass( "glyphicon-play", !isPlay )
+				.toggleClass( "glyphicon-pause", isPlay )
+				.html( invStart + buttonData + invEnd );
 		break;
 
 	case "volumechange":
-		// TODO: Think can be optimized for the minifier with some ternaries
-		button = $this.find( ".mute .glyphicon" );
-		if ( eventTarget.player( "getMuted" ) ) {
-			button = button.removeClass( "glyphicon-volume-up" )
-				.addClass( "glyphicon-volume-off" )
-				.parent();
-
-			button.attr( "title", button.data( "state-off" ) );
-		} else {
-			button = button.removeClass( "glyphicon-volume-off" )
-				.addClass( "glyphicon-volume-up" )
-				.parent();
-			button.attr( "title", button.data( "state-on" ) );
-		}
+		getMuted = eventTarget.player( "getMuted" );
+		$button = $this.find( ".mute" );
+		buttonData = $button.data( "state-" + ( getMuted ? "off" : "on" ) );
+		$button
+			.attr( "title", buttonData )
+			.children( "span" )
+				.toggleClass( "glyphicon-volume-up", !getMuted )
+				.toggleClass( "glyphicon-volume-off", getMuted )
+				.html( invStart + buttonData + invEnd );
 		break;
 
 	case "timeupdate":
@@ -4747,15 +4731,14 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 		break;
 
 	case "ccvischange":
-		// TODO: Think can be optimized for the minifier with some ternarie
-		button = $this.find( ".cc" );
-		if ( eventTarget.player( "getCaptionsVisible" ) ) {
-			button.attr( "title", button.data( "state-on" ) )
-				.css( "opacity", "1" );
-		} else {
-			button.attr( "title", button.data( "state-off" ) )
-				.css( "opacity", ".5" );
-		}
+		ccVis = eventTarget.player( "getCaptionsVisible" );
+		$button = $this.find( ".cc" );
+		buttonData = $button.data( "state-" + ( ccVis ? "off" : "on" ) );
+		$button
+			.attr( "title", buttonData )
+			.css( "opacity", ccVis ? "1" : ".5" )
+			.children( "span" )
+				.html( invStart + buttonData + invEnd );
 		break;
 
 	case "waiting":
@@ -4771,10 +4754,15 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 
 	// Fallback for browsers that don't implement the waiting events
 	case "progress":
+
 		// Waiting detected, display the loading icon
-		if ( this.player( "getPaused" ) === false && this.player( "getCurrentTime" ) === this.player( "getPreviousTime" ) && eventTarget.player( "getBuffering" ) === false ) {
+		if ( this.player( "getPaused" ) === false &&
+			this.player( "getCurrentTime" ) === this.player( "getPreviousTime" ) &&
+			eventTarget.player( "getBuffering" ) === false ) {
+
 			eventTarget.player( "setBuffering", true );
 			$this.trigger( "waiting" );
+
 		// Waiting has ended, but icon is still visible - remove it.
 		} else if ( eventTarget.player( "getBuffering" ) === true ) {
 			eventTarget.player( "setBuffering", false );
@@ -4970,7 +4958,7 @@ var pluginName = "wb-overlay",
 
 			// Add close button
 			overlayClose = "<button class='mfp-close " + closeClass +
-				"' title='" + i18nText.close + "'>×</button>";
+				"' title='" + i18nText.close + "'>×<span class='wb-inv'>" + i18nText.close + "</span></button>";
 
 			elm.appendChild( $( overlayClose )[ 0 ] );
 			elm.setAttribute( ariaHidden, "true" );

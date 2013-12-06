@@ -9484,6 +9484,11 @@ img.mfp-img {
   color: white;
 }
 
+.wb-mltmd progress:focus,
+.wb-mltmd .btn:focus {
+  outline: white thin dotted;
+}
+
 .wb-mltmd .display {
   position: relative;
   padding-bottom: 52.25%;
