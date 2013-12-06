@@ -15,7 +15,7 @@
 .inline-lst li img {
   margin-bottom: 0; }
 
-.box a, .lb-hide-gal li:first-child.box> a {
+.box a, .lbx-hide-gal li:first-child.box> a {
   display: block;
   width: 150px;
   height: 150px;

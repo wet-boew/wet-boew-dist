@@ -8732,12 +8732,12 @@ div.errCnt ul li {
   outline-color: white;
 }
 
-.lb-hide-gal li {
+.lbx-hide-gal li {
   list-style-type: none;
   display: none;
 }
 
-.lb-hide-gal li:first-child {
+.lbx-hide-gal li:first-child {
   display: block;
 }
 
