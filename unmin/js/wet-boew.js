@@ -3390,7 +3390,7 @@ var pluginName = "wb-lbx",
 
 							for ( i = 0; i !== len; i += 1 ) {
 								button = $buttons[ i ];
-								button.innerHTML += "<span class='wb-inv'>" + button.title + "</span>";
+								button.innerHTML += "<span class='wb-inv'> " + button.title + "</span>";
 							}
 
 							if ( $item.type === "image" ) {
@@ -5298,7 +5298,7 @@ var pluginName = "wb-overlay",
 
 			// Add close button
 			overlayClose = "<button class='mfp-close " + closeClass +
-				"' title='" + i18nText.close + "'>×<span class='wb-inv'>" + i18nText.close + "</span></button>";
+				"' title='" + i18nText.close + "'>×<span class='wb-inv'> " + i18nText.close + "</span></button>";
 
 			elm.appendChild( $( overlayClose )[ 0 ] );
 			elm.setAttribute( ariaHidden, "true" );
