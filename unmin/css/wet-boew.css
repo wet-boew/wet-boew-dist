@@ -9734,7 +9734,7 @@ img.mfp-img {
   background-color: black;
   color: white;
   display: block;
-  padding: 0;
+  padding: 0 44px 0 1em;
 }
 
 .overlay-def header h1,
@@ -9742,7 +9742,7 @@ img.mfp-img {
 .overlay-def header h3,
 .overlay-def header h4 {
   font-size: 1.15em;
-  padding: 10px 1em;
+  padding: 10px 0;
 }
 
 .overlay-def.wb-bar-t,
@@ -9775,6 +9775,10 @@ img.mfp-img {
 [dir=rtl] .wb-panel-r {
   right: auto;
   left: 0;
+}
+
+[dir=rtl] .overlay-def header {
+  padding: 0 1em 0 44px;
 }
 
 /*
