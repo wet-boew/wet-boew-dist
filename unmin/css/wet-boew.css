@@ -9548,8 +9548,13 @@ img.mfp-img {
   display: none;
 }
 
-.wb-mltmd[data-youtube] .wb-mm-ovrly {
-  visibility: hidden;
+.wb-mltmd.cc_on .cc {
+  opacity: 1;
+}
+
+.wb-mltmd.cc_on:not(.youtube) .wb-mm-cc {
+  padding: 0.5em;
+  max-height: 999em;
 }
 
 .wb-mltmd.skn-lt {
@@ -9576,11 +9581,6 @@ img.mfp-img {
   max-height: 0;
   -webkit-transition: all 0.26s ease;
   transition: all 0.26s ease;
-}
-
-.wb-mm-cc.on {
-  padding: 0.5em;
-  max-height: 999em;
 }
 
 .wb-mm-ctrls {
@@ -9613,6 +9613,10 @@ img.mfp-img {
   display: inline !important;
   margin-right: 0;
   margin-left: 0;
+}
+
+.wb-mm-ctrls .cc {
+  opacity: 0.5;
 }
 
 .wb-mm-ctrls progress {
@@ -10097,17 +10101,6 @@ table.dataTable tr.even td.sorting_3 {
   color: #111111 !important;
 }
 
-.paginate_disabled_previous:hover,
-.paginate_disabled_previous:focus,
-.paginate_enabled_previous:hover,
-.paginate_enabled_previous:focus,
-.paginate_disabled_next:hover,
-.paginate_disabled_next:focus,
-.paginate_enabled_next:hover,
-.paginate_enabled_next:focus {
-  text-decoration: none !important;
-}
-
 .paginate_disabled_previous,
 .paginate_disabled_next,
 .sorting_asc_disabled,
@@ -10153,11 +10146,6 @@ table.dataTable tr.even td.sorting_3 {
 .paging_full_numbers {
   height: 22px;
   line-height: 22px;
-}
-
-.paging_full_numbers a:hover,
-.paging_full_numbers a:focus {
-  text-decoration: none;
 }
 
 .paging_full_numbers a.paginate_button {
