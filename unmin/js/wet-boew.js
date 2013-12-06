@@ -775,7 +775,7 @@ var pluginName = "wb-calevt",
 
 	getAjax = function( ajaxContainer ) {
 		var $ajaxContainer = $( ajaxContainer ),
-			urls = $ajaxContainer.data( "calevt" ).split(/\s+/),
+			urls = $ajaxContainer.data( "calevt" ).split( /\s+/ ),
 			dfd = $.Deferred(),
 			len = urls.length,
 			promises = [],
@@ -812,7 +812,7 @@ var pluginName = "wb-calevt",
 		}
 
 		events = getEvents( $elm );
-		containerId = $elm.attr( "class" ).split( " " ).slice( -1 );
+		containerId = $elm.data( "calevtsrc" );
 		$containerId = $( "#" + containerId );
 
 		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days ) {
