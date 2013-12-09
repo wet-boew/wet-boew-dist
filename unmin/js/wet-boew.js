@@ -6440,9 +6440,6 @@ var pluginName = "wb-tabs",
 	initialized = false,
 	equalHeightClass = "wb-eqht",
 	equalHeightOffClass = equalHeightClass + "-off",
-	ariaExpanded = "aria-expanded",
-	ariaHidden = "aria-hidden",
-	ariaSelected = "aria-selected",
 	activePanel = "-activePanel",
 	$document = wb.doc,
 	$window = wb.win,
@@ -6568,8 +6565,8 @@ var pluginName = "wb-tabs",
 							$panel
 								.toggleClass( "open", !isOpen )
 								.attr({
-									ariaExpanded: !isOpen,
-									ariaHidden: isOpen
+									"aria-expanded": !isOpen,
+									"aria-hidden": isOpen
 								});
 						}
 					} else {
@@ -6715,9 +6712,9 @@ var pluginName = "wb-tabs",
 			item = panels[ tabCounter ];
 			isActive = item.className.indexOf( "in" ) !== -1;
 
-			if ( !isDetails ) {
-				item.setAttribute( ariaHidden, isActive ? "false" : "true" );
-				item.setAttribute( ariaExpanded, isActive ? "true" : "false" );
+			if ( !isDetails || !isSmallView ) {
+				item.setAttribute( "aria-hidden", isActive ? "false" : "true" );
+				item.setAttribute( "aria-expanded", isActive ? "true" : "false" );
 			}
 			item.setAttribute( "aria-labelledby", item.id + "-lnk" );
 		}
@@ -6730,7 +6727,7 @@ var pluginName = "wb-tabs",
 			link = item.getElementsByTagName( "a" )[ 0 ];
 			link.tabIndex = isActive ? "0" : "-1";
 			link.setAttribute( "role", "tab" );
-			link.setAttribute( ariaSelected, isActive ? "true" : "false" );
+			link.setAttribute( "aria-selected", isActive ? "true" : "false" );
 			link.setAttribute( "aria-controls", link.getAttribute( "href" ).substring( 1 ) );
 		}
 		$tabList.attr( "aria-live", "off" );
@@ -6742,16 +6739,16 @@ var pluginName = "wb-tabs",
 				.removeClass( "in" )
 				.addClass( "out" )
 				.attr({
-					ariaHidden: "true",
-					ariaExpanded: "false"
+					"aria-hidden": "true",
+					"aria-expanded": "false"
 				});
 
 		$next
 			.removeClass( "out" )
 			.addClass( "in" )
 			.attr({
-				ariaHidden: "false",
-				ariaExpanded: "true"
+				"aria-hidden": "false",
+				"aria-expanded": "true"
 			});
 			
 		$controls
@@ -6759,13 +6756,13 @@ var pluginName = "wb-tabs",
 				.removeClass( "active" )
 				.children( "a" )
 					.attr({
-						ariaSelected: "false",
+						"aria-selected": "false",
 						tabindex: "-1"
 					});
 
 		$control
 			.attr({
-				ariaSelected: "true",
+				"aria-selected": "true",
 				tabindex: "0"
 			})
 			.parent()
@@ -6876,12 +6873,12 @@ var pluginName = "wb-tabs",
 				if ( !Modernizr.details ) {
 					$nonOpenDetails
 						.attr({
-							ariaExpanded: "false",
-							ariaHidden: "true"
+							"aria-expanded": "false",
+							"aria-hidden": "true"
 						});
 					$openDetails.attr({
-						ariaExpanded: "true",
-						ariaHidden: "false"
+						"aria-expanded": "true",
+						"aria-hidden": "false"
 					});
 				}
 			} else {
@@ -6907,7 +6904,7 @@ var pluginName = "wb-tabs",
 							.trigger( "click" );
 			}
 
-			$tablist.attr( ariaHidden, isSmallView );
+			$tablist.attr( "aria-hidden", isSmallView );
 		}
 	};
 

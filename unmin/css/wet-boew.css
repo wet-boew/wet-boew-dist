@@ -10290,6 +10290,10 @@ table.dataTable tr.even td.sorting_3 {
   cursor: default;
 }
 
+.wb-tabs [role="tabpanel"] {
+  z-index: 1;
+}
+
 .wb-tabs [role="tabpanel"].out {
   display: none;
 }
@@ -10307,20 +10311,16 @@ table.dataTable tr.even td.sorting_3 {
   top: 1px;
 }
 
-.wb-tabs.carousel-s1 [role="tabpanel"] {
-  z-index: 1;
-}
-
-.wb-tabs.carousel-s1 [role="tabpanel"] figure {
+.wb-tabs.carousel-s1 figure {
   position: relative;
 }
 
-.wb-tabs.carousel-s1 [role="tabpanel"] figure img {
+.wb-tabs.carousel-s1 figure img {
   width: 100%;
   height: auto;
 }
 
-.wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption {
+.wb-tabs.carousel-s1 figcaption {
   position: absolute;
   top: 3em;
   right: 1em;
@@ -10330,7 +10330,7 @@ table.dataTable tr.even td.sorting_3 {
   padding: 1em;
 }
 
-.wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption a {
+.wb-tabs.carousel-s1 figcaption a {
   color: white;
 }
 
@@ -10390,16 +10390,16 @@ table.dataTable tr.even td.sorting_3 {
   bottom: 0;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv {
   left: 0;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt {
   right: 0;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt {
   height: 100%;
   width: 3em;
   background: none;
@@ -10407,8 +10407,8 @@ table.dataTable tr.even td.sorting_3 {
   padding: 0;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10418,67 +10418,67 @@ table.dataTable tr.even td.sorting_3 {
   border: none;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.prv,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.prv {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a.prv {
   background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.prv .glyphicon,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.prv .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a.prv .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a.prv .glyphicon {
   left: 0.25em;
   padding-top: 1px;
   padding-right: 2px;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.nxt,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a.nxt {
   background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a.nxt .glyphicon,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a.nxt .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a.nxt .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a.nxt .glyphicon {
   right: 0.25em;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover {
   background: transparent;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus.prv,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover.prv,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus.prv,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover.prv {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus.prv,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover.prv {
   background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus.nxt,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover.nxt,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus.nxt,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus.nxt,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover.nxt {
   background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:focus .glyphicon,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a:hover .glyphicon,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:focus .glyphicon,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a:hover .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover .glyphicon {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a .glyphicon,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -10494,15 +10494,15 @@ table.dataTable tr.even td.sorting_3 {
   box-shadow: 0 0 4px #243850;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:focus,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.prv a .glyphicon:hover,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:focus,
-.wb-tabs.carousel-s2 [role="tablist"] li.control.nxt a .glyphicon:hover {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon:hover,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon:focus,
+.wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon:hover {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.plypause {
+.wb-tabs.carousel-s2 [role="tablist"] li.plypause {
   background: none;
   border: none;
   display: inline-block !important;
@@ -10511,25 +10511,21 @@ table.dataTable tr.even td.sorting_3 {
   padding: 2px 10px;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.control.plypause i {
+.wb-tabs.carousel-s2 [role="tablist"] li.plypause i {
   color: black !important;
   font-style: normal;
 }
 
-.wb-tabs.carousel-s2 [role="tabpanel"] {
-  z-index: 1;
-}
-
-.wb-tabs.carousel-s2 [role="tabpanel"] figure {
+.wb-tabs.carousel-s2 figure {
   position: relative;
 }
 
-.wb-tabs.carousel-s2 [role="tabpanel"] figure img {
+.wb-tabs.carousel-s2 figure img {
   width: 100%;
   height: auto;
 }
 
-.wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption {
+.wb-tabs.carousel-s2 figcaption {
   position: absolute;
   bottom: 1em;
   left: 3em;
@@ -10539,7 +10535,7 @@ table.dataTable tr.even td.sorting_3 {
   padding: 1em;
 }
 
-.wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption a {
+.wb-tabs.carousel-s2 figcaption a {
   color: white;
 }
 
@@ -10840,6 +10836,10 @@ details summary:hover {
   .wb-tabs.carousel-s1 [role="tablist"] {
     bottom: auto;
     top: 1em;
+  }
+
+  .wb-tabs.carousel-s2 figcaption {
+    padding: 1em 60px;
   }
 
   .wb-tabs> details {
