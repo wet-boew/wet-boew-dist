@@ -10394,7 +10394,7 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a.prv,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a.prv {
-  background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -10408,7 +10408,7 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a.nxt,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a.nxt {
-  background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -10429,7 +10429,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover.prv,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus.prv,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover.prv {
-  background-image: -webkit-gradient(linear, top left, top right, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }
@@ -10438,7 +10438,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover.nxt,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus.nxt,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover.nxt {
-  background-image: -webkit-gradient(linear, top right, top left, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
   background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
 }

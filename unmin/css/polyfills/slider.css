@@ -4,7 +4,7 @@
  */
 
 .fd-slider-range {
-  background-image: -webkit-gradient(linear, top left, top right, from(#89a5bd), to(#165c91));
+  background-image: -webkit-gradient(linear, left top, right top, from(#89a5bd), to(#165c91));
   background-image: -webkit-linear-gradient(left, #89a5bd, #165c91);
   background-image: linear-gradient(left, #89a5bd, #165c91);
 }
@@ -139,7 +139,7 @@ input[type="range"] {
   border-bottom: 1px solid rgba(170, 170, 170, 0.8);
   border-right: 1px solid rgba(170, 170, 170, 0.8);
   line-height: 4px;
-  background-image: -webkit-gradient(linear, top left, bottom left, from(#ececec), to(#cccccc));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ececec), to(#cccccc));
   background-image: -webkit-linear-gradient(#ececec, #cccccc);
   background-image: linear-gradient(#ececec, #cccccc);
 }
@@ -213,7 +213,7 @@ body.fd-slider-drag-horizontal * {
   border-bottom: 1px solid rgba(153, 153, 153, 0.8);
   border-right: 1px solid rgba(153, 153, 153, 0.8);
   background-color: #555555;
-  background-image: -webkit-gradient(linear, top left, top right, from(#666666), to(#333333));
+  background-image: -webkit-gradient(linear, left top, right top, from(#666666), to(#333333));
   background-image: -webkit-linear-gradient(left, #666666, #333333);
   background-image: linear-gradient(left, #666666, #333333);
 }
@@ -221,7 +221,7 @@ body.fd-slider-drag-horizontal * {
 .fd-slider-disabled .fd-slider-range {
   cursor: auto !important;
   background-color: #222222;
-  background-image: -webkit-gradient(linear, top left, top right, from(#222222), to(#000000));
+  background-image: -webkit-gradient(linear, left top, right top, from(#222222), to(#000000));
   background-image: -webkit-linear-gradient(left, #222222, #000000);
   background-image: linear-gradient(left, #222222, #000000);
 }
