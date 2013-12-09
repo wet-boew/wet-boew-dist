@@ -8399,7 +8399,6 @@ tbody.cal-days a.cal-evt {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.cal-cnt .cal-goto legend,
 .cal-cnt .cal-goto-mnth,
 .cal-cnt .cal-goto-yr,
 .cal-cnt .cal-goto-btn {
@@ -8430,18 +8429,8 @@ tbody.cal-days a.cal-evt {
   font-size: 110%;
 }
 
-.cal-cnt .cal-goto fieldset {
-  margin-bottom: 34px;
-  border-bottom: 1px solid white;
-}
-
-.cal-cnt .cal-goto legend {
-  margin-bottom: 10px;
-}
-
-.cal-cnt .cal-goto-lnk {
-  margin: 0 0 0.5em 0;
-  padding: 0 !important;
+.cal-cnt .cal-goto {
+  display: inline-block;
 }
 
 .cal-cnt .cal-goto-mnth,
@@ -8464,27 +8453,17 @@ tbody.cal-days a.cal-evt {
 
 .cal-nxtmnth,
 .cal-prvmnth {
-  display: block;
+  display: inline-block;
   background: none;
   border: none;
-  position: absolute;
-  bottom: 0;
-  width: 44px;
-  height: 44px;
+  width: 2.5em;
+  height: 2.5em;
 }
 
 .cal-nxtmnth:focus,
 .cal-prvmnth:focus {
   outline: 1px dotted;
   outline-offset: -2px;
-}
-
-.cal-prvmnth {
-  left: 0;
-}
-
-.cal-nxtmnth {
-  right: 0;
 }
 
 .cal-wd {
@@ -8512,16 +8491,15 @@ tbody.cal-days a.cal-evt {
  */
 
 .cal-cnt .cal-hd,
-.cal-cnt .cal-nxtmnth:hover,
-.cal-cnt .cal-nxtmnth:focus,
-.cal-cnt .cal-prvmnth:hover,
-.cal-cnt .cal-prvmnth:focus,
-.cal-cnt .cal-goto legend,
+.cal-cnt .cal-nxtmnth.active:hover,
+.cal-cnt .cal-nxtmnth.active:focus,
+.cal-cnt .cal-prvmnth.active:hover,
+.cal-cnt .cal-prvmnth.active:focus,
 .cal-currday {
   color: white;
 }
 
-.cal-cnt .cal-goto-lnk a,
+.cal-cnt .cal-goto-lnk,
 .cal-days a:hover,
 .cal-days a:focus,
 .cal-currday a {
@@ -8548,13 +8526,9 @@ tbody.cal-days a.cal-evt {
   font-weight: 700;
 }
 
-.cal-cnt .cal-nxtmnth,
-.cal-cnt .cal-prvmnth {
+.cal-cnt .cal-nxtmnth.active,
+.cal-cnt .cal-prvmnth.active {
   color: #cccccc;
-}
-
-.cal-cnt .cal-goto-lnk a:focus {
-  outline-offset: 0;
 }
 
 .cal-days a {
