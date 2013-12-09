@@ -6166,7 +6166,7 @@ var pluginName = "wb-tabs",
 
 			// Determine the current view
 			isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
-				
+
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
 				i18n = wb.i18n;
@@ -6234,8 +6234,8 @@ var pluginName = "wb-tabs",
 						}
 					} else {
 						$panel.attr({
-							"role": "tabpanel",
-							"open": "open"
+							role: "tabpanel",
+							open: "open"
 						});
 						$panel.addClass( ( Modernizr.details ? "" :  "open " ) +
 							"fade " + ( isOpen ? "in" : "out" ) );
@@ -6282,10 +6282,10 @@ var pluginName = "wb-tabs",
 			}
 
 			$elm.data({
-				"panels": $panels,
-				"tablist": $tablist,
-				"delay": interval,
-				"ctime": 0
+				panels: $panels,
+				tablist: $tablist,
+				delay: interval,
+				ctime: 0
 			});
 
 			initialized = true;
@@ -6413,7 +6413,7 @@ var pluginName = "wb-tabs",
 				"aria-hidden": "false",
 				"aria-expanded": "true"
 			});
-			
+
 		$controls
 			.find( ".active" )
 				.removeClass( "active" )
@@ -6440,7 +6440,7 @@ var pluginName = "wb-tabs",
 		} catch ( error ) {
 		}
 	},
-	
+
 	/*
 	 * @method onPick
 	 * @param {jQuery DOM element} $sldr The plugin element
@@ -6517,7 +6517,7 @@ var pluginName = "wb-tabs",
 			$elm = $( selector );
 			$details = $elm.children( "details" );
 			$tablist = $elm.children( "ul" );
-			
+
 			// Disable equal heights for small view and enable for large view
 			if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
 				$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
@@ -6525,7 +6525,7 @@ var pluginName = "wb-tabs",
 
 			if ( isSmallView ) {
 
-				// Switch to small view			
+				// Switch to small view
 				$active = $tablist.find( ".active a" );
 				$openDetails = $details.filter( "#" + $active.attr( "href" ).substring( 1 ) );
 				$nonOpenDetails = $details
@@ -6554,8 +6554,8 @@ var pluginName = "wb-tabs",
 
 				$details
 					.attr({
-						"role": "tabpanel",
-						"open": "open"
+						role: "tabpanel",
+						open: "open"
 					})
 					.not( $openDetails )
 						.addClass( "fade out" );
@@ -6629,14 +6629,14 @@ var pluginName = "wb-tabs",
 			$plypause = $sldr.find( "a.plypause" );
 			$plypause.find( ".glyphicon" ).toggleClass( "glyphicon-play glyphicon-pause" );
 			$sldr.toggleClass( "playing" );
-			
+
 			text = $plypause[ 0 ].getElementsByTagName( "i" )[ 0 ];
 			text.innerHTML = text.innerHTML === playText ? i18nText.pause : playText;
-				
+
 			inv = $plypause.find( ".wb-inv" )[ 0 ];
 			inv.innerHTML = inv.innerHTML === rotStopText ? i18nText.rotStart : rotStopText;
 		}
-			
+
 		if ( which > 36 ) {
 			onCycle( $elm, which < 39 ? -1 : 1 );
 			$sldr.find( ".active a" ).trigger( setFocusEvent );
