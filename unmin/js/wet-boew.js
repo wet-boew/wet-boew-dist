@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-08
+ * v4.0.0-a1-development - 2013-12-09
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -738,6 +738,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
  */
 var pluginName = "wb-calevt",
 	selector = "." + pluginName,
+	calendarSelector = selector + "-cal",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
 	setFocusEvent = "setfocus.wb",
@@ -805,6 +806,7 @@ var pluginName = "wb-calevt",
 			events, containerId, $containerId;
 
 		if ( elmYear.length > 0 && elmMonth.length > 0 ) {
+
 			// We are going to assume this is always a number.
 			year = elmYear.text();
 
@@ -812,12 +814,15 @@ var pluginName = "wb-calevt",
 		}
 
 		events = getEvents( $elm );
-		containerId = $elm.data( "calevtsrc" );
-		$containerId = $( "#" + containerId );
+		containerId = $elm.data( "calevtSrc" );
+		$containerId = $( "#" + containerId ).addClass( calendarSelector );
 
-		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days ) {
-			addEvents(year, month, days, containerId, events.list);
-			showOnlyEventsFor(year, month, containerId);
+		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days, day ) {
+			addEvents( year, month, days, containerId, events.list );
+			showOnlyEventsFor( year, month, containerId );
+			$( event.currentTarget )
+				.find( ".cal-evt" + ( day === 1 ? ":first" : ":last" ) )
+					.trigger( "setfocus.wb" );
 		});
 		$document.trigger( "create.wb-cal", [
 				containerId,
@@ -1212,6 +1217,10 @@ $document.on( "timerpoke.wb " + initEvent, selector, function() {
 	return true;
 });
 
+$document.on( "displayed.wb-cal", calendarSelector, function( event, year, month, $days, day ) {
+	$( event.currentTarget ).find( ".cal-index-" + day ).trigger( "setfocus.wb" );
+});
+
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
@@ -1327,10 +1336,10 @@ var $document = wb.doc,
 
 		// Create the calendar body
 
-		// Creates weekdays | Cree les jours de la semaines
+		// Creates weekdays
 		$objCalendar.append( createWeekdays( calendarId ) );
 
-		// Creates the rest of the calendar | Cree le reste du calendrier
+		// Creates the rest of the calendar
 		$days = createDays( calendarId, year, month );
 		$daysList = $days.find( "td:not(.cal-empty)" );
 
@@ -1602,8 +1611,8 @@ var $document = wb.doc,
 			for ( day = 0; day < 7; day += 1 ) {
 
 				id = "cal-" + calendarId + "-w" + week + "d" + ( day + 1 );
-				className = ( day === 0 || day === 6 ? "cal-we " : "" ) +
-					"cal-w" + week + "d" + ( day + 1 ) + " cal-index-" + ( dayCount + 1 );
+				className = ( day === 0 || day === 6 ? "cal-we" : "" ) +
+					"cal-w" + week + "d" + ( day + 1 );
 
 				if ( ( week === 1 && day < firstDay ) || ( dayCount > lastDay ) ) {
 
@@ -1613,9 +1622,10 @@ var $document = wb.doc,
 
 					// Creates date cells | Cree les cellules de date
 					dayCount += 1;
+					className += " cal-index-" + dayCount;
 					isCurrentDate = ( dayCount === currDay && month === currMonth && year === currYear );
 
-					cells += "<td id='" + id + "' class='" + ( isCurrentDate ? "cal-currday " : "" ) + className + "'><div><time datetime='" + currYear + "-" +
+					cells += "<td id='" + id + "' class='" + ( isCurrentDate ? "cal-currday " : "" ) + className + "'><div><time datetime='" + year + "-" +
 						( month < 9 ? "0" : "" ) + ( month + 1 ) + "-" + ( dayCount < 10 ? "0" : "" ) + dayCount + "'><span class='wb-inv'>" + textWeekDayNames[ day ] +
 						( frenchLang ? ( " </span>" + dayCount + "<span class='wb-inv'> " + textMonthNames[ month ].toLowerCase() + " " ) :
 						( " " + textMonthNames[ month ] + " </span>" + dayCount + "<span class='wb-inv'> " ) ) + year +
