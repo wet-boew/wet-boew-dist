@@ -10537,15 +10537,15 @@ table.dataTable tr.even td.sorting_3 {
   width: 100%;
   height: 100%;
   z-index: 100;
-  visibility: hidden;
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li {
+  display: none;
   border: none;
-  visibility: visible;
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] {
+  display: inline-block;
   padding: 4px;
   top: 100%;
   background: #eeeeee;
@@ -10579,6 +10579,7 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li.control {
+  display: inline-block;
   position: absolute;
   top: 0;
   bottom: 0;
