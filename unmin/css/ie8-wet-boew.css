@@ -7195,7 +7195,8 @@ a + .wb-st-nav h2,
   margin: inherit;
 }
 
-#mb-pnl ul li ul {
+#mb-pnl ul li ul,
+#mb-pnl .modal-body h2 {
   display: none;
 }
 
@@ -8977,8 +8978,8 @@ div.errCnt ul li {
  */
 
 /*
- Menu Sass
-*/
+ * Menu Sass
+ */
 
 .expicon {
   width: 0;
@@ -9059,6 +9060,10 @@ div.errCnt ul li {
   transform: rotate(270deg);
 }
 
+#mb-pnl a:focus {
+  outline-offset: 0;
+}
+
 #mb-pnl .active a .expicon {
   -webkit-transform: none;
   -ms-transform: none;
@@ -9073,6 +9078,15 @@ div.errCnt ul li {
 #mb-pnl ul li {
   float: none !important;
   border: none !important;
+}
+
+#mb-pnl .srch-pnl form {
+  white-space: nowrap;
+}
+
+#mb-pnl .srch-pnl .form-group,
+#mb-pnl .srch-pnl button {
+  margin-bottom: 5px;
 }
 
 /*

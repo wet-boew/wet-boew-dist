@@ -187,8 +187,8 @@
 */
 
 /*
- Site menu
-*/
+ * Site menu
+ */
 
 #wb-sm {
   background: #0e4164;
@@ -274,41 +274,20 @@
 }
 
 #mb-pnl {
-  background: transparent;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  background: #0e4164;
 }
 
 #mb-pnl .modal-header {
-  position: relative;
   text-align: left;
-  margin-left: 1.23em;
-  text-decoration: none;
+  border: none;
   -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
   color: white;
   background: #2e5274;
 }
 
-#mb-pnl .modal-header:before {
-  border-bottom: 1.45em solid #2e5274;
-  border-left: 1em solid rgba(0, 0, 0, 0);
-  border-top: 1.45em solid #2e5274;
-  content: "";
-  left: -1em;
-  position: absolute;
-  top: 0;
-}
-
-#mb-pnl .modal-body {
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background: #0e4164;
-  margin-left: 1em;
-}
-
-#mb-pnl .modal-body h2 {
-  display: none;
+#mb-pnl .lng-ofr {
+  text-align: right;
 }
 
 /*
