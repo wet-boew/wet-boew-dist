@@ -604,7 +604,7 @@ Modernizr.load([
 			return !!$.data( elem, match[ 3 ] );
 		},
 		focusable: function( element ) {
-			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
+			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ), true );
 		},
 		discoverable: function( element ) {
 			return focusable( element, !isNaN( $.attr( element, "tabindex" ) ) );
