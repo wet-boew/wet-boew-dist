@@ -2,13 +2,13 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-09
+ * v4.0.0-a1-development - 2013-12-10
  *
  */@charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-09
+ * v4.0.0-a1-development - 2013-12-10
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -16,7 +16,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-09
+ * v4.0.0-a1-development - 2013-12-10
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -7255,12 +7255,23 @@ a {
  *	specifications for the Web and mobile presence.
  */
 
+.alert {
+  margin-bottom: 23px;
+}
+
+.breadcrumb {
+  margin-bottom: 23px;
+}
+
 .badge {
   font-size: 14px;
 }
 
 .btn {
+  padding: 6px 12px;
   font-size: 16px;
+  line-height: 1.4375;
+  border-radius: 4px;
 }
 
 .btn-lg {
@@ -7270,9 +7281,15 @@ a {
   border-radius: 6px;
 }
 
-.btn-sm,
-.btn-xs {
+.btn-sm {
   padding: 5px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.btn-xs {
+  padding: 1px 5px;
   font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
@@ -7283,23 +7300,45 @@ a {
 }
 
 pre {
+  padding: 11px;
+  margin: 0 0 11.5px;
   font-size: 15px;
+  line-height: 1.4375;
 }
 
 .dropdown-menu {
   font-size: 16px;
 }
 
+.dropdown-menu > li > a {
+  line-height: 1.4375;
+}
+
 .dropdown-header {
   font-size: 14px;
+  line-height: 1.4375;
 }
 
 legend {
+  margin-bottom: 23px;
   font-size: 24px;
 }
 
-.form-control {
+output {
   font-size: 16px;
+  line-height: 1.4375;
+}
+
+.form-control {
+  height: 37px;
+  font-size: 16px;
+  padding: 6px 12px;
+  line-height: 1.4375;
+}
+
+.radio,
+.checkbox {
+  min-height: 23px;
 }
 
 .input-sm {
@@ -7320,7 +7359,7 @@ textarea.input-sm {
 }
 
 .input-lg {
-  height: 48px;
+  height: 49px;
   padding: 10px 16px;
   font-size: 20px;
   line-height: 1.33;
@@ -7328,12 +7367,17 @@ textarea.input-sm {
 }
 
 select.input-lg {
-  height: 48px;
-  line-height: 48px;
+  height: 49px;
+  line-height: 49px;
 }
 
 textarea.input-lg {
   height: auto;
+}
+
+.form-horizontal .radio,
+.form-horizontal .checkbox {
+  min-height: 30px;
 }
 
 .input-group-addon {
@@ -7354,10 +7398,86 @@ textarea.input-lg {
 
 .jumbotron {
   font-size: 24px;
+  line-height: 2.15625;
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 72px;
+  }
+}
+
+.modal-title {
+  line-height: 1.4375;
+}
+
+.navbar {
+  margin-bottom: 23px;
 }
 
 .navbar-brand {
+  padding: 13.5px 15px;
   font-size: 20px;
+  line-height: 23px;
+}
+
+.navbar-nav {
+  margin: -8.25px;
+}
+
+.navbar-nav > li > a {
+  line-height: 23px;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav .open .dropdown-menu > li > a {
+    line-height: 23px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 13.5px;
+    padding-bottom: 13.5px;
+  }
+}
+
+.navbar-form {
+  margin-top: 6.5px;
+  margin-bottom: 6.5px;
+}
+
+.navbar-btn {
+  margin-top: 6.5px;
+  margin-bottom: 6.5px;
+}
+
+.navbar-btn.btn-sm {
+  margin-top: 8.5px;
+  margin-bottom: 8.5px;
+}
+
+.navbar-text {
+  margin-top: 13.5px;
+  margin-bottom: 13.5px;
+}
+
+.nav-tabs > li > a {
+  line-height: 1.4375;
+}
+
+.pager {
+  margin: 23px 0;
+}
+
+.pagination {
+  margin: 23px 0;
+}
+
+.pagination > li> a,
+.pagination > li> span {
+  line-height: 1.4375;
 }
 
 .pagination-lg> li> a,
@@ -7396,6 +7516,10 @@ textarea.input-lg {
   border-top-right-radius: 3px;
 }
 
+.panel {
+  margin-bottom: 23px;
+}
+
 .panel-title {
   font-size: 18px;
 }
@@ -7404,20 +7528,70 @@ textarea.input-lg {
   font-size: 16px;
 }
 
+.progress {
+  height: 23px;
+  margin-bottom: 23px;
+}
+
 .progress-bar {
   font-size: 14px;
+  line-height: 23px;
 }
 
 body {
   font-size: 16px;
+  line-height: 1.4375;
+}
+
+.img-thumbnail {
+  line-height: 1.4375;
+}
+
+hr {
+  margin-top: 23px;
+  margin-bottom: 23px;
+}
+
+.table {
+  margin-bottom: 23px;
+}
+
+.table> thead > tr> th,
+.table> thead > tr> td,
+.table> tbody > tr> th,
+.table> tbody > tr> td,
+.table> tfoot > tr> th,
+.table> tfoot > tr> td {
+  line-height: 1.4375;
+}
+
+@media (max-width: 767px) {
+  .table-responsive {
+    margin-bottom: 17.25px;
+  }
+}
+
+.thumbnail {
+  margin-bottom: 23px;
+  line-height: 1.4375;
 }
 
 .tooltip {
   font-size: 14px;
 }
 
-.lead {
-  font-size: 18.4px;
+h1,
+h2,
+h3 {
+  margin-top: 23px;
+  margin-bottom: 11.5px;
+}
+
+h4,
+h5,
+h6 {
+  margin-top: 11.5px;
+  margin-bottom: 11.5px;
 }
 
 h1,
@@ -7450,25 +7624,57 @@ h6,
   font-size: 14px;
 }
 
-h1 small,
-.h1 small {
-  font-size: 28px;
+p {
+  margin: 0 0 11.5px;
 }
 
-h2 small,
-.h2 small {
-  font-size: 20px;
+.lead {
+  margin-bottom: 23px;
+  font-size: 18px;
 }
 
-h3 small,
-.h3 small,
-h4 small,
-.h4 small {
-  font-size: 16px;
+@media (min-width: 768px) {
+  .lead {
+    font-size: 24px;
+  }
+}
+
+.page-header {
+  padding-bottom: 10.5px;
+  margin: 46px 0 23px;
+}
+
+ul,
+ol {
+  margin-bottom: 11.5px;
+}
+
+dl {
+  margin-bottom: 23px;
+}
+
+dt,
+dd {
+  line-height: 1.4375;
+}
+
+blockquote {
+  padding: 11.5px 23px;
+  margin: 0 0 23px;
 }
 
 blockquote p {
   font-size: 20px;
+}
+
+blockquote small,
+blockquote .small {
+  line-height: 1.4375;
+}
+
+address {
+  margin-bottom: 23px;
+  line-height: 1.4375;
 }
 
 /*
