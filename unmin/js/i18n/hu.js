@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Előző (bal nyíl gomb)",
 	first: "Első",
 	last: "Utolsó",
+	menu: "Menü",
 	"menu-close": "Zárja be a menüt",
 	"overlay-close": "Zárja be az overlay",
 	"esc-key": "(escape billentyűvel)",

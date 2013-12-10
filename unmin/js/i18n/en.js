@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Previous (left arrow key)",
 	first: "First",
 	last: "Last",
+	menu: "Menu",
 	"menu-close": "Close menu",
 	"overlay-close": "Close overlay",
 	"esc-key": "(escape key)",

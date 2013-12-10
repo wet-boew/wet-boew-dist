@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "上一个（左箭头键）",
 	first: "开始",
 	last: "末",
+	menu: "菜单",
 	"menu-close": "关闭菜单",
 	"overlay-close": "关闭叠加",
 	"esc-key": "（逃生键）",

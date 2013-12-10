@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Ankstenis (rodyklės dešinėn klavišu)",
 	first: "Pirmasis",
 	last: "Paskutinis",
+	menu: "Meniu",
 	"menu-close": "Uždaryti meniu",
 	"overlay-close": "Uždaryti perdangos",
 	"esc-key": "(\"escape\" klavišu)",

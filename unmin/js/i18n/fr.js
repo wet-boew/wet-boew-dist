@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Précedent (touche gauche)",
 	first: "Premier",
 	last: "Dernier",
+	menu: "Menu",
 	"menu-close": "Fermer le menu",
 	"overlay-close": "Fermer l'incrustation",
 	"esc-key": "(touche d'échappement)",

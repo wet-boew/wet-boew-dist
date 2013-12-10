@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "前へ（左矢印キー）",
 	first: "最初",
 	last: "最後",
+	menu: "メニュー",
 	"menu-close": "メニューを閉じる",
 	"overlay-close": "オーバーレイを閉じる",
 	"esc-key": "(「Esc」キ)",

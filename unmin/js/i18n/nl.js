@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Vorige (linkse pijlen-toets)",
 	first: "Eerste",
 	last: "Laatste",
+	menu: "Menu",
 	"menu-close": "Sluit het menu",
 	"overlay-close": "Sluit het dialoogvenster",
 	"esc-key": "(Escape-toets)",

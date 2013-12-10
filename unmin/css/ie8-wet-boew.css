@@ -7157,7 +7157,7 @@ td.visible-print {
  */
 
 /*
- Global placeholder
+ Global placeholders
  */
 
 .wb-invisible,
@@ -7175,7 +7175,8 @@ a + .wb-st-nav h2,
 .wb-sttng h2,
 .wb-org-nav .wb-ft h3,
 #wb-lng h2,
-.wb-fnote dl dt {
+.wb-fnote dl dt,
+#mb-pnl .srch-pnl label {
   height: 1px;
   width: 1px;
   clip: rect(1px, 1px, 1px, 1px);
@@ -7192,6 +7193,21 @@ a + .wb-st-nav h2,
   overflow: inherit;
   position: static;
   margin: inherit;
+}
+
+#mb-pnl ul li ul {
+  display: none;
+}
+
+.wb-menu .sm.open li,
+#mb-pnl ul li ul.open {
+  display: block;
+}
+
+.wb-menu .menu> li a:hover,
+.wb-menu .menu> li a:focus,
+.wb-menu .active> a {
+  text-decoration: none;
 }
 
 /*
@@ -8964,12 +8980,6 @@ div.errCnt ul li {
  Menu Sass
 */
 
-.wb-menu .menu> li a:hover,
-.wb-menu .menu> li a:focus,
-.wb-menu .active> a {
-  text-decoration: none;
-}
-
 .expicon {
   width: 0;
   height: 0;
@@ -8996,10 +9006,6 @@ div.errCnt ul li {
   z-index: 100;
   text-transform: none;
   top: auto;
-}
-
-.wb-menu .sm.open li {
-  display: block;
 }
 
 .wb-menu .sm.open li a {
@@ -9067,14 +9073,6 @@ div.errCnt ul li {
 #mb-pnl ul li {
   float: none !important;
   border: none !important;
-}
-
-#mb-pnl ul li ul {
-  display: none;
-}
-
-#mb-pnl ul li ul.open {
-  display: block;
 }
 
 /*
@@ -10074,6 +10072,7 @@ ol.linenums li {
   margin: 0;
   overflow: hidden;
   position: absolute;
+  top: -1000px;
 }
 
 /*

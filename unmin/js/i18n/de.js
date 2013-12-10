@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Früher (linke Pfeiltaste)",
 	first: "Erste",
 	last: "Letzte",
+	menu: "Menü",
 	"menu-close": "Schließen Sie das Menü",
 	"overlay-close": "Schließen Sie das Pop-up",
 	"esc-key": "(Escape-Taste)",

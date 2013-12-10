@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Anterior (tecla flecha izquierda)",
 	first: "Primero",
 	last: "Último",
+	menu: "Menú",
 	"menu-close": "Cierre el menú",
 	"overlay-close": "Cierre la superposición",
 	"esc-key": "(tecla \"esc\")",

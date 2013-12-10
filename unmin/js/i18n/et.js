@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Eelmine (vasakut nooleklahvi)",
 	first: "Esimene",
 	last: "Viimane",
+	menu: "Menüü",
 	"menu-close": "Sulge menüü",
 	"overlay-close": "Sulge pop-up",
 	"esc-key": "(klahviga Escape)",

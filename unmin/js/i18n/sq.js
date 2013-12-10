@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "I mëparshëm (kyç majtë arrow)",
 	first: "I parë",
 	last: "I fundit",
+	menu: "Menu",
 	"menu-close": "Mbylle menu",
 	"overlay-close": "Mbylle mbulesë",
 	"esc-key": "(kyç shpëtojnë)",

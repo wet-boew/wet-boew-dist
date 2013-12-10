@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "पिछला (बाएँ तीर कुंजी)",
 	first: "पहले",
 	last: "अंतिम",
+	menu: "मेनू",
 	"menu-close": "मेनू बंद",
 	"overlay-close": "पॉपअप बंद",
 	"esc-key": "(भागने कुंजी)",

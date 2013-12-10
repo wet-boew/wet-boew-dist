@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Lepriekšējais (pa kreisi bulta taustiņu)",
 	first: "Pirmā",
 	last: "Pēdējā",
+	menu: "Izvēlne",
 	"menu-close": "Aizveriet izvēlni",
 	"overlay-close": "Aizveriet pārklāt",
 	"esc-key": "(escape taustiņu)",

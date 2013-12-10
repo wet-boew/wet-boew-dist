@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Predchádzajúci (klávesy šípka doľava)",
 	first: "Prvé",
 	last: "Posledný",
+	menu: "Menu",
 	"menu-close": "Zavrite menu",
 	"overlay-close": "Zavrite so šablónou",
 	"esc-key": "(klávesy ESC)",

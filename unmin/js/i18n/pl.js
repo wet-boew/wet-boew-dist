@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Poprzedni (klawisz strzałka w lewo)",
 	first: "Pierwszy",
 	last: "Ostatni",
+	menu: "Menu",
 	"menu-close": "Zamknij menu",
 	"overlay-close": "Zamknij nakładkę",
 	"esc-key": "(klawisz Esc)",

@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Vorige (links pyltjie sleutel)",
 	first: "Eerste",
 	last: "Laaste",
+	menu: "Menu",
 	"menu-close": "Maak die menu",
 	"overlay-close": "Maak die oortrek",
 	"esc-key": "(Escape-sleutel)",

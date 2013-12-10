@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Fyrri (vinstri ör lykill)",
 	first: "First",
 	last: "Síðasta",
+	menu: "Valmynd",
 	"menu-close": "Loka valmynd",
 	"overlay-close": "Loka yfirlagið",
 	"esc-key": "(flýja lykill)",

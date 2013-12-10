@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Sebelumnya (tombol panah kiri)",
 	first: "Pertama",
 	last: "Terakhir",
+	menu: "Menu",
 	"menu-close": "Tutup menu",
 	"overlay-close": "Tutup hamparan",
 	"esc-key": "(tombol \"escape\")",

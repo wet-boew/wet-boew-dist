@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Bir önceki (sol ok tuşu)",
 	first: "İlk",
 	last: "Son",
+	menu: "Menü",
 	"menu-close": "Menüyü kapatmak",
 	"overlay-close": "Bindirme kapatmak",
 	"esc-key": "(escape tuşu)",

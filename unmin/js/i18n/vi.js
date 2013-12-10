@@ -58,6 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Trang trước (phím mũi tên trái)",
 	first: "Đầu tiên",
 	last: "Cuối cùng",
+	menu: "Thực đơn",
 	"menu-close": "Đóng menu",
 	"overlay-close": "Đóng lớp phủ",
 	"esc-key": "(phím thoát)",
