@@ -7155,11 +7155,8 @@ td.visible-print {
 #wb-sm h2,
 #wb-bc h2,
 #wb-sec h2,
-footer h2,
-.wb-mnavbar a,
-a + .wb-st-nav h2,
-.wb-sttng h2,
-.wb-org-nav .wb-ft h3,
+#wb-info h2,
+#mb-pnl h3,
 #wb-lng h2,
 .wb-fnote dl dt,
 #mb-pnl .srch-pnl label {
@@ -7171,8 +7168,7 @@ a + .wb-st-nav h2,
   margin: 0;
 }
 
-.wb-sl:focus,
-.wb-mnavbar a:focus {
+.wb-sl:focus {
   height: inherit;
   width: inherit;
   clip: rect(auto, auto, auto, auto);
