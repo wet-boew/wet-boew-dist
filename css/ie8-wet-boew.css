@@ -9740,22 +9740,21 @@ img.mfp-img {
 
 .wb-mltmd .display {
   position: relative;
-  padding-bottom: 52.25%;
-  padding-top: 22px;
   background: black;
-  height: 0;
 }
 
-.wb-mltmd .display iframe,
-.wb-mltmd .display video,
-.wb-mltmd .display object,
-.wb-mltmd .display embed,
 .wb-mltmd .display .wb-mm-ovrly {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+.wb-mltmd .display video,
+.wb-mltmd .display object,
+.wb-mltmd .display iframe {
+  width: 100%;
+  margin-bottom: -7px;
 }
 
 .wb-mltmd .display.waiting:after {
