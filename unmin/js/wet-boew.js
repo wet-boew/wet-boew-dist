@@ -165,6 +165,8 @@ var getUrlParts = function( url ) {
 
 		nodes: $(),
 
+		resizeEvents: "xxsmallview.wb xsmallview.wb smallview.wb mediumview.wb largeview.wb xlargeview.wb",
+
 		add: function( selector ) {
 
 			// Lets ensure we are not running if things are disabled
@@ -6535,6 +6537,7 @@ var pluginName = "wb-tabs",
 	equalHeightClass = "wb-eqht",
 	equalHeightOffClass = equalHeightClass + "-off",
 	activePanel = "-activePanel",
+	activateEvent = "click vclick keydown",
 	$document = wb.doc,
 	$window = wb.win,
 	i18n, i18nText,
@@ -6567,6 +6570,7 @@ var pluginName = "wb-tabs",
 				$openPanel = activeId.length !== 0 ? $panels.filter( "#" + activeId ) : undefined,
 				elmId = $elm.attr( "id" ),
 				hashFocus = false,
+				open = "open",
 				$panel, i, len, tablist, isOpen, newId,
 				$summaries, summary, positionY;
 
@@ -6629,8 +6633,8 @@ var pluginName = "wb-tabs",
 						$openPanel = $panels.eq( 0 );
 					}
 				}
-				$panels.removeAttr( "open" );
-				$openPanel.attr( "open", "open" );
+				$panels.removeAttr( open );
+				$openPanel.attr( open, open );
 
 				// Hide the tablist in small view and the summary elements in large view
 				tablist = "<ul role='tablist' aria-live='off'>";
@@ -6652,7 +6656,7 @@ var pluginName = "wb-tabs",
 						uniqueCount += 1;
 						$panel.attr( "id", newId );
 					}
-					isOpen = !!$panel.attr( "open" );
+					isOpen = !!$panel.attr( open );
 
 					if ( isSmallView ) {
 						if ( !Modernizr.details ) {
@@ -6666,9 +6670,9 @@ var pluginName = "wb-tabs",
 					} else {
 						$panel.attr({
 							role: "tabpanel",
-							open: "open"
+							open: open
 						});
-						$panel.addClass( ( Modernizr.details ? "" :  "open " ) +
+						$panel.addClass( ( Modernizr.details ? "" :  open + " " ) +
 							"fade " + ( isOpen ? "in" : "out" ) );
 					}
 
@@ -7039,7 +7043,7 @@ var pluginName = "wb-tabs",
  /*
   * Tabs, next, previous and play/pause
   */
- $document.on( "click vclick keydown", controls, function( event ) {
+ $document.on( activateEvent, controls, function( event ) {
 	var which = event.which,
 		elm = event.currentTarget,
 		className = elm.className,
@@ -7092,14 +7096,14 @@ var pluginName = "wb-tabs",
 });
 
 // These events only fire at the document level
-$document.on( "xxsmallview.wb xsmallview.wb smallview.wb mediumview.wb largeview.wb xlargeview.wb", onResize );
+$document.on( wb.resizeEvents, onResize );
 
 // This event only fires on the window
 $window.on( "hashchange", onHashChange );
 
 -// Update the hash with the current open details/tab panel id
 
-$document.on( "click vclick keydown", selector + " > details > summary", function( event ) {
+$document.on( activateEvent, selector + " > details > summary", function( event ) {
 	var which = event.which,
 		details = event.currentTarget.parentNode;
 
