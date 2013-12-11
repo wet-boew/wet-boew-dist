@@ -323,7 +323,7 @@
 }
 
 #wb-bc li:first-child:before {
-  content: "";
+  content: " ";
 }
 
 [dir=rtl] #wb-bc li:before {
