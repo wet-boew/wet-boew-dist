@@ -7159,7 +7159,8 @@ td.visible-print {
 #mb-pnl h3,
 #wb-lng h2,
 .wb-fnote dl dt,
-#mb-pnl .srch-pnl label {
+#mb-pnl .srch-pnl label,
+.wb-mm-ctrls .wb-mm-txtonly span {
   height: 1px;
   width: 1px;
   clip: rect(1px, 1px, 1px, 1px);
@@ -7168,7 +7169,20 @@ td.visible-print {
   margin: 0;
 }
 
-.wb-sl:focus {
+.wb-sl:focus,
+.xxsmallview .wb-mm-txtonly span~ span,
+.mediumview .col-md-1 .wb-mm-txtonly span~ span,
+.mediumview .col-md-2 .wb-mm-txtonly span~ span,
+.mediumview .col-md-3 .wb-mm-txtonly span~ span,
+.largeview .col-md-1 .wb-mm-txtonly span~ span,
+.largeview .col-md-2 .wb-mm-txtonly span~ span,
+.largeview .col-md-3 .wb-mm-txtonly span~ span,
+.xlargeview .col-md-1 .wb-mm-txtonly span~ span,
+.xlargeview .col-md-2 .wb-mm-txtonly span~ span,
+.xlargeview .col-md-3 .wb-mm-txtonly span~ span,
+.xxlargeview .col-md-1 .wb-mm-txtonly span~ span,
+.xxlargeview .col-md-2 .wb-mm-txtonly span~ span,
+.xxlargeview .col-md-3 .wb-mm-txtonly span~ span {
   height: inherit;
   width: inherit;
   clip: rect(auto, auto, auto, auto);
@@ -9633,7 +9647,6 @@ img.mfp-img {
   Multimedia Player Code
  */
 
-.wb-mm-ctrls .wb-mm-txtonly,
 .xxsmallview .wb-mm-prgrss,
 .mediumview .col-md-1 .wb-mm-prgrss,
 .mediumview .col-md-2 .wb-mm-prgrss,
@@ -9648,22 +9661,6 @@ img.mfp-img {
 .xxlargeview .col-md-2 .wb-mm-prgrss,
 .xxlargeview .col-md-3 .wb-mm-prgrss {
   display: none;
-}
-
-.xxsmallview .wb-mm-txtonly,
-.mediumview .col-md-1 .wb-mm-txtonly,
-.mediumview .col-md-2 .wb-mm-txtonly,
-.mediumview .col-md-3 .wb-mm-txtonly,
-.largeview .col-md-1 .wb-mm-txtonly,
-.largeview .col-md-2 .wb-mm-txtonly,
-.largeview .col-md-3 .wb-mm-txtonly,
-.xlargeview .col-md-1 .wb-mm-txtonly,
-.xlargeview .col-md-2 .wb-mm-txtonly,
-.xlargeview .col-md-3 .wb-mm-txtonly,
-.xxlargeview .col-md-1 .wb-mm-txtonly,
-.xxlargeview .col-md-2 .wb-mm-txtonly,
-.xxlargeview .col-md-3 .wb-mm-txtonly {
-  display: block;
 }
 
 @-webkit-keyframes spin {
@@ -9854,9 +9851,12 @@ img.mfp-img {
 
 .wb-mm-ctrls .tline .wb-mm-tmln-crrnt,
 .wb-mm-ctrls .tline .wb-mm-tmln-ttl {
-  display: inline !important;
-  margin-right: 0;
-  margin-left: 0;
+  margin: 0;
+  float: left;
+}
+
+.wb-mm-ctrls .tline .wb-mm-tmln-ttl {
+  float: right;
 }
 
 .wb-mm-ctrls .cc {
@@ -9880,6 +9880,10 @@ img.mfp-img {
 
 .wb-mm-ctrls progress::-webkit-progress-value {
   background: #176ca7;
+}
+
+.wb-mm-ctrls .progress {
+  height: 14px;
 }
 
 /*
