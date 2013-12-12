@@ -2,13 +2,13 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-11
+ * v4.0.0-a1-development - 2013-12-12
  *
  */@charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-11
+ * v4.0.0-a1-development - 2013-12-12
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -16,7 +16,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-11
+ * v4.0.0-a1-development - 2013-12-12
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -9024,6 +9024,10 @@ div.errCnt ul li {
   display: block;
 }
 
+.wb-menu .active .expicon {
+  border-top-color: black;
+}
+
 .wb-menu .sm-open .expicon {
   border-color: transparent !important;
 }
@@ -10996,60 +11000,9 @@ details summary:hover {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-  /*
- Menu Sass (small view and under)
-*/
-
-  /*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
   /**
  * Mobile-friendly styles
  */
-
-  .wb-menu {
-    position: absolute;
-    z-index: 1000;
-    top: 0;
-    right: -100%;
-    display: none !important;
-  }
-
-  .wb-menu:target {
-    width: 75%;
-    right: 0;
-    display: block !important;
-  }
-
-  .wb-menu .nav-close {
-    text-align: right;
-    margin-bottom: 5px;
-    padding: 5px 10px;
-  }
-
-  .wb-menu .menu {
-    display: block;
-  }
-
-  .wb-menu .menu> li {
-    display: block;
-  }
-
-  .wb-menu .menu> li a {
-    text-align: left;
-  }
-
-  .wb-menu .sm,
-  .wb-menu .sm.open {
-    display: block;
-    position: relative;
-    z-index: auto;
-    text-transform: none;
-    top: auto;
-    min-width: 0;
-  }
 
   .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"],
   .wb-tabs.tabs-acc> ul {
@@ -11178,6 +11131,15 @@ details summary:hover {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+  /*
+ * Menu Sass (medium view and over)
+ */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
   /**
  * Small view-friendly styles
  */
@@ -11198,6 +11160,10 @@ details summary:hover {
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
+  }
+
+  #mb-pnl {
+    display: none;
   }
 
   .wb-tabs> details {
