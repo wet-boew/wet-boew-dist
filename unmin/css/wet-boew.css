@@ -9051,9 +9051,9 @@ div.errCnt ul li {
 }
 
 #mb-pnl .active a .expicon {
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
 }
 
 #mb-pnl ul {
@@ -9073,6 +9073,14 @@ div.errCnt ul li {
 #mb-pnl .srch-pnl .form-group,
 #mb-pnl .srch-pnl button {
   margin-bottom: 5px;
+}
+
+[dir=rtl] #mb-pnl a .expicon {
+  left: auto;
+  right: -1em;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 /*

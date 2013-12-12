@@ -278,7 +278,6 @@
 }
 
 #mb-pnl .modal-header {
-  text-align: left;
   border: none;
   -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
@@ -288,6 +287,10 @@
 
 #mb-pnl .lng-ofr {
   text-align: right;
+}
+
+[dir=rtl] #mb-pnl .lng-ofr {
+  text-align: left;
 }
 
 /*
