@@ -3343,7 +3343,7 @@ var pluginName = "wb-menu",
 		// Add the secondary navigation
 		if ( secnav !== null ) {
 			panel += navOpen + siteNavElement + " class='sec-pnl'>" +
-				secnav.innerHTML + navClose;
+				secnav.innerHTML.replace( /list-group-item/gi, "" ) + navClose;
 		}
 
 		// Add the site menu
@@ -3378,9 +3378,6 @@ var pluginName = "wb-menu",
 				"<ul class='list-unstyled menu'>" + infoHtml + "</ul>" + navClose;
 		}
 
-		// Clean up some extra markup
-		//panel = panel.replace( /\bclass="([^"]+)"/gi, "" );
-
 		// Sanitize the DOM
 		panel = panel
 			.replace( /(for|id)="([^"]+)"/gi, "$1='$2-imprt'" )
@@ -3389,11 +3386,11 @@ var pluginName = "wb-menu",
 			.replace( /h2>/gi, "h3>" );
 
 		// Let's create the DOM Element
-		$panel = $( "<section id='" + target +
+		$panel = $( "<div id='" + target +
 				"' class='wb-overlay modal-content overlay-def wb-panel-r'>" +
-				"<header class='modal-header'><h2 class='modal-title'>" +
-				i18nText.menu  + "</h2>" + "</header><div class='modal-body'>" +
-				panel + "</div>" + "</section>" );
+				"<header class='modal-header'><div class='modal-title'>" +
+				i18nText.menu  + "</div>" + "</header><div class='modal-body'>" +
+				panel + "</div>" + "</div>" );
 
 		// Let's add some features
 		$panel.find( "[href^='#']" )

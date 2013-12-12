@@ -48,6 +48,26 @@
 }
 
 /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
+ * Menu Sass (noscript)
+ */
+
+#wb-srch,
+#wb-sm,
+#wb-sec,
+#wb-info {
+  display: block !important;
+}
+
+#wb-glb-mn {
+  display: none !important;
+}
+
+/*
  Polyfills
  */
 

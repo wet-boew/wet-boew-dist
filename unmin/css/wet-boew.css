@@ -9973,10 +9973,7 @@ img.mfp-img {
   padding: 0 44px 0 1em;
 }
 
-.overlay-def header h1,
-.overlay-def header h2,
-.overlay-def header h3,
-.overlay-def header h4 {
+.overlay-def .modal-title {
   font-size: 1.15em;
   padding: 10px 0;
 }
@@ -11117,15 +11114,6 @@ details summary:hover {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-  /*
- * Menu Sass (medium view and over)
- */
-
-  /*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
   /**
  * Small view-friendly styles
  */
@@ -11146,10 +11134,6 @@ details summary:hover {
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
-  }
-
-  #mb-pnl {
-    display: none;
   }
 
   .wb-tabs> details {

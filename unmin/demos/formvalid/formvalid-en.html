@@ -65,16 +65,16 @@
 
 					</section>
 					<div class="container">
-	<div class="row text-right">
+	<div class="row">
 		<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
 			<h2>Menu</h2>
 			<ul class="list-inline text-right">
 				<li><a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a></li>
 			</ul>
+			<div id="mb-pnl"></div>
 		</section>
 	</div>
 </div>
-<div id="mb-pnl" class="wb-overlay modal-content overlay-def wb-panel-r"></div>
 
 				</div>
 
@@ -108,8 +108,8 @@
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" data-ajax-fetch="../../ajax/sitemenu-en.html" data-import="wb-sec wb-srch" data-trgt="mb-pnl" class="wb-menu" typeof="SiteNavigationElement">
-				<div class="container visible-md visible-lg nvbar">
+			<nav role="navigation" id="wb-sm" data-ajax-fetch="../../ajax/sitemenu-en.html" data-import="wb-sec wb-srch" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+				<div class="container nvbar">
 	<h2>Site menu</h2>
     <div class="row">
         <ul class="list-inline menu">
@@ -223,14 +223,35 @@
 </noscript>
 
 				</div>
-
 			</div>
 		</main>
 
 		<!-- Secondary Menu
-		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement">
+		<main role="main" property="mainContentOfPage" class="col-md-9 col-md-push-3">
+			<h1 id="wb-cont" property="name">Form validation</h1>
+		</main>
+
+		<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
 			<h2>Secondary menu</h2>
-			 
+			<ul class="list-group menu list-unstyled">
+	<li><a class="list-group-item item" href="#sect1">Section 1</a>
+		<ul class="list-group list-unstyled" id="sect1">
+			<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 1a</a></li>
+			<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 1b</a></li>
+			<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 1c</a></li>
+			<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 1d</a></li>
+			<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 1e</a></li>
+		</ul>
+	</li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 2</a></li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 3</a></li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 4</a></li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 5</a></li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 6</a></li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 7</a></li>
+	<li><a class="list-group-item" href="/v4.0-ci/unmin/index-en">Item 8</a></li>
+</ul>
+
 		</nav>
 		[optional] -->
 
