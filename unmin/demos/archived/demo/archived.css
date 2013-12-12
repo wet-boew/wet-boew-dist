@@ -2,30 +2,46 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+
 #archived-bnr {
-  background-color: #ffdd00; }
-  #archived-bnr p {
-    text-align: center;
-    margin: 0; }
-  #archived-bnr a {
-    display: block;
-    padding: 0.75em 44px;
-    color: black;
-    text-decoration: none;
-    font-weight: 700; }
-    #archived-bnr a:hover, #archived-bnr a:focus {
-      text-decoration: underline; }
-  #archived-bnr .overlay-close {
-    color: black; }
+  background-color: #ffdd00;
+}
+
+#archived-bnr p {
+  text-align: center;
+  margin: 0;
+}
+
+#archived-bnr a {
+  display: block;
+  padding: 0.75em 44px;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#archived-bnr a:hover,
+#archived-bnr a:focus {
+  text-decoration: underline;
+}
+
+#archived-bnr .overlay-close {
+  color: black;
+}
 
 #archived {
   background-color: #ffffcc;
-  border: 1px solid #ffdd00; }
-  #archived p {
-    padding-top: 10px;
-    padding-bottom: 10px; }
-  #archived h2 {
-    background-color: #ffdd00;
-    color: black;
-    margin: 0;
-    padding: 2px 10px 2px 10px; }
+  border: 1px solid #ffdd00;
+}
+
+#archived p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#archived h2 {
+  background-color: #ffdd00;
+  color: black;
+  margin: 0;
+  padding: 2px 10px 2px 10px;
+}
