@@ -8946,176 +8946,6 @@ div.errCnt ul li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.mfp-close:focus,
-.mfp-arrow:focus {
-  outline: 1px dotted;
-  outline-offset: -2px;
-  outline-color: white;
-}
-
-.lbx-hide-gal li {
-  list-style-type: none;
-  display: none;
-}
-
-.lbx-hide-gal li:first-child {
-  display: block;
-}
-
-.mfp-close {
-  font-weight: 700;
-  /* Should fix upstream in Magnific Popup rather than overriding in WET */
-}
-
-/* Should fix upstream in Magnific Popup rather than overriding in WET */
-
-/* Should fix upstream in Magnific Popup rather than overriding in WET */
-
-.mfp-bottom-bar .mfp-title {
-  width: 75%;
-  padding-right: 5px;
-}
-
-.mfp-bottom-bar .mfp-counter {
-  font-size: 1em;
-  width: 25%;
-  text-align: right;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
-/*
- * Menu Sass
- */
-
-.expicon {
-  width: 0;
-  height: 0;
-  border-left: 0.35em solid transparent;
-  border-right: 0.35em solid transparent;
-  border-top: 0.35em solid white;
-  position: relative;
-  left: 0.75em;
-  top: 0.75em;
-  margin-right: 0.35em;
-}
-
-.wb-menu .sm {
-  display: none;
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-}
-
-.wb-menu .sm.open {
-  max-height: 1000px;
-  display: inline;
-  position: absolute;
-  z-index: 100;
-  text-transform: none;
-  top: auto;
-}
-
-.wb-menu .sm.open li a {
-  text-align: left;
-}
-
-.wb-menu .menu {
-  display: table;
-  position: relative;
-}
-
-.wb-menu .menu> li {
-  position: relative;
-  display: table-cell;
-}
-
-.wb-menu .menu> li a {
-  text-align: center;
-  display: block;
-}
-
-.wb-menu .active .expicon {
-  border-top-color: black;
-}
-
-.wb-menu .sm-open .expicon {
-  border-color: transparent !important;
-}
-
-[dir=rtl] .wb-menu .menu {
-  padding-right: 0;
-}
-
-[dir=rtl] .wb-menu .sm.open li a {
-  text-align: right;
-}
-
-[dir=rtl] .expicon {
-  left: auto;
-  right: 0.75em;
-  margin-right: 0;
-  margin-left: 0.35em;
-}
-
-#mb-pnl a {
-  position: relative;
-}
-
-#mb-pnl a .expicon {
-  position: absolute;
-  top: 0.5em;
-  left: -1em;
-  -webkit-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  transform: rotate(270deg);
-}
-
-#mb-pnl a:focus {
-  outline-offset: 0;
-}
-
-#mb-pnl .active a .expicon {
-  -webkit-transform: none !important;
-  -ms-transform: none !important;
-  transform: none !important;
-}
-
-#mb-pnl ul {
-  float: none !important;
-  padding-left: 0;
-}
-
-#mb-pnl ul li {
-  float: none !important;
-  border: none !important;
-}
-
-#mb-pnl .srch-pnl form {
-  white-space: nowrap;
-}
-
-#mb-pnl .srch-pnl .form-group,
-#mb-pnl .srch-pnl button {
-  margin-bottom: 5px;
-}
-
-[dir=rtl] #mb-pnl a .expicon {
-  left: auto;
-  right: -1em;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
 /* Magnific Popup CSS */
 
 .mfp-bg {
@@ -9614,47 +9444,175 @@ img.mfp-img {
   padding-top: 0;
 }
 
-.mfp-content .modal-dialog {
+.mfp-close:focus,
+.mfp-arrow:focus {
+  outline: 1px dotted;
+  outline-offset: -2px;
+  outline-color: white;
+}
+
+.lbx-hide-gal li {
+  list-style-type: none;
+  display: none;
+}
+
+.lbx-hide-gal li:first-child {
+  display: block;
+}
+
+.modal-dialog {
   padding: 0;
   position: relative;
   left: auto;
 }
 
-.mfp-zoom-in .modal-dialog {
-  opacity: 0;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
+.mfp-close {
+  font-weight: 700;
+  /* Should fix upstream in Magnific Popup rather than overriding in WET */
 }
 
-.mfp-zoom-in.mfp-bg {
-  opacity: 0;
-  -webkit-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+/* Should fix upstream in Magnific Popup rather than overriding in WET */
+
+/* Should fix upstream in Magnific Popup rather than overriding in WET */
+
+.mfp-bottom-bar .mfp-title {
+  width: 75%;
+  padding-right: 5px;
 }
 
-.mfp-zoom-in.mfp-ready .modal-dialog {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
+.mfp-bottom-bar .mfp-counter {
+  font-size: 1em;
+  width: 25%;
+  text-align: right;
 }
 
-.mfp-zoom-in.mfp-ready.mfp-bg {
-  opacity: 0.8;
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
+ * Menu Sass
+ */
+
+.expicon {
+  width: 0;
+  height: 0;
+  border-left: 0.35em solid transparent;
+  border-right: 0.35em solid transparent;
+  border-top: 0.35em solid white;
+  position: relative;
+  left: 0.75em;
+  top: 0.75em;
+  margin-right: 0.35em;
 }
 
-.mfp-zoom-in.mfp-removing .modal-dialog {
-  -webkit-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  transform: scale(0.8);
-  opacity: 0;
+.wb-menu .sm {
+  display: none;
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
 }
 
-.mfp-zoom-in.mfp-removing.mfp-bg {
-  opacity: 0;
+.wb-menu .sm.open {
+  max-height: 1000px;
+  display: inline;
+  position: absolute;
+  z-index: 100;
+  text-transform: none;
+  top: auto;
+}
+
+.wb-menu .sm.open li a {
+  text-align: left;
+}
+
+.wb-menu .menu {
+  display: table;
+  position: relative;
+}
+
+.wb-menu .menu> li {
+  position: relative;
+  display: table-cell;
+}
+
+.wb-menu .menu> li a {
+  text-align: center;
+  display: block;
+}
+
+.wb-menu .active .expicon {
+  border-top-color: black;
+}
+
+.wb-menu .sm-open .expicon {
+  border-color: transparent !important;
+}
+
+[dir=rtl] .wb-menu .menu {
+  padding-right: 0;
+}
+
+[dir=rtl] .wb-menu .sm.open li a {
+  text-align: right;
+}
+
+[dir=rtl] .expicon {
+  left: auto;
+  right: 0.75em;
+  margin-right: 0;
+  margin-left: 0.35em;
+}
+
+#mb-pnl a {
+  position: relative;
+}
+
+#mb-pnl a .expicon {
+  position: absolute;
+  top: 0.5em;
+  left: -1em;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+#mb-pnl a:focus {
+  outline-offset: 0;
+}
+
+#mb-pnl .active a .expicon {
+  -webkit-transform: none !important;
+  -ms-transform: none !important;
+  transform: none !important;
+}
+
+#mb-pnl ul {
+  float: none !important;
+  padding-left: 0;
+}
+
+#mb-pnl ul li {
+  float: none !important;
+  border: none !important;
+}
+
+#mb-pnl .srch-pnl form {
+  white-space: nowrap;
+}
+
+#mb-pnl .srch-pnl .form-group,
+#mb-pnl .srch-pnl button {
+  margin-bottom: 5px;
+}
+
+[dir=rtl] #mb-pnl a .expicon {
+  left: auto;
+  right: -1em;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 /*
