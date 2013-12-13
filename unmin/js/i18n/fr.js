@@ -29,7 +29,7 @@ wb.i18nDict = {
 	curr: "(actuel)",
 	hide: "Masquer",
 	err: "Erreur",
-	colon: ":",
+	colon: " :",
 	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
