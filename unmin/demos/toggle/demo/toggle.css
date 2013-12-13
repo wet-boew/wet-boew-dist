@@ -3,7 +3,7 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.box {
+main .box {
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -14,11 +14,11 @@
   transition: background-color 0.5s;
 }
 
-.box.on {
+main .box.on {
   background-color: #428bca;
 }
 
-details,
-.btn-group {
+main details,
+main .btn-group {
   margin: 10px 0;
 }

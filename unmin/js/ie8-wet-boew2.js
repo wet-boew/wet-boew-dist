@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-12
+ * v4.0.0-a1-development - 2013-12-13
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3348,7 +3348,7 @@ var pluginName = "wb-menu",
 	 * @method imageListify
 	 */
 	imageListify = function( match, p1, p2 ) {
-		return "<a href='" + p2.match(/href="([^"]+)"/)[1] + "'>" + p1 + "</a>";
+		return "<a href='" + p2.match( /href="([^"]+)"/ )[ 1 ] + "'>" + p1 + "</a>";
 	},
 
 	/**
@@ -3362,18 +3362,26 @@ var pluginName = "wb-menu",
 
 			// Optimized the code block to look to see if we need to import anything instead
 			// of just doing a query with which could result in no result
-			sectionPrefix = "mb-pnl-id-",
 			target = $elm.data( "trgt" ),
 			info = document.getElementById( "wb-info" ),
-			secnav = document.getElementById( "wb-sec" ),
+			$secnav = $( "#wb-sec" ),
 			$language = $( "#wb-lng" ),
 			search = document.getElementById( "wb-srch" ),
 			panel = "",
 			navOpen = "<nav role='navigation'",
 			siteNavElement = " typeof='SiteNavigationElement'",
 			navClose = "</nav>",
-			infoHtml = "",
-			$onlypnl, $panel, sectionId, infoSections, i, len;
+			sectionUlOpen = "<ul class='list-unstyled'>",
+			sectionUlClose = "</ul>",
+			detailsOpen = "<li><details>",
+			detailsClose = "</details></li>",
+			summaryOpen = "<summary class='wb-toggle tgl-tab' data-toggle='{\"parent\": \"#mb-pnl\", \"group\": \"details\"}'>",
+			summaryClose = "</summary>",
+			panelOpen = "<div class='tgl-panel'>",
+			panelClose = "</div>",
+			allProperties = [],
+			sectionHtml, $onlypnl, $panel, sections, section,
+			properties, originalHtml, i, j, len, len2;
 
 		/*
 		 * Build the mobile panel
@@ -3381,7 +3389,11 @@ var pluginName = "wb-menu",
 
 		// Add search
 		if ( search !== null ) {
-			panel += "<section class='srch-pnl'>" + search.innerHTML + "</section>";
+			panel += "<section class='srch-pnl'>" +
+				search.innerHTML
+					.replace( /h2>/i, "h3>" )
+					.replace( /(for|id)="([^"]+)"/gi, "$1='$2-imprt'" ) +
+				"</section>";
 		}
 
 		// Add active language offer
@@ -3392,63 +3404,85 @@ var pluginName = "wb-menu",
 				"</section>";
 		}
 
-		// Add the secondary navigation
-		if ( secnav !== null ) {
-			panel += navOpen + siteNavElement + " class='sec-pnl'>" +
-				secnav.innerHTML.replace( /list-group-item/gi, "" ) + navClose;
+		// Add the secondary menu
+		if ( $secnav.length !== 0 ) {
+			allProperties.push([
+				$secnav.find( "> ul > li > a" ).get(),
+				"sec-pnl",
+				$secnav.find( "h2" ).html()
+			]);
 		}
 
 		// Add the site menu
 		if ( $menubar.length !== 0 ) {
-
-			panel += navOpen + siteNavElement + " class='sm-pnl'>" +
-				"<h3>" + $ajaxed.find( "h2" ).html() + "</h3>" +
-				"<ul class='list-unstyled menu'>" +
-				$menubar.html()
-					.replace(
-						/(id="|href="#)([^"]+)"/gi,
-						"$1" + sectionPrefix + "$2\""
-					) +
-				"</ul>" + navClose;
+			allProperties.push([
+				$menu.get(),
+				"sm-pnl",
+				$ajaxed.find( "h2" ).html()
+			]);
 		}
+
+		// Process the secondary and site menus
+		len = allProperties.length;
+		for ( i = 0; i !== len; i += 1 ) {
+			properties = allProperties[ i ];
+			sectionHtml = "";
+			sections = properties[ 0 ];
+			len2 = sections.length;
+			for ( j = 0; j !== len2; j += 1 ) {
+				section = sections[ j ];
+				if ( section.getAttribute( "href" ).charAt( 0 ) === "#" ) {
+					sectionHtml += detailsOpen +
+						summaryOpen + section.innerHTML + summaryClose +
+						panelOpen + sectionUlOpen +
+						section.parentNode.getElementsByTagName( "ul" )[ 0 ].innerHTML +
+						sectionUlClose + panelClose + detailsClose;
+				} else {
+					sectionHtml += "<li class='no-sect'>" + section.innerHTML + "</li>";
+				}
+			}
+			panel += navOpen + siteNavElement + " class='" + properties[ 1 ] + "'>" +
+				"<h3>" + properties[ 2 ] + "</h3>" +
+				sectionUlOpen + sectionHtml + sectionUlClose + navClose;
+		}
+		panel = panel
+			.replace( /list-group-item/gi, "" )
+			.replace( /\srole="menu([^"]*)"/gi, "" );
 
 		// Add the site information
 		if ( info !== null ) {
-			infoSections = info.getElementsByTagName( "section" );
-			len = infoSections.length;
+			sectionHtml = "";
+			sections = info.getElementsByTagName( "section" );
+			len = sections.length;
 			for ( i = 0; i !== len; i += 1 ) {
-				sectionId = sectionPrefix + i;
-				infoHtml += "<li>";
+				section = sections[ i ];
+				originalHtml = section.innerHTML;
 
-				// Lets check for other types of treatments in the section ( currently only supporting image and ul )
-				if ( infoSections[ i ].innerHTML.indexOf( "<ul" ) > -1 ){
+				// Let's check for other types of treatments in the section
+				// (currently only supporting image and ul)
+				if ( originalHtml.indexOf( "<ul" ) !== -1 ) {
 
 					// We have an unordered list
-					infoHtml += infoSections[ i ].innerHTML
-						.replace( /<h3.*?>(.*?)<\/h3>/i, "<a href='#" + sectionId + "' class='item'>$1</a>" )
-						.replace( /<ul/, "<ul id='" + sectionId + "'" );
-
+					sectionHtml += detailsOpen +
+							originalHtml
+								.replace(
+									/<h3.*?>(.*?)<\/h3>/i,
+									summaryOpen + "$1" + summaryClose + panelOpen
+								) + panelClose + detailsClose;
 				} else {
 
 					// We have another sort of treatment
-					infoHtml += infoSections[ i ].innerHTML
-						.replace( /<h3[^>]*?>(.*?)<\/h3>([\s\S]*)$/i, imageListify );
+					sectionHtml += "<li class='no-sect'>" + originalHtml.replace(
+							/<h3[^>]*?>(.*?)<\/h3>([\s\S]*)$/i,
+							imageListify
+						) + "</li>";
 				}
-
-				infoHtml +=	"</li>";
 			}
 
 			panel += navOpen + " class='info-pnl'>" +
 				"<h3>" + info.getElementsByTagName( "h2" )[ 0 ].innerHTML + "</h3>" +
-				"<ul class='list-unstyled menu'>" + infoHtml + "</ul>" + navClose;
+				sectionUlOpen + sectionHtml + sectionUlClose + navClose;
 		}
-
-		// Sanitize the DOM
-		panel = panel
-			.replace( /(for|id)="([^"]+)"/gi, "$1='$2-imprt'" )
-			.replace( /href="#([^"]+)"/gi, "href='#$1-imprt'" )
-			.replace( /\srole="menu([^"]*)"/gi, "" )
-			.replace( /h2>/gi, "h3>" );
 
 		// Let's create the DOM Element
 		$panel = $( "<div id='" + target +
@@ -3457,14 +3491,13 @@ var pluginName = "wb-menu",
 				i18nText.menu  + "</div>" + "</header><div class='modal-body'>" +
 				panel + "</div>" + "</div>" );
 
-		// Let's add some features
-		$panel.find( "[href^='#']" )
-			.prepend( "<span class='expicon'></span>" );
-
 		// Let's now populate the DOM since we have done all the work in a documentFragment
 		$( "#" + target ).replaceWith( $panel );
 
-		$panel.trigger( "wb-init.wb-overlay" );
+		$panel
+			.trigger( "wb-init.wb-overlay" )
+			.find( ".wb-toggle" )
+				.trigger( "wb-init.wb-toggle" );
 
 		/*
 		 * Build the regular mega menu
@@ -3891,30 +3924,6 @@ $document.on( "mediumview.wb largeview.wb xlargeview.wb", function() {
 	if ( mobilePanel && mobilePanel.getAttribute( "aria-hidden" ) === "false" ) {
 		$( mobilePanel ).trigger( "close.wb-overlay" );
 	}
-});
-
-// Handle clicks in the mobile panel
-$document.on( "click vclick", "#mb-pnl a[href^='#']", function() {
-	var $elm = $( this ),
-		$parent = $elm.parent(),
-		$panel = $parent.closest( "#mb-pnl" ),
-		state = $parent.hasClass( "active" );
-
-	onClose( $panel.find( ".active" ), true );
-
-	if ( !state ) {
-		$panel
-			.find( $elm.attr( "href" ) )
-				.addClass( "open" )
-				.attr({
-					"aria-hidden": "false",
-					"aria-expanded": "true"
-				})
-				.parent()
-					.addClass( "active" );
-	}
-
-	return false;
 });
 
 // Add the timer poke to initialize the plugin
@@ -6197,8 +6206,7 @@ var pluginName = "wb-tabs",
 				elmId = $elm.attr( "id" ),
 				hashFocus = false,
 				open = "open",
-				$panel, i, len, tablist, isOpen, newId,
-				$summaries, summary, positionY;
+				$panel, i, len, tablist, isOpen, newId, positionY;
 
 			// Ensure there is an id on the element
 			if ( !elmId ) {
@@ -6248,7 +6256,6 @@ var pluginName = "wb-tabs",
 				$elm.addClass( "tabs-acc" );
 				addControls = false;
 				$panels = $elm.children();
-				$summaries = $panels.children( "summary" );
 				len = $panels.length;
 
 				// Ensure there is only one panel open
@@ -6267,15 +6274,15 @@ var pluginName = "wb-tabs",
 				if ( isSmallView && $elm.hasClass( equalHeightClass ) ) {
 					$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
 				}
-				$summaries
-					.addClass( "wb-toggle" )
-					.attr( "data-toggle", "{\"parent\": \"#" + elmId +
-						"\", \"group\": \"details\"}" )
-					.trigger( "wb-init.wb-toggle" );
 
 				for ( i = 0; i !== len; i += 1 ) {
 					$panel = $panels.eq( i );
-					summary = $summaries[ i ];
+					$panel.html(
+						$panel.html()
+							.replace( /(<\/summary>)/i, "$1<div class='tgl-panel'>" ) +
+						"</div>"
+					);
+
 					newId = $panel.attr( "id" );
 					if ( !newId ) {
 						newId = "tabpanel" + uniqueCount;
@@ -6286,12 +6293,7 @@ var pluginName = "wb-tabs",
 
 					if ( isSmallView ) {
 						if ( !Modernizr.details ) {
-							$panel
-								.toggleClass( "open", !isOpen )
-								.attr({
-									"aria-expanded": !isOpen,
-									"aria-hidden": isOpen
-								});
+							$panel.toggleClass( "open", !isOpen );
 						}
 					} else {
 						$panel.attr({
@@ -6304,10 +6306,17 @@ var pluginName = "wb-tabs",
 
 					tablist += "<li" + ( isOpen ? " class='active'" : "" ) +
 						"><a id='" + newId + "-lnk' href='#" + newId + "'>" +
-						summary.innerHTML + "</a></li>";
+						$panel.children( "summary" ).html() + "</a></li>";
 				}
+
 				$tablist = $( tablist + "</ul>" );
-				$elm.prepend( $tablist );
+				$elm
+					.prepend( $tablist )
+					.find( "summary" )
+					.addClass( "wb-toggle tgl-tab" )
+					.attr( "data-toggle", "{\"parent\": \"#" + elmId +
+						"\", \"group\": \"details\"}" )
+					.trigger( "wb-init.wb-toggle" );
 			} else if ( $openPanel && $openPanel.length !== 0 ) {
 				$panels.filter( ".in" )
 					.addClass( "out" )
@@ -6881,7 +6890,7 @@ var pluginName = "wb-toggle",
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
 	 */
 	setAria = function( event, data ) {
-		var i, len, elm, $elm, $parent, $tab,
+		var i, len, elm, $elm, $parent, $tab, isOpen,
 			ariaControls = "",
 			link = event.target,
 			prefix = "wb-" + new Date().getTime(),
@@ -6895,21 +6904,32 @@ var pluginName = "wb-toggle",
 			if ( !$parent.data( "init" ) ) {
 				$parent
 					.attr( "role", "tablist" )
-					.find( ".tab" )
+					.find( ".tgl-tab" )
 						.attr( "role", "tab" );
 				$parent
-					.find( ".panel" )
-						.attr( "role", "panel" );
+					.find( ".tgl-panel" )
+						.attr( "role", "tabpanel" );
 
 				// Create the tab/panel relationships
 				$elms = $parent.find( data.group );
 				for ( i = 0, len = $elms.length; i !== len; i += 1 ) {
 					$elm = $elms.eq( i );
-					$tab = $elm.find( ".tab" );
+					$tab = $elm.find( ".tgl-tab" );
 					if ( !$tab.attr( "id" ) ) {
 						$tab.attr( "id", prefix + i );
 					}
-					$elm.find( ".panel" ).attr( "aria-labelledby", $tab.attr( "id" ) );
+
+					isOpen = $elm[ 0 ].nodeName.toLowerCase() === "details" ?
+						!!$elm.attr( "open" ) :
+						$tab.hasClass( "on" );
+
+					$tab.attr( "aria-selected", isOpen );
+					$elm.find( ".tgl-panel" )
+						.attr({
+							"aria-labelledby": $tab.attr( "id" ),
+							"aria-expanded": isOpen,
+							"aria-hidden": !isOpen
+						});
 				}
 
 				// Mark this group toggle widget as initialized
@@ -6952,7 +6972,7 @@ var pluginName = "wb-toggle",
 		var dataGroup, $elmsGroup,
 			isGroup = !!data.group,
 			isTablist = isGroup && !!data.parent,
-			link = event.target,
+			link = event.currentTarget,
 			$link = $( link ),
 			stateFrom = getState( $link, data ),
 			isToggleOn = stateFrom === data.stateOff,
@@ -6967,7 +6987,7 @@ var pluginName = "wb-toggle",
 			$elmsGroup = getElements( link, dataGroup );
 
 			// Set the toggle state to "off".  For tab lists, this is stored on the tab element
-			setState( isTablist ? $( data.parent ).find( ".tab" ) : $elmsGroup,
+			setState( isTablist ? $( data.parent ).find( ".tgl-tab" ) : $elmsGroup,
 				dataGroup, data.stateOff );
 
 			// Toggle all grouped elements to "off"
@@ -6979,7 +6999,7 @@ var pluginName = "wb-toggle",
 			});
 		}
 
-		// Set the toggle state.  For tab lists, this is set on the tab element
+		// Set the toggle state. For tab lists, this is set on the tab element
 		setState( isTablist ? $link : $elms, data, stateTo );
 
 		// Toggle all elements to the requested state
@@ -7015,8 +7035,8 @@ var pluginName = "wb-toggle",
 		if ( data.isTablist ) {
 
 			// Set the required aria attributes
-			$elms.find( ".tab" ).attr( "aria-selected", isOn );
-			$elms.find( ".panel" ).attr({
+			$elms.find( ".tgl-tab" ).attr( "aria-selected", isOn );
+			$elms.find( ".tgl-panel" ).attr({
 				"aria-hidden": !isOn,
 				"aria-expanded": isOn
 			});
@@ -7054,24 +7074,31 @@ var pluginName = "wb-toggle",
 			selector = data.selector,
 			type = data.type;
 
-		// No toggle type: get the current on/off state of the elements
-		// specified by the selector and parent
-		if ( !type ) {
-			if ( !selector ) {
-				return $link.data( "state" ) || data.stateOff;
+		if ( $link[ 0 ].nodeName.toLowerCase() === "summary" ) {
 
-			} else if ( states.hasOwnProperty( selector ) ) {
-				return states[ selector ].hasOwnProperty( parent ) ?
-					states[ selector ][ parent ] :
-					states[ selector ].all;
+			// Use the open attribute to determine state
+			return $link.parent().attr( "open" ) ? data.stateOn : data.stateOff;
+		} else {
+
+			// No toggle type: get the current on/off state of the elements
+			// specified by the selector and parent
+			if ( !type ) {
+				if ( !selector ) {
+					return $link.data( "state" ) || data.stateOff;
+
+				} else if ( states.hasOwnProperty( selector ) ) {
+					return states[ selector ].hasOwnProperty( parent ) ?
+						states[ selector ][ parent ] :
+						states[ selector ].all;
+				}
+
+				return data.stateOff;
 			}
 
-			return data.stateOff;
+			// Type: get opposite state of the type. Toggle reverses this
+			// to the requested state.
+			return type === data.stateOn ? data.stateOff : data.stateOn;
 		}
-
-		// Type: get opposite state of the type. Toggle reverses this
-		// to the requested state.
-		return type === data.stateOn ? data.stateOff : data.stateOn;
 	},
 
 	/*

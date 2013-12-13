@@ -43,39 +43,38 @@
 		<header role="banner">
 			<div id="wb-bnr">
 				<div id="wb-bar">
-					<section id="wb-lng" class="visible-md visible-lg">
-						<h2>Language selection</h2>
-						<div class="container">
-	<div class="row text-right">
-		<ul>
-
-	
-			<li>
-				<a lang="fr" href="toggle-fr.html">Français</a>
-			</li>
-	
-
-			<li class="curr">
-				English&#32;<span>(current)</span>
-			</li>
-
-		</ul>
-	</div>
-</div>
-
-					</section>
 					<div class="container">
-	<div class="row">
-		<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
-			<h2>Menu</h2>
-			<ul class="list-inline text-right">
-				<li><a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a></li>
-			</ul>
-			<div id="mb-pnl"></div>
-		</section>
-	</div>
-</div>
+						<div class="row">
 
+							<section id="wb-lng" class="visible-md visible-lg">
+								<h2>Language selection</h2>
+								<ul class="text-right">
+
+	
+	<li>
+		<a lang="fr" href="toggle-fr.html">Français</a>
+	</li>
+	
+
+	<li class="curr">
+		English&#32;<span>(current)</span>
+	</li>
+
+</ul>
+
+							</section>
+
+							<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+								<h2>Menu</h2>
+								<ul class="pnl-btn list-inline text-right">
+	<li><a href="#mb-pnl" title="Menu" aria-controls="mb-pnl" class="overlay-lnk" role="button"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Menu</span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+
+							</section>
+
+						</div>
+					</div>
 				</div>
 
 				<div class="container">
@@ -459,8 +458,8 @@
 			<div class="accordion">
 
 				<details>
-					<summary class="wb-toggle tab" data-toggle='{"parent": ".accordion", "group": "details"}'>Example 1</summary>
-					<div class="panel">
+					<summary class="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": "details"}'>Example 1</summary>
+					<div class="tgl-panel">
 						<p>Example content that provides more details.</p>
 						<table>
 							<caption>Cups of coffee consumed by each delegate</caption>
@@ -491,8 +490,8 @@
 				</details>
 
 				<details>
-					<summary class="wb-toggle tab" data-toggle='{"parent": ".accordion", "group": "details"}'>Example 2</summary>
-					<div class="panel">
+					<summary class="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": "details"}'>Example 2</summary>
+					<div class="tgl-panel">
 						<p>Example content that provides more details.</p>
 						<table>
 							<caption>Cups of coffee consumed by each delegate</caption>
@@ -523,8 +522,8 @@
 				</details>
 
 				<details>
-					<summary class="wb-toggle tab" data-toggle='{"parent": ".accordion", "group": "details"}'>Example 3</summary>
-					<div class="panel">
+					<summary class="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": "details"}'>Example 3</summary>
+					<div class="tgl-panel">
 						<p>Example content that provides more details.</p>
 						<table>
 							<caption>Cups of coffee consumed by each delegate</caption>
@@ -562,8 +561,8 @@
 				<li>For each accordion section:
 					<ul>
 						<li>Add the <code>.wb-toggle</code> class and <code>data-toggle</code> attribute to the element the user will click to open/close the section.</li>
-						<li>Add the <code>.tab</code> class to the element that shows the section's heading.</li>
-						<li>Wrap the content in a <code>&lt;div class="panel"&gt;</code> element.</li>
+						<li>Add the <code>.tgl-tab</code> class to the element that shows the section's heading.</li>
+						<li>Wrap the content in a <code>&lt;div class="tgl-panel"&gt;</code> element.</li>
 					</ul>
 				</li>
 			</ul>

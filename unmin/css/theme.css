@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-12
+ * v4.0.0-a1-development - 2013-12-13
  *
  *//*
  *
@@ -100,25 +100,29 @@
   min-height: 2.2em;
 }
 
-#wb-bar a {
-  color: white;
-  text-decoration: none;
-}
-
-#wb-bar ul {
+#wb-lng ul,
+#wb-glb-mn .pnl-btn {
   float: right;
   margin: 0;
 }
 
-#wb-bar ul li {
+#wb-lng ul li,
+#wb-glb-mn .pnl-btn li {
   border-left: 1px solid #777777;
   list-style-type: none;
   float: left;
   padding: 6px 10px;
 }
 
-#wb-bar ul li:first-child {
+#wb-lng ul li:first-child,
+#wb-glb-mn .pnl-btn li:first-child {
   border-left: none;
+}
+
+#wb-lng ul li a,
+#wb-glb-mn .pnl-btn li a {
+  color: white;
+  text-decoration: none;
 }
 
 #wb-sttl a {
@@ -148,7 +152,8 @@
   float: left;
 }
 
-[dir=rtl] #wb-bar ul {
+[dir=rtl] #wb-lng> ul,
+[dir=rtl] #wb-glb-mn> ul {
   float: left;
 }
 
@@ -287,6 +292,17 @@
 
 #mb-pnl .lng-ofr {
   text-align: right;
+}
+
+#mb-pnl summary:hover,
+#mb-pnl summary:focus {
+  background: transparent;
+  color: white;
+}
+
+#mb-pnl a {
+  color: white;
+  text-decoration: none;
 }
 
 [dir=rtl] #mb-pnl .lng-ofr {
