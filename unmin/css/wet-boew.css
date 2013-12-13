@@ -9591,24 +9591,8 @@ img.mfp-img {
   padding-left: 2em;
 }
 
-#mb-pnl .srch-pnl input,
-#mb-pnl .srch-pnl button {
-  margin-bottom: 5px;
-}
-
 #mb-pnl .srch-pnl form {
   white-space: nowrap;
-}
-
-#mb-pnl .srch-pnl .form-group {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: auto;
-}
-
-#mb-pnl .srch-pnl input {
-  display: inline-block;
-  width: auto;
 }
 
 [dir=rtl] #mb-pnl details ul {
