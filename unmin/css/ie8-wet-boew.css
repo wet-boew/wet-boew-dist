@@ -11039,11 +11039,6 @@ details summary:hover {
   @title: Small view and over (screen only)
  */
 
-  /*
-  WET-BOEW
-  @title: Bootstrap overrides for WET-BOEW (small view and over)
- */
-
   .colcount-sm-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -11054,14 +11049,6 @@ details summary:hover {
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
-  }
-
-  h1 {
-    font-size: 72px;
-  }
-
-  .lead {
-    font-size: 24px;
   }
 }
 
