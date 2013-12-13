@@ -119,10 +119,18 @@
   border-left: none;
 }
 
-#wb-lng ul li a,
-#wb-glb-mn .pnl-btn li a {
+#wb-lng ul a,
+#wb-glb-mn .pnl-btn a {
   color: white;
   text-decoration: none;
+}
+
+#wb-glb-mn .pnl-btn li {
+  padding: 3px 10px 0;
+}
+
+#wb-glb-mn .pnl-btn a {
+  font-size: 1.5em;
 }
 
 #wb-sttl a {
