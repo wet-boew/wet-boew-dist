@@ -6849,7 +6849,6 @@ var pluginName = "wb-toggle",
 	selectorTab = ".tgl-tab",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
-	ariaEvent = "aria" + selector,
 	toggleEvent = "toggle" + selector,
 	toggledEvent = "toggled" + selector,
 	states = {},
@@ -6884,20 +6883,19 @@ var pluginName = "wb-toggle",
 			data = $.extend( {}, defaults, $link.data( "toggle" ) );
 			$link.data( "toggle", data );
 
-			// Initialize the aria-controls attribute of the link
-			$link.trigger( ariaEvent, data );
+			// Initialize the aria attributes of the toggle element
+			initAria( link, data );
 		}
 	},
 
 	/**
-	 * Sets the aria attribute for a given toggle element
-	 * @param {jQuery Event} event The event that triggered this invocation
+	 * Initialize the aria attributes for a given toggle element
+	 * @param {DOM element} link The toggle element to initialize
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
 	 */
-	setAria = function( event, data ) {
+	initAria = function( link, data ) {
 		var i, len, elm, elms, parent, tab, panel, isOpen,
 			ariaControls = "",
-			link = event.target,
 			prefix = "wb-" + new Date().getTime();
 
 		// Group toggle elements with a parent are assumed to be a tablist
@@ -7142,7 +7140,7 @@ var pluginName = "wb-toggle",
 	};
 
 // Bind the plugin's events
-$document.on( "timerpoke.wb " + initEvent + " " + ariaEvent + " " + toggleEvent +
+$document.on( "timerpoke.wb " + initEvent + " " + toggleEvent +
 	" click", selector, function( event, data ) {
 
 	var eventType = event.type;
@@ -7153,9 +7151,6 @@ $document.on( "timerpoke.wb " + initEvent + " " + ariaEvent + " " + toggleEvent 
 		break;
 	case "toggle":
 		toggle( event, data );
-		break;
-	case "aria":
-		setAria( event, data );
 		break;
 	case "timerpoke":
 	case "wb-init":
