@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-13
+ * v4.0.0-a1-development - 2013-12-14
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6845,6 +6845,8 @@ wb.add( selector );
  */
 var pluginName = "wb-toggle",
 	selector = "." + pluginName,
+	selectorPanel = ".tgl-panel",
+	selectorTab = ".tgl-tab",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
 	ariaEvent = "aria" + selector,
@@ -6893,56 +6895,50 @@ var pluginName = "wb-toggle",
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
 	 */
 	setAria = function( event, data ) {
-		var i, len, elm, $elm, $parent, $tab, isOpen,
+		var i, len, elm, elms, parent, tab, panel, isOpen,
 			ariaControls = "",
 			link = event.target,
-			prefix = "wb-" + new Date().getTime(),
-			$elms = getElements( link, data );
+			prefix = "wb-" + new Date().getTime();
 
 		// Group toggle elements with a parent are assumed to be a tablist
 		if ( data.group != null && data.parent != null ) {
-			$parent = $( data.parent );
+			parent = document.querySelector( data.parent );
 
-			// Check that the group toggle widget hasn't already been initialized
-			if ( !$parent.data( "init" ) ) {
-				$parent
-					.attr( "role", "tablist" )
-					.find( ".tgl-tab" )
-						.attr( "role", "tab" );
-				$parent
-					.find( ".tgl-panel" )
-						.attr( "role", "tabpanel" );
+			// Check that the tablist widget hasn't already been initialized
+			if ( parent.getAttribute( "role" ) !== "tablist" ) {
+				parent.setAttribute( "role", "tablist" );
 
-				// Create the tab/panel relationships
-				$elms = $parent.find( data.group );
-				for ( i = 0, len = $elms.length; i !== len; i += 1 ) {
-					$elm = $elms.eq( i );
-					$tab = $elm.find( ".tgl-tab" );
-					if ( !$tab.attr( "id" ) ) {
-						$tab.attr( "id", prefix + i );
+				// Set the tab and panel aria attributes
+				elms = parent.querySelectorAll( data.group );
+				for ( i = 0, len = elms.length; i !== len; i += 1 ) {
+					elm = elms[ i ];
+					tab = elm.querySelector( selectorTab );
+					panel = elm.querySelector( selectorPanel );
+					
+					// Check if the element is toggled on based on the 
+					// open attribute or "on" CSS class
+					isOpen = elm.nodeName.toLowerCase() === "details" ?
+						!!elm.getAttribute( "open" ) :
+						( " " + tab.className + " " ).indexOf( " " + data.stateOn + " " );
+					
+					if ( !tab.getAttribute( "id" ) ) {
+						tab.setAttribute( "id", prefix + i );
 					}
-
-					isOpen = $elm[ 0 ].nodeName.toLowerCase() === "details" ?
-						!!$elm.attr( "open" ) :
-						$tab.hasClass( "on" );
-
-					$tab.attr( "aria-selected", isOpen );
-					$elm.find( ".tgl-panel" )
-						.attr({
-							"aria-labelledby": $tab.attr( "id" ),
-							"aria-expanded": isOpen,
-							"aria-hidden": !isOpen
-						});
+					tab.setAttribute( "role", "tab" );
+					tab.setAttribute( "aria-selected", isOpen );
+					
+					panel.setAttribute( "role", "tabpanel" );
+					panel.setAttribute( "aria-labelledby", tab.getAttribute( "id" ) );
+					panel.setAttribute( "aria-expanded", isOpen );
+					panel.setAttribute( "aria-hidden", !isOpen );
 				}
-
-				// Mark this group toggle widget as initialized
-				$parent.data( "init", true );
 			}
 
 		// Set the elements this link controls
 		} else {
-			for ( i = 0, len = $elms.length; i !== len; i += 1 ) {
-				elm = $elms[ i ];
+			elms = getElements( link, data );
+			for ( i = 0, len = elms.length; i !== len; i += 1 ) {
+				elm = elms[ i ];
 				if ( !elm.id ) {
 					elm.id = prefix + i;
 				}
@@ -6991,7 +6987,7 @@ var pluginName = "wb-toggle",
 			$elmsGroup = getElements( link, dataGroup ).filter( "." + data.stateOn + ", [open]" );
 
 			// Set the toggle state to "off".  For tab lists, this is stored on the tab element
-			setState( isTablist ? $( data.parent ).find( ".tgl-tab" ) : $elmsGroup,
+			setState( isTablist ? $( data.parent ).find( selectorTab ) : $elmsGroup,
 				dataGroup, data.stateOff );
 
 			// Toggle all grouped elements to "off"
@@ -7039,8 +7035,8 @@ var pluginName = "wb-toggle",
 		if ( data.isTablist ) {
 
 			// Set the required aria attributes
-			$elms.find( ".tgl-tab" ).attr( "aria-selected", isOn );
-			$elms.find( ".tgl-panel" ).attr({
+			$elms.find( selectorTab ).attr( "aria-selected", isOn );
+			$elms.find( selectorPanel ).attr({
 				"aria-hidden": !isOn,
 				"aria-expanded": isOn
 			});
