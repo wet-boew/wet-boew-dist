@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-14
+ * v4.0.0-a1-development - 2013-12-15
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3742,8 +3742,10 @@ var pluginName = "wb-menu",
 		if ( $language.length !== 0 ) {
 			panel += "<section class='lng-ofr'>" +
 				"<h3>" + $language.children( "h2" ).html() + "</h3>" +
-				$language.find( "li:not(.curr)" ).html() +
-				"</section>";
+				"<ul class='list-inline'>" +
+				$language.find( "li:not(.curr)" ).html()
+					.replace( /(<a\s.*<\/a>?)/, "<li>$1</li>" ) +
+				"</ul></section>";
 		}
 
 		// Add the secondary menu

@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-14
+ * v4.0.0-a1-development - 2013-12-15
  *
  *//*
  *
@@ -295,18 +295,50 @@
   display: none;
 }
 
-#mb-pnl {
+#mb-pnl .lng-ofr,
+#mb-pnl .srch-pnl,
+#mb-pnl .sm-pnl {
   background: #0e4164;
+}
+
+#mb-pnl .srch-pnl,
+#mb-pnl .sec-pnl,
+#mb-pnl .sm-pnl,
+#mb-pnl .info-pnl {
+  padding: 10px 20px;
+}
+
+#mb-pnl {
+  background: #193451;
 }
 
 #mb-pnl .modal-header {
   border: none;
+  border-bottom: 1px solid #072337;
   -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.3), 3px 3px 3px -2px rgba(0, 0, 0, 0.3), -3px 3px 3px -2px rgba(0, 0, 0, 0.3);
 }
 
+#mb-pnl .modal-body {
+  padding: 0;
+}
+
+#mb-pnl .modal-body li {
+  line-height: 2em;
+}
+
+#mb-pnl .modal-body> :first-child {
+  padding-top: 20px;
+}
+
 #mb-pnl .lng-ofr {
+  padding: 5px 20px;
   text-align: right;
+}
+
+#mb-pnl .lng-ofr li {
+  padding-left: 10px;
+  line-height: normal;
 }
 
 #mb-pnl summary:hover,
@@ -326,8 +358,22 @@
   width: 75%;
 }
 
+#mb-pnl .sec-pnl {
+  background: #cdd4da;
+}
+
+#mb-pnl .sec-pnl a,
+#mb-pnl .sec-pnl summary {
+  color: #2e5576;
+}
+
 [dir=rtl] #mb-pnl .lng-ofr {
   text-align: left;
+}
+
+[dir=rtl] #mb-pnl .lng-ofr li {
+  padding-left: 0;
+  padding-right: 10px;
 }
 
 [dir=rtl] #mb-pnl .srch-pnl .form-group {
