@@ -3379,7 +3379,7 @@ var pluginName = "wb-menu",
 			panelClose = "</div>",
 			allProperties = [],
 			sectionHtml, $onlypnl, $panel, sections, section,
-			properties, originalHtml, i, j, len, len2;
+			properties, originalHtml, i, j, len, len2, $navCurr;
 
 		/*
 		 * Build the mobile panel
@@ -3549,6 +3549,13 @@ var pluginName = "wb-menu",
 		setTimeout(function() {
 			$elm.trigger( navCurrentEvent, breadcrumb );
 			$panel.trigger( navCurrentEvent, breadcrumb );
+
+			// Open up the first menu with wb-navcurr
+			$navCurr = $panel.find( ".wb-navcurr" ).first();
+			if ( !$navCurr.hasClass( ".tgl-tab" ) ) {
+				$navCurr = $navCurr.parents( "details" ).children( "summary" );
+			}
+			$navCurr.trigger( "click" );
 		}, 1 );
 	},
 
