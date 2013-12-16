@@ -10,3 +10,8 @@ meter {
 .meter {
   margin-bottom: 0;
 }
+
+.no-js #decreaseMeter,
+.no-js #increaseMeter {
+  display: none;
+}

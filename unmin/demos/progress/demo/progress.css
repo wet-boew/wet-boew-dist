@@ -10,3 +10,7 @@ progress {
 .progress {
   margin-bottom: 0;
 }
+
+.no-js #updateProgress {
+  display: none;
+}
