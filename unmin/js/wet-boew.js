@@ -3627,14 +3627,6 @@ var pluginName = "wb-menu",
 					fetch: $elm.data( "ajax-fetch" )
 				});
 			} else {
-
-				// Trigger the navcurrent plugin
-				$elm
-					.trigger( navCurrentEvent, breadcrumb )
-					.find( ".menu" )
-						.attr( "role", "menubar" );
-				$( "#wb-sec" ).trigger( navCurrentEvent, breadcrumb );
-				
 				onAjaxLoaded( $elm, $elm );
 			}
 		}
@@ -3761,6 +3753,14 @@ var pluginName = "wb-menu",
 				"sec-pnl",
 				$secnav.find( "h2" ).html()
 			]);
+
+			if ( !$secnav.hasClass( "wb-navcurr" ) ) {
+
+				// Trigger the navcurrent plugin
+				setTimeout(function() {
+					$secnav.trigger( navCurrentEvent, breadcrumb );
+				}, 1 );
+			}
 		}
 
 		// Add the site menu
@@ -3832,6 +3832,14 @@ var pluginName = "wb-menu",
 			panel += navOpen + " class='info-pnl'>" +
 				"<h3>" + info.getElementsByTagName( "h2" )[ 0 ].innerHTML + "</h3>" +
 				sectionUlOpen + sectionHtml + sectionUlClose + navClose;
+
+			if ( info.className.indexOf( "wb-navcurr" ) === -1 ) {
+
+				// Trigger the navcurrent plugin
+				setTimeout(function() {
+					$( info ).trigger( navCurrentEvent, breadcrumb );
+				}, 1 );
+			}
 		}
 
 		// Let's create the DOM Element
@@ -3880,7 +3888,10 @@ var pluginName = "wb-menu",
 		});
 
 		// Trigger the navcurrent plugin
-		$elm.trigger( navCurrentEvent, breadcrumb );
+		setTimeout(function() {
+			$elm.trigger( navCurrentEvent, breadcrumb );
+			$panel.trigger( navCurrentEvent, breadcrumb );
+		}, 1 );
 	},
 
 	/**
@@ -5302,7 +5313,9 @@ var $document = wb.doc,
 
 		if ( match ) {
 			link.className += " " + navClass;
-			if ( menu.className.indexOf( "wb-menu" ) !== -1 && link.className.indexOf( "item" ) === -1 ) {
+			if ( menu.id === "mb-pnl" ) {
+				link.parentNode.parentNode.parentNode.parentNode.getElementsByTagName( "summary" )[ 0 ].className += " " + navClass;
+			} else if ( menu.className.indexOf( "wb-menu" ) !== -1 && link.className.indexOf( "item" ) === -1 ) {
 				link.parentNode.parentNode.parentNode.getElementsByTagName( "a" )[ 0 ].className += " " + navClass;
 			}
 		}
