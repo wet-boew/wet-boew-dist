@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-a1-development - 2013-12-15
+ * v4.0.0-a1-development - 2013-12-16
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3368,6 +3368,7 @@ var pluginName = "wb-menu",
 			// Optimized the code block to look to see if we need to import anything instead
 			// of just doing a query with which could result in no result
 			target = $elm.data( "trgt" ),
+			groupClass = target + "-grp",
 			info = document.getElementById( "wb-info" ),
 			$secnav = $( "#wb-sec" ),
 			$language = $( "#wb-lng" ),
@@ -3378,9 +3379,9 @@ var pluginName = "wb-menu",
 			navClose = "</nav>",
 			sectionUlOpen = "<ul class='list-unstyled'>",
 			sectionUlClose = "</ul>",
-			detailsOpen = "<li><details>",
+			detailsOpen = "<li><details class='" + groupClass + "'>",
 			detailsClose = "</details></li>",
-			summaryOpen = "<summary class='wb-toggle tgl-tab' data-toggle='{\"parent\": \"#mb-pnl\", \"group\": \"details\"}'>",
+			summaryOpen = "<summary class='wb-toggle tgl-tab' data-toggle='{\"parent\": \"#mb-pnl\", \"group\": \"." + groupClass + "\"}'>",
 			summaryClose = "</summary>",
 			panelOpen = "<div class='tgl-panel'>",
 			panelClose = "</div>",
@@ -6216,7 +6217,7 @@ var pluginName = "wb-tabs",
 				elmId = $elm.attr( "id" ),
 				hashFocus = false,
 				open = "open",
-				$panel, i, len, tablist, isOpen, newId, positionY;
+				$panel, i, len, tablist, isOpen, newId, positionY, groupClass;
 
 			// Ensure there is an id on the element
 			if ( !elmId ) {
@@ -6264,6 +6265,7 @@ var pluginName = "wb-tabs",
 			// Build the tablist and enhance the panels as needed for details/summary
 			if ( $tablist.length === 0 ) {
 				$elm.addClass( "tabs-acc" );
+				groupClass = elmId + "-grp";
 				addControls = false;
 				$panels = $elm.children();
 				len = $panels.length;
@@ -6287,11 +6289,13 @@ var pluginName = "wb-tabs",
 
 				for ( i = 0; i !== len; i += 1 ) {
 					$panel = $panels.eq( i );
-					$panel.html(
-						$panel.html()
-							.replace( /(<\/summary>)/i, "$1<div class='tgl-panel'>" ) +
-						"</div>"
-					);
+					$panel
+						.addClass( groupClass )
+						.html(
+							$panel.html()
+								.replace( /(<\/summary>)/i, "$1<div class='tgl-panel'>" ) +
+							"</div>"
+						);
 
 					newId = $panel.attr( "id" );
 					if ( !newId ) {
@@ -6322,11 +6326,11 @@ var pluginName = "wb-tabs",
 				$tablist = $( tablist + "</ul>" );
 				$elm
 					.prepend( $tablist )
-					.find( "summary" )
-					.addClass( "wb-toggle tgl-tab" )
-					.attr( "data-toggle", "{\"parent\": \"#" + elmId +
-						"\", \"group\": \"details\"}" )
-					.trigger( "wb-init.wb-toggle" );
+					.find( "> details > summary" )
+						.addClass( "wb-toggle tgl-tab" )
+						.attr( "data-toggle", "{\"parent\": \"#" + elmId +
+							"\", \"group\": \"." + groupClass + "\"}" )
+						.trigger( "wb-init.wb-toggle" );
 			} else if ( $openPanel && $openPanel.length !== 0 ) {
 				$panels.filter( ".in" )
 					.addClass( "out" )
