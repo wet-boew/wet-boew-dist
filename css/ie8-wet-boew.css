@@ -7726,6 +7726,40 @@ code {
 }
 
 /*
+ *	Firefox-safe line height on input[type="reset|button|submit"]
+ */
+
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+  height: 37px;
+}
+
+input[type="reset"].btn-lg,
+input[type="reset"].input-lg,
+input[type="button"].btn-lg,
+input[type="button"].input-lg,
+input[type="submit"].btn-lg,
+input[type="submit"].input-lg {
+  height: 49px;
+}
+
+input[type="reset"].btn-sm,
+input[type="reset"].input-sm,
+input[type="button"].btn-sm,
+input[type="button"].input-sm,
+input[type="submit"].btn-sm,
+input[type="submit"].input-sm {
+  height: 33px;
+}
+
+input[type="reset"].btn-xs,
+input[type="button"].btn-xs,
+input[type="submit"].btn-xs {
+  height: 25px;
+}
+
+/*
   WET-BOEW
   @title: Language selector
  */
