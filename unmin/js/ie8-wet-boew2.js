@@ -6757,13 +6757,25 @@ var pluginName = "wb-tabs",
 	return true;
 });
 
+$document.on( "keydown", selector + " [role=tabpanel]", function( event ) {
+	var currentTarget = event.currentTarget;
+
+	// Ctrl + Up arrow
+	if ( event.ctrlKey && event.which === 38 ) {
+
+		// Move focus to the summary element
+		$( currentTarget )
+			.parents( selector )
+				.find( "[href$='#" + currentTarget.id + "']" )
+					.trigger( "setfocus.wb" );
+	}
+});
+
 // These events only fire at the document level
 $document.on( wb.resizeEvents, onResize );
 
 // This event only fires on the window
 $window.on( "hashchange", onHashChange );
-
--// Update the hash with the current open details/tab panel id
 
 $document.on( activateEvent, selector + " > details > summary", function( event ) {
 	var which = event.which,
@@ -6918,8 +6930,9 @@ var pluginName = "wb-toggle",
 	 * @param {Object} data Simple key/value data object passed when the event was triggered
 	 */
 	initAria = function( link, data ) {
-		var i, len, elm, elms, parent, tab, panel, isOpen,
+		var i, len, elm, elms, parent, tabs, tab, panel, isOpen,
 			ariaControls = "",
+			hasOpen = false,
 			prefix = "wb-" + new Date().getTime();
 
 		// Group toggle elements with a parent are assumed to be a tablist
@@ -6929,12 +6942,16 @@ var pluginName = "wb-toggle",
 			// Check that the tablist widget hasn't already been initialized
 			if ( parent.getAttribute( "role" ) !== "tablist" ) {
 				parent.setAttribute( "role", "tablist" );
+				elms = parent.querySelectorAll( data.group );
+				tabs = parent.querySelectorAll( data.group + " " + selectorTab );
+				
+				// Initialize the detail/summaries
+				$( tabs ).trigger( "wb-init.wb-details" );
 
 				// Set the tab and panel aria attributes
-				elms = parent.querySelectorAll( data.group );
 				for ( i = 0, len = elms.length; i !== len; i += 1 ) {
 					elm = elms[ i ];
-					tab = elm.querySelector( selectorTab );
+					tab = tabs[ i ];
 					panel = elm.querySelector( selectorPanel );
 					
 					// Check if the element is toggled on based on the 
@@ -6942,17 +6959,26 @@ var pluginName = "wb-toggle",
 					isOpen = elm.nodeName.toLowerCase() === "details" ?
 						!!elm.getAttribute( "open" ) :
 						( " " + tab.className + " " ).indexOf( " " + data.stateOn + " " );
+					if ( isOpen ) {
+						hasOpen = true;
+					}
 					
 					if ( !tab.getAttribute( "id" ) ) {
 						tab.setAttribute( "id", prefix + i );
 					}
 					tab.setAttribute( "role", "tab" );
 					tab.setAttribute( "aria-selected", isOpen );
+					tab.setAttribute( "tabindex", isOpen ? "0" : "-1" );
 					
 					panel.setAttribute( "role", "tabpanel" );
 					panel.setAttribute( "aria-labelledby", tab.getAttribute( "id" ) );
 					panel.setAttribute( "aria-expanded", isOpen );
 					panel.setAttribute( "aria-hidden", !isOpen );
+				}
+				
+				// No open panels so put the first summary in the tab order
+				if ( !hasOpen ) {
+					tabs[ 0 ].setAttribute( "tabindex", "0" );
 				}
 			}
 
@@ -7057,7 +7083,10 @@ var pluginName = "wb-toggle",
 		if ( data.isTablist ) {
 
 			// Set the required aria attributes
-			$elms.find( selectorTab ).attr( "aria-selected", isOn );
+			$elms.find( selectorTab ).attr({
+				"aria-selected": isOn,
+				tabindex: isOn ? "0" : "-1"
+			});
 			$elms.find( selectorPanel ).attr({
 				"aria-hidden": !isOn,
 				"aria-expanded": isOn
@@ -7182,7 +7211,72 @@ $document.on( "timerpoke.wb " + initEvent + " " + toggleEvent +
 		break;
 	}
 });
+
 $document.on( toggledEvent, "details", toggleDetails );
+
+// Keyboard handling for the accordion
+$document.on( "keydown", selectorTab, function( event ) {
+	var which = event.which,
+		data, $elm, $parent, $group, $newPanel, index;
+	
+	if ( !event.ctrlKey && which > 34 && which < 41 ) {
+		event.preventDefault();
+		$elm = $( event.currentTarget ),
+		data = $elm.data( "toggle" ),
+		$parent = $document.find( data.parent );
+		$group = $parent.find( data.group );
+		index = $group.index( $elm.parent() );
+
+		switch ( which ) {
+
+		// End
+		case 35:
+			$newPanel = $group.last();
+			break;
+
+		// Home
+		case 36:
+			$newPanel = $group.first();
+			break;
+
+		// Left / up arrow
+		case 37:
+		case 38:
+			if ( index === 0 ) {
+				$newPanel = $group.last();
+			} else {
+				$newPanel = $group.eq( index - 1 );
+			}
+			break;
+
+		// Right / down arrow
+		case 39:
+		case 40:
+			if ( index === $group.length - 1 ) {
+				$newPanel = $group.first();
+			} else {
+				$newPanel = $group.eq( index + 1 );
+			}
+			break;
+		}
+
+		$newPanel
+			.children( "summary" )
+				.trigger( "click" );
+	}
+});
+
+$document.on( "keydown", selectorPanel, function( event ) {
+
+	// Ctrl + Up arrow
+	if ( event.ctrlKey && event.which === 38 ) {
+
+		// Move focus to the summary element
+		$( event.currentTarget )
+			.prev()
+				.trigger( "setfocus.wb" );
+	}
+});
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
