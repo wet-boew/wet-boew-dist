@@ -11254,6 +11254,15 @@ details summary:hover {
 
   /* Use higher contrast and text-weight for printable form. */
 
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  /**
+ * Print styles
+ */
+
   sup a.fn-lnk,
   .wb-fnote dl dd p.fn-rtn a {
     background-color: transparent;
@@ -11316,6 +11325,19 @@ details summary:hover {
 
   .lit {
     color: #004444;
+  }
+
+  .wb-tabs [role="tablist"] {
+    display: none !important;
+  }
+
+  .wb-tabs [role="tabpanel"] {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  .wb-tabs [role="tabpanel"] figcaption {
+    position: static;
   }
 }
 /*
