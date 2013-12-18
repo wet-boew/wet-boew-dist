@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(_MAX_ कुल प्रविष्टियों से फ़िल्टर्ड)",
 	info1000: ",",
 	lenMenu: "_MENU_ प्रविष्टियों दिखाएं",
+	filter: "फ़िल्टर आइटम",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ज़ूम इन करें",

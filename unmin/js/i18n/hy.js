@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(Ֆիլտրացված են _MAX_ Ընդամենը մուտքերի)",
 	info1000: ",",
 	lenMenu: "Ցուցադրել _MENU_ գրառում",
+	filter: "Զտման նյութեր",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Խոշորացնել",

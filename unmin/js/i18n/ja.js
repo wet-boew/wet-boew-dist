@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "（合計_MAX_エントリーからフィルタリング）",
 	info1000: ",",
 	lenMenu: "_MENU_エントリーを表示",
+	filter: "検索条件を指定する",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ズームイン",

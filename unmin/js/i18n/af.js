@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(Gefiltreer _MAX_ Totaal inskrywings)",
 	info1000: ",",
 	lenMenu: "Wys _MENU_ inskrywings",
+	filter: "Filter artikels",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom in",

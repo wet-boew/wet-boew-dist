@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtrovaná z _MAX_ celkom záznamov)",
 	info1000: "&#160;",
 	lenMenu: "Zobraziť _MENU_ položiek",
+	filter: "Filtrovanie položiek",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Priblížiť",

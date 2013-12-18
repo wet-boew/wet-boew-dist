@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "（共_MAX_項過濾）",
 	info1000: ",",
 	lenMenu: "顯示_MENU_項",
+	filter: "過濾選項...",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "放大",

@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(تمت تصفيتها في الفترة من _MAX_ مجموع المقالات)",
 	info1000: ",",
 	lenMenu: "عرض _MENU_ مقالات",
+	filter: "تصفية العناصر",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "تكبير",

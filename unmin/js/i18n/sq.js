@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(Filtruar nga shënimet _MAX_ totalit)",
 	info1000: "&#160;",
 	lenMenu: "Trego _MENU_ hyra",
+	filter: "Artikuj filtër",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom në",

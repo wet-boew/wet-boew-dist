@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(φιλτράρεται από _MAX_ καταχωρήσεις)",
 	info1000: "&#160;",
 	lenMenu: "Εμφάνιση _MENU_ καταχωρήσεις",
+	filter: "Φιλτράρισμα των στοιχείων",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Μεγέθυνση",

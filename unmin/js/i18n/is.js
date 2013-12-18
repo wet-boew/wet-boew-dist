@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(síað frá _MAX_ öllum færslum)",
 	info1000: ",",
 	lenMenu: "Sýna _MENU_ færslur",
+	filter: "Sía atriði",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Auka aðdrátt",

@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtrowane z _MAX_ wszystkich wpisów)",
 	info1000: "&#160;",
 	lenMenu: "Pokaż _MENU_ wpisów",
+	filter: "Filtruj pozycje",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Powiększ",

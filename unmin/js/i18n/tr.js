@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(_MAX_ toplam girişler filtrelenir)",
 	info1000: ",",
 	lenMenu: "_MENU_ girdileri göster",
+	filter: "Maddeleri filtrele",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Yakınlaştır",

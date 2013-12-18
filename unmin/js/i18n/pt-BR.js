@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtrado de _MAX_ entradas no total)",
 	info1000: "&#160;",
 	lenMenu: "Mostrar _MENU_ entradas",
+	filter: "Filtrar os ítens",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Ampliar",

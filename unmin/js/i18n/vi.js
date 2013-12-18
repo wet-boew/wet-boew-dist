@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(lọc từ tổng số _MAX_ mục)",
 	info1000: ",",
 	lenMenu: "Hiển thị _MENU_ mục",
+	filter: "Lọc mặt hàng",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Phóng to",

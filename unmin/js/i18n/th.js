@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(กรองจาก _MAX_ รายการทั้งหมด)",
 	info1000: ",",
 	lenMenu: "แสดงรายการ _MENU_",
+	filter: "กรองรายการ",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "ขยาย",

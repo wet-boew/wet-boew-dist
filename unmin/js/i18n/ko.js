@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(_MAX_ 총 ​​항목에서 제외)",
 	info1000: ",",
 	lenMenu: "_MENU_ 항목을 표시",
+	filter: "필터 항목",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "확대",

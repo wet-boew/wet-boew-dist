@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(kiszűrt összesen _MAX_ entries)",
 	info1000: "&#160;",
 	lenMenu: "Megjelenítés _MENU_ bejegyzés",
+	filter: "Szűrés",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Nagyítás",

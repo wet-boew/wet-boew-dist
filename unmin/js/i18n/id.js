@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(disaring dari _MAX_ entri total)",
 	info1000: ",",
 	lenMenu: "Tampilkan _MENU_ entri",
+	filter: "Filter artikel",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Perbesar",

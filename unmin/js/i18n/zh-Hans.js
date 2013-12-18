@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "（共_MAX_项过滤）",
 	info1000: ",",
 	lenMenu: "显示_MENU_项",
+	filter: "过滤项目",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "放大",

@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtrēts no _MAX_ kopējiem ierakstiem)",
 	info1000: ",",
 	lenMenu: "Parādīt _MENU_ ieraksti",
+	filter: "Atlasīt vienumu",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Pievelciet",

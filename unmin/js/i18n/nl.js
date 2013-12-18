@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(gefilterd uit _MAX_ totaal aantal lemma's)",
 	info1000: "&#160;",
 	lenMenu: "Toon _MENU_ lemma's",
+	filter: "Artikelen filteren",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Inzoomen",

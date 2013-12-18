@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtruojamas iš _MAX_ Iš viso įrašų)",
 	info1000: ",",
 	lenMenu: "Rodyti _MENU_ įrašai",
+	filter: "Filtruoti",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Artinti",

@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtrato da _MAX_ voci totali)",
 	info1000: "&#160;",
 	lenMenu: "Mostra _MENU_ voci",
+	filter: "Filtra gli articoli",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom avanti",

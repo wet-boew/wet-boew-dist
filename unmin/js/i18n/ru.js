@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(фильтруется от _MAX_ Всего записей)",
 	info1000: ",",
 	lenMenu: "Показать _MENU_ записей",
+	filter: "Фильтровать",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Приблизить",

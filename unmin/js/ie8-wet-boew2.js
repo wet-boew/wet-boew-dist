@@ -6141,7 +6141,7 @@ var pluginName = "wb-tables",
 					sLengthMenu: i18n( "lenMenu" ),
 					sLoadingRecords: i18n( "load" ),
 					sProcessing: i18n( "process" ),
-					sSearch: i18n( "srch" ),
+					sSearch: i18n( "filter" ),
 					sZeroRecords: i18n( "infoEmpty" )
 				};
 			}

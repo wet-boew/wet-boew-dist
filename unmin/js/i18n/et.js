@@ -169,6 +169,7 @@ wb.i18nDict = {
 	infoFilt: "(filtreeritud _MAX_ sissekannete koguhulgast)",
 	info1000: "&#160;",
 	lenMenu: "Näita _MENU_ kandeid",
+	filter: "Filtreeri",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Suumi",
