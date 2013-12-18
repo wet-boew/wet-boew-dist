@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2013-12-17
+ * v4.0.0-b2-development - 2013-12-18
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6988,6 +6988,8 @@ var pluginName = "wb-toggle",
 					tab.setAttribute( "role", "tab" );
 					tab.setAttribute( "aria-selected", isOpen );
 					tab.setAttribute( "tabindex", isOpen ? "0" : "-1" );
+					tab.setAttribute( "aria-posinset", i + 1 );
+					tab.setAttribute( "aria-setsize", len );
 					
 					panel.setAttribute( "role", "tabpanel" );
 					panel.setAttribute( "aria-labelledby", tab.getAttribute( "id" ) );
