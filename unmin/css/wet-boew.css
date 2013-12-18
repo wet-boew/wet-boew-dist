@@ -11102,10 +11102,19 @@ details summary:hover {
   @title: Extra-small view and over (screen only)
  */
 
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
   .colcount-xs-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
+  }
+
+  #mb-pnl {
+    min-width: 300px;
   }
 }
 
@@ -11218,6 +11227,15 @@ details summary:hover {
   WET-BOEW
   @title: Extra-extra-small view (screen only)
  */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+  #mb-pnl {
+    min-width: 65%;
+  }
 }
 
 /* Extra-small view */
