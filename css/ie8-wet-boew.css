@@ -8436,81 +8436,93 @@ input[type="submit"].btn-xs {
   bottom: 0;
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (min-width: 768px) {
   .pstn-lft-sm {
     position: absolute;
     margin: 0;
     left: 0;
+    right: auto;
   }
 
   .pstn-rght-sm {
     position: absolute;
     margin: 0;
     right: 0;
+    left: auto;
   }
 
   .pstn-tp-sm {
     position: absolute;
     margin: 0;
     top: 0;
+    bottom: auto;
   }
 
   .pstn-bttm-sm {
     position: absolute;
     margin: 0;
     bottom: 0;
+    top: auto;
   }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1199px) {
+@media screen and (min-width: 992px) {
   .pstn-lft-md {
     position: absolute;
     margin: 0;
     left: 0;
+    right: auto;
   }
 
   .pstn-rght-md {
     position: absolute;
     margin: 0;
     right: 0;
+    left: auto;
   }
 
   .pstn-tp-md {
     position: absolute;
     margin: 0;
     top: 0;
+    bottom: auto;
   }
 
   .pstn-bttm-md {
     position: absolute;
     margin: 0;
     bottom: 0;
+    top: auto;
   }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1599px) {
+@media screen and (min-width: 1200px) {
   .pstn-lft-lg {
     position: absolute;
     margin: 0;
     left: 0;
+    right: auto;
   }
 
   .pstn-rght-lg {
     position: absolute;
     margin: 0;
     right: 0;
+    left: auto;
   }
 
   .pstn-tp-lg {
     position: absolute;
     margin: 0;
     top: 0;
+    bottom: auto;
   }
 
   .pstn-bttm-lg {
     position: absolute;
     margin: 0;
     bottom: 0;
+    top: auto;
   }
 }
 
@@ -8519,24 +8531,28 @@ input[type="submit"].btn-xs {
     position: absolute;
     margin: 0;
     left: 0;
+    right: auto;
   }
 
   .pstn-rght-xl {
     position: absolute;
     margin: 0;
     right: 0;
+    left: auto;
   }
 
   .pstn-tp-xl {
     position: absolute;
     margin: 0;
     top: 0;
+    bottom: auto;
   }
 
   .pstn-bttm-xl {
     position: absolute;
     margin: 0;
     bottom: 0;
+    top: auto;
   }
 }
 
