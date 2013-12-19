@@ -10044,12 +10044,18 @@ img.mfp-img {
   color: white;
 }
 
+.hidden-hd .modal-body {
+  padding-top: 50px;
+}
+
 .hidden-hd .overlay-close {
   background-color: black;
   border-radius: 999px;
   height: 1em;
   width: 1em;
   line-height: 1em;
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 [dir=rtl] .mfp-close {
