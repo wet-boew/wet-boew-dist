@@ -477,12 +477,9 @@ var pluginName = "wb-calevt",
 		containerId = $elm.data( "calevtSrc" );
 		$containerId = $( "#" + containerId ).addClass( calendarSelector );
 
-		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days, day ) {
+		$document.on( "displayed.wb-cal", "#" + containerId, function( event, year, month, days ) {
 			addEvents( year, month, days, containerId, events.list );
 			showOnlyEventsFor( year, month, containerId );
-			$( event.currentTarget )
-				.find( ".cal-evt" + ( day === 1 ? ":first" : ":last" ) )
-					.trigger( "setfocus.wb" );
 		});
 		$document.trigger( "create.wb-cal", [
 				containerId,
@@ -877,10 +874,6 @@ $document.on( "timerpoke.wb " + initEvent, selector, function() {
 	return true;
 });
 
-$document.on( "displayed.wb-cal", calendarSelector, function( event, year, month, $days, day ) {
-	$( event.currentTarget ).find( ".cal-index-" + day ).trigger( "setfocus.wb" );
-});
-
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
@@ -909,7 +902,9 @@ var $document = wb.doc,
 	 * Creates a calendar instance
 	 * @method create
 	 */
-	create = function( event, calendarId, year, month, shownav, mindate, maxdate, day ) {
+	create = function( event, calendarId, year, month, shownav, mindate,
+		maxdate, day, ariaControls, ariaLabelledBy ) {
+
 		var calendar = document.getElementById( calendarId ),
 			$calendar = $( calendar ),
 			objCalendarId = "#cal-" + calendarId + "-cnt",
@@ -935,7 +930,16 @@ var $document = wb.doc,
 			};
 		}
 
-		$calendar.addClass( "cal-cnt" );
+		$calendar
+			.addClass( "cal-cnt" )
+			.attr( "id", calendarId );
+
+		if ( ariaLabelledBy ) {
+			$calendar.attr({
+				"aria-controls": ariaControls,
+				"aria-labelledby": ariaLabelledBy
+			});
+		}
 
 		// Converts min and max date from string to date objects
 		if ( typeof mindate === "string" ) {
