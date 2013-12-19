@@ -4665,7 +4665,7 @@ var pluginName = "wb-mltmd",
 			return this.object.pauseVideo();
 		case "getPaused":
 			state = this.object.getPlayerState();
-			return state === -1 || state === 0 || state === 2;
+			return state === -1 || state === 0 || state === 2 || state === 5;
 		case "getPlayed":
 			return this.object.getPlayerState() > -1;
 		case "getEnded":
@@ -4701,10 +4701,14 @@ var pluginName = "wb-mltmd",
 		case "setCaptionsVisible":
 			if ( args ) {
 				$( this).addClass( captionClass );
-				this.object.setOption( "cc", "reload", true );
+				if ( this.object.getOptions().length > 0 ) {
+					this.object.setOption( "captions", "track", this.object.getOption( "captions", "tracklist" )[ 0 ] );
+				}
 			} else {
 				$( this ).removeClass( captionClass );
-				this.object.setOption( "cc", "track", {} );
+				if ( this.object.getOptions().length > 0 ) {
+					this.object.setOption( "captions", "track", {} );
+				}
 			}
 			$player.trigger( "ccvischange" );
 		}
@@ -4724,8 +4728,11 @@ var pluginName = "wb-mltmd",
 
 		switch ( event.data ) {
 		case null:
-			$target.trigger( "durationchange" );
 			$target.trigger( "canplay" );
+			break;
+		case -1:
+			event.target.unMute();
+			$target.trigger( "durationchange" );
 			break;
 		case 0:
 			$target.trigger( "ended" );
@@ -4741,7 +4748,6 @@ var pluginName = "wb-mltmd",
 			target.timeline = clearInterval( target.timeline );
 			break;
 		case 3:
-			$target.trigger( "waiting" );
 			target.timeline = clearInterval( target.timeline );
 			break;
 		}
@@ -4875,11 +4881,12 @@ $document.on( youtubeEvent, selector, function() {
 		videoId: $this.data( "youtube" ),
 		playerVars: {
 			autoplay: 0,
-			controls: 0,
+			controls: 1,
 			origin: wb.pageUrlParts.host,
 			modestbranding: 1,
 			rel: 0,
 			showinfo: 0,
+			html5: 1,
 			cc_load_policy: 1
 		},
 		events: {
@@ -4888,8 +4895,10 @@ $document.on( youtubeEvent, selector, function() {
 				youTubeEvents( event );
 			},
 			onStateChange: youTubeEvents,
-			onApiChange: function( event ) {
-				event.target.setOption( "cc", "track", {} );
+			onApiChange: function() {
+				//If captions were enabled before the module was ready, re-enable them
+				var t = $this.get( 0 );
+				t.player( "setCaptionsVisible", t.player( "getCaptionsVisible" ) );
 			}
 		}
 	});
@@ -4905,7 +4914,7 @@ $document.on( youtubeEvent, selector, function() {
 
 	$this.data( "properties", data );
 	$window.on( "resize", onResize );
-	$this.trigger( renderUIEvent, "video" );
+	$this.trigger( renderUIEvent, "youtube" );
 });
 
 /*
@@ -4947,13 +4956,12 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 		captionsUrl = wb.getUrlParts( data.captions ),
 		currentUrl = wb.getUrlParts( window.location.href ),
 		$media = $this.find( "video, audio, iframe, object" ),
-		$player;
+		$player, $overlay;
 
 	$media.after( window.tmpl( $this.data( "template" ), data ) );
-	if ( type === "video" ) {
-		$media.next( ".display" ).append( $media );
-	} else {
-		$media.next( ".display" ).remove();
+	$overlay = $media.next().find( ".wb-mm-ovrly" ).after( $media );
+	if ( type !== "video" ) {
+		$overlay.remove();
 	}
 
 	$player = $( "#" + data.mId );
@@ -5194,8 +5202,14 @@ $document.on( "progress", selector, function( event ) {
 $document.on( resizeEvent, selector, function( event ) {
 	var $player = $( event.target ),
 		height = $player.attr( "height" ),
-		width = $player.attr( "width" );
-	$player.attr( "style", "height:" + Math.round( $player.width() * height / width ) + "px" );
+		width = $player.attr( "width" ),
+		newHeight = Math.round( $player.width() * height / width );
+
+	//TODO: Remove this when captions works in chromeless api with controls
+	if ( $player.is( "iframe") ) {
+		newHeight += 30;
+	}
+	$player.attr( "style", "height:" + newHeight + "px" );
 });
 
 wb.add( selector );

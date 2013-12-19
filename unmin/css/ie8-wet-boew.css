@@ -9840,6 +9840,11 @@ img.mfp-img {
   opacity: 1;
 }
 
+.wb-mltmd.youtube .wb-mm-ctrls {
+  margin-top: -35px;
+  border-bottom: 10px solid white;
+}
+
 .wb-mltmd.skn-lt {
   color: black;
   border-bottom: 1px solid #dddddd;
