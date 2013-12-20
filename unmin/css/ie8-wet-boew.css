@@ -8883,7 +8883,9 @@ tbody.cal-days a.cal-evt {
 .wb-fdbck #fbweb,
 .wb-fdbck #fbmob,
 .wb-fdbck #fbcomp,
-.wb-fdbck #fbinfo {
+.wb-fdbck #fbinfo,
+.wb-fdbck-off,
+.wb-disable .wb-fdbck {
   display: none;
 }
 
@@ -8897,6 +8899,10 @@ tbody.cal-days a.cal-evt {
 
 .wb-fdbck #fbcmplt p strong {
   font-size: 110%;
+}
+
+.wb-disable .wb-fdbck-off {
+  display: block;
 }
 
 /*
@@ -9681,6 +9687,17 @@ img.mfp-img {
 [dir=rtl] #mb-pnl details ul {
   padding-left: 0;
   padding-right: 2em;
+}
+
+.wb-disable #wb-srch,
+.wb-disable #wb-sm,
+.wb-disable #wb-sec,
+.wb-disable #wb-info {
+  display: block !important;
+}
+
+.wb-disable #wb-glb-mn {
+  display: none !important;
 }
 
 /*
@@ -10815,6 +10832,19 @@ table.dataTable tr.even td.sorting_3 {
   padding: 6px 12px;
 }
 
+.wb-disable .wb-tabs [role="tablist"] {
+  display: none;
+}
+
+.wb-disable .wb-tabs [role="tabpanel"] {
+  display: block;
+  opacity: 1;
+}
+
+.wb-disable .wb-tabs> details> summary {
+  display: block !important;
+}
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -10921,6 +10951,10 @@ details summary {
 
 details summary:hover {
   cursor: pointer;
+}
+
+.wb-disable details> * {
+  display: block !important;
 }
 
 /*
