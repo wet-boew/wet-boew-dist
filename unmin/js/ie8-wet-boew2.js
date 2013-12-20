@@ -1974,6 +1974,7 @@ wb.add( selector );
  */
 var selector = ".wb-eqht",
 	$document = wb.doc,
+	eventTimerpoke = "timerpoke.wb",
 	vAlignCSS = "vertical-align",
 	vAlignDefault = "top",
 	minHeightCSS = "min-height",
@@ -1997,7 +1998,7 @@ var selector = ".wb-eqht",
 			wb.remove( selector );
 
 			// Remove the event handler since only want init fired once per page (not per element)
-			$document.off( "timerpoke.wb", selector );
+			$document.off( eventTimerpoke, selector );
 
 			onResize();
 		}
@@ -2016,7 +2017,7 @@ var selector = ".wb-eqht",
 			currentChildHeight = -1,
 			tallestHeight = -1;
 
-		for ( i = $elms.length; i !== -1; i -= 1 ) {
+		for ( i = $elms.length - 1; i !== -1; i -= 1 ) {
 			$elm = $elms.eq( i );
 			$children = $elm.children();
 
@@ -2092,7 +2093,7 @@ var selector = ".wb-eqht",
 		} else if ( $parent.length ) {
 			$elm.data( { anchor: $parent, anchorRel: "parent" } );
 		}
-		
+
 		return $elm.detach();
 	},
 
@@ -2126,10 +2127,11 @@ var selector = ".wb-eqht",
 	 * @param {integer} height The height to record
 	 */
 	recordRowHeight = function( row, height ) {
+		var i = row.length - 1;
 
 		// only set a height if more than one element exists in the row
-		if ( row.length > 1 ) {
-			for ( var i = row.length - 1; i !== -1; i -= 1 ) {
+		if ( i ) {
+			for ( ; i !== -1; i -= 1 ) {
 				row[ i ].data( minHeightCSS, height );
 			}
 		}
@@ -2137,7 +2139,7 @@ var selector = ".wb-eqht",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb", selector, init );
+$document.on( eventTimerpoke, selector, init );
 
 // Handle text and window resizing
 $document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb tables-draw.wb", onResize );
