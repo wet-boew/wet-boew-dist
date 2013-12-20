@@ -159,6 +159,7 @@
 #wb-sttl small {
   display: block;
   font-size: 0.4em;
+  margin-bottom: 4px;
 }
 
 #wb-sttl object,
@@ -178,7 +179,8 @@
   float: right;
 }
 
-[dir=rtl] #wb-sttl object {
+[dir=rtl] #wb-sttl object,
+[dir=rtl] #wb-sttl img {
   margin: 9px 0 9px 15px;
 }
 
@@ -524,6 +526,10 @@ main {
  Site menu (small view and under)
 */
 
+  /*
+ Banner
+ */
+
   #wb-sec {
     display: none;
   }
@@ -587,6 +593,20 @@ main {
 
   #wb-sm #wb-sec-p {
     display: block;
+  }
+
+  #wb-sttl object,
+  #wb-sttl img {
+    position: absolute;
+    height: 1em;
+    margin: 0;
+    width: 2.17em;
+    top: -1.1em;
+  }
+
+  [dir=rtl] #wb-sttl object,
+  [dir=rtl] #wb-sttl img {
+    margin: 0;
   }
 }
 
