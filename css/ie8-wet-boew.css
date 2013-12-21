@@ -11125,6 +11125,7 @@ details summary:hover {
  * Mobile-friendly styles
  */
 
+  .wb-tabs.carousel-s1 li[role="presentation"],
   .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"],
   .wb-tabs.tabs-acc> ul {
     display: none;
@@ -11140,8 +11141,7 @@ details summary:hover {
   }
 
   .wb-tabs.carousel-s1 [role="tablist"] {
-    bottom: auto;
-    top: 1em;
+    position: static;
   }
 
   .wb-tabs.carousel-s2 figcaption {
