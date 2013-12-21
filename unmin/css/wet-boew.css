@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2013-12-20
+ * v4.0.0-b2-development - 2013-12-21
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -8412,28 +8412,62 @@ input[type="submit"].btn-xs {
   column-count: 4;
 }
 
-.pstn-lft {
+.pstn-lft-xxs {
   position: absolute;
   margin: 0;
   left: 0;
+  right: auto;
 }
 
-.pstn-rght {
+.pstn-rght-xxs {
   position: absolute;
   margin: 0;
   right: 0;
+  left: auto;
 }
 
-.pstn-tp {
+.pstn-tp-xxs {
   position: absolute;
   margin: 0;
   top: 0;
+  bottom: auto;
 }
 
-.pstn-bttm {
+.pstn-bttm-xxs {
   position: absolute;
   margin: 0;
   bottom: 0;
+  top: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .pstn-lft-xs {
+    position: absolute;
+    margin: 0;
+    left: 0;
+    right: auto;
+  }
+
+  .pstn-rght-xs {
+    position: absolute;
+    margin: 0;
+    right: 0;
+    left: auto;
+  }
+
+  .pstn-tp-xs {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    bottom: auto;
+  }
+
+  .pstn-bttm-xs {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+    top: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
