@@ -339,10 +339,6 @@
   padding: 10px 20px;
 }
 
-#mb-pnl {
-  background: #193451;
-}
-
 #mb-pnl .modal-header {
   border: none;
   border-bottom: 1px solid #072337;
@@ -351,6 +347,7 @@
 }
 
 #mb-pnl .modal-body {
+  background: #193451;
   padding: 0;
 }
 
@@ -523,76 +520,11 @@ main {
 */
 
   /*
- Site menu (small view and under)
-*/
-
-  /*
  Banner
  */
 
   #wb-sec {
     display: none;
-  }
-
-  #wb-sm {
-    background: #dddddd;
-  }
-
-  #wb-sm .menu li a:hover,
-  #wb-sm .menu li a:focus,
-  #wb-sm .menu li a:active {
-    background: #eeeeee;
-  }
-
-  #wb-sm .menu .active {
-    background: #dddddd !important;
-  }
-
-  #wb-sm .menu li li a:hover,
-  #wb-sm .menu li li a:focus,
-  #wb-sm .menu li li a:active {
-    background: none;
-  }
-
-  #wb-sm:target .container {
-    display: block !important;
-  }
-
-  #wb-sm .row {
-    border-bottom: 1px solid #bbbbbb;
-    padding-bottom: 10px;
-  }
-
-  #wb-sm .menu> li a {
-    text-shadow: none;
-    color: #333333;
-    border: none;
-    padding: 0.5em;
-  }
-
-  #wb-sm .sm,
-  #wb-sm .sm.open {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid #dddddd;
-    padding: 0;
-    background: transparent;
-  }
-
-  #wb-sm .menu> li:last-child a {
-    border: none;
-  }
-
-  #wb-sm .menu ul li {
-    border-bottom: 1px solid #dddddd;
-    border-top: 1px solid white;
-    background: #eeeeee;
-  }
-
-  #wb-sm #wb-sec-p {
-    display: block;
   }
 
   #wb-sttl object,
