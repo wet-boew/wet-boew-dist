@@ -10594,6 +10594,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s1 figure,
 .wb-tabs.carousel-s2 figure {
+  background: #243850;
+  background: rgba(36, 56, 80, 0.9);
+}
+
+.wb-tabs.carousel-s1 figure,
+.wb-tabs.carousel-s2 figure {
   position: relative;
 }
 
@@ -10607,8 +10613,6 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s2 figcaption {
   position: absolute;
   color: white;
-  background: #243850;
-  background: rgba(36, 56, 80, 0.9);
   padding: 1em;
   z-index: 101;
 }
@@ -11126,8 +11130,8 @@ details summary:hover {
     display: none;
   }
 
-  .wb-tabs.carousel-s1 [role="tabpanel"] figure figcaption,
-  .wb-tabs.carousel-s2 [role="tabpanel"] figure figcaption {
+  .wb-tabs.carousel-s1 figcaption,
+  .wb-tabs.carousel-s2 figcaption {
     position: relative;
     top: auto;
     right: 0;
@@ -11141,7 +11145,7 @@ details summary:hover {
   }
 
   .wb-tabs.carousel-s2 figcaption {
-    padding: 1em 60px;
+    margin: 1em 3.5em;
   }
 
   .wb-tabs> details {
@@ -11244,10 +11248,6 @@ details summary:hover {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-  /**
- * Small view-friendly styles
- */
-
   .colcount-md-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -11264,6 +11264,12 @@ details summary:hover {
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
+  }
+
+  .wb-tabs.carousel-s1 figcaption,
+  .wb-tabs.carousel-s2 figcaption {
+    background: #243850;
+    background: rgba(36, 56, 80, 0.9);
   }
 
   .wb-tabs> details {
