@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2013-12-21
+ * v4.0.0-b2-development - 2013-12-22
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1755,7 +1755,10 @@ var pluginName = "wb-inview",
 			wb.remove( selector );
 			$elm.addClass( initedClass );
 
-			$elm.trigger( scrollEvent );
+			// Allow other plugins to run first
+			setTimeout(function() {
+				$elm.trigger( scrollEvent );
+			}, 1 );
 		}
 	},
 
@@ -1799,9 +1802,11 @@ var pluginName = "wb-inview",
 					if ( !oldViewState ) {
 						$dataInView.addClass( "outside-off" );
 					}
-					$dataInView.trigger(
-						( show ? "open" : "close" ) + ".wb-overlay"
-					);
+					$dataInView.trigger({
+						type: ( show ? "open" : "close" ),
+						namespace: "wb-overlay",
+						noFocus: true
+					});
 				} else {
 					$dataInView
 						.attr( "aria-hidden", !show )
@@ -5164,11 +5169,11 @@ $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
 		break;
 
 	case "open":
-		openOverlay( overlayId );
+		openOverlay( overlayId, event.noFocus );
 		break;
 
 	case "close":
-		closeOverlay( overlayId );
+		closeOverlay( overlayId, event.noFocus );
 		break;
 
 	default:
@@ -7514,7 +7519,16 @@ $document.on( setFocusEvent, function( event ) {
 
 	// Assigns focus to an element (delay allows for revealing of hidden content)
 	setTimeout(function() {
-		return $elm.focus();
+		var $topBar = $( ".wb-bar-t[aria-hidden=false]" );
+
+		$elm.trigger( "focus" );
+
+		// Ensure the top bar overlay does not conceal the focus target
+		if ( $topBar.length !== 0 ) {
+			document.documentElement.scrollTop -= $topBar.outerHeight();
+		}
+
+		return $elm;
 	}, 1 );
 });
 
