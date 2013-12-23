@@ -1760,7 +1760,7 @@ var pluginName = "wb-inview",
 
 			// Allow other plugins to run first
 			setTimeout(function() {
-				$elm.trigger( scrollEvent );
+				onInView( $elm );
 			}, 1 );
 		}
 	},
