@@ -139,27 +139,16 @@
   line-height: normal;
   text-shadow: 1px 1px 1px #333333;
   text-decoration: none;
-  display: table-row;
-}
-
-#wb-sttl a:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-#wb-sttl span {
-  display: table-cell;
-  vertical-align: middle;
 }
 
 #wb-sttl small {
   display: block;
   font-size: 0.4em;
   margin-bottom: 4px;
+}
+
+#wb-sttl object {
+  pointer-events: none;
 }
 
 #wb-sttl object,
@@ -527,13 +516,18 @@ main {
     display: none;
   }
 
+  #wb-sttl a {
+    position: relative;
+    padding-top: 1.125em;
+  }
+
   #wb-sttl object,
   #wb-sttl img {
     position: absolute;
+    top: 0;
     height: 1em;
     margin: 0;
     width: 2.17em;
-    top: -1.125em;
   }
 
   [dir=rtl] #wb-sttl object,
@@ -585,6 +579,19 @@ main {
   WET-BOEW
   @title: Medium view and over (screen only)
  */
+
+  /*
+ Banner
+ */
+
+  #wb-sttl a {
+    display: table-row;
+  }
+
+  #wb-sttl span {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 /* Large view and over */
