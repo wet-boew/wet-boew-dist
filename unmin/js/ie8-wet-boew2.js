@@ -7002,6 +7002,11 @@ var pluginName = "wb-toggle",
 
 			// Initialize the aria attributes of the toggle element
 			initAria( link, data );
+
+			// Initialize the toggle behaviour when the page is printed
+			if ( data.print ) {
+				initPrint( $link, data );
+			}
 		}
 	},
 
@@ -7025,7 +7030,7 @@ var pluginName = "wb-toggle",
 				parent.setAttribute( "role", "tablist" );
 				elms = parent.querySelectorAll( data.group );
 				tabs = parent.querySelectorAll( data.group + " " + selectorTab );
-				
+
 				// Initialize the detail/summaries
 				$( tabs ).trigger( "wb-init.wb-details" );
 
@@ -7034,8 +7039,8 @@ var pluginName = "wb-toggle",
 					elm = elms[ i ];
 					tab = tabs[ i ];
 					panel = elm.querySelector( selectorPanel );
-					
-					// Check if the element is toggled on based on the 
+
+					// Check if the element is toggled on based on the
 					// open attribute or "on" CSS class
 					isOpen = elm.nodeName.toLowerCase() === "details" ?
 						!!elm.getAttribute( "open" ) :
@@ -7043,7 +7048,7 @@ var pluginName = "wb-toggle",
 					if ( isOpen ) {
 						hasOpen = true;
 					}
-					
+
 					if ( !tab.getAttribute( "id" ) ) {
 						tab.setAttribute( "id", prefix + i );
 					}
@@ -7052,13 +7057,13 @@ var pluginName = "wb-toggle",
 					tab.setAttribute( "tabindex", isOpen ? "0" : "-1" );
 					tab.setAttribute( "aria-posinset", i + 1 );
 					tab.setAttribute( "aria-setsize", len );
-					
+
 					panel.setAttribute( "role", "tabpanel" );
 					panel.setAttribute( "aria-labelledby", tab.getAttribute( "id" ) );
 					panel.setAttribute( "aria-expanded", isOpen );
 					panel.setAttribute( "aria-hidden", !isOpen );
 				}
-				
+
 				// No open panels so put the first summary in the tab order
 				if ( !hasOpen ) {
 					tabs[ 0 ].setAttribute( "tabindex", "0" );
@@ -7076,6 +7081,32 @@ var pluginName = "wb-toggle",
 				ariaControls += elm.id + " ";
 			}
 			link.setAttribute( "aria-controls", ariaControls.slice( 0, -1 ) );
+		}
+	},
+
+	/**
+	 * Initialize open on print behaviour of the toggle element
+	 * @param {jQuery Object} $link The toggle element to initialize
+	 * @param {Object} data Simple key/value data object passed when the event was triggered
+	 */
+	initPrint = function( $link, data ) {
+		var mediaQuery,
+			printEvent = "beforeprint";
+
+		$window.on( printEvent, function() {
+			$link.trigger( toggleEvent, $.extend( {}, data, { type: data.print } ) );
+		});
+
+		// Fallback for browsers that don't support print events
+		if ( window.matchMedia ) {
+			mediaQuery = window.matchMedia( "print" );
+			if ( mediaQuery.addListener ) {
+				mediaQuery.addListener( function( query ) {
+					if ( query.matches ) {
+						$window.trigger( printEvent );
+					}
+				});
+			}
 		}
 	},
 
@@ -7231,7 +7262,7 @@ var pluginName = "wb-toggle",
 
 			// Type: get opposite state of the type. Toggle reverses this
 			// to the requested state.
-			return type === data.stateOn ? data.stateOff : data.stateOn;
+			return type === "on" ? data.stateOff : data.stateOn;
 		}
 	},
 
@@ -7301,11 +7332,11 @@ $document.on( toggledEvent, "details", toggleDetails );
 $document.on( "keydown", selectorTab, function( event ) {
 	var which = event.which,
 		data, $elm, $parent, $group, $newPanel, index;
-	
+
 	if ( !event.ctrlKey && which > 34 && which < 41 ) {
 		event.preventDefault();
-		$elm = $( event.currentTarget ),
-		data = $elm.data( "toggle" ),
+		$elm = $( event.currentTarget );
+		data = $elm.data( "toggle" );
 		$parent = $document.find( data.parent );
 		$group = $parent.find( data.group );
 		index = $group.index( $elm.parent() );
