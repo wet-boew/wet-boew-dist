@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2013-12-27
+ * v4.0.0-b2-development - 2013-12-30
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -8412,62 +8412,32 @@ input[type="submit"].btn-xs {
   column-count: 4;
 }
 
-.pstn-lft-xxs {
+.pstn-lft-xs {
   position: absolute;
   margin: 0;
   left: 0;
   right: auto;
 }
 
-.pstn-rght-xxs {
+.pstn-rght-xs {
   position: absolute;
   margin: 0;
   right: 0;
   left: auto;
 }
 
-.pstn-tp-xxs {
+.pstn-tp-xs {
   position: absolute;
   margin: 0;
   top: 0;
   bottom: auto;
 }
 
-.pstn-bttm-xxs {
+.pstn-bttm-xs {
   position: absolute;
   margin: 0;
   bottom: 0;
   top: auto;
-}
-
-@media screen and (min-width: 480px) {
-  .pstn-lft-xs {
-    position: absolute;
-    margin: 0;
-    left: 0;
-    right: auto;
-  }
-
-  .pstn-rght-xs {
-    position: absolute;
-    margin: 0;
-    right: 0;
-    left: auto;
-  }
-
-  .pstn-tp-xs {
-    position: absolute;
-    margin: 0;
-    top: 0;
-    bottom: auto;
-  }
-
-  .pstn-bttm-xs {
-    position: absolute;
-    margin: 0;
-    bottom: 0;
-    top: auto;
-  }
 }
 
 @media screen and (min-width: 768px) {
@@ -8553,36 +8523,6 @@ input[type="submit"].btn-xs {
   }
 
   .pstn-bttm-lg {
-    position: absolute;
-    margin: 0;
-    bottom: 0;
-    top: auto;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .pstn-lft-xl {
-    position: absolute;
-    margin: 0;
-    left: 0;
-    right: auto;
-  }
-
-  .pstn-rght-xl {
-    position: absolute;
-    margin: 0;
-    right: 0;
-    left: auto;
-  }
-
-  .pstn-tp-xl {
-    position: absolute;
-    margin: 0;
-    top: 0;
-    bottom: auto;
-  }
-
-  .pstn-bttm-xl {
     position: absolute;
     margin: 0;
     bottom: 0;
