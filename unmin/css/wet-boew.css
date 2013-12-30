@@ -9614,13 +9614,11 @@ img.mfp-img {
 }
 
 .wb-menu .menu {
-  display: table;
   position: relative;
 }
 
 .wb-menu .menu> li {
   position: relative;
-  display: table-cell;
 }
 
 .wb-menu .menu> li a {
