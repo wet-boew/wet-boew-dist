@@ -638,43 +638,6 @@ Modernizr.load([
 	});
 
 })( jQuery );
-/*
-Peformant micro templater
-@credit: https://github.com/premasagar/tim/blob/master/tinytim.js
-@todo: caching
-*/
-(function( window, undef ) {
-	"use strict";
-	var tmpl = (function() {
-		var start = "{{",
-			end = "}}",
-			path = "[a-z0-9_$][\\.a-z0-9_]*", // e.g. config.person.name
-			pattern = new RegExp( start + "\\s*(" + path + ")\\s*" + end, "gi" );
-		return function( template, data ) {
-			// Merge data into the template string
-			return template.replace( pattern, function( tag, token ) {
-				var path = token.split( "." ),
-					len = path.length,
-					lookup = data,
-					i = 0;
-				for ( ; i < len; i += 1 ) {
-					lookup = lookup[ path[ i ] ];
-					// Property not found
-					if ( lookup === undef ) {
-						throw "tim: '" + path[ i ] + "' not found in " + tag;
-					}
-					// Return the required value
-					if ( i === len - 1 ) {
-						return lookup;
-					}
-				}
-			});
-		};
-	}());
-
-	window.tmpl = tmpl;
-
-})( window );
 
 /**
  * @title WET-BOEW Ajax Fetch [ ajax-fetch ]
@@ -4511,6 +4474,39 @@ var pluginName = "wb-mltmd",
 			 [ $this, data ];
 	},
 
+	/*
+	 * Peformant micro templater
+	 * @credit: https://github.com/premasagar/tim/blob/master/tinytim.js
+	 * @todo: caching
+	 */
+	tmpl = (function() {
+		var start = "{{",
+			end = "}}",
+			// e.g. config.person.name
+			path = "[a-z0-9_$][\\.a-z0-9_]*",
+			pattern = new RegExp( start + "\\s*(" + path + ")\\s*" + end, "gi" );
+		return function( template, data ) {
+			// Merge data into the template string
+			return template.replace( pattern, function( tag, token ) {
+				var path = token.split( "." ),
+					len = path.length,
+					lookup = data,
+					i = 0;
+				for ( ; i < len; i += 1 ) {
+					lookup = lookup[ path[ i ] ];
+					// Property not found
+					if ( lookup === undef ) {
+						throw "tim: '" + path[ i ] + "' not found in " + tag;
+					}
+					// Return the required value
+					if ( i === len - 1 ) {
+						return lookup;
+					}
+				}
+			});
+		};
+	}()),
+
 	/**
 	 * @method parseHtml
 	 * @description parse an HTML fragment and extract embed captions
@@ -5034,7 +5030,7 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 		$media = $this.find( "video, audio, iframe, object" ),
 		$player, $overlay;
 
-	$media.after( window.tmpl( $this.data( "template" ), data ) );
+	$media.after( tmpl( $this.data( "template" ), data ) );
 	$overlay = $media.next().find( ".wb-mm-ovrly" ).after( $media );
 	if ( type !== "video" ) {
 		$overlay.remove();
