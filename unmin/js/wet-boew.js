@@ -1436,6 +1436,8 @@ var $document = wb.doc,
 			} else {
 				$btn.trigger( "setfocus.wb" );
 			}
+
+			return false;
 		}
 	},
 
