@@ -7200,8 +7200,6 @@ td.visible-print {
   display: block;
 }
 
-.wb-menu .menu> li a:hover,
-.wb-menu .menu> li a:focus,
 .wb-menu .active> a {
   text-decoration: none;
 }
@@ -9688,6 +9686,12 @@ img.mfp-img {
   text-align: center;
   display: block;
   padding: 1em;
+  text-decoration: none;
+}
+
+.wb-menu .menu> li a:hover,
+.wb-menu .menu> li a:focus {
+  text-decoration: underline;
 }
 
 .wb-menu .active .expicon {

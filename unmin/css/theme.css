@@ -254,12 +254,6 @@
 #wb-sm .menu> li> a {
   color: white;
   border-left: 1px solid #0b3048;
-  text-decoration: none;
-}
-
-#wb-sm .menu> li> a:hover,
-#wb-sm .menu> li> a:focus {
-  text-decoration: underline;
 }
 
 #wb-sm .menu> li> a.wb-navcurr:link {
