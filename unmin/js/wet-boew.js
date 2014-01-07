@@ -3897,9 +3897,11 @@ var pluginName = "wb-menu",
 											.addClass( "wb-navcurr" );
 				}
 
-				// Only click on the menu item if it has a submenu
+				// Only click on the menu item and set the open property if it has a submenu
 				if ( $menuItem.attr( "aria-haspopup" ) === "true" ) {
-					$menuItem.trigger( "click" );
+					$menuItem
+						.trigger( "click" )
+						.prop( "open", "open" );
 				}
 			}
 		}, 1 );
