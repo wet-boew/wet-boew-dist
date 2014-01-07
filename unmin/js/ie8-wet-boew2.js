@@ -3540,7 +3540,8 @@ var pluginName = "wb-menu",
 				if ( $menuItem.attr( "aria-haspopup" ) === "true" ) {
 					$menuItem
 						.trigger( "click" )
-						.prop( "open", "open" );
+						.parent()
+							.prop( "open", "open" );
 				}
 			}
 		}, 1 );
