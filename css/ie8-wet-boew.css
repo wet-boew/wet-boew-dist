@@ -11551,8 +11551,30 @@ details summary:hover {
  *	Overlay base
  */
 
-.ie8 .wb-overlay {
-  border: 1px solid #cccccc;
+.ie8 .wb-panel-r,
+.ie8[dir=rtl] .wb-panel-l {
+  border-left: 1px solid #999999;
+}
+
+.ie8 .wb-panel-l,
+.ie8[dir=rtl] .wb-panel-r {
+  border-left: 1px solid #999999;
+}
+
+.ie8 .wb-bar-t {
+  border-bottom: 1px solid #999999;
+}
+
+.ie8 .wb-bar-b {
+  border-top: 1px solid #999999;
+}
+
+.ie8[dir=rtl] .wb-panel-l {
+  border-right: none;
+}
+
+.ie8[dir=rtl] .wb-panel-r {
+  border-left: none;
 }
 
 /*
