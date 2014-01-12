@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-10
+ * v4.0.0-b2-development - 2014-01-12
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3407,8 +3407,10 @@ var pluginName = "wb-menu",
 			$language = $( "#wb-lng" ),
 			search = document.getElementById( "wb-srch" ),
 			panel = "",
+			panelDOM = document.getElementById( target ),
+			$panel = $( panelDOM ),
 			allProperties = [],
-			$panel, $navCurr, $menuItem, len, i;
+			$navCurr, $menuItem, len, i;
 
 		/*
 		 * Build the mobile panel
@@ -3478,16 +3480,11 @@ var pluginName = "wb-menu",
 			panel += createMobilePanelMenu( allProperties );
 		}
 
-		// Let's create the DOM Element
-		$panel = $( "<div id='" + target +
-				"' class='wb-overlay modal-content overlay-def wb-panel-r'>" +
-				"<header class='modal-header'><div class='modal-title'>" +
-				i18nText.menu  + "</div></header><div class='modal-body'>" +
-				panel + "</div></div>" );
-
 		// Let's now populate the DOM since we have done all the work in a documentFragment
-		$( "#" + target ).replaceWith( $panel );
-
+		panelDOM.innerHTML = "<header class='modal-header'><div class='modal-title'>" +
+				i18nText.menu  + "</div></header><div class='modal-body'>" +
+				panel + "</div>";
+		panelDOM.className += " wb-overlay modal-content overlay-def wb-panel-r";
 		$panel
 			.trigger( "wb-init.wb-overlay" )
 			.find( "summary" )
@@ -3505,7 +3502,7 @@ var pluginName = "wb-menu",
 			.find( ":discoverable" )
 				.attr( "tabindex", "-1" );
 
-		$menu.eq( 0 ).attr( "tabindex", "0" );
+		$menu[ 0 ].setAttribute( "tabindex", "0" );
 		$menu
 			.filter( "[href^=#]" )
 				.append( "<span class='expicon'></span>" );
