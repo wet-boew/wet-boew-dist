@@ -7,24 +7,24 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Content page - No search or language selection link - WET theme - Web Experience Toolkit</title>
-		<link href="../../assets/favicon.ico" rel="shortcut icon" />
+		<title>Content page - No site menu or breadcrumb trail - WET theme - Web Experience Toolkit</title>
+		<link href="../assets/favicon.ico" rel="shortcut icon" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
 		<meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities" />
 		<!-- Meta data-->
 		<!--[if gte IE 9 | !IE ]><!-->
-<link rel="stylesheet" href="../../css/wet-boew.css" />
+<link rel="stylesheet" href="../css/wet-boew.css" />
 <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.css" />
+<link rel="stylesheet" href="../css/theme.css" />
 
 <!--[if lt IE 9]>
-<link rel="stylesheet" href="../../css/ie8-wet-boew.css" />
+<link rel="stylesheet" href="../css/ie8-wet-boew.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
-<script src="../../js/ie8-wet-boew.js"></script>
+<script src="../js/ie8-wet-boew.js"></script>
 <![endif]-->
 
-<noscript><link rel="stylesheet" href="../../css/noscript.css" /></noscript>
+<noscript><link rel="stylesheet" href="../css/noscript.css" /></noscript>
 	</head>
 	<body vocab="http://schema.org/" typeof="WebPage">
 		<ul id="wb-tphp">
@@ -44,6 +44,20 @@
 					<div class="container">
 						<div class="row">
 
+							<section id="wb-lng" class="visible-md visible-lg">
+								<h2>Language selection</h2>
+								<ul class="text-right">
+
+	
+	<li><a lang="fr" hreflang="fr" href="content-nositemenubc-fr.html">Français</a></li>
+
+
+	<li class="curr">English&#32;<span>(current)</span></li>
+
+</ul>
+
+							</section>
+
 
 							<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
 								<h2>Menu</h2>
@@ -62,64 +76,41 @@
 					<div class="row">
 
 						<div id="wb-sttl" class="col-md-8">
-							<a href="../../index-en.html">
-	<object type="image/svg+xml" tabindex="-1" role="img" data="../../assets/logo.svg" aria-label="Web Experience Toolkit"></object>
+							<a href="../index-en.html">
+	<object type="image/svg+xml" tabindex="-1" role="img" data="../assets/logo.svg" aria-label="Web Experience Toolkit"></object>
 	<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
 </a>
 
 						</div>
 
+						<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+							<h2>Search</h2>
+							<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+
+	<div class="form-group">
+		<label for="wb-srch-q">Search website</label>
+		<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+		<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+	</div>
+
+	<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+
+</form>
+
+						</section>
+
 					</div>
 				</div>
 			</div>
 
-			<nav role="navigation" id="wb-sm" data-ajax-fetch="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
-				<div class="container nvbar">
-	<h2>Site menu</h2>
-    <div class="row">
-        <ul class="list-inline menu">
-			<li><a href="../../index-en.html">WET project</a></li>
-			<li><a href="http://wet-boew.github.io/wet-boew/docs/gs-cd/impl-en.html">Implement WET</a></li>
-			<li><a href="http://wet-boew.github.io/wet-boew/docs/gs-cd/contrib-en.html">Contribute to WET</a></li>
-        </ul>
-    </div>
-</div>
+			<span data-trgt="mb-pnl" class="wb-menu hide"></span>
 
-			</nav>
-
-
-	
-			<nav role="navigation" id="wb-bc" property="breadcrumb">
-				<h2>You are here:</h2>
-				<div class="container">
-	<div class="row">
-		<ol class="breadcrumb">
-			<li>
-				<a href="../../index-en.html">Home</a>
-			</li>
-
-			<li>
-				<a href="../../demos/index-en.html">Working examples</a>
-			</li>
-
-
-			<li>
-				<a href="../../demos/theme-wet-boew/index-en.html">WET theme</a>
-			</li>
-
-			<li>Content page - No search or language selection link - WET theme</li>
-		</ol>
-	</div>
-</div>
-
-			</nav>
-	
 
 		</header>
 
 
 		<main role="main" property="mainContentOfPage" class="container">
-			<h1 id="wb-cont" property="name">Content page - No search or language selection link - WET theme</h1>
+			<h1 id="wb-cont" property="name">Content page - No site menu or breadcrumb trail - WET theme</h1>
 			
 <section>
 	<h2>Heading 2 (<code>h2</code>) - default appearance</h2>
@@ -262,10 +253,10 @@
 
 		<!--[if gte IE 9 | !IE ]><!-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-<script src="../../js/wet-boew.js"></script>
+<script src="../js/wet-boew.js"></script>
 <!--<![endif]-->
 <!--[if lt IE 9]>
-<script src="../../js/ie8-wet-boew2.js"></script>
+<script src="../js/ie8-wet-boew2.js"></script>
 <![endif]-->
 
 
