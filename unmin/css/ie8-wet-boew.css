@@ -8961,6 +8961,10 @@ tbody.cal-days a.cal-evt {
   display: inline;
 }
 
+.wb-fdbck #fbcntc {
+  margin-bottom: 15px;
+}
+
 .wb-fdbck #fbcmplt {
   text-align: center;
 }
