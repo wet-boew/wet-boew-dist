@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Pozicioni aktual:",
 	dur: "Koha totale:",
 	/* Share widget */
-	"shr-txt": "Share këtë faqe",
+	"shr-txt": "Share",
+	"shr-pg": " këtë faqe",
+	"shr-vid": " këtë video",
 	"shr-hnt": " me {s} ",
 	"shr-disc": "Asnjë miratimi i ndonjë produkteve apo shërbimeve është shprehur apo të nënkuptuar",
 	/* Form validation */

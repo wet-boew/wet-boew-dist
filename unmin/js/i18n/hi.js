@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "वर्तमान स्थिति:",
 	dur: "कुल समय:",
 	/* Share widget */
-	"shr-txt": "शेयर इस पन्ने",
+	"shr-txt": "शेयर",
+	"shr-pg": " इस पन्ने",
+	"shr-vid": " इस वीडियो",
 	"shr-hnt": "{s} के साथ",
 	"shr-disc": "किसी भी उत्पाद या सेवाओं की कोई समर्थन व्यक्त या निहित",
 	/* Form validation */

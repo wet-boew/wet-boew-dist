@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -29,7 +29,7 @@ wb.i18nDict = {
 	curr: "(actuel)",
 	hide: "Masquer",
 	err: "Erreur",
-	colon: " :",
+	colon: "&#160;:",
 	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Position actuelle :",
 	dur: "Temps total :",
 	/* Share widget */
-	"shr-txt": "Partagez cette page",
+	"shr-txt": "Partagez",
+	"shr-pg": " cette page",
+	"shr-vid": " cette vidéo",
 	"shr-hnt": " avec {s} ",
 	"shr-disc": "Aucun appui n’est accordé, soit de façon expresse ou tacite, à aucun produit ou service.",
 	/* Form validation */
@@ -163,9 +165,9 @@ wb.i18nDict = {
 	/* Table enhancement */
 	sortAsc: "&#160;: activer pour tri ascendant",
 	sortDesc: "&#160;: activer pour tri descendant",
-	emptyTbl: "Aucunes données sont disponibles dans le tableau",
+	emptyTbl: "Aucunes données sont disponibles dans la table",
 	infoEntr: "Affiche _START_ à _END_ de _TOTAL_ entrées",
-	infoEmpty: "Afficher 0 à 0 de 0 entrées",
+	infoEmpty: "Affiche 0 à 0 de 0 entrées",
 	infoFilt: "(filtré de _MAX_ entrées totales)",
 	info1000: "&#160;",
 	lenMenu: "Afficher _MENU_ entrées",

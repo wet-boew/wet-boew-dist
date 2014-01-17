@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Поточне положення:",
 	dur: "Загальний час:",
 	/* Share widget */
-	"shr-txt": "Поділитися цією сторінкою",
+	"shr-txt": "Поділитись ",
+	"shr-pg": " цією сторінкою",
+	"shr-vid": " цим відео",
 	"shr-hnt": "з {s}",
 	"shr-disc": "Не мається на увазі схвалення або просування будь-яких продукції або послуг",
 	/* Form validation */

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Aktuální pozice:",
 	dur: "Celkový čas:",
 	/* Share widget */
-	"shr-txt": "Sdílet tuto stránku",
+	"shr-txt": "Sdílet",
+	"shr-pg": " tuto stránku",
+	"shr-vid": " toto video",
 	"shr-hnt": " s {s} ",
 	"shr-disc": "Č. schválení jakýchkoli výrobků nebo služeb je vyjádřené nebo předpokládané.",
 	/* Form validation */

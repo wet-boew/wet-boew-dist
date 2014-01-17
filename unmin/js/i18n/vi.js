@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Chức vụ hiện tại:",
 	dur: "Tổng thời gian:",
 	/* Share widget */
-	"shr-txt": "Chia sẻ trang này",
+	"shr-txt": "Chia",
+	"shr-pg": " sẻ trang này",
+	"shr-vid": " sẻ video này",
 	"shr-hnt": " với {s} ",
 	"shr-disc": "Không có chứng thực của bất kỳ sản phẩm hoặc dịch vụ được thể hiện hay ngụ ý.",
 	/* Form validation */

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "현재 위치 :",
 	dur: "총 시간",
 	/* Share widget */
-	"shr-txt": "이 페이지를 공유",
+	"shr-txt": "공유",
+	"shr-pg": " 이 페이지",
+	"shr-vid": " 이 비디오",
 	"shr-hnt": "{s} 로 ",
 	"shr-disc": "제품이나 서비스의 어떠한 보증을 표현하거나 암시합니다.",
 	/* Form validation */

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Jelenlegi pozíció:",
 	dur: "Összidő:",
 	/* Share widget */
-	"shr-txt": "Oldal megosztása",
+	"shr-txt": "Oszd",
+	"shr-pg": " meg a oldal",
+	"shr-vid": " meg a videót",
 	"shr-hnt": " a {s} ",
 	"shr-disc": "I jóváhagyását olyan termékek vagy szolgáltatások kifejezett vagy hallgatólagos.",
 	/* Form validation */

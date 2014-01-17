@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "現在位置：",
 	dur: "合計時間：",
 	/* Share widget */
-	"shr-txt": "このページを共有する",
+	"shr-txt": "共有",
+	"shr-pg": "このページ",
+	"shr-vid": "このビデオ",
 	"shr-hnt": "{s}と",
 	"shr-disc": "製品またはサービスを推薦／保証するものではありません。",
 	/* Form validation */

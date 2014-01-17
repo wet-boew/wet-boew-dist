@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "现在位置：",
 	dur: "总时间：",
 	/* Share widget */
-	"shr-txt": "分享该页面",
+	"shr-txt": "分享",
+	"shr-pg": "该页面",
+	"shr-vid": "该视频",
 	"shr-hnt": "与{s}",
 	"shr-disc": "没有代言的任何产品或服务的明示或暗示的保证。",
 	/* Form validation */

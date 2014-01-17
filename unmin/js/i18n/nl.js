@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-01-16
+ * v4.0.0-b2-development - 2014-01-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -96,7 +96,9 @@ wb.i18nDict = {
 	pos: "Huidige positie:",
 	dur: "Totale afspeelduur:",
 	/* Share widget */
-	"shr-txt": "Deel deze pagina met anderen",
+	"shr-txt": "Deel",
+	"shr-pg": " deze pagina",
+	"shr-vid": " deze video",
 	"shr-hnt": " met {s} ",
 	"shr-disc": "Er wordt hier geen goedkeuring van producten of diensten uitgedrukt.",
 	/* Form validation */
