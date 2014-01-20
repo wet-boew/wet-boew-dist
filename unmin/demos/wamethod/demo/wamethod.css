@@ -8,21 +8,21 @@
 }
 
 .wb-wamethod ol li {
-  list-style-type: none;
-  margin: 15px 0;
-  padding-bottom: 10px;
   border: 1px solid #dddddd;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  list-style-type: none;
+  margin: 15px 0;
 }
 
 .wb-wamethod ol li legend {
-  margin: 0;
-  padding: 10px;
+  float: left;
   font-size: 16px;
   font-weight: 700;
-  background-color: whitesmoke;
+  margin: 0;
+  padding: 10px;
+  width: 40%;
 }
 
 .wb-wamethod ol li label {
