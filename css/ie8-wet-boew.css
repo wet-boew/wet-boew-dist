@@ -10490,7 +10490,7 @@ table.dataTable tr.even td.sorting_3 {
   position: relative;
 }
 
-.dataTables_filter> label> input::-ms-clear {
+.dataTables_filter input::-ms-clear {
   display: none;
 }
 
