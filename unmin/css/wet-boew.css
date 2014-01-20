@@ -10490,6 +10490,10 @@ table.dataTable tr.even td.sorting_3 {
   position: relative;
 }
 
+.dataTables_filter> label> input::-ms-clear {
+  display: none;
+}
+
 /* Two button pagination - previous / next */
 
 .paginate_disabled_previous,
