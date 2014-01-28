@@ -10619,6 +10619,25 @@ table.dataTable tr.even td.sorting_3 {
   -webkit-overflow-scrolling: touch;
 }
 
+[dir=rtl] .sorting,
+[dir=rtl] .sorting_asc,
+[dir=rtl] .sorting_desc {
+  text-align: right;
+}
+
+[dir=rtl] .sorting:after,
+[dir=rtl] .sorting_asc:after,
+[dir=rtl] .sorting_desc:after {
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+[dir=rtl] table.dataTable thead th,
+[dir=rtl] table.dataTable tfoot th {
+  padding-right: 8px;
+  padding-left: 15em;
+}
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html

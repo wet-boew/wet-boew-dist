@@ -443,7 +443,7 @@
 }
 
 [dir=rtl] #wb-bc li:after {
-  content: "\e079";
+  content: "\e091";
   padding: 0 5px;
 }
 
