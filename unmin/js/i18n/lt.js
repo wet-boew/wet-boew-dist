@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Turinio nepavyko užkrauti.",
 	"lb-img-err": "Nuotraukos nepavyko užkrauti.",
 	/* Charts widget */
-	"table-mention": "Lentelė",
-	"table-following": "Grafika. Daugiau detalių sekančioje lentelėje.",
+	"tbl-txt": "Lentelė",
+	"tbl-dtls": "Grafika. Daugiau detalių sekančioje lentelėje.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Jūsų sesija pasibaigs automatiškai #min# min #sec# sek.",
 	"st-to-msg-end": "Pasirinkite \"Tęsti sesiją\" pratęsti savo sesiją.",

@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Tento obsah sa nepodarilo načítať.",
 	"lb-img-err": "Tento obrázok sa nepodarilo načítať.",
 	/* Charts widget */
-	"table-mention": "Tabuľka",
-	"table-following": "Graf. Podrobnosti v nasledujúcej tabuľke.",
+	"tbl-txt": "Tabuľka",
+	"tbl-dtls": "Graf. Podrobnosti v nasledujúcej tabuľke.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Vaša relácia vyprší automaticky #min# min #sec# sec.",
 	"st-to-msg-end": "Zvoľte \"Pokračovať v relácii\" rozšíriť reláciu.",

@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Þetta efni tókst að hlaða.",
 	"lb-img-err": "Þessi mynd tókst að hlaða.",
 	/* Charts widget */
-	"table-mention": "Tafla",
-	"table-following": "Töfluna. Upplýsingar í eftirfarandi töflu.",
+	"tbl-txt": "Tafla",
+	"tbl-dtls": "Töfluna. Upplýsingar í eftirfarandi töflu.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Fundur mun renna sjálfkrafa í #min# mín #sec# sek.",
 	"st-to-msg-end": "Sækja Veldu \"Áfram fundur\" til að lengja setu.",

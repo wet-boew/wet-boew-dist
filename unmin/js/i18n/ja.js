@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "コンテンツをロードできませんでした。",
 	"lb-img-err": "画像をロードできませんでした。",
 	/* Charts widget */
-	"table-mention": "表",
-	"table-following": "チャート図。詳細については次の表を参照。",
+	"tbl-txt": "表",
+	"tbl-dtls": "チャート図。詳細については次の表を参照。",
 	/* Session timeout */
 	"st-to-msg-bgn": "セッションは、 #min# 分 #sec# 秒で自動的に期限切れになります。",
 	"st-to-msg-end": "選択はあなたのセッションを延長する\"セッションを続ける\"。",

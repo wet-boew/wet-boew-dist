@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Šo saturu nevar ielādēt",
 	"lb-img-err": "Šo attēlu nevar ielādēt",
 	/* Charts widget */
-	"table-mention": "Tabula",
-	"table-following": "Grafiks. Detaļas tabulā.",
+	"tbl-txt": "Tabula",
+	"tbl-dtls": "Grafiks. Detaļas tabulā.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Jūsu sesija beigsies automātiski #min# min sekundē #sec#.",
 	"st-to-msg-end": "Izvēlieties \"Turpināt sesiju\", lai paplašinātu savu sesiju.",

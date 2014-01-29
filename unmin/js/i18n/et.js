@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Sisu laadimine ebaõnnestus",
 	"lb-img-err": "Pildi laadimine ebaõnnestus",
 	/* Charts widget */
-	"table-mention": "Tabel",
-	"table-following": "Graafik. Täpsemad andmed järgnevas tabelis.",
+	"tbl-txt": "Tabel",
+	"tbl-dtls": "Graafik. Täpsemad andmed järgnevas tabelis.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Teie sessioon aegub automaatselt #min# min #sec# sec.",
 	"st-to-msg-end": "Valige \"Jätka sessioon\" laiendada oma istungil.",

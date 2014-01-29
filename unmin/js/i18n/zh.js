@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "本內容無法載入。",
 	"lb-img-err": "圖形無法顯示。",
 	/* Charts widget */
-	"table-mention": "表格",
-	"table-following": "圖表，詳細內容在表格中。",
+	"tbl-txt": "表格",
+	"tbl-dtls": "圖表，詳細內容在表格中。",
 	/* Session timeout */
 	"st-to-msg-bgn": "#min#＃分#sec#秒，您的會話將自動失效。",
 	"st-to-msg-end": "選擇“繼續會話”來擴展您的會話。",

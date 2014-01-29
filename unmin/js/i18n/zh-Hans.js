@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "该内容无法下载。",
 	"lb-img-err": "该图像无法下载。",
 	/* Charts widget */
-	"table-mention": "表格",
-	"table-following": "图表。详细资料表如下。",
+	"tbl-txt": "表格",
+	"tbl-dtls": "图表。详细资料表如下。",
 	/* Session timeout */
 	"st-to-msg-bgn": "#min#＃分#sec#秒，您的会话将自动失效。",
 	"st-to-msg-end": "选择“继续会话”来扩展您的会话。",

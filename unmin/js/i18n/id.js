@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Halaman tidak berhasil ditampilkan.",
 	"lb-img-err": "Gambar ini tidak berhasil ditampilkan.",
 	/* Charts widget */
-	"table-mention": "Tabel",
-	"table-following": "Infografis. Detail pada tabel berikut.",
+	"tbl-txt": "Tabel",
+	"tbl-dtls": "Infografis. Detail pada tabel berikut.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Sesi Anda akan berakhir secara otomatis dalam #min# menit #sec# detik.",
 	"st-to-msg-end": "Pilih \"Lanjutkan sesi\" untuk memperpanjang sesi Anda.",

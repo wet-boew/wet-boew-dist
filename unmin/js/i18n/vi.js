@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Nội dung này không thể tải.",
 	"lb-img-err": "Hình ảnh này không tải.",
 	/* Charts widget */
-	"table-mention": "Bảng",
-	"table-following": "Chart. Thông tin chi tiết trong bảng dưới đây.",
+	"tbl-txt": "Bảng",
+	"tbl-dtls": "Chart. Thông tin chi tiết trong bảng dưới đây.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Phiên của bạn sẽ tự động hết hạn trong  #min# phút #sec# giây.",
 	"st-to-msg-end": "Chọn \"Tiếp tục phiên\" mở rộng phiên của bạn.",

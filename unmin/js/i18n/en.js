@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "This content failed to load.",
 	"lb-img-err": "This image failed to load.",
 	/* Charts widget */
-	"table-mention": "Table",
-	"table-following": "Chart. Details in the following table.",
+	"tbl-txt": "Table",
+	"tbl-dtls": "Chart. Details in the following table.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Your session will expire automatically in #min# min #sec# sec.",
 	"st-to-msg-end": "Select \"Continue session\" to extend your session.",

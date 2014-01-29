@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Nie udało się załadować treści.",
 	"lb-img-err": "Nie udało się załadować obrazu.",
 	/* Charts widget */
-	"table-mention": "Tabela",
-	"table-following": "Wykres. Szczegóły w tabeli poniżej.",
+	"tbl-txt": "Tabela",
+	"tbl-dtls": "Wykres. Szczegóły w tabeli poniżej.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Twoja sesja wygaśnie automatycznie w #min# min #sec# sek.",
 	"st-to-msg-end": "Wybierz \"Kontynuuj sesję\" przedłużyć sesję.",

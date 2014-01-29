@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "İçerik yükleme hatası.",
 	"lb-img-err": "İmaj yükleme hatası.",
 	/* Charts widget */
-	"table-mention": "Tablo",
-	"table-following": "Grafik. Detaylar takip eden tablodadır.",
+	"tbl-txt": "Tablo",
+	"tbl-dtls": "Grafik. Detaylar takip eden tablodadır.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Oturumunuz #min# dk #sec# sn otomatik olarak sona erecek.",
 	"st-to-msg-end": "turum uzatmak için \"oturum devam\" seçin.",

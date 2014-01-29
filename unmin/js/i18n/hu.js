@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "A tartalom betöltése nem sikerült.",
 	"lb-img-err": "A kép betöltése nem sikerült.",
 	/* Charts widget */
-	"table-mention": "Táblázat",
-	"table-following": "Részletek a következő táblázatban.",
+	"tbl-txt": "Táblázat",
+	"tbl-dtls": "Részletek a következő táblázatban.",
 	/* Session timeout */
 	"st-to-msg-bgn": "A munkamenet lejár automatikusan #min# perc #sec# másodperc.",
 	"st-to-msg-end": "Válassza a \"Folytatás session\" kiterjeszteni a munkamenet.",

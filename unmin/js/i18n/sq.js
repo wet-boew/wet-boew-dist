@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Kjo përmbajtje nuk arriti të ngarkesës.",
 	"lb-img-err": "Ky imazh nuk arriti të ngarkesës.",
 	/* Charts widget */
-	"table-mention": "Tabelë",
-	"table-following": "Chart. Detajet në tabelën e mëposhtme.",
+	"tbl-txt": "Tabelë",
+	"tbl-dtls": "Chart. Detajet në tabelën e mëposhtme.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Sesioni juaj do të përfundojë automatikisht në #min# min #sec# sec.",
 	"st-to-msg-end": "Zgjidhni \"Vazhdo seancë\" për të zgjeruar sesionin tuaj.",

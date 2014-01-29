@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "이 콘텐츠를로드하지 못했습니다.",
 	"lb-img-err": "이 이미지를로드하지 못했습니다.",
 	/* Charts widget */
-	"table-mention": "표",
-	"table-following": "차트. 다음 테이블의 세부 사항.",
+	"tbl-txt": "표",
+	"tbl-dtls": "차트. 다음 테이블의 세부 사항.",
 	/* Session timeout */
 	"st-to-msg-bgn": "세션이 #min# 분 #sec# 초에 자동으로 만료됩니다.",
 	"st-to-msg-end": "선택은 세션을 확장하는 \"세션 계속\".",

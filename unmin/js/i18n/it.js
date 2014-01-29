@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Questo contenuto non è stato caricato.",
 	"lb-img-err": "Questa immagine non è stata caricata.",
 	/* Charts widget */
-	"table-mention": "Tabella",
-	"table-following": "Grafico. Dettagli nella tabella riportata di seguito.",
+	"tbl-txt": "Tabella",
+	"tbl-dtls": "Grafico. Dettagli nella tabella riportata di seguito.",
 	/* Session timeout */
 	"st-to-msg-bgn": "La sessione scadrà automaticamente in #min# min #sec# sec .",
 	"st-to-msg-end": "Seleziona \"Continua sessione\" per estendere la tua sessione.",

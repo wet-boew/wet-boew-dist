@@ -147,8 +147,8 @@ wb.i18nDict = {
 	"lb-xhr-err": "Hierdie inhoud het misluk om te laai.",
 	"lb-img-err": "Hierdie beeld het misluk om te laai.",
 	/* Charts widget */
-	"table-mention": "Tabel",
-	"table-following": "Chart. Besonderhede in die volgende tabel.",
+	"tbl-txt": "Tabel",
+	"tbl-dtls": "Chart. Besonderhede in die volgende tabel.",
 	/* Session timeout */
 	"st-to-msg-bgn": "Jou sessie sal outomaties verval in #min# min #sec# sek aan.",
 	"st-to-msg-end": "Kies \"Gaan voort sessie\" om jou sessie te brei.",
