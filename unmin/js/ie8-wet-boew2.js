@@ -3623,7 +3623,6 @@ var pluginName = "wb-feeds",
 		var elm = event.target,
 			entries = [],
 			results = [],
-			deferred = [],
 			processEntries = function( data ) {
 				var k, len;
 
@@ -3638,11 +3637,6 @@ var pluginName = "wb-feeds",
 
 				last -= 1;
 				return last;
-			},
-			finalize = function() {
-
-				// TODO: Use CSS instead
-				$content.find( "li" ).show();
 			},
 			$content, limit, feeds, last, i;
 
@@ -3661,15 +3655,13 @@ var pluginName = "wb-feeds",
 			i = last;
 
 			while ( i >= 0 ) {
-				deferred[ i ] = $.ajax({
+				$.ajax({
 					url: jsonRequest( feeds[ i ].href, limit ),
 					dataType: "json",
 					timeout: 1000
 				}).done( processEntries );
 				results.push( i -= 1 );
 			}
-			$.when.apply( null, deferred ).always( finalize );
-
 			$.extend( {}, results );
 		}
 	},
