@@ -163,57 +163,99 @@ var getUrlParts = function( url ) {
 		ielt9:  ( oldie < 9 ),
 		ielt10: ( oldie < 10 ),
 
-		nodes: $(),
+		selectors: [],
 
 		resizeEvents: "xxsmallview.wb xsmallview.wb smallview.wb mediumview.wb largeview.wb xlargeview.wb",
 
+		// Add a selector to be targeted by timerpoke
 		add: function( selector ) {
-
+			var exists = false,
+				i, len;
+		
 			// Lets ensure we are not running if things are disabled
-			if ( this.isDisabled && selector !== "#wb-tphp" ) {
+			if ( wb.isDisabled && selector !== "#wb-tphp" ) {
 				return 0;
 			}
 
-			this.nodes = this.nodes.add( selector );
+			// Check to see if the selector is already targeted
+			len = wb.selectors.length;
+			for ( i = 0; i !== len; i += 1 ) {
+				if ( wb.selectors[ i ] === selector ) {
+					exists = true;
+					break;
+				}
+			}
+
+			// Add the selector if it isn't already targeted
+			if ( !exists ) {
+				wb.selectors.push( selector );
+			}
 		},
 
-		// Remove nodes referenced by the selector
+		// Remove a selector targeted by timerpoke
 		remove: function( selector ) {
-			this.nodes = this.nodes.not( selector );
+			var i, len;
+
+			len = wb.selectors.length;
+			for ( i = 0; i !== len; i += 1 ) {
+				if ( wb.selectors[ i ] === selector ) {
+					wb.selectors.splice( i, 1 );
+					break;
+				}
+			}
 		},
 
 		start: function() {
+			var selectorsLocal = wb.selectors,
+				len = selectorsLocal.length,
+				i;
 
 			/*
-			 * Lets start our clock right away. We we need to test to ensure that there will not be any
-			 * instances on Mobile were the DOM is not ready before the timer starts. That is why 0.5 seconds
-			 * was used as a buffer.
+			 * Lets start our clock right away. We we need to test to ensure
+			 * that there will not be any instances on Mobile were the DOM is
+			 * not ready before the timer starts. That is why 0.5 seconds was
+			 * used as a buffer.
 			 */
-			this.nodes.trigger( "timerpoke.wb" );
+			for ( i = 0; i !== len; i += 1 ) {
+				$( selectorsLocal[ i ] ).trigger( "timerpoke.wb" );
+			}
 
 			// lets keep it ticking after
 			setInterval(function() {
-				wb.nodes.trigger( "timerpoke.wb" );
+				selectorsLocal = wb.selectors;
+				len = selectorsLocal.length;
+				for ( i = 0; i !== len; i += 1 ) {
+					$( selectorsLocal[ i ] ).trigger( "timerpoke.wb" );
+				}
 			}, 500 );
 
 		},
 		i18nDict: {},
 		i18n: function( key, state, mixin ) {
-			var truthiness,
-				dictionary = wb.i18nDict;
+			var dictionary = wb.i18nDict,
 
-			truthiness = ( typeof key === "string" && key !== "" ) | // eg. 000 or 001 ie. 0 or 1
-			( typeof state === "string" && state !== "" ) << 1 | // eg. 000 or 010 ie. 0 or 2
-			( typeof mixin === "string" && mixin !== "" ) << 2; // eg. 000 or 100 ie. 0 or 4
+				// eg. 000 or 001 ie. 0 or 1
+				truthiness = ( typeof key === "string" && key !== "" ) |
+
+					// eg. 000 or 010 ie. 0 or 2
+					( typeof state === "string" && state !== "" ) << 1 |
+
+					// eg. 000 or 100 ie. 0 or 4
+					( typeof mixin === "string" && mixin !== "" ) << 2;
 
 			switch ( truthiness ) {
 				case 1:
+
 					// only key was provided
 					return dictionary[ key ];
+
 				case 3:
+
 					// key and state were provided
 					return dictionary[ key ][ state ];
+
 				case 7:
+
 					// key, state, and mixin were provided
 					return dictionary[ key ][ state ].replace( "[MIXIN]", mixin );
 				default:
@@ -228,9 +270,12 @@ window.wb = wb;
  * Yepnope Prefixes
  *-----------------------------*/
 /*
- * Establish the base path to be more flexible in terms of WCMS where JS can reside in theme folders and not in the root of sites
- * @TODO: For modularity the prefixes where written independently as we are flushing out some use cases on better grouping and optimization of polyfills.
- * Once this more hashed out, we could optimize the prefixes down to one or two prefixes "site" and "disabled" to thin out the codeblock a bit more
+ * Establish the base path to be more flexible in terms of WCMS where JS can
+ * reside in theme folders and not in the root of sites
+ * @TODO: For modularity the prefixes where written independently as we are
+ * flushing out some use cases on better grouping and optimization of polyfills.
+ * Once this more hashed out, we could optimize the prefixes down to one or two
+ * prefixes "site" and "disabled" to thin out the codeblock a bit more
  * increase performance due to redundant chaining of the prefixes.
  */
 
@@ -1845,8 +1890,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 	tableParsingEvent = "pasiveparse.wb-tableparser.wb",
 	tableParsingCompleteEvent = "parsecomplete.wb-tableparser.wb",
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
-	
+
 	/**
 	 * Main Entry function to create the charts
 	 * @method createCharts
@@ -1868,6 +1914,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			dataCell, previousDataCell, currDataVector,
 			pieQuaterFlotSeries, optionFlot, optionsCharts,
 			defaultsOptions = {
+
 				// Flot Global Options
 				flot: {
 					prefix: "wb-charts-",
@@ -1920,6 +1967,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 								}
 
 								if ( optionsCharts.nolegend ) {
+
 									// Add the series label
 									textlabel = label + "<br/>" + textlabel;
 								}
@@ -2899,10 +2947,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {DOM element} elm The plugin element being initialized
-	 * @param {jQuery DOM element} $elm The plugin element being initialized
 	 */
-	init = function( elm, $elm ) {
-		var modeJS = wb.getMode() + ".js",
+	init = function( elm ) {
+		var elmId = elm.id,
+			modeJS = wb.getMode() + ".js",
 			deps = [
 				"site!deps/jquery.flot" + modeJS,
 				"site!deps/jquery.flot.pie" + modeJS,
@@ -2912,10 +2960,16 @@ $document.on( "setFocus.wb-cal", setFocus );
 			];
 	
 		if ( elm.className.indexOf( initedClass ) === -1 ) {
-				
 			wb.remove( selector );
 
 			elm.className += " " + initedClass;
+
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -2932,8 +2986,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 				// For loading multiple dependencies
 				load: deps,
 				complete: function() {
-					// Let parse the table
-					$elm.trigger( tableParsingEvent );
+
+					// Let's parse the table
+					$( "#" + elmId ).trigger( tableParsingEvent );
 				}
 			});
 		}
@@ -2942,10 +2997,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, selector, function( event ) {
 	var eventType = event.type,
-		elm = event.target,
-
-		// "this" is cached for all events to utilize
-		$elm = $( this );
+		elm = event.target;
 	
 	if ( event.currentTarget !== elm ) {
 		return true;
@@ -2957,14 +3009,14 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 	 * Init
 	 */
 	case "timerpoke":
-		init( elm, $elm );
+		init( elm );
 		break;
 	
 	/*
 	 * Data table parsed
 	 */
 	case "parsecomplete":
-		createCharts( $elm );
+		createCharts( $( elm ) );
 		break;
 	}
 
@@ -4220,6 +4272,7 @@ var pluginName = "wb-frmvld",
 	initEvent = "wb-init" + selector,
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
 
 	/**
@@ -4230,7 +4283,8 @@ var pluginName = "wb-frmvld",
 	 */
 	init = function( event ) {
 		var eventTarget = event.target,
-			modeJS, $elm;
+			elmId = eventTarget.id,
+			modeJS;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -4239,10 +4293,16 @@ var pluginName = "wb-frmvld",
 
 			wb.remove( selector );
 			eventTarget.className += " " + initedClass;
-			
+
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				eventTarget.id = elmId;
+			}
+
 			// Read the selector node for parameters
 			modeJS = wb.getMode() + ".js";
-			$elm = $( eventTarget );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -4258,13 +4318,15 @@ var pluginName = "wb-frmvld",
 			}
 
 			Modernizr.load({
+
 				// For loading multiple dependencies
 				both: [
 					"site!deps/jquery.validate" + modeJS,
 					"site!deps/additional-methods" + modeJS
 				],
 				complete: function() {
-					var $form = $elm.find( "form" ),
+					var $elm = $( "#" + elmId ),
+						$form = $elm.find( "form" ),
 						formDOM = $form.get( 0 ),
 						formId = $form.attr( "id" ),
 						labels = formDOM.getElementsByTagName( "label" ),
@@ -4517,6 +4579,7 @@ var pluginName = "wb-lbx",
 	initEvent = "wb-init" + selector,
 	extendedGlobal = false,
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
 
 	/**
@@ -4527,7 +4590,8 @@ var pluginName = "wb-lbx",
 	 */
 	init = function( event ) {
 		var elm = event.target,
-			$elm, modeJS;
+			elmId = elm.id,
+			modeJS;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -4537,9 +4601,15 @@ var pluginName = "wb-lbx",
 			wb.remove( selector );
 			elm.className += " " + initedClass;
 
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
+
 			// read the selector node for parameters
 			modeJS = wb.getMode() + ".js";
-			$elm = $( elm );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -4565,7 +4635,9 @@ var pluginName = "wb-lbx",
 			Modernizr.load({
 				load: "site!deps/jquery.magnific-popup" + modeJS,
 				complete: function() {
-					var settings = {},
+					var elm = document.getElementById( elmId ),
+						$elm = $( elm ),
+						settings = {},
 						firstLink;
 
 					// Set the dependency i18nText only once
@@ -7715,6 +7787,7 @@ var pluginName = "wb-tables",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText, defaults,
 
 	/**
@@ -7725,7 +7798,7 @@ var pluginName = "wb-tables",
 	 */
 	init = function( event ) {
 		var elm = event.target,
-			$elm;
+			elmId = elm.id;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -7735,7 +7808,12 @@ var pluginName = "wb-tables",
 			wb.remove( selector );
 			elm.className += " " + initedClass;
 
-			$elm = $( elm );
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -7768,13 +7846,14 @@ var pluginName = "wb-tables",
 				asStripeClasses: [],
 				oLanguage: i18nText,
 				fnDrawCallback: function() {
-					$elm.trigger( "tables-draw.wb" );
+					$( "#" + elmId ).trigger( "tables-draw.wb" );
 				}
 			};
 
 			Modernizr.load({
 				load: [ "site!deps/jquery.dataTables" + wb.getMode() + ".js" ],
 				complete: function() {
+					var $elm = $( "#" + elmId );
 					$elm.dataTable( $.extend( true, defaults, wb.getData( $elm, "wet-boew" ) ) );
 				}
 			});

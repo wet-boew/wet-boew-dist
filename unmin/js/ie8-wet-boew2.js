@@ -1484,8 +1484,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 	tableParsingEvent = "pasiveparse.wb-tableparser.wb",
 	tableParsingCompleteEvent = "parsecomplete.wb-tableparser.wb",
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
-	
+
 	/**
 	 * Main Entry function to create the charts
 	 * @method createCharts
@@ -1507,6 +1508,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			dataCell, previousDataCell, currDataVector,
 			pieQuaterFlotSeries, optionFlot, optionsCharts,
 			defaultsOptions = {
+
 				// Flot Global Options
 				flot: {
 					prefix: "wb-charts-",
@@ -1559,6 +1561,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 								}
 
 								if ( optionsCharts.nolegend ) {
+
 									// Add the series label
 									textlabel = label + "<br/>" + textlabel;
 								}
@@ -2538,10 +2541,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {DOM element} elm The plugin element being initialized
-	 * @param {jQuery DOM element} $elm The plugin element being initialized
 	 */
-	init = function( elm, $elm ) {
-		var modeJS = wb.getMode() + ".js",
+	init = function( elm ) {
+		var elmId = elm.id,
+			modeJS = wb.getMode() + ".js",
 			deps = [
 				"site!deps/jquery.flot" + modeJS,
 				"site!deps/jquery.flot.pie" + modeJS,
@@ -2551,10 +2554,16 @@ $document.on( "setFocus.wb-cal", setFocus );
 			];
 	
 		if ( elm.className.indexOf( initedClass ) === -1 ) {
-				
 			wb.remove( selector );
 
 			elm.className += " " + initedClass;
+
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -2571,8 +2580,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 				// For loading multiple dependencies
 				load: deps,
 				complete: function() {
-					// Let parse the table
-					$elm.trigger( tableParsingEvent );
+
+					// Let's parse the table
+					$( "#" + elmId ).trigger( tableParsingEvent );
 				}
 			});
 		}
@@ -2581,10 +2591,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, selector, function( event ) {
 	var eventType = event.type,
-		elm = event.target,
-
-		// "this" is cached for all events to utilize
-		$elm = $( this );
+		elm = event.target;
 	
 	if ( event.currentTarget !== elm ) {
 		return true;
@@ -2596,14 +2603,14 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 	 * Init
 	 */
 	case "timerpoke":
-		init( elm, $elm );
+		init( elm );
 		break;
 	
 	/*
 	 * Data table parsed
 	 */
 	case "parsecomplete":
-		createCharts( $elm );
+		createCharts( $( elm ) );
 		break;
 	}
 
@@ -3859,6 +3866,7 @@ var pluginName = "wb-frmvld",
 	initEvent = "wb-init" + selector,
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
 
 	/**
@@ -3869,7 +3877,8 @@ var pluginName = "wb-frmvld",
 	 */
 	init = function( event ) {
 		var eventTarget = event.target,
-			modeJS, $elm;
+			elmId = eventTarget.id,
+			modeJS;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -3878,10 +3887,16 @@ var pluginName = "wb-frmvld",
 
 			wb.remove( selector );
 			eventTarget.className += " " + initedClass;
-			
+
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				eventTarget.id = elmId;
+			}
+
 			// Read the selector node for parameters
 			modeJS = wb.getMode() + ".js";
-			$elm = $( eventTarget );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -3897,13 +3912,15 @@ var pluginName = "wb-frmvld",
 			}
 
 			Modernizr.load({
+
 				// For loading multiple dependencies
 				both: [
 					"site!deps/jquery.validate" + modeJS,
 					"site!deps/additional-methods" + modeJS
 				],
 				complete: function() {
-					var $form = $elm.find( "form" ),
+					var $elm = $( "#" + elmId ),
+						$form = $elm.find( "form" ),
 						formDOM = $form.get( 0 ),
 						formId = $form.attr( "id" ),
 						labels = formDOM.getElementsByTagName( "label" ),
@@ -4156,6 +4173,7 @@ var pluginName = "wb-lbx",
 	initEvent = "wb-init" + selector,
 	extendedGlobal = false,
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
 
 	/**
@@ -4166,7 +4184,8 @@ var pluginName = "wb-lbx",
 	 */
 	init = function( event ) {
 		var elm = event.target,
-			$elm, modeJS;
+			elmId = elm.id,
+			modeJS;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -4176,9 +4195,15 @@ var pluginName = "wb-lbx",
 			wb.remove( selector );
 			elm.className += " " + initedClass;
 
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
+
 			// read the selector node for parameters
 			modeJS = wb.getMode() + ".js";
-			$elm = $( elm );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -4204,7 +4229,9 @@ var pluginName = "wb-lbx",
 			Modernizr.load({
 				load: "site!deps/jquery.magnific-popup" + modeJS,
 				complete: function() {
-					var settings = {},
+					var elm = document.getElementById( elmId ),
+						$elm = $( elm ),
+						settings = {},
 						firstLink;
 
 					// Set the dependency i18nText only once
@@ -7354,6 +7381,7 @@ var pluginName = "wb-tables",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText, defaults,
 
 	/**
@@ -7364,7 +7392,7 @@ var pluginName = "wb-tables",
 	 */
 	init = function( event ) {
 		var elm = event.target,
-			$elm;
+			elmId = elm.id;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -7374,7 +7402,12 @@ var pluginName = "wb-tables",
 			wb.remove( selector );
 			elm.className += " " + initedClass;
 
-			$elm = $( elm );
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = pluginName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -7407,13 +7440,14 @@ var pluginName = "wb-tables",
 				asStripeClasses: [],
 				oLanguage: i18nText,
 				fnDrawCallback: function() {
-					$elm.trigger( "tables-draw.wb" );
+					$( "#" + elmId ).trigger( "tables-draw.wb" );
 				}
 			};
 
 			Modernizr.load({
 				load: [ "site!deps/jquery.dataTables" + wb.getMode() + ".js" ],
 				complete: function() {
+					var $elm = $( "#" + elmId );
 					$elm.dataTable( $.extend( true, defaults, wb.getData( $elm, "wet-boew" ) ) );
 				}
 			});
