@@ -10729,7 +10729,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs [role="tablist"] li {
   display: inline-block;
   cursor: pointer;
-  margin: 0 1px 0 0;
+  margin: 0 5px 0 0;
   color: black;
   background: #eeeeee;
   background: rgba(238, 238, 238, 0.9);
@@ -10742,7 +10742,7 @@ table.dataTable tr.even td.sorting_3 {
   text-decoration: none;
   color: black;
   display: inline-block;
-  padding: 7px;
+  padding: 7px 15px;
 }
 
 .wb-tabs [role="tablist"] li.active {
