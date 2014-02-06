@@ -165,7 +165,7 @@ wb.i18nDict = {
 	/* Table enhancement */
 	sortAsc: "&#160;: activer pour tri ascendant",
 	sortDesc: "&#160;: activer pour tri descendant",
-	emptyTbl: "Aucunes données sont disponibles dans la table",
+	emptyTbl: "Aucune donnée n'est disponible dans le tableau",
 	infoEntr: "Affiche _START_ à _END_ de _TOTAL_ entrées",
 	infoEmpty: "Affiche 0 à 0 de 0 entrées",
 	infoFilt: "(filtré de _MAX_ entrées totales)",
