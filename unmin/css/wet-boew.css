@@ -8515,7 +8515,7 @@ input[type="submit"].btn-xs {
   list-style: outside;
 }
 
-[class*=clmn-] > li {
+[class*=clmn-]> li {
   margin-left: 1.3em;
 }
 
