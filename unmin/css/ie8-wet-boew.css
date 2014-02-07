@@ -8740,6 +8740,10 @@ input[type="submit"].btn-xs {
   border-bottom-width: 1px;
 }
 
+.brdr-rds-0 {
+  border-radius: 0;
+}
+
 /*
   WET-BOEW
   @title: List CSS
