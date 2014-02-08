@@ -7159,7 +7159,7 @@ td.visible-print {
 #wb-info h2,
 #mb-pnl h3,
 #wb-lng h2,
-.wb-fnote dl dt,
+.wb-fnote dt,
 #mb-pnl .srch-pnl label,
 .wb-mm-ctrls .wb-mm-txtonly span {
   height: 1px;
@@ -9016,18 +9016,18 @@ figure .pieLabel {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-sup a.fn-lnk:hover,
-sup a.fn-lnk:focus,
-.wb-fnote dl dd:focus p.fn-rtn a,
-.wb-fnote dl dd p.fn-rtn a:hover,
-.wb-fnote dl dd p.fn-rtn a:focus {
+.fn-lnk:hover,
+.fn-lnk:focus,
+.wb-fnote dd:focus .fn-rtn a,
+.wb-fnote .fn-rtn a:hover,
+.wb-fnote .fn-rtn a:focus {
   color: white !important;
   background-color: #555555;
   border-color: #555555;
 }
 
-sup a.fn-lnk,
-.wb-fnote dl dd p.fn-rtn a {
+.fn-lnk,
+.wb-fnote .fn-rtn a {
   background-color: #eeeeee;
   border: 1px solid #cccccc;
   padding: 0 4px 1px;
@@ -9051,27 +9051,27 @@ sup a.fn-lnk,
   margin: 0;
 }
 
-.wb-fnote dl dd {
+.wb-fnote dd {
   position: relative;
   margin: 0.375em 0;
   border: 1px solid transparent;
 }
 
-.wb-fnote dl dd:focus {
+.wb-fnote dd:focus {
   background-color: #eeeeee;
   border-color: #555555;
 }
 
-.wb-fnote dl dd p {
+.wb-fnote p {
   margin: 0 0 0 3.125em;
   padding: 0 0.375em 0.375em 0.375em;
 }
 
-.wb-fnote dl dd p:first-child {
+.wb-fnote p:first-child {
   padding-top: 0.375em;
 }
 
-.wb-fnote dl dd p.fn-rtn {
+.wb-fnote .fn-rtn {
   top: 0;
   margin: 0;
   padding-top: 0.375em;
@@ -9081,21 +9081,21 @@ sup a.fn-lnk,
   overflow: hidden;
 }
 
-.wb-fnote dl dd p.fn-rtn a {
+.wb-fnote .fn-rtn a {
   display: inline-block;
   padding-bottom: 0;
 }
 
-/* Right to left (RTL) CSS */
+/* Right to left (RTL) SCSS */
 
-[dir="rtl"] .wb-fnote dl dd p {
+[dir="rtl"] .wb-fnote p {
   margin-left: 0;
   margin-right: 3.125em;
   padding-left: 0;
   padding-right: 0.375em;
 }
 
-[dir="rtl"] .wb-fnote dl dd p.fn-rtn {
+[dir="rtl"] .wb-fnote .fn-rtn {
   margin-right: 0;
   padding-right: 0;
 }
@@ -11509,31 +11509,28 @@ details summary:hover {
  * Print styles
  */
 
-  sup a.fn-lnk,
-  .wb-fnote dl dd p.fn-rtn a {
+  .fn-lnk,
+  .wb-fnote .fn-rtn a {
     background-color: transparent;
     border: 0;
     padding: 0;
   }
 
   .wb-fnote {
+    border-left: 0;
+    border-right: 0;
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 1em;
   }
 
-  .wb-fnote border {
-    left: 0;
-    right: 0;
-  }
-
-  .wb-fnote dl dd {
+  .wb-fnote dd {
     border: 0;
     width: 100%;
     display: inline-block;
   }
 
-  .wb-fnote dl dd p.fn-rtn {
+  .wb-fnote .fn-rtn {
     overflow: visible;
   }
 
@@ -11655,15 +11652,15 @@ details summary:hover {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-  .ie8 .wb-fnote dl dd {
+  .ie8 .wb-fnote dd {
     display: block;
   }
 
-  .ie8 .wb-fnote dl dd p {
+  .ie8 .wb-fnote p {
     display: inline-block;
   }
 
-  .ie8 .wb-fnote dl dd p.fn-rtn {
+  .ie8 .wb-fnote .fn-rtn {
     display: block;
   }
 }
