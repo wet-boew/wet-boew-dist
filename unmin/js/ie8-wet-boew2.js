@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-b2-development - 2014-02-12
+ * v4.0.0-b2-development - 2014-02-13
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7711,8 +7711,10 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 
 			$elm = $( elm );
 
-			// Merge default settings with overrides from the selected plugin element. There may be more than one, so don't override defaults globally!
+			// Merge default settings with overrides from the plugin element
+			// and save back to the element for future reference
 			settings = $.extend( {}, defaults, $elm.data( "wet-boew" ) );
+			$elm.data( "wet-boew", settings );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
