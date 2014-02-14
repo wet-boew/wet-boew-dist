@@ -9808,7 +9808,7 @@ $document.on( setFocusEvent, function( event ) {
 		}
 
 		return $elm;
-	}, 1 );
+	}, 100 );
 });
 
 // Set focus to the target of a deep link from a different page
