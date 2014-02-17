@@ -8868,7 +8868,7 @@ var pluginName = "wb-tabs",
 								"aria-hidden": "false"
 							});
 						}
-					} else {
+					} else if ( oldIsSmallView ) {
 
 						// Switch to large view
 						$openDetails = $details.filter( "[open]" );
