@@ -6391,10 +6391,6 @@ blockquote {
   margin: 0 0 23px;
 }
 
-blockquote p {
-  font-size: 20px;
-}
-
 blockquote small,
 blockquote .small {
   line-height: 1.4375;
@@ -6495,6 +6491,14 @@ input[type="submit"].btn-xs {
   .pull-right[class*=col-lg] {
     float: none !important;
   }
+}
+
+/*
+ *	Blockquote font size
+ */
+
+blockquote {
+  font-size: 16px;
 }
 
 /*
