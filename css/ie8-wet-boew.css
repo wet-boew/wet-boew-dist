@@ -10040,6 +10040,14 @@ details summary:hover {
     column-count: 4;
   }
 
+  [dir=rtl] main.col-md-push-3 {
+    left: auto;
+  }
+
+  [dir=rtl] #wb-sec.col-md-pull-9 {
+    right: auto;
+  }
+
   .wb-tabs.carousel-s1 figcaption,
   .wb-tabs.carousel-s2 figcaption {
     background: #243850;
