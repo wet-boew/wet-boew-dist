@@ -9841,6 +9841,7 @@ details summary:hover {
   .wb-date dt,
   .wb-date dd {
     display: inline;
+    font-weight: normal;
   }
 
   .typ,
