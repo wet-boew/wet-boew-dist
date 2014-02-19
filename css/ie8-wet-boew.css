@@ -8402,6 +8402,7 @@ img.mfp-img {
 
 .wb-menu .menu {
   position: relative;
+  margin-left: 0;
 }
 
 .wb-menu .menu> li {
