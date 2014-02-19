@@ -9834,6 +9834,15 @@ details summary:hover {
 
   /* a function name */
 
+  .wb-date {
+    margin: 2em 0 0 0;
+  }
+
+  .wb-date dt,
+  .wb-date dd {
+    display: inline;
+  }
+
   .typ,
   .atn,
   .dec,
