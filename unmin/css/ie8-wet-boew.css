@@ -9842,6 +9842,7 @@ details summary:hover {
   #wb-dtmd dd {
     display: inline;
     font-weight: normal;
+    margin-right: 0;
   }
 
   [dir=rtl] #wb-dtmd.text-right {
