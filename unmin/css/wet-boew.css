@@ -9834,14 +9834,18 @@ details summary:hover {
 
   /* a function name */
 
-  .wb-date {
+  #wb-dtmd {
     margin: 2em 0 0 0;
   }
 
-  .wb-date dt,
-  .wb-date dd {
+  #wb-dtmd dt,
+  #wb-dtmd dd {
     display: inline;
     font-weight: normal;
+  }
+
+  [dir=rtl] #wb-dtmd.text-right {
+    float: left;
   }
 
   .typ,
