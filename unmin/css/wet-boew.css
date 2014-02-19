@@ -9384,7 +9384,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s2 figcaption {
   position: absolute;
   color: white;
-  padding: 1em;
+  padding: 0.5em 1em;
   z-index: 101;
 }
 
@@ -9649,8 +9649,13 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .wb-tabs.carousel-s2 figcaption {
-  bottom: 1em;
-  left: 3em;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.wb-tabs.carousel-s2 figcaption p {
+  margin-bottom: 0;
 }
 
 .wb-tabs> details {
@@ -9933,8 +9938,28 @@ details summary:hover {
     position: static;
   }
 
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon,
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
+    bottom: -2em;
+    top: auto;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
+    right: auto;
+    left: 0;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
+    right: auto;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5em;
+    margin-top: 0.3em;
+  }
+
   .wb-tabs.carousel-s2 figcaption {
-    margin: 1em 3.5em;
+    position: relative;
+    margin: auto;
   }
 
   .wb-tabs> details {
