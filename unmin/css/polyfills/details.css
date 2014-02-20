@@ -34,7 +34,7 @@ details[open] {
 
 details[open]> summary:before {
   /* Add the opened pointer */
-  content: "\25BC\a0";
+  content: "\25BC\a0" !important;
 }
 
 /* Right to left (RTL) CSS */
