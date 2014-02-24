@@ -4,12 +4,13 @@
  */
 
 .feeds-cont {
-  border: 1px solid #cccccc;
-  background-color: #e0e2e4;
-  padding: 10px 10px 0 10px;
+  border-top: 1px solid #e8e8e8;
+  padding: 0;
 }
 
 .feeds-cont li {
-  padding: 0 0 10px 0;
+  border: 1px solid #e8e8e8;
+  border-top: 0;
   list-style-type: none;
+  padding: 10px;
 }
