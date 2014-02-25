@@ -7419,6 +7419,17 @@ blockquote {
   border-radius: 0;
 }
 
+.tbl-gridify thead,
+.tbl-gridify tfoot {
+  display: none;
+}
+
+.tbl-gridify tbody,
+.tbl-gridify td,
+.tbl-gridify td {
+  display: block;
+}
+
 /*
   WET-BOEW
   @title: List CSS
