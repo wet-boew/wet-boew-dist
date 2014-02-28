@@ -18,19 +18,6 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.wb-fdbck {
-  display: none;
-}
-
-.wb-fdbck-off {
-  display: block;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
 /**
  * Mobile-friendly styles
  */
@@ -88,4 +75,12 @@ details> * {
 
 .datepicker-format {
   display: inline;
+}
+
+.nojs-show {
+  display: block !important;
+}
+
+.nojs-hide {
+  display: none !important;
 }

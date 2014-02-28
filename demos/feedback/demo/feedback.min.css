@@ -5,4 +5,4 @@
  * v4.0.0-b2-development - 2014-02-28
  *
  */
-.wb-fdbck label{display:block;margin-top:15px}#otherprob{margin-top:10px}
+.wb-fdbck #fbcomp,.wb-fdbck #fbinfo,.wb-fdbck #fbmob,.wb-fdbck #fbweb{display:none}.wb-fdbck #fbweb label[for=fbop]{display:inline}.wb-fdbck #fbcntc{margin-bottom:15px}.wb-fdbck #fbcmplt{text-align:center}.wb-fdbck #fbcmplt p strong{font-size:110%}.wb-fdbck label{display:block;margin-top:15px}#otherprob{margin-top:10px}

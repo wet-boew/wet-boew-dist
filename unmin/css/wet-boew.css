@@ -7663,40 +7663,6 @@ figure .pieLabel {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.wb-fdbck #fbweb,
-.wb-fdbck #fbmob,
-.wb-fdbck #fbcomp,
-.wb-fdbck #fbinfo,
-.wb-fdbck-off,
-.wb-disable .wb-fdbck {
-  display: none;
-}
-
-.wb-fdbck #fbweb label[for=fbop] {
-  display: inline;
-}
-
-.wb-fdbck #fbcntc {
-  margin-bottom: 15px;
-}
-
-.wb-fdbck #fbcmplt {
-  text-align: center;
-}
-
-.wb-fdbck #fbcmplt p strong {
-  font-size: 110%;
-}
-
-.wb-disable .wb-fdbck-off {
-  display: block;
-}
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -9865,6 +9831,11 @@ details summary:hover {
 
   /* a function name */
 
+  .nojs-show,
+  .wb-disable .nojs-hide {
+    display: none !important;
+  }
+
   #wb-dtmd {
     margin: 2em 0 0 0;
   }
@@ -9878,6 +9849,10 @@ details summary:hover {
 
   .nowrap {
     white-space: nowrap;
+  }
+
+  .wb-disable .nojs-show {
+    display: block !important;
   }
 
   .typ,
