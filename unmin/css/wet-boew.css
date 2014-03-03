@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-rc1-development - 2014-03-02
+ * v4.0.0-rc1-development - 2014-03-03
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -9113,7 +9113,7 @@ table.dataTable thead td:active,
 
 .dataTables_length,
 .dataTables_info {
-  float: left;
+  display: inline-block;
 }
 
 table.dataTable td.center,
@@ -9191,8 +9191,6 @@ table.dataTable tr.even td.sorting_3 {
 .paginate_enabled_previous,
 .paginate_disabled_next,
 .paginate_enabled_next {
-  height: 19px;
-  float: left;
   cursor: pointer;
   color: #111111 !important;
 }
