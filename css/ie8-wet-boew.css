@@ -5923,12 +5923,12 @@ a:hover {
   color: #0535d2;
 }
 
-a:visited {
-  color: #7834bc;
-}
-
 a.btn {
   text-decoration: none;
+}
+
+main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.btn):visited {
+  color: #7834bc;
 }
 
 /*
