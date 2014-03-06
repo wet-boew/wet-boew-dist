@@ -9992,6 +9992,25 @@ datalist {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+summary:hover,
+summary:focus,
+details[open] summary {
+  background: #d4d4d4;
+  font-weight: 700;
+}
+
+summary {
+  color: #284162;
+  background: #ebebeb;
+  cursor: pointer;
+  /* Apply a pointer cursor upon hover to indicate it’s a clickable element. These styles can be applied regardless of whether the fallback is needed */
+}
+
+summary:hover,
+summary:focus {
+  /* Add focus styles (for keyboard accessibility) */
+}
+
 details:not([open])> * {
   display: none;
 }
