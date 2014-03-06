@@ -1964,7 +1964,6 @@ var getUrlParts = function( url ) {
 			}
 
 			// Check to see if the selector is already targeted
-			len = wb.selectors.length;
 			for ( i = 0; i !== len; i += 1 ) {
 				if ( wb.selectors[ i ] === selector ) {
 					exists = true;
@@ -1980,8 +1979,8 @@ var getUrlParts = function( url ) {
 
 		// Remove a selector targeted by timerpoke
 		remove: function( selector ) {
-			var i,
-				len = wb.selectors.length;
+			var len = wb.selectors.length,
+				i;
 
 			for ( i = 0; i !== len; i += 1 ) {
 				if ( wb.selectors[ i ] === selector ) {
