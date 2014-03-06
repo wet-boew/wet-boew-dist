@@ -5910,11 +5910,25 @@ q:after {
  */
 
 /*
- *	Anchor outline and colour
+ *	Links colour and decoration
  */
 
 a {
   color: #295376;
+  text-decoration: underline;
+}
+
+a:focus,
+a:hover {
+  color: #0535d2;
+}
+
+a:visited {
+  color: #7834bc;
+}
+
+a.btn {
+  text-decoration: none;
 }
 
 /*
@@ -6353,18 +6367,6 @@ blockquote .small {
 address {
   margin-bottom: 23px;
   line-height: 1.4375;
-}
-
-/*
- *	Links
- */
-
-a {
-  text-decoration: underline;
-}
-
-a.btn {
-  text-decoration: none;
 }
 
 /*
