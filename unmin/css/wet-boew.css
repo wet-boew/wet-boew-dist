@@ -9020,39 +9020,34 @@ ol.linenums li {
   background-position: 0 -320px;
 }
 
-.wb-share .netvibes:before {
+.wb-share .pinterest:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -352px;
 }
 
-.wb-share .pinterest:before {
+.wb-share .reddit:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -384px;
 }
 
-.wb-share .reddit:before {
+.wb-share .stumbleupon:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -416px;
 }
 
-.wb-share .stumbleupon:before {
+.wb-share .technorati:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -448px;
 }
 
-.wb-share .technorati:before {
+.wb-share .tumblr:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -480px;
 }
 
-.wb-share .tumblr:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -512px;
-}
-
 .wb-share .twitter:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -544px;
+  background-position: 0 -512px;
 }
 
 .wb-share .shr-pg {
