@@ -5927,7 +5927,7 @@ a.btn {
   text-decoration: none;
 }
 
-main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.btn):visited {
+main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.btn):not([role=tab]):visited {
   color: #7834bc;
 }
 
