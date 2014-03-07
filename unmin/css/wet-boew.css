@@ -5991,6 +5991,17 @@ main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.b
   border-radius: 3px;
 }
 
+.btn-default {
+  background-color: #eaebed;
+  color: #335075;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #e1e4e7;
+  color: #243850;
+}
+
 .close {
   font-size: 24px;
 }
