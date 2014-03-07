@@ -9985,6 +9985,41 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+.wb-group-summary {
+  background-color: #f0f2f4;
+}
+
+.wb-zebra-col-hover col.table-hover {
+  background-color: #f0f0f0;
+}
+
+.wb-zebra-col-hover .wb-group-summary col.table-hover,
+.table-hover .wb-group-summary tr:hover td,
+.table-hover .wb-group-summary tr:hover th {
+  background-color: #fafaff;
+}
+
+.wb-cell-layout {
+  background-color: transparent;
+}
+
+.wb-cell-key {
+  font-style: italic;
+}
+
+.wb-cell-desc {
+  font-style: italic;
+}
+
+.wb-zebra > colgroup + colgroup {
+  border-left: 2px solid #dddddd;
+}
+
+/*
  Polyfills
  */
 
