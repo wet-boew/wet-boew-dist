@@ -8886,6 +8886,19 @@ var pluginName = "wb-tabs",
 	return true;
 });
 
+//Pause on escape
+$document.on( "keydown", selector, function( event ) {
+
+	// Escape key
+	if ( event.which === 27 ) {
+		var $sldr = $( event.target ).closest( selector );
+		if ( $sldr.hasClass( "playing" ) ) {
+			$sldr.find( ".plypause" ).trigger( "click" );
+		}
+		return false;
+	}
+});
+
 $document.on( "keydown", selector + " [role=tabpanel]", function( event ) {
 	var currentTarget = event.currentTarget;
 
@@ -8899,7 +8912,6 @@ $document.on( "keydown", selector + " [role=tabpanel]", function( event ) {
 					.trigger( "setfocus.wb" );
 	}
 });
-
 // Handling for links to tabs from within a panel
 $document.on( "click", selector + " [role=tabpanel] a", function( event ) {
 	var currentTarget = event.currentTarget,
