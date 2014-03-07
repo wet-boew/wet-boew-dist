@@ -9429,8 +9429,6 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs [role="tablist"] li.active a {
   cursor: default;
-  border-top: 4px solid #666666;
-  padding-top: 6px;
 }
 
 .wb-tabs [role="tabpanel"] {
