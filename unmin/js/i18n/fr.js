@@ -60,7 +60,7 @@ wb.i18nDict = {
 	last: "Dernier",
 	menu: "Menu",
 	"menu-close": "Fermer le menu",
-	"overlay-close": "Fermer l'incrustation",
+	"overlay-close": "Fermer la fenêtre superposée",
 	"esc-key": "(touche d'échappement)",
 	show: "Afficher",
 

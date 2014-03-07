@@ -7079,7 +7079,7 @@ var pluginName = "wb-overlay",
 	 */
 	init = function( event ) {
 		var elm = event.target,
-			overlayClose;
+			$elm, $header, closeText, overlayClose;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -7088,20 +7088,34 @@ var pluginName = "wb-overlay",
 
 			wb.remove( selector );
 			elm.className += " " + initedClass;
+			$elm = $( elm );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
 				i18n = wb.i18n;
 				i18nText = {
-					close: i18n( closeClass ) + i18n( "space" ) + i18n( "esc-key" )
+					close: i18n( "close" ),
+					colon: i18n( "colon" ),
+					space: i18n( "space" ),
+					esc: i18n( "esc-key" ),
+					closeOverlay: i18n( closeClass )
 				};
 			}
 
 			// Add close button
+			$header = $elm.find( ".modal-title" );
+			if ( $header.length !== 0 ) {
+				closeText = i18nText.close + i18nText.colon + i18nText.space +
+					$header.text() + i18nText.space + i18nText.esc;
+			} else {
+				closeText = i18nText.closeOverlay;
+			}
+			closeText = closeText.replace( "'", "&#39;" );
 			overlayClose = "<button class='mfp-close " + closeClass +
-				"' title='" + i18nText.close + "'>×<span class='wb-inv'> " + i18nText.close + "</span></button>";
+				"' title='" + closeText + "'>×<span class='wb-inv'> " +
+				closeText + "</span></button>";
 
-			elm.appendChild( $( overlayClose )[ 0 ] );
+			$elm.append( overlayClose );
 			elm.setAttribute( "aria-hidden", "true" );
 		}
 	},
@@ -8071,7 +8085,7 @@ var pluginName = "wb-share",
 		var elm = event.target,
 			sites, heading, settings, panel, link, $share, $elm,
 			pageHref, pageTitle, pageImage, pageDescription, site,
-			siteProperties, url, shareText, id, pnlId;
+			siteProperties, url, shareText, id, pnlId, regex;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -8101,11 +8115,13 @@ var pluginName = "wb-share",
 			pnlId = settings.pnlId;
 			id = "shr-pg" + ( pnlId.length !== 0 ? "-" + pnlId : panelCount );
 			pageHref = encodeURIComponent( settings.url );
+			
+			regex = /\'|&#39;|&apos;/;
 			pageTitle = encodeURIComponent( settings.title )
-							.replace( /\'|&#39;|&apos;/, "%27" );
+							.replace( regex, "%27" );
 			pageImage = encodeURIComponent( settings.img );
 			pageDescription = encodeURIComponent( settings.desc )
-								.replace( /\'|&#39;|&apos;/, "%27" );
+								.replace( regex, "%27" );
 
 			// Don't create the panel for the second link (class="link-only")
 			if ( elm.className.indexOf( "link-only" ) === -1 ) {
