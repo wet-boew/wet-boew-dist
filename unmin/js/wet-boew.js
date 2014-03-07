@@ -189,7 +189,7 @@ var getUrlParts = function( url ) {
 			var exists = false,
 				len = wb.selectors.length,
 				i;
-		
+
 			// Lets ensure we are not running if things are disabled
 			if ( wb.isDisabled && selector !== "#wb-tphp" ) {
 				return 0;
@@ -231,11 +231,11 @@ var getUrlParts = function( url ) {
 			for ( i = 0; i !== len; i += 1 ) {
 				selector = selectorsLocal[ i ];
 				$elms = $( selector );
-				
+
 				// If the selector returns elements, trigger a timerpoke event
 				if ( $elms.length !== 0 ) {
 					$elms.trigger( "timerpoke.wb" );
-					
+
 				// If the selector returns no elements, remove the selector
 				} else {
 					wb.remove( selector );
@@ -1502,14 +1502,14 @@ Modernizr.load([
 	"use strict";
 
 	var methods,
-		_settings = {
+		settings = {
 			"default": "wet-boew"
 		};
 
 	methods = {
 
 		init: function( options ) {
-			return $.extend( _settings, options || {} );
+			return $.extend( settings, options || {} );
 		},
 
 		show: function( onlyAria ) {
@@ -1645,14 +1645,12 @@ var $document = wb.doc,
 	 */
 	generateSerial = function( len ) {
 		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz",
-			string_length = len,
+			stringLength = len,
 			randomstring = "",
 			counter = 0,
-			letterOrNumber,
-			newNum,
-			rnum;
+			letterOrNumber, newNum, rnum;
 
-		for ( counter; counter !== string_length; counter += 1 ) {
+		for ( counter; counter !== stringLength; counter += 1 ) {
 			letterOrNumber = Math.floor( Math.random( ) * 2 );
 			if ( letterOrNumber === 0 ) {
 				newNum = Math.floor( Math.random( ) * 9 );
@@ -2371,7 +2369,7 @@ var $document = wb.doc,
 			$monthNav[ buttonSpec[ 3 ] ]( $btn );
 
 			$btn.toggleClass( "active", !hideButton );
-			
+
 			if ( !hideButton ) {
 				$btn
 					.removeAttr( "disabled" )
@@ -2807,7 +2805,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 /**
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * @title Charts and Graph
- * @overview Draw charts from an html simple and complex data table 
+ * @overview Draw charts from an html simple and complex data table
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @duboisp
  *
@@ -2966,7 +2964,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 						// [boolean] true means that the legend will be destroyed and the label for pie chart will include the legend
 						nolegend: false,
 
-						// [number] Literal number of displayed decimal for a pie charts 
+						// [number] Literal number of displayed decimal for a pie charts
 						decimal: 0,
 
 						// [number] Provide a default width for the charts that will be rendered
@@ -2989,7 +2987,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 								];
 							}
 						}
-						
+
 					},
 					donut: {
 						decimal: 1
@@ -3018,19 +3016,19 @@ $document.on( "setFocus.wb-cal", setFocus );
 					}
 				}
 			};
-		
+
 		/**
 		 * A little function to ovewrite and add preset into the default options
-		 * 
+		 *
 		 * @method overwriteDefaultsOptions
-		 * @param {string} scopekey - Key that represent the subject of the setting, [flot, charts, series,...] 
+		 * @param {string} scopekey - Key that represent the subject of the setting, [flot, charts, series,...]
 		 * @param {json object} target - DefaultOptions that wiil be overwritten
 		 * @param {json object} object - User defined object for overwritting options
 		 * @return {json object} - Return the new object
 		 */
 		function overwriteDefaultsOptions( scopekey, target, object ) {
 			var cachedObj, key;
-			
+
 			cachedObj = object[ scopekey ];
 			if ( !cachedObj ) {
 				return target;
@@ -3043,8 +3041,8 @@ $document.on( "setFocus.wb-cal", setFocus );
 			}
 			return target;
 		}
-		
-		// User defined options 
+
+		// User defined options
 		if ( !window.chartsGraphOpts ){
 			// Global setting
 			if ( window.wet_boew_charts !== undefined ) {
@@ -3056,20 +3054,20 @@ $document.on( "setFocus.wb-cal", setFocus );
 			window.chartsGraphOpts = defaultsOptions;
 		}
 		defaultsOptions = window.chartsGraphOpts;
-		
+
 		/**
 		 * A little function to ease the web editor life
-		 * 
+		 *
 		 * Apply preset defined by a set of space-separated tokens from a baseline json object and at the same time extend the result by using the HTML5 data attribute
-		 * 
+		 *
 		 * @method applyPreset
-		 * @param {json object} baseline - Base line json object that includes predefined and userdefined preset 
+		 * @param {json object} baseline - Base line json object that includes predefined and userdefined preset
 		 * @param {jQuery} $elem - Element on which the class attribute will be taken for a set of space-separated tokens
 		 * @param {string} attribute - Name of the HTML5 data attribute for extending the object at the end
 		 * @return {json object} - Return a new object build from the ```baseline``` or ```baseline.default``` object with the preset applied.
 		 */
 		function applyPreset( baseline, $elem, attribute ) {
-			
+
 			var config = $.extend( true, {}, baseline.defaults || baseline ),
 				fn = $.extend( true, {}, baseline.defaults && baseline.defaults.fn || { } ),
 				tokens = $elem.attr( "class" ) || "",
@@ -3078,27 +3076,27 @@ $document.on( "setFocus.wb-cal", setFocus );
 				// Prefix used in front of the token
 				prefix, prefixLength,
 				preset, key, tblFn, localKey, currObj;
-			
+
 			if ( tokens.length ) {
-				
+
 				prefix = ( baseline.prefix || "" );
 				prefixLength = prefix.length;
-				
+
 				// split the set of space-separated tokens
 				tblTokens = tokens.split( " " );
-				
+
 				for ( i = 0, iLength = tblTokens.length; i !== iLength; i += 1 ) {
-					
+
 					// Get the current token
 					token = tblTokens[ i ];
 					tokenLength = token.length;
-					
+
 					// Remove the token is used
 					if ( tokenLength <= prefixLength || token.slice( 0, prefixLength ) !== prefix ) {
 						continue;
 					}
 					token = token.slice( prefixLength, tokenLength );
-					
+
 					preset = baseline[ token ];
 
 					// Apply the preset
@@ -3115,10 +3113,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 				}
 			}
 
-			
 			// Extend the config from the element @data attribute
 			config = $.extend( true, config, wb.getData( $elem, attribute ) );
-			
+
 			// Merge and Overide the function.
 			for ( key in fn ) {
 				if ( !fn.hasOwnProperty( key ) ) {
@@ -3152,7 +3149,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 		optionsCharts.width = optionsCharts.width | 250;
 		optionsCharts.height = optionsCharts.height | 250;
 
-		/** 
+		/**
 		 * @method getColumnGroupHeaderCalculateSteps
 		 * @param {object} colGroupHead - Column Group Header Object from the table parser
 		 * @param {number} referenceValuePosition - Vector position use as reference for defining the steps, zero based position
@@ -3163,14 +3160,13 @@ $document.on( "setFocus.wb-cal", setFocus );
 			var headerCell, i, iLen,
 				calcStep = 1,
 				colRefValue, colCurent;
-				
-				
+
 			if ( !colGroupHead ) {
 
 				// There is an error. Possibly the series are missing a header.
 				return;
 			}
-			
+
 			colRefValue = colGroupHead.col[ referenceValuePosition ];
 			colCurent = colGroupHead.col[ 0 ];
 
@@ -3197,11 +3193,11 @@ $document.on( "setFocus.wb-cal", setFocus );
 			return calcStep;
 		}
 
-		/** 
+		/**
 		 * @method getRowGroupHeaderCalculateSteps
 		 * @param {object} rowGroupHead - Row Group Header Object from the table parser
 		 * @param {number} referenceValuePosition - Vector position use as reference for defining the steps, zero based position
-		 * @param {number} dataColgroupStart - Column position where the column data group start 
+		 * @param {number} dataColgroupStart - Column position where the column data group start
 		 */
 		function getRowGroupHeaderCalculateSteps( rowGroupHead, referenceValuePosition, dataColgroupStart ) {
 
@@ -3222,11 +3218,11 @@ $document.on( "setFocus.wb-cal", setFocus );
 				if ( headerCell.colpos >= dataColgroupStart && ( headerCell.type === 1 || headerCell.type === 7 ) ) {
 					if ( headerCell.child.length !== 0 ) {
 						calcStep = calcStep * headerCell.child.length * groupHeaderCalculateStepsRecursive( headerCell, 1 );
-						
+
 					}
 				}
 			}
-			
+
 			return calcStep;
 		}
 
@@ -3243,7 +3239,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			if ( childLength === 0 ) {
 				return calcStep;
 			}
-					
+
 			subRefValue = childLength * refValue;
 
 			calcStep = calcStep * subRefValue;
@@ -3259,14 +3255,14 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 		/**
 		 * Set the inner step value (divisor) of an header cell and for his child
-		 * 
+		 *
 		 * @method setInnerStepValues
 		 * @param {object} vectorHead - Group Header Object from the table parser
 		 * @param {number} headerLevel - Hiearchical Level of heading
 		 * @param {number} stepsValue - Step Value for the reference value vector
 		 * @param {number} referenceValue - Reference Value Vector ID
-		 * @param {number} dataColgroupStart - Column position where the column data group start 
-		 * 
+		 * @param {number} dataColgroupStart - Column position where the column data group start
+		 *
 		 */
 		function setInnerStepValues( vectorHead, headerLevel, stepsValue, referenceValue, dataColgroupStart ) {
 			var i, iLength,
@@ -3300,19 +3296,19 @@ $document.on( "setFocus.wb-cal", setFocus );
 						lowestFlotDelta = headerCell.flotDelta;
 					}
 					headerCell.flotValue = cumulativeValue;
-					
+
 					cumulativeValue = cumulativeValue + stepsValue;
-					
+
 					if ( headerCell.child.length > 0 ) {
 						setInnerStepValuesChildRecursive( headerCell, headerLevel, stepsValue, referenceValue );
 					}
 				}
 			}
 		}
-		
+
 		/**
-		 * Recursize - Set the inner step value (divisor) of an sub header cell  
-		 * 
+		 * Recursize - Set the inner step value (divisor) of an sub header cell
+		 *
 		 * @method setInnerStepValuesChildRecursive
 		 * @param {object} headerCell - Header cell object from the table parser
 		 * @param {number} headerLevel - Hiearchical Level of heading
@@ -3351,8 +3347,8 @@ $document.on( "setFocus.wb-cal", setFocus );
 		}
 
 		/**
-		 * Set the header cell step value (flotDelta) for vector that regroup more than one reference 
-		 * 
+		 * Set the header cell step value (flotDelta) for vector that regroup more than one reference
+		 *
 		 * @method setUpperStepValues
 		 * @param {object} vectorHead - Group Header Object from the table parser
 		 * @param {number} referenceValue - Reference Value Vector ID
@@ -3362,14 +3358,14 @@ $document.on( "setFocus.wb-cal", setFocus );
 				cumulativeValue,
 				currentCell,
 				currentCellChild;
-			
+
 			// Calculate upper-step for cells that are
 			// less precise than the reference value vector
 			for ( i = referenceValue - 1; i !== -1; i -= 1 ){
-				
+
 				for ( k = 0, kLen = vectorHead[ i ].cell.length; k !== kLen; k += 1 ) {
 					currentCell = vectorHead[ i ].cell[ k ];
-					
+
 					if ( currentCell.flotDelta || k > 0 &&
 						currentCell.uid === vectorHead[ i ].cell[ k - 1 ].uid ){
 
@@ -3383,7 +3379,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 					cumulativeValue = 0;
 					for ( m = 0, mLen = currentCell.child.length; m !== mLen; m += 1 ) {
 						currentCellChild = currentCell.child[ m ];
-						
+
 						cumulativeValue = currentCellChild.flotDelta;
 						if ( !currentCell.flotValue ) {
 							currentCell.flotValue = currentCellChild.flotValue;
@@ -3396,10 +3392,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 		/**
 		 * Get labels for a specific vector
-		 * 
+		 *
 		 * @method getLabels
 		 * @param {object} labelVector - Vector Header Object from the table parser
-		 * @param {number} dataColgroupStart - Column position where the column data group start 
+		 * @param {number} dataColgroupStart - Column position where the column data group start
 		 */
 		function getLabels( labelVector, dataColgroupStart ) {
 			var labels = [],
@@ -3407,7 +3403,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 			for ( i = 0, iLen = labelVector.cell.length; i !== iLen; i += 1 ) {
 				currentCell = labelVector.cell[ i ];
-				
+
 				if ( ( i !== 0 && currentCell.uid === labelVector.cell[ i - 1 ].uid ) ||
 						( !( currentCell.type === 1 || currentCell.type === 7 ) ) ||
 						( dataColgroupStart && currentCell.colpos < dataColgroupStart ) ) {
@@ -3421,7 +3417,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 		/**
 		 * Get the vector that would be used for labelling x-axis
-		 * 
+		 *
 		 * @method getlabelsVectorPosition
 		 * @param {object[]} arrVectorHeaders - Collection of vector headers
 		 */
@@ -3431,7 +3427,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 		/**
 		 * Get the vertical label and set the appropriate header cell x-axis Value
-		 * 
+		 *
 		 * @method verticalLabels
 		 * @param {object} parsedData - Generic object generated by the table parser
 		 */
@@ -3446,9 +3442,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 			} else {
 				columnReferenceValue = optionsCharts.referencevalue;
 			}
-			
+
 			columnReferenceValue = columnReferenceValue - 1;
-			
+
 			stepsValue = getColumnGroupHeaderCalculateSteps( parsedData.colgrouphead, columnReferenceValue );
 
 			if ( !reverseTblParsing ) {
@@ -3458,10 +3454,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 			}
 
 			headerlevel = columnReferenceValue;
-			
-			// Calculate inner-step for cells that are more precise than the reference value vector 
+
+			// Calculate inner-step for cells that are more precise than the reference value vector
 			setInnerStepValues( parsedData.colgrouphead.col[ columnReferenceValue ], headerlevel, stepsValue, columnReferenceValue );
-			
+
 			// Calculate upper-step for cells that are less precise than the reference value vector
 			setUpperStepValues( parsedData.colgrouphead.col, columnReferenceValue );
 
@@ -3471,7 +3467,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 		/**
 		 * Get the horizontal label and set the appropriate header cell x-axis Value
-		 * 
+		 *
 		 * @method horizontalLabels
 		 * @param {object} parsedData - Generic object generated by the table parser
 		 */
@@ -3511,7 +3507,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 			headerlevel = rowReferenceValue;
 
-			// Calculate inner-step for cells that are more precise than the reference value vector 
+			// Calculate inner-step for cells that are more precise than the reference value vector
 			setInnerStepValues( parsedData.theadRowStack[ rowReferenceValue ], headerlevel, stepsValue, rowReferenceValue, dataColgroupStart );
 
 			// Calculate upper-step for cells that are less precise than the reference value vector
@@ -3519,25 +3515,25 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 			// Get the labelling
 			return getLabels( parsedData.theadRowStack[ labelsVectorPosition ], dataColgroupStart );
-			
+
 		}
 
 		/**
 		 * Wrap the table into a smart details/summary element
-		 * 
+		 *
 		 * @method wrapTableIntoDetails
 		 */
 		function wrapTableIntoDetails() {
 			var $details = $( "<details><summary>" +
 				captionHtml + i18nText.tableMention +
 				"</summary></details>" );
-			
+
 			$elm.after( $details );
 			$details.append( $elm );
 		}
 
 		function createContainer(withDimension) {
-			
+
 			var $container = $( "<figure class='" + optionsCharts.graphclass +
 
 				// Copy to the inner table caption
@@ -3549,10 +3545,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 				"></div></figure>");
 
 			$container.insertBefore( $elm ).append( $elm );
-			
+
 			return $( "div:eq(0)", $container );
 		}
-		
+
 		// Retrieve the parsed data
 		parsedData = $elm.data().tblparser;
 
@@ -3599,10 +3595,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 					// For each cells
 					for ( j = 0, jLength = dataGroupVector[ i ].cell.length; j !== jLength; j += 1 ) {
-						
+
 						dataCell = dataGroupVector[ i ].cell[ j ];
-						
-						// Skip the column if 
+
+						// Skip the column if
 						if ( reverseTblParsing && dataCell.col.type === 1 ) {
 							continue;
 						}
@@ -3641,9 +3637,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 						break;
 					}
-					
+
 					pieQuaterFlotSeries = { };
-					
+
 					// Get the setting from the associative cell header
 					dataCell =  !reverseTblParsing ?
 						dataGroupVector[ i ].cell[ rIndex ] :
@@ -3652,16 +3648,16 @@ $document.on( "setFocus.wb-cal", setFocus );
 						dataCell.col.header :
 						dataCell.row.header;
 					header = header[ header.length - 1 ];
-					
+
 					// Apply any preset
 					pieQuaterFlotSeries = applyPreset( defaultsOptions.series, $( header.elem ), "flot" );
-					
+
 					// Set the data issue from the table
 					pieQuaterFlotSeries.data = dataSeries;
 					pieQuaterFlotSeries.label = ( !reverseTblParsing ?
 						$( dataGroupVector[ i ].dataheader[ dataGroupVector[ i ].dataheader.length - 1 ].elem ).text() :
 						$( dataGroupVector[ i ].header[ dataGroupVector[ i ].header.length - 1 ].elem ).text() );
-					
+
 					// Add the series
 					allSeries.push(pieQuaterFlotSeries);
 				}
@@ -3698,7 +3694,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 					// Move the legend under the graphic
 					$( ".legend", $placeHolder ).appendTo( $wetChartContainer );
 				}
-		
+
 				allSeries = [];
 			}
 
@@ -3764,13 +3760,13 @@ $document.on( "setFocus.wb-cal", setFocus );
 				if (!currVectorOptions.bars) {
 					currVectorOptions.bars = { show: true, barWidth: 0.9 };
 				}
-				
+
 				// Set a default order for orderBars flot plugin
 				if (!currVectorOptions.bars.order) {
 					currVectorOptions.bars.order = nbBarChart;
 				}
 			}
-			
+
 			// cache the compiled setting
 			currDataVector.chartOption = currVectorOptions;
 		}
@@ -3789,7 +3785,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			for ( j = 0, jLength = currDataVector.cell.length; j !== jLength; j += 1 ) {
 
 				dataCell = currDataVector.cell[ j ];
-				
+
 				if ( datacolgroupfound > 1 && dataCell.col.groupstruct.type !== 2 ) {
 					break;
 				}
@@ -3818,17 +3814,17 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 			currVectorOptions.data = dataSeries;
 			currVectorOptions.label = $( currDataVector.header[ currDataVector.header.length - 1 ].elem ).text();
-			
+
 			if ( currVectorOptions.bars ) {
 
 				// Adjust the bars width
 				currVectorOptions.bars.barWidth = currVectorOptions.bars.barWidth * ( 1 / nbBarChart );
 			}
-			
+
 			allSeries.push( currVectorOptions );
 
 		}
-	
+
 		if ( optionFlot.bars ) {
 
 			// Adjust the bars width
@@ -3882,7 +3878,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 				"site!deps/jquery.flot.orderBars" + modeJS,
 				"site!deps/tableparser" + modeJS
 			];
-	
+
 		if ( elm.className.indexOf( initedClass ) === -1 ) {
 			wb.remove( selector );
 
@@ -3922,11 +3918,11 @@ $document.on( "setFocus.wb-cal", setFocus );
 $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, selector, function( event ) {
 	var eventType = event.type,
 		elm = event.target;
-	
+
 	if ( event.currentTarget !== elm ) {
 		return true;
 	}
-	
+
 	switch ( eventType ) {
 
 	/*
@@ -3935,7 +3931,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 	case "timerpoke":
 		init( elm );
 		break;
-	
+
 	/*
 	 * Data table parsed
 	 */
@@ -4106,7 +4102,7 @@ var pluginName = "wb-ajax",
 	init = function( $elm, ajaxType ) {
 		var url = $elm.data( "ajax-" + ajaxType ),
 			initedClass = pluginName + ajaxType + inited;
-	
+
 		// Only initialize the element once for the ajaxType
 		if ( !$elm.hasClass( initedClass ) ) {
 			wb.remove( selector );
@@ -4944,7 +4940,7 @@ var pluginName = "wb-fnote",
 
 			wb.remove( selector );
 			elm.className += " " + initedClass;
-			
+
 			$elm = $( elm );
 			footnoteDd = elm.getElementsByTagName( "dd" );
 			footnoteDt = elm.getElementsByTagName( "dt" );
@@ -5090,20 +5086,19 @@ var pluginName = "wb-frmvld",
 						formDOM = $form.get( 0 ),
 						formId = $form.attr( "id" ),
 						labels = formDOM.getElementsByTagName( "label" ),
-						labels_len = labels.length,
 						$formElms = $form.find( "input, select, textarea" ),
 						$inputs = $formElms.filter( "input" ),
 						$pattern = $inputs.filter( "[pattern]" ),
 						submitted = false,
 						$required = $form.find( "[required]" ).attr( "aria-required", "true" ),
 						errorFormId = "errors-" + ( !formId ? "default" : formId ),
-						i, len,	validator;
+						i, len, validator;
 
 					// Append the aria-live region (for provide message updates to screen readers)
 					$elm.append( "<div class='arialive wb-inv' aria-live='polite' aria-relevant='all'></div>" );
 
 					// Add space to the end of the labels (so separation between label and error when CSS turned off)
-					len = labels_len;
+					len = labels.length;
 					for ( i = 0; i !== len; i += 1 ) {
 						labels[ i ].innerHTML += " ";
 					}
@@ -5166,13 +5161,12 @@ var pluginName = "wb-frmvld",
 						// Create our error summary that will appear before the form
 						showErrors: function( errorMap ) {
 							this.defaultShowErrors();
-							var _i18nText = i18nText,
-								$errors = $form.find( "strong.error" ).filter( ":not(:hidden)" ),
+							var $errors = $form.find( "strong.error" ).filter( ":not(:hidden)" ),
 								$errorfields = $form.find( "input.error, select.error, textarea.error" ),
 								$summaryContainer = $form.find( "#" + errorFormId ),
-								prefixStart = "<span class='prefix'>" + _i18nText.error + "&#160;",
-								prefixEnd = _i18nText.colon + " </span>",
-								separator = _i18nText.hyphen,
+								prefixStart = "<span class='prefix'>" + i18nText.error + "&#160;",
+								prefixEnd = i18nText.colon + " </span>",
+								separator = i18nText.hyphen,
 								ariaLive = $form.parent().find( ".arialive" )[ 0 ],
 								summary, key, i, len, $error, prefix, $fieldName, $fieldset, label, labelString;
 
@@ -5186,7 +5180,7 @@ var pluginName = "wb-frmvld",
 								}
 
 								// Post process
-								summary = "<p>" + _i18nText.formNotSubmitted + $errors.length + ( $errors.length !== 1 ? _i18nText.errorsFound : _i18nText.errorFound ) + "</p><ul>";
+								summary = "<p>" + i18nText.formNotSubmitted + $errors.length + ( $errors.length !== 1 ? i18nText.errorsFound : i18nText.errorFound ) + "</p><ul>";
 								$errorfields.attr( "aria-invalid", "true" );
 								len = $errors.length;
 								for ( i = 0; i !== len; i += 1 ) {
@@ -5334,7 +5328,7 @@ var pluginName = "wb-geomap",
 	$document = wb.doc,
 
 	/*
-	 * Init runs once per plugin element on the page. There may be multiple elements. 
+	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered this handler
@@ -5371,7 +5365,7 @@ var pluginName = "wb-geomap",
 
 // Bind the init function to the timerpoke event
 $document.on( "timerpoke.wb " + initEvent, selector, init );
-				
+
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
@@ -5734,7 +5728,7 @@ var pluginName = "wb-menu",
 			panel = "",
 			sectionHtml, properties, sections, section, parent, items,
 			href, linkHtml, i, j, k, len, len2, len3;
-	
+
 		// Process the secondary and site menus
 		len = allProperties.length;
 		for ( i = 0; i !== len; i += 1 ) {
@@ -5771,7 +5765,7 @@ var pluginName = "wb-menu",
 					sectionHtml += "</ul>" + detailsClose;
 				} else {
 					parent = section.parentNode;
-					
+
 					// Menu item without a section
 					if ( parent.nodeName.toLowerCase() === "li" ) {
 						linkHtml = parent.innerHTML;
@@ -5782,7 +5776,7 @@ var pluginName = "wb-menu",
 							parent.getElementsByTagName( "a" )[ 0 ].href + "'>" +
 							section.innerHTML + "</a>";
 					}
-					
+
 					// Convert the list item to a WAI-ARIA menuitem
 					sectionHtml += "<li class='no-sect'>" +
 						linkHtml.replace(
@@ -5804,7 +5798,7 @@ var pluginName = "wb-menu",
 
 		return panel.replace( /list-group-item/gi, "" ) + "</div>";
 	},
-	
+
 	/**
 	 * @method onAjaxLoaded
 	 * @param {jQuery DOM element} $elm The plugin element
@@ -5888,7 +5882,7 @@ var pluginName = "wb-menu",
 					$info.trigger( navCurrentEvent, breadcrumb );
 				}
 			}
-			
+
 			panel += createMobilePanelMenu( allProperties );
 		}
 
@@ -6186,7 +6180,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 	// Tab key = Hide all sub-menus
 	if ( which === 9 ) {
 		menuClose( $( selector + " .active" ), true );
-		
+
 	// Menu item is within a menu bar
 	} else if ( inMenuBar ) {
 
@@ -6212,7 +6206,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 
 			// Set focus on the first submenu item
 			$subMenu.find( "a:first" ).trigger( focusEvent );
-		
+
 		// Hide sub-menus and set focus
 		} else if ( which === 27 ) {
 			event.preventDefault();
@@ -6230,7 +6224,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 	// Menu item is not within a menu bar
 	} else {
 		menuitemSelector = "> a, > details > summary";
-	
+
 		// Up / down arrow = Previous / next menu item
 		if ( which === 38 || which === 40 ) {
 			event.preventDefault();
@@ -6299,17 +6293,17 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 			// If the parent menu is a menubar
 			if ( $parentMenu.attr( "role" ) === "menubar" ) {
 				$menuLink = $parent.children( "[href=#" + $menu.attr( "id" ) + "]" );
-			
+
 				// Escape key = Close menu and return to menu bar item
 				if ( which === 27 ) {
 					event.preventDefault();
 					$menuLink.trigger( focusEvent );
-					
+
 					// Close the menu but keep the referring link active
 					setTimeout(function() {
 						menuClose( $menuLink.parent(), false );
 					}, 1 );
-				
+
 				// Left / right key = Next / previous menu bar item
 				} else if ( $parentMenu.attr( "role" ) === "menubar" ) {
 					menuIncrement(
@@ -6318,7 +6312,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 						which === 37 ? -1 : 1
 					);
 				}
-				
+
 			// Escape or left arrow: Go up a level if there is a higher-level
 			// menu or close the current submenu if there isn't
 			} else if ( which !== 39 ) {
@@ -6524,8 +6518,8 @@ var pluginName = "wb-mltmd",
 			data = $this.data( "properties" );
 
 		return withPlayer !== undef ?
-			 [ $this, data, data.player ] :
-			 [ $this, data ];
+			[ $this, data, data.player ] :
+			[ $this, data ];
 	},
 
 	/*
@@ -6926,7 +6920,7 @@ $document.on( initializedEvent, selector, function() {
 
 	$this.data( "properties", data );
 
-	if ( $media.find( "[type='video/youtube']" ).length > 0 ){
+	if ( $media.find( "[type='video/youtube']" ).length > 0 ) {
 		// lets tweak some variables and start the load sequence
 		url = wb.getUrlParts( $this.find( "[type='video/youtube']").attr( "src") );
 
@@ -6938,7 +6932,7 @@ $document.on( initializedEvent, selector, function() {
 
 			// lets bind youtubes global function
 			window.onYouTubeIframeAPIReady = function() {
-				  $this.trigger( youtubeEvent );
+				$this.trigger( youtubeEvent );
 			};
 		}
 
@@ -6960,7 +6954,7 @@ $document.on( fallbackEvent, selector, function() {
 		data = ref[ 1 ],
 		$media = data.media,
 		type = data.type,
-		source = $media.find( ( type === "video"  ? "[type='video/mp4']" : "[type='audio/mp3']" ) ).attr( "src" ),
+		source = $media.find( ( type === "video" ? "[type='video/mp4']" : "[type='audio/mp3']" ) ).attr( "src" ),
 		poster = $media.attr( "poster" ),
 		flashvars = "id=" + data.mId,
 		width = data.width,
@@ -8420,7 +8414,7 @@ var pluginName = "wb-share",
 
 		// Supported types are: "page" and "video"
 		type: "page",
-		
+
 		// For custom types
 		// custType = " this comment" results in "Share this comment"
 		custType: "",
@@ -8538,12 +8532,12 @@ var pluginName = "wb-share",
 			settings = $.extend( true, defaults, wb.getData( $elm, "wet-boew" ) );
 			sites = settings.sites;
 			heading = settings.hdLvl;
-			
+
 			shareText = i18nText.shareText + ( settings.custType.length !== 0 ? settings.custType : i18nText[ settings.type ] );
 			pnlId = settings.pnlId;
 			id = "shr-pg" + ( pnlId.length !== 0 ? "-" + pnlId : panelCount );
 			pageHref = encodeURIComponent( settings.url );
-			
+
 			regex = /\'|&#39;|&apos;/;
 			pageTitle = encodeURIComponent( settings.title )
 							.replace( regex, "%27" );
@@ -10001,7 +9995,7 @@ var pluginName = "wb-twitter",
 	init = function( event ) {
 		var eventTarget = event.target,
 			protocol = wb.pageUrlParts.protocol;
-	
+
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
 		if ( event.currentTarget === eventTarget &&
@@ -10203,10 +10197,10 @@ $document.on( clickEvents, linkSelector, function( event ) {
 	zebraTable = function( $elm ) {
 		var i, iLength, tblGroup,
 			tblparser = $elm.data().tblparser; // Cache the table parsed results
-		
+
 		function addCellClass( arr, className ) {
 			var i, iLength;
-			
+
 			for ( i = 0, iLength = arr.length; i !== iLength; i += 1 ) {
 				$( arr[i].elem ).addClass( className );
 			}
@@ -10260,7 +10254,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 			deps = [
 				"site!deps/tableparser" + modeJS
 			];
-	
+
 		if ( elm.className.indexOf( initedClass ) === -1 ) {
 			wb.remove( selector );
 
@@ -10300,11 +10294,11 @@ $document.on( clickEvents, linkSelector, function( event ) {
 $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, selector, function( event ) {
 	var eventType = event.type,
 		elm = event.target;
-	
+
 	if ( event.currentTarget !== elm ) {
 		return true;
 	}
-	
+
 	switch ( eventType ) {
 
 	/*
@@ -10313,7 +10307,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 	case "timerpoke":
 		init( elm );
 		break;
-	
+
 	/*
 	 * Data table parsed
 	 */
@@ -10332,7 +10326,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 // Applying the hover, Simulate Column Hovering Effect
 $document.on( "mouseenter focusin", selectorHoverCol, function( event ) {
 	var tblparserCell = $( event.currentTarget ).data().tblparser;
-	
+
 	if ( tblparserCell.col && tblparserCell.col.elem ) {
 		$( tblparserCell.col.elem ).addClass( "table-hover" );
 	}
@@ -10341,7 +10335,7 @@ $document.on( "mouseenter focusin", selectorHoverCol, function( event ) {
 // Removing the hover, Simulate Column Hovering Effect
 $document.on( "mouseleave focusout", selectorHoverCol, function( event ) {
 	var tblparserCell = $( event.currentTarget ).data().tblparser;
-	
+
 	if ( tblparserCell.col && tblparserCell.col.elem ) {
 		$( tblparserCell.col.elem ).removeClass( "table-hover" );
 	}
