@@ -269,7 +269,7 @@
   border-left: 1px solid #0b3048;
 }
 
-#wb-sm .menu> li> a.wb-navcurr:link {
+#wb-sm .menu> li> a.wb-navcurr {
   background: #0b3048;
   color: white;
 }
