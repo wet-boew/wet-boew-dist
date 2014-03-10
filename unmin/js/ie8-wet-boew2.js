@@ -2180,7 +2180,7 @@ var $document = wb.doc,
 				break;
 			}
 		}
-		cells += "</tbody></table>";
+		cells += "</tbody>";
 
 		return $( cells );
 	},
