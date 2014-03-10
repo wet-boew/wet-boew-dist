@@ -9435,7 +9435,6 @@ table.dataTable tr.even td.sorting_3 {
   border-bottom: 0;
   background: white;
   cursor: default;
-  font-weight: 700;
 }
 
 .wb-tabs [role="tablist"] li.active a {
