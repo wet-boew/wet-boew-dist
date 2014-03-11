@@ -5653,10 +5653,11 @@ $document.on( "mouseleave", selector + " .menu", function( event ) {
 // Touchscreen "touches" on menubar items should close the submenu if it is open
 $document.on( "touchstart click", selector + " .item[aria-haspopup=true]", function( event ) {
 	var isTouchstart = event.type === "touchstart",
+		which = event.which,
 		$this, $parent;
 
 	// Ignore middle and right mouse buttons
-	if ( isTouchstart || event.which === 1 ) {
+	if ( isTouchstart || ( !which || which === 1 ) ) {
 		event.preventDefault();
 		$this = $( this );
 		$parent = $this.parent();
@@ -5706,10 +5707,11 @@ $document.on( "click", selector + " [role=menu] [aria-haspopup=true]", function(
 
 // Clicks and touches outside of menus should close any open menus
 $document.on( "click touchstart", function( event ) {
-	var $openMenus;
+	var $openMenus,
+		which = event.which;
 
 	// Ignore middle and right mouse buttons
-	if ( event.type === "touchstart" || event.which === 1 ) {
+	if ( event.type === "touchstart" || ( !which || which === 1 ) ) {
 		$openMenus = $( selector + " .sm-open" );
 		if ( $openMenus.length !== 0 &&
 			$( event.target ).closest( selector ).length === 0 ) {
@@ -8946,10 +8948,11 @@ $document.on( "keydown", selector + " [role=tabpanel]", function( event ) {
 $document.on( "click", selector + " [role=tabpanel] a", function( event ) {
 	var currentTarget = event.currentTarget,
 		href = currentTarget.getAttribute( "href" ),
+		which = event.which,
 		$container, $panel, $summary;
 
 	// Ignore middle and right mouse buttons
-	if ( event.which === 1 && href.charAt( 0 ) === "#" ) {
+	if ( ( !which || which === 1 ) && href.charAt( 0 ) === "#" ) {
 		$container = $( currentTarget ).closest( selector );
 		$panel = $container.find( href );
 		if ( $panel.length !== 0 ) {
