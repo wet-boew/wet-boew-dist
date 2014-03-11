@@ -6115,6 +6115,41 @@ textarea.input-lg {
   }
 }
 
+.label {
+  border-radius: 0;
+  color: black;
+}
+
+.label-default {
+  border-left: 4px solid #acacac;
+  background: #eeeeee;
+}
+
+.label-primary {
+  border-left: 4px solid #083c6c;
+  background: #e8f2f4;
+}
+
+.label-success {
+  border-left: 4px solid #278400;
+  background: #d8eeca;
+}
+
+.label-info {
+  border-left: 4px solid #269abc;
+  background: #d7faff;
+}
+
+.label-warning {
+  border-left: 4px solid #f4e100;
+  background: #f9f4d4;
+}
+
+.label-danger {
+  border-left: 4px solid #d3080c;
+  background: #f3e9e8;
+}
+
 .modal-title {
   line-height: 1.4375;
 }
