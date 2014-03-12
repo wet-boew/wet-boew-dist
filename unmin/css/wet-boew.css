@@ -6115,37 +6115,82 @@ textarea.input-lg {
   }
 }
 
-.label {
-  border-radius: 0;
+.label-default,
+.label-default[href]:hover,
+.label-default[href]:focus,
+.label-default[href]:active,
+.label-primary,
+.label-primary[href]:hover,
+.label-primary[href]:focus,
+.label-primary[href]:active,
+.label-success,
+.label-success[href]:hover,
+.label-success[href]:focus,
+.label-success[href]:active,
+.label-info,
+.label-info[href]:hover,
+.label-info[href]:focus,
+.label-info[href]:active,
+.label-warning,
+.label-warning[href]:hover,
+.label-warning[href]:focus,
+.label-warning[href]:active,
+.label-danger,
+.label-danger[href]:hover,
+.label-danger[href]:focus,
+.label-danger[href]:active {
   color: black;
+  text-decoration: underline;
 }
 
-.label-default {
+.label {
+  border-radius: 0;
+}
+
+.label-default,
+.label-default[href]:hover,
+.label-default[href]:focus,
+.label-default[href]:active {
   border-left: 4px solid #acacac;
   background: #eeeeee;
 }
 
-.label-primary {
+.label-primary,
+.label-primary[href]:hover,
+.label-primary[href]:focus,
+.label-primary[href]:active {
   border-left: 4px solid #083c6c;
   background: #e8f2f4;
 }
 
-.label-success {
+.label-success,
+.label-success[href]:hover,
+.label-success[href]:focus,
+.label-success[href]:active {
   border-left: 4px solid #278400;
   background: #d8eeca;
 }
 
-.label-info {
+.label-info,
+.label-info[href]:hover,
+.label-info[href]:focus,
+.label-info[href]:active {
   border-left: 4px solid #269abc;
   background: #d7faff;
 }
 
-.label-warning {
+.label-warning,
+.label-warning[href]:hover,
+.label-warning[href]:focus,
+.label-warning[href]:active {
   border-left: 4px solid #f4e100;
   background: #f9f4d4;
 }
 
-.label-danger {
+.label-danger,
+.label-danger[href]:hover,
+.label-danger[href]:focus,
+.label-danger[href]:active {
   border-left: 4px solid #d3080c;
   background: #f3e9e8;
 }
