@@ -7673,6 +7673,11 @@ tbody.cal-days a.cal-evt {
   color: white;
 }
 
+.cal-cnt .cal-goto-mnth,
+.cal-cnt .cal-goto-yr {
+  color: black;
+}
+
 .cal-cnt .cal-goto-lnk,
 .cal-days a:hover,
 .cal-days a:focus,
