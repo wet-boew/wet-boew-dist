@@ -7685,6 +7685,11 @@ tbody.cal-days a.cal-evt {
   outline-offset: -2px;
 }
 
+.cal-nxtmnth[disabled],
+.cal-prvmnth[disabled] {
+  opacity: 0.2;
+}
+
 .cal-wd {
   color: white;
   border: 1px solid #333333;
