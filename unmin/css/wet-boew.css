@@ -5816,6 +5816,7 @@ button.close {
 
 .wb-invisible,
 .wb-inv,
+.wb-show-onfocus,
 .wb-sl,
 #wb-lng h2,
 #wb-glb-mn h2,
@@ -5838,6 +5839,7 @@ button.close {
   margin: 0;
 }
 
+.wb-show-onfocus:focus,
 .wb-sl:focus,
 .xxsmallview .wb-mm-txtonly span~ span,
 .mediumview .col-md-1 .wb-mm-txtonly span~ span,
@@ -7781,40 +7783,15 @@ figure .pieLabel {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-div.errCnt p {
-  font-weight: 700;
-}
-
-.wb-frmvld label {
-  display: block;
-}
-
-div.errCnt p,
-div.errCnt ul {
-  margin-right: 0;
-}
-
 .wb-frmvld label strong.error,
 .wb-frmvld legend .error {
-  display: block;
-  font-weight: 700;
-  color: #cc0000;
+  display: inline-block;
+  width: 100%;
 }
 
-.wb-frmvld input[type=checkbox]+ label {
-  display: inline;
-}
-
-div.errCnt p {
-  margin-left: 0;
-}
-
-div.errCnt ul {
-  margin-left: 30px;
-}
-
-div.errCnt ul li {
-  margin-bottom: 5px;
+.wb-frmvld label strong.error .label,
+.wb-frmvld legend .error .label {
+  font-size: 100%;
 }
 
 /*
