@@ -10301,7 +10301,7 @@ details summary:hover {
 
   .wb-tabs.carousel-s2 [role="tablist"] li.tab-count> div {
     position: relative;
-    top: 0.7em;
+    top: 0.4em;
   }
 
   .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:focus,
