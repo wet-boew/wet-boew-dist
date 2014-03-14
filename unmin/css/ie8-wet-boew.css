@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-rc1-development - 2014-03-13
+ * v4.0.0-rc1-development - 2014-03-14
  *
  *//*!
  * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
@@ -9630,15 +9630,10 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.control {
   display: inline-block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
-  height: 100%;
-  width: 3em;
   background: none;
   margin: 0;
   padding: 0;
@@ -9646,10 +9641,6 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: 100%;
   color: #243850;
   border: none;
@@ -9657,9 +9648,6 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon,
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
   margin: auto 0;
   height: 1.75em;
   width: 1.75em;
@@ -9687,56 +9675,11 @@ table.dataTable tr.even td.sorting_3 {
   box-shadow: none;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv {
-  left: 0;
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon {
-  left: 0.25em;
-  padding-top: 1px;
-  padding-right: 2px;
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus,
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.nxt {
-  right: 0;
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
-  right: 0.25em;
-}
-
-.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus,
-.wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
-  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
 .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
   background: none;
   border: none;
   display: inline-block !important;
   top: 100%;
-  right: 0;
   padding: 2px 10px;
 }
 
@@ -10313,23 +10256,34 @@ details summary:hover {
     position: static;
   }
 
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv a,
-  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
-    background: none;
+  .wb-tabs.carousel-s2 {
+    margin-bottom: auto;
+    padding-bottom: 4.375em;
+    background: #eeeeee;
   }
 
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon,
-  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
-    bottom: -2em;
-    top: auto;
+  .wb-tabs.carousel-s2 [role="tablist"] {
+    margin-top: -4.375em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.control {
+    top: 100%;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
+    padding-left: 1em;
   }
 
   .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
-    right: auto;
-    text-align: center;
-    width: 100%;
+    float: right;
+    margin-right: 0;
+    padding-right: 1em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
     font-size: 1.5em;
     margin-top: 0.3em;
+    padding-right: 0;
   }
 
   .wb-tabs.carousel-s2 figcaption {
@@ -10466,6 +10420,80 @@ details summary:hover {
   .wb-tabs.carousel-s2 figcaption {
     background: #243850;
     background: rgba(36, 56, 80, 0.9);
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.control {
+    position: absolute;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 3em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0.25em;
+    padding-top: 1px;
+    padding-right: 2px;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus,
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 3em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0.25em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus,
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover {
+    background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
+    background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
+    right: 0;
   }
 
   .wb-tabs> details {
