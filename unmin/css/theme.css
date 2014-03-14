@@ -222,6 +222,20 @@
   padding-bottom: 2em;
 }
 
+#wb-sec h3 {
+  padding: 15px;
+  margin: 0;
+  border: 1px solid #dddddd;
+  border-bottom: 3px solid #666666;
+  line-height: 0.8;
+}
+
+#wb-sec h3 a {
+  color: #333333;
+  font-size: 0.7em;
+  text-decoration: none;
+}
+
 #wb-sec .list-group {
   margin-bottom: 0;
 }
