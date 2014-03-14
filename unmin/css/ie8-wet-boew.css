@@ -10237,7 +10237,7 @@ details summary:hover {
  * Mobile-friendly styles
  */
 
-  .wb-tabs.carousel-s1 li[role="presentation"],
+  .wb-tabs.carousel-s1 [role="tablist"] li[role="presentation"],
   .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"],
   .wb-tabs.tabs-acc> ul {
     display: none;
@@ -10254,6 +10254,22 @@ details summary:hover {
 
   .wb-tabs.carousel-s1 [role="tablist"] {
     position: static;
+  }
+
+  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count {
+    background: none;
+    border: none;
+  }
+
+  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count .curr-count {
+    display: inline;
+  }
+
+  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count.active,
+  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:focus,
+  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:hover {
+    top: 0;
+    cursor: default;
   }
 
   .wb-tabs.carousel-s2 {
@@ -10274,6 +10290,26 @@ details summary:hover {
     padding-left: 1em;
   }
 
+  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count .curr-count,
+  .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+    font-size: 1.5em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count {
+    line-height: normal;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count> div {
+    position: relative;
+    top: 0.7em;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:focus,
+  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:hover {
+    background: transparent;
+    cursor: default;
+  }
+
   .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
     float: right;
     margin-right: 0;
@@ -10281,7 +10317,6 @@ details summary:hover {
   }
 
   .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
-    font-size: 1.5em;
     margin-top: 0.3em;
     padding-right: 0;
   }
@@ -10422,31 +10457,54 @@ details summary:hover {
     background: rgba(36, 56, 80, 0.9);
   }
 
+  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count,
+  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count {
+    display: none;
+  }
+
   .wb-tabs.carousel-s2 [role="tablist"] li.control {
     position: absolute;
   }
 
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv {
-    left: 0;
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv,
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
     top: 0;
     bottom: 0;
     height: 100%;
     width: 3em;
   }
 
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a,
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon,
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt,
+  .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
+    right: 0;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv {
+    left: 0;
+  }
+
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
     background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
     background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
   .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon {
-    position: absolute;
-    top: 0;
     bottom: 0;
     left: 0.25em;
     padding-top: 1px;
@@ -10460,28 +10518,13 @@ details summary:hover {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
-  .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
-    right: 0;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    width: 3em;
-  }
-
   .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
     background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.25)), to(rgba(255, 255, 255, 0)));
     background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
   }
 
   .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
-    position: absolute;
-    top: 0;
-    bottom: 0;
     right: 0.25em;
   }
 
@@ -10490,10 +10533,6 @@ details summary:hover {
     background-image: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.45)), to(rgba(255, 255, 255, 0)));
     background-image: -webkit-linear-gradient(right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
-  }
-
-  .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
-    right: 0;
   }
 
   .wb-tabs> details {
