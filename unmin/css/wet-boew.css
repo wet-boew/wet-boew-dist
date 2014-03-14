@@ -7239,84 +7239,6 @@ blockquote {
   opacity: 0.1;
 }
 
-.clmn-2-xs {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-}
-
-.clmn-3-xs {
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-}
-
-.clmn-4-xs {
-  -webkit-column-count: 4;
-  -moz-column-count: 4;
-  column-count: 4;
-}
-
-@media screen and (min-width: 768px) {
-  .clmn-2-sm {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-  }
-
-  .clmn-3-sm {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-  }
-
-  .clmn-4-sm {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .clmn-2-md {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-  }
-
-  .clmn-3-md {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-  }
-
-  .clmn-4-md {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .clmn-2-lg {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-  }
-
-  .clmn-3-lg {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-  }
-
-  .clmn-4-lg {
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    column-count: 4;
-  }
-}
-
 /*
  *	Fix for missing bullets in Chrome and Safari
  */
@@ -7371,84 +7293,6 @@ blockquote {
   position: absolute;
   bottom: 0;
   top: auto;
-}
-
-@media screen and (min-width: 768px) {
-  .pstn-lft-sm {
-    position: absolute;
-    left: 0;
-    right: auto;
-  }
-
-  .pstn-rght-sm {
-    position: absolute;
-    right: 0;
-    left: auto;
-  }
-
-  .pstn-tp-sm {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-  }
-
-  .pstn-bttm-sm {
-    position: absolute;
-    bottom: 0;
-    top: auto;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .pstn-lft-md {
-    position: absolute;
-    left: 0;
-    right: auto;
-  }
-
-  .pstn-rght-md {
-    position: absolute;
-    right: 0;
-    left: auto;
-  }
-
-  .pstn-tp-md {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-  }
-
-  .pstn-bttm-md {
-    position: absolute;
-    bottom: 0;
-    top: auto;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .pstn-lft-lg {
-    position: absolute;
-    left: 0;
-    right: auto;
-  }
-
-  .pstn-rght-lg {
-    position: absolute;
-    right: 0;
-    left: auto;
-  }
-
-  .pstn-tp-lg {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-  }
-
-  .pstn-bttm-lg {
-    position: absolute;
-    bottom: 0;
-    top: auto;
-  }
 }
 
 .mrgn-lft-0 {
@@ -7567,6 +7411,37 @@ blockquote {
 .tbl-gridify td,
 .tbl-gridify td {
   display: block;
+}
+
+/*
+ *	Fix for missing bullets in Chrome and Safari
+ */
+
+[class*=colcount-] {
+  padding-left: 1.3em;
+  list-style: outside;
+}
+
+[class*=colcount-]> li {
+  margin-left: 1.3em;
+}
+
+.colcount-xxs-2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+.colcount-xxs-3 {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+
+.colcount-xxs-4 {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
 }
 
 /*
@@ -10049,14 +9924,6 @@ table.dataTable tr.even td.sorting_3 {
   display: inline;
 }
 
-@media print {
-  .wb-geomap-detail,
-  .olControlMousePosition,
-  .olControlPanZoomBar {
-    visibility: hidden;
-  }
-}
-
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -10407,6 +10274,11 @@ details summary:hover {
  */
 
   /*
+  WET-BOEW
+  @title: Proximity CSS - Extra-small view and over
+ */
+
+  /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
@@ -10415,6 +10287,18 @@ details summary:hover {
     -webkit-column-count: 2;
     -moz-column-count: 2;
     column-count: 2;
+  }
+
+  .colcount-xs-3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+
+  .colcount-xs-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
   }
 
   #mb-pnl {
@@ -10430,6 +10314,11 @@ details summary:hover {
   @title: Small view and over (screen only)
  */
 
+  /*
+  WET-BOEW
+  @title: Proximity CSS - Small view and over
+ */
+
   .colcount-sm-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -10440,6 +10329,36 @@ details summary:hover {
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
+  }
+
+  .colcount-sm-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+
+  .pstn-lft-sm {
+    position: absolute;
+    left: 0;
+    right: auto;
+  }
+
+  .pstn-rght-sm {
+    position: absolute;
+    right: 0;
+    left: auto;
+  }
+
+  .pstn-tp-sm {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+  }
+
+  .pstn-bttm-sm {
+    position: absolute;
+    bottom: 0;
+    top: auto;
   }
 }
 
@@ -10452,9 +10371,22 @@ details summary:hover {
  */
 
   /*
+  WET-BOEW
+  @title: Proximity CSS - Medium view and over
+ */
+
+  /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+
+  [dir=rtl] main.col-md-push-3 {
+    left: auto;
+  }
+
+  [dir=rtl] #wb-sec.col-md-pull-9 {
+    right: auto;
+  }
 
   .colcount-md-2 {
     -webkit-column-count: 2;
@@ -10474,12 +10406,28 @@ details summary:hover {
     column-count: 4;
   }
 
-  [dir=rtl] main.col-md-push-3 {
+  .pstn-lft-md {
+    position: absolute;
+    left: 0;
+    right: auto;
+  }
+
+  .pstn-rght-md {
+    position: absolute;
+    right: 0;
     left: auto;
   }
 
-  [dir=rtl] #wb-sec.col-md-pull-9 {
-    right: auto;
+  .pstn-tp-md {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+  }
+
+  .pstn-bttm-md {
+    position: absolute;
+    bottom: 0;
+    top: auto;
   }
 
   .wb-tabs.carousel-s1 figcaption,
@@ -10589,6 +10537,11 @@ details summary:hover {
   @title: Large view and over (screen only)
  */
 
+  /*
+  WET-BOEW
+  @title: Proximity CSS - Medium view and over
+ */
+
   .colcount-lg-2 {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -10605,6 +10558,30 @@ details summary:hover {
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
+  }
+
+  .pstn-lft-lg {
+    position: absolute;
+    left: 0;
+    right: auto;
+  }
+
+  .pstn-rght-lg {
+    position: absolute;
+    right: 0;
+    left: auto;
+  }
+
+  .pstn-tp-lg {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+  }
+
+  .pstn-bttm-lg {
+    position: absolute;
+    bottom: 0;
+    top: auto;
   }
 }
 
@@ -10669,6 +10646,29 @@ details summary:hover {
   WET-BOEW
   @title: Extra-large view (screen only)
  */
+
+  /*
+  WET-BOEW
+  @title: Proximity CSS - Medium view and over
+ */
+
+  .colcount-xl-2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+
+  .colcount-xl-3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+
+  .colcount-xl-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
 }
 
 /* Print view */
@@ -10699,6 +10699,11 @@ details summary:hover {
   /**
  * Print styles
  */
+
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+*/
 
   .fn-lnk,
   .wb-fnote .fn-rtn a {
@@ -10772,5 +10777,11 @@ details summary:hover {
 
   .wb-tabs [role="tabpanel"] figcaption {
     position: static;
+  }
+
+  .wb-geomap-detail,
+  .olControlMousePosition,
+  .olControlPanZoomBar {
+    visibility: hidden;
   }
 }
