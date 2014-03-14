@@ -6127,31 +6127,58 @@ textarea.input-lg {
 .label-success[href]:hover,
 .label-success[href]:focus,
 .label-success[href]:active,
+.alert-success,
 .label-info,
 .label-info[href]:hover,
 .label-info[href]:focus,
 .label-info[href]:active,
+.alert-info,
 .label-warning,
 .label-warning[href]:hover,
 .label-warning[href]:focus,
 .label-warning[href]:active,
+.alert-warning,
 .label-danger,
 .label-danger[href]:hover,
 .label-danger[href]:focus,
-.label-danger[href]:active {
+.label-danger[href]:active,
+.alert-danger {
   color: black;
+}
+
+.label-default[href]:hover,
+.label-default[href]:focus,
+.label-default[href]:active,
+.label-primary[href]:hover,
+.label-primary[href]:focus,
+.label-primary[href]:active,
+.label-success[href]:hover,
+.label-success[href]:focus,
+.label-success[href]:active,
+.label-info[href]:hover,
+.label-info[href]:focus,
+.label-info[href]:active,
+.label-warning[href]:hover,
+.label-warning[href]:focus,
+.label-warning[href]:active,
+.label-danger[href]:hover,
+.label-danger[href]:focus,
+.label-danger[href]:active {
   text-decoration: underline;
 }
 
-.label {
+.label,
+.alert {
   border-radius: 0;
+  border-width: 0 0 0 4px;
+  border-style: solid;
 }
 
 .label-default,
 .label-default[href]:hover,
 .label-default[href]:focus,
 .label-default[href]:active {
-  border-left: 4px solid #acacac;
+  border-color: #acacac;
   background: #eeeeee;
 }
 
@@ -6159,39 +6186,43 @@ textarea.input-lg {
 .label-primary[href]:hover,
 .label-primary[href]:focus,
 .label-primary[href]:active {
-  border-left: 4px solid #083c6c;
+  border-color: #083c6c;
   background: #e8f2f4;
 }
 
 .label-success,
 .label-success[href]:hover,
 .label-success[href]:focus,
-.label-success[href]:active {
-  border-left: 4px solid #278400;
+.label-success[href]:active,
+.alert-success {
+  border-color: #278400;
   background: #d8eeca;
 }
 
 .label-info,
 .label-info[href]:hover,
 .label-info[href]:focus,
-.label-info[href]:active {
-  border-left: 4px solid #269abc;
+.label-info[href]:active,
+.alert-info {
+  border-color: #269abc;
   background: #d7faff;
 }
 
 .label-warning,
 .label-warning[href]:hover,
 .label-warning[href]:focus,
-.label-warning[href]:active {
-  border-left: 4px solid #f4e100;
+.label-warning[href]:active,
+.alert-warning {
+  border-color: #f4e100;
   background: #f9f4d4;
 }
 
 .label-danger,
 .label-danger[href]:hover,
 .label-danger[href]:focus,
-.label-danger[href]:active {
-  border-left: 4px solid #d3080c;
+.label-danger[href]:active,
+.alert-danger {
+  border-color: #d3080c;
   background: #f3e9e8;
 }
 
