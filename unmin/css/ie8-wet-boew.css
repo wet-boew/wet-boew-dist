@@ -8991,6 +8991,24 @@ blockquote {
 }
 
 /*
+  WET-BOEW
+  @title: Form additions to WET-BOEW
+ */
+
+label.required:before,
+legend.required:before,
+label.required strong.required,
+legend.required strong.required {
+  color: #c00;
+}
+
+label.required:before,
+legend.required:before {
+  content: "* ";
+  margin-left: -0.665em;
+}
+
+/*
  Plugins
  */
 
