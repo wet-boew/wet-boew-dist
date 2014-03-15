@@ -8994,13 +8994,19 @@ label.required:before,
 legend.required:before,
 label.required strong.required,
 legend.required strong.required {
-  color: #c00;
+  color: #d3080c;
 }
 
 label.required:before,
 legend.required:before {
   content: "* ";
   margin-left: -0.665em;
+}
+
+[dir=rtl] label.required:before,
+[dir=rtl] legend.required:before {
+  margin-left: auto;
+  margin-right: -0.665em;
 }
 
 /*
