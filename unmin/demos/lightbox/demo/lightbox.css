@@ -4,24 +4,24 @@
  */
 
 .box a,
-.lbx-hide-gal li:first-child.box> a {
+.lbx-hide-gal li:first-child.box > a {
   display: block;
   width: 150px;
   height: 150px;
-  border: 1px solid black;
+  border: 1px solid #000;
   text-align: center;
   line-height: 148px;
-  background: #eeeeee;
+  background: #EEE;
 }
 
-.wb-lbx-demo .list-inline> li {
+.wb-lbx-demo .list-inline > li {
   margin-bottom: 0.4em;
   padding-left: 0;
 }
 
-.box> a:hover,
-.box> a:focus,
-.box> a:active {
+.box > a:hover,
+.box > a:focus,
+.box > a:active {
   text-decoration: underline;
-  background: white;
+  background: #FFF;
 }

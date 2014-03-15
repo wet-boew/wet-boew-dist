@@ -4,7 +4,7 @@
  */
 
 #archived-bnr {
-  background-color: #ffdd00;
+  background-color: #fd0;
 }
 
 #archived-bnr p {
@@ -15,7 +15,7 @@
 #archived-bnr a {
   display: block;
   padding: 0.75em 44px;
-  color: black;
+  color: #000;
   text-decoration: none;
   font-weight: 700;
 }
@@ -26,5 +26,5 @@
 }
 
 #archived-bnr .overlay-close {
-  color: black;
+  color: #000;
 }

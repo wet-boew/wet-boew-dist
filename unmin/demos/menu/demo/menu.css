@@ -9,7 +9,7 @@
  */
 
 .menu-demo .menu {
-  text-shadow: 1px 1px 1px #666666;
+  text-shadow: 1px 1px 1px #666;
   margin-bottom: 0;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .menu-demo .menu > li > a {
-  color: white;
+  color: #fff;
   padding: 1em;
   border-right: 2px ridge #284468;
 }
@@ -34,13 +34,13 @@
   border-left: none;
   border-right: none;
   padding: 0;
-  background: #cccccc;
+  background: #ccc;
   min-width: 200px;
 }
 
 .menu-demo .sm.open li a {
   font-size: 0.95em;
-  color: #444444;
+  color: #444;
   border-left: none;
   border-right: none;
   text-shadow: none;
@@ -48,7 +48,7 @@
 }
 
 .menu-demo .sm.open .slflnk {
-  background: #bbbbbb;
+  background: #bbb;
 }
 
 .menu-demo .sm .row {
@@ -60,7 +60,7 @@
 }
 
 #menu-demo-1 {
-  background: #0b3048;
+  background: #0B3048;
 }
 
 #menu-demo-1 .menu .active {
@@ -88,7 +88,7 @@
 #menu-demo-1 .sm.open li a:hover,
 #menu-demo-1 .sm.open li a:focus {
   background: #243850;
-  color: white;
+  color: #fff;
 }
 
 #menu-demo-1 .expicon {
@@ -105,7 +105,7 @@
 
 #menu-demo-2 .menu .active {
   text-shadow: none;
-  background: #0b3048;
+  background: #0B3048;
 }
 
 #menu-demo-2 .menu > li > a {
@@ -119,21 +119,21 @@
 #menu-demo-2 .sm.open li a:hover,
 #menu-demo-2 .sm.open li a:focus {
   background: #335075;
-  color: white;
+  color: #fff;
 }
 
 /* Mobile flyout */
 
 @media screen and (max-width: 767px) {
   #wb-sm {
-    background: #114f7a;
+    background: #114F7A;
   }
 
   #wb-sm .nav-close {
     background: none repeat scroll 0 0 #305277;
     height: 44px;
     margin-top: 20px;
-    color: white;
+    color: #fff;
     text-decoration: none;
     vertical-align: middle;
     margin-left: -20px;
@@ -153,11 +153,11 @@
 
   #wb-sm .menu {
     text-transform: none;
-    color: white;
+    color: #fff;
   }
 
   #wb-sm .menu a {
-    color: white;
+    color: #fff;
   }
 
   #wb-sm .menu li a:hover,
@@ -177,34 +177,34 @@
   #wb-sm .menu ul li {
     background: transparent !important;
     border: none !important;
-    color: white !important;
+    color: #fff !important;
   }
 
   #wb-sm .menu .active {
     background: transparent !important;
     border: none !important;
-    color: white !important;
+    color: #fff !important;
   }
 
   #wb-sm .menu .active:hover {
     background: transparent !important;
     border: none !important;
-    color: white !important;
+    color: #fff !important;
   }
 
   #wb-sm .menu > li a {
     padding-left: 25px;
-    color: white;
+    color: #fff;
   }
 
   #wb-sm .menu > li.active > a {
     background: transparent !important;
     border: none !important;
-    color: white !important;
+    color: #fff !important;
   }
 
   #wb-sm .menu > li.active .expicon {
-    border-top-color: white !important;
+    border-top-color: #fff !important;
     /* note the !important is there to override the !important being used in base.css */
     border-left-color: transparent;
     top: 1.1em;
@@ -220,7 +220,7 @@
 
   #wb-sm .menu .sm.open li a {
     padding-left: 35px;
-    color: white;
+    color: #fff;
   }
 
   #wb-sm .menu:target .wb-info {
@@ -236,21 +236,21 @@
 
   #wb-sm .wb-info a {
     padding: 5px 5px 5px 10px;
-    color: white;
+    color: #fff;
     text-decoration: none;
     display: block;
   }
 
   #wb-sm .wb-info .list-unstyled li {
-    color: white;
+    color: #fff;
   }
 
   #wb-sm .wb-info .list-unstyled li a {
-    color: white;
+    color: #fff;
   }
 
   #wb-sm .wb-info .list-unstyled li ul li {
-    color: #eeeeee;
+    color: #eee;
   }
 
   #wb-sm #wb-imrpt-1 {
