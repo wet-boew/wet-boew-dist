@@ -7428,7 +7428,7 @@ main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.b
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
 }
@@ -7536,9 +7536,9 @@ textarea.input-sm,
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  height: 49px;
+  height: 46px;
   padding: 10px 16px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.33;
   border-radius: 6px;
 }
@@ -7547,8 +7547,8 @@ select.input-lg,
 .input-group-lg > select.form-control,
 .input-group-lg > select.input-group-addon,
 .input-group-lg > .input-group-btn > select.btn {
-  height: 49px;
-  line-height: 49px;
+  height: 46px;
+  line-height: 46px;
 }
 
 textarea.input-lg,
@@ -7581,7 +7581,7 @@ textarea.input-lg,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 10px 16px;
-  font-size: 20px;
+  font-size: 18px;
   border-radius: 6px;
 }
 
@@ -7764,7 +7764,7 @@ textarea.input-lg,
 
 .navbar-brand {
   padding: 13.5px 15px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 23px;
 }
 
@@ -7830,7 +7830,7 @@ textarea.input-lg,
 .pagination-lg > li > a,
 .pagination-lg > li > span {
   padding: 10px 16px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .pagination-lg > li:first-child > a,
@@ -7958,22 +7958,22 @@ h6,
 
 h1,
 .h1 {
-  font-size: 41px;
+  font-size: 34px;
 }
 
 h2,
 .h2 {
-  font-size: 34px;
+  font-size: 26px;
 }
 
 h3,
 .h3 {
-  font-size: 28px;
+  font-size: 22px;
 }
 
 h4,
 .h4 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h5,
@@ -8079,7 +8079,7 @@ input[type="submit"].input-lg,
 .input-group-lg > input[type="submit"].form-control,
 .input-group-lg > input[type="submit"].input-group-addon,
 .input-group-lg > .input-group-btn > input[type="submit"].btn {
-  height: 49px;
+  height: 46px;
 }
 
 input[type="reset"].btn-sm,
