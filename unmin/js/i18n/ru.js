@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Первое",
 	last: "Последнее",
 	menu: "Меню",
+	email: "E-mail",
 	"menu-close": "Закройте меню",
 	"overlay-close": "Закройте вспомогательных линий",
 	"esc-key": "(клавишей Escape)",

@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Pirmasis",
 	last: "Paskutinis",
 	menu: "Meniu",
+	email: "El. paštas",
 	"menu-close": "Uždaryti meniu",
 	"overlay-close": "Uždaryti perdangos",
 	"esc-key": "(\"escape\" klavišu)",

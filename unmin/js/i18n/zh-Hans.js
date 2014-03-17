@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "开始",
 	last: "末",
 	menu: "菜单",
+	email: "电釉",
 	"menu-close": "关闭菜单",
 	"overlay-close": "关闭叠加",
 	"esc-key": "（逃生键）",

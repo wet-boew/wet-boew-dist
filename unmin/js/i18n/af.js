@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Eerste",
 	last: "Laaste",
 	menu: "Menu",
+	email: "Stuur 'n e-pos aan",
 	"menu-close": "Maak die menu",
 	"overlay-close": "Maak die oortrek",
 	"esc-key": "(Escape-sleutel)",

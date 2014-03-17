@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Első",
 	last: "Utolsó",
 	menu: "Menü",
+	email: "Email",
 	"menu-close": "Zárja be a menüt",
 	"overlay-close": "Zárja be az overlay",
 	"esc-key": "(escape billentyűvel)",

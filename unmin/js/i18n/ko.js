@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "처음으로",
 	last: "마지막",
 	menu: "메뉴",
+	email: "이메일",
 	"menu-close": "메뉴를 닫습니다",
 	"overlay-close": "오버레이에게 닫습니다",
 	"esc-key": "(Esc 키와)",

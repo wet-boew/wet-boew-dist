@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "First",
 	last: "Síðasta",
 	menu: "Valmynd",
+	email: "Email",
 	"menu-close": "Loka valmynd",
 	"overlay-close": "Loka yfirlagið",
 	"esc-key": "(flýja lykill)",

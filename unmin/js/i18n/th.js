@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "แรก",
 	last: "ล่าสุด",
 	menu: "เมนู",
+	email: "อีเมล์",
 	"menu-close": "ปิดเมนู",
 	"overlay-close": "ปิดการแสดงข้อมูล",
 	"esc-key": "(คีย์หนี)",

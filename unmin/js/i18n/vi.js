@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Đầu tiên",
 	last: "Cuối cùng",
 	menu: "Thực đơn",
+	email: "Email",
 	"menu-close": "Đóng menu",
 	"overlay-close": "Đóng lớp phủ",
 	"esc-key": "(phím thoát)",

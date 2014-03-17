@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Esimene",
 	last: "Viimane",
 	menu: "Menüü",
+	email: "E-post",
 	"menu-close": "Sulge menüü",
 	"overlay-close": "Sulge pop-up",
 	"esc-key": "(klahviga Escape)",

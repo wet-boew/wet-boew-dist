@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Перший",
 	last: "Oстанній",
 	menu: "Меню",
+	email: "Електронна пошта",
 	"menu-close": "Закрийте меню",
 	"overlay-close": "Закрийте допоміжних ліній",
 	"esc-key": "(клавішею «escape»)",

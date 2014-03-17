@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "I parë",
 	last: "I fundit",
 	menu: "Menu",
+	email: "Email",
 	"menu-close": "Mbylle menu",
 	"overlay-close": "Mbylle mbulesë",
 	"esc-key": "(kyç shpëtojnë)",

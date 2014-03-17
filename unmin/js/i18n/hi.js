@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "पहले",
 	last: "अंतिम",
 	menu: "मेनू",
+	email: "ईमेल",
 	"menu-close": "मेनू बंद",
 	"overlay-close": "पॉपअप बंद",
 	"esc-key": "(भागने कुंजी)",

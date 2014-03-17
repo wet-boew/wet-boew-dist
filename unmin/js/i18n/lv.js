@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Pirmā",
 	last: "Pēdējā",
 	menu: "Izvēlne",
+	email: "e-pasts",
 	"menu-close": "Aizveriet izvēlni",
 	"overlay-close": "Aizveriet pārklāt",
 	"esc-key": "(escape taustiņu)",

@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "第一筆",
 	last: "最後一筆",
 	menu: "選單",
+	email: "電子郵件",
 	"menu-close": "關閉菜單",
 	"overlay-close": "關閉疊加",
 	"esc-key": "（Esc鍵）",

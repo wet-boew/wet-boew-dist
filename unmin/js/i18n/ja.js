@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "最初",
 	last: "最後",
 	menu: "メニュー",
+	email: "メール",
 	"menu-close": "メニューを閉じる",
 	"overlay-close": "オーバーレイを閉じる",
 	"esc-key": "(「Esc」キ)",

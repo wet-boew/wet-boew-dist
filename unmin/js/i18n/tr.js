@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "İlk",
 	last: "Son",
 	menu: "Menü",
+	email: "E-posta",
 	"menu-close": "Menüyü kapatmak",
 	"overlay-close": "Bindirme kapatmak",
 	"esc-key": "(escape tuşu)",

@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Primero",
 	last: "Último",
 	menu: "Menú",
+	email: "Correo electrónico",
 	"menu-close": "Cierre el menú",
 	"overlay-close": "Cierre la superposición",
 	"esc-key": "(tecla \"esc\")",

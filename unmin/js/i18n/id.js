@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Pertama",
 	last: "Terakhir",
 	menu: "Menu",
+	email: "Email",
 	"menu-close": "Tutup menu",
 	"overlay-close": "Tutup hamparan",
 	"esc-key": "(tombol \"escape\")",

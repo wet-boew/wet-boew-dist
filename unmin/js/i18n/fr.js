@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Premier",
 	last: "Dernier",
 	menu: "Menu",
+	email: "Courriel",
 	"menu-close": "Fermer le menu",
 	"overlay-close": "Fermer la fenêtre superposée",
 	"esc-key": "(touche d'échappement)",

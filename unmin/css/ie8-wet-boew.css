@@ -10558,7 +10558,7 @@ ol.linenums li {
   display: inline-block;
   height: 32px;
   width: 32px;
-  margin-right: 12px;
+  margin-right: 0.6em;
   vertical-align: middle;
 }
 
@@ -10592,6 +10592,14 @@ ol.linenums li {
   background-position: 0 -160px;
 }
 
+.wb-share .email:before {
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-size: 32px;
+  content: "\2709";
+  margin-right: 0.3em;
+}
+
 .wb-share .facebook:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -192px;
@@ -10602,49 +10610,59 @@ ol.linenums li {
   background-position: 0 -224px;
 }
 
-.wb-share .googleplus:before {
+.wb-share .gmail:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -256px;
 }
 
-.wb-share .linkedin:before {
+.wb-share .googleplus:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -288px;
 }
 
-.wb-share .myspace:before {
+.wb-share .linkedin:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -320px;
 }
 
-.wb-share .pinterest:before {
+.wb-share .myspace:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -352px;
 }
 
-.wb-share .reddit:before {
+.wb-share .pinterest:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -384px;
 }
 
-.wb-share .stumbleupon:before {
+.wb-share .reddit:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -416px;
 }
 
-.wb-share .technorati:before {
+.wb-share .stumbleupon:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -448px;
 }
 
-.wb-share .tumblr:before {
+.wb-share .technorati:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -480px;
 }
 
-.wb-share .twitter:before {
+.wb-share .tumblr:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -512px;
+}
+
+.wb-share .twitter:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -544px;
+}
+
+.wb-share .yahoomail:before {
+  background: url("../assets/sprites_share.png") no-repeat;
+  background-position: 0 -576px;
 }
 
 .wb-share .shr-pg {
@@ -10663,7 +10681,12 @@ ol.linenums li {
 
 [dir=rtl] .wb-share .shr-lnk:before {
   margin-right: auto;
-  margin-left: 12px;
+  margin-left: 0.4em;
+}
+
+[dir=rtl] .wb-share .email:before {
+  margin-right: auto;
+  margin-left: 0.6em;
 }
 
 [dir=rtl] .wb-share .shr-pg {

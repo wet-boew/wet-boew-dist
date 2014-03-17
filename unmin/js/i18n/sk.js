@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Prvé",
 	last: "Posledný",
 	menu: "Menu",
+	email: "E-mail",
 	"menu-close": "Zavrite menu",
 	"overlay-close": "Zavrite so šablónou",
 	"esc-key": "(klávesy ESC)",

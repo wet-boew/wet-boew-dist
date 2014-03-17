@@ -59,6 +59,7 @@ wb.i18nDict = {
 	first: "Pierwszy",
 	last: "Ostatni",
 	menu: "Menu",
+	email: "Email",
 	"menu-close": "Zamknij menu",
 	"overlay-close": "Zamknij nakładkę",
 	"esc-key": "(klawisz Esc)",
