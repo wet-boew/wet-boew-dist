@@ -4603,6 +4603,10 @@ var pluginName = "wb-frmvld",
 	idCount = 0,
 	i18n, i18nText,
 
+	defaults = {
+		hdLvl: "h2"
+	},
+
 	/**
 	 * Init runs once per plugin element on the page. There may be multiple elements.
 	 * It will run more than once per plugin if you don't remove the selector from the timer.
@@ -4664,6 +4668,8 @@ var pluginName = "wb-frmvld",
 						submitted = false,
 						$required = $form.find( "[required]" ).attr( "aria-required", "true" ),
 						errorFormId = "errors-" + ( !formId ? "default" : formId ),
+						settings = $.extend( true, {}, defaults, wb.getData( $elm, "wet-boew" ) ),
+						summaryHeading = settings.hdLvl,
 						i, len, validator;
 
 					// Append the aria-live region (for provide message updates to screen readers)
@@ -4750,13 +4756,19 @@ var pluginName = "wb-frmvld",
 							if ( $errors.length !== 0 ) {
 								// Create our container if one doesn't already exist
 								if ( $summaryContainer.length === 0 ) {
-									$summaryContainer = $( "<div id='" + errorFormId + "' class='alert alert-danger' tabindex='-1'/>" ).prependTo( $form );
+									$summaryContainer = $( "<section id='" + errorFormId + "' class='alert alert-danger' tabindex='-1'/>" ).prependTo( $form );
 								} else {
 									$summaryContainer.empty();
 								}
 
 								// Post process
-								summary = "<p>" + i18nText.formNotSubmitted + $errors.length + ( $errors.length !== 1 ? i18nText.errorsFound : i18nText.errorFound ) + "</p><ul>";
+								summary = "<" + summaryHeading + ">" +
+									i18nText.formNotSubmitted + $errors.length +
+									(
+										$errors.length !== 1 ?
+											i18nText.errorsFound :
+											i18nText.errorFound
+									) + "</" + summaryHeading + "><ul>";
 								$errorfields
 									.attr( "aria-invalid", "true" )
 									.closest( ".form-group" )
