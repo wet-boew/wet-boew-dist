@@ -7415,10 +7415,6 @@ main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.b
  *	specifications for the Web and mobile presence.
  */
 
-.alert {
-  margin-bottom: 23px;
-}
-
 .breadcrumb {
   margin-bottom: 23px;
 }
@@ -7606,6 +7602,27 @@ textarea.input-lg,
   }
 }
 
+.alert,
+.label {
+  border-radius: 0;
+  border-width: 0 0 0 4px;
+  border-style: solid;
+}
+
+.alert {
+  margin-bottom: 23px;
+}
+
+.alert > :first-child {
+  margin-top: auto;
+}
+
+.alert > :first-child:before {
+  padding-right: 10px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+}
+
 .label-default,
 .label-default[href]:hover,
 .label-default[href]:focus,
@@ -7658,13 +7675,6 @@ textarea.input-lg,
   text-decoration: underline;
 }
 
-.label,
-.alert {
-  border-radius: 0;
-  border-width: 0 0 0 4px;
-  border-style: solid;
-}
-
 .label-default,
 .label-default[href]:hover,
 .label-default[href]:focus,
@@ -7690,6 +7700,11 @@ textarea.input-lg,
   background: #d8eeca;
 }
 
+.alert-success > :first-child:before {
+  content: "\e084";
+  color: #278400;
+}
+
 .label-info,
 .label-info[href]:hover,
 .label-info[href]:focus,
@@ -7699,13 +7714,23 @@ textarea.input-lg,
   background: #d7faff;
 }
 
+.alert-info > :first-child:before {
+  content: "\e086";
+  color: #269abc;
+}
+
 .label-warning,
 .label-warning[href]:hover,
 .label-warning[href]:focus,
 .label-warning[href]:active,
 .alert-warning {
-  border-color: #f4e100;
+  border-color: #f90;
   background: #f9f4d4;
+}
+
+.alert-warning > :first-child:before {
+  content: "\e107";
+  color: #f90;
 }
 
 .label-danger,
@@ -7715,6 +7740,11 @@ textarea.input-lg,
 .alert-danger {
   border-color: #d3080c;
   background: #f3e9e8;
+}
+
+.alert-danger > :first-child:before {
+  content: "\e101";
+  color: #d3080c;
 }
 
 .modal-title {
