@@ -8942,6 +8942,18 @@ blockquote {
   margin-left: 1.3em;
 }
 
+[class*=colcount-].list-unstyled,
+[class*=colcount-].list-inline {
+  padding-left: 0;
+  list-style: none outside none;
+}
+
+[class*=colcount-].list-unstyled li,
+[class*=colcount-].list-unstyled [class*=colcount-].list-inline,
+[class*=colcount-].list-unstyled [class*=colcount-].list-inline {
+  margin-left: 0;
+}
+
 .colcount-xxs-2 {
   -webkit-column-count: 2;
   -moz-column-count: 2;
