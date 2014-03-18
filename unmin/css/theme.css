@@ -411,6 +411,10 @@
   color: #2e5576;
 }
 
+#mb-pnl .info-pnl {
+  border-top: 2px solid #061E38;
+}
+
 [dir=rtl] #mb-pnl .lng-ofr {
   text-align: left;
 }
