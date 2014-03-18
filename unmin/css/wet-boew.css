@@ -10970,6 +10970,10 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s1 [role="tablist"],
 .wb-tabs.carousel-s2 [role="tablist"] {
   position: absolute;
+}
+
+.wb-tabs.carousel-s1 [role="tablist"] li,
+.wb-tabs.carousel-s2 [role="tablist"] li {
   z-index: 100;
 }
 
