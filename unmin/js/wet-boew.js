@@ -6410,7 +6410,7 @@ var pluginName = "wb-mltmd",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
-	seed = 0,
+	uniqueCount = 0,
 	templatetriggered = false,
 	i18n, i18nText,
 	captionsLoadedEvent = "ccloaded" + selector,
@@ -6432,7 +6432,8 @@ var pluginName = "wb-mltmd",
 	 * @param {jQuery Event} event Event that triggered this handler
 	 */
 	init = function( event ) {
-		var eventTarget = event.target;
+		var eventTarget = event.target,
+			elmId = eventTarget.id;
 
 		// Filter out any events triggered by descendants
 		// and only initialize the element once
@@ -6460,11 +6461,18 @@ var pluginName = "wb-mltmd",
 				};
 			}
 
+			// Ensure there is an id on the element
+			if ( !elmId ) {
+				elmId = "wb-mm-" + uniqueCount;
+				eventTarget.id = elmId;
+				uniqueCount += 1;
+			}
+
 			if ( !templatetriggered ) {
 				templatetriggered = true;
 				$document.trigger({
 					type: "ajax-fetch.wb",
-					element: $( selector ),
+					element: "#" + elmId,
 					fetch: wb.getPath( "/assets" ) + "/mediacontrols.html"
 				});
 			}
@@ -6918,7 +6926,7 @@ $document.on( initializedEvent, selector, function() {
 	var $this = $( this ),
 		$media = $this.children( "audio, video" ).eq( 0 ),
 		captions = $media.children( "track[kind='captions']" ).attr( "src" ) || undef,
-		id = $this.attr( "id" ) || "wb-mm-" + ( seed++ ),
+		id = $this.attr( "id" ),
 		mId = $media.attr( "id" ) || id + "-md",
 		type = $media.is( "video" ) ? "video" : "audio",
 		width = type === "video" ? $media.attr( "width" ) || $media.width() : 0,
@@ -6934,10 +6942,6 @@ $document.on( initializedEvent, selector, function() {
 		}, i18nText),
 		media = $media.get( 0 ),
 		url;
-
-	if ( !$this.attr( "id" ) ) {
-		$this.attr( "id", id );
-	}
 
 	if ( $media.attr( "id" ) === undef ) {
 		$media.attr( "id", mId );
@@ -9327,28 +9331,30 @@ var pluginName = "wb-tabs",
 	var eventType = event.type,
 
 		// "this" is cached for all events to utilize
-		$elm = $( this );
+		$elm = $( event.target );
 
-	switch ( eventType ) {
-	case "timerpoke":
-		onTimerPoke( $elm );
-		break;
+	// Filter out any events triggered by descendants
+	if ( event.currentTarget === event.target ) {
+		switch ( eventType ) {
+		case "timerpoke":
+			onTimerPoke( $elm );
+			break;
 
-	/*
-	 * Init
-	 */
-	case "wb-init":
-		init( $elm );
-		break;
+		/*
+		 * Init
+		 */
+		case "wb-init":
+			init( $elm );
+			break;
 
-	/*
-	 * Change Slides
-	 */
-	case "shift":
-		onShift( $elm, event );
-		break;
+		/*
+		 * Change Slides
+		 */
+		case "shift":
+			onShift( $elm, event );
+			break;
+		}
 	}
-
 	/*
 	 * Since we are working with events we want to ensure that we are being passive about our control,
 	 * so returning true allows for events to always continue
