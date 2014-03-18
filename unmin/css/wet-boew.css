@@ -10275,12 +10275,12 @@ img.mfp-img {
 }
 
 .wb-mm-ctrls .frstpnl {
-  width: 6em;
+  width: 7.5em;
 }
 
 .wb-mm-ctrls .lastpnl {
-  text-align: right;
-  width: 4em;
+  text-align: center;
+  width: 5.5em;
 }
 
 .wb-mm-ctrls .tline .wb-mm-tmln-crrnt,
@@ -10299,7 +10299,7 @@ img.mfp-img {
 
 .wb-mm-ctrls progress {
   width: 100%;
-  height: 14px;
+  height: 16px;
   display: block;
   /* Important Thing */
   -webkit-appearance: none;
@@ -10317,7 +10317,7 @@ img.mfp-img {
 }
 
 .wb-mm-ctrls .progress {
-  height: 14px;
+  height: 16px;
 }
 
 /*
