@@ -5772,181 +5772,184 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 		$menuLink, $parentMenu, $parent, $subMenu, result,
 		menuitemSelector, isOpen, menuItemOffsetTop, menuContainer;
 
-	// Tab key = Hide all sub-menus
-	if ( which === 9 ) {
-		menuClose( $( selector + " .active" ), true );
+	if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
 
-	// Menu item is within a menu bar
-	} else if ( inMenuBar ) {
+		// Tab key = Hide all sub-menus
+		if ( which === 9 ) {
+			menuClose( $( selector + " .active" ), true );
 
-		// Left / right arrow = Previous / next menu item
-		if ( which === 37 || which === 39 ) {
-			event.preventDefault();
-			menuIncrement(
-				$menu.find( "> li > a" ),
-				$menuItem,
-				which === 37 ? -1 : 1
-			);
+		// Menu item is within a menu bar
+		} else if ( inMenuBar ) {
 
-		// Enter sub-menu
-		} else if ( hasPopup && ( which === 13 || which === 38 || which === 40 ) ) {
-			event.preventDefault();
-			$parent = $menuItem.parent();
-			$subMenu = $parent.find( ".sm" );
-
-			// Open the submenu if it is not already open
-			if ( !$subMenu.hasClass( "open" ) ) {
-				menuDisplay( $menu.closest( selector ), $parent );
-			}
-
-			// Set focus on the first submenu item
-			$subMenu.find( "a:first" ).trigger( focusEvent );
-
-		// Hide sub-menus and set focus
-		} else if ( which === 27 ) {
-			event.preventDefault();
-			menuClose( $menu.closest( selector ).find( ".active" ), false );
-
-		// Letters only
-		} else if ( which > 64 && which < 91 ) {
-			event.preventDefault();
-			selectByLetter(
-				which,
-				$menuItem.parent().find( "> ul > li > a" ).get()
-			);
-		}
-
-	// Menu item is not within a menu bar
-	} else {
-		menuitemSelector = "> a, > details > summary";
-
-		// Up / down arrow = Previous / next menu item
-		if ( which === 38 || which === 40 ) {
-			event.preventDefault();
-			menuIncrement(
-				$menu.children( "li" ).find( menuitemSelector ),
-				$menuItem,
-				which === 38 ? -1 : 1
-			);
-
-		// Enter or right arrow with a submenu
-		} else if ( hasPopup && ( which === 13 || which === 39 ) ) {
-			$parent = $menuItem.parent();
-
-			if ( which === 39 ) {
+			// Left / right arrow = Previous / next menu item
+			if ( which === 37 || which === 39 ) {
 				event.preventDefault();
+				menuIncrement(
+					$menu.find( "> li > a" ),
+					$menuItem,
+					which === 37 ? -1 : 1
+				);
+
+			// Enter sub-menu
+			} else if ( hasPopup && ( which === 13 || which === 38 || which === 40 ) ) {
+				event.preventDefault();
+				$parent = $menuItem.parent();
+				$subMenu = $parent.find( ".sm" );
+
+				// Open the submenu if it is not already open
+				if ( !$subMenu.hasClass( "open" ) ) {
+					menuDisplay( $menu.closest( selector ), $parent );
+				}
+
+				// Set focus on the first submenu item
+				$subMenu.find( "a:first" ).trigger( focusEvent );
+
+			// Hide sub-menus and set focus
+			} else if ( which === 27 ) {
+				event.preventDefault();
+				menuClose( $menu.closest( selector ).find( ".active" ), false );
+
+			// Letters only
+			} else if ( which > 64 && which < 91 ) {
+				event.preventDefault();
+				selectByLetter(
+					which,
+					$menuItem.parent().find( "> ul > li > a" ).get()
+				);
 			}
 
-			// If the menu item is a summary element
-			if ( menuItem.nodeName.toLowerCase( "summary" ) ) {
-				isOpen = !!$parent.attr( "open" );
+		// Menu item is not within a menu bar
+		} else {
+			menuitemSelector = "> a, > details > summary";
 
-				// Close any other open menus
-				if ( !isOpen ) {
-					$( parent )
-						.closest( "[role^='menu']" )
-							.find( "[aria-hidden=false]" )
-								.parent()
-									.find( "[aria-haspopup=true]" )
-										.not( menuItem )
-											.trigger( "click" );
+			// Up / down arrow = Previous / next menu item
+			if ( which === 38 || which === 40 ) {
+				event.preventDefault();
+				menuIncrement(
+					$menu.children( "li" ).find( menuitemSelector ),
+					$menuItem,
+					which === 38 ? -1 : 1
+				);
 
-					// Ensure the opened menu is in view if in a mobile panel
-					menuContainer = document.getElementById( "mb-pnl" );
-					menuItemOffsetTop = menuItem.offsetTop;
-					if ( $.contains( menuContainer, menuItem ) &&
-						menuItemOffsetTop < menuContainer.scrollTop ) {
+			// Enter or right arrow with a submenu
+			} else if ( hasPopup && ( which === 13 || which === 39 ) ) {
+				$parent = $menuItem.parent();
 
-						menuContainer.scrollTop = menuItemOffsetTop;
+				if ( which === 39 ) {
+					event.preventDefault();
+				}
+
+				// If the menu item is a summary element
+				if ( menuItem.nodeName.toLowerCase( "summary" ) ) {
+					isOpen = !!$parent.attr( "open" );
+
+					// Close any other open menus
+					if ( !isOpen ) {
+						$( parent )
+							.closest( "[role^='menu']" )
+								.find( "[aria-hidden=false]" )
+									.parent()
+										.find( "[aria-haspopup=true]" )
+											.not( menuItem )
+												.trigger( "click" );
+
+						// Ensure the opened menu is in view if in a mobile panel
+						menuContainer = document.getElementById( "mb-pnl" );
+						menuItemOffsetTop = menuItem.offsetTop;
+						if ( $.contains( menuContainer, menuItem ) &&
+							menuItemOffsetTop < menuContainer.scrollTop ) {
+
+							menuContainer.scrollTop = menuItemOffsetTop;
+						}
+					}
+
+					// Ensure the menu is opened or stays open
+					if ( ( !isOpen && which === 39 ) || ( isOpen && which === 13 ) ) {
+						$menuItem.trigger( "click" );
+					}
+
+					// Update the WAI-ARIA states and move focus to
+					// the first submenu item
+					$parent.children( "ul" )
+						.attr({
+							"aria-expanded": "true",
+							"aria-hidden": "false"
+						})
+						.find( "[role=menuitem]:first" )
+							.trigger( "setfocus.wb" );
+				}
+
+			// Escape, left / right arrow without a submenu
+			} else if ( which === 27 || which === 37 || which === 39 ) {
+				$parent = $menu.parent();
+				$parentMenu = $parent.closest( "[role^='menu']" );
+				if ( which === 37 || which === 39 ) {
+					event.preventDefault();
+				}
+
+				// If the parent menu is a menubar
+				if ( $parentMenu.attr( "role" ) === "menubar" ) {
+					$menuLink = $parent.children( "[href=#" + $menu.attr( "id" ) + "]" );
+
+					// Escape key = Close menu and return to menu bar item
+					if ( which === 27 ) {
+						event.preventDefault();
+						$menuLink.trigger( focusEvent );
+
+						// Close the menu but keep the referring link active
+						setTimeout(function() {
+							menuClose( $menuLink.parent(), false );
+						}, 1 );
+
+					// Left / right key = Next / previous menu bar item
+					} else if ( $parentMenu.attr( "role" ) === "menubar" ) {
+						menuIncrement(
+							$parentMenu.find( "> li > a" ),
+							$menuLink,
+							which === 37 ? -1 : 1
+						);
+					}
+
+				// Escape or left arrow: Go up a level if there is a higher-level
+				// menu or close the current submenu if there isn't
+				} else if ( which !== 39 ) {
+					$subMenu = $parentMenu.length !== 0 ? $menu : $menuItem;
+
+					// There is a higher-level menu
+					if ( $parentMenu.length !== 0 ) {
+						event.preventDefault();
+						$menu.closest( "li" )
+							.find( menuitemSelector )
+								.trigger( "click" )
+								.trigger( "setfocus.wb" );
+
+					// No higher-level menu but the current submenu is open
+					} else if ( $menuItem.parent().children( "ul" ).attr( "aria-hidden" ) === "false" ) {
+						event.preventDefault();
+						$menuItem
+							.trigger( "click" )
+							.trigger( "setfocus.wb" );
 					}
 				}
 
-				// Ensure the menu is opened or stays open
-				if ( ( !isOpen && which === 39 ) || ( isOpen && which === 13 ) ) {
-					$menuItem.trigger( "click" );
-				}
-
-				// Update the WAI-ARIA states and move focus to
-				// the first submenu item
-				$parent.children( "ul" )
-					.attr({
-						"aria-expanded": "true",
-						"aria-hidden": "false"
-					})
-					.find( "[role=menuitem]:first" )
-						.trigger( "setfocus.wb" );
-			}
-
-		// Escape, left / right arrow without a submenu
-		} else if ( which === 27 || which === 37 || which === 39 ) {
-			$parent = $menu.parent();
-			$parentMenu = $parent.closest( "[role^='menu']" );
-			if ( which === 37 || which === 39 ) {
+			// Select a menu item in the current menu by the first letter
+			} else if ( which > 64 && which < 91 ) {
 				event.preventDefault();
-			}
+				$parent = $menuItem.closest( "li" );
 
-			// If the parent menu is a menubar
-			if ( $parentMenu.attr( "role" ) === "menubar" ) {
-				$menuLink = $parent.children( "[href=#" + $menu.attr( "id" ) + "]" );
-
-				// Escape key = Close menu and return to menu bar item
-				if ( which === 27 ) {
-					event.preventDefault();
-					$menuLink.trigger( focusEvent );
-
-					// Close the menu but keep the referring link active
-					setTimeout(function() {
-						menuClose( $menuLink.parent(), false );
-					}, 1 );
-
-				// Left / right key = Next / previous menu bar item
-				} else if ( $parentMenu.attr( "role" ) === "menubar" ) {
-					menuIncrement(
-						$parentMenu.find( "> li > a" ),
-						$menuLink,
-						which === 37 ? -1 : 1
-					);
-				}
-
-			// Escape or left arrow: Go up a level if there is a higher-level
-			// menu or close the current submenu if there isn't
-			} else if ( which !== 39 ) {
-				$subMenu = $parentMenu.length !== 0 ? $menu : $menuItem;
-
-				// There is a higher-level menu
-				if ( $parentMenu.length !== 0 ) {
-					event.preventDefault();
-					$menu.closest( "li" )
-						.find( menuitemSelector )
-							.trigger( "click" )
-							.trigger( "setfocus.wb" );
-
-				// No higher-level menu but the current submenu is open
-				} else if ( $menuItem.parent().children( "ul" ).attr( "aria-hidden" ) === "false" ) {
-					event.preventDefault();
-					$menuItem
-						.trigger( "click" )
-						.trigger( "setfocus.wb" );
-				}
-			}
-
-		// Select a menu item in the current menu by the first letter
-		} else if ( which > 64 && which < 91 ) {
-			event.preventDefault();
-			$parent = $menuItem.closest( "li" );
-
-			// Try to find a match in the next siblings
-			result = selectByLetter(
-				which,
-				$parent.nextAll().find( menuitemSelector ).get()
-			);
-
-			// If couldn't find a match, try the previous siblings
-			if ( !result ) {
+				// Try to find a match in the next siblings
 				result = selectByLetter(
 					which,
-					$parent.prevAll().find( menuitemSelector ).get()
+					$parent.nextAll().find( menuitemSelector ).get()
 				);
+
+				// If couldn't find a match, try the previous siblings
+				if ( !result ) {
+					result = selectByLetter(
+						which,
+						$parent.prevAll().find( menuitemSelector ).get()
+					);
+				}
 			}
 		}
 	}
@@ -6751,37 +6754,40 @@ $document.on( "keydown", selector, function( event ) {
 		$this = ref[ 0 ],
 		volume = 0;
 
-	switch ( which ) {
-	case 32:
-		$this.find( ctrls + " .playpause" ).trigger( "click" );
-		break;
+	if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
+		switch ( which ) {
+		case 32:
+			$this.find( ctrls + " .playpause" ).trigger( "click" );
+			break;
 
-	case 37:
-		$this.find( ctrls + " .rewind" ).trigger( "click" );
-		break;
+		case 37:
+			$this.find( ctrls + " .rewind" ).trigger( "click" );
+			break;
 
-	case 39:
-		$this.find( ctrls + " .fastforward" ).trigger( "click" );
-		break;
+		case 39:
+			$this.find( ctrls + " .fastforward" ).trigger( "click" );
+			break;
 
-	case 38:
-		volume = Math.round( playerTarget.player( "getVolume" ) * 10 ) / 10 + 0.1;
-		playerTarget.player( "setVolume", volume < 1 ? volume : 1 );
-		break;
+		case 38:
+			volume = Math.round( playerTarget.player( "getVolume" ) * 10 ) / 10 + 0.1;
+			playerTarget.player( "setVolume", volume < 1 ? volume : 1 );
+			break;
 
-	case 40:
-		volume = Math.round( playerTarget.player( "getVolume" ) * 10 ) / 10 - 0.1;
-		playerTarget.player( "setVolume", volume > 0 ? volume : 0 );
-		break;
+		case 40:
+			volume = Math.round( playerTarget.player( "getVolume" ) * 10 ) / 10 - 0.1;
+			playerTarget.player( "setVolume", volume > 0 ? volume : 0 );
+			break;
 
-	default:
-		return true;
+		default:
+			return true;
+		}
+		return false;
 	}
-	return false;
 });
 
 $document.on( "keyup", selector, function( event ) {
-	if ( event.which === 32 ) {
+	if ( event.which === 32 && !( event.ctrlKey || event.altKey || event.metaKey ) ) {
+
 		// Allows the spacebar to be used for play/pause without double triggering
 		return false;
 	}
@@ -8934,9 +8940,10 @@ var pluginName = "wb-tabs",
 		playText = i18nText.play,
 		$elm, text, inv, $sldr, $plypause;
 
-	// Ignore middle and right mouse buttons
-	if ( !which || which === 1 || which === 13 || which === 32 ||
-		( which > 36 && which < 41 ) ) {
+	// Ignore middle and right mouse buttons and modified keys
+	if ( !( event.ctrlKey || event.altKey || event.metaKey ) &&
+			( !which || which === 1 || which === 13 || which === 32 ||
+			( which > 36 && which < 41 ) ) ) {
 
 		event.preventDefault();
 		$elm = $( elm );
@@ -9050,7 +9057,8 @@ $document.on( activateEvent, selector + " > details > summary", function( event 
 	var which = event.which,
 		details = event.currentTarget.parentNode;
 
-	if ( !which || which === 1 || which === 13 || which === 32 ) {
+	if ( !( event.ctrlKey || event.altKey || event.metaKey ) &&
+		( !which || which === 1 || which === 13 || which === 32 ) ) {
 
 		// Update sessionStorage with the current active panel
 		try {
