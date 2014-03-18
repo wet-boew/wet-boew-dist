@@ -10280,12 +10280,13 @@ img.mfp-img {
 }
 
 .wb-mm-ctrls .frstpnl {
-  width: 7.5em;
+  text-align: center;
+  width: 8em;
 }
 
 .wb-mm-ctrls .lastpnl {
   text-align: center;
-  width: 5.5em;
+  width: 6em;
 }
 
 .wb-mm-ctrls .tline .wb-mm-tmln-crrnt,
