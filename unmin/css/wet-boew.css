@@ -11784,6 +11784,8 @@ details summary:hover {
   }
 
   .wb-tabs.carousel-s2 [role="tablist"] {
+    height: auto;
+    bottom: 0;
     margin-top: -4.375em;
   }
 
