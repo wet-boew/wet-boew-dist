@@ -5983,7 +5983,7 @@ var pluginName = "wb-mltmd",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
 	uniqueCount = 0,
-	templatetriggered = false,
+	template,
 	i18n, i18nText,
 	captionsLoadedEvent = "ccloaded" + selector,
 	captionsLoadFailedEvent = "ccloadfail" + selector,
@@ -6040,12 +6040,15 @@ var pluginName = "wb-mltmd",
 				uniqueCount += 1;
 			}
 
-			if ( !templatetriggered ) {
-				templatetriggered = true;
+			if ( template === undef ) {
 				$document.trigger({
 					type: "ajax-fetch.wb",
-					element: "#" + elmId,
+					element: selector,
 					fetch: wb.getPath( "/assets" ) + "/mediacontrols.html"
+				});
+			} else {
+				$( eventTarget ).trigger({
+					type: "templateloaded.wb"
 				});
 			}
 		}
@@ -6484,9 +6487,12 @@ var pluginName = "wb-mltmd",
 
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
-$document.on( "ajax-fetched.wb", selector, function( event ) {
-	var $this = $( this ),
+$document.on( "ajax-fetched.wb templateloaded.wb", selector, function( event ) {
+	var $this = $( this );
+
+	if ( event.type === "ajax-fetched" ) {
 		template = event.pointer.html();
+	}
 
 	$this.data( "template", template );
 	$this.trigger({
