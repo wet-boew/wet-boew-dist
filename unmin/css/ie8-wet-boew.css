@@ -11146,6 +11146,7 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li {
+  background: transparent;
   display: none;
   border: none;
 }
