@@ -288,13 +288,14 @@
   color: #fff;
 }
 
-#wb-sm .menu > li:last-child a {
+#wb-sm .menu > li:last-child > a {
   border-right: 1px solid #999;
 }
 
 #wb-sm .menu > li.active > a {
   color: #000;
   background: #ccc;
+  border-color: #ccc;
 }
 
 #wb-sm .sm.open {
