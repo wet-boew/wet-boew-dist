@@ -280,7 +280,7 @@
 
 #wb-sm .menu > li > a {
   color: #fff;
-  border-left: 1px solid #0B3048;
+  border-left: 1px solid #999;
 }
 
 #wb-sm .menu > li > a.wb-navcurr {
@@ -289,7 +289,7 @@
 }
 
 #wb-sm .menu > li:last-child a {
-  border-right: 1px solid #135480;
+  border-right: 1px solid #999;
 }
 
 #wb-sm .menu > li.active > a {
