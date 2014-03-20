@@ -1367,10 +1367,7 @@ var pluginName = "wb-calevt",
 				events.maxDate
 			]
 		);
-		$containerId.attr({
-			role: "application",
-			"aria-label": i18nText.calendar
-		});
+		$containerId.attr( "aria-label", i18nText.calendar );
 	},
 
 	daysBetween = function( dateLow, dateHigh ) {
