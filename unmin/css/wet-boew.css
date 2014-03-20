@@ -10046,16 +10046,52 @@ img.mfp-img {
   margin-left: 0.35em;
 }
 
-#mb-pnl ul {
-  margin-bottom: 0;
+#mb-pnl nav a.wb-navcurr,
+#mb-pnl nav summary.wb-navcurr {
+  outline: 1px solid;
 }
 
-#mb-pnl ul li {
-  padding: 6px 0;
+#mb-pnl nav a.wb-navcurr:focus,
+#mb-pnl nav summary.wb-navcurr:focus {
+  outline-style: dotted;
+}
+
+#mb-pnl .srch-pnl,
+#mb-pnl nav {
+  padding: 10px 20px 8px;
 }
 
 #mb-pnl ul li.no-sect {
   padding-left: 1.27em;
+}
+
+#mb-pnl .lng-ofr {
+  padding: 7px 15px 0;
+  text-align: right;
+}
+
+#mb-pnl .lng-ofr ul {
+  margin-bottom: 0;
+}
+
+#mb-pnl .lng-ofr li {
+  padding-left: 10px;
+  padding-right: 0;
+  line-height: normal;
+}
+
+#mb-pnl .lng-ofr li a {
+  padding: 5px;
+}
+
+#mb-pnl nav .mb-menu > li {
+  padding: 10px 0 2px;
+}
+
+#mb-pnl nav a {
+  margin: 6px 0 6px -6px;
+  padding: 0 6px;
+  display: inline-block;
 }
 
 #mb-pnl details ul {
@@ -10066,9 +10102,23 @@ img.mfp-img {
   white-space: nowrap;
 }
 
+[dir=rtl] #mb-pnl .lng-ofr {
+  text-align: left;
+}
+
+[dir=rtl] #mb-pnl .lng-ofr li {
+  padding-left: 0;
+  padding-right: 10px;
+}
+
 [dir=rtl] #mb-pnl details ul {
   padding-left: 0;
   padding-right: 2em;
+}
+
+[dir=rtl] #mb-pnl ul li.no-sect {
+  padding-left: 0;
+  padding-right: 1.27em;
 }
 
 .wb-disable #wb-srch,

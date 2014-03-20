@@ -343,13 +343,6 @@
   background: #0e4164;
 }
 
-#mb-pnl .srch-pnl,
-#mb-pnl .sec-pnl,
-#mb-pnl .sm-pnl,
-#mb-pnl .info-pnl {
-  padding: 10px 20px;
-}
-
 #mb-pnl.modal-content {
   background: #193451;
 }
@@ -372,16 +365,6 @@
 
 #mb-pnl .modal-body > :first-child {
   padding-top: 20px;
-}
-
-#mb-pnl .lng-ofr {
-  padding: 5px 20px;
-  text-align: right;
-}
-
-#mb-pnl .lng-ofr li {
-  padding-left: 10px;
-  line-height: normal;
 }
 
 #mb-pnl summary:hover,
@@ -414,25 +397,11 @@
   border-top: 2px solid #061E38;
 }
 
-[dir=rtl] #mb-pnl .lng-ofr {
-  text-align: left;
-}
-
-[dir=rtl] #mb-pnl .lng-ofr li {
-  padding-left: 0;
-  padding-right: 10px;
-}
-
 [dir=rtl] #mb-pnl .srch-pnl .form-group {
   float: right;
   margin-right: auto;
   margin-left: 5px;
   width: 75%;
-}
-
-[dir=rtl] #mb-pnl ul li.no-sect {
-  padding-left: 0;
-  padding-right: 1.27em;
 }
 
 /*
