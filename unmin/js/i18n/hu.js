@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " hibák léptek fel.",
 	"err-fnd": " hiba lépett fel.",
 	/* Date picker */
-	"date-hide": "A naptár elrejtése",
 	"date-show": "Válasszon egy dátumot a naptárból:",
 	"date-sel": "Kijelölt",
 	/* Calendar */

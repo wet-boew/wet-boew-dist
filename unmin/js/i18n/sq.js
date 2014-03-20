@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " gabime u gjetën.",
 	"err-fnd": " gabim u gjet.",
 	/* Date picker */
-	"date-hide": "Hide kalendar",
 	"date-show": "Zgjidh një datë nga një kalendar për fushën:",
 	"date-sel": "I zgjedhur",
 	/* Calendar */

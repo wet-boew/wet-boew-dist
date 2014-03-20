@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " er zijn fouten opgetreden.",
 	"err-fnd": " er is een fout opgetreden.",
 	/* Date picker */
-	"date-hide": "Kalender verbergen",
 	"date-show": "Kies een kalenderdatum voor het veld:",
 	"date-sel": "Geselecteerd",
 	/* Calendar */

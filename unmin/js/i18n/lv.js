@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " tika atrastas kļūdas.",
 	"err-fnd": " tika atrasta kļūda.",
 	/* Date picker */
-	"date-hide": "Slēpt kalendāru",
 	"date-show": "Izvēlēties datumu no kalendāra lauka:",
 	"date-sel": "Atlasīts",
 	/* Calendar */

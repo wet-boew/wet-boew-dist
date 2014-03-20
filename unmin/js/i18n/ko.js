@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " 오류가 발견되었습니다.",
 	"err-fnd": " 오류가 발견되었습니다.",
 	/* Date picker */
-	"date-hide": "캘린더 숨기기",
 	"date-show": "필드에 달력에서 날짜를 선택:",
 	"date-sel": "선택된",
 	/* Calendar */

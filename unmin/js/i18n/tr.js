@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " hatalar bulundu.",
 	"err-fnd": " hata bulundu.",
 	/* Date picker */
-	"date-hide": "Takvimi gizle",
 	"date-show": "Alan için takvimden bir tarih seçiniz:",
 	"date-sel": "Seçilmiş",
 	/* Calendar */

@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": "on leitud vigu.",
 	"err-fnd": "on leitud viga.",
 	/* Date picker */
-	"date-hide": "Peida kalender",
 	"date-show": "Vali kalendrist kuupäev:",
 	"date-sel": "Valitud",
 	/* Calendar */

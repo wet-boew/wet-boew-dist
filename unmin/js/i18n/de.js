@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " Fehler gefunden wurden.",
 	"err-fnd": " Fehler festgestellt wurde.",
 	/* Date picker */
-	"date-hide": "Ausblenden Kalender",
 	"date-show": "Wählen Sie ein Datum aus einem Kalender für das Feld:",
 	"date-sel": "Ausgewählt",
 	/* Calendar */

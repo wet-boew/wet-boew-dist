@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": "знайдено помилки.",
 	"err-fnd": "знайдено помилку.",
 	/* Date picker */
-	"date-hide": "Сховати календар",
 	"date-show": "Оберіть дату в календарі:",
 	"date-sel": "Вибрано",
 	/* Calendar */

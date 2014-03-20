@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " chyby byly nalezeny.",
 	"err-fnd": " chyba byla nalezena.",
 	/* Date picker */
-	"date-hide": "Skrýt kalendář",
 	"date-show": "Vyberte datum z kalendáře pro pole:",
 	"date-sel": "Vybraný",
 	/* Calendar */

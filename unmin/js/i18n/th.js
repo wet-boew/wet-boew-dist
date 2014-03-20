@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " พบข้อผิดพลาด.",
 	"err-fnd": " ข้อผิดพลาดที่พบ.",
 	/* Date picker */
-	"date-hide": "ซ่อนปฏิทิน",
 	"date-show": "เลือกวันที่จากปฏิทินสำหรับเขต",
 	"date-sel": "เลือก",
 	/* Calendar */

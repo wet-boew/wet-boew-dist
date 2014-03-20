@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " lỗi đã được tìm thấy.",
 	"err-fnd": " lỗi đã được tìm thấy.",
 	/* Date picker */
-	"date-hide": "Ẩn lịch",
 	"date-show": "Chọn một ngày từ lịch cho lĩnh vực:",
 	"date-sel": "Chọn",
 	/* Calendar */

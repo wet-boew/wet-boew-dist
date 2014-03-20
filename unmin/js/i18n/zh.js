@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": "內有錯誤。",
 	"err-fnd": "出現錯誤。",
 	/* Date picker */
-	"date-hide": "隱藏行事曆",
 	"date-show": "選擇一個日期：",
 	"date-sel": "選擇",
 	/* Calendar */

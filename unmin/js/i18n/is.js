@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " villur fundust.",
 	"err-fnd": " villa fannst.",
 	/* Date picker */
-	"date-hide": "Fela dagatal",
 	"date-show": "Veldu dagsetningu af dagatali fyrir akur:",
 	"date-sel": "Valin",
 	/* Calendar */

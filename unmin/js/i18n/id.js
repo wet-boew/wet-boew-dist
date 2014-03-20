@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " error ditemukan.",
 	"err-fnd": " error ditemukan.",
 	/* Date picker */
-	"date-hide": "Sembunyikan kalender",
 	"date-show": "Pilih satu tanggal pada kalender:",
 	"date-sel": "Sudah dipilih",
 	/* Calendar */

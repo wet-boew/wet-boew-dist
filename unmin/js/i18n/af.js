@@ -107,7 +107,6 @@ wb.i18nDict = {
 	"errs-fnd": " foute is gevind nie.",
 	"err-fnd": " fout gevind word.",
 	/* Date picker */
-	"date-hide": "Steek kalender",
 	"date-show": "Kies 'n datum van 'n kalender vir die veld:",
 	"date-sel": "Gekies",
 	/* Calendar */
