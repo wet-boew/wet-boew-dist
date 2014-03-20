@@ -39,15 +39,17 @@
 }
 
 .picker-toggle {
-  margin: 0;
+  display: inline-block;
+  margin-left: 5px;
   background: none;
   border: none;
   vertical-align: middle;
 }
 
+.picker-toggle:link,
+.picker-toggle:visited,
 .picker-toggle:focus {
-  outline: 1px dotted;
-  outline-offset: -2px;
+  color: #000;
 }
 
 .picker-toggle span {
