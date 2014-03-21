@@ -6345,9 +6345,6 @@ var pluginName = "wb-mltmd",
 			}
 			$this.trigger( captionsVisibleChangeEvent );
 			break;
-		case "setPreviousTime":
-			this.object.previousTime = args;
-			break;
 		case "getBuffering":
 			return this.object.buffering || false;
 		case "setBuffering":
@@ -7141,7 +7138,7 @@ var pluginName = "wb-overlay",
 			}
 			closeText = closeText.replace( "'", "&#39;" );
 			overlayClose = "<button class='mfp-close " + closeClass +
-				"' title='" + closeText + "'>×<span class='wb-inv'> " +
+				"' title='" + closeText + "'>&#xd7;<span class='wb-inv'> " +
 				closeText + "</span></button>";
 
 			$elm.append( overlayClose );
