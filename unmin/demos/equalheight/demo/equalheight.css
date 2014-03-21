@@ -3,6 +3,10 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+/*
+ *	Overrides for Bootstrap variables
+ */
+
 .wb-eqht section {
   display: inline-block;
   width: 100%;
