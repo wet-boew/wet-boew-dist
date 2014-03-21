@@ -7582,7 +7582,9 @@ var pluginName = "wb-overlay",
 			.attr( "aria-hidden", "false" );
 
 		if ( !noFocus ) {
-			$overlay.trigger( setFocusEvent );
+			$overlay
+				.scrollTop( 0 )
+				.trigger( setFocusEvent );
 		}
 	},
 
