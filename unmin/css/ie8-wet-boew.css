@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-20
+ * v4.0.0-development - 2014-03-21
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -10066,10 +10066,6 @@ img.mfp-img {
   padding: 10px 20px 8px;
 }
 
-#mb-pnl ul li.no-sect {
-  padding-left: 1.27em;
-}
-
 #mb-pnl .lng-ofr {
   padding: 7px 15px 0;
   text-align: right;
@@ -10089,6 +10085,10 @@ img.mfp-img {
   padding: 5px;
 }
 
+#mb-pnl nav ul li.no-sect {
+  padding-left: 1.27em;
+}
+
 #mb-pnl nav .mb-menu > li {
   padding: 10px 0 2px;
 }
@@ -10097,6 +10097,15 @@ img.mfp-img {
   margin: 6px 0 6px -6px;
   padding: 0 6px;
   display: inline-block;
+}
+
+#mb-pnl nav summary {
+  margin-left: -3px;
+  padding-left: 3px;
+}
+
+#mb-pnl nav summary.wb-navcurr:focus {
+  outline-offset: -2px;
 }
 
 #mb-pnl details ul {
@@ -10116,14 +10125,26 @@ img.mfp-img {
   padding-right: 10px;
 }
 
+[dir=rtl] #mb-pnl nav ul li.no-sect {
+  padding-left: 0;
+  padding-right: 1.27em;
+}
+
+[dir=rtl] #mb-pnl nav a {
+  margin-left: 0;
+  margin-right: -6px;
+}
+
+[dir=rtl] #mb-pnl nav summary {
+  margin-left: 0;
+  margin-right: -3px;
+  padding-left: 0;
+  padding-right: 3px;
+}
+
 [dir=rtl] #mb-pnl details ul {
   padding-left: 0;
   padding-right: 2em;
-}
-
-[dir=rtl] #mb-pnl ul li.no-sect {
-  padding-left: 0;
-  padding-right: 1.27em;
 }
 
 .wb-disable #wb-srch,
