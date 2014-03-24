@@ -7703,6 +7703,19 @@ blockquote {
 }
 
 /*
+ *	Form control width
+ *
+ *	Default should be representative of the expected length of input.
+ *	Full width should be only for cases when the expected length of input is
+ *	greater than the available width.
+ */
+
+.form-control {
+  width: auto;
+  max-width: 100%;
+}
+
+/*
   WET-BOEW
   @title: Language selector
  */

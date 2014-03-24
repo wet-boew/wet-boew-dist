@@ -274,7 +274,9 @@
  */
 
 #wb-sm .menu > li > a.wb-navcurr,
-#wb-sm .sm.open li a.wb-navcurr {
+#wb-sm .sm.open li a.wb-navcurr,
+#wb-sm .sm.open li a:hover,
+#wb-sm .sm.open li a:focus {
   background: #0b3048;
   color: #fff;
 }
@@ -318,12 +320,6 @@
   text-shadow: none;
   padding: 5px 10px;
   text-decoration: none;
-}
-
-#wb-sm .sm.open li a:hover,
-#wb-sm .sm.open li a:focus {
-  background: #243850;
-  color: #fff;
 }
 
 #wb-sm .sm.open .slflnk {
