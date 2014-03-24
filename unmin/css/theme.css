@@ -273,6 +273,12 @@
  * Site menu
  */
 
+#wb-sm .menu > li > a.wb-navcurr,
+#wb-sm .sm.open li a.wb-navcurr {
+  background: #0b3048;
+  color: #fff;
+}
+
 #wb-sm {
   background: #0E4164;
 }
@@ -285,11 +291,6 @@
 #wb-sm .menu > li > a {
   color: #fff;
   border-left: 1px solid #999;
-}
-
-#wb-sm .menu > li > a.wb-navcurr {
-  background: #0b3048;
-  color: #fff;
 }
 
 #wb-sm .menu > li:last-child > a {
