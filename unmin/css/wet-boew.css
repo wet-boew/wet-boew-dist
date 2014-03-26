@@ -5310,9 +5310,9 @@ input[type="button"].btn-block {
   padding: 6px 12px;
   line-height: 1.4375;
   text-decoration: none;
-  color: #295376;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  color: #335075;
+  background-color: #eaebed;
+  border: 1px solid #dcdee1;
   margin-left: -1px;
 }
 
@@ -5333,9 +5333,9 @@ input[type="button"].btn-block {
 .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  color: #0535d2;
-  background-color: #eeeeee;
-  border-color: #ddd;
+  color: #335075;
+  background-color: #d4d6da;
+  border-color: #bbbfc5;
 }
 
 .pagination > .active > a,
@@ -5424,15 +5424,15 @@ input[type="button"].btn-block {
 .pager li > span {
   display: inline-block;
   padding: 5px 14px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #eaebed;
+  border: 1px solid #dcdee1;
   border-radius: 15px;
 }
 
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #d4d6da;
 }
 
 .pager .next > a,
@@ -5450,7 +5450,7 @@ input[type="button"].btn-block {
 .pager .disabled > a:focus,
 .pager .disabled > span {
   color: #999999;
-  background-color: #fff;
+  background-color: #eaebed;
   cursor: not-allowed;
 }
 
@@ -7698,6 +7698,25 @@ blockquote {
 .form-control {
   width: auto;
   max-width: 100%;
+}
+
+/*
+ *	Pagination
+ *	  * Add left/right arrows to previous/next buttons
+ *	  * Increase size of the pagination buttons
+ */
+
+.pagination [rel="prev"]:before {
+  content: "← ";
+}
+
+.pagination [rel="next"]:after {
+  content: " →";
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  padding: 10px 16px;
 }
 
 /*
