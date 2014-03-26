@@ -8615,6 +8615,15 @@ blockquote {
   list-style-type: decimal;
 }
 
+.lst-spcd > li {
+  margin-bottom: 10px;
+}
+
+.lst-spcd ul,
+.lst-spcd ol {
+  margin-top: 10px;
+}
+
 /*
   WET-BOEW
   @title: Form additions to WET-BOEW
