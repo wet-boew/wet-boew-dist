@@ -638,6 +638,10 @@ main {
   WET-BOEW
   @title: Small view (screen only)
  */
+
+  #wb-info h3 {
+    white-space: nowrap;
+  }
 }
 
 /* Medium view */
