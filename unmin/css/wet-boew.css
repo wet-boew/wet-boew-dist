@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-25
+ * v4.0.0-development - 2014-03-26
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -2682,7 +2682,7 @@ select[multiple].input-lg,
 
 .btn:hover,
 .btn:focus {
-  color: #333;
+  color: #335075;
   text-decoration: none;
 }
 
@@ -2706,24 +2706,24 @@ fieldset[disabled] .btn {
 }
 
 .btn-default {
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  color: #335075;
+  background-color: #eaebed;
+  border-color: #dcdee1;
 }
 
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active {
-  color: #333;
-  background-color: #ebebeb;
-  border-color: #adadad;
+  color: #335075;
+  background-color: #d4d6da;
+  border-color: #bbbfc5;
 }
 
 .open .btn-default.dropdown-toggle {
-  color: #333;
-  background-color: #ebebeb;
-  border-color: #adadad;
+  color: #335075;
+  background-color: #d4d6da;
+  border-color: #bbbfc5;
 }
 
 .btn-default:active,
@@ -2750,13 +2750,13 @@ fieldset[disabled] .btn-default:hover,
 fieldset[disabled] .btn-default:focus,
 fieldset[disabled] .btn-default:active,
 fieldset[disabled] .btn-default.active {
-  background-color: #fff;
-  border-color: #ccc;
+  background-color: #eaebed;
+  border-color: #dcdee1;
 }
 
 .btn-default .badge {
-  color: #fff;
-  background-color: #333;
+  color: #eaebed;
+  background-color: #335075;
 }
 
 .btn-primary {
@@ -7386,21 +7386,6 @@ a.btn {
 
 main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.btn):not([role=tab]):visited {
   color: #7834BC;
-}
-
-/*
- *	Override color for "default" button style
- */
-
-.btn-default {
-  background-color: #eaebed;
-  color: #335075;
-}
-
-.btn-default:hover,
-.btn-default:focus {
-  background-color: #e1e4e7;
-  color: #243850;
 }
 
 /*
