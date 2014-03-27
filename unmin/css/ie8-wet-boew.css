@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-26
+ * v4.0.0-development - 2014-03-27
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -2554,7 +2554,6 @@ select[multiple].input-lg,
 
 @media (min-width: 768px) {
   .form-inline .form-group,
-  .form-inline .navbar-form,
   .form-inline .navbar-form {
     display: inline-block;
     margin-bottom: 0;
@@ -2562,7 +2561,6 @@ select[multiple].input-lg,
   }
 
   .form-inline .form-control,
-  .form-inline .navbar-form,
   .form-inline .navbar-form {
     display: inline-block;
     width: auto;
@@ -2570,13 +2568,11 @@ select[multiple].input-lg,
   }
 
   .form-inline .input-group > .form-control,
-  .form-inline .input-group > .navbar-form,
   .form-inline .input-group > .navbar-form {
     width: 100%;
   }
 
   .form-inline .control-label,
-  .form-inline .navbar-form,
   .form-inline .navbar-form {
     margin-bottom: 0;
     vertical-align: middle;
@@ -2584,9 +2580,7 @@ select[multiple].input-lg,
 
   .form-inline .radio,
   .form-inline .navbar-form,
-  .form-inline .navbar-form,
   .form-inline .checkbox,
-  .form-inline .navbar-form,
   .form-inline .navbar-form {
     display: inline-block;
     margin-top: 0;
@@ -2597,16 +2591,13 @@ select[multiple].input-lg,
 
   .form-inline .radio input[type="radio"],
   .form-inline .radio .navbar-form,
-  .form-inline .radio .navbar-form,
   .form-inline .checkbox input[type="checkbox"],
-  .form-inline .checkbox .navbar-form,
   .form-inline .checkbox .navbar-form {
     float: none;
     margin-left: 0;
   }
 
   .form-inline .has-feedback .form-control-feedback,
-  .form-inline .has-feedback .navbar-form,
   .form-inline .has-feedback .navbar-form {
     top: 0;
   }
@@ -4606,20 +4597,17 @@ input[type="button"].btn-block {
 }
 
 .nav-justified > li,
-.nav-justified > .nav-tabs.nav-justified,
 .nav-justified > .nav-tabs.nav-justified {
   float: none;
 }
 
 .nav-justified > li > a,
-.nav-justified > li > .nav-tabs.nav-justified,
 .nav-justified > li > .nav-tabs.nav-justified {
   text-align: center;
   margin-bottom: 5px;
 }
 
 .nav-justified > .dropdown .dropdown-menu,
-.nav-justified > .dropdown .nav-tabs.nav-justified,
 .nav-justified > .dropdown .nav-tabs.nav-justified {
   top: auto;
   left: auto;
@@ -4627,14 +4615,12 @@ input[type="button"].btn-block {
 
 @media (min-width: 768px) {
   .nav-justified > li,
-  .nav-justified > .nav-tabs.nav-justified,
   .nav-justified > .nav-tabs.nav-justified {
     display: table-cell;
     width: 1%;
   }
 
   .nav-justified > li > a,
-  .nav-justified > li > .nav-tabs.nav-justified,
   .nav-justified > li > .nav-tabs.nav-justified {
     margin-bottom: 0;
   }
@@ -4648,8 +4634,6 @@ input[type="button"].btn-block {
 
 .nav-tabs-justified > li > a,
 .nav-tabs-justified > li > .nav-tabs.nav-justified,
-.nav-tabs-justified > li > .nav-tabs.nav-justified,
-.nav-tabs-justified > li > .nav-tabs.nav-justified,
 .nav-tabs-justified > li > .nav-tabs.nav-justified {
   margin-right: 0;
   border-radius: 4px;
@@ -4658,16 +4642,10 @@ input[type="button"].btn-block {
 .nav-tabs-justified > .active > a,
 .nav-tabs-justified > .active > .nav-tabs.nav-justified,
 .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-.nav-tabs-justified > .active > .nav-tabs.nav-justified,
-.nav-tabs-justified > .active > .nav-tabs.nav-justified,
 .nav-tabs-justified > .active > a:hover,
 .nav-tabs-justified > .active > .nav-tabs.nav-justified,
 .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-.nav-tabs-justified > .active > .nav-tabs.nav-justified,
-.nav-tabs-justified > .active > .nav-tabs.nav-justified,
 .nav-tabs-justified > .active > a:focus,
-.nav-tabs-justified > .active > .nav-tabs.nav-justified,
-.nav-tabs-justified > .active > .nav-tabs.nav-justified,
 .nav-tabs-justified > .active > .nav-tabs.nav-justified,
 .nav-tabs-justified > .active > .nav-tabs.nav-justified {
   border: 1px solid #ddd;
@@ -4675,8 +4653,6 @@ input[type="button"].btn-block {
 
 @media (min-width: 768px) {
   .nav-tabs-justified > li > a,
-  .nav-tabs-justified > li > .nav-tabs.nav-justified,
-  .nav-tabs-justified > li > .nav-tabs.nav-justified,
   .nav-tabs-justified > li > .nav-tabs.nav-justified,
   .nav-tabs-justified > li > .nav-tabs.nav-justified {
     border-bottom: 1px solid #ddd;
@@ -4686,16 +4662,10 @@ input[type="button"].btn-block {
   .nav-tabs-justified > .active > a,
   .nav-tabs-justified > .active > .nav-tabs.nav-justified,
   .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-  .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-  .nav-tabs-justified > .active > .nav-tabs.nav-justified,
   .nav-tabs-justified > .active > a:hover,
   .nav-tabs-justified > .active > .nav-tabs.nav-justified,
   .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-  .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-  .nav-tabs-justified > .active > .nav-tabs.nav-justified,
   .nav-tabs-justified > .active > a:focus,
-  .nav-tabs-justified > .active > .nav-tabs.nav-justified,
-  .nav-tabs-justified > .active > .nav-tabs.nav-justified,
   .nav-tabs-justified > .active > .nav-tabs.nav-justified,
   .nav-tabs-justified > .active > .nav-tabs.nav-justified {
     border-bottom-color: #fff;
@@ -7586,7 +7556,6 @@ code {
 /* List unstyled RTL fix */
 
 [dir=rtl] .list-unstyled,
-[dir=rtl] .list-inline,
 [dir=rtl] .list-inline {
   padding-right: 0;
 }
@@ -8567,7 +8536,6 @@ blockquote {
 }
 
 [class*=colcount-].list-unstyled li,
-[class*=colcount-].list-unstyled [class*=colcount-].list-inline,
 [class*=colcount-].list-unstyled [class*=colcount-].list-inline {
   margin-left: 0;
 }
