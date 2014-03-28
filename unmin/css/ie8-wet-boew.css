@@ -5401,7 +5401,7 @@ input[type="button"].btn-block {
   padding: 5px 14px;
   background-color: #eaebed;
   border: 1px solid #dcdee1;
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .pager li > a:hover,
@@ -7680,17 +7680,33 @@ blockquote {
  *	  * Increase size of the pagination buttons
  */
 
-.pagination [rel="prev"]:before {
+.pagination [rel="prev"]:before,
+.pager [rel="prev"]:before {
   content: "← ";
 }
 
-.pagination [rel="next"]:after {
+.pagination [rel="next"]:after,
+.pager [rel="next"]:after {
   content: " →";
 }
 
 .pagination > li > a,
-.pagination > li > span {
+.pagination > li > span,
+.pager > li > a,
+.pager > li > span {
   padding: 10px 16px;
+}
+
+.pager > li > a {
+  text-decoration: none;
+}
+
+.pager > li > a:hover,
+.pager > li > a:focus,
+.pager > li > span:hover,
+.pager > li > span:focus {
+  color: #335075;
+  border-color: #bbbfc5;
 }
 
 /*
