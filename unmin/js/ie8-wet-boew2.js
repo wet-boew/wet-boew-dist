@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-27
+ * v4.0.0-development - 2014-03-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -19,12 +19,12 @@
 		if ( dataAttr ) {
 			try {
 				dataObj = JSON.parse( dataAttr );
+				$.data( elm, dataName, dataObj );
 			} catch ( error ) {
 				$.error( "Bad JSON array in data-" + dataName + " attribute" );
 			}
 		}
 
-		$.data( elm, dataName, dataObj );
 		return dataObj;
 	};
 })( jQuery, wb );
@@ -2417,7 +2417,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			i, iLength, j, jLength, parsedData, rIndex, currVectorOptions,
 			currentRowGroup, reverseTblParsing, dataGroupVector,
 			dataCell, previousDataCell, currDataVector,
-			pieQuaterFlotSeries, optionFlot, optionsCharts,
+			pieQuaterFlotSeries, optionFlot, optionsCharts, globalOptions,
 			defaultsOptions = {
 
 				// Flot Global Options
@@ -2587,12 +2587,12 @@ $document.on( "setFocus.wb-cal", setFocus );
 			};
 
 		/**
-		 * A little function to ovewrite and add preset into the default options
+		 * A little function to overwrite and add preset into the default options
 		 *
 		 * @method overwriteDefaultsOptions
 		 * @param {string} scopekey - Key that represent the subject of the setting, [flot, charts, series,...]
-		 * @param {json object} target - DefaultOptions that wiil be overwritten
-		 * @param {json object} object - User defined object for overwritting options
+		 * @param {json object} target - DefaultOptions that will be overwritten
+		 * @param {json object} object - User defined object for overwriting options
 		 * @return {json object} - Return the new object
 		 */
 		function overwriteDefaultsOptions( scopekey, target, object ) {
@@ -2612,13 +2612,16 @@ $document.on( "setFocus.wb-cal", setFocus );
 		}
 
 		// User defined options
-		if ( !window.chartsGraphOpts ){
+		if ( !window.chartsGraphOpts ) {
+			globalOptions = window[ pluginName ];
+
 			// Global setting
-			if ( window.wet_boew_charts !== undefined ) {
-				overwriteDefaultsOptions( "flot", defaultsOptions, window.wet_boew_charts );
-				overwriteDefaultsOptions( "series", defaultsOptions, window.wet_boew_charts );
-				overwriteDefaultsOptions( "charts", defaultsOptions, window.wet_boew_charts );
+			if ( globalOptions ) {
+				overwriteDefaultsOptions( "flot", defaultsOptions, globalOptions );
+				overwriteDefaultsOptions( "series", defaultsOptions, globalOptions );
+				overwriteDefaultsOptions( "charts", defaultsOptions, globalOptions );
 			}
+
 			// Save the setting here in a case of a second graphic on the same page
 			window.chartsGraphOpts = defaultsOptions;
 		}
@@ -2685,7 +2688,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			// Extend the config from the element @data attribute
 			config = $.extend( true, config, wb.getData( $elem, attribute ) );
 
-			// Merge and Overide the function.
+			// Merge and override the function.
 			for ( key in fn ) {
 				if ( !fn.hasOwnProperty( key ) ) {
 					continue;
@@ -2712,7 +2715,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 		optionFlot = applyPreset( defaultsOptions.flot, $elm, "flot" );
 
 		// Apply any preset
-		optionsCharts = applyPreset( defaultsOptions.charts, $elm, "wet-boew" );
+		optionsCharts = applyPreset( defaultsOptions.charts, $elm, pluginName );
 
 		// Fix default width and height in case the table is hidden.
 		optionsCharts.width = optionsCharts.width | 250;
@@ -4665,7 +4668,13 @@ var pluginName = "wb-frmvld",
 						submitted = false,
 						$required = $form.find( "[required]" ).attr( "aria-required", "true" ),
 						errorFormId = "errors-" + ( !formId ? "default" : formId ),
-						settings = $.extend( true, {}, defaults, wb.getData( $elm, "wet-boew" ) ),
+						settings = $.extend(
+							true,
+							{},
+							defaults,
+							window[ pluginName ],
+							wb.getData( $elm, pluginName )
+						),
 						summaryHeading = settings.hdLvl,
 						i, len, validator;
 
@@ -5141,12 +5150,13 @@ var pluginName = "wb-lbx",
 						settings.modal = true;
 					}
 
-					// Extend the settings with data-wet-boew then
+					// Extend the settings with data-wb-lbx then
 					$elm.magnificPopup(
 						$.extend(
 							true,
 							settings,
-							wb.getData( $elm, "wet-boew" )
+							window[ pluginName ],
+							wb.getData( $elm, pluginName )
 						)
 					);
 				}
@@ -8013,7 +8023,6 @@ var pluginName = "wb-share",
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
 	 * selector matches.
-	 * For example, adding the attribute data-option1="false", will override option1 for that plugin instance.
 	 */
 	defaults = {
 		hdLvl: "h2",
@@ -8159,7 +8168,13 @@ var pluginName = "wb-share",
 			}
 
 			$elm = $( elm );
-			settings = $.extend( true, {}, defaults, wb.getData( $elm, "wet-boew" ) );
+			settings = $.extend(
+				true,
+				{},
+				defaults,
+				window[ pluginName ],
+				wb.getData( $elm, pluginName )
+			);
 			sites = settings.sites;
 			filter = settings.filter;
 			heading = settings.hdLvl;
@@ -8350,7 +8365,7 @@ var pluginName = "wb-tables",
 					$.fn.dataTableExt.oSort[ "string-case-asc" ] = i18nSortAscend;
 					$.fn.dataTableExt.oSort[ "string-case-desc" ] = i18nSortDescend;
 
-					$elm.dataTable( $.extend( true, {}, defaults, wb.getData( $elm, "wet-boew" ) ) );
+					$elm.dataTable( $.extend( true, {}, defaults, window[ pluginName ], wb.getData( $elm, pluginName ) ) );
 				}
 			});
 		}
