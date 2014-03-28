@@ -10840,9 +10840,8 @@ table.dataTable tr.even td.sorting_3 {
   padding: 2px 10px;
 }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.plypause i {
+.wb-tabs.carousel-s2 [role="tablist"] li.plypause span {
   color: #000 !important;
-  font-style: normal;
 }
 
 .wb-tabs.carousel-s2 figcaption {
