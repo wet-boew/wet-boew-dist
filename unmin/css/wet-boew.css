@@ -9647,6 +9647,10 @@ img.mfp-img {
   padding-left: 1.27em;
 }
 
+#mb-pnl nav ul li.no-sect .list-group {
+  margin-bottom: 0;
+}
+
 #mb-pnl nav .mb-menu > li {
   padding: 10px 0 2px;
 }
@@ -9667,7 +9671,11 @@ img.mfp-img {
 }
 
 #mb-pnl details ul {
-  padding-left: 2em;
+  padding-left: 2.5em;
+}
+
+#mb-pnl details details {
+  margin-left: -1.28em;
 }
 
 #mb-pnl .srch-pnl form {

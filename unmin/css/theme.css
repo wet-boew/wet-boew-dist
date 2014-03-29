@@ -280,8 +280,11 @@
 
 #wb-sm .menu > li > a.wb-navcurr,
 #wb-sm .sm.open li a.wb-navcurr,
+#wb-sm .sm.open li summary.wb-navcurr,
 #wb-sm .sm.open li a:hover,
-#wb-sm .sm.open li a:focus {
+#wb-sm .sm.open li a:focus,
+#wb-sm .sm.open li summary:hover,
+#wb-sm .sm.open li summary:focus {
   background: #0b3048;
   color: #fff;
 }
@@ -318,7 +321,8 @@
   background: #ccc;
 }
 
-#wb-sm .sm.open li a {
+#wb-sm .sm.open li a,
+#wb-sm .sm.open li summary {
   color: #444;
   border-left: none;
   border-right: none;
