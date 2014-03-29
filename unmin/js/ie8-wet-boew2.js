@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-28
+ * v4.0.0-development - 2014-03-29
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4731,14 +4731,14 @@ var pluginName = "wb-frmvld",
 									$fieldset = $element.closest( "fieldset" );
 									if ( $fieldset.length !== 0 ) {
 										$legend = $fieldset.find( "legend" ).first();
-										if ( $legend.length !== 0 && $fieldset.find( "input[name=" + $element.attr( "name" ) + "]" ) !== 1) {
+										if ( $legend.length !== 0 && $fieldset.find( "input[name='" + $element.attr( "name" ) + "']" ) !== 1) {
 											$error.appendTo( $legend );
 											return;
 										}
 									}
 								}
 							}
-							$error.appendTo( $form.find( "label[for=" + $element.attr( "id" ) + "]" ) );
+							$error.appendTo( $form.find( "label[for='" + $element.attr( "id" ) + "']" ) );
 							return;
 						},
 
