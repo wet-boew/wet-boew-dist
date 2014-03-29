@@ -9547,6 +9547,7 @@ img.mfp-img {
 
 .wb-menu .sm.open {
   max-height: 1000px;
+  min-width: 12.5em;
   display: inline;
   position: absolute;
   z-index: 500;
