@@ -11447,6 +11447,10 @@ summary:focus {
     left: 0;
   }
 
+  .wb-tabs.carousel-s1 {
+    border-top: 0;
+  }
+
   .wb-tabs.carousel-s1 [role="tablist"] {
     position: static;
   }
@@ -11897,8 +11901,17 @@ summary:focus {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
   #mb-pnl {
     min-width: 65%;
+  }
+
+  .wb-tabs .tab-count {
+    display: none !important;
   }
 }
 
