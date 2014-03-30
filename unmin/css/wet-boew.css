@@ -8689,6 +8689,10 @@ h6,
   column-count: 4;
 }
 
+.full-width {
+  width: 100%;
+}
+
 /*
   WET-BOEW
   @title: List CSS
