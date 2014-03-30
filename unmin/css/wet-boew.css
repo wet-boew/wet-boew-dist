@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-29
+ * v4.0.0-development - 2014-03-30
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -9675,7 +9675,7 @@ img.mfp-img {
 }
 
 #mb-pnl details details {
-  margin-left: -1.28em;
+  margin-left: 6px 0 6px -1.28em;
 }
 
 #mb-pnl .srch-pnl form {

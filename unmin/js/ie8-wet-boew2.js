@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.0-development - 2014-03-29
+ * v4.0.0-development - 2014-03-30
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5371,7 +5371,7 @@ var pluginName = "wb-menu",
 				itemsLength = $items.length;
 
 				// Collapsible section
-				if ( itemsLength !== 0 && ( !href || href.charAt( 0 ) === "#" ) ) {
+				if ( itemsLength !== 0 ) {
 					sectionHtml += createCollapsibleSection( section, j, sectionsLength, $items, itemsLength );
 				} else {
 					parent = section.parentNode;
