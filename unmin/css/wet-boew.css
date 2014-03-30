@@ -19,6 +19,10 @@
  */
 
 /*
+ *	Font scales
+ */
+
+/*
  *	Overrides for Bootstrap variables
  */
 
@@ -7783,6 +7787,40 @@ blockquote {
 }
 
 /*
+ *	Heading top margins
+ */
+
+h1,
+.h1 {
+  margin-top: 0;
+}
+
+h2,
+.h2 {
+  margin-top: 38px;
+}
+
+h3,
+.h3 {
+  margin-top: 32px;
+}
+
+h4,
+.h4 {
+  margin-top: 26px;
+}
+
+h5,
+.h5 {
+  margin-top: 23px;
+}
+
+h6,
+.h6 {
+  margin-top: 21px;
+}
+
+/*
   WET-BOEW
   @title: Language selector
  */
@@ -8388,6 +8426,10 @@ blockquote {
  */
 
 /*
+ *	Font scales
+ */
+
+/*
  *	Overrides for Bootstrap variables
  */
 
@@ -8930,6 +8972,10 @@ figure .pieLabel {
  */
 
 /*
+ *	Font scales
+ */
+
+/*
  *	Overrides for Bootstrap variables
  */
 
@@ -9041,6 +9087,10 @@ figure .pieLabel {
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
+ *	Font scales
  */
 
 /*
@@ -10678,6 +10728,10 @@ table.dataTable tr.even td.sorting_3 {
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+
+/*
+ *	Font scales
  */
 
 /*
