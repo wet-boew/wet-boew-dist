@@ -7359,8 +7359,72 @@ a.btn {
   text-decoration: none;
 }
 
-main :not(.dropdown):not(.btn-group):not(.nav):not(.navbar):not(.badge) a:not(.btn):not([role=tab]):visited {
+a:visited {
   color: #7834BC;
+}
+
+.btn-default:visited {
+  color: #335075;
+}
+
+.btn-primary:visited {
+  color: #fff;
+}
+
+.btn-success:visited {
+  color: #fff;
+}
+
+.btn-info:visited {
+  color: #fff;
+}
+
+.btn-warning:visited {
+  color: #000;
+}
+
+.btn-danger:visited {
+  color: #fff;
+}
+
+.dropdown-menu > li > a:visited {
+  color: #333333;
+}
+
+.nav > li > a:visited {
+  color: #295376;
+}
+
+.nav-pills > li.active > a:visited {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:visited {
+  color: #777;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .open .dropdown-menu > li > a {
+    color: #777;
+  }
+}
+
+.navbar-default .navbar-link:visited {
+  color: #777;
+}
+
+.navbar-inverse .navbar-nav > li > a:visited {
+  color: #999999;
+}
+
+@media (max-width: 767px) {
+  .navbar-inverse .open .dropdown-menu > li > a:visited {
+    color: #999999;
+  }
+}
+
+.navbar-inverse .navbar-link:visited {
+  color: #999999;
 }
 
 /*
