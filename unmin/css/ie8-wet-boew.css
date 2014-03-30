@@ -2762,7 +2762,7 @@ fieldset[disabled] .btn-default.active {
 .btn-primary {
   color: #fff;
   background-color: #2572b4;
-  border-color: #21669f;
+  border-color: #143d5f;
 }
 
 .btn-primary:hover,
@@ -2771,13 +2771,13 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active {
   color: #fff;
   background-color: #1e5e92;
-  border-color: #16456c;
+  border-color: #091d2d;
 }
 
 .open .btn-primary.dropdown-toggle {
   color: #fff;
   background-color: #1e5e92;
-  border-color: #16456c;
+  border-color: #091d2d;
 }
 
 .btn-primary:active,
@@ -2805,7 +2805,7 @@ fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
   background-color: #2572b4;
-  border-color: #21669f;
+  border-color: #143d5f;
 }
 
 .btn-primary .badge {
@@ -2816,7 +2816,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-success {
   color: #fff;
   background-color: #1b6c1c;
-  border-color: #165816;
+  border-color: #071a07;
 }
 
 .btn-success:hover,
@@ -2825,13 +2825,13 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active {
   color: #fff;
   background-color: #134b13;
-  border-color: #0a270a;
+  border-color: black;
 }
 
 .open .btn-success.dropdown-toggle {
   color: #fff;
   background-color: #134b13;
-  border-color: #0a270a;
+  border-color: black;
 }
 
 .btn-success:active,
@@ -2859,7 +2859,7 @@ fieldset[disabled] .btn-success:focus,
 fieldset[disabled] .btn-success:active,
 fieldset[disabled] .btn-success.active {
   background-color: #1b6c1c;
-  border-color: #165816;
+  border-color: #071a07;
 }
 
 .btn-success .badge {
@@ -2870,7 +2870,7 @@ fieldset[disabled] .btn-success.active {
 .btn-info {
   color: #fff;
   background-color: #4d4d4d;
-  border-color: #404040;
+  border-color: #1a1a1a;
 }
 
 .btn-info:hover,
@@ -2879,13 +2879,13 @@ fieldset[disabled] .btn-success.active {
 .btn-info.active {
   color: #fff;
   background-color: #393939;
-  border-color: #222222;
+  border-color: black;
 }
 
 .open .btn-info.dropdown-toggle {
   color: #fff;
   background-color: #393939;
-  border-color: #222222;
+  border-color: black;
 }
 
 .btn-info:active,
@@ -2913,7 +2913,7 @@ fieldset[disabled] .btn-info:focus,
 fieldset[disabled] .btn-info:active,
 fieldset[disabled] .btn-info.active {
   background-color: #4d4d4d;
-  border-color: #404040;
+  border-color: #1a1a1a;
 }
 
 .btn-info .badge {
@@ -2924,7 +2924,7 @@ fieldset[disabled] .btn-info.active {
 .btn-warning {
   color: #000;
   background-color: #f2d40d;
-  border-color: #dabe0c;
+  border-color: #917f08;
 }
 
 .btn-warning:hover,
@@ -2933,13 +2933,13 @@ fieldset[disabled] .btn-info.active {
 .btn-warning.active {
   color: #000;
   background-color: #cbb20b;
-  border-color: #a08909;
+  border-color: #574b05;
 }
 
 .open .btn-warning.dropdown-toggle {
   color: #000;
   background-color: #cbb20b;
-  border-color: #a08909;
+  border-color: #574b05;
 }
 
 .btn-warning:active,
@@ -2967,7 +2967,7 @@ fieldset[disabled] .btn-warning:focus,
 fieldset[disabled] .btn-warning:active,
 fieldset[disabled] .btn-warning.active {
   background-color: #f2d40d;
-  border-color: #dabe0c;
+  border-color: #917f08;
 }
 
 .btn-warning .badge {
@@ -2978,7 +2978,7 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger {
   color: #fff;
   background-color: #bc3331;
-  border-color: #a82c2c;
+  border-color: #6b1c1c;
 }
 
 .btn-danger:hover,
@@ -2987,13 +2987,13 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger.active {
   color: #fff;
   background-color: #9c2929;
-  border-color: #771f1f;
+  border-color: #3b0f0f;
 }
 
 .open .btn-danger.dropdown-toggle {
   color: #fff;
   background-color: #9c2929;
-  border-color: #771f1f;
+  border-color: #3b0f0f;
 }
 
 .btn-danger:active,
@@ -3021,7 +3021,7 @@ fieldset[disabled] .btn-danger:focus,
 fieldset[disabled] .btn-danger:active,
 fieldset[disabled] .btn-danger.active {
   background-color: #bc3331;
-  border-color: #a82c2c;
+  border-color: #6b1c1c;
 }
 
 .btn-danger .badge {
@@ -7789,6 +7789,20 @@ blockquote {
 .pager > li > span:focus {
   color: #335075;
   border-color: #bbbfc5;
+}
+
+/*
+ *	Use button border style 'outset' to give buttons depth, except when disabled
+ */
+
+.btn {
+  border-style: outset;
+}
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  border-style: solid;
 }
 
 /*
