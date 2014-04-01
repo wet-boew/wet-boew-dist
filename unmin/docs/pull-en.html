@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Documentation
+		<title>Creating a pull request
 
 	
 		
@@ -21,7 +21,7 @@
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
-		<meta name="description" content="Documentation for the Web Experience Toolkit." />
+		<meta name="description" content="How to create a pull request" />
 		<!-- Meta data-->
 		<!--[if gte IE 9 | !IE ]><!-->
 <link href="../assets/favicon.ico" rel="icon" type="image/x-icon" />
@@ -62,7 +62,7 @@
 								<ul class="text-right">
 
 	
-	<li><a lang="fr" hreflang="fr" href="index-fr.html">Français</a></li>
+	<li><a lang="fr" hreflang="fr" href="pull-fr.html">Français</a></li>
 
 
 	<li class="curr">English&#32;<span>(current)</span></li>
@@ -153,7 +153,7 @@
 		
 	
 
-			<li>Documentation</li>
+			<li>Creating a pull request</li>
 		</ol>
 	</div>
 </div>
@@ -165,51 +165,82 @@
 
 
 		<main role="main" property="mainContentOfPage" class="container">
-			<h1 id="wb-cont" property="name">Documentation</h1>
+			<h1 id="wb-cont" property="name">Creating a pull request</h1>
 			
 
 
 			
-<p>WET operates on the principle of progressive enhancement, and implements well established techniques increasing the accessibility and usability of web content. If you are new to WET, please begin with our Getting Started section, which contains all the information anyone new requires to access, implement or contribute to the toolkit. Otherwise, see the Reference section.</p>
-<p id="change">The following are some guidelines if you wish to create or edit the existing documentation:</p>
+<p>Pull requests are welcome. Please make sure your changes are to the latest code and limit the commit range to just the files you intended to change (to avoid conflicts).</p>
 <ul>
-	<li>Any and all descriptions, guides, or instructions for WET should be included as HTML files in this repository.</li>
-	<li>Follow the <a href="ref/docstmpl-en.html">documentation example template</a>.</li>
-	<li>At least one working example should be provided for each WET feature, theme or component. Additional examples should be provided for each parameter or option.</li>
+	<li>To cut down on commit pollution in the main code base consider <a rel="external" href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebasing</a> your commits before you create a pull request to the main branch.</li>
 </ul>
 
 <section>
-	<h2>Getting started</h2>
+	<h2>New components</h2>
+	<p>Should be added in a feature-* branch (e.g., feature-lightbox) that is created off of the master branch.</p>
 	<ul>
-		<li><a href="start-en.html">Getting started</a>
+		<li>Create the a fresh branch off master by using:
 			<ul>
-				<li><a href="start-en.html#issues">I want to report a bug or ask a question about WET</a></li>
-				<li><a href="start-en.html#implement">I want to implement WET on my website</a></li>
-				<li><a href="start-en.html#develop">I want to fix or improve WET as a developer</a></li>
-				<li><a href="start-en.html#theme">I want to design a new WET theme</a></li>
+				<li><code>git fetch upstream</code></li>
+				<li><code>git checkout upstream/master</code></li>
+				<li><code>git checkout -b my-cool-new-feature</code></li>
+			</ul>
+		</li>
+		<li>Licensing for all new components and supporting code must be compatible with the MIT license used by WET.</li>
+		<li>New plugins should use the same structure and formatas existing plugins.</li>
+		<li>Include the WET terms and conditions comment block in all text-based source files that fall under Crown Copyright.</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Bug fixes and patches that apply to all versions</h2>
+	<p>Should be submitted to the master branch.</p>
+	<ul>
+		<li>Create a fresh branch off of master by using:
+			<ul>
+				<li><code>git fetch upstream</code></li>
+				<li><code>git checkout upstream/master</code></li>
+				<li><code>git checkout -b my-patch-description</code></li>
 			</ul>
 		</li>
 	</ul>
 </section>
 
 <section>
-	<h2>Reference</h2>
+	<h2 id="test">Testing your PR before submitting</h2>
 	<ul>
-		<li><a href="http://wet-boew.github.io/wet-boew/docs/ref/core-en.html">Core framework (v3.1)</a></li>
-		<li><a href="ref/themesstyle-en.html">Themes and style</a></li>
-		<li><a href="ref/plugins-en.html">Plugins</a></li>
-		<li><a href="ref/polyfills-en.html">Polyfills</a></li>
-		<li><a href="ref/variants-en.html">Variants</a></li>
-		<li><a href="ref/other-en.html">Other components</a></li>
-		<li><a href="http://wet-boew.github.io/wet-boew/docs/ref/external-en.html">External projects used in WET (v3.1)</a></li>
-	</ul>
-</section>
-
-<section>
-	<h2 id="comms">Communications material</h2>
-	<ul>
-		<li><a href="ref/promo-en.html">Promotional material</a></li>
-		<li><a href="ref/accolades-en.html">Articles, blogs, videos and implementations of WET</a></li>
+		<li>
+			Validate your HTML markup as to ensure well-formed HTML5.
+			<ul>
+				<li>These tests will be run as part of the default build, or by calling <code>grunt htmllint</code> to run the task on your built HTML.
+				<li>You can manually test for well-formed markup using the <a rel="external" href="http://validator.w3.org/nu/">W3C HTML validatr</a>, validate with an XHTML5 preset and a checkmark next to "Be lax about HTTP Content-Type".</li>
+			</ul>
+		</li>
+		<li>
+			<a rel="external" href="http://jigsaw.w3.org/css-validator/#validate_by_uri+with_options">Validate your CSS</a> with the following changes to the default settings:
+			 <ul>
+				<li><strong>Profile:</strong> CSS level 3</li>
+				<li><strong>Vendor extensions:</strong> Warnings</li>
+			</ul>
+		</li>
+		<li><a rel="external" href="http://www.jshint.com">Validate your JavaScript code</a>. This validation is done by calling <code>grunt jshint</code></li>
+		<li><a href="opt-en.html">Optimize your JavaScript, CSS and HTML code</a></li>
+		<li>Formatting recommendations:
+			<ul>
+				<li>Indenting can be enforced by installing an <a href="http://editorconfig.org">EditorConfig</a> plugin for your prefered <abbr>IDE</abbr>
+				<li>Indent with tabs using the <a rel="external" href="http://en.wikipedia.org/wiki/Indent_style#K.26R_style">K&amp;R indenting style</a></li>
+				<li>Use single quotes for strings in JavaScript (so unescaped double quotes can be used for attributes in HTML output)</li>
+			</ul>
+		</li>
+		<li>
+			Test Web pages against the following browser test baseline:
+			<ul>
+				<li>The current and previous major version of each browser that accounts for at least 5 per cent of visits to the website;</li>
+				<li>Any major version of a browser that, on its own, accounts for at least 5 per cent of visits to the website; and</li>
+				<li>The current and previous versions of the default browsers of each mobile operating systems that accounts for at least 5 per cent of the global or Canadian mobile operating system market share.</li>
+			</ul>
+		</li>
+		<li>PR testing is done by <a rel="external" href="https://travis-ci.org/wet-boew/wet-boew">Travis-CI</a>, but the same set of tests can be run using "ant test" locally before you submit</li>
 	</ul>
 </section>
 

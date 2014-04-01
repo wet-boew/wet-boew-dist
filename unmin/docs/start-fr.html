@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Documentation
+		<title>Comment démarrer
 
 	
 		
@@ -21,7 +21,7 @@
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
-		<meta name="description" content="Documentation de la Boîte à outils de l’expérience Web (BOEW)." />
+		<meta name="description" content="Getting started with the Web Experience Toolkit" />
 		<!-- Meta data-->
 		<!--[if gte IE 9 | !IE ]><!-->
 <link href="../assets/favicon.ico" rel="icon" type="image/x-icon" />
@@ -64,7 +64,7 @@
 	<li class="curr">Français&#32;<span>(actuel)</span></li>
 
 
-	<li><a lang="en" hreflang="en" href="index-en.html">English</a></li>
+	<li><a lang="en" hreflang="en" href="start-en.html">English</a></li>
 
 </ul>
 
@@ -152,7 +152,7 @@
 		
 	
 
-			<li>Documentation</li>
+			<li>Comment démarrer</li>
 		</ol>
 	</div>
 </div>
@@ -164,59 +164,59 @@
 
 
 		<main role="main" property="mainContentOfPage" class="container">
-			<h1 id="wb-cont" property="name">Documentation</h1>
+			<h1 id="wb-cont" property="name">Comment démarrer</h1>
 			
 
 
 			
-<p lang="en"><strong>Needs translation</strong> WET operates on the principle of progressive enhancement, and implements well established techniques increasing the accessibility and usability of web content. If you are new to WET, please begin with our Getting Started section, which contains all the information anyone new requires to access, implement or contribute to the toolkit. Otherwise, see the Reference section.</p>
-<p id="change">Voici quelques lignes directrices si vous désirez créer ou modifier de la documentation existante&#160;:</p>
-<ul>
-	<li>Verser tous les guides, les descriptions ou les directives pour la BOEW dans le répertoire de GitHub.</li>
-	<li>Suivre le <a href="ref/docstmpl-fr.html">modèle de documentation</a>.</li>
-	<li>Fournir au moins un exemple pour chaque attribut, thème ou élément de la BOEW. D’autres exemples doivent être donnés pour chaque paramètre ou option. </li>
-</ul>
+<div lang="en">
+<p><strong>Needs translation</strong></p>
+Step 0 for all these instructions requires <a href="https://help.github.com/articles/signing-up-for-a-new-github-account">creating a GitHub account</a>. We suggest following GitHub's own guides on <a href="https://help.github.com/articles/set-up-git">setting up Git</a>.
+
 <section>
-	<h2>Comment démarrer</h2>
+	<h2 id="issues">I want to report a bug or ask a question about WET</h2>
 	<ul>
-		<li><a href="start-fr.html">Comment démarrer</a>
-			<div lang="en">
-			<p><strong>Needs translation</strong></p>
-			<ul>
-				<li><a href="start-fr.html#issues">I want to report a bug or ask a question about WET</a></li>
-				<li><a href="start-fr.html#implement">I want to implement WET on my website</a></li>
-				<li><a href="start-fr.html#develop">I want to fix or improve WET as a developer</a></li>
-				<li><a href="start-fr.html#theme">I want to design a new WET theme</a></li>
-			</ul>
-			</div>
-		</li>
-	</ul>
-</section>
-<section>
-	<h2>Référence</h2>
-	<ul>
-		<li><a href="http://wet-boew.github.io/wet-boew/docs/ref/core-fr.html">Cadre fondamental (v3.1)</a></li>
-		<li><a href="ref/themesstyle-fr.html">Thèmes et style</a></li>
-		<li><a href="ref/plugins-fr.html">Plugiciels</a></li>
-		<li><a href="ref/polyfills-fr.html">Correctifs</a></li>
-		<li><a href="ref/variants-fr.html">Variants</a></li>
-		<li><a href="ref/other-fr.html">Autre composants</a></li>
-		<li><a href="http://wet-boew.github.io/wet-boew/docs/ref/external-fr.html">Projets externes utilisés par la BOEW (v3.1)</a></li>
+		<li>Fill any style guide related questions by <a href="https://github.com/wet-boew/wet-boew-styleguide/issues/new">creating a new issue</a>.</li>
+		<li>Fill any bugs you encounter or feature requests by following the <a href="bugs-en.html">bug reporting guide</a>.</li>
 	</ul>
 </section>
 
 <section>
-	<h2 id="comms">Matériel de communications</h2>
-	<ul>
-		<li><a href="ref/promo-fr.html">Matériel promotionnel</a></li>
-		<li><a href="ref/accolades-fr.html">Articles, blogues, vidéos et implémentations de la BOEW</a></li>
-	</ul>
+	<h2 id="implement">I want to implement WET on my website</h2>
+	<ol>
+		<li>Grab the latest stable release from the <a href="versions/dwnld-en.html">downloads page</a>.</li>
+		<li><a href="wet-boew.github.io/wet-boew-styleguide/v4/index-en.html">Review the styleguide</a> for information on implementing WET on your site.</li>
+	</ol>
 </section>
+
+<section>
+	<h2 id="develop">I want to fix or improve WET as a developer</h2>
+	<ol>
+		<li>Fork the <code>wet-boew</code> repository by following the <a href="https://help.github.com/articles/fork-a-repo">GitHub forking guide</a>. Use the "upstream" URL of "https://github.com/wet-boew/wet-boew.git" when completing the steps.</li>
+		<li><a href="http://nodejs.org/">Install NodeJS</a> for your platform.</li>
+		<li>Run the setup script located in the "script" folder.</li>
+		<li>Run "grunt" to build the project, or <code>grunt --help</code> to see the build target descriptions.</li>
+		<li>The latest files will now be compiled to the "dist" folder.</li>
+		<li>To create a pull request to contribute back, follow the instructions on <a href="pull-en.html">how to create a pull request</a>.</li>
+	</ol>
+</section>
+
+<section>
+	<h2 id="theme">I want to design a new WET theme</h2>
+	<ol>
+		<li><a href="http://nodejs.org/">Install NodeJS</a> for your platform.</li>
+		<li>Create a directory for your project</li>
+		<li>Install the <a href="http://gruntjs.com/">Grunt <abbr title="Command Line Interface">CLI</abbr></a>, <a href="http://yeoman.io/">Yeoman</a>, and <a href="http://bower.io">Bower</a> globally if you have not already done so. Run <code>npm install -g grunt-cli yo bower</code> from the command line console (Command Prompt on Windows, Terminal on OSX, or other shell envronment on Unix).</li>
+		<li>Install the WET theme generator by running <code>npm install -g generator-wet-boew-theme</code>.</li>
+		<li>Run <code>yo wet-boew-theme</code> from the command prompt, and answer the questions at the prompt to setup your theme project.</li>
+	</ol>
+</section>
+</div>
 
 
 			<dl id="wb-dtmd" property="dateModified">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time>2014-02-19</time></dd>
+	<dd><time>2014-03-27</time></dd>
 </dl>
 
 

@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Documentation
+		<title>Getting Started
 
 	
 		
@@ -21,7 +21,7 @@
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
-		<meta name="description" content="Documentation for the Web Experience Toolkit." />
+		<meta name="description" content="Getting started with the Web Experience Toolkit" />
 		<!-- Meta data-->
 		<!--[if gte IE 9 | !IE ]><!-->
 <link href="../assets/favicon.ico" rel="icon" type="image/x-icon" />
@@ -62,7 +62,7 @@
 								<ul class="text-right">
 
 	
-	<li><a lang="fr" hreflang="fr" href="index-fr.html">Français</a></li>
+	<li><a lang="fr" hreflang="fr" href="start-fr.html">Français</a></li>
 
 
 	<li class="curr">English&#32;<span>(current)</span></li>
@@ -153,7 +153,7 @@
 		
 	
 
-			<li>Documentation</li>
+			<li>Getting Started</li>
 		</ol>
 	</div>
 </div>
@@ -165,52 +165,50 @@
 
 
 		<main role="main" property="mainContentOfPage" class="container">
-			<h1 id="wb-cont" property="name">Documentation</h1>
+			<h1 id="wb-cont" property="name">Getting Started</h1>
 			
 
 
 			
-<p>WET operates on the principle of progressive enhancement, and implements well established techniques increasing the accessibility and usability of web content. If you are new to WET, please begin with our Getting Started section, which contains all the information anyone new requires to access, implement or contribute to the toolkit. Otherwise, see the Reference section.</p>
-<p id="change">The following are some guidelines if you wish to create or edit the existing documentation:</p>
-<ul>
-	<li>Any and all descriptions, guides, or instructions for WET should be included as HTML files in this repository.</li>
-	<li>Follow the <a href="ref/docstmpl-en.html">documentation example template</a>.</li>
-	<li>At least one working example should be provided for each WET feature, theme or component. Additional examples should be provided for each parameter or option.</li>
-</ul>
+Step 0 for all these instructions requires <a href="https://help.github.com/articles/signing-up-for-a-new-github-account">creating a GitHub account</a>. We suggest following GitHub's own guides on <a href="https://help.github.com/articles/set-up-git">setting up Git</a>.
 
 <section>
-	<h2>Getting started</h2>
+	<h2 id="issues">I want to report a bug or ask a question about WET</h2>
 	<ul>
-		<li><a href="start-en.html">Getting started</a>
-			<ul>
-				<li><a href="start-en.html#issues">I want to report a bug or ask a question about WET</a></li>
-				<li><a href="start-en.html#implement">I want to implement WET on my website</a></li>
-				<li><a href="start-en.html#develop">I want to fix or improve WET as a developer</a></li>
-				<li><a href="start-en.html#theme">I want to design a new WET theme</a></li>
-			</ul>
-		</li>
+		<li>Fill any style guide related questions by <a href="https://github.com/wet-boew/wet-boew-styleguide/issues/new">creating a new issue</a>.</li>
+		<li>Fill any bugs you encounter or feature requests by following the <a href="bugs-en.html">bug reporting guide</a>.</li>
 	</ul>
 </section>
 
 <section>
-	<h2>Reference</h2>
-	<ul>
-		<li><a href="http://wet-boew.github.io/wet-boew/docs/ref/core-en.html">Core framework (v3.1)</a></li>
-		<li><a href="ref/themesstyle-en.html">Themes and style</a></li>
-		<li><a href="ref/plugins-en.html">Plugins</a></li>
-		<li><a href="ref/polyfills-en.html">Polyfills</a></li>
-		<li><a href="ref/variants-en.html">Variants</a></li>
-		<li><a href="ref/other-en.html">Other components</a></li>
-		<li><a href="http://wet-boew.github.io/wet-boew/docs/ref/external-en.html">External projects used in WET (v3.1)</a></li>
-	</ul>
+	<h2 id="implement">I want to implement WET on my website</h2>
+	<ol>
+		<li>Grab the latest stable release from the <a href="versions/dwnld-en.html">downloads page</a>.</li>
+		<li><a href="wet-boew.github.io/wet-boew-styleguide/v4/index-en.html">Review the styleguide</a> for information on implementing WET on your site.</li>
+	</ol>
 </section>
 
 <section>
-	<h2 id="comms">Communications material</h2>
-	<ul>
-		<li><a href="ref/promo-en.html">Promotional material</a></li>
-		<li><a href="ref/accolades-en.html">Articles, blogs, videos and implementations of WET</a></li>
-	</ul>
+	<h2 id="develop">I want to fix or improve WET as a developer</h2>
+	<ol>
+		<li>Fork the <code>wet-boew</code> repository by following the <a href="https://help.github.com/articles/fork-a-repo">GitHub forking guide</a>. Use the "upstream" URL of "https://github.com/wet-boew/wet-boew.git" when completing the steps.</li>
+		<li><a href="http://nodejs.org/">Install NodeJS</a> for your platform.</li>
+		<li>Run the setup script located in the "script" folder.</li>
+		<li>Run "grunt" to build the project, or <code>grunt --help</code> to see the build target descriptions.</li>
+		<li>The latest files will now be compiled to the "dist" folder.</li>
+		<li>To create a pull request to contribute back, follow the instructions on <a href="pull-en.html">how to create a pull request</a>.</li>
+	</ol>
+</section>
+
+<section>
+	<h2 id="theme">I want to design a new WET theme</h2>
+	<ol>
+		<li><a href="http://nodejs.org/">Install NodeJS</a> for your platform.</li>
+		<li>Create a directory for your project</li>
+		<li>Install the <a href="http://gruntjs.com/">Grunt <abbr title="Command Line Interface">CLI</abbr></a>, <a href="http://yeoman.io/">Yeoman</a>, and <a href="http://bower.io">Bower</a> globally if you have not already done so. Run <code>npm install -g grunt-cli yo bower</code> from the command line console (Command Prompt on Windows, Terminal on OSX, or other shell envronment on Unix).</li>
+		<li>Install the WET theme generator by running <code>npm install -g generator-wet-boew-theme</code>.</li>
+		<li>Run <code>yo wet-boew-theme</code> from the command prompt, and answer the questions at the prompt to setup your theme project.</li>
+	</ol>
 </section>
 
 
