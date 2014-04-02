@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-01
+ * v4.0.1-development - 2014-04-02
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -7359,7 +7359,7 @@ a.btn {
 }
 
 a:visited {
-  color: #7834BC;
+  color: #7834bc;
 }
 
 .btn-default:visited {
@@ -7616,7 +7616,7 @@ code {
   white-space: normal;
 }
 
-/* 
+/*
  * List unstyled RTL fix
  */
 
@@ -8777,13 +8777,13 @@ legend.required:before {
 
 ul.ev-details,
 ul.ev-details a {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 tbody.cal-days ul.ev-details li a:hover,
 tbody.cal-days ul.ev-details li a:focus,
 tbody.cal-days a.cal-evt {
-  color: #FFF !important;
+  color: #fff !important;
 }
 
 ul.ev-details {
@@ -8802,7 +8802,7 @@ ul.ev-details a {
 }
 
 tbody.cal-days ul.ev-details li {
-  border: none;
+  border: 0;
   width: 100%;
   list-style-type: none !important;
 }
@@ -8840,7 +8840,7 @@ tbody.cal-days a.cal-evt {
 }
 
 .cal-cnt {
-  background: #FFF;
+  background: #fff;
 }
 
 .cal-cnt * {
@@ -8868,7 +8868,7 @@ tbody.cal-days a.cal-evt {
 }
 
 .cal-cnt td {
-  border: 1px solid #AAA;
+  border: 1px solid #aaa;
   padding: 0;
   text-align: center;
 }
@@ -8877,7 +8877,7 @@ tbody.cal-days a.cal-evt {
 .cal-prvmnth {
   display: inline-block;
   background: none;
-  border: none;
+  border: 0;
   width: 2.5em;
   height: 2.5em;
 }
@@ -8894,7 +8894,7 @@ tbody.cal-days a.cal-evt {
 }
 
 .cal-wd {
-  color: #FFF;
+  color: #fff;
   border: 1px solid #333;
   padding: 0.5em 0;
   text-align: center;
@@ -8923,7 +8923,7 @@ tbody.cal-days a.cal-evt {
 .cal-cnt .cal-prvmnth.active:hover,
 .cal-cnt .cal-prvmnth.active:focus,
 .cal-currday {
-  color: #FFF;
+  color: #fff;
 }
 
 .cal-cnt .cal-goto-mnth,
@@ -8935,7 +8935,7 @@ tbody.cal-days a.cal-evt {
 .cal-days a:hover,
 .cal-days a:focus,
 .cal-currday a {
-  color: #FFF !important;
+  color: #fff !important;
 }
 
 .cal-cnt .cal-hd,
@@ -8973,9 +8973,9 @@ tbody.cal-days a.cal-evt {
  */
 
 figure .pieLabel {
-  background-color: white;
-  color: black;
-  border: solid black 1px;
+  background-color: #fff;
+  color: #000;
+  border: solid #000 1px;
   padding: 1px;
 }
 
@@ -9002,24 +9002,24 @@ figure .pieLabel {
 .wb-fnote dd:focus .fn-rtn a,
 .wb-fnote .fn-rtn a:hover,
 .wb-fnote .fn-rtn a:focus {
-  color: #FFF !important;
+  color: #fff !important;
   background-color: #555;
   border-color: #555;
 }
 
 .fn-lnk,
 .wb-fnote .fn-rtn a {
-  background-color: #EEE;
-  border: 1px solid #CCC;
+  background-color: #eee;
+  border: 1px solid #ccc;
   padding: 0 4px 1px;
   white-space: nowrap;
 }
 
 .wb-fnote {
-  margin: 2em 10px 0 10px;
-  border-width: 1px 0 1px 0;
+  margin: 2em 10px 0;
+  border-width: 1px 0;
   border-style: solid;
-  border-color: #CCC;
+  border-color: #ccc;
 }
 
 .wb-fnote h2 {
@@ -9039,13 +9039,13 @@ figure .pieLabel {
 }
 
 .wb-fnote dd:focus {
-  background-color: #EEE;
+  background-color: #eee;
   border-color: #555;
 }
 
 .wb-fnote p {
   margin: 0 0 0 3.125em;
-  padding: 0 0.375em 0.375em 0.375em;
+  padding: 0 0.375em 0.375em;
 }
 
 .wb-fnote p:first-child {
@@ -9640,7 +9640,7 @@ img.mfp-img {
 }
 
 .modal-body {
-  background: #FFF;
+  background: #fff;
 }
 
 .mfp-close {
@@ -9892,8 +9892,8 @@ img.mfp-img {
 
 @-webkit-keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
   }
 
   to {
@@ -9904,9 +9904,9 @@ img.mfp-img {
 
 @keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    transform: rotate(0);
   }
 
   to {
@@ -9980,7 +9980,7 @@ img.mfp-img {
 }
 
 .wb-mltmd .display.waiting:after {
-  background: url(../assets/loading.png) center center no-repeat;
+  background: url("../assets/loading.png") center center no-repeat;
   -webkit-animation-name: spin;
   animation-name: spin;
   -webkit-animation-duration: 1000ms;
@@ -10050,7 +10050,7 @@ img.mfp-img {
 
 .wb-mm-cc {
   background-color: #000;
-  color: #FFF;
+  color: #fff;
   text-align: center;
   -webkit-transition: all 0.26s ease;
   transition: all 0.26s ease;
@@ -10102,7 +10102,7 @@ img.mfp-img {
   display: block;
   /* Important Thing */
   -webkit-appearance: none;
-  border: none;
+  border: 0;
   /* Now the value part */
 }
 
@@ -10112,7 +10112,7 @@ img.mfp-img {
 }
 
 .wb-mm-ctrls progress::-webkit-progress-value {
-  background: #176CA7;
+  background: #176ca7;
 }
 
 .wb-mm-ctrls .progress {
@@ -10132,7 +10132,7 @@ img.mfp-img {
   background-color: #fff;
   display: none;
   border-radius: 0;
-  border: none;
+  border: 0;
   -webkit-background-clip: border-box;
   background-clip: border-box;
   z-index: 1050;
@@ -10159,7 +10159,7 @@ img.mfp-img {
   max-height: 90%;
   min-width: 100%;
   left: 0;
-  border-bottom: none;
+  border-bottom: 0;
 }
 
 .wb-popup-mid {
@@ -10274,11 +10274,11 @@ img.mfp-img {
 
 /* SPAN elements with the classes below are added by prettyprint. */
 
+/* plain text */
+
 .pln {
   color: #000;
 }
-
-/* plain text */
 
 pre.prettyprint {
   background-color: #f5f5f5;
@@ -10290,8 +10290,8 @@ pre.prettyprint {
 }
 
 pre.prettyprint.linenums {
-  -webkit-box-shadow: 40px 0 0 #FBFBFC inset, 41px 0 0 #eee inset;
-  box-shadow: 40px 0 0 #FBFBFC inset, 41px 0 0 #eee inset;
+  -webkit-box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eee inset;
+  box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eee inset;
 }
 
 ol.linenums {
@@ -10501,7 +10501,7 @@ ol.linenums li {
 .sorting_desc:after {
   content: " ";
   display: inline-block;
-  font-family: 'Glyphicons Halflings';
+  font-family: "Glyphicons Halflings";
   font-size: 0.9em;
 }
 
@@ -10540,7 +10540,7 @@ table.dataTable td.dataTables_empty {
 
 table.dataTable thead th,
 table.dataTable tfoot th {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #000;
   font-weight: 700;
   padding-right: 1.5em;
 }
@@ -10557,35 +10557,35 @@ table.dataTable {
 }
 
 table.dataTable tr.odd {
-  background-color: #F0FCFF;
+  background-color: #f0fcff;
 }
 
 table.dataTable tr.odd td.sorting_1 {
-  background-color: #E6F1F4;
+  background-color: #e6f1f4;
 }
 
 table.dataTable tr.odd td.sorting_2 {
-  background-color: #DADCFF;
+  background-color: #dadcff;
 }
 
 table.dataTable tr.odd td.sorting_3 {
-  background-color: #E0E2FF;
+  background-color: #e0e2ff;
 }
 
 table.dataTable tr.even {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 table.dataTable tr.even td.sorting_1 {
-  background-color: #E8F6F6;
+  background-color: #e8f6f6;
 }
 
 table.dataTable tr.even td.sorting_2 {
-  background-color: #F2F3FF;
+  background-color: #f2f3ff;
 }
 
 table.dataTable tr.even td.sorting_3 {
-  background-color: #F9F9FF;
+  background-color: #f9f9ff;
 }
 
 .dataTables_wrapper {
@@ -10606,8 +10606,8 @@ table.dataTable tr.even td.sorting_3 {
   color: #111 !important;
 }
 
-.paginate_disabled_previous,
 .paginate_disabled_next,
+.paginate_disabled_previous,
 .sorting_asc_disabled,
 .sorting_desc_disabled {
   color: #757575 !important;
@@ -10664,7 +10664,7 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .paging_full_numbers a.paginate_active {
-  background-color: #99B3FF;
+  background-color: #99b3ff;
 }
 
 /*
@@ -10679,7 +10679,7 @@ table.dataTable tr.even td.sorting_3 {
   height: 30px;
   margin-left: -125px;
   margin-top: -15px;
-  padding: 14px 0 2px 0;
+  padding: 14px 0 2px;
   border: 1px solid #ddd;
   text-align: center;
   color: #999;
@@ -10760,12 +10760,6 @@ table.dataTable tr.even td.sorting_3 {
  * Shared variables
  */
 
-.wb-tabs [role="tablist"] li:focus,
-.wb-tabs [role="tablist"] li:hover {
-  background: #ccc;
-  background: rgba(204, 204, 204, 0.9);
-}
-
 .wb-tabs,
 .wb-tabs.carousel-s1 figure,
 .wb-tabs.carousel-s2 figure,
@@ -10819,7 +10813,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
   width: 100%;
   color: #243850;
-  border: none;
+  border: 0;
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon,
@@ -10855,7 +10849,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s1 [role="tablist"] li:focus a,
 .wb-tabs.carousel-s1 [role="tablist"] li:hover a,
 .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active a {
-  border-top: none;
+  border-top: 0;
   padding-top: 10px;
 }
 
@@ -10894,6 +10888,12 @@ table.dataTable tr.even td.sorting_3 {
   color: #000;
   display: inline-block;
   padding: 10px;
+}
+
+.wb-tabs [role="tablist"] li:focus,
+.wb-tabs [role="tablist"] li:hover {
+  background: #ccc;
+  background: rgba(204, 204, 204, 0.9);
 }
 
 .wb-tabs [role="tablist"] li.active {
@@ -10945,7 +10945,7 @@ table.dataTable tr.even td.sorting_3 {
 .wb-tabs.carousel-s2 [role="tablist"] li {
   background: transparent;
   display: none;
-  border: none;
+  border: 0;
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] {
@@ -10965,18 +10965,18 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active a img {
   /* Firefox 10+, Firefox on Android */
-  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0'/></filter></svg>#grayscale");
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-  -webkit-filter: grayscale(0%);
+  -webkit-filter: grayscale(0);
 }
 
 .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] a img {
   -webkit-box-shadow: none;
   box-shadow: none;
   /* Firefox 10+, Firefox on Android */
-  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
   /* IE6-9 */
-  filter: gray;
+  filter: #808080;
   /* Chrome 19+, Safari 6+, Safari 6+ iOS */
   -webkit-filter: grayscale(100%);
   max-height: 50px;
@@ -10988,7 +10988,7 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
   background: none;
-  border: none;
+  border: 0;
   display: inline-block !important;
   top: 100%;
   padding: 2px 10px;
@@ -11208,15 +11208,15 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .olControlScaleLineBottom {
-  border: solid 2px black;
-  border-bottom: none;
+  border: solid 2px #000;
+  border-bottom: 0;
   margin-top: -2px;
   text-align: center;
 }
 
 .olControlScaleLineTop {
-  border: solid 2px black;
-  border-top: none;
+  border: solid 2px #000;
+  border-top: 0;
   text-align: center;
 }
 
@@ -11226,11 +11226,11 @@ table.dataTable tr.even td.sorting_3 {
 }
 
 .olHandlerBoxZoomBox {
-  border: 2px solid red;
+  border: 2px solid #f00;
 }
 
 .olHandlerBoxSelectFeature {
-  border: 2px solid blue;
+  border: 2px solid #00f;
 }
 
 .olPopupCloseBox {
@@ -11298,12 +11298,12 @@ table.dataTable tr.even td.sorting_3 {
 
 .wb-geomap-map {
   position: relative;
-  outline: 1px solid #CCC;
+  outline: 1px solid #ccc;
   margin-bottom: 30px;
 }
 
 .wb-geomap-map.active {
-  outline-color: #07F;
+  outline-color: #07f;
 }
 
 .wb-geomap-detail {
@@ -11333,34 +11333,31 @@ table.dataTable tr.even td.sorting_3 {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 
-.wb-group-summary {
-  background-color: #F0F2F4;
-}
-
-.wb-zebra-col-hover col.table-hover {
-  background-color: #F0F0F0;
-}
-
 .wb-zebra-col-hover .wb-group-summary col.table-hover,
 .table-hover .wb-group-summary tr:hover td,
 .table-hover .wb-group-summary tr:hover th {
-  background-color: #FAFAFF;
+  background-color: #fafaff;
 }
 
 .wb-cell-layout {
   background-color: transparent;
 }
 
-.wb-cell-key {
-  font-style: italic;
-}
-
+.wb-cell-key,
 .wb-cell-desc {
   font-style: italic;
 }
 
 .wb-zebra > colgroup + colgroup {
-  border-left: 2px solid #DDDDDD;
+  border-left: 2px solid #ddd;
+}
+
+.wb-group-summary {
+  background-color: #f0f2f4;
+}
+
+.wb-zebra-col-hover col.table-hover {
+  background-color: #f0f0f0;
 }
 
 /*
@@ -11386,7 +11383,6 @@ details:not([open]) > * {
 }
 
 details summary {
-  /* Make sure summary remains visible */
   display: block !important;
 }
 
@@ -11398,12 +11394,10 @@ details summary:hover {
 
 summary {
   cursor: pointer;
-  /* Apply a pointer cursor upon hover to indicate it’s a clickable element. These styles can be applied regardless of whether the fallback is needed */
 }
 
 summary:hover,
 summary:focus {
-  /* Add focus styles (for keyboard accessibility) */
   color: #000;
   background: #ddd;
 }
@@ -11470,7 +11464,7 @@ summary:focus {
   }
 
   #wb-dtmd {
-    margin: 2em 0 0 0;
+    margin: 2em 0 0;
   }
 
   #wb-dtmd dt,
@@ -11503,11 +11497,11 @@ summary:focus {
 
   .str,
   .atv {
-    color: #2F6D2F;
+    color: #2f6d2f;
   }
 
   .kwd {
-    color: #024B6E;
+    color: #024b6e;
   }
 
   .com {
@@ -11519,11 +11513,11 @@ summary:focus {
   }
 
   .tag {
-    color: #125B7E;
+    color: #125b7e;
   }
 
   .fun {
-    color: red;
+    color: #f00;
   }
 }
 
@@ -11593,7 +11587,7 @@ summary:focus {
 
   .wb-tabs.carousel-s1 [role="tablist"] li.tab-count {
     background: none;
-    border: none;
+    border: 0;
   }
 
   .wb-tabs.carousel-s1 [role="tablist"] li.tab-count .curr-count {
@@ -11659,7 +11653,7 @@ summary:focus {
 
   .wb-tabs > details {
     border: 1px solid #adadad;
-    border-top: none;
+    border-top: 0;
   }
 
   .wb-tabs > details:first-of-type {
@@ -11869,12 +11863,6 @@ summary:focus {
     top: auto;
   }
 
-  .wb-tabs.carousel-s1 figcaption,
-  .wb-tabs.carousel-s2 figcaption {
-    background: #243850;
-    background: rgba(36, 56, 80, 0.9);
-  }
-
   .wb-tabs.carousel-s2 [role="tablist"] li.prv,
   .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
     top: 0;
@@ -11901,6 +11889,12 @@ summary:focus {
   .wb-tabs.carousel-s2 [role="tablist"] li.nxt,
   .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
     right: 0;
+  }
+
+  .wb-tabs.carousel-s1 figcaption,
+  .wb-tabs.carousel-s2 figcaption {
+    background: #243850;
+    background: rgba(36, 56, 80, 0.9);
   }
 
   .wb-tabs.carousel-s1 [role="tablist"] li.tab-count,

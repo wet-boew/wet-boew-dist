@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-01
+ * v4.0.1-development - 2014-04-02
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -21,7 +21,6 @@
   list-style-type: none;
   border: 1px solid #666;
   border-top: 0;
-  overflow: auto;
 }
 
 .wb-al .al-lbl {
@@ -38,6 +37,6 @@
 
 .wb-al a:hover,
 .wb-al a:focus {
-  background: #406C93;
+  background: #406c93;
   color: #fff;
 }

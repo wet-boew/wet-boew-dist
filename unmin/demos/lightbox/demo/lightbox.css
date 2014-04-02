@@ -11,7 +11,7 @@
   border: 1px solid #000;
   text-align: center;
   line-height: 148px;
-  background: #EEE;
+  background: #eee;
 }
 
 .wb-lbx-demo .list-inline > li {
@@ -23,5 +23,5 @@
 .box > a:focus,
 .box > a:active {
   text-decoration: underline;
-  background: #FFF;
+  background: #fff;
 }

@@ -8,7 +8,7 @@
 }
 
 .wb-wamethod ol li {
-  border: 1px solid #DDD;
+  border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -26,7 +26,7 @@
 }
 
 .wb-wamethod ol li label {
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
 }
 
 .wb-wamethod ol li input {
