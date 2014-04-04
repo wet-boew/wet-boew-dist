@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "zh",
-	"lang-nat": "繁體字",
+	"lang-native": "繁體字",
 	all: "全部",
 	tphp: "頁首",
 	load: "下載中…",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "找到[MIXIN]項目"
 	},
-	curr: "目前",
+	current: "目前",
 	hide: "隱藏",
 	err: "錯誤",
 	colon: "：",

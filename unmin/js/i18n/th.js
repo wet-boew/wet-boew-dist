@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "th",
-	"lang-nat": "ภาษาไทย",
+	"lang-native": "ภาษาไทย",
 	all: "ทั้งหมด",
 	tphp: "ด้านบนของหน้า",
 	load: "โหลด ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] พบว่าตรงกัน"
 	},
-	curr: "(ปัจจุบัน)",
+	current: "(ปัจจุบัน)",
 	hide: "ปิดบัง",
 	err: "ความผิดพลาด",
 	colon: ":",

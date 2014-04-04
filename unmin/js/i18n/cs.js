@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "cs",
-	"lang-nat": "Čeština",
+	"lang-native": "Čeština",
 	all: "Vše",
 	tphp: "Na začátek stránky",
 	load: "nakládání ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] zápasů nenalezen"
 	},
-	curr: "(aktuální)",
+	current: "(aktuální)",
 	hide: "Schovat",
 	err: "Chyba",
 	colon: ":",

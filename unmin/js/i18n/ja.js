@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "ja",
-	"lang-nat": "日本語",
+	"lang-native": "日本語",
 	all: "すべて",
 	tphp: "ページの先頭",
 	load: "ロード中･･･",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "検索結果： [MIXIN] 件"
 	},
-	curr: "（現在）",
+	current: "（現在）",
 	hide: "非表示",
 	err: "エラー",
 	colon: "：",

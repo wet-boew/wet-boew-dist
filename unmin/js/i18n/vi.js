@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "vi",
-	"lang-nat": "Tiếng Việt",
+	"lang-native": "Tiếng Việt",
 	all: "Tất cả",
 	tphp: "Trở về đầu trang",
 	load: "tải ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] trận được tìm thấy"
 	},
-	curr: "(hiện tại)",
+	current: "(hiện tại)",
 	hide: "Che",
 	err: "Lôi",
 	colon: ":",

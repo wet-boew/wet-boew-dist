@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "ko",
-	"lang-nat": "한국어",
+	"lang-native": "한국어",
 	all: "모든",
 	tphp: "맨 위로",
 	load: "로드 중 ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] 일치하는 검색 결과가"
 	},
-	curr: "(현재)",
+	current: "(현재)",
 	hide: "숨기기",
 	err: "오류",
 	colon: ":",

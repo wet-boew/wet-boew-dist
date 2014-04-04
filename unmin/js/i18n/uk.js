@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "uk",
-	"lang-nat": "Українська мова",
+	"lang-native": "Українська мова",
 	all: "Все",
 	tphp: "На початок сторінки",
 	load: "Завантаження ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] знайдено"
 	},
-	curr: "(поточна)",
+	current: "(поточна)",
 	hide: "Сховати",
 	err: "Помилка",
 	colon: ":",

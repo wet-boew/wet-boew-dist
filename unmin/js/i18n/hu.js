@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "hu",
-	"lang-nat": "Magyar",
+	"lang-native": "Magyar",
 	all: "Mind",
 	tphp: "Oldal teteje",
 	load: "betöltése ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] találat"
 	},
-	curr: "(jelenlegi)",
+	current: "(jelenlegi)",
 	hide: "Elrejtés",
 	err: "Hiba",
 	colon: ":",

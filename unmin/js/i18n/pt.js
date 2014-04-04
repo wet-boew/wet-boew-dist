@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "pt",
-	"lang-nat": "Português",
+	"lang-native": "Português",
 	all: "Todos",
 	tphp: "Início da Página",
 	load: "carregamento ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] Encontrada(s) correspondência(s)"
 	},
-	curr: "(atual)",
+	current: "(atual)",
 	hide: "Ocultar",
 	err: "Erro",
 	colon: ":",

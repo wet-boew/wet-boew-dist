@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-02
+ * v4.0.1-development - 2014-04-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -16,7 +16,7 @@
 /* main index */
 wb.i18nDict = {
 	"lang-code": "hi",
-	"lang-nat": "मानक हिन्दी",
+	"lang-native": "मानक हिन्दी",
 	all: "सब",
 	tphp: "पृष्ठ का शीर्ष",
 	load: "लोड हो रहा है ...",
@@ -26,7 +26,7 @@ wb.i18nDict = {
 	matches: {
 		mixin: "[MIXIN] मैचों मिला"
 	},
-	curr: "(वर्तमान)",
+	current: "(वर्तमान)",
 	hide: "छिपाना",
 	err: "त्रुटि",
 	colon: ":",
