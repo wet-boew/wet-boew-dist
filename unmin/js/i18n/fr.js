@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-04
+ * v4.0.1-development - 2014-04-05
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -62,13 +62,13 @@ wb.i18nDict = {
 	email: "Courriel",
 	"menu-close": "Fermer le menu",
 	"overlay-close": "Fermer la fenêtre superposée",
-	"esc-key": "(touche d'échappement)",
+	"esc-key": "(touche d\\'échappement)",
 	show: "Afficher",
 
 	/* Tabbed interface */
 	"tab-rot": {
-		off: "Arrêter la rotation d'onglets",
-		on: "Lancer la rotation d'onglets"
+		off: "Arrêter la rotation d\\'onglets",
+		on: "Lancer la rotation d\\'onglets"
 	},
 	"tab-list": "Liste des onglets",
 	"tab-pnl-end1": "Fin de ce panneau à onglets.",
@@ -91,8 +91,8 @@ wb.i18nDict = {
 	},
 	"cc-err": "Erreur dans le chargement des sous-titres",
 	adesc: {
-		on: "Activer l'audiodescription",
-		off: "Désactiver l'audiodescription"
+		on: "Activer l\\'audiodescription",
+		off: "Désactiver l\\'audiodescription"
 	},
 	pos: "Position actuelle :",
 	dur: "Temps total :",
@@ -103,11 +103,11 @@ wb.i18nDict = {
 	"shr-hnt": " avec {s} ",
 	"shr-disc": "Aucun appui n’est accordé, soit de façon expresse ou tacite, à aucun produit ou service.",
 	/* Form validation */
-	"frm-nosubmit": "Le formulaire n'a pu être soumis car ",
+	"frm-nosubmit": "Le formulaire n\\'a pu être soumis car ",
 	"errs-fnd": " erreurs ont été trouvées.",
 	"err-fnd": " erreur a été trouvée.",
 	/* Date picker */
-	"date-show": "Sélectionner une date à partir d'un calendrier pour le champ:",
+	"date-show": "Sélectionner une date à partir d\\'un calendrier pour le champ:",
 	"date-sel": "Sélectionné",
 	/* Calendar */
 	days: [
@@ -135,8 +135,8 @@ wb.i18nDict = {
 	],
 	cal: "Calendrier",
 	currDay: "(Jour courrant)",
-	"cal-goToLnk": "Aller au<span class=\"wb-inv\"> mois de l'année</span>",
-	"cal-goToTtl": "Aller au mois de l'année",
+	"cal-goToLnk": "Aller au<span class=\"wb-inv\"> mois de l\\'année</span>",
+	"cal-goToTtl": "Aller au mois de l\\'année",
 	"cal-goToMnth": "Mois :",
 	"cal-goToYr": "Année :",
 	"cal-goToBtn": "Aller",
@@ -152,8 +152,8 @@ wb.i18nDict = {
 	/* Session timeout */
 	"st-to-msg-bgn": "Votre session expirera automatiquement dans #min# min #sec# sec.",
 	"st-to-msg-end": "Sélectionner « Continuer la session » pour prolonger votre session.",
-	"st-msgbx-ttl": "Avertissement d'expiration de la session",
-	"st-alrdy-to-msg": "Désolé, votre session a déjà expiré. S'il vous plaît ouvrir une nouvelle session.",
+	"st-msgbx-ttl": "Avertissement d\\'expiration de la session",
+	"st-alrdy-to-msg": "Désolé, votre session a déjà expiré. S\\'il vous plaît ouvrir une nouvelle session.",
 	"st-btn-cont": "Continuer la session",
 	"st-btn-end": "Mettre fin à la session",
 	/* Toggle details */
@@ -176,14 +176,14 @@ wb.i18nDict = {
 	"geo-mapctrl": "@geo-mapctrl@",
 	"geo-zmin": "Zoom avant",
 	"geo-zmout": "Zoom arrière",
-	"geo-zmwrld": "Zoom sur l'étendue de la carte",
-	"geo-zmfeat": "Zoom à l'élément",
+	"geo-zmwrld": "Zoom sur l\\'étendue de la carte",
+	"geo-zmfeat": "Zoom à l\\'élément",
 	"geo-sclln": "Échelle de la carte",
 	"geo-msepos": "Latitude et longitude du curseur de la souris",
 	"geo-ariamap": "Objet de la carte. Les descriptions des caractéristiques de la carte se trouvent dans la table ci-dessous.",
-	"geo-ally": "<strong>Utilisateurs de clavier :</strong> Lorsque la carte a l'attention, utiliser les touches flèches pour déplacer la carte et utiliser les touches plus et négatif pour faire un zoom. La carte ne peut être déplacée lorsque le zoom est à son étendue maximal.",
+	"geo-ally": "<strong>Utilisateurs de clavier :</strong> Lorsque la carte a l\\'attention, utiliser les touches flèches pour déplacer la carte et utiliser les touches plus et négatif pour faire un zoom. La carte ne peut être déplacée lorsque le zoom est à son étendue maximal.",
 	"geo-allyttl": "Instructions : comment naviguer dans la carte",
-	"geo-tgllyr": "Basculer l'affichage de la couche",
+	"geo-tgllyr": "Basculer l\\'affichage de la couche",
 	"geo-hdnlyr": "Cette couche est présentement cachée.",
 	"geo-bmapurl": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
 	"geo-bmapttl": "BaseMaps_CBCT3978",

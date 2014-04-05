@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-04
+ * v4.0.1-development - 2014-04-05
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -116,7 +116,7 @@ wb.i18nDict = {
 		"Selasa",
 		"Rabu",
 		"Kamis",
-		"Jum'at",
+		"Jum\\'at",
 		"Sabtu"
 	],
 	mnths: [

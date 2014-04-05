@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-04
+ * v4.0.1-development - 2014-04-05
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -180,7 +180,7 @@ wb.i18nDict = {
 	"geo-zmfeat": "Збільшення до елементу",
 	"geo-sclln": "масштаб карти",
 	"geo-msepos": "Широту і довготу курсору миші",
-	"geo-ariamap": "Карта об'єктів. Опис функцій карти наведені в таблиці нижче.",
+	"geo-ariamap": "Карта об\\'єктів. Опис функцій карти наведені в таблиці нижче.",
 	"geo-ally": "<strong>Клавіатура користувачів:</strong> Коли карта знаходиться у фокусі, використовуйте клавіші зі стрілками для переміщення по карті і клавішами \"плюс\" і \"мінус\", щоб збільшити. Клавіши зі стрілками не переміщатимуть карту при її збільшенні у повній розмір. ",
 	"geo-allyttl": "Інструкція: Карта навігації",
 	"geo-tgllyr": "Включити показ шару",
