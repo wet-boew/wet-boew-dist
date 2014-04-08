@@ -10085,10 +10085,14 @@ img.mfp-img {
   /* Important Thing */
   -webkit-appearance: none;
   border: 0;
+  /* DO NOT combine the following selector because WebKit does not support it */
   /* Now the value part */
 }
 
-.wb-mm-ctrls progress::-webkit-progress-bar,
+.wb-mm-ctrls progress::-webkit-progress-bar {
+  background: #fff;
+}
+
 .wb-mm-ctrls progress::-moz-progress-bar {
   background: #fff;
 }
