@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-08
+ * v4.0.1-development - 2014-04-09
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5450,7 +5450,7 @@ var pluginName = "wb-menu",
 				sectionHtml + "</ul></nav>";
 		}
 
-		return panel.replace( /list-group-item/gi, "" ) + "</div>";
+		return panel.replace( /['"]?list-group-item['"]?/gi, "\"\"" ) + "</div>";
 	},
 
 	/**
