@@ -9856,6 +9856,8 @@ img.mfp-img {
   Multimedia Player Code
  */
 
+.wb-mltmd.audio .wb-mm-ovrly,
+.wb-mltmd.audio .btn.cc,
 .xxsmallview .wb-mm-prgrss,
 .mediumview .col-md-1 .wb-mm-prgrss,
 .mediumview .col-md-2 .wb-mm-prgrss,
@@ -9940,6 +9942,10 @@ img.mfp-img {
 .wb-mltmd progress:focus,
 .wb-mltmd .btn:focus {
   outline: #fff thin dotted;
+}
+
+.wb-mltmd.audio .lastpnl {
+  width: 3em;
 }
 
 .wb-mltmd .display {

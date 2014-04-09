@@ -6583,6 +6583,8 @@ $document.on( initializedEvent, selector, function() {
 		$media.attr( "id", mId );
 	}
 
+	$this.addClass( type );
+
 	$this.data( "properties", data );
 
 	if ( $media.find( "[type='video/youtube']" ).length > 0 ) {
@@ -6745,9 +6747,6 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 
 	$media.after( tmpl( $this.data( "template" ), data ) );
 	$overlay = $media.next().find( ".wb-mm-ovrly" ).after( $media );
-	if ( type !== "video" ) {
-		$overlay.remove();
-	}
 
 	$player = $( "#" + data.mId );
 	data.player = $player.is( "object" ) ? $player.children( ":first-child" ) : $player;
