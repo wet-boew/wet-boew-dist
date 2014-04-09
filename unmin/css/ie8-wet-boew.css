@@ -10378,11 +10378,6 @@ ol.linenums li {
   background-position: 0 -128px;
 }
 
-.wb-share .dzone:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -160px;
-}
-
 .wb-share .email:before {
   display: inline-block;
   font-family: "Glyphicons Halflings";
@@ -10393,67 +10388,67 @@ ol.linenums li {
 
 .wb-share .facebook:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -192px;
+  background-position: 0 -160px;
 }
 
 .wb-share .feed:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -224px;
+  background-position: 0 -192px;
 }
 
 .wb-share .gmail:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -256px;
+  background-position: 0 -224px;
 }
 
 .wb-share .googleplus:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -288px;
+  background-position: 0 -256px;
 }
 
 .wb-share .linkedin:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -320px;
+  background-position: 0 -288px;
 }
 
 .wb-share .myspace:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -352px;
+  background-position: 0 -320px;
 }
 
 .wb-share .pinterest:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -384px;
+  background-position: 0 -352px;
 }
 
 .wb-share .reddit:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -416px;
+  background-position: 0 -384px;
 }
 
 .wb-share .stumbleupon:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -448px;
+  background-position: 0 -416px;
 }
 
 .wb-share .technorati:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -480px;
+  background-position: 0 -448px;
 }
 
 .wb-share .tumblr:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -512px;
+  background-position: 0 -480px;
 }
 
 .wb-share .twitter:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -544px;
+  background-position: 0 -512px;
 }
 
 .wb-share .yahoomail:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -576px;
+  background-position: 0 -544px;
 }
 
 .wb-share .shr-pg {
