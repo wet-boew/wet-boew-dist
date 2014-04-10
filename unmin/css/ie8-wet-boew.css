@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-09
+ * v4.0.1-development - 2014-04-10
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -9946,7 +9946,7 @@ img.mfp-img {
 
 .wb-mltmd progress:focus,
 .wb-mltmd .btn:focus {
-  outline: #fff thin dotted;
+  outline: 1px dotted #fff;
 }
 
 .wb-mltmd.audio .lastpnl {
@@ -10096,19 +10096,19 @@ img.mfp-img {
   /* Important Thing */
   -webkit-appearance: none;
   border: 0;
-  /* DO NOT combine the following selector because WebKit does not support it */
-  /* Now the value part */
+  color: #176ca7;
+  background: #fff;
 }
 
 .wb-mm-ctrls progress::-webkit-progress-bar {
   background: #fff;
 }
 
-.wb-mm-ctrls progress::-moz-progress-bar {
-  background: #fff;
+.wb-mm-ctrls progress::-webkit-progress-value {
+  background: #176ca7;
 }
 
-.wb-mm-ctrls progress::-webkit-progress-value {
+.wb-mm-ctrls progress::-moz-progress-bar {
   background: #176ca7;
 }
 
