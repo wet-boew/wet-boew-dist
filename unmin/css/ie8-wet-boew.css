@@ -8772,6 +8772,42 @@ legend.required:before {
 }
 
 /*
+  WET-BOEW
+  @title: Details/summary CSS
+ */
+
+summary {
+  cursor: pointer;
+}
+
+summary:hover,
+summary:focus {
+  color: #000;
+  background: #ddd;
+}
+
+details[open] {
+  padding-bottom: 1em;
+}
+
+details[open] > * {
+  margin-left: 1.3em;
+}
+
+details[open] > summary {
+  margin-left: auto;
+}
+
+[dir=rtl] details[open] > * {
+  margin-left: auto;
+  margin-right: 1.3em;
+}
+
+[dir=rtl] details[open] > summary {
+  margin-right: auto;
+}
+
+/*
  Plugins
  */
 
@@ -9723,25 +9759,6 @@ img.mfp-img {
   border-color: transparent !important;
 }
 
-[dir=rtl] .wb-menu .menu {
-  padding-right: 0;
-}
-
-[dir=rtl] .wb-menu .menu > li {
-  float: right;
-}
-
-[dir=rtl] .wb-menu .sm.open li a {
-  text-align: right;
-}
-
-[dir=rtl] .expicon {
-  left: auto;
-  right: 0.75em;
-  margin-right: 0;
-  margin-left: 0.35em;
-}
-
 #mb-pnl nav a.wb-navcurr,
 #mb-pnl nav summary.wb-navcurr {
   outline: 1px solid;
@@ -9803,16 +9820,50 @@ img.mfp-img {
   outline-offset: -2px;
 }
 
+#mb-pnl details[open] {
+  padding-bottom: 0;
+}
+
 #mb-pnl details ul {
-  padding-left: 2.5em;
+  padding-left: 1.2em;
 }
 
 #mb-pnl details details {
-  margin-left: 6px 0 6px -1.28em;
+  margin: 6px 0 6px -1.28em;
 }
 
 #mb-pnl .srch-pnl form {
   white-space: nowrap;
+}
+
+.wb-disable #wb-srch,
+.wb-disable #wb-sm,
+.wb-disable #wb-sec,
+.wb-disable #wb-info {
+  display: block !important;
+}
+
+.wb-disable #wb-glb-mn {
+  display: none !important;
+}
+
+[dir=rtl] .wb-menu .menu {
+  padding-right: 0;
+}
+
+[dir=rtl] .wb-menu .menu > li {
+  float: right;
+}
+
+[dir=rtl] .wb-menu .sm.open li a {
+  text-align: right;
+}
+
+[dir=rtl] .expicon {
+  left: auto;
+  right: 0.75em;
+  margin-right: 0;
+  margin-left: 0.35em;
 }
 
 [dir=rtl] #mb-pnl .lng-ofr {
@@ -9843,18 +9894,7 @@ img.mfp-img {
 
 [dir=rtl] #mb-pnl details ul {
   padding-left: 0;
-  padding-right: 2em;
-}
-
-.wb-disable #wb-srch,
-.wb-disable #wb-sm,
-.wb-disable #wb-sec,
-.wb-disable #wb-info {
-  display: block !important;
-}
-
-.wb-disable #wb-glb-mn {
-  display: none !important;
+  padding-right: 0.7em;
 }
 
 /*
@@ -11383,16 +11423,6 @@ details summary:hover {
 }
 
 /* Details/summary polyfill */
-
-summary {
-  cursor: pointer;
-}
-
-summary:hover,
-summary:focus {
-  color: #000;
-  background: #ddd;
-}
 
 .wb-disable details > * {
   display: block !important;
