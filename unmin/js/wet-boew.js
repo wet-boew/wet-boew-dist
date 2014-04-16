@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-15
+ * v4.0.1-development - 2014-04-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -8869,7 +8869,9 @@ var pluginName = "wb-tables",
 					// Source: http://datatables.net/plug-ins/type-detection#formatted_numbers
 					$.fn.dataTableExt.aTypes.unshift(
 						function( sData ) {
-							var deformatted = sData.replace( /[^\d\-\.\/a-zA-Z]/g, "" );
+
+							// Strip off HTML tags and all non-alpha-numeric characters (except minus sign)
+							var deformatted = sData.replace( /<[^>]*>/g, "" ).replace( /[^\d\-\/a-zA-Z]/g, "" );
 							if ( $.isNumeric( deformatted ) || deformatted === "-" ) {
 								return "formatted-num";
 							}
