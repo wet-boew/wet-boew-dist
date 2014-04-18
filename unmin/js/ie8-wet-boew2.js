@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-17
+ * v4.0.1-development - 2014-04-18
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5525,7 +5525,7 @@ var pluginName = "wb-menu",
 			// Add the site information
 			if ( $info.length !== 0 ) {
 				allProperties.push([
-					$info.find( "h3" ),
+					$info.find( "h3, a" ).not( "section a" ),
 					"info-pnl",
 					$info.find( "h2" ).html()
 				]);
