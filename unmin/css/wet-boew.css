@@ -7307,6 +7307,9 @@ button.close {
   display: block;
 }
 
+.wb-menu .menu > li a,
+.wb-menu .menu > li a[aria-haspopup]:hover,
+.wb-menu .menu > li a[aria-haspopup]:focus,
 .wb-menu .active > a {
   text-decoration: none;
 }
@@ -9695,10 +9698,10 @@ img.mfp-img {
   height: 0;
   border-left: 0.35em solid transparent;
   border-right: 0.35em solid transparent;
-  border-top: 0.35em solid #fff;
+  border-top: 0.4em solid #fff;
   position: relative;
   left: 0.75em;
-  top: 0.75em;
+  top: 0.8em;
   margin-right: 0.35em;
 }
 
@@ -9738,12 +9741,16 @@ img.mfp-img {
   text-align: center;
   display: block;
   padding: 1em;
-  text-decoration: none;
 }
 
 .wb-menu .menu > li a:hover,
 .wb-menu .menu > li a:focus {
   text-decoration: underline;
+}
+
+.wb-menu .menu > li a[aria-haspopup]:hover,
+.wb-menu .menu > li a[aria-haspopup]:focus {
+  cursor: default;
 }
 
 .wb-menu .active .expicon {

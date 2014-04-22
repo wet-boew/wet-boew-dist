@@ -292,6 +292,13 @@
   color: #fff;
 }
 
+#wb-sm .menu > li > a:hover,
+#wb-sm .menu > li.active > a {
+  color: #000;
+  background: #ccc;
+  border-color: #ccc;
+}
+
 #wb-sm {
   background: #0e4164;
 }
@@ -306,14 +313,12 @@
   border-left: 1px solid #999;
 }
 
-#wb-sm .menu > li:last-child > a {
-  border-right: 1px solid #999;
+#wb-sm .menu > li > a:hover .expicon {
+  border-top-color: #000;
 }
 
-#wb-sm .menu > li.active > a {
-  color: #000;
-  background: #ccc;
-  border-color: #ccc;
+#wb-sm .menu > li:last-child > a {
+  border-right: 1px solid #999;
 }
 
 #wb-sm .sm.open {
