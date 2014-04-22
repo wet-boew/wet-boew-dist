@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.1-development - 2014-04-18
+ * v4.0.1-development - 2014-04-22
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6999,7 +6999,7 @@ $document.on( resizeEvent, selector, function( event ) {
 		$player = $( player ),
 		ratio, newHeight;
 
-	if ( player.videoWidth === 0 ) {
+	if ( player.videoWidth === 0 || player.videoWidth === undef ) {
 		ratio = $player.attr( "height" ) / $player.attr( "width" );
 
 		// Calculate the new height based on the specified ratio or assume a default 16:9 ratio
