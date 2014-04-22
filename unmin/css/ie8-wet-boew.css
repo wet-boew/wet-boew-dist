@@ -9699,15 +9699,8 @@ img.mfp-img {
  */
 
 .expicon {
-  width: 0;
-  height: 0;
-  border-left: 0.35em solid transparent;
-  border-right: 0.35em solid transparent;
-  border-top: 0.4em solid #fff;
-  position: relative;
-  left: 0.75em;
-  top: 0.8em;
-  margin-right: 0.35em;
+  font-size: 0.8em;
+  margin: 0 -0.35em 0 0.7em;
 }
 
 .wb-menu .sm {
@@ -9758,12 +9751,8 @@ img.mfp-img {
   cursor: default;
 }
 
-.wb-menu .active .expicon {
-  border-top-color: #000;
-}
-
 .wb-menu .sm-open .expicon {
-  border-color: transparent !important;
+  z-index: -1;
 }
 
 #mb-pnl nav a.wb-navcurr,
@@ -9872,10 +9861,7 @@ img.mfp-img {
 }
 
 [dir=rtl] .expicon {
-  left: auto;
-  right: 0.75em;
-  margin-right: 0;
-  margin-left: 0.35em;
+  margin: 0 0.7em 0 -0.35em;
 }
 
 [dir=rtl] #mb-pnl .lng-ofr {
