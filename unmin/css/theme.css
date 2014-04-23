@@ -75,6 +75,9 @@
 /*
  Banner
  */
+.wb-sppe object {
+  width: 100%; }
+
 #wb-bnr {
   background: #114f7a;
   background: -webkit-gradient(linear, left top, left bottom, from(#176ca7), to(#114f7a));
