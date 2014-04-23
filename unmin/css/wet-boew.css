@@ -6015,6 +6015,9 @@ img.mfp-img {
 .modal-body {
   background: #fff; }
 
+.mfp-gallery .modal-body {
+  padding: 20px 30px; }
+
 .mfp-close {
   font-weight: 700;
   /* Should fix upstream in Magnific Popup rather than overriding in WET */ }
@@ -6038,15 +6041,8 @@ img.mfp-img {
  * Menu Sass
  */
 .expicon {
-  border-left: 0.35em solid transparent;
-  border-right: 0.35em solid transparent;
-  border-top: 0.4em solid #fff;
-  height: 0;
-  left: 0.75em;
-  margin-right: 0.35em;
-  position: relative;
-  top: 0.8em;
-  width: 0; }
+  font-size: 0.7em;
+  margin: 0 -0.35em 0 0.7em; }
 
 .wb-menu .sm {
   display: none;
@@ -6142,10 +6138,7 @@ img.mfp-img {
 [dir=rtl] .wb-menu .sm.open li a {
   text-align: right; }
 [dir=rtl] .expicon {
-  left: auto;
-  margin-left: 0.35em;
-  margin-right: 0;
-  right: 0.75em; }
+  margin: 0 0.7em 0 -0.35em; }
 [dir=rtl] #mb-pnl .lng-ofr {
   text-align: left; }
   [dir=rtl] #mb-pnl .lng-ofr li {
