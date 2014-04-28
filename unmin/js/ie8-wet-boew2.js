@@ -1068,6 +1068,18 @@
 		}
 	};
 
+	/*
+	 * Returns a RFC4122 compliant Global Unique ID (GUID).
+	 * Originally from http://stackoverflow.com/a/2117523/455535
+	 */
+	wb.guid = function() {
+		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function( replacementChar ) {
+			var rand = Math.random() * 16 | 0,
+				newChar = replacementChar === "x" ? rand : ( rand & 0x3 | 0x8 );
+			return newChar.toString(16);
+		});
+	};
+
 })( wb );
 
 (function( $, undef ) {
@@ -1209,43 +1221,17 @@
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var $document = wb.doc,
-
-	/**
-	 * @method generateSerial
-	 * @param {integer} len Length of the random string to be generated
-	 */
-	generateSerial = function( len ) {
-		var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz",
-			stringLength = len,
-			randomstring = "",
-			counter = 0,
-			letterOrNumber, newNum, rnum;
-
-		for ( counter; counter !== stringLength; counter += 1 ) {
-			letterOrNumber = Math.floor( Math.random( ) * 2 );
-			if ( letterOrNumber === 0 ) {
-				newNum = Math.floor( Math.random( ) * 9 );
-				randomstring += newNum;
-			} else {
-				rnum = Math.floor( Math.random( ) * chars.length );
-				randomstring += chars.substring( rnum, rnum + 1 );
-			}
-		}
-		return randomstring;
-	};
+var $document = wb.doc;
 
 // Event binding
 $document.on( "ajax-fetch.wb", function( event ) {
 	var caller = event.element,
-		url = event.fetch,
-		id;
+		url = event.fetch;
 
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === event.target ) {
-		id = "wb" + ( generateSerial( 8 ) );
 
-		$( "<div id='" + id + "' />" )
+		$( "<div id='" + wb.guid() + "' />" )
 			.load( url, function() {
 				$( caller )
 					.trigger( {
@@ -1435,7 +1421,7 @@ var pluginName = "wb-calevt",
 				 *	- 'evt-anchor' class dynamically generates page anchors on the links it maps to the event
 				 */
 				if ( !directLinking ) {
-					linkId = event.attr( "id" ) || randomId( 6 );
+					linkId = event.attr( "id" ) || wb.guid();
 					event.attr( "id", linkId );
 
 					/*
@@ -1538,32 +1524,6 @@ var pluginName = "wb-calevt",
 
 		window.events = events;
 		return events;
-	},
-
-	randomId = function( sInt ) {
-		var s = "",
-			randomChar, n;
-
-		randomChar = function() {
-			n = Math.floor( Math.random() * 62 );
-			if ( n < 10 ) {
-
-				// 1-10
-				return n;
-			}
-			if ( n < 36 ) {
-
-				// A-Z
-				return String.fromCharCode( n + 55 );
-			}
-
-			// a-z
-			return String.fromCharCode( n + 61 );
-		};
-		while ( s.length < sInt ) {
-			s += randomChar();
-		}
-		return "id" + s;
 	},
 
 	keyboardNavEvents = function( event ) {
