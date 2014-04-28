@@ -4532,11 +4532,10 @@ a {
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-weight: 700; }
 
-h1, .h1 {
-  margin-top: 0; }
-
-h2, .h2 {
+h1, .h1, h2, .h2 {
   margin-top: 38px; }
+
+
 
 h3, .h3 {
   margin-top: 32px; }
