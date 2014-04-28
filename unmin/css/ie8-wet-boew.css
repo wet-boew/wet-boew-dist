@@ -6012,6 +6012,7 @@ img.mfp-img {
   border: 0;
   border-radius: 0;
   display: none;
+  transform: translateZ(0);
   z-index: 1050; }
   .wb-overlay.wb-inview {
     display: block; }
