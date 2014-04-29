@@ -7285,6 +7285,13 @@ details:not([open]) > * {
  */
   /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+*/
+  /*
+  Multimedia Player Code (print view)
+ */
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
   /* Use higher contrast and text-weight for printable form. */
@@ -7295,10 +7302,6 @@ details:not([open]) > * {
   /**
  * Print styles
  */
-  /*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
-*/
   .fn-lnk, .wb-fnote .fn-rtn a {
     background-color: transparent;
     border: 0;
@@ -7315,6 +7318,10 @@ details:not([open]) > * {
       width: 100%; }
     .wb-fnote .fn-rtn {
       overflow: visible; }
+  .wb-geomap-detail, .olControlMousePosition, .olControlPanZoomBar {
+    visibility: hidden; }
+  .wb-mm-ctrls, .wb-mm-ovrly {
+    display: none; }
   .kwd, .typ, .tag {
     font-weight: 700; }
   .kwd, .tag {
@@ -7336,9 +7343,7 @@ details:not([open]) > * {
     display: block !important;
     opacity: 1 !important; }
     .wb-tabs [role="tabpanel"] figcaption {
-      position: static; }
-  .wb-geomap-detail, .olControlMousePosition, .olControlPanZoomBar {
-    visibility: hidden; } }
+      position: static; } }
 
 /*
   WET-BOEW
