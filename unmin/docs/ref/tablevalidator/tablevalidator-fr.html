@@ -7,7 +7,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Correctif « details/summary » (contenu affichable/masquable)
+		<title>Validateur de tableau
 
 	
 		
@@ -25,7 +25,7 @@
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
 		<!-- Meta data -->
-		<meta name="description" content="Émule les éléments &lt;details&gt; et &lt;summary&gt; pour les navigateurs qui ne le supportent pas." />
+		<meta name="description" content="Outils pour les éditeur web qui fourni une assistance afin de produire des tableaux conforme au norme WCAG" />
 		<!-- Meta data-->
 		<!--[if gte IE 9 | !IE ]><!-->
 <link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon" />
@@ -68,7 +68,7 @@
 	<li class="curr">Français&#32;<span>(actuel)</span></li>
 
 
-	<li><a lang="en" hreflang="en" href="details-en.html">English</a></li>
+	<li><a lang="en" hreflang="en" href="tablevalidator-en.html">English</a></li>
 
 </ul>
 
@@ -160,7 +160,7 @@
 		
 	
 
-			<li>Correctif « details/summary » (contenu affichable/masquable)</li>
+			<li>Validateur de tableau</li>
 		</ol>
 	</div>
 </div>
@@ -172,14 +172,9 @@
 
 
 		<main role="main" property="mainContentOfPage" class="container">
-			<h1 id="wb-cont" property="name">Correctif « details/summary » (contenu affichable/masquable)</h1>
+			<h1 id="wb-cont" property="name">Validateur de tableau</h1>
 			
 
-
-<section class="alert alert-info">
-	<h2 class="h3">Vous cherchez la BOEW v3.1?</h2>
-	<p>La BOEW v4.0 est maintenant la version courrante. La <a href="http://wet-boew.github.io/v3.1-ci/docs/ref/details/details-fr.html">version de la page actuelle pour la BOEW v3.1</a> a été déplacée.</p>
-</section>
 
 
 
@@ -204,39 +199,109 @@
 
 	
 <p>
-	<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Correctif%20%C2%AB%20details%2Fsummary%20%C2%BB%20(contenu%20affichable%2Fmasquable):%20">Questions ou commentaires?</a>
+	<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Validateur%20de%20tableau:%20">Questions ou commentaires?</a>
 </p>
 	
 
-				
+			
 <span class="wb-prettify all-pre hide"></span>
-
-<section>
-	<h2>But</h2>
-	<p>Les éléments <code>details</code> et <code>summary</code> éléments permettent au contenu d'être affiché et masqué. Étant donné que certains navigateurs ne prennent pas en charge cette fonctionnalité à l'origine, ce correctif émule la même fonctionnalité à l'aide de HTML générique et WAI-ARIA.</p>
-</section>
 
 <div lang="en">
 <p><strong>Needs translation</strong></p>
 <section>
-	<h2>Working example</h2>
+	<h2>Purpose</h2>
+	<p>A brief description of the component.</p>
+</section>
+
+<section>
+	<h2>Use when</h2>
 	<ul>
-		<li><a href="../../../demos/details/details-en.html">English examples</a></li>
-		<li><a href="../../../demos/details/details-fr.html">French examples</a></li>
+		<li>Use case 1</li>
+		<li>Use case 2</li>
+		<li>Use case 3</li>
 	</ul>
 </section>
 
 <section>
-	<p>To use the polyfill, standard <code>details</code> and <code>summary</code> elements must be used. In cases where a browser doesn't support these elements, the polyfill is automatically loaded.</p>
+	<h2>Do not use when</h2>
+	<ul>
+		<li>Use case 1</li>
+		<li>Use case 2</li>
+		<li>Use case 3</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Working example</h2>
+	<p><a href="#">Link to a working example</a></p>
+</section>
+
+<section>
+	<h2>How to implement</h2>
+	<ol>
+		<li>Step 1</li>
+		<li>Step 2
+			<pre><code>Example code</code></pre>
+		</li>
+		<li>Step 3
+			<pre><code>Example of multi-line code
+Example of multi-line code
+Example of multi-line code</code></pre>
+		</li>
+		<li>Step 4</li>
+	</ol>
 </section>
 
 <section>
 	<h2>Configuration options</h2>
-	<p><a rel="external" href="http://www.w3.org/TR/html51/interactive-elements.html#the-details-element">Configuration options available for the <code>details</code> and <code>summary</code> elements (HTML5 specification)</a></p>
+	<p>Document the public configuration options that can be used by implementers or developers.</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Option</th>
+				<th>Description</th>
+				<th>How to configure</th>
+				<th>Values</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Option 1</td>
+				<td>Brief description of the option</td>
+				<td>How to configure the option</td>
+				<td>
+					<dl>
+						<dt>Value 1 (default):</dt>
+						<dd>Brief description</dd>
+						<dt>Value 2:</dt>
+						<dd>Brief description</dd>
+						<dt>Value 3:</dt>
+						<dd>Brief description</dd>
+					</dl>
+				</td>
+			</tr>
+			<tr>
+				<td>Option 2</td>
+				<td>Brief description of the option</td>
+				<td>How to configure the option</td>
+				<td>
+					<dl>
+						<dt>Value 1 (default):</dt>
+						<dd>Brief description</dd>
+						<dt>Value 2:</dt>
+						<dd>Brief description</dd>
+						<dt>Value 3:</dt>
+						<dd>Brief description</dd>
+					</dl>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </section>
 
 <section>
 	<h2>Events</h2>
+	<p>Document the public events that can be used by implementers or developers.</p>
 	<table class="table">
 		<thead>
 			<tr>
@@ -247,9 +312,14 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>wb-init.wb-meter</td>
-				<td>Triggered manually (e.g., <code>$elm.trigger( "wb-init.wb.wb-meter" );</code>).</td>
-				<td>Used to manually initialize the details/summary polyfill on a summary element. <strong>Note:</strong> The details/summary polyfill will be initialized automatically unless the <code>summary</code> element is added after the page has already loaded.</td>
+				<td>Event 1</td>
+				<td>When the event is triggered and how to trigger it manually (where supported)</td>
+				<td>Brief description of what it does.</td>
+			</tr>
+			<tr>
+				<td>Event 2</td>
+				<td>When the event is triggered and how to trigger it manually (where supported)</td>
+				<td>Brief description of what it does.</td>
 			</tr>
 		</tbody>
 	</table>
@@ -257,14 +327,14 @@
 
 <section>
 	<h2>Source code</h2>
-	<p><a href="https://github.com/wet-boew/wet-boew/tree/master/src/polyfills/details">Details/summary polyfill source code on GitHub</a></p>Ù
+	<p><a href="#">Link to the folder on GitHub containing the files for the component</a></p>
 </section>
 </div>
 
 
 			<dl id="wb-dtmd" property="dateModified">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time>2014-02-19</time></dd>
+	<dd><time>2014-04-30</time></dd>
 </dl>
 
 
