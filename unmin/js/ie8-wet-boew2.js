@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-01
+ * v4.0.2-development - 2014-05-02
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -8364,6 +8364,7 @@ var pluginName = "wb-tables",
 			defaults = {
 				asStripeClasses: [],
 				oLanguage: i18nText,
+				sDom: "<'top'ilf>rt<'bottom'p><'clear'>",
 				fnDrawCallback: function() {
 					$( "#" + elmId ).trigger( "tables-draw.wb" );
 				}
