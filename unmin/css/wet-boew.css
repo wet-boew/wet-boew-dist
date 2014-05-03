@@ -6586,7 +6586,7 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
  */
-.paginate_disabled_previous:before, .paginate_enabled_previous:before, .paginate_disabled_next:after, .paginate_enabled_next:after, .sorting .sort-icons:before, .sorting .sort-icons:after, .sorting_asc .sort-icons, .sorting_asc .sort-icons:before, .sorting_asc .sort-icons:after, .sorting_desc .sort-icons, .sorting_desc .sort-icons:before, .sorting_desc .sort-icons:after {
+.paginate_disabled_previous:before, .paginate_enabled_previous:before, .paginate_disabled_next:after, .paginate_enabled_next:after, .sorting-icons:before, .sorting-icons:after {
   content: " ";
   display: inline-block;
   font-family: "Glyphicons Halflings";
@@ -6709,29 +6709,32 @@ table.dataTable {
 /*
  * Sorting
  */
-.sorting .sort-icons, .sorting_asc .sort-icons, .sorting_desc .sort-icons {
-  display: inline-block;
-  margin-top: 2px; }
-
-.sorting .sort-icons:before, .sorting_asc .sort-icons:before, .sorting_desc .sort-icons:before {
-  content: " \e151";
-  padding: 0 2px; }
-
-.sorting .sort-icons:after, .sorting_asc .sort-icons:after, .sorting_desc .sort-icons:after {
-  content: "\e152";
-  padding: 0 2px; }
-
-.sorting_asc .sort-icons:before, .sorting_desc .sort-icons:after {
+.sorting_asc .sorting-icons:before, .sorting_desc .sorting-icons:after {
   background: #ccc;
   border: 1px solid #000; }
 
-.sorting .sort-icons:before, .sorting .sort-icons:after, .sorting_asc .sort-icons:after, .sorting_desc .sort-icons:before {
+.sorting .sorting-icons:before, .sorting .sorting-icons:after, .sorting_asc .sorting-icons:after, .sorting_desc .sorting-icons:before {
   background: #fff;
   border: 1px solid #aaa;
   color: #757575; }
 
 .sorting_asc, .sorting_desc {
   background: #e7e7e7; }
+
+.sorting-cnt {
+  white-space: nowrap; }
+  .sorting-cnt:before {
+    content: " "; }
+
+.sorting-icons {
+  display: inline-block;
+  margin-top: 2px; }
+  .sorting-icons:before {
+    content: "\e151";
+    padding: 0 2px; }
+  .sorting-icons:after {
+    content: "\e152";
+    padding: 0 2px; }
 
 
 
