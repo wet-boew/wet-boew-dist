@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-02
+ * v4.0.2-development - 2014-05-03
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -6260,7 +6260,7 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
  */
-.paginate_disabled_previous:before, .paginate_enabled_previous:before, .paginate_disabled_next:after, .paginate_enabled_next:after, .sorting:after, .sorting_asc:after, .sorting_desc:after {
+.paginate_disabled_previous:before, .paginate_enabled_previous:before, .paginate_disabled_next:after, .paginate_enabled_next:after, .sorting .sort-icons:before, .sorting .sort-icons:after, .sorting_asc .sort-icons, .sorting_asc .sort-icons:before, .sorting_asc .sort-icons:after, .sorting_desc .sort-icons, .sorting_desc .sort-icons:before, .sorting_desc .sort-icons:after {
   content: " ";
   display: inline-block;
   font-family: "Glyphicons Halflings";
@@ -6285,8 +6285,7 @@ table.dataTable td.center, table.dataTable td.dataTables_empty {
 
 table.dataTable thead th, table.dataTable tfoot th {
   border-bottom: 1px solid #000;
-  font-weight: 700;
-  padding-right: 1.5em; }
+  font-weight: 700; }
 
 .sorting, .sorting_asc, .sorting_desc {
   cursor: pointer; }
@@ -6325,7 +6324,7 @@ table.dataTable {
   color: #111 !important;
   cursor: pointer; }
 
-.paginate_disabled_next, .paginate_disabled_previous, .sorting_asc_disabled, .sorting_desc_disabled {
+.paginate_disabled_next, .paginate_disabled_previous {
   color: #757575 !important;
   cursor: default;
   text-decoration: none; }
@@ -6384,22 +6383,30 @@ table.dataTable {
 /*
  * Sorting
  */
-.sorting:after, .sorting_asc:after, .sorting_desc:after {
-  margin-left: 5px;
-  position: absolute; }
+.sorting .sort-icons, .sorting_asc .sort-icons, .sorting_desc .sort-icons {
+  display: inline-block;
+  margin-top: 2px; }
+
+.sorting .sort-icons:before, .sorting_asc .sort-icons:before, .sorting_desc .sort-icons:before {
+  content: " \e151";
+  padding: 0 2px; }
+
+.sorting .sort-icons:after, .sorting_asc .sort-icons:after, .sorting_desc .sort-icons:after {
+  content: "\e152";
+  padding: 0 2px; }
+
+.sorting_asc .sort-icons:before, .sorting_desc .sort-icons:after {
+  background: #ccc;
+  border: 1px solid #000; }
+
+.sorting .sort-icons:before, .sorting .sort-icons:after, .sorting_asc .sort-icons:after, .sorting_desc .sort-icons:before {
+  background: #fff;
+  border: 1px solid #aaa;
+  color: #757575; }
 
 .sorting_asc, .sorting_desc {
   background: #e7e7e7; }
 
-.sorting:after {
-  color: #757575;
-  content: "\e151"; }
-
-.sorting_asc:after {
-  content: "\e152"; }
-
-.sorting_desc:after {
-  content: "\e151"; }
 
 
 
@@ -6416,10 +6423,6 @@ table.dataTable {
 [dir=rtl] .sorting:after, [dir=rtl] .sorting_asc:after, [dir=rtl] .sorting_desc:after {
   margin-left: 0;
   margin-right: 5px; }
-
-[dir=rtl] table.dataTable thead th, [dir=rtl] table.dataTable tfoot th {
-  padding-left: 1.5em;
-  padding-right: 8px; }
 
 [dir=rtl] .dataTables_filter {
   float: left;

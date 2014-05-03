@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-02
+ * v4.0.2-development - 2014-05-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -8851,6 +8851,7 @@ var pluginName = "wb-tables",
 						}
 					);
 
+					$elm.find( "th" ).append( " <span class='sort-icons'></span>" );
 					$elm.dataTable( $.extend( true, {}, defaults, window[ pluginName ], wb.getData( $elm, pluginName ) ) );
 				}
 			});
