@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-03
+ * v4.0.2-development - 2014-05-04
  *
  *//*
  *
@@ -164,6 +164,12 @@
   color: #111; }
 
 
+/*
+ Site information
+*/
+#wb-info li {
+  margin-bottom: 0.75em; }
+
 #wb-lng .btn-group {
   float: right;
   margin: 5px 0;
@@ -184,63 +190,6 @@ main {
   border-bottom: 1px solid #eee;
   margin-top: 0.45em;
   padding-bottom: 5px; }
-
-/*
- Search
- */
-#wb-srch {
-  padding-right: 10px;
-  padding-top: 0.9em;
-  text-align: right; }
-  #wb-srch .form-group {
-    width: 70%; }
-
-#wb-srch .form-control, .srch-pnl .form-control {
-  width: 100%; }
-
-[lang=fr] #wb-srch .form-group {
-  width: 60%; }
-
-[dir=rtl] #wb-srch {
-  text-align: left; }
-
-/*
- * Secondary menu
- */
-#wb-sec .list-group a.list-group-item.wb-navcurr, #wb-sec .list-group a.list-group-item[href]:hover, #wb-sec .list-group a.list-group-item[href]:focus {
-  background: #808080;
-  color: white; }
-
-#wb-sec {
-  margin-top: 20px;
-  padding-bottom: 2em; }
-  #wb-sec h3 {
-    border: 1px solid #ddd;
-    border-bottom: 3px solid #666;
-    font-size: 1em;
-    margin: 0;
-    padding: 15px; }
-    #wb-sec h3 a {
-      color: #333;
-      text-decoration: none; }
-  #wb-sec .list-group {
-    margin-bottom: 0; }
-    #wb-sec .list-group a.list-group-item {
-      background: #fff;
-      border-radius: 0;
-      color: #555;
-      margin-top: -1px;
-      text-decoration: none; }
-    #wb-sec .list-group .list-group .list-group-item {
-      background: #e6e6e6;
-      color: black;
-      padding-left: 1.8em; }
-
-/*
- Site information
-*/
-#wb-info li {
-  margin-bottom: 0.75em; }
 
 /*
  * Site menu
@@ -326,6 +275,57 @@ main {
   margin-right: auto;
   width: 75%; }
 
+/*
+ Search
+ */
+#wb-srch {
+  padding-right: 10px;
+  padding-top: 0.9em;
+  text-align: right; }
+  #wb-srch .form-group {
+    width: 70%; }
+
+#wb-srch .form-control, .srch-pnl .form-control {
+  width: 100%; }
+
+[lang=fr] #wb-srch .form-group {
+  width: 60%; }
+
+[dir=rtl] #wb-srch {
+  text-align: left; }
+
+/*
+ * Secondary menu
+ */
+#wb-sec .list-group a.list-group-item.wb-navcurr, #wb-sec .list-group a.list-group-item[href]:hover, #wb-sec .list-group a.list-group-item[href]:focus {
+  background: #808080;
+  color: white; }
+
+#wb-sec {
+  margin-top: 20px;
+  padding-bottom: 2em; }
+  #wb-sec h3 {
+    border: 1px solid #ddd;
+    border-bottom: 3px solid #666;
+    font-size: 1em;
+    margin: 0;
+    padding: 15px; }
+    #wb-sec h3 a {
+      color: #333;
+      text-decoration: none; }
+  #wb-sec .list-group {
+    margin-bottom: 0; }
+    #wb-sec .list-group a.list-group-item {
+      background: #fff;
+      border-radius: 0;
+      color: #555;
+      margin-top: -1px;
+      text-decoration: none; }
+    #wb-sec .list-group .list-group .list-group-item {
+      background: #e6e6e6;
+      color: black;
+      padding-left: 1.8em; }
+
 .wb-slc {
   float: left;
   height: 0; }
@@ -384,13 +384,11 @@ main {
   @title: Small view and under (screen only)
  */
   /*
- Secondary menu (small view and under)
-*/
-  /*
  Banner
  */
-  #wb-sec {
-    display: none; }
+  /*
+ Secondary menu (small view and under)
+*/
   #wb-sttl a {
     padding-top: 1.125em;
     position: relative;
@@ -402,7 +400,9 @@ main {
     top: 0;
     width: 2.17em; }
   [dir=rtl] #wb-sttl object, [dir=rtl] #wb-sttl img {
-    margin: 0; } }
+    margin: 0; }
+  #wb-sec {
+    display: none; } }
 
 /* Medium view and under */
 @media screen and (max-width: 1199px) {
@@ -508,16 +508,16 @@ main {
  Banner (print view)
  */
   /*
- Search (print view)
- */
-  /*
- Secondary menu (print view)
-*/
-  /*
  Site information (print view)
 */
   /*
  Site menu (print view)
 */
-  #wb-bar, #wb-sttl a:after, #wb-srch, #wb-sec, #wb-info, #wb-sm {
+  /*
+ Search (print view)
+ */
+  /*
+ Secondary menu (print view)
+*/
+  #wb-bar, #wb-sttl a:after, #wb-info, #wb-sm, #wb-srch, #wb-sec {
     display: none !important; } }
