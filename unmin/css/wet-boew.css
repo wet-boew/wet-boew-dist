@@ -6592,6 +6592,9 @@ table.dataTable, .dataTables_wrapper .dataTables_scroll {
 table.dataTable thead th:active, table.dataTable thead td:active {
   outline: none; }
 
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+  font-weight: 400; }
+
 table.dataTable thead th, table.dataTable tfoot th {
   font-weight: 700; }
 
