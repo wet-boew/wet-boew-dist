@@ -3495,6 +3495,7 @@ Modernizr.load([
 		test: Modernizr.inputtypes.range,
 		nope: [
 			"plyfll!slider.min.js",
+			"plyfll!slider_wrapper.min.js",
 			"plyfll!slider.min.css"
 		],
 		callback: function( url ) {
