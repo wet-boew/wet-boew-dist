@@ -8808,21 +8808,6 @@ var pluginName = "wb-tables",
 						},
 						i18nSortDescend = function( x, y ) {
 							return wb.normalizeDiacritics( y ).localeCompare( wb.normalizeDiacritics( x ) );
-						},
-						formattedNumCompare = function( a, b ) {
-							var aMultiple = a[ 0 ],
-								aNumbers = a[ 1 ],
-								bMultiple = b[ 0 ],
-								bNumbers = b[ 1 ],
-								len = aNumbers.length,
-								i, result;
-							for ( i = 0; i !== len; i += 1 ) {
-								result = parseInt( aNumbers[ i ], 10 ) * aMultiple - parseInt( bNumbers[ i ], 10 ) * bMultiple;
-								if ( result !== 0 ) {
-									break;
-								}
-							}
-							return result;
 						};
 
 					// Enable internationalization support in the sorting
@@ -8837,17 +8822,16 @@ var pluginName = "wb-tables",
 					$.extend( $.fn.dataTableExt.oSort, {
 
 						// Formatted number sorting
-						// Based on: datatables.net/plug-ins/sorting#formatted_numbers
+						// Source: datatables.net/plug-ins/sorting#formatted_numbers
 						"formatted-num-pre": function( a ) {
-							var multiple = a.indexOf( "-" ) === -1 ? 1 : -1;
-							a = ( a === "-" || a === "" ) ? 0 : a.replace( /<[^>]*>/g, "" ).replace( /[^\d\.]/g, "" );
-							return [ multiple, a.split( "." ) ];
+							a = ( a === "-" || a === "" ) ? 0 : a.replace( /[^\d\-\.]/g, "" );
+							return parseFloat( a );
 						},
 						"formatted-num-asc": function( a, b ) {
-							return formattedNumCompare( b, a );
+							return a - b;
 						},
 						"formatted-num-desc": function( a, b ) {
-							return formattedNumCompare( a, b );
+							return b - a;
 						}
 					} );
 
@@ -8855,7 +8839,7 @@ var pluginName = "wb-tables",
 					 * Extend type detection
 					 */
 					// Formatted numbers detection
-					// Based on: http://datatables.net/plug-ins/type-detection#formatted_numbers
+					// Source: http://datatables.net/plug-ins/type-detection#formatted_numbers
 					$.fn.dataTableExt.aTypes.unshift(
 						function( sData ) {
 
