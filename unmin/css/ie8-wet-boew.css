@@ -4335,7 +4335,7 @@ button.close {
   position: static;
   width: inherit; }
 
-#mb-pnl .modal-body h2 {
+#mb-pnl .modal-body h2, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after {
   display: none; }
 
 .wb-menu .sm.open li {
@@ -6370,7 +6370,7 @@ table.dataTable thead .sorting_asc .sorting-icons:before, table.dataTable thead 
   background: #ccc;
   border: 1px solid #111; }
 
-table.dataTable thead .sorting .sorting-icons:before, table.dataTable thead .sorting .sorting-icons:after, table.dataTable thead .sorting_asc .sorting-icons:after, table.dataTable thead .sorting_desc .sorting-icons:before, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after {
+table.dataTable thead .sorting .sorting-icons:before, table.dataTable thead .sorting .sorting-icons:after, table.dataTable thead .sorting_asc .sorting-icons:after, table.dataTable thead .sorting_desc .sorting-icons:before {
   background: #fff;
   border: 1px solid #aaa;
   color: #757575; }
@@ -6396,10 +6396,10 @@ table.dataTable {
     margin-top: 2px; }
     table.dataTable thead .sorting-icons:before {
       content: "\e093";
-      padding: 0 2px; }
+      padding: 0 0.1em 0 0.2em; }
     table.dataTable thead .sorting-icons:after {
       content: "\e094";
-      padding: 0 2px; }
+      padding: 0 0.1em 0 0.2em; }
   table.dataTable tbody tr {
     background-color: #fff; }
     table.dataTable tbody tr.selected {
