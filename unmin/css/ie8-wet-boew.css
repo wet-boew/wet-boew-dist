@@ -6399,10 +6399,10 @@ table.dataTable {
     margin-top: 2px; }
     table.dataTable thead .sorting-icons:before {
       content: "\e093";
-      padding: 0 0.1em 0 0.2em; }
+      padding: 0 0.2em; }
     table.dataTable thead .sorting-icons:after {
       content: "\e094";
-      padding: 0 0.1em 0 0.2em; }
+      padding: 0 0.2em; }
   table.dataTable tbody tr {
     background-color: #fff; }
     table.dataTable tbody tr.selected {
