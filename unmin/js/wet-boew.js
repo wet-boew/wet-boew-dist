@@ -2825,7 +2825,8 @@ $document.on( "setFocus.wb-cal", setFocus );
 			dataSeries = [],
 			nbBarChart = 0,
 			$caption = $( "caption", $elm ),
-			captionHtml = $caption.html(),
+			captionHtml = $caption.html() || "",
+			captionText = $caption.text() || "",
 			valuePoint = 0,
 			lowestFlotDelta, $imgContainer, $placeHolder,
 			$wetChartContainer, htmlPlaceHolder, figurehtml,
@@ -2841,7 +2842,10 @@ $document.on( "setFocus.wb-cal", setFocus );
 					prefix: "wb-charts-",
 					defaults: {
 						colors: wb.drawColours,
-						canvas: true
+						canvas: true,
+						xaxis: {
+							ticks: { }
+						}
 					},
 					line: { },
 					area: {
@@ -3133,9 +3137,9 @@ $document.on( "setFocus.wb-cal", setFocus );
 		// Apply any preset
 		optionsCharts = applyPreset( defaultsOptions.charts, $elm, pluginName );
 
-		// Fix default width and height in case the table is hidden.
-		optionsCharts.width = optionsCharts.width | 250;
-		optionsCharts.height = optionsCharts.height | 250;
+		// Fix default width and height in case the table is hidden or too small.
+		optionsCharts.width = ( optionsCharts.width && optionsCharts.width > 250 ? optionsCharts.width : 250 );
+		optionsCharts.height = ( optionsCharts.height && optionsCharts.height > 250 ? optionsCharts.height : 250 );
 
 		/**
 		 * @method getColumnGroupHeaderCalculateSteps
@@ -3512,7 +3516,13 @@ $document.on( "setFocus.wb-cal", setFocus );
 		 * @method wrapTableIntoDetails
 		 */
 		function wrapTableIntoDetails() {
-			var $details = $( "<details><summary>" +
+			var $details;
+
+			if ( !captionHtml.length ) {
+				return;
+			}
+
+			$details = $( "<details><summary>" +
 				captionHtml + i18nText.tableMention +
 				"</summary></details>" );
 
@@ -3522,14 +3532,19 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 		function createContainer(withDimension) {
 
-			var $container = $( "<figure class='" + optionsCharts.graphclass +
+			var $container = $( "<figure class='" + optionsCharts.graphclass + "'>" +
 
 				// Copy to the inner table caption
-				"'><figcaption>" + captionHtml +
-				"</figcaption><div role='img' aria-label='" +
-				$caption.text() + i18nText.tableFollowing + "'" +
-				(withDimension ? "style='height:" + optionsCharts.height +
-				"px; width:" + optionsCharts.width + "px'": "") +
+				( captionHtml.length ? "<figcaption>" + captionHtml + "</figcaption>": "" ) +
+
+				// Image Container
+				"<div role='img' aria-label='" +
+				captionText + i18nText.tableFollowing + "'" +
+
+				// Add Dimension
+				( withDimension ? "style='height:" + optionsCharts.height +
+				"px; width:" + optionsCharts.width + "px'": "" ) +
+
 				"></div></figure>");
 
 			$container.insertBefore( $elm ).append( $elm );
@@ -3726,9 +3741,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 		}
 
 		// Add the labels at the Flot options
-		optionFlot.xaxis = {
-			ticks: chartslabels
-		};
+		optionFlot.xaxis.ticks = chartslabels;
 
 		dataGroupVector = !reverseTblParsing ? dataGroup.row : dataGroup.col;
 
