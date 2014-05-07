@@ -474,9 +474,9 @@ Modernizr.load([
 	wb.formattedNumCompare = function( a, b ) {
 		var regEx = wb.formattedNumCompareRegEx,
 			aMultiple = a.indexOf( "-" ) === -1 ? 1 : -1,
-			aNumbers = ( ( a === "-" || a === "" ) ? 0 : a.replace( regEx, "" ) ).split( "." ),
+			aNumbers = ( ( a === "-" || a === "" ) ? "0" : a.replace( regEx, "" ) ).split( "." ),
 			bMultiple = b.indexOf( "-" ) === -1 ? 1 : -1,
-			bNumbers = ( ( b === "-" || b === "" ) ? 0 : b.replace( regEx, "" ) ).split( "." ),
+			bNumbers = ( ( b === "-" || b === "" ) ? "0" : b.replace( regEx, "" ) ).split( "." ),
 			len = aNumbers.length,
 			i, result;
 
