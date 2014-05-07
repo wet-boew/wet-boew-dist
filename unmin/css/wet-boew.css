@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-06
+ * v4.0.2-development - 2014-05-07
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4483,6 +4483,9 @@ a {
 
 .btn-danger:visited {
   color: #fff; }
+
+.dl-horizontal dt {
+  white-space: normal; }
 
 .dropdown-menu > li > a:visited {
   color: #333333; }
