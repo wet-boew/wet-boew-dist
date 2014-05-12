@@ -4335,7 +4335,7 @@ button.close {
   position: static;
   width: inherit; }
 
-#mb-pnl .modal-body h2, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-icons:after, table.dataTable thead .sorting_disabled .sorting-icons:before, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
   display: none; }
 
 .wb-menu .sm.open li {
@@ -4598,25 +4598,32 @@ blockquote {
  *	  * Add left/right arrows to previous/next buttons
  *	  * Increase size of the pagination buttons
  */
-.pagination [rel="prev"]:before, .pager [rel="prev"]:before, .pagination [rel="next"]:after, .pager [rel="next"]:after {
+.pagination [rel="prev"]:before, .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:before, [dir=rtl] .pager [rel="next"]:before, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:before, .pagination [rel="next"]:after, .pager [rel="next"]:after, [dir=rtl] .pagination [rel="prev"]:after, [dir=rtl] .pager [rel="prev"]:after, .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:after, table.dataTable thead .sorting-icons:before, table.dataTable thead .sorting-icons:after {
   content: " ";
-  display: inline-block;
   font-family: "Glyphicons Halflings";
-  font-weight: 400; }
+  font-weight: 400;
+  line-height: 1em;
+  position: relative;
+  top: 0.1em; }
 
-.pagination [rel="prev"]:before, .pager [rel="prev"]:before {
+.pagination [rel="prev"]:before, .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:before, [dir=rtl] .pager [rel="next"]:before, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:before {
   content: "\e091";
   margin-right: 0.5em; }
-.pagination [rel="next"]:after, .pager [rel="next"]:after {
+
+.pagination [rel="next"]:after, .pager [rel="next"]:after, [dir=rtl] .pagination [rel="prev"]:after, [dir=rtl] .pager [rel="prev"]:after, .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:after {
   content: "\e092";
   margin-left: 0.5em; }
-.pagination.disabled, .pager.disabled {
-  background-color: #fff !important;
-  border-color: #ddd !important;
-  color: #999999 !important;
-  cursor: default; }
-.pagination > li > a, .pagination > li > span, .pager > li > a, .pager > li > span {
+
+.pagination > li > a, .pager > li > a {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 0.5em;
   padding: 10px 16px; }
+.pagination > li.active > a, .pager > li.active > a {
+  cursor: default; }
+.pagination > li.disabled + li > a, .pager > li.disabled + li > a {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px; }
 
 .pager > li > a {
   text-decoration: none; }
@@ -4648,19 +4655,18 @@ blockquote {
   border-top-left-radius: 0;
   border-bottom-right-radius: 4px;
   border-top-right-radius: 4px; }
-  [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before {
-    content: "\e092";
-    margin-left: 0.5em;
-    margin-right: auto; }
 [dir=rtl] .pagination [rel="next"], [dir=rtl] .pager [rel="next"] {
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
-  [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after {
-    content: "\e091";
-    margin-left: auto;
-    margin-right: 0.5em; }
+[dir=rtl] .pagination > li, [dir=rtl] .pager > li {
+  float: right; }
+  [dir=rtl] .pagination > li.disabled + li > a, [dir=rtl] .pager > li.disabled + li > a {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px; }
 
 /*
   WET-BOEW
@@ -6396,12 +6402,6 @@ table.dataTable.display tbody tr.even > .sorting_3, table.dataTable.order-column
 table.dataTable, table.dataTable th, table.dataTable td {
   box-sizing: content-box; }
 
-table.dataTable thead .sorting-icons:before, table.dataTable thead .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
-  content: " ";
-  display: inline-block;
-  font-family: "Glyphicons Halflings";
-  font-weight: 400; }
-
 table.dataTable thead .sorting_asc .sorting-icons:before, table.dataTable thead .sorting_desc .sorting-icons:after {
   background: #ccc;
   border: 1px solid #111; }
@@ -6483,17 +6483,13 @@ table.dataTable {
       border: 1px solid #dcdee1;
       color: #335075;
       cursor: pointer;
+      display: inline-block;
       line-height: 1.4375;
+      margin-bottom: 0.5em;
       margin-left: -1px;
       padding: 10px 16px;
       position: relative;
       text-decoration: none; }
-      .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-        content: "\e091";
-        margin-right: 0.5em; }
-      .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
-        content: "\e092";
-        margin-left: 0.5em; }
       .dataTables_wrapper .dataTables_paginate .paginate_button.current {
         background-color: #2572b4;
         border-color: #2572b4;
@@ -6555,21 +6551,6 @@ table.dataTable {
   [dir=rtl] .dataTables_wrapper .dataTables_filter input {
     margin-left: auto;
     margin-right: 0.5em; }
-[dir=rtl] .dataTables_wrapper .dataTables_paginate {
-  padding-top: 0.75em; }
-  [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button {
-    display: inline-block;
-    line-height: 1.1em; }
-    [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-      content: "\e092";
-      line-height: 0.8em;
-      margin-left: 0.5em;
-      margin-right: auto; }
-    [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
-      content: "\e091";
-      line-height: 0.8em;
-      margin-left: auto;
-      margin-right: 0.5em; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -7533,7 +7514,11 @@ details:not([open]) > * {
  */
 @media print {
   .lt-ie9 abbr[title]:after {
-    content: ""; } }
+    content: ""; }
+  .lt-ie9 .pagination > li > a, .lt-ie9 .pagination > li > span, .lt-ie9 .pager > li > a, .lt-ie9 .pager > li > span {
+    cursor: hand; }
+  .lt-ie9 .pagination > li.active > a, .lt-ie9 .pagination > li.active > span, .lt-ie9 .pager > li.active > a, .lt-ie9 .pager > li.active > span {
+    cursor: default; } }
 
 /*
  Plugins
