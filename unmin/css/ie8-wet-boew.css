@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-08
+ * v4.0.2-development - 2014-05-12
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4335,7 +4335,7 @@ button.close {
   position: static;
   width: inherit; }
 
-#mb-pnl .modal-body h2, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after {
+#mb-pnl .modal-body h2, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
   display: none; }
 
 .wb-menu .sm.open li {
@@ -6452,6 +6452,15 @@ table.dataTable {
   overflow: hidden;
   padding: 0 !important; }
 
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous, .dataTables_wrapper .dataTables_paginate .paginate_button.current:first-child {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  margin-left: 0; }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.next, .dataTables_wrapper .dataTables_paginate .paginate_button.current:last-child {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px; }
+
 .dataTables_wrapper {
   clear: both;
   position: relative;
@@ -6473,35 +6482,24 @@ table.dataTable {
       background-color: #eaebed;
       border: 1px solid #dcdee1;
       color: #335075;
+      cursor: pointer;
       line-height: 1.4375;
       margin-left: -1px;
       padding: 10px 16px;
       position: relative;
       text-decoration: none; }
-      .dataTables_wrapper .dataTables_paginate .paginate_button.previous {
-        border-bottom-left-radius: 4px;
-        border-top-left-radius: 4px;
-        margin-left: 0; }
-        .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-          content: "\e091";
-          margin-right: 0.5em; }
-      .dataTables_wrapper .dataTables_paginate .paginate_button.next {
-        border-bottom-right-radius: 4px;
-        border-top-right-radius: 4px; }
-        .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
-          content: "\e092";
-          margin-left: 0.5em; }
+      .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
+        content: "\e091";
+        margin-right: 0.5em; }
+      .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
+        content: "\e092";
+        margin-left: 0.5em; }
       .dataTables_wrapper .dataTables_paginate .paginate_button.current {
         background-color: #2572b4;
         border-color: #2572b4;
         color: #fff;
         cursor: default;
         z-index: 2; }
-      .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
-        background-color: #fff !important;
-        border-color: #ddd !important;
-        color: #999999 !important;
-        cursor: default; }
       .dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button:focus, .dataTables_wrapper .dataTables_paginate .paginate_button:active {
         background-color: #d4d6da;
         border-color: #bbbfc5;
@@ -6537,6 +6535,18 @@ table.dataTable {
   margin-left: 0;
   margin-right: 5px; }
 
+[dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.current:first-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px; }
+
+[dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.current:last-child {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0; }
+
 [dir=rtl] .dataTables_wrapper .dataTables_info, [dir=rtl] .dataTables_wrapper .dataTables_length {
   float: right; }
 [dir=rtl] .dataTables_wrapper .dataTables_filter {
@@ -6548,25 +6558,18 @@ table.dataTable {
 [dir=rtl] .dataTables_wrapper .dataTables_paginate {
   padding-top: 0.75em; }
   [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button {
-    display: inline-block; }
-    [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
-      border-bottom-right-radius: 4px;
-      border-top-right-radius: 4px; }
-      [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
-        content: "\e092";
-        margin-left: 0.5em;
-        margin-right: auto; }
-    [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next {
-      border-bottom-left-radius: 4px;
-      border-top-left-radius: 4px;
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0; }
-      [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
-        content: "\e091";
-        margin-left: auto;
-        margin-right: 0.5em; }
+    display: inline-block;
+    line-height: 1.1em; }
+    [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before {
+      content: "\e092";
+      line-height: 0.8em;
+      margin-left: 0.5em;
+      margin-right: auto; }
+    [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
+      content: "\e091";
+      line-height: 0.8em;
+      margin-left: auto;
+      margin-right: 0.5em; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
