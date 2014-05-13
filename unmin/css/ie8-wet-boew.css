@@ -5756,6 +5756,7 @@ img.mfp-img {
   padding: 20px 30px; }
 
 .mfp-close {
+  cursor: pointer !important;
   font-weight: 700;
   /* Should fix upstream in Magnific Popup rather than overriding in WET */ }
 
@@ -7523,6 +7524,13 @@ details:not([open]) > * {
 /*
  Plugins
  */
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+*/
+.ie8 .mfp-close {
+  cursor: hand !important; }
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
