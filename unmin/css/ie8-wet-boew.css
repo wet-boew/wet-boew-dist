@@ -5823,6 +5823,8 @@ img.mfp-img {
 #mb-pnl .srch-pnl, #mb-pnl nav {
   padding: 10px 20px 8px; }
 
+#mb-pnl .srch-pnl form {
+  white-space: nowrap; }
 #mb-pnl .lng-ofr {
   padding: 7px 15px 0;
   text-align: right; }
@@ -5858,8 +5860,6 @@ img.mfp-img {
   padding-left: 1.2em; }
 #mb-pnl details details {
   margin: 6px 0 6px -1.28em; }
-#mb-pnl .srch-pnl form {
-  white-space: nowrap; }
 
 .wb-disable #wb-srch, .wb-disable #wb-sm, .wb-disable #wb-sec, .wb-disable #wb-info {
   display: block !important; }
