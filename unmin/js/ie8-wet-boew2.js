@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.2-development - 2014-05-16
+ * v4.0.2-development - 2014-05-21
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5470,7 +5470,7 @@ var pluginName = "wb-menu",
 			panelDOM = document.getElementById( target ),
 			$panel = $( panelDOM ),
 			allProperties = [],
-			$navCurr, $menuItem, len, i;
+			$navCurr, $menuItem, $langItems, len, i;
 
 		/*
 		 * Build the mobile panel
@@ -5487,12 +5487,16 @@ var pluginName = "wb-menu",
 
 		// Add active language offer
 		if ( $language.length !== 0 ) {
+			$langItems = $language.find( "li:not(.curr)" );
+			len = $langItems.length;
 			panel += "<section class='lng-ofr'>" +
 				"<h3>" + $language.children( "h2" ).html() + "</h3>" +
-				"<ul class='list-inline'>" +
-				$language.find( "li:not(.curr)" ).html()
-					.replace( /(<a\s.*<\/a>?)/, "<li>$1</li>" ) +
-				"</ul></section>";
+				"<ul class='list-inline'>";
+			for ( i = 0; i !== len; i += 1 ) {
+				panel += $langItems[ i ].innerHTML
+					.replace( /(<a\s.*<\/a>?)/, "<li>$1</li>" );
+			}
+			panel += "</ul></section>";
 		}
 
 		// Create menu system
