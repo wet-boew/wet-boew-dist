@@ -6204,7 +6204,7 @@ img.mfp-img {
 /*
   Multimedia Player Code
  */
-.wb-mltmd.audio .wb-mm-ovrly, .wb-mltmd.audio .btn.cc, .xxsmallview .wb-mm-prgrss, .mediumview .col-md-1 .wb-mm-prgrss, .mediumview .col-md-2 .wb-mm-prgrss, .mediumview .col-md-3 .wb-mm-prgrss, .largeview .col-md-1 .wb-mm-prgrss, .largeview .col-md-2 .wb-mm-prgrss, .largeview .col-md-3 .wb-mm-prgrss, .xlargeview .col-md-1 .wb-mm-prgrss, .xlargeview .col-md-2 .wb-mm-prgrss, .xlargeview .col-md-3 .wb-mm-prgrss, .xxlargeview .col-md-1 .wb-mm-prgrss, .xxlargeview .col-md-2 .wb-mm-prgrss, .xxlargeview .col-md-3 .wb-mm-prgrss {
+.wb-mltmd.audio .wb-mm-ovrly, .wb-mltmd.audio .btn.cc, .wb-mltmd.youtube .wb-mm-ovrly, .xxsmallview .wb-mm-prgrss, .mediumview .col-md-1 .wb-mm-prgrss, .mediumview .col-md-2 .wb-mm-prgrss, .mediumview .col-md-3 .wb-mm-prgrss, .largeview .col-md-1 .wb-mm-prgrss, .largeview .col-md-2 .wb-mm-prgrss, .largeview .col-md-3 .wb-mm-prgrss, .xlargeview .col-md-1 .wb-mm-prgrss, .xlargeview .col-md-2 .wb-mm-prgrss, .xlargeview .col-md-3 .wb-mm-prgrss, .xxlargeview .col-md-1 .wb-mm-prgrss, .xxlargeview .col-md-2 .wb-mm-prgrss, .xxlargeview .col-md-3 .wb-mm-prgrss {
   display: none; }
 
 @-webkit-keyframes spin {
