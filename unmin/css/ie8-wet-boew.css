@@ -4335,7 +4335,7 @@ button.close {
   position: static;
   width: inherit; }
 
-.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-icons:after, table.dataTable thead .sorting_disabled .sorting-icons:before, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-icons:after, table.dataTable thead .sorting_disabled .sorting-icons:before, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs [role="tabpanel"].out, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
   display: none; }
 
 .wb-menu .sm.open li {
@@ -6564,10 +6564,10 @@ table.dataTable {
 /**
  * Shared variables
  */
-.wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure, .wb-tabs.carousel-s2.no-overlap figcaption {
+.wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   position: relative; }
 
-.wb-tabs.carousel-s1 [role="tablist"], .wb-tabs.carousel-s2 [role="tablist"] {
+.wb-tabs.carousel-s2 [role="tablist"] {
   position: absolute; }
 
 .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
@@ -6582,9 +6582,12 @@ table.dataTable {
   width: 100%; }
 
 .wb-tabs.carousel-s1 figcaption, .wb-tabs.carousel-s2 figcaption {
+  bottom: 0;
   color: #fff;
+  left: 0;
   padding: 0.5em 1em;
-  position: absolute;
+  position: relative;
+  right: 0;
   z-index: 101; }
 
 .wb-tabs.carousel-s1 figcaption a, .wb-tabs.carousel-s2 figcaption a {
@@ -6597,13 +6600,18 @@ table.dataTable {
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
   border: 0;
-  color: #243850;
+  padding: 10px 5px;
   width: 100%; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
   background: #fff;
   border-radius: 999px;
-  box-shadow: 0 0 4px #243850;
+  box-shadow: 0 0 4px #243850; }
+
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+  color: #243850; }
+
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
   font-size: 1.75em;
   height: 1.75em;
   line-height: 1.75em;
@@ -6614,12 +6622,18 @@ table.dataTable {
 .wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover {
   background: transparent; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a:hover {
   box-shadow: none; }
 
-.wb-tabs.carousel-s1 [role="tablist"] li.active a, .wb-tabs.carousel-s1 [role="tablist"] li:focus a, .wb-tabs.carousel-s1 [role="tablist"] li:hover a, .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active a {
+.wb-tabs.carousel-s1 [role="tablist"] li.active a, .wb-tabs.carousel-s1 [role="tablist"] li:focus a, .wb-tabs.carousel-s1 [role="tablist"] li:hover a {
   border-top: 0;
   padding-top: 10px; }
+
+.wb-tabs [role="tablist"] li, .wb-tabs [role="tablist"] li a, .wb-tabs.carousel-s1 [role="tablist"] li.control, .wb-tabs.carousel-s2 [role="tablist"] li.control {
+  display: inline-block; }
+
+.wb-tabs.carousel-s1 figcaption p, .wb-tabs.carousel-s2 figcaption p {
+  margin-bottom: 0; }
 
 .wb-tabs {
   /**
@@ -6641,13 +6655,11 @@ table.dataTable {
       border: 1px solid #ccc;
       color: #000;
       cursor: pointer;
-      display: inline-block;
       margin: 0 10px 0 0;
       position: relative;
       text-align: center; }
       .wb-tabs [role="tablist"] li a {
         color: #000;
-        display: inline-block;
         padding: 10px;
         text-decoration: none; }
       .wb-tabs [role="tablist"] li:focus, .wb-tabs [role="tablist"] li:hover {
@@ -6664,63 +6676,54 @@ table.dataTable {
           padding-top: 6px; }
   .wb-tabs [role="tabpanel"] {
     z-index: 1; }
-    .wb-tabs [role="tabpanel"].out {
-      display: none; }
-  .wb-tabs.carousel-s1 [role="tablist"] {
-    bottom: 1em;
-    left: 1em; }
-    .wb-tabs.carousel-s1 [role="tablist"] li.active, .wb-tabs.carousel-s1 [role="tablist"] li:focus, .wb-tabs.carousel-s1 [role="tablist"] li:hover {
-      top: 1px; }
-  .wb-tabs.carousel-s1 figcaption {
-    right: 1em;
-    top: 3em; }
+  .wb-tabs.carousel-s1 {
+    border-top: 0; }
+    .wb-tabs.carousel-s1 [role="tablist"] {
+      bottom: 1em;
+      left: 1em;
+      position: static; }
+      .wb-tabs.carousel-s1 [role="tablist"] li.tab-count {
+        background: none;
+        border: 0; }
+        .wb-tabs.carousel-s1 [role="tablist"] li.tab-count .curr-count {
+          display: inline; }
+        .wb-tabs.carousel-s1 [role="tablist"] li.tab-count.active, .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:focus, .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:hover {
+          cursor: default;
+          top: 0; }
+      .wb-tabs.carousel-s1 [role="tablist"] li.active, .wb-tabs.carousel-s1 [role="tablist"] li:focus, .wb-tabs.carousel-s1 [role="tablist"] li:hover {
+        top: 1px; }
   .wb-tabs.carousel-s2 {
-    margin-bottom: 94px; }
+    background: #eee;
+    padding-bottom: 4.375em; }
     .wb-tabs.carousel-s2 [role="tablist"] {
-      height: 100%;
+      bottom: 0;
       width: 100%; }
       .wb-tabs.carousel-s2 [role="tablist"] li {
         background: transparent;
-        border: 0;
-        display: none; }
-        .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] {
-          background: #eee;
-          background: rgba(238, 238, 238, 0.9);
-          display: inline-block;
-          padding: 4px;
-          top: 100%; }
-          .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active, .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"]:focus, .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"]:hover {
-            box-shadow: 0 0 4px #243850; }
-          .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"].active a img {
-            /* Firefox 10+, Firefox on Android */
-            filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0'/></filter></svg>#grayscale");
-            /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-            -webkit-filter: grayscale(0); }
-          .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"] a img {
-            box-shadow: none;
-            /* Firefox 10+, Firefox on Android */
-            filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
-            /* IE6-9 */
-            filter: #808080;
-            /* Chrome 19+, Safari 6+, Safari 6+ iOS */
-            -webkit-filter: grayscale(100%);
-            max-height: 50px; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.control {
-          display: inline-block; }
+        border: 0; }
+        .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
+          padding-left: 1em; }
         .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
           background: none;
           border: 0;
-          display: inline-block !important;
-          padding: 2px 10px;
-          top: 100%; }
-          .wb-tabs.carousel-s2 [role="tablist"] li.plypause span {
-            color: #000 !important; }
-    .wb-tabs.carousel-s2 figcaption {
-      bottom: 0;
-      left: 0;
-      right: 0; }
-      .wb-tabs.carousel-s2 figcaption p {
-        margin-bottom: 0; }
+          float: right;
+          margin-right: 0;
+          padding: 2px 0; }
+          .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+            font-size: 1.5em;
+            margin-top: 0.4em;
+            margin-right: 0.65em;
+            padding: 8px 10px 4px; }
+        .wb-tabs.carousel-s2 [role="tablist"] li.tab-count {
+          line-height: normal; }
+          .wb-tabs.carousel-s2 [role="tablist"] li.tab-count > div {
+            position: relative;
+            top: 0.4em; }
+          .wb-tabs.carousel-s2 [role="tablist"] li.tab-count .curr-count {
+            font-size: 1.5em; }
+          .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:focus, .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:hover {
+            background: transparent;
+            cursor: default; }
   .wb-tabs > details {
     padding: 6px 12px; }
 
@@ -7092,63 +7095,14 @@ details:not([open]) > * {
   [dir=rtl] .dataTables_wrapper .dataTables_filter {
     float: right;
     text-align: right; }
-  .wb-tabs.carousel-s1 [role="tablist"] li[role="presentation"], .wb-tabs.carousel-s2 [role="tablist"] li[role="presentation"], .wb-tabs.tabs-acc > ul {
-    display: none; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.tab-count .curr-count, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
-    font-size: 1.5em; }
   .wb-tabs > details {
     padding: 6px 12px; }
   .wb-tabs {
     border-radius: 4px;
     border-top: 1px solid #adadad;
     margin-bottom: 15px; }
-    .wb-tabs.carousel-s1 figcaption, .wb-tabs.carousel-s2 figcaption {
-      bottom: 0;
-      left: 0;
-      position: relative;
-      right: 0;
-      top: auto; }
-    .wb-tabs.carousel-s1 {
-      border-top: 0; }
-      .wb-tabs.carousel-s1 [role="tablist"] {
-        position: static; }
-        .wb-tabs.carousel-s1 [role="tablist"] li.tab-count {
-          background: none;
-          border: 0; }
-          .wb-tabs.carousel-s1 [role="tablist"] li.tab-count .curr-count {
-            display: inline; }
-          .wb-tabs.carousel-s1 [role="tablist"] li.tab-count.active, .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:focus, .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:hover {
-            cursor: default;
-            top: 0; }
-    .wb-tabs.carousel-s2 {
-      background: #eee;
-      margin-bottom: auto;
-      padding-bottom: 4.375em; }
-      .wb-tabs.carousel-s2 [role="tablist"] {
-        bottom: 0;
-        height: auto;
-        margin-top: -4.375em; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.control {
-          top: 100%; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
-          padding-left: 1em; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.tab-count {
-          line-height: normal; }
-          .wb-tabs.carousel-s2 [role="tablist"] li.tab-count > div {
-            position: relative;
-            top: 0.4em; }
-          .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:focus, .wb-tabs.carousel-s2 [role="tablist"] li.tab-count:hover {
-            background: transparent;
-            cursor: default; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
-          float: right;
-          margin-right: 0;
-          padding-right: 1em; }
-          .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
-            margin-top: 0.3em;
-            padding-right: 0; }
-      .wb-tabs.carousel-s2 figcaption {
-        margin: auto; }
+    .wb-tabs.tabs-acc > ul {
+      display: none; }
     .wb-tabs > details {
       border: 1px solid #adadad;
       border-top: 0; }
@@ -7285,46 +7239,6 @@ details:not([open]) > * {
     position: absolute;
     bottom: 0;
     top: auto; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv, .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
-    bottom: 0;
-    height: 100%;
-    top: 0;
-    width: 3em; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv a, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    top: 0; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
-    bottom: 0;
-    position: absolute;
-    top: 0; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.nxt, .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
-    right: 0; }
-  .wb-tabs.carousel-s1 figcaption, .wb-tabs.carousel-s2 figcaption {
-    background: #243850;
-    background: rgba(36, 56, 80, 0.9); }
-  .wb-tabs.carousel-s1 [role="tablist"] li.tab-count, .wb-tabs.carousel-s2 [role="tablist"] li.tab-count {
-    display: none; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.control {
-    position: absolute; }
-  .wb-tabs.carousel-s2 [role="tablist"] li.prv {
-    left: 0; }
-    .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%); }
-      .wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon {
-        bottom: 0;
-        left: 0.25em;
-        padding-right: 2px;
-        padding-top: 1px; }
-      .wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover {
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%); }
-  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%); }
-    .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
-      right: 0.25em; }
-    .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover {
-      background-image: linear-gradient(to left, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%); }
   .wb-tabs > details {
     border: 1px solid #ccc;
     display: none;
@@ -7389,6 +7303,20 @@ details:not([open]) > * {
     min-width: 65%; }
   .dataTables_wrapper .dataTables_length {
     width: 100%; }
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv, .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
+    margin-right: 1.5%; }
+  .wb-tabs.carousel-s2 [role="tablist"] li.prv {
+    margin-left: 1%; }
+    .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
+      padding: 10px 0 10px 0.4em; }
+  .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
+    padding: 10px 0; }
+  .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
+    margin-right: 2.5%; }
+    .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+      font-size: 1.3em;
+      margin-right: 0;
+      padding: 12px 10px 7px; }
   .wb-tabs .tab-count {
     display: none !important; } }
 
