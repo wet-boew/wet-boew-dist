@@ -21,7 +21,7 @@
   padding: 0; }
 
 .fd-form-element-hidden, .fd-slider-inner {
-  display: none; }
+  display: none !important; }
 
 
 .fd-slider-handle, #html5shim-4 {
