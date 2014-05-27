@@ -6300,7 +6300,7 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
  */
-table.dataTable, .dataTables_wrapper .dataTables_scroll, .ie8 .dataTables_wrapper .dataTables_scroll {
+table.dataTable, .dataTables_wrapper .dataTables_scroll, .lt-ie9 .dataTables_wrapper .dataTables_scroll {
   clear: both; }
 
 table.dataTable thead th:active, table.dataTable thead td:active {
@@ -7464,7 +7464,7 @@ details:not([open]) > * {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
 */
-.ie8 .mfp-close {
+.lt-ie9 .mfp-close {
   cursor: hand !important; }
 
 /*
@@ -7474,32 +7474,32 @@ details:not([open]) > * {
 /*
  *	Overlay base
  */
-.ie8 .wb-panel-r, .ie8[dir=rtl] .wb-panel-l {
+.lt-ie9 .wb-panel-r, .lt-ie9[dir=rtl] .wb-panel-l {
   border-left: 1px solid #999; }
 
-.ie8 .wb-panel-l, .ie8[dir=rtl] .wb-panel-r {
+.lt-ie9 .wb-panel-l, .lt-ie9[dir=rtl] .wb-panel-r {
   border-right: 1px solid #999; }
 
-.ie8 .wb-bar-t {
+.lt-ie9 .wb-bar-t {
   border-bottom: 1px solid #999; }
-.ie8 .wb-bar-b {
+.lt-ie9 .wb-bar-b {
   border-top: 1px solid #999; }
-.ie8[dir=rtl] .wb-panel-l {
+.lt-ie9[dir=rtl] .wb-panel-l {
   border-right: 0; }
-.ie8[dir=rtl] .wb-panel-r {
+.lt-ie9[dir=rtl] .wb-panel-r {
   border-left: 0; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
 */
-.ie8 table.dataTable thead .sorting, .ie8 table.dataTable thead .sorting_asc, .ie8 table.dataTable thead .sorting_desc {
+.lt-ie9 table.dataTable thead .sorting, .lt-ie9 table.dataTable thead .sorting_asc, .lt-ie9 table.dataTable thead .sorting_desc {
   cursor: hand; }
-.ie8 .dataTables_wrapper {
+.lt-ie9 .dataTables_wrapper {
   zoom: 1; }
-  .ie8 .dataTables_wrapper .dataTables_paginate .paginate_button {
+  .lt-ie9 .dataTables_wrapper .dataTables_paginate .paginate_button {
     cursor: hand; }
-  .ie8 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
+  .lt-ie9 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
     margin-top: -1px; }
 
 /*
@@ -7520,7 +7520,7 @@ details:not([open]) > * {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-  .ie8 .wb-fnote dd, .ie8 .wb-fnote .fn-rtn {
+  .lt-ie9 .wb-fnote dd, .lt-ie9 .wb-fnote .fn-rtn {
     display: block; }
-  .ie8 .wb-fnote p {
+  .lt-ie9 .wb-fnote p {
     display: inline-block; } }
