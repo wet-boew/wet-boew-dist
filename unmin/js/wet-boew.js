@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-05-26
+ * v4.0.3-development - 2014-05-27
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -466,7 +466,7 @@ Modernizr.load([
 	wb.jqEscape = function( selector ) {
 		return selector.replace( /([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, "\\$1" );
 	};
-	
+
 	// RegEx used by formattedNumCompare
 	wb.formattedNumCompareRegEx = /(<[^>]*>|[^\d\.])/g;
 
@@ -493,7 +493,7 @@ Modernizr.load([
 	wb.i18nTextCompare = function( a, b ) {
 		return wb.normalizeDiacritics( a ).localeCompare( wb.normalizeDiacritics( b ) );
 	};
-	
+
 	// Based upon https://gist.github.com/instanceofme/1731620
 	// Licensed under WTFPL v2 http://sam.zoy.org/wtfpl/COPYING
 	wb.normalizeDiacritics = function( str ) {
