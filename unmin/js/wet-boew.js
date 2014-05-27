@@ -2415,7 +2415,7 @@ var $document = wb.doc,
 			maxDate = eventData.maxDate,
 			$monthField = eventData.$monthField,
 			minMonth = 0,
-			maxMonth = 11,
+			maxMonth = 12,
 			monthNames = i18nText.monthNames,
 			month, i;
 
@@ -2436,7 +2436,7 @@ var $document = wb.doc,
 		}
 
 		for ( i = minMonth; i !== maxMonth; i += 1 ) {
-			$monthField.append( "<option value='" + i + "'" + ( (i === month ) ? " selected='selected'" : "" ) +
+			$monthField.append( "<option value='" + i + "'" + ( ( i === month ) ? " selected='selected'" : "" ) +
 				">" + monthNames[ i ] + "</option>" );
 		}
 	},
