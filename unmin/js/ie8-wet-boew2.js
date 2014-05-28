@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-05-27
+ * v4.0.3-development - 2014-05-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7145,7 +7145,8 @@ var $document = wb.doc,
 			localBreadcrumbQuery, localBreadcrumbLinkUrl;
 
 		// Try to find a match with the page Url and cache link + Url for later if no match found
-		for ( i = 0; i !== len; i += 1 ) {
+		// Perform the check and caching in reverse to go from more specific links to more general links
+		for ( i = len - 1; i !== -1; i -= 1 ) {
 			link = menuLinks[ i ];
 			linkHref = link.getAttribute( "href" );
 			if ( linkHref !== null ) {
@@ -7174,7 +7175,7 @@ var $document = wb.doc,
 				localBreadcrumbLinksUrlArray = [];
 				localBreadcrumbLinks = ( breadcrumb.jquery ? breadcrumb[ 0 ] : breadcrumb ).getElementsByTagName( "a" );
 				len = localBreadcrumbLinks.length;
-				for ( i = 0; i !== len; i += 1) {
+				for ( i = 0; i !== len; i += 1 ) {
 					link = localBreadcrumbLinks[ i ];
 					linkHref = link.getAttribute( "href" );
 					if ( linkHref.length !== 0 && linkHref.charAt( 0 ) !== "#" ) {
