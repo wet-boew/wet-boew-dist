@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-05-30
+ * v4.0.3-development - 2014-06-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -8681,10 +8681,6 @@ var pluginName = "wb-share",
 			stumbleupon: {
 				name: "StumbleUpon",
 				url: "http://www.stumbleupon.com/submit?url={u}&amp;title={t}"
-			},
-			technorati: {
-				name: "Technorati",
-				url: "http://www.technorati.com/faves?add={u}"
 			},
 			tumblr: {
 				name: "tumblr",

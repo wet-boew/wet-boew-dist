@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-05-30
+ * v4.0.3-development - 2014-06-03
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -6591,18 +6591,15 @@ ol.linenums {
 .wb-share .stumbleupon:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -416px; }
-.wb-share .technorati:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -448px; }
 .wb-share .tumblr:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -480px; }
+  background-position: 0 -448px; }
 .wb-share .twitter:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -512px; }
+  background-position: 0 -480px; }
 .wb-share .yahoomail:before {
   background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -544px; }
+  background-position: 0 -512px; }
 .wb-share .shr-pg {
   text-align: left; }
 .wb-share ul {
