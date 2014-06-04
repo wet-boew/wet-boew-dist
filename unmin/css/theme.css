@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-06-03
+ * v4.0.3-development - 2014-06-04
  *
  *//*
  *
@@ -132,37 +132,6 @@
 [dir=rtl] #wb-bc li:first-child:after {
   content: "";
   padding: 0; }
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-.cal-cnt .cal-hd, .cal-cnt .cal-nxtmnth.active:hover, .cal-cnt .cal-nxtmnth.active:focus, .cal-cnt .cal-prvmnth.active:hover, .cal-cnt .cal-prvmnth.active:focus, .cal-currday {
-  color: #fff; }
-
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr {
-  color: #000; }
-
-.cal-cnt .cal-goto-lnk, .cal-days a:hover, .cal-days a:focus, .cal-currday a {
-  color: #fff !important; }
-
-.cal-cnt .cal-hd, .cal-days a:hover, .cal-days a:focus {
-  background: #333; }
-
-.cal-currday, .cal-currday a {
-  background-color: #333; }
-
-.cal-cnt .cal-wd {
-  background: #555;
-  border-color: #333; }
-.cal-cnt .cal-hd {
-  font-weight: 700; }
-.cal-cnt .cal-nxtmnth.active, .cal-cnt .cal-prvmnth.active {
-  color: #ccc; }
-
-.cal-days a {
-  color: #111; }
-
 
 /*
  Site information
