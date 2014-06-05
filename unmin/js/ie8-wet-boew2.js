@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-06-04
+ * v4.0.3-development - 2014-06-05
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1259,11 +1259,14 @@ $document.on( "ajax-fetch.wb", function( event ) {
 	if ( event.currentTarget === event.target ) {
 
 		$( "<div id='" + wb.guid() + "' />" )
-			.load( url, function() {
+			.load( url, function( response, status, xhr ) {
 				$( caller )
 					.trigger( {
 						type: "ajax-fetched.wb",
-						pointer: $( this )
+						pointer: $( this ),
+						response: response,
+						status: status,
+						xhr: xhr
 					});
 			});
 	}
@@ -3725,14 +3728,18 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, functi
 			content = event.pointer.html();
 			$elm.removeAttr( "data-ajax-" + ajaxType );
 
-			// "replace" is the only event that doesn't map to a jQuery function
-			if ( ajaxType === "replace") {
-				$elm.html( content );
-			} else {
-				$elm[ ajaxType ]( content );
-			}
+			// Only complete the action if there wasn't an error
+			if ( event.status !== "error" ) {
 
-			$elm.trigger( pluginName + "-" + ajaxType + "-loaded.wb" );
+				// "replace" is the only event that doesn't map to a jQuery function
+				if ( ajaxType === "replace") {
+					$elm.html( content );
+				} else {
+					$elm[ ajaxType ]( content );
+				}
+
+				$elm.trigger( pluginName + "-" + ajaxType + "-loaded.wb" );
+			}
 		}
 	}
 
@@ -5785,7 +5792,12 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, functi
 
 		// Filter out any events triggered by descendants
 		if ( event.currentTarget === elm ) {
-			onAjaxLoaded( $elm, event.pointer );
+
+			// Only replace the menu if there isn't an error
+			onAjaxLoaded(
+				$elm,
+				event.status !== "error" ? event.pointer : $elm
+			);
 		}
 		return false;
 
