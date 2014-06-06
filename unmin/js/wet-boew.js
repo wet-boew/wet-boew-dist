@@ -1893,12 +1893,8 @@ var pluginName = "wb-calevt",
 					link = "#" + linkId;
 				}
 
-				/*
-				 * Modification XHTML 1.0 strict compatible
-				 *   - XHTML 1.0 Strict does not contain the time element
-				 */
 				date = new Date();
-				tCollection = event.find( "time, span.datetime" );
+				tCollection = event.find( "time" );
 
 				/*
 				 * Date spanning capability
@@ -2028,32 +2024,40 @@ var pluginName = "wb-calevt",
 		}
 	},
 
-	mouseOnDay = function( dayEvents ) {
-		dayEvents.dequeue()
+	mouseOnDay = function( $dayEvents ) {
+		$dayEvents.dequeue()
 			.removeClass( "wb-inv" )
 			.addClass( evDetails );
 	},
 
-	mouseOutDay = function( dayEvents ) {
-		dayEvents.delay( 100 ).queue(function() {
+	mouseOutDay = function( $dayEvents ) {
+		$dayEvents.delay( 100 ).queue(function() {
 			$( this ).removeClass( evDetails )
 				.addClass( "wb-inv" )
 				.dequeue();
 		});
 	},
 
-	focus = function( dayEvents ) {
-		dayEvents.removeClass( "wb-inv" )
-			.addClass( evDetails );
+	focus = function( $dayEvents ) {
+		$dayEvents
+			.closest( ".cal-days" )
+				.find( "a[tabindex=0]" )
+					.attr( "tabindex", "-1" );
+		$dayEvents
+			.removeClass( "wb-inv" )
+			.addClass( evDetails )
+			.find( "a" )
+				.attr( "tabindex", "0" );
+		$dayEvents.prev( "a" ).attr( "tabindex", "0" );
 	},
 
-	blur = function( dayEvents ) {
+	blur = function( $dayEvents ) {
 		setTimeout(function() {
-			var $elm = dayEvents;
-
-			if ( $elm.find( "a:focus" ).length === 0 ) {
-				$elm.removeClass( evDetails )
-					.addClass( "wb-inv" );
+			if ( $dayEvents.find( "a:focus" ).length === 0 ) {
+				$dayEvents.removeClass( evDetails )
+					.addClass( "wb-inv" )
+					.find( "a" )
+						.attr( "tabindex", "-1" );
 			}
 		}, 5);
 	},
@@ -2095,10 +2099,10 @@ var pluginName = "wb-calevt",
 	addEvents = function( year, month, days, containerId, eventsList ) {
 		var i, eLen, date, day, content, dayEvents, link, eventDetails, itemLink;
 
-		// Fix required to make up with the IE z-index behavior mismatch
-		days.each(function( index, day ) {
-			$( day ).css( "z-index", 31 - index );
-		});
+		// Fix required to make up with the IE z-index behaviour mismatch
+		for ( i = 0, eLen = days.length; i !== eLen; i += 1 ) {
+			days.eq( i ).css( "z-index", 31 - i );
+		}
 
 		/*
 		 * Determines for each event, if it occurs in the display month
@@ -2119,7 +2123,8 @@ var pluginName = "wb-calevt",
 				// Lets see if the cell is empty is so lets create the cell
 				if ( day.children( "a" ).length < 1 ) {
 					day.empty();
-					link = $( "<a href='#ev-" + day.attr( "id" ) + "' class='cal-evt'>" + content + "</a>" );
+					link = $( "<a href='#ev-" + day.attr( "id" ) +
+						"' class='cal-evt' tabindex='-1'>" + content + "</a>" );
 					day.append( link );
 					dayEvents = $( "<ul class='wb-inv'></ul>" );
 
@@ -2129,6 +2134,7 @@ var pluginName = "wb-calevt",
 						.append( dayEvents );
 
 				} else {
+
 					/*
 					 * Modification - added an else to the date find due to
 					 * event collisions not being handled. So the pointer was
@@ -2137,7 +2143,7 @@ var pluginName = "wb-calevt",
 					dayEvents = day.find( "ul.wb-inv" );
 				}
 
-				eventDetails = $( "<li><a tabindex='-1' href='" + eventsList[ i ].href + "'>" + eventsList[ i ].title + "</a></li>" );
+				eventDetails = $( "<li><a tabindex='-1' class='cal-evt-lnk' href='" + eventsList[ i ].href + "'>" + eventsList[ i ].title + "</a></li>" );
 
 				dayEvents.append( eventDetails );
 
@@ -2146,6 +2152,8 @@ var pluginName = "wb-calevt",
 				itemLink.on( "keydown blur focus", { details: dayEvents }, keyboardEvents );
 			}
 		}
+
+		days.find( ".cal-evt" ).attr( "tabindex", "0" );
 	},
 
 	showOnlyEventsFor = function( year, month, calendarId ) {
@@ -2694,7 +2702,12 @@ $document.on( "keydown", ".cal-days a", function( event ) {
 		fieldId = $container.attr( "aria-controls" ),
 		which = event.which,
 		fromDateISO = wb.date.fromDateISO,
-		date = fromDateISO( elm.getElementsByTagName( "time" )[ 0 ].getAttribute( "datetime" ) ),
+		date = fromDateISO(
+			(
+				elm.className.indexOf( "cal-evt-lnk" ) === -1 ?
+					elm : elm.parentNode.parentNode.previousSibling
+			).getElementsByTagName( "time" )[ 0 ].getAttribute( "datetime" )
+		),
 		currYear = date.getFullYear(),
 		currMonth = date.getMonth(),
 		currDay = date.getDate(),
