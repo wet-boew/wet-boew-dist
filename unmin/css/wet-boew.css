@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-06-05
+ * v4.0.3-development - 2014-06-06
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -6566,7 +6566,7 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.wb-share .shr-lnk {
+.shr-pg .shr-lnk {
   font-size: 115%;
   line-height: 32px;
   margin-bottom: 8px;
@@ -6574,87 +6574,89 @@ ol.linenums {
   text-align: left;
   text-decoration: none;
   width: 100%; }
-  .wb-share .shr-lnk:before {
+  .shr-pg .shr-lnk:before {
     content: " ";
     display: inline-block;
     height: 32px;
     margin-right: 0.6em;
     vertical-align: middle;
     width: 32px; }
-.wb-share .bitly:before {
+.shr-pg .shr-dscl {
+  padding-bottom: 0; }
+.shr-pg .bitly:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 0; }
-.wb-share .blogger:before {
+.shr-pg .blogger:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -32px; }
-.wb-share .delicious:before {
+.shr-pg .delicious:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -64px; }
-.wb-share .digg:before {
+.shr-pg .digg:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -96px; }
-.wb-share .diigo:before {
+.shr-pg .diigo:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -128px; }
-.wb-share .email:before {
+.shr-pg .email:before {
   content: "\2709";
   display: inline-block;
   font-family: "Glyphicons Halflings";
   font-size: 32px;
   margin-right: 0.3em; }
-.wb-share .facebook:before {
+.shr-pg .facebook:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -160px; }
-.wb-share .feed:before {
+.shr-pg .feed:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -192px; }
-.wb-share .gmail:before {
+.shr-pg .gmail:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -224px; }
-.wb-share .googleplus:before {
+.shr-pg .googleplus:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -256px; }
-.wb-share .linkedin:before {
+.shr-pg .linkedin:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -288px; }
-.wb-share .myspace:before {
+.shr-pg .myspace:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -320px; }
-.wb-share .pinterest:before {
+.shr-pg .pinterest:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -352px; }
-.wb-share .reddit:before {
+.shr-pg .reddit:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -384px; }
-.wb-share .stumbleupon:before {
+.shr-pg .stumbleupon:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -416px; }
-.wb-share .tumblr:before {
+.shr-pg .tumblr:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -448px; }
-.wb-share .twitter:before {
+.shr-pg .twitter:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -480px; }
-.wb-share .yahoomail:before {
+.shr-pg .yahoomail:before {
   background: url("../assets/sprites_share.png") no-repeat;
   background-position: 0 -512px; }
-.wb-share .shr-pg {
+.shr-pg .shr-pg {
   text-align: left; }
-.wb-share ul {
+.shr-pg ul {
   list-style-type: none;
   margin: 10px;
   padding: 0; }
 
-[dir=rtl] .wb-share .shr-lnk {
+[dir=rtl] .shr-pg {
   text-align: right; }
-  [dir=rtl] .wb-share .shr-lnk:before {
-    margin-left: 0.4em;
-    margin-right: auto; }
-[dir=rtl] .wb-share .email:before {
+  [dir=rtl] .shr-pg .shr-lnk {
+    text-align: right; }
+    [dir=rtl] .shr-pg .shr-lnk:before {
+      margin-left: 0.4em;
+      margin-right: auto; }
+[dir=rtl] .email:before {
   margin-left: 0.6em;
   margin-right: auto; }
-[dir=rtl] .wb-share .shr-pg {
-  text-align: right; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
