@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-06-07
+ * v4.0.3-development - 2014-06-09
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9216,6 +9216,23 @@ $document.on( "keydown", selector + " [role=tabpanel]", function( event ) {
 					.trigger( "setfocus.wb" );
 	}
 });
+
+// Stop the carousel if there is a click within the panel
+$document.on( "click", selector + " [role=tabpanel]", function( event ) {
+	var which = event.which,
+		$container;
+
+	// Ignore middle and right mouse buttons
+	if ( ( !which || which === 1 ) ) {
+		$container = $( event.currentTarget ).closest( selector );
+
+		// Stop the carousel if there is a click within a panel
+		if ( $container.hasClass( "playing" ) ) {
+			$container.find( ".plypause" ).trigger( "click" );
+		}
+	}
+});
+
 // Handling for links to tabs from within a panel
 $document.on( "click", selector + " [role=tabpanel] a", function( event ) {
 	var currentTarget = event.currentTarget,
