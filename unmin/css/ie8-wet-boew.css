@@ -6043,6 +6043,8 @@ img.mfp-img {
       background: #fff;
       border: 0;
       color: #000; }
+  .wb-mltmd .wb-share {
+    text-align: right; }
 
 .wb-mm-cc {
   background-color: #000;
