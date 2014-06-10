@@ -6632,6 +6632,9 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+.shr-opn span {
+  padding-right: 0.2em; }
+
 .shr-pg .shr-lnk {
   font-size: 115%;
   line-height: 32px;
@@ -6713,6 +6716,9 @@ ol.linenums {
   margin: 10px;
   padding: 0; }
 
+[dir=rtl] .shr-opn span {
+  padding-left: 0.2em;
+  padding-right: 0; }
 [dir=rtl] .shr-pg {
   text-align: right; }
   [dir=rtl] .shr-pg .shr-lnk {
