@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Duraklat",
 	open: "Açık",
 	close: "Kapat",
-	rew: "Geri sar",
-	ffwd: "Hızlı sar",
+	volume: "Volume",
 	mute: {
 		on: "Sessiz",
 		off: "Sesi aç"

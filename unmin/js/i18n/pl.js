@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pauza",
 	open: "Otwórz",
 	close: "Zamknij",
-	rew: "Przewiń do tyłu",
-	ffwd: "Szybkie przewijanie do przodu",
+	volume: "Volume",
 	mute: {
 		on: "Bez dźwięku",
 		off: "Przywróć dźwięk"

@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "ठहराव",
 	open: "खुला",
 	close: "पास",
-	rew: "उल्टा",
-	ffwd: "तेजी से आगे",
+	volume: "Volume",
 	mute: {
 		on: "म्यूट",
 		off: "अनम्यूट"

@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pauze",
 	open: "Atvērt",
 	close: "Aizvērt",
-	rew: "Attīt atpakaļ",
-	ffwd: "Ātrā pārtīšana",
+	volume: "Volume",
 	mute: {
 		on: "Izslēgt skaņu",
 		off: "Ieslēgt skaņu"

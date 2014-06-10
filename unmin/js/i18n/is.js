@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Brot",
 	open: "Opinn",
 	close: "Loka",
-	rew: "Baka",
-	ffwd: "Fljótur áfram",
+	volume: "Volume",
 	mute: {
 		on: "Hljóðnemi",
 		off: "Slökkva"

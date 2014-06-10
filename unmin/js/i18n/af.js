@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pause",
 	open: "Oop",
 	close: "Close",
-	rew: "Rewind",
-	ffwd: "Vinnig vorentoe",
+	volume: "Volume",
 	mute: {
 		on: "Stom",
 		off: "Ontdemp"

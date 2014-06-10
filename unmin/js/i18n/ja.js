@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "一時停止",
 	open: "開く",
 	close: "閉じる",
-	rew: "巻き戻し",
-	ffwd: "早送り",
+	volume: "Volume",
 	mute: {
 		on: "ミュート",
 		off: "ミュート解除"

@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pushim",
 	open: "Hapur",
 	close: "Afër",
-	rew: "Rewind",
-	ffwd: "Fast përpara",
+	volume: "Volume",
 	mute: {
 		on: "Memec",
 		off: "Çheshtja"

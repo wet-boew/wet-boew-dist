@@ -4393,7 +4393,7 @@ button.close {
 /*
  Global placeholders
  */
-.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, #wb-lng h2, .wb-fnote dt, #mb-pnl .srch-pnl label, .wb-mm-ctrls .wb-mm-txtonly span {
+.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, #wb-lng h2, .wb-fnote dt, #mb-pnl .srch-pnl label {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   margin: 0;
@@ -4401,7 +4401,7 @@ button.close {
   position: absolute;
   width: 1px; }
 
-.wb-show-onfocus:focus, .wb-sl:focus, .xxsmallview .wb-mm-txtonly span ~ span, .mediumview .col-md-1 .wb-mm-txtonly span ~ span, .mediumview .col-md-2 .wb-mm-txtonly span ~ span, .mediumview .col-md-3 .wb-mm-txtonly span ~ span, .largeview .col-md-1 .wb-mm-txtonly span ~ span, .largeview .col-md-2 .wb-mm-txtonly span ~ span, .largeview .col-md-3 .wb-mm-txtonly span ~ span, .xlargeview .col-md-1 .wb-mm-txtonly span ~ span, .xlargeview .col-md-2 .wb-mm-txtonly span ~ span, .xlargeview .col-md-3 .wb-mm-txtonly span ~ span, .xxlargeview .col-md-1 .wb-mm-txtonly span ~ span, .xxlargeview .col-md-2 .wb-mm-txtonly span ~ span, .xxlargeview .col-md-3 .wb-mm-txtonly span ~ span {
+.wb-show-onfocus:focus, .wb-sl:focus {
   clip: rect(auto, auto, auto, auto);
   height: inherit;
   margin: inherit;
@@ -6242,8 +6242,15 @@ img.mfp-img {
 /*
   Multimedia Player Code
  */
-.wb-mltmd.audio .wb-mm-ovrly, .wb-mltmd.audio .btn.cc, .wb-mltmd.youtube .wb-mm-ovrly, .xxsmallview .wb-mm-prgrss, .mediumview .col-md-1 .wb-mm-prgrss, .mediumview .col-md-2 .wb-mm-prgrss, .mediumview .col-md-3 .wb-mm-prgrss, .largeview .col-md-1 .wb-mm-prgrss, .largeview .col-md-2 .wb-mm-prgrss, .largeview .col-md-3 .wb-mm-prgrss, .xlargeview .col-md-1 .wb-mm-prgrss, .xlargeview .col-md-2 .wb-mm-prgrss, .xlargeview .col-md-3 .wb-mm-prgrss, .xxlargeview .col-md-1 .wb-mm-prgrss, .xxlargeview .col-md-2 .wb-mm-prgrss, .xxlargeview .col-md-3 .wb-mm-prgrss {
+.wb-mltmd.audio .wb-mm-ovrly, .wb-mltmd.audio .lastpnl, .wb-mltmd.youtube .wb-mm-ovrly {
   display: none; }
+
+.wb-mltmd .btn:focus, .wb-mltmd .display .wb-mm-ovrly:focus, .wb-mm-ctrls progress:focus, .wb-mm-ctrls input[type=range]:focus {
+  outline: 1px solid #4aafff; }
+
+.wb-mm-ctrls .fd-slider-bar, .wb-mm-ctrls .fd-slider-range {
+  background: #aaa;
+  border: 0; }
 
 @-webkit-keyframes spin {
   from {
@@ -6278,6 +6285,11 @@ img.mfp-img {
   max-height: 0;
   padding: 0; }
 
+.wb-mm-cc:before, .wb-mm-cc div {
+  display: table-cell;
+  height: 3em;
+  vertical-align: middle; }
+
 .wb-mltmd {
   display: block;
   /*
@@ -6291,11 +6303,8 @@ img.mfp-img {
     border: 0;
     border-top-left-radius: 0 !important;
     border-top-right-radius: 0 !important;
-    color: #fff; }
-  .wb-mltmd progress:focus, .wb-mltmd .btn:focus {
-    outline: 1px dotted #fff; }
-  .wb-mltmd.audio .lastpnl {
-    width: 3em; }
+    color: #fff;
+    font-size: 130%; }
   .wb-mltmd .display {
     background: #000;
     position: relative; }
@@ -6325,9 +6334,7 @@ img.mfp-img {
   .wb-mltmd .wb-mm-ovrly {
     background: transparent;
     border: 0;
-    direction: ltr;
-    padding: 0;
-    text-indent: -9999px; }
+    padding: 0; }
     .wb-mltmd .wb-mm-ovrly img {
       width: 100%; }
     .wb-mltmd .wb-mm-ovrly.playing img {
@@ -6335,10 +6342,15 @@ img.mfp-img {
     .wb-mltmd .wb-mm-ovrly.playing .errmsg {
       display: none; }
   .wb-mltmd.cc_on .wb-mm-cc {
-    max-height: 999em;
+    display: table;
+    height: 4em;
     padding: 0.5em; }
-  .wb-mltmd.cc_on .cc {
-    opacity: 1; }
+  .wb-mltmd.cc_on .cc:after {
+    border-bottom: 3px solid #4aafff;
+    content: " ";
+    display: block;
+    margin-left: -2px;
+    width: 1.2em; }
   .wb-mltmd.youtube .wb-mm-ctrls {
     border-bottom: 10px solid #fff;
     margin-top: -35px; }
@@ -6358,51 +6370,105 @@ img.mfp-img {
   color: #fff;
   text-align: center;
   -webkit-transition: all 0.26s ease;
-  transition: all 0.26s ease; }
+  transition: all 0.26s ease;
+  width: 100%; }
+  .wb-mm-cc:before {
+    content: " "; }
 
 .wb-mm-ctrls .frstpnl, .wb-mm-ctrls .lastpnl, .wb-mm-ctrls .tline {
   display: table-cell;
   vertical-align: middle; }
 
 .wb-mm-ctrls {
-  background: #000;
+  background: #3e3e3e;
   color: #fff;
   display: table;
+  padding-top: 2em;
   position: relative;
   width: 100%;
-  /* Progress Bar */ }
+  /* Progress Bar */
+  /* Slider polyfill styles */ }
   .wb-mm-ctrls .frstpnl {
     text-align: center;
-    width: 8em; }
+    width: 13em; }
   .wb-mm-ctrls .lastpnl {
     text-align: center;
-    width: 6em; }
-  .wb-mm-ctrls .tline .wb-mm-tmln-crrnt, .wb-mm-ctrls .tline .wb-mm-tmln-ttl {
-    float: left;
-    margin: 0; }
-  .wb-mm-ctrls .tline .wb-mm-tmln-ttl {
-    float: right; }
-  .wb-mm-ctrls .cc {
-    opacity: 0.5; }
+    width: 3em; }
+  .wb-mm-ctrls .tline .wb-mm-tmln-crrnt:after {
+    content: " / ";
+    padding: 0 0.5em; }
+  .wb-mm-ctrls .wb-mm-txtonly {
+    padding: 0 1em; }
+    .wb-mm-ctrls .wb-mm-txtonly p {
+      display: inline; }
+  .wb-mm-ctrls .wb-mm-txtonly, .wb-mm-ctrls .wb-mm-prgrss {
+    display: table-cell;
+    vertical-align: middle; }
   .wb-mm-ctrls progress {
     /* Important Thing */
     -webkit-appearance: none;
     background: #fff;
-    border: 0;
+    border: 7px solid #3e3e3e;
+    border-radius: 14px;
     color: #176ca7;
     display: block;
-    height: 16px;
+    height: 30px;
+    left: 0;
+    padding: 2px;
+    position: absolute;
+    top: 0;
     width: 100%; }
+    .wb-mm-ctrls progress.wb-progress-inited {
+      overflow: hidden;
+      padding: 0; }
     .wb-mm-ctrls progress::-webkit-progress-bar {
       background: #fff; }
     .wb-mm-ctrls progress::-webkit-progress-value {
-      background: #176ca7; }
+      background: #176ca7;
+      border-radius: 7px; }
     .wb-mm-ctrls progress::-moz-progress-bar {
-      background: #176ca7; }
+      background: #176ca7;
+      border-radius: 7px; }
   .wb-mm-ctrls .progress {
-    height: 16px; }
-
-
+    height: 22px; }
+  .wb-mm-ctrls input[type=range] {
+    -webkit-appearance: none;
+    background: transparent;
+    display: inline-block;
+    height: 2.5em;
+    padding: 0;
+    width: 7em; }
+    .wb-mm-ctrls input[type=range]::-webkit-slider-runnable-track {
+      background: #aaa;
+      height: 4px; }
+    .wb-mm-ctrls input[type=range]::-webkit-slider-thumb {
+      margin-top: -8px; }
+    .wb-mm-ctrls input[type=range]::-moz-range-track {
+      background: #aaa;
+      border: 0; }
+    .wb-mm-ctrls input[type=range]::-moz-range-thumb {
+      border-radius: 0;
+      height: 1.3em;
+      width: 10px; }
+    .wb-mm-ctrls input[type=range]::-ms-track {
+      height: 4px; }
+    .wb-mm-ctrls input[type=range]::-ms-fill-upper {
+      background: #aaa; }
+    .wb-mm-ctrls input[type=range]::-ms-fill-lower {
+      background: #aaa; }
+    .wb-mm-ctrls input[type=range]::-ms-thumb {
+      background: #fff;
+      border: 1px outset #fff;
+      height: 1.3em; }
+  .wb-mm-ctrls .fd-slider {
+    display: inline-block;
+    height: 100%;
+    margin-top: 10px;
+    width: 7em; }
+  .wb-mm-ctrls .fd-slider-handle {
+    background: #fff;
+    border: 1px outset #fff;
+    width: 10px; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)

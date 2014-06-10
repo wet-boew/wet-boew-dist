@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pauzė",
 	open: "Atidaryti",
 	close: "Uždaryti",
-	rew: "Atsukti",
-	ffwd: "Sukti į priekį",
+	volume: "Volume",
 	mute: {
 		on: "Užtylinti",
 		off: "Įjungti garsą"

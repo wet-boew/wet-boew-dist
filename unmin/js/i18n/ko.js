@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "중지",
 	open: "열기",
 	close: "가까운",
-	rew: "되감기",
-	ffwd: "빠른 앞으로",
+	volume: "Volume",
 	mute: {
 		on: "음소거",
 		off: "음소거 해제"

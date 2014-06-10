@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "وقفة",
 	open: "فتح",
 	close: "أغلق",
-	rew: "الترجيع",
-	ffwd: "سريع إلى الأمام",
+	volume: "Volume",
 	mute: {
 		on: "كتم",
 		off: "إلغاء كتمه"

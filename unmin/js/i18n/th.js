@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "หยุด",
 	open: "เปิด",
 	close: "ปิด",
-	rew: "ม้วนกลับ",
-	ffwd: "ข้างหน้าอย่างรวดเร็ว",
+	volume: "Volume",
 	mute: {
 		on: "ปิด",
 		off: "เปิดเสียง"

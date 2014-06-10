@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Դադար",
 	open: "Բաց է",
 	close: "Մոտիկ",
-	rew: "Վերափաթաթում",
-	ffwd: "Արագ Որոնում",
+	volume: "Volume",
 	mute: {
 		on: "Համր",
 		off: "Կասեցնել խլացնելու"

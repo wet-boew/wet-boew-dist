@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pillanatmegállító",
 	open: "Nyitva",
 	close: "Bezárás",
-	rew: "Vissza",
-	ffwd: "Előre",
+	volume: "Volume",
 	mute: {
 		on: "Lenémítás",
 		off: "Hang bekapcsolása"

@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Tạm dừng",
 	open: "Mở",
 	close: "Đóng",
-	rew: "Tua lại",
-	ffwd: "Nhanh chóng chuyển tiếp",
+	volume: "Volume",
 	mute: {
 		on: "Tắt",
 		off: "Bật tiếng"

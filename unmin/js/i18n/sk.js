@@ -79,8 +79,7 @@ wb.i18nDict = {
 	pause: "Pauza",
 	open: "Otvoriť",
 	close: "Zavrieť",
-	rew: "Pretočiť",
-	ffwd: "Rýchly posun vpred",
+	volume: "Volume",
 	mute: {
 		on: "Vypnutie",
 		off: "Nahlas"
