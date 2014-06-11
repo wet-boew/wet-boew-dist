@@ -6253,6 +6253,9 @@ img.mfp-img {
   background: #aaa;
   border: 0; }
 
+.xxsmallview .wb-mm-ctrls .frstpnl, .xxsmallview .wb-mm-ctrls .lastpnl {
+  padding-top: 2em; }
+
 @-webkit-keyframes spin {
   from {
     -webkit-transform: rotate(0);
@@ -6472,6 +6475,11 @@ img.mfp-img {
     background: #fff;
     border: 1px outset #fff;
     width: 10px; }
+
+.xxsmallview .wb-mm-ctrls .wb-mm-txtonly {
+  left: 0;
+  margin-top: -2em;
+  position: absolute; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
