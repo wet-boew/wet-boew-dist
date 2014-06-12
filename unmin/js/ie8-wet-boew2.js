@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-06-11
+ * v4.0.3-development - 2014-06-12
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7686,7 +7686,7 @@ var id = "wb-rsz",
 
 			// Change the breakpoint class on the html element
 			wb.html
-				.removeClass( currentView )
+				.removeClass( currentView || "" )
 				.addClass( viewName );
 
 			// Update the current view
