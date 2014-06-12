@@ -5059,7 +5059,7 @@ blockquote {
  *	Fix for missing bullets in Chrome and Safari
  */
 [class*=colcount-] {
-  list-style: outside;
+  list-style-position: outside;
   padding-left: 1.3em; }
   [class*=colcount-] > li {
     margin-left: 1.3em; }
