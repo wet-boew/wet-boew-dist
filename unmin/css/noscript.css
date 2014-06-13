@@ -18,13 +18,16 @@
 /**
  * Mobile-friendly styles
  */
-.wb-tabs [role="tablist"] {
-  display: none; }
-.wb-tabs [role="tabpanel"] {
-  display: block;
-  opacity: 1; }
-.wb-tabs > details > summary {
+.wb-tabs > details > summary, .wb-tabs > .tabpanels > details > summary {
   display: block !important; }
+
+.wb-tabs {
+  /* Only for backwards compatibility. Should be removed in v4.1. */ }
+  .wb-tabs [role="tablist"] {
+    display: none; }
+  .wb-tabs [role="tabpanel"] {
+    display: block;
+    opacity: 1; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)

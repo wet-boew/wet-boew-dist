@@ -8621,7 +8621,12 @@ var pluginName = "wb-tabs",
 		if ( !$elm.hasClass( initedClass ) ) {
 			$elm.addClass( initedClass );
 
-			var $panels = $elm.children( "[role=tabpanel], details" ),
+			// For backwards compatibility. Should be removed in WET v4.1
+			if ( $elm.children( ".tabpanels" ).length === 0 ) {
+				$elm.children( "[role=tabpanel], details" ).wrapAll( "<div class='tabpanels'/>" );
+			}
+
+			var $panels = $elm.find( "> .tabpanels > [role=tabpanel], > .tabpanels > details" ),
 				$tablist = $elm.children( "[role=tablist]" ),
 				activeId = wb.pageUrlParts.hash.substring( 1 ),
 				$openPanel = activeId.length !== 0 ? $panels.filter( "#" + activeId ) : undefined,
@@ -8695,7 +8700,7 @@ var pluginName = "wb-tabs",
 				$elm.addClass( "tabs-acc" );
 				groupClass = elmId + "-grp";
 				addControls = false;
-				$panels = $elm.children();
+				$panels = $elm.find( "> .tabpanels > details" );
 				len = $panels.length;
 
 				// Ensure there is only one panel open
@@ -8710,7 +8715,7 @@ var pluginName = "wb-tabs",
 				$openPanel.attr( open, open );
 
 				// Hide the tablist in small view and the summary elements in large view
-				tablist = "<ul role='tablist' aria-live='off'>";
+				tablist = "<ul role='tablist' aria-live='off' class='generated'>";
 
 				for ( i = 0; i !== len; i += 1 ) {
 					$panel = $panels.eq( i );
@@ -9056,7 +9061,7 @@ var pluginName = "wb-tabs",
 		if ( initialized ) {
 			isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
 			$elm = $( selector );
-			$details = $elm.children( "details" );
+			$details = $elm.find( "> .tabpanels > details" );
 			if ( $details.length !== 0 ) {
 				if ( isSmallView !== oldIsSmallView ) {
 					$summary = $details.children( "summary" );
