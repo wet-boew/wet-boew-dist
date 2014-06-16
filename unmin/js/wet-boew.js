@@ -7519,21 +7519,19 @@ $document.on( resizeEvent, selector, function( event ) {
 		$player = $( player ),
 		ratio, newHeight;
 
-	if ( $player.hasClass( "video" ) ) {
-		if ( player.videoWidth === 0 || player.videoWidth === undef ) {
-			ratio = $player.attr( "height" ) / $player.attr( "width" );
+	if ( player.videoWidth === 0 || player.videoWidth === undef ) {
+		ratio = $player.attr( "height" ) / $player.attr( "width" );
 
-			// Calculate the new height based on the specified ratio or assume a default 16:9 ratio
-			newHeight = Math.round( $player.width() * ( !isNaN( ratio ) ? ratio : 0.5625 ) );
+		// Calculate the new height based on the specified ratio or assume a default 16:9 ratio
+		newHeight = Math.round( $player.width() * ( !isNaN( ratio ) ? ratio : 0.5625 ) );
 
-			//TODO: Remove this when captions works in chromeless api with controls
-			if ( $player.is( "iframe") ) {
-				newHeight += 30;
-			}
-			$player.css( "height", newHeight + "px" );
-		} else {
-			$player.css( "height", "" );
+		//TODO: Remove this when captions works in chromeless api with controls
+		if ( $player.is( "iframe") ) {
+			newHeight += 30;
 		}
+		$player.css( "height", newHeight + "px" );
+	} else {
+		$player.css( "height", "" );
 	}
 });
 
