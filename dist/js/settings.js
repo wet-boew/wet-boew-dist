@@ -3,7 +3,7 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
- * Version: v3.1.12 Build: 2014-06-17 03:57 PM EDT
+ * Version: v3.1.12 Build: 2014-06-17 04:33 PM EDT
  *
  */
 /*
