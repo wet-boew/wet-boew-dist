@@ -7600,10 +7600,12 @@ details:not([open]) > * {
 @media print {
   .lt-ie9 abbr[title]:after {
     content: ""; }
-  .lt-ie9 .pagination > li > a, .lt-ie9 .pagination > li > span, .lt-ie9 .pager > li > a, .lt-ie9 .pager > li > span {
-    cursor: hand; }
-  .lt-ie9 .pagination > li.active > a, .lt-ie9 .pagination > li.active > span, .lt-ie9 .pager > li.active > a, .lt-ie9 .pager > li.active > span {
-    cursor: default; } }
+  .lt-ie9 .pagination, .lt-ie9 .pager {
+    width: 100%; }
+    .lt-ie9 .pagination > li > a, .lt-ie9 .pagination > li > span, .lt-ie9 .pager > li > a, .lt-ie9 .pager > li > span {
+      cursor: hand; }
+    .lt-ie9 .pagination > li.active > a, .lt-ie9 .pagination > li.active > span, .lt-ie9 .pager > li.active > a, .lt-ie9 .pager > li.active > span {
+      cursor: default; } }
 
 /*
  Plugins
