@@ -4314,7 +4314,7 @@ button.close {
 /*
  Global placeholders
  */
-.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, #wb-lng h2, .wb-fnote dt, #mb-pnl .srch-pnl label {
+.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, #wb-lng h2, .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   margin: 0;
@@ -5123,18 +5123,21 @@ details[open] {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.ev-details {
+.cal-days td ul.ev-details, .cal-days td:hover ul {
   background-color: #fff;
   border: 1px solid #333;
+  clip: rect(auto, auto, auto, auto);
   color: #000;
+  height: inherit;
   list-style-type: none;
   margin: 0;
   margin-top: -0.5em;
+  overflow: inherit;
   padding: 0;
   position: absolute;
   width: 10em;
   z-index: 5; }
-  .ev-details a:hover, .ev-details a:focus {
+  .cal-days td ul.ev-details a:hover, .cal-days td:hover ul a:hover, .cal-days td ul.ev-details a:focus, .cal-days td:hover ul a:focus {
     color: #fff; }
 
 .cal-days a.cal-evt {
