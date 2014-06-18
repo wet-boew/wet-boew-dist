@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.3-development - 2014-06-16
+ * v4.0.3-development - 2014-06-18
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -7519,19 +7519,21 @@ $document.on( resizeEvent, selector, function( event ) {
 		$player = $( player ),
 		ratio, newHeight;
 
-	if ( player.videoWidth === 0 || player.videoWidth === undef ) {
-		ratio = $player.attr( "height" ) / $player.attr( "width" );
+	if ( $player.hasClass( "video" ) ) {
+		if ( player.videoWidth === 0 || player.videoWidth === undef ) {
+			ratio = $player.attr( "height" ) / $player.attr( "width" );
 
-		// Calculate the new height based on the specified ratio or assume a default 16:9 ratio
-		newHeight = Math.round( $player.width() * ( !isNaN( ratio ) ? ratio : 0.5625 ) );
+			// Calculate the new height based on the specified ratio or assume a default 16:9 ratio
+			newHeight = Math.round( $player.width() * ( !isNaN( ratio ) ? ratio : 0.5625 ) );
 
-		//TODO: Remove this when captions works in chromeless api with controls
-		if ( $player.is( "iframe") ) {
-			newHeight += 30;
+			//TODO: Remove this when captions works in chromeless api with controls
+			if ( $player.is( "iframe") ) {
+				newHeight += 30;
+			}
+			$player.css( "height", newHeight + "px" );
+		} else {
+			$player.css( "height", "" );
 		}
-		$player.css( "height", newHeight + "px" );
-	} else {
-		$player.css( "height", "" );
 	}
 });
 
