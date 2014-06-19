@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-06-18
+ * v4.0.4-development - 2014-06-19
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3493,7 +3493,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 			var $container = $( "<figure class='" + optionsCharts.graphclass + "'>" +
 
 				// Copy to the inner table caption
-				( captionHtml.length ? "<figcaption>" + captionHtml + "</figcaption>": "" ) +
+				( captionHtml.length ? "<figcaption>" + captionHtml + "</figcaption>" : "" ) +
 
 				// Image Container
 				"<div role='img' aria-label='" +
@@ -3501,7 +3501,7 @@ $document.on( "setFocus.wb-cal", setFocus );
 
 				// Add Dimension
 				( withDimension ? "style='height:" + optionsCharts.height +
-				"px; width:" + optionsCharts.width + "px'": "" ) +
+				"px; width:" + optionsCharts.width + "px'" : "" ) +
 
 				"></div></figure>");
 
@@ -4796,10 +4796,10 @@ var pluginName = "wb-feeds",
 			// Facebook feeds does not really do titles in ATOM RSS. It simply truncates content at 150 characters. We are using a JS based sentence
 			// detection algorithm to better split content and titles
 			var content = fromCharCode( data.content ),
-				title = content.replace( /(<([^>]+)>)/ig,"" ).match( /\(?[^\.\?\!]+[\.!\?]\)?/g );
+				title = content.replace( /(<([^>]+)>)/ig, "" ).match( /\(?[^\.\?\!]+[\.!\?]\)?/g );
 
 			// Sanitize the HTML from Facebook - extra 'br' tags
-			content = content.replace( /(<br>\n?)+/gi,"<br>" );
+			content = content.replace( /(<br>\n?)+/gi, "<br>" );
 
 			return "<li class='media'><a class='pull-left' href=''><img src='" + data.fIcon + "' alt='" + data.author +
 				"' height='64px' width='64px' class='media-object'/></a><div class='media-body'>" +
