@@ -193,7 +193,7 @@ main {
       padding: 5px 10px;
       text-decoration: none;
       text-shadow: none; }
-    #wb-sm .sm.open .slflnk {
+    #wb-sm .sm.open .slflnk a {
       background: #bbb; }
   #wb-sm .sm .row {
     background: transparent; }
