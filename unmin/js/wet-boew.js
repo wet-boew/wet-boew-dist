@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-06-26
+ * v4.0.4-development - 2014-06-30
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -1687,33 +1687,33 @@ $document.on( "ajax-fetch.wb", function( event ) {
 
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === event.target ) {
-			$.ajax( fetchOpts )
-				.done( function( response, status, xhr ) {
-					fetchData = {
-						response: response,
-						status: status,
-						xhr: xhr
-					};
+		$.ajax( fetchOpts )
+			.done( function( response, status, xhr ) {
+				fetchData = {
+					response: response,
+					status: status,
+					xhr: xhr
+				};
 
-					if ( typeof response === "string" ) {
-						fetchData.pointer = $( "<div id='" + wb.guid() + "' />" ).append( response );
-					}
+				if ( typeof response === "string" ) {
+					fetchData.pointer = $( "<div id='" + wb.guid() + "' />" ).append( response );
+				}
 
-					$( caller ).trigger({
-						type: "ajax-fetched.wb",
-						fetch: fetchData
-					});
-				})
-				.fail(function( xhr, status, error ) {
-					$( caller ).trigger({
-						type: "ajax-failed.wb",
-						fetch: {
-							xhr: xhr,
-							status: status,
-							error: error
-						}
-					});
+				$( caller ).trigger({
+					type: "ajax-fetched.wb",
+					fetch: fetchData
 				});
+			})
+			.fail(function( xhr, status, error ) {
+				$( caller ).trigger({
+					type: "ajax-failed.wb",
+					fetch: {
+						xhr: xhr,
+						status: status,
+						error: error
+					}
+				});
+			});
 	}
 });
 
