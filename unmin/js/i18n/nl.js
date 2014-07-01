@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-06-30
+ * v4.0.4-development - 2014-07-01
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -165,11 +165,11 @@ wb.i18nDict = {
 	sortAsc: ": activeren voor oplopende sortering",
 	sortDesc: ": activeren voor aflopende sortering",
 	emptyTbl: "Geen gegevens beschikbaar in de tabel",
-	infoEntr: "Toon _START_ tot _END_ van _TOTAL_ lemma\\'s",
-	infoEmpty: "Toon 0 tot 0 van 0 lemma\\'s",
-	infoFilt: "(gefilterd uit _MAX_ totaal aantal lemma\\'s)",
+	infoEntr: "Toon _START_ tot _END_ van _TOTAL_ lemma's",
+	infoEmpty: "Toon 0 tot 0 van 0 lemma's",
+	infoFilt: "(gefilterd uit _MAX_ totaal aantal lemma's)",
 	info1000: "&#160;",
-	lenMenu: "Toon _MENU_ lemma\\'s",
+	lenMenu: "Toon _MENU_ lemma's",
 	filter: "Artikelen filteren",
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
