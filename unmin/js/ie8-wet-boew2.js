@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-01
+ * v4.0.4-development - 2014-07-02
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1088,8 +1088,7 @@
 			var date = null;
 
 			if ( dateISO && dateISO.match( /\d{4}-\d{2}-\d{2}/ ) ) {
-				date = new Date();
-				date.setFullYear( dateISO.substr( 0, 4 ), dateISO.substr( 5, 2 ) - 1, dateISO.substr( 8, 2 ) );
+				date = new Date( dateISO.substr( 0, 4 ), dateISO.substr( 5, 2 ) - 1, dateISO.substr( 8, 2 ), 0, 0, 0, 0 );
 			}
 			return date;
 		}
@@ -1477,6 +1476,7 @@ var pluginName = "wb-calevt",
 				}
 
 				date = new Date();
+				date.setHours( 0, 0, 0, 0 );
 				tCollection = event.find( "time" );
 
 				/*
@@ -2181,7 +2181,7 @@ var $document = wb.doc,
 			month = parseInt( $form.find( ".cal-goto-mnth select option:selected" ).val(), 10 ),
 			year = parseInt( $form.find( ".cal-goto-yr select" ).val(), 10 );
 
-		if (!(month < minDate.getMonth() && year <= minDate.getFullYear()) && !(month > maxDate.getMonth() && year >= maxDate.getFullYear())) {
+		if ( !( month < minDate.getMonth() && year <= minDate.getFullYear() ) && !( month > maxDate.getMonth() && year >= maxDate.getFullYear() ) ) {
 			$document.trigger( "create.wb-cal", [
 				calendarId,
 				year,
@@ -2241,10 +2241,14 @@ $document.on( "keydown", ".cal-days a", function( event ) {
 					elm : elm.parentNode.parentNode.previousSibling
 			).getElementsByTagName( "time" )[ 0 ].getAttribute( "datetime" )
 		),
-		currYear = date.getFullYear(),
-		currMonth = date.getMonth(),
-		currDay = date.getDate(),
-		field, minDate, maxDate, modifier, $links, $link;
+
+		// Clone the date to keep a copy of the current date
+		currDate = new Date( date.getTime() ),
+		currYear = currDate.getFullYear(),
+		currMonth = currDate.getMonth(),
+		currDay = currDate.getDate(),
+		field, minDate, maxDate, modifier, $links, $link,
+		events, i, len, eventDate;
 
 	if ( fieldId ) {
 		field = document.getElementById( fieldId );
@@ -2305,6 +2309,48 @@ $document.on( "keydown", ".cal-days a", function( event ) {
 		case 40:
 			date.setDate( currDay + 7 );
 			break;
+		}
+
+		// If in a calendar of events then correct the date to the
+		// appropriate event date if the new date is in a different year
+		// or month or the date in the current month doesn't have a link
+		if ( $container.hasClass( "wb-calevt-cal" ) &&
+			( currYear !== date.getFullYear() || currMonth !== date.getMonth() ||
+			$monthContainer.find( ".cal-index-" + date.getDate() + " > a" ).length === 0 ) ) {
+
+			events = $container.data( "calEvents" ).list;
+			len = events.length;
+
+			// New date is later than the current date so find
+			// the first event date after the new date
+			if ( currDate < date ) {
+				for ( i = 0; i !== len; i += 1 ) {
+					eventDate = events[ i ].date;
+					if ( eventDate.getTime() >= date.getTime() ) {
+						break;
+					}
+				}
+
+			// New date is earlier than the current date so find
+			// the first event date before the new date
+			} else {
+				for ( i = len - 1; i !== -1; i -= 1 ) {
+					eventDate = events[ i ].date;
+					if ( eventDate.getTime() <= date.getTime() ) {
+						break;
+					}
+				}
+			}
+
+			// Update new date if appropriate event date was found
+			if ( ( i !== len && i !== -1 ) ||
+				( i === len && currDate < eventDate ) ||
+				( i === -1 && currDate > eventDate ) ) {
+
+				date = eventDate;
+			} else {
+				date = currDate;
+			}
 		}
 
 		// Move focus to the new date
