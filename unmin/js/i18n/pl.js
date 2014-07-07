@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Pauza",
 	open: "Otwórz",
 	close: "Zamknij",
-	volume: "Volume",
+	volume: "Głośność",
 	mute: {
 		on: "Bez dźwięku",
 		off: "Przywróć dźwięk"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Wybrać",
 	"geo-lblsel": "Wybierz element na mapie",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Podać nazwę miejscowości&#44; kod pocztowy&#44; adres (pocztowy)&#44; liczba NTS ...",
 	"geo-loc-label": "Lokalizacja",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Północ",
+	"geo-aoi-east": "Wschód",
+	"geo-aoi-south": "Południe",
+	"geo-aoi-west": "Zachód",
+	"geo-aoi-instructions": "Wyznaczać obszar na mapie lub wprowadzić dane poniżej&#44; a następnie kliknij na przycisk \"Rysować\".",
+	"geo-aoi-btndraw": "Rysować",
+	"geo-aoi-btnclear": "Usunąć",
+	"geo-geoloc-btn": "Powiększyć się do bieżącej lokalizacji",
+	"geo-geoloc-fail": "Lokalizacja nie powiodło się. Proszę upewnić się, że usługi lokalizacyjne są włączone.",
+	"geo-geoloc-uncapable": "Lokalizacja nie jest obsługiwany przez przeglądarkę.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Podstawowa wersja HTML",
 	"wb-enable": "Wersja standardowa",

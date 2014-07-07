@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Pauza",
 	open: "Otevřít",
 	close: "Zavřít",
-	volume: "Volume",
+	volume: "Hlasitost",
 	mute: {
 		on: "Vypnutí",
 		off: "Nahlas"
@@ -176,7 +176,7 @@ wb.i18nDict = {
 	"geo-zmin": "Přiblížit",
 	"geo-zmout": "Oddálit",
 	"geo-zmwrld": "Přiblížit zmapovat rozsah",
-	"geo-zmfeat": "Přiblížit prvku",
+	"geo-zmfeat": "Přibližte prvku",
 	"geo-sclln": "měřítko mapy",
 	"geo-msepos": "Zeměpisná šířka a zeměpisná délka kurzoru myši",
 	"geo-ariamap": "Mapa objekt. Popisy v mapě funkcí jsou uvedeny v tabulce níže.",
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Vybrat",
 	"geo-lblsel": "Zkontrolujte, vyberte prvek na mapě",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Uveďte název místa&#44; poštovní směrovací číslo&#44; adresu (poštovní)&#44; počet NTS ...",
 	"geo-loc-label": "Umístění",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Sever",
+	"geo-aoi-east": "Východ",
+	"geo-aoi-south": "Na jih",
+	"geo-aoi-west": "Západ",
+	"geo-aoi-instructions": "Vymezit oblast na mapě nebo zadejte údaje níže a poté klikněte na tlačítko \"Kreslit\".",
+	"geo-aoi-btndraw": "Kreslit",
+	"geo-aoi-btnclear": "Odstranit",
+	"geo-geoloc-btn": "Přiblížit se k aktuální poloze",
+	"geo-geoloc-fail": "Lokalita se nezdařilo. Ujistěte se, že umístění služby jsou povoleny.",
+	"geo-geoloc-uncapable": "Lokalizace není podporována ve vašem prohlížeči.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Základní HTML verze",
 	"wb-enable": "Standardní verze",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Paus",
 	open: "Ava",
 	close: "Sulge",
-	volume: "Volume",
+	volume: "Helitugevus",
 	mute: {
 		on: "Vaigista",
 		off: "Heli tagasi"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Vali",
 	"geo-lblsel": "Märkige kaardil elemendi valimiseks",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Märkida nimi asukohta&#44; postiindeks&#44; aadress (postiaadress)&#44; kui palju on NTS ...",
 	"geo-loc-label": "Asukoht",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Põhja",
+	"geo-aoi-east": "Ida",
+	"geo-aoi-south": "lõuna",
+	"geo-aoi-west": "Lääs",
+	"geo-aoi-instructions": "Piiritleda ala kaardil või sisesta allpool ja siis vajuta \"Joonistama\" nuppu.",
+	"geo-aoi-btndraw": "Joonistama",
+	"geo-aoi-btnclear": "Eemaldama",
+	"geo-geoloc-btn": "Suumi elemente",
+	"geo-geoloc-fail": "Asukoht ei ole. Palun veenduge, et asukoha määramise teenuste on lubatud.",
+	"geo-geoloc-uncapable": "Lokaliseerimine ei toeta teie brauser.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Lihtsustatud HTML versioon",
 	"wb-enable": "Standardversioon",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "暫停",
 	open: "打開",
 	close: "停止",
-	volume: "Volume",
+	volume: "音量",
 	mute: {
 		on: "靜音",
 		off: "聲音"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "選擇",
 	"geo-lblsel": "在地圖上檢查選擇的元素",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "指示位置，郵編，地址（郵政），NTS數名...",
 	"geo-loc-label": "位置",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "北",
+	"geo-aoi-east": "東方",
+	"geo-aoi-south": "南",
+	"geo-aoi-west": "西方",
+	"geo-aoi-instructions": "在地圖上劃定一個區域或輸入下面的詳細信息，然後點擊“畫”按鈕。",
+	"geo-aoi-btndraw": "畫",
+	"geo-aoi-btnclear": "清除",
+	"geo-geoloc-btn": "放大到當前位置",
+	"geo-geoloc-fail": "位置失敗。請確保該位置的服務被啟用。",
+	"geo-geoloc-uncapable": "本地化不是由您的瀏覽器支持。",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "基本HTML版本",
 	"wb-enable": "標準版本",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Pillanatmegállító",
 	open: "Nyitva",
 	close: "Bezárás",
-	volume: "Volume",
+	volume: "Hangerő",
 	mute: {
 		on: "Lenémítás",
 		off: "Hang bekapcsolása"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Választ",
 	"geo-lblsel": "Ellenőrizze, hogy jelölje ki az elemet a térképen",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Adja meg a helység nevét&#44; irányítószám&#44; cím (postai)&#44; a száma NTS ...",
 	"geo-loc-label": "Elhelyezkedés",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Észak",
+	"geo-aoi-east": "Kelet",
+	"geo-aoi-south": "Dél",
+	"geo-aoi-west": "Nyugat",
+	"geo-aoi-instructions": "Ismertesse a terület a térképen&#44; vagy írja be az alábbi adatokat&#44; majd kattintson a \"Rajzol\" gombra.",
+	"geo-aoi-btndraw": "Rajzol",
+	"geo-aoi-btnclear": "Eltávolít",
+	"geo-geoloc-btn": "Nagyítás az aktuális helyre",
+	"geo-geoloc-fail": "Hely sikerült. Ügyeljen arra, hogy a helymeghatározó szolgáltatások engedélyezve vannak.",
+	"geo-geoloc-uncapable": "A honosítás nem támogatja a böngészője.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Egyszerű HTML verzió",
 	"wb-enable": "Standard verzió",

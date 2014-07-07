@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Pausieren",
 	open: "Öffnen",
 	close: "Schließen",
-	volume: "Volume",
+	volume: "Lautstärke",
 	mute: {
 		on: "Stumm",
 		off: "Stummschaltung"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Wählen",
 	"geo-lblsel": "Überprüfen Sie das Element auf der Karte auswählen",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Geben Sie den Namen des Ortes&#44; Postleitzahl&#44; Adresse (Post)&#44; die Anzahl der NTS ...",
 	"geo-loc-label": "Position",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Norden",
+	"geo-aoi-east": "Osten",
+	"geo-aoi-south": "Süden",
+	"geo-aoi-west": "Westen",
+	"geo-aoi-instructions": "Beschreiben eine Fläche auf der Karte oder geben Sie die Details klicken dann auf die Schaltfläche \"Ziehen\".",
+	"geo-aoi-btndraw": "Ziehen",
+	"geo-aoi-btnclear": "Entfernen",
+	"geo-geoloc-btn": "Zoom auf die aktuelle Lage",
+	"geo-geoloc-fail": "Lage fehlgeschlagen. Bitte stellen Sie sicher, dass die Ortungsdienste aktiviert sind.",
+	"geo-geoloc-uncapable": "Der Ort ist nicht von Ihrem Browser unterstützt.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Grundlegende HTML-Version",
 	"wb-enable": "Standardausführung",

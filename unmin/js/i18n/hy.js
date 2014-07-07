@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Դադար",
 	open: "Բաց է",
 	close: "Մոտիկ",
-	volume: "Volume",
+	volume: "Ծավալը",
 	mute: {
 		on: "Համր",
 		off: "Կասեցնել խլացնելու"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Ընտրել",
 	"geo-lblsel": "Ստուգեք ընտրել տարրը քարտեզի վրա",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Նշեք անունը&#44; գտնվելու վայրը&#44; փոստային կոդը&#44; հասցեն&#44; (փոստային) համարը NTS ...",
 	"geo-loc-label": "Որտեղից",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Հյուսիս",
+	"geo-aoi-east": "Արեւելք",
+	"geo-aoi-south": "Հարավ",
+	"geo-aoi-west": "Արեւմուտք",
+	"geo-aoi-instructions": "Ուրվագծել տարածք քարտեզի վրա&#44; կամ մուտքագրել մանրամասները ստորեւ&#44; ապա սեղմեք «Նկարել» կոճակը.",
+	"geo-aoi-btndraw": "Նկարել",
+	"geo-aoi-btnclear": "Հեռացնել",
+	"geo-geoloc-btn": "Մեծացնել ձեր զբաղեցրած պաշտոնը",
+	"geo-geoloc-fail": "Որտեղից ձախողվեց. Խնդրում ենք համոզվել, որ այդ վայրում ծառայություններ հնարավորություն.",
+	"geo-geoloc-uncapable": "Տեղայնացման չի ապահովվում է ձեր բրոուզերում.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "հիմնական HTML տարբերակ",
 	"wb-enable": "Դնել",

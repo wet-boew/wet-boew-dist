@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Pauze",
 	open: "Atvērt",
 	close: "Aizvērt",
-	volume: "Volume",
+	volume: "Skaļums",
 	mute: {
 		on: "Izslēgt skaņu",
 		off: "Ieslēgt skaņu"
@@ -176,7 +176,7 @@ wb.i18nDict = {
 	"geo-zmin": "Pievelciet",
 	"geo-zmout": "Attāliniet",
 	"geo-zmwrld": "Zoom uz kartes robežas",
-	"geo-zmfeat": "Tuvināt elementam",
+	"geo-zmfeat": "Zoom uz elementam",
 	"geo-sclln": "Kartes mērogs",
 	"geo-msepos": "Platuma un garuma ar peles kursoru",
 	"geo-ariamap": "Karte objekts. No kartes funkciju apraksti šajā tabulā.",
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Atlasīt",
 	"geo-lblsel": "Pārbaudiet, lai izvēlētos elementu uz kartes",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Norāda nosaukumu vietu&#44; pasta indekss&#44; adresi (pasta)&#44; skaits NTS ...",
 	"geo-loc-label": "Vieta",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Ziemeļu",
+	"geo-aoi-east": "Austrumi",
+	"geo-aoi-south": "Dienvidu",
+	"geo-aoi-west": "Rietumi",
+	"geo-aoi-instructions": "Uzmest platību kartē vai ievadiet informāciju zemāk&#44; tad uzklikšķiniet uz \"Izdarīt\" pogu.",
+	"geo-aoi-btndraw": "Izdarīt",
+	"geo-aoi-btnclear": "Noņemt",
+	"geo-geoloc-btn": "Zoom uz pašreizējo atrašanās vietu",
+	"geo-geoloc-fail": "Atrašanās vieta neizdevās. Lūdzu, pārliecinieties, ka uz atrašanās vietas pakalpojumi tiek iespējots.",
+	"geo-geoloc-uncapable": "Lokalizācija neatbalsta pārlūkprogramma.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Pamata HTML versija",
 	"wb-enable": "Standarta versija",

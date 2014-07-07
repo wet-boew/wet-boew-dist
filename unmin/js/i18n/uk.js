@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Пауза",
 	open: "Відкрити",
 	close: "Закрити",
-	volume: "Volume",
+	volume: "Гучність",
 	mute: {
 		on: "Відключити звук",
 		off: "Включити звук"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Вибирати",
 	"geo-lblsel": "Для обрання елементу на карті, відмітьте галочкою ",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Вкажіть назву місця&#44; поштовий індекс&#44; адреса (поштова)&#44; кількість НТС ...",
 	"geo-loc-label": "Розташування",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "На північ",
+	"geo-aoi-east": "Схід",
+	"geo-aoi-south": "Південь",
+	"geo-aoi-west": "Захід",
+	"geo-aoi-instructions": "Окреслити площа на карті або заповніть форму і натисніть на кнопку \"Малювати\".",
+	"geo-aoi-btndraw": "Малювати",
+	"geo-aoi-btnclear": "Видаляти",
+	"geo-geoloc-btn": "Збільшити до поточного розташування",
+	"geo-geoloc-fail": "Розташування не вдалося. Будь ласка, переконайтеся, що послуги визначення місця розташування включені.",
+	"geo-geoloc-uncapable": "Локалізація не підтримується браузером.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Базова версія HTML",
 	"wb-enable": "Стандартна версія",

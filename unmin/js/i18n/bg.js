@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Пауза",
 	open: "Отворен",
 	close: "Близо",
-	volume: "Volume",
+	volume: "Звука",
 	mute: {
 		on: "Изключване",
 		off: "Вкл.звук"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Изберете",
 	"geo-lblsel": "Проверете, за да изберете елемента на картата",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
-	"geo-loc-label": "място",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-loc-placeholder": "Посочете името на мястото&#44; пощенски код&#44; адрес (пощенски)&#44; броят на НТС ...",
+	"geo-loc-label": "Място",
+	"geo-aoi-north": "На север",
+	"geo-aoi-east": "Изток",
+	"geo-aoi-south": "Юг",
+	"geo-aoi-west": "Запад",
+	"geo-aoi-instructions": "Xəritədə sahəsi tasvir və ya aşağıda detalları daxil sonra \"Равенство\" düyməsinə basın.",
+	"geo-aoi-btndraw": "Равенство",
+	"geo-aoi-btnclear": "Премахнете",
+	"geo-geoloc-btn": "Увеличите към текущото местоположение",
+	"geo-geoloc-fail": "Местоположение провали. Моля, уверете се, че местоположението услуги са разрешени.",
+	"geo-geoloc-uncapable": "Локализация не се поддържа от вашия браузър.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Базов HTML версия",
 	"wb-enable": "Стандартната версия",

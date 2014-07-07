@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Kies",
 	"geo-lblsel": "Gaan die element te kies op die kaart",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Dui die naam van die plek&#44; poskode&#44; adres (pos)&#44; die aantal NTS ...",
 	"geo-loc-label": "Ligging",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Noord",
+	"geo-aoi-east": "Oos",
+	"geo-aoi-south": "Suid",
+	"geo-aoi-west": "Weste",
+	"geo-aoi-instructions": "Baken 'n gebied op die kaart of die onderstaande inligting in en kliek dan op die \"Teken\"-knoppie.",
+	"geo-aoi-btndraw": "Teken",
+	"geo-aoi-btnclear": "Verwyder",
+	"geo-geoloc-btn": "Zoom in jou huidige posisie",
+	"geo-geoloc-fail": "Plek gefaal het. Maak asseblief seker dat plek dienste word aangeskakel.",
+	"geo-geoloc-uncapable": "Lokalisering word nie ondersteun deur die leser.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Basiese HTML-weergawe",
 	"wb-enable": "Standaard weergawe",

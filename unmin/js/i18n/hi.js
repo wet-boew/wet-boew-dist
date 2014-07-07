@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "ठहराव",
 	open: "खुला",
 	close: "पास",
-	volume: "Volume",
+	volume: "मात्रा",
 	mute: {
 		on: "म्यूट",
 		off: "अनम्यूट"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "चयन",
 	"geo-lblsel": "नक्शे पर तत्व का चयन करने के लिए जाँच करें",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "स्थान&#44; ज़िप कोड&#44; पता (डाक)&#44; एनटीएस की संख्या के नाम का संकेत ...",
 	"geo-loc-label": "स्थान",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "उत्तर",
+	"geo-aoi-east": "पूर्व",
+	"geo-aoi-south": "दक्षिण",
+	"geo-aoi-west": "पश्चिम",
+	"geo-aoi-instructions": "मानचित्र पर एक क्षेत्र चित्रित करना या नीचे विवरण दर्ज तो \"खींचना\" बटन पर क्लिक करें.",
+	"geo-aoi-btndraw": "खींचना",
+	"geo-aoi-btnclear": "हटाना",
+	"geo-geoloc-btn": "वर्तमान स्थान पर ज़ूम",
+	"geo-geoloc-fail": "स्थान में विफल रहा है. स्थान सेवाएं सक्षम रहे हैं कि कृपया सुनिश्चित करें.",
+	"geo-geoloc-uncapable": "स्थानीयकरण आपके ब्राउज़र द्वारा समर्थित नहीं है.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "मूल HTML संस्करण",
 	"wb-enable": "मानक संस्करण",

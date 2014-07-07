@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "중지",
 	open: "열기",
 	close: "가까운",
-	volume: "Volume",
+	volume: "볼륨",
 	mute: {
 		on: "음소거",
 		off: "음소거 해제"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "선택",
 	"geo-lblsel": "지도에서 요소를 선택하려면 선택",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "위치&#44; 우편 번호&#44; 주소 (우편), NTS의 개수의 이름을 나타내 ...",
 	"geo-loc-label": "위치",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "북쪽",
+	"geo-aoi-east": "동쪽",
+	"geo-aoi-south": "남쪽으로",
+	"geo-aoi-west": "서쪽",
+	"geo-aoi-instructions": "지도에서 지역을 묘사하거나 아래의 정보를 입력 한 후 \"무승부\"버튼을 클릭합니다.",
+	"geo-aoi-btndraw": "무승부",
+	"geo-aoi-btnclear": "제거",
+	"geo-geoloc-btn": "현재 위치로 확대",
+	"geo-geoloc-fail": "위치에 실패했습니다. 위치 서비스가 활성화되어 있는지 확인하십시오.",
+	"geo-geoloc-uncapable": "현지화는 브라우저에서 지원되지 않습니다.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "기본 HTML 버전",
 	"wb-enable": "표준 버전",

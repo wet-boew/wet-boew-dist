@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Sélectionnez",
 	"geo-lblsel": "Cochez pour sélectionner cet élément sur la carte",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/fr/locate",
-	"geo-loc-placeholder": "Indiquer le nom de l'endroit&#44; le code postal&#44; l'adresse (postale)&#44; le numÃ©ro du SNRC...",
+	"geo-loc-placeholder": "Indiquer le nom de l'endroit&#44; le code postal&#44; l'adresse (postale)&#44; le numéro du SNRC...",
 	"geo-loc-label": "Location",
 	"geo-aoi-north": "Nord",
 	"geo-aoi-east": "Est",
 	"geo-aoi-south": "Sud",
 	"geo-aoi-west": "Ouest",
-	"geo-aoi-instructions": "Délimiter un territoire sur la carte ou entrer les coordonnées ci-dessous, puis cliquer sur le bouton <em>Dessiner</em>.",
+	"geo-aoi-instructions": "Délimiter un territoire sur la carte ou entrer les coordonnées ci-dessous, puis cliquer sur le bouton &#171;&#160;Tracer&#160;&#187;.",
 	"geo-aoi-btndraw": "Tracer",
 	"geo-aoi-btnclear": "Enlever",
 	"geo-geoloc-btn": "Zoom sur votre position actuelle",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-geoloc-fail": "Localisation a échoué. S'il vous plaît s'assurer que les services de localisation sont activés.",
+	"geo-geoloc-uncapable": "Localisation n'est pas supporté par votre navigateur.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Version HTML simplifiée",
 	"wb-enable": "Version standard",

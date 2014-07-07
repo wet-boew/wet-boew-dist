@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "وقفة",
 	open: "فتح",
 	close: "أغلق",
-	volume: "Volume",
+	volume: "جهارة الصوت",
 	mute: {
 		on: "كتم",
 		off: "إلغاء كتمه"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "حدد",
 	"geo-lblsel": "تحقق لتحديد عنصر على الخريطة",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "تشير إلى اسم الموقع، والرمز البريدي والعنوان (البريدي)، وعدد من NTS ...",
 	"geo-loc-label": "موقع",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "شمال",
+	"geo-aoi-east": "شرق",
+	"geo-aoi-south": "جنوب",
+	"geo-aoi-west": "غرب",
+	"geo-aoi-instructions": "تحدد مساحة على الخريطة أو أدخل التفاصيل أدناه ثم انقر على زر \"رسم\".",
+	"geo-aoi-btndraw": "رسم",
+	"geo-aoi-btnclear": "نزع",
+	"geo-geoloc-btn": "التكبير لموقعك الحالي",
+	"geo-geoloc-fail": "فشل الموقع. يرجى التأكد من أن يتم تمكين خدمات الموقع.",
+	"geo-geoloc-uncapable": "غير معتمد التعريب بواسطة المتصفح الخاص بك.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "إصدار HTML الأساسي",
 	"wb-enable": "الإصدار القياسي",

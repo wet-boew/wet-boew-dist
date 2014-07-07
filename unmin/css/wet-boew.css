@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -5619,8 +5619,11 @@ figure .pieLabel {
 .fn-lnk, .wb-fnote .fn-rtn a {
   background-color: #eee;
   border: 1px solid #ccc;
-  padding: 0 4px 1px;
+  padding: 1px 10px 2px;
   white-space: nowrap; }
+
+.fn-lnk {
+  margin-left: 5px; }
 
 .wb-fnote {
   border-color: #ccc;
@@ -5641,7 +5644,7 @@ figure .pieLabel {
       background-color: #eee;
       border-color: #555; }
   .wb-fnote p {
-    margin: 0 0 0 3.125em;
+    margin: 0 0 0 3.75em;
     padding: 0 0.375em 0.375em; }
     .wb-fnote p:first-child {
       padding-top: 0.375em; }
@@ -5652,17 +5655,17 @@ figure .pieLabel {
     padding-top: 0.375em;
     position: absolute;
     top: 0;
-    width: 2.75em; }
+    width: 3.375em; }
     .wb-fnote .fn-rtn a {
       display: inline-block;
       padding-bottom: 0; }
 
 /* Right to left (RTL) SCSS */
-[dir="rtl"] .wb-fnote p {
+[dir="rtl"] sup .fn-lnk {
   margin-left: 0;
-  margin-right: 3.125em;
-  padding-left: 0;
-  padding-right: 0.375em; }
+  margin-right: 5px; }
+[dir="rtl"] .wb-fnote p {
+  margin: 0 3.75em 0 0; }
 [dir="rtl"] .wb-fnote .fn-rtn {
   margin-right: 0;
   padding-right: 0; }
@@ -7439,6 +7442,11 @@ table.dataTable {
   z-index: 10000; }
   .geomap-geoloc input[type="text"] {
     width: 80%; }
+
+.geomap-aoi legend {
+  border: 0;
+  font-size: 1em;
+  margin-bottom: 1em; }
 
 button.geomap-geoloc-aoi-btn {
   background-color: #fff;

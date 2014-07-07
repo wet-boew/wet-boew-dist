@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Пауза",
 	open: "Oткрыть",
 	close: "Закрыть",
-	volume: "Volume",
+	volume: "Громкость",
 	mute: {
 		on: "Отключение звука",
 		off: "Включить звук"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Выбирать",
 	"geo-lblsel": "Проверьте, чтобы выбрать элемент на карте",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Укажите название места&#44; почтовый индекс&#44; адрес (почтовый)&#44; количество НТС ...",
 	"geo-loc-label": "Pасположение",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "К северу",
+	"geo-aoi-east": "Восток",
+	"geo-aoi-south": "Юг",
+	"geo-aoi-west": "Запад",
+	"geo-aoi-instructions": "Очертить площадь на карте или заполните форму и нажмите на кнопку \"Рисовать\".",
+	"geo-aoi-btndraw": "Рисовать",
+	"geo-aoi-btnclear": "Удалять",
+	"geo-geoloc-btn": "Увеличить к текущему местоположению",
+	"geo-geoloc-fail": "Расположение не удалось. Пожалуйста, убедитесь, что услуги определения местоположения включены.",
+	"geo-geoloc-uncapable": "Локализация не поддерживается браузером.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Базовая версия HTML",
 	"wb-enable": "Стандартная версия",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "Tạm dừng",
 	open: "Mở",
 	close: "Đóng",
-	volume: "Volume",
+	volume: "Khối lượng",
 	mute: {
 		on: "Tắt",
 		off: "Bật tiếng"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "Chọn",
 	"geo-lblsel": "Kiểm tra để chọn phần tử trên bản đồ",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "Cho biết tên của địa điểm&#44; mã vùng&#44; địa chỉ (bưu điện)&#44; số lượng NTS ...",
 	"geo-loc-label": "Nơi",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "Bắc",
+	"geo-aoi-east": "Đông",
+	"geo-aoi-south": "Nam",
+	"geo-aoi-west": "Tây",
+	"geo-aoi-instructions": "Phân định một khu vực trên bản đồ hoặc nhập các chi tiết bên dưới sau đó nhấn vào \"Vẽ\" nút.",
+	"geo-aoi-btndraw": "Vẽ",
+	"geo-aoi-btnclear": "Hủy bỏ",
+	"geo-geoloc-btn": "Phóng to đến vị trí hiện tại",
+	"geo-geoloc-fail": "Vị trí thất bại. Hãy đảm bảo rằng dịch vụ định vị được kích hoạt.",
+	"geo-geoloc-uncapable": "Nội địa hóa không được hỗ trợ bởi trình duyệt của bạn.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Phiên bản HTML cơ bản",
 	"wb-enable": "Phiên bản tiêu chuẩn",

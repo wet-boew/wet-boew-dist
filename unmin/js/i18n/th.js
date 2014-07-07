@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-04
+ * v4.0.4-development - 2014-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -79,7 +79,7 @@ wb.i18nDict = {
 	pause: "หยุด",
 	open: "เปิด",
 	close: "ปิด",
-	volume: "Volume",
+	volume: "ปริมาณ",
 	mute: {
 		on: "ปิด",
 		off: "เปิดเสียง"
@@ -192,18 +192,18 @@ wb.i18nDict = {
 	"geo-sel": "เลือก",
 	"geo-lblsel": "ตรวจสอบเพื่อเลือกองค์ประกอบบนแผนที่",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/en/locate",
-	"geo-loc-placeholder": "Enter placename&#44; postal code&#44; street address&#44; NTS number...",
+	"geo-loc-placeholder": "ระบุชื่อสถานที่&#44; รหัสไปรษณีย์ที่อยู่ (ไปรษณีย์) จำนวน NTS ...",
 	"geo-loc-label": "ตำแหน่งที่ตั้ง",
-	"geo-aoi-north": "North",
-	"geo-aoi-east": "East",
-	"geo-aoi-south": "South",
-	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the <em>Draw</em> button.",
-	"geo-aoi-btndraw": "Draw",
-	"geo-aoi-btnclear": "Clear",
-	"geo-geoloc-btn": "Zoom to current location",
-	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
-	"geo-geoloc-uncapable": "Geolocation not supported by your browser.",
+	"geo-aoi-north": "เหนือ",
+	"geo-aoi-east": "ทางทิศตะวันออก",
+	"geo-aoi-south": "ใต้",
+	"geo-aoi-west": "ทิศตะวันตก",
+	"geo-aoi-instructions": "กำหนดพื้นที่บนแผนที่หรือกรอกรายละเอียดด้านล่างนี้แล้วคลิกที่ \"วาด\" ปุ่ม",
+	"geo-aoi-btndraw": "วาด",
+	"geo-aoi-btnclear": "เอาออก",
+	"geo-geoloc-btn": "ขยายไปยังสถานที่ปัจจุบัน",
+	"geo-geoloc-fail": "ที่ล้มเหลว โปรดตรวจสอบว่าบริการสถานที่มีการใช้งาน",
+	"geo-geoloc-uncapable": "ท้องถิ่นไม่ได้รับการสนับสนุนโดยเบราว์เซอร์ของคุณ",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "เวอร์ชันพื้นฐานของ HTM​​L",
 	"wb-enable": "รุ่นมาตรฐาน",
