@@ -7977,6 +7977,9 @@ details:not([open]) > * {
     display: none !important; }
   .wb-tabs [role="tabpanel"] {
     display: block !important;
-    opacity: 1 !important; }
+    opacity: 1 !important;
+    position: static !important; }
     .wb-tabs [role="tabpanel"] figcaption {
-      position: static; } }
+      position: static; }
+    .wb-tabs [role="tabpanel"] summary {
+      display: block !important; } }
