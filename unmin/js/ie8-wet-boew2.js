@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-07
+ * v4.0.4-development - 2014-07-08
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9157,9 +9157,22 @@ var pluginName = "wb-tabs",
 		var $tabs = $controls.find( "[role=tab]" ),
 			newIndex = $tabs.index( $control ) + 1,
 			$currPanel = $panels.filter( ".in" ),
+			$container = $currPanel.closest( selector ),
 			mPlayers = $currPanel.find( ".wb-mltmd-inited" ).get(),
 			mPlayersLen = mPlayers.length,
-			i;
+			i, j, last;
+
+		// Handle the direction of the slide transitions
+		if ( $container[ 0 ].className.indexOf( "slide" ) !== -1 ) {
+			i = $panels.index( $currPanel );
+			j = $panels.index( $next );
+			last = $panels.length - 1;
+
+			$container.toggleClass(
+				"reverse",
+				( i > j && ( i !== last || j !== 0 ) ) || ( i === 0 && j === last )
+			);
+		}
 
 		$currPanel
 			.removeClass( "in" )

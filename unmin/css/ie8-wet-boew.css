@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-07
+ * v4.0.4-development - 2014-07-08
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4717,81 +4717,14 @@ blockquote {
     opacity: 0;
     transform: scale(0.8); } }
 
-/* keyframes for slidein from sides */
-@keyframes slideinfromright {
-  from {
-    transform: translateX(100%); }
-
-  to {
-    transform: translateX(0); } }
-
-@keyframes slideinfromleft {
-  from {
-    transform: translateX(-100%); }
-
-  to {
-    transform: translateX(0); } }
-
-/* keyframes for slideout to sides */
-@keyframes slideouttoleft {
-  from {
-    transform: translateX(0); }
-
-  to {
-    transform: translateX(-100%); } }
-
-@keyframes slideouttoright {
-  from {
-    transform: translateX(0); }
-
-  to {
-    transform: translateX(100%); } }
-
-.slide .out, .slide .in {
-  animation-duration: 350ms;
-  animation-timing-function: ease-out; }
-.slide .out {
-  animation-name: slideouttoleft;
-  transform: translateX(-100%); }
-.slide .in {
-  animation-name: slideinfromright;
-  transform: translateX(0); }
-.slide.reverse .out {
-  animation-name: slideouttoright;
-  transform: translateX(100%); }
-.slide.reverse .in {
-  animation-name: slideouttoright;
-  transform: translateX(100%); }
-
-/* slide down */
-.slidedown .out {
-  animation-duration: 100ms;
-  animation-name: fadeout; }
-.slidedown .in {
-  animation-duration: 250ms;
-  animation-name: slideinfromtop;
-  transform: translateY(0); }
-.slidedown.reverse .out {
-  animation-duration: 200ms;
-  animation-name: slideouttotop;
-  transform: translateY(-100%); }
-.slidedown.reverse .in {
-  animation-duration: 150ms;
-  animation-name: fadein; }
-
-@keyframes slideinfromtop {
-  from {
-    transform: translateY(-100%); }
-
-  to {
-    transform: translateY(0); } }
-
-@keyframes slideouttotop {
-  from {
-    transform: translateY(0); }
-
-  to {
-    transform: translateY(-100%); } }
+.fade .out {
+  animation-duration: 125ms;
+  animation-name: fadeout;
+  opacity: 0; }
+.fade .in {
+  animation-duration: 225ms;
+  animation-name: fadein;
+  opacity: 1; }
 
 @keyframes fadein {
   from {
@@ -4807,14 +4740,36 @@ blockquote {
   to {
     opacity: 0; } }
 
-.fade .out {
-  animation-duration: 125ms;
-  animation-name: fadeout;
-  opacity: 0; }
-.fade .in {
-  animation-duration: 225ms;
-  animation-name: fadein;
-  opacity: 1; }
+.slide .out, .slide .in {
+  animation-duration: 350ms;
+  animation-timing-function: ease-out; }
+.slide .out {
+  animation-name: slideouttoleft;
+  transform: translateX(-100%); }
+.slide .in {
+  animation-name: slideinfromright;
+  transform: translateX(0); }
+.slide.reverse .out {
+  animation-name: slideouttoright;
+  transform: translateX(100%); }
+.slide.reverse .in {
+  animation-name: slideinfromleft;
+  transform: translateX(0); }
+
+/* keyframes for slidein from sides */
+@keyframes slideinfromright {
+  from {
+    transform: translateX(100%); }
+
+  to {
+    transform: translateX(0); } }
+
+@keyframes slideinfromleft {
+  from {
+    transform: translateX(-100%); }
+
+  to {
+    transform: translateX(0); } }
 
 /* keyframes for slideout to sides */
 @keyframes slideouttoleft {
@@ -4848,21 +4803,36 @@ blockquote {
   animation-name: fadein;
   transform: translateX(0); }
 
-/* slide up */
-.slideup .out {
-  animation-duration: 100ms;
-  animation-name: fadeout; }
-.slideup .in {
-  animation-duration: 250ms;
-  animation-name: slideinfrombottom;
-  transform: translateY(0); }
-.slideup.reverse .in {
-  animation-duration: 150ms;
-  animation-name: fadein; }
-.slideup.reverse .out {
-  animation-duration: 200ms;
+/* slide up/down */
+.slidevert .out, .slidevert .in {
+  animation-duration: 350ms;
+  animation-timing-function: ease-out; }
+.slidevert .out {
   animation-name: slideouttobottom;
   transform: translateY(100%); }
+.slidevert .in {
+  animation-name: slideinfromtop;
+  transform: translateY(0); }
+.slidevert.reverse .out {
+  animation-name: slideouttotop;
+  transform: translateY(-100%); }
+.slidevert.reverse .in {
+  animation-name: slideinfrombottom;
+  transform: translateY(0); }
+
+@keyframes slideinfromtop {
+  from {
+    transform: translateY(-100%); }
+
+  to {
+    transform: translateY(0); } }
+
+@keyframes slideouttotop {
+  from {
+    transform: translateY(0); }
+
+  to {
+    transform: translateY(-100%); } }
 
 @keyframes slideinfrombottom {
   from {
