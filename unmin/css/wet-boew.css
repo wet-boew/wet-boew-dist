@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-08
+ * v4.0.4-development - 2014-07-09
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4736,14 +4736,21 @@ blockquote {
   float: right; }
 
 /*
-* jQuery Mobile v1.3.2
-* http://jquerymobile.com
+* Based upon jQuery Mobile Transitions (http://jquerymobile.com)
 *
 * Copyright 2010, 2013 jQuery Foundation, Inc. and other contributors
 * Released under the MIT license.
 * http://jquery.org/license
 *
 */
+.pop.in, .fade.in {
+  opacity: 1;
+  visibility: visible; }
+
+.pop.out, .fade.out {
+  opacity: 0;
+  visibility: hidden; }
+
 .in {
   -webkit-animation-duration: 350ms;
   animation-duration: 350ms;
@@ -4764,25 +4771,25 @@ blockquote {
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%; }
-  .pop .in {
+  .pop.in {
     -webkit-animation-duration: 350ms;
     animation-duration: 350ms;
     -webkit-animation-name: popin;
     animation-name: popin;
-    opacity: 1;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
-    transform: scale(1); }
-  .pop .out {
+    transform: scale(1);
+    visibility: visible; }
+  .pop.out {
     -webkit-animation-duration: 100ms;
     animation-duration: 100ms;
     -webkit-animation-name: fadeout;
     animation-name: fadeout;
-    opacity: 0; }
-  .pop.reverse .in {
+    visibility: hidden; }
+  .pop.reverse.in {
     -webkit-animation-name: fadein;
     animation-name: fadein; }
-  .pop.reverse .out {
+  .pop.reverse.out {
     -webkit-animation-name: popout;
     animation-name: popout;
     -webkit-transform: scale(0.8);
@@ -4791,113 +4798,127 @@ blockquote {
 
 @-webkit-keyframes popin {
   from {
-    opacity: 0;
+    opacity: 1;
+    visibility: visible;
     -webkit-transform: scale(0.8);
     transform: scale(0.8); }
 
   to {
-    opacity: 1;
+    opacity: 0;
+    visibility: hidden;
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
 @keyframes popin {
   from {
-    opacity: 0;
+    opacity: 1;
+    visibility: visible;
     -webkit-transform: scale(0.8);
     transform: scale(0.8); }
 
   to {
-    opacity: 1;
+    opacity: 0;
+    visibility: hidden;
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
 @-webkit-keyframes popout {
   from {
     opacity: 1;
+    visibility: visible;
     -webkit-transform: scale(1);
     transform: scale(1); }
 
   to {
     opacity: 0;
+    visibility: hidden;
     -webkit-transform: scale(0.8);
     transform: scale(0.8); } }
 
 @keyframes popout {
   from {
     opacity: 1;
+    visibility: visible;
     -webkit-transform: scale(1);
     transform: scale(1); }
 
   to {
     opacity: 0;
+    visibility: hidden;
     -webkit-transform: scale(0.8);
     transform: scale(0.8); } }
 
-.fade .out {
-  -webkit-animation-duration: 125ms;
-  animation-duration: 125ms;
-  -webkit-animation-name: fadeout;
-  animation-name: fadeout;
-  opacity: 0; }
-.fade .in {
+.fade.in {
   -webkit-animation-duration: 225ms;
   animation-duration: 225ms;
   -webkit-animation-name: fadein;
-  animation-name: fadein;
-  opacity: 1; }
+  animation-name: fadein; }
+.fade.out {
+  -webkit-animation-duration: 125ms;
+  animation-duration: 125ms;
+  -webkit-animation-name: fadeout;
+  animation-name: fadeout; }
 
 @-webkit-keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+    visibility: hidden; }
 
   to {
-    opacity: 1; } }
+    opacity: 1;
+    visibility: visible; } }
 
 @keyframes fadein {
   from {
-    opacity: 0; }
+    opacity: 0;
+    visibility: hidden; }
 
   to {
-    opacity: 1; } }
+    opacity: 1;
+    visibility: visible; } }
 
 @-webkit-keyframes fadeout {
   from {
-    opacity: 1; }
+    opacity: 1;
+    visibility: visible; }
 
   to {
-    opacity: 0; } }
+    opacity: 0;
+    visibility: hidden; } }
 
 @keyframes fadeout {
   from {
-    opacity: 1; }
+    opacity: 1;
+    visibility: visible; }
 
   to {
-    opacity: 0; } }
+    opacity: 0;
+    visibility: hidden; } }
 
-.slide .out, .slide .in {
+.slide.out, .slide.in {
   -webkit-animation-duration: 350ms;
   animation-duration: 350ms;
   -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out; }
-.slide .out {
+.slide.out {
   -webkit-animation-name: slideouttoleft;
   animation-name: slideouttoleft;
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%); }
-.slide .in {
+.slide.in {
   -webkit-animation-name: slideinfromright;
   animation-name: slideinfromright;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0); }
-.slide.reverse .out {
+.slide.reverse.out {
   -webkit-animation-name: slideouttoright;
   animation-name: slideouttoright;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%); }
-.slide.reverse .in {
+.slide.reverse.in {
   -webkit-animation-name: slideinfromleft;
   animation-name: slideinfromleft;
   -webkit-transform: translateX(0);
@@ -4976,7 +4997,7 @@ blockquote {
     -webkit-transform: translateX(100%);
     transform: translateX(100%); } }
 
-.slidefade .out {
+.slidefade.out {
   -webkit-animation-duration: 225ms;
   animation-duration: 225ms;
   -webkit-animation-name: slideouttoleft;
@@ -4984,7 +5005,7 @@ blockquote {
   -webkit-transform: translateX(-100%);
   -ms-transform: translateX(-100%);
   transform: translateX(-100%); }
-.slidefade .in {
+.slidefade.in {
   -webkit-animation-duration: 200ms;
   animation-duration: 200ms;
   -webkit-animation-name: fadein;
@@ -4992,7 +5013,7 @@ blockquote {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
   transform: translateX(0); }
-.slidefade.reverse .out {
+.slidefade.reverse.out {
   -webkit-animation-duration: 200ms;
   animation-duration: 200ms;
   -webkit-animation-name: slideouttoright;
@@ -5000,7 +5021,7 @@ blockquote {
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%); }
-.slidefade.reverse .in {
+.slidefade.reverse.in {
   -webkit-animation-duration: 200ms;
   animation-duration: 200ms;
   -webkit-animation-name: fadein;
@@ -5010,30 +5031,30 @@ blockquote {
   transform: translateX(0); }
 
 /* slide up/down */
-.slidevert .out, .slidevert .in {
+.slidevert.out, .slidevert.in {
   -webkit-animation-duration: 350ms;
   animation-duration: 350ms;
   -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out; }
-.slidevert .out {
+.slidevert.out {
   -webkit-animation-name: slideouttobottom;
   animation-name: slideouttobottom;
   -webkit-transform: translateY(100%);
   -ms-transform: translateY(100%);
   transform: translateY(100%); }
-.slidevert .in {
+.slidevert.in {
   -webkit-animation-name: slideinfromtop;
   animation-name: slideinfromtop;
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0); }
-.slidevert.reverse .out {
+.slidevert.reverse.out {
   -webkit-animation-name: slideouttotop;
   animation-name: slideouttotop;
   -webkit-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
   transform: translateY(-100%); }
-.slidevert.reverse .in {
+.slidevert.reverse.in {
   -webkit-animation-name: slideinfrombottom;
   animation-name: slideinfrombottom;
   -webkit-transform: translateY(0);
@@ -6582,6 +6603,60 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+.shr-pg .bitly:before, .shr-pg .blogger:before, .shr-pg .delicious:before, .shr-pg .digg:before, .shr-pg .diigo:before, .shr-pg .facebook:before, .shr-pg .feed:before, .shr-pg .gmail:before, .shr-pg .googleplus:before, .shr-pg .linkedin:before, .shr-pg .myspace:before, .shr-pg .pinterest:before, .shr-pg .reddit:before, .shr-pg .stumbleupon:before, .shr-pg .tumblr:before, .shr-pg .twitter:before, .shr-pg .yahoomail:before {
+  background: url("../assets/sprites_share.png") no-repeat; }
+
+.shr-pg .bitly:before {
+  background-position: 0 0; }
+
+.shr-pg .blogger:before {
+  background-position: 0 -32px; }
+
+.shr-pg .delicious:before {
+  background-position: 0 -64px; }
+
+.shr-pg .digg:before {
+  background-position: 0 -96px; }
+
+.shr-pg .diigo:before {
+  background-position: 0 -128px; }
+
+.shr-pg .facebook:before {
+  background-position: 0 -160px; }
+
+.shr-pg .feed:before {
+  background-position: 0 -192px; }
+
+.shr-pg .gmail:before {
+  background-position: 0 -224px; }
+
+.shr-pg .googleplus:before {
+  background-position: 0 -256px; }
+
+.shr-pg .linkedin:before {
+  background-position: 0 -288px; }
+
+.shr-pg .myspace:before {
+  background-position: 0 -320px; }
+
+.shr-pg .pinterest:before {
+  background-position: 0 -352px; }
+
+.shr-pg .reddit:before {
+  background-position: 0 -384px; }
+
+.shr-pg .stumbleupon:before {
+  background-position: 0 -416px; }
+
+.shr-pg .tumblr:before {
+  background-position: 0 -448px; }
+
+.shr-pg .twitter:before {
+  background-position: 0 -480px; }
+
+.shr-pg .yahoomail:before {
+  background-position: 0 -512px; }
+
 .shr-opn span {
   padding-right: 0.2em; }
 
@@ -6602,63 +6677,12 @@ ol.linenums {
     width: 32px; }
 .shr-pg .shr-dscl {
   padding-bottom: 0; }
-.shr-pg .bitly:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 0; }
-.shr-pg .blogger:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -32px; }
-.shr-pg .delicious:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -64px; }
-.shr-pg .digg:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -96px; }
-.shr-pg .diigo:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -128px; }
 .shr-pg .email:before {
   content: "\2709";
   display: inline-block;
   font-family: "Glyphicons Halflings";
   font-size: 32px;
   margin-right: 0.3em; }
-.shr-pg .facebook:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -160px; }
-.shr-pg .feed:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -192px; }
-.shr-pg .gmail:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -224px; }
-.shr-pg .googleplus:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -256px; }
-.shr-pg .linkedin:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -288px; }
-.shr-pg .myspace:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -320px; }
-.shr-pg .pinterest:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -352px; }
-.shr-pg .reddit:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -384px; }
-.shr-pg .stumbleupon:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -416px; }
-.shr-pg .tumblr:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -448px; }
-.shr-pg .twitter:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -480px; }
-.shr-pg .yahoomail:before {
-  background: url("../assets/sprites_share.png") no-repeat;
-  background-position: 0 -512px; }
 .shr-pg .shr-pg {
   text-align: left; }
 .shr-pg ul {
@@ -6962,10 +6986,9 @@ table.dataTable {
 .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   background: #243850;
   background: rgba(36, 56, 80, 0.9); }
-
-.wb-tabs.carousel-s1 figure img, .wb-tabs.carousel-s2 figure img {
-  height: auto;
-  width: 100%; }
+  .wb-tabs.carousel-s1 figure img, .wb-tabs.carousel-s2 figure img {
+    height: auto;
+    width: 100%; }
 
 .wb-tabs.carousel-s1 figcaption, .wb-tabs.carousel-s2 figcaption {
   bottom: 0;
@@ -6975,9 +6998,8 @@ table.dataTable {
   position: relative;
   right: 0;
   z-index: 101; }
-
-.wb-tabs.carousel-s1 figcaption a, .wb-tabs.carousel-s2 figcaption a {
-  color: #fff; }
+  .wb-tabs.carousel-s1 figcaption a, .wb-tabs.carousel-s2 figcaption a {
+    color: #fff; }
 
 .wb-tabs.carousel-s2 [role="tablist"] li.prv, .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
   background: none;
