@@ -4677,13 +4677,7 @@ blockquote {
   opacity: 0;
   visibility: hidden; }
 
-.in {
-  animation-duration: 350ms;
-  animation-timing-function: ease-out; }
-
 .out {
-  animation-duration: 225ms;
-  animation-timing-function: ease-in;
   display: none !important; }
 
 .csstransitions .out {
@@ -4707,23 +4701,23 @@ blockquote {
     transform: scale(0.8); }
 
 @keyframes popin {
-  from {
+  0% {
     opacity: 1;
     visibility: visible;
     transform: scale(0.8); }
 
-  to {
+  100% {
     opacity: 0;
     visibility: hidden;
     transform: scale(1); } }
 
 @keyframes popout {
-  from {
+  0% {
     opacity: 1;
     visibility: visible;
     transform: scale(1); }
 
-  to {
+  100% {
     opacity: 0;
     visibility: hidden;
     transform: scale(0.8); } }
@@ -4736,20 +4730,20 @@ blockquote {
   animation-name: fadeout; }
 
 @keyframes fadein {
-  from {
+  0% {
     opacity: 0;
     visibility: hidden; }
 
-  to {
+  100% {
     opacity: 1;
     visibility: visible; } }
 
 @keyframes fadeout {
-  from {
+  0% {
     opacity: 1;
     visibility: visible; }
 
-  to {
+  100% {
     opacity: 0;
     visibility: hidden; } }
 
@@ -4758,46 +4752,57 @@ blockquote {
   animation-timing-function: ease-out; }
 .slide.out {
   animation-name: slideouttoleft;
-  transform: translateX(-100%); }
+  transform: translateX(-100%);
+  visibility: hidden; }
 .slide.in {
   animation-name: slideinfromright;
-  transform: translateX(0); }
+  transform: translateX(0);
+  visibility: visible; }
 .slide.reverse.out {
   animation-name: slideouttoright;
   transform: translateX(100%); }
 .slide.reverse.in {
-  animation-name: slideinfromleft;
-  transform: translateX(0); }
+  animation-name: slideinfromleft; }
 
 /* keyframes for slidein from sides */
 @keyframes slideinfromright {
-  from {
+  0% {
     transform: translateX(100%); }
 
-  to {
+  100% {
     transform: translateX(0); } }
 
 @keyframes slideinfromleft {
-  from {
+  0% {
     transform: translateX(-100%); }
 
-  to {
+  100% {
     transform: translateX(0); } }
 
 /* keyframes for slideout to sides */
 @keyframes slideouttoleft {
-  from {
-    transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+    visibility: visible; }
 
-  to {
-    transform: translateX(-100%); } }
+  99% {
+    visibility: visible; }
+
+  100% {
+    transform: translateX(-100%);
+    visibility: hidden; } }
 
 @keyframes slideouttoright {
-  from {
-    transform: translateX(0); }
+  0% {
+    transform: translateX(0);
+    visibility: visible; }
 
-  to {
-    transform: translateX(100%); } }
+  99% {
+    visibility: visible; }
+
+  100% {
+    transform: translateX(100%);
+    visibility: hidden; } }
 
 .slidefade.out {
   animation-duration: 225ms;
@@ -4808,13 +4813,8 @@ blockquote {
   animation-name: fadein;
   transform: translateX(0); }
 .slidefade.reverse.out {
-  animation-duration: 200ms;
   animation-name: slideouttoright;
   transform: translateX(100%); }
-.slidefade.reverse.in {
-  animation-duration: 200ms;
-  animation-name: fadein;
-  transform: translateX(0); }
 
 /* slide up/down */
 .slidevert.out, .slidevert.in {
@@ -4822,44 +4822,55 @@ blockquote {
   animation-timing-function: ease-out; }
 .slidevert.out {
   animation-name: slideouttobottom;
-  transform: translateY(100%); }
+  transform: translateY(100%);
+  visibility: hidden; }
 .slidevert.in {
   animation-name: slideinfromtop;
-  transform: translateY(0); }
+  transform: translateY(0);
+  visibility: visible; }
 .slidevert.reverse.out {
   animation-name: slideouttotop;
   transform: translateY(-100%); }
 .slidevert.reverse.in {
-  animation-name: slideinfrombottom;
-  transform: translateY(0); }
+  animation-name: slideinfrombottom; }
 
 @keyframes slideinfromtop {
-  from {
+  0% {
     transform: translateY(-100%); }
 
-  to {
+  100% {
     transform: translateY(0); } }
 
 @keyframes slideouttotop {
-  from {
-    transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+    visibility: visible; }
 
-  to {
-    transform: translateY(-100%); } }
+  99% {
+    visibility: visible; }
+
+  100% {
+    transform: translateY(-100%);
+    visibility: hidden; } }
 
 @keyframes slideinfrombottom {
-  from {
+  0% {
     transform: translateY(100%); }
 
-  to {
+  100% {
     transform: translateY(0); } }
 
 @keyframes slideouttobottom {
-  from {
-    transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+    visibility: visible; }
 
-  to {
-    transform: translateY(100%); } }
+  99% {
+    visibility: visible; }
+
+  100% {
+    transform: translateY(100%);
+    visibility: hidden; } }
 
 /*
   WET-BOEW
