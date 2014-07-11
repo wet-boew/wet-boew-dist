@@ -67,7 +67,7 @@
   #wb-glb-mn .pnl-btn a {
     color: #474747;
     display: block;
-    font-size: 1.9em;
+    font-size: 1.5em;
     line-height: 1em;
     width: 100%; }
   #wb-glb-mn .pnl-btn span .glyphicon-th-list {
@@ -341,14 +341,14 @@ main {
  Secondary menu (small view and under)
 */
   #wb-sttl a {
-    padding-top: 1.2em;
+    padding-top: 1.1em;
     position: relative;
     z-index: 1; }
   #wb-sttl object, #wb-sttl img {
     height: 1.21em;
     margin: 0;
     position: absolute;
-    top: -7px;
+    top: -10px;
     width: 2.6em; }
   [dir=rtl] #wb-sttl object, [dir=rtl] #wb-sttl img {
     margin: 0; }
