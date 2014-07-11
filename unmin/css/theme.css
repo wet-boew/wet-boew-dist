@@ -299,29 +299,13 @@ main {
       color: black;
       padding-left: 1.8em; }
 
-.wb-slc {
-  float: left;
-  height: 0; }
-  .wb-slc ul {
-    list-style-type: none;
-    margin-top: -1.8em; }
-  .wb-slc li {
-    left: 0;
-    position: absolute;
-    text-align: center;
-    top: 10px;
-    width: 100%;
-    z-index: 3; }
-
 .wb-sl {
   background-color: #000;
   color: #fff;
-  font-weight: 700;
-  padding: 5px; }
+  font-weight: 700; }
   .wb-sl:focus {
     color: #fff;
-    text-decoration: none;
-    z-index: 501; }
+    text-decoration: none; }
 
 /*
  Views

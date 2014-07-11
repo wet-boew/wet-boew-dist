@@ -4431,7 +4431,8 @@ button.close {
   z-index: 3; }
 
 .wb-sl {
-  padding: 5px; }
+  padding: 5px;
+  z-index: 501; }
 
 q:before, q:after {
   content: ""; }
