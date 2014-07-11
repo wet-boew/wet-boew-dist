@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-09
+ * v4.0.4-development - 2014-07-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"prv-l": "前へ（左矢印キー）",
 	first: "最初",
 	last: "最後",
-	menu: "メニュー",
+	"srch-menus": "検索とメニュー",
 	email: "メール",
 	"menu-close": "メニューを閉じる",
 	"overlay-close": "オーバーレイを閉じる",

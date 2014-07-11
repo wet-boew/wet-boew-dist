@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-09
+ * v4.0.4-development - 2014-07-11
  *
  *//*
  *
@@ -62,14 +62,17 @@
   position: relative;
   z-index: 2; }
   #wb-glb-mn .pnl-btn li {
-    padding: 4px 10px;
+    padding: 4px 0 4px 10px;
     width: 100%; }
   #wb-glb-mn .pnl-btn a {
     color: #474747;
     display: block;
-    font-size: 1.5em;
+    font-size: 1.9em;
     line-height: 1em;
     width: 100%; }
+  #wb-glb-mn .pnl-btn span .glyphicon-th-list {
+    padding-left: 10px;
+    top: 0; }
 
 #wb-sttl a {
   color: #fff;
@@ -93,6 +96,9 @@
   float: left; }
 [dir=rtl] #wb-glb-mn .pnl-btn {
   text-align: left; }
+  [dir=rtl] #wb-glb-mn .pnl-btn span .glyphicon-th-list {
+    padding-left: 0;
+    padding-right: 10px; }
 [dir=rtl] #wb-sttl {
   float: right; }
   [dir=rtl] #wb-sttl object, [dir=rtl] #wb-sttl img {
@@ -357,15 +363,15 @@ main {
  Secondary menu (small view and under)
 */
   #wb-sttl a {
-    padding-top: 1.125em;
+    padding-top: 1.2em;
     position: relative;
     z-index: 1; }
   #wb-sttl object, #wb-sttl img {
-    height: 1em;
+    height: 1.21em;
     margin: 0;
     position: absolute;
-    top: 0;
-    width: 2.17em; }
+    top: -7px;
+    width: 2.6em; }
   [dir=rtl] #wb-sttl object, [dir=rtl] #wb-sttl img {
     margin: 0; }
   #wb-sec {

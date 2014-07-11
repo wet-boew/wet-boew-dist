@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-09
+ * v4.0.4-development - 2014-07-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Ankstenis (rodyklės dešinėn klavišu)",
 	first: "Pirmasis",
 	last: "Paskutinis",
-	menu: "Meniu",
+	"srch-menus": "Ieškoti ir meniu",
 	email: "El. paštas",
 	"menu-close": "Uždaryti meniu",
 	"overlay-close": "Uždaryti perdangos",

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-09
+ * v4.0.4-development - 2014-07-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Trang trước (phím mũi tên trái)",
 	first: "Đầu tiên",
 	last: "Cuối cùng",
-	menu: "Thực đơn",
+	"srch-menus": "Tìm kiếm và thực đơn",
 	email: "Email",
 	"menu-close": "Đóng menu",
 	"overlay-close": "Đóng lớp phủ",
