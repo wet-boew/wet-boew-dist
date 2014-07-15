@@ -18,8 +18,10 @@
 /**
  * Mobile-friendly styles
  */
-.wb-tabs > details > summary, .wb-tabs > .tabpanels > details > summary {
-  display: block !important; }
+.wb-tabs > details, .wb-tabs > .tabpanels > details {
+  display: block; }
+  .wb-tabs > details[open] > summary, .wb-tabs > .tabpanels > details[open] > summary {
+    display: block !important; }
 
 .wb-tabs {
   /* Only for backwards compatibility. Should be removed in v4.1. */ }

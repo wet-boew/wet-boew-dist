@@ -4407,8 +4407,11 @@ button.close {
 .pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-icons:after, table.dataTable thead .sorting_disabled .sorting-icons:before, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
   display: none; }
 
-.wb-menu .sm.open li {
+.wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
   display: block; }
+
+.wb-disable .wb-tabs > details[open] > summary, .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
+  display: block !important; }
 
 .wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
   text-decoration: none; }
@@ -5395,15 +5398,15 @@ summary {
 
 details[open] {
   padding-bottom: 1em; }
-  details[open] > * {
-    margin-left: 1.3em; }
-  details[open] > summary {
-    margin-left: auto; }
+details > * {
+  margin-left: 1.3em; }
+details > summary {
+  margin-left: auto; }
 
-[dir=rtl] details[open] > * {
+[dir=rtl] details > * {
   margin-left: auto;
   margin-right: 1.3em; }
-[dir=rtl] details[open] > summary {
+[dir=rtl] details > summary {
   margin-right: auto; }
 
 /*
@@ -7180,9 +7183,6 @@ table.dataTable {
             margin-top: 0.4em;
             margin-right: 0.65em;
             padding: 8px 10px 4px; }
-
-.wb-disable .wb-tabs > details > summary, .wb-disable .wb-tabs > .tabpanels > details > summary {
-  display: block !important; }
 
 .wb-disable .csstransitions .wb-tabs [role="tabpanel"].out {
   position: static;
