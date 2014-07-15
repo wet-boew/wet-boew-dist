@@ -4685,7 +4685,13 @@ blockquote {
  *	Use button border style 'outset' to give buttons depth, except when disabled
  */
 .btn {
-  border-style: outset; }
+  border-style: outset;
+  /*
+	 * These two property overrides should be recommended upstream to
+	 * Bootstrap as a fix for button wrapping (see wet-boew/wet-boew#4454)
+	 */
+  height: auto;
+  white-space: normal; }
   .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     border-style: solid; }
 
