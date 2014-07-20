@@ -10,7 +10,7 @@
 </title>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
-<meta name="description" content="Émule l’élément &lt;input type=&quot;date&quot;&gt; pour les navigateurs qui ne le supportent pas."/>
+<meta name="description" content="Émule l’élément &lt;input type=&quot;date&quot;&gt; pour les navigateurs qui ne le supportent pas. Cela génère dynamiquement une interface de calendrier pour sélectionner une date dans un formulaire."/>
 
 <!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
 <link rel="stylesheet" href="../../css/theme.min.css"/>
@@ -110,20 +110,8 @@
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Correctif%20%C2%AB%20input%20type%3D%22date%22%20%C2%BB%20(s%C3%A9lecteur%20de%20date):%20">Questions ou commentaires?</a></li>
 </ul>
 <section>
-<h2>Exemples</h2>
-<form method="get" action="#">
-<div class="form-group">
-<label for="startdate">Date de début<span class="datepicker-format"> (<abbr title="Les quatres chiffres de l'année, tiret, les deux chiffres du mois, tiret, les deux chiffres du jour">AAAA-MM-JJ</abbr>)</span>&#160;:</label>
-<input class="form-control" type="date" id="startdate" name="startdate" min="2013-03-27" max="2013-05-07"/>
-</div>
-<div class="form-group">
-<label for="enddate">Date de fin<span class="datepicker-format"> (<abbr title="Les quatres chiffres de l'année, tiret, les deux chiffres du mois, tiret, les deux chiffres du jour">AAAA-MM-JJ</abbr>)</span>&#160;:</label>
-<input class="form-control" type="date" id="enddate" name="enddate" min="2013-03-27" max="2016-05-07"/>
-</div>
-<div>
-<input class="btn btn-primary" type="submit" value="Soumettre"/>
-</div>
-</form>
+<h2>But</h2>
+<p>Émule l’élément <code>&lt;input type=&quot;date&quot;&gt;</code> pour les navigateurs qui ne le supportent pas.</p>
 </section>
 <section>
 <h2>Attributs pertinents</h2>
@@ -138,9 +126,41 @@
 <dd><code lang="en">max="2016-05-07"</code></dd>
 </dl>
 </section>
+<section>
+<h2>Exemples</h2>
+<details class="mrgn-bttm-md">
+<summary>Visualiser le code</summary>
+<pre><code>&lt;form method=&quot;get&quot; action=&quot;#&quot;&gt;
+	&lt;div class=&quot;form-group&quot;&gt;
+		&lt;label for=&quot;startdate&quot;&gt;Date de début&lt;span class=&quot;datepicker-format&quot;&gt; (&lt;abbr title=&quot;Les quatres chiffres de l'année, tiret, les deux chiffres du mois, tiret, les deux chiffres du jour&quot;&gt;AAAA-MM-JJ&lt;/abbr&gt;)&lt;/span&gt;&#160;:&lt;/label&gt;
+		&lt;input class=&quot;form-control&quot; type=&quot;date&quot; id=&quot;startdate&quot; name=&quot;startdate&quot; min=&quot;2013-03-27&quot; max=&quot;2013-05-07&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;form-group&quot;&gt;
+		&lt;label for=&quot;enddate&quot;&gt;Date de fin&lt;span class=&quot;datepicker-format&quot;&gt; (&lt;abbr title=&quot;Les quatres chiffres de l'année, tiret, les deux chiffres du mois, tiret, les deux chiffres du jour&quot;&gt;AAAA-MM-JJ&lt;/abbr&gt;)&lt;/span&gt;&#160;:&lt;/label&gt;
+		&lt;input class=&quot;form-control&quot; type=&quot;date&quot; id=&quot;enddate&quot; name=&quot;enddate&quot; min=&quot;2013-03-27&quot; max=&quot;2016-05-07&quot; /&gt;
+	&lt;/div&gt;
+	&lt;div&gt;
+		&lt;input class=&quot;btn btn-primary&quot; type=&quot;submit&quot; value=&quot;Soumettre&quot; /&gt;
+	&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+</details>
+<form method="get" action="#">
+<div class="form-group">
+<label for="startdate">Date de début<span class="datepicker-format"> (<abbr title="Les quatres chiffres de l'année, tiret, les deux chiffres du mois, tiret, les deux chiffres du jour">AAAA-MM-JJ</abbr>)</span>&#160;:</label>
+<input class="form-control" type="date" id="startdate" name="startdate" min="2013-03-27" max="2013-05-07"/>
+</div>
+<div class="form-group">
+<label for="enddate">Date de fin<span class="datepicker-format"> (<abbr title="Les quatres chiffres de l'année, tiret, les deux chiffres du mois, tiret, les deux chiffres du jour">AAAA-MM-JJ</abbr>)</span>&#160;:</label>
+<input class="form-control" type="date" id="enddate" name="enddate" min="2013-03-27" max="2016-05-07"/>
+</div>
+<div>
+<input class="btn btn-primary" type="submit" value="Soumettre"/>
+</div>
+</form>
+</section>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2014-02-19</time></dd>
+<dd><time property="dateModified">2014-07-20</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

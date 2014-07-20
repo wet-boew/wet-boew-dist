@@ -10,7 +10,7 @@
 </title>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 
-<meta name="description" content="Émule les éléments &lt;details&gt; et &lt;summary&gt; pour les navigateurs qui ne le supportent pas."/>
+<meta name="description" content="Émule les éléments « details » et « summary » pour les navigateurs qui ne le supportent pas. Les éléments « details » et « summary » éléments permettent au contenu d&#x27;être affiché et masqué."/>
 
 <!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
 <link rel="stylesheet" href="../../css/theme.min.css"/>
@@ -112,6 +112,8 @@
 <p>Les éléments HTML5 «&#160;<code lang="en">details</code>&#160;» et «&#160;<code lang="en">summary</code>&#160;» sont utilisés pour fournir le contenu en arborescence affichable/masquable. Ce composant ajoute le soutien pour ces éléments dans les navigateurs qui n'ont pas déjà la prise en charge native.</p>
 <section>
 <h2>Exemples</h2>
+<ul class="list-unstyled">
+<li>
 <details>
 <summary>Exemple 1</summary>
 <p>Le contenu d'exemple qui fournit plus de détails.</p>
@@ -141,6 +143,8 @@
 </tbody>
 </table>
 </details>
+</li>
+<li>
 <details>
 <summary>Exemple 2</summary>
 <p>Le contenu d'exemple qui fournit plus de détails.</p>
@@ -170,6 +174,8 @@
 </tbody>
 </table>
 </details>
+</li>
+<li>
 <details>
 <summary>Exemple 3</summary>
 <p>Le contenu d'exemple qui fournit plus de détails.</p>
@@ -198,6 +204,106 @@
 </tr>
 </tbody>
 </table>
+</details>
+</li>
+</ul>
+<details class="mrgn-tp-lg">
+<summary>View code</summary>
+<pre><code>&lt;ul class=&quot;list-unstyled&quot;&gt;
+	&lt;li&gt;
+		&lt;details&gt;
+			&lt;summary&gt;Exemple 1&lt;/summary&gt;
+			&lt;p&gt;Le contenu d'exemple qui fournit plus de détails.&lt;/p&gt;
+			&lt;table&gt;
+				&lt;caption&gt;Tasses de café bues par chaque député&lt;/caption&gt;
+				&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th scope=&quot;col&quot;&gt;Nom&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Tasses&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Type de café&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Sucre?&lt;/th&gt;
+				&lt;/tr&gt;
+				&lt;/thead&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td&gt;T. Sexton&lt;/td&gt;
+						&lt;td&gt;10&lt;/td&gt;
+						&lt;td&gt;Expresso&lt;/td&gt;
+						&lt;td&gt;Non&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;J. Dinnen&lt;/td&gt;
+						&lt;td&gt;5&lt;/td&gt;
+						&lt;td&gt;Déca&lt;/td&gt;
+						&lt;td&gt;Oui&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		&lt;/details&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;details&gt;
+			&lt;summary&gt;Exemple 2&lt;/summary&gt;
+			&lt;p&gt;Le contenu d'exemple qui fournit plus de détails.&lt;/p&gt;
+			&lt;table&gt;
+				&lt;caption&gt;Tasses de café bues par chaque député&lt;/caption&gt;
+				&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th scope=&quot;col&quot;&gt;Nom&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Tasses&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Type de café&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Sucre?&lt;/th&gt;
+				&lt;/tr&gt;
+				&lt;/thead&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td&gt;T. Sexton&lt;/td&gt;
+						&lt;td&gt;10&lt;/td&gt;
+						&lt;td&gt;Expresso&lt;/td&gt;
+						&lt;td&gt;Non&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;J. Dinnen&lt;/td&gt;
+						&lt;td&gt;5&lt;/td&gt;
+						&lt;td&gt;Déca&lt;/td&gt;
+						&lt;td&gt;Oui&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		&lt;/details&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;details&gt;
+			&lt;summary&gt;Exemple 3&lt;/summary&gt;
+			&lt;p&gt;Le contenu d'exemple qui fournit plus de détails.&lt;/p&gt;
+			&lt;table&gt;
+				&lt;caption&gt;Tasses de café bues par chaque député&lt;/caption&gt;
+				&lt;thead&gt;
+				&lt;tr&gt;
+					&lt;th scope=&quot;col&quot;&gt;Nom&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Tasses&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Type de café&lt;/th&gt;
+					&lt;th scope=&quot;col&quot;&gt;Sucre?&lt;/th&gt;
+				&lt;/tr&gt;
+				&lt;/thead&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td&gt;T. Sexton&lt;/td&gt;
+						&lt;td&gt;10&lt;/td&gt;
+						&lt;td&gt;Expresso&lt;/td&gt;
+						&lt;td&gt;Non&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;J. Dinnen&lt;/td&gt;
+						&lt;td&gt;5&lt;/td&gt;
+						&lt;td&gt;Déca&lt;/td&gt;
+						&lt;td&gt;Oui&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		&lt;/details&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
 </details>
 </section>
 <dl id="wb-dtmd">

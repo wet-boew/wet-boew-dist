@@ -109,6 +109,131 @@
 <li><a class="btn btn-primary" href="../../docs/ref/formvalid/formvalid-fr.html">Documentation</a></li>
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Validation%20de%20formulaires:%20">Questions ou commentaires?</a></li>
 </ul>
+<section>
+<h2>But</h2>
+<p>Effectue la validation de formulaires Web selon un ensemble de règles de base avant qu'ils soient soumis.</p>
+</section>
+<section>
+<h2>Exemple</h2>
+<details class="mrgn-bttm-lg">
+<summary>Visualiser le code</summary>
+<pre><code>&lt;div class=&quot;wb-frmvld&quot;&gt;
+	&lt;form action=&quot;#&quot; method=&quot;get&quot; id=&quot;validation-example&quot;&gt;
+		&lt;fieldset&gt;
+			&lt;legend&gt;Coordonnées&lt;/legend&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;title1&quot; class=&quot;required&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Titre&lt;/span&gt; &lt;strong class=&quot;required&quot;&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
+				&lt;select class=&quot;form-control&quot; id=&quot;title1&quot; name=&quot;title1&quot; required=&quot;required&quot;&gt;
+					&lt;option label=&quot;Sélectionner un titre&quot;&gt;&lt;/option&gt;
+					&lt;option value=&quot;dr&quot;&gt;D. Ph.&lt;/option&gt;
+					&lt;option value=&quot;esq&quot;&gt;Me&lt;/option&gt;
+					&lt;option value=&quot;mr&quot;&gt;M.&lt;/option&gt;
+					&lt;option value=&quot;ms&quot;&gt;Madame&lt;/option&gt;
+				&lt;/select&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;fname&quot; class=&quot;required&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Prénom&lt;/span&gt; &lt;strong class=&quot;required&quot;&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;fname&quot; name=&quot;fname&quot; type=&quot;text&quot; required=&quot;required&quot; pattern=&quot;.{2,}&quot; data-rule-minlength=&quot;2&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;lname&quot; class=&quot;required&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Nom de famille&lt;/span&gt; &lt;strong class=&quot;required&quot;&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;lname&quot; name=&quot;lname&quot; type=&quot;text&quot; required=&quot;required&quot; pattern=&quot;.{2,}&quot; data-rule-minlength=&quot;2&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;tel&quot; class=&quot;required&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Numéro de téléphone&lt;/span&gt; (999-999-9999) &lt;strong class=&quot;required&quot;&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;tel&quot; name=&quot;tel&quot; type=&quot;tel&quot; required=&quot;required&quot; data-rule-phoneUS=&quot;true&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;email1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Adresse électronique&lt;/span&gt; (votrenom@domaine.com)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;email1&quot; name=&quot;email1&quot; type=&quot;email&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;url1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;URL du site Web (http://www.url.com)&lt;/span&gt;&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;url1&quot; name=&quot;url1&quot; type=&quot;url&quot; /&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+
+		&lt;fieldset&gt;
+			&lt;legend&gt;Autres exemples&lt;/legend&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;date1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;datepicker-format&quot;&gt; (AAAA-MM-JJ)&lt;/span&gt;&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;date1&quot; name=&quot;date1&quot; type=&quot;date&quot; data-rule-dateISO=&quot;true&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;time1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Heure&lt;/span&gt; (hh:mm)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;time1&quot; name=&quot;time1&quot; type=&quot;time&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;number1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Nombre&lt;/span&gt; (entre 5 et 40)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;number1&quot; name=&quot;number1&quot; type=&quot;number&quot; min=&quot;5&quot; max=&quot;40&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;an1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Alphanumérique&lt;/span&gt; (4 caractères minimum)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;an1&quot; name=&quot;an1&quot; type=&quot;text&quot; pattern=&quot;[A-Za-z0-9\s]{4,}&quot; data-rule-alphanumeric=&quot;true&quot; data-rule-minlength=&quot;4&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;numeric1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Numérique&lt;/span&gt; (chiffres seulement)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;numeric1&quot; name=&quot;numeric1&quot; type=&quot;number&quot; data-rule-digits=&quot;true&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;letters1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Lettres seulement&lt;/span&gt; (5 caractères maximum)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;letters1&quot; name=&quot;letters1&quot; type=&quot;text&quot; size=&quot;5&quot; maxlength=&quot;5&quot; pattern=&quot;[A-Za-z\s]&quot; data-rule-lettersonly=&quot;true&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;text1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Lettres et des signes de ponctuation seulement&lt;/span&gt; (ponctuation qui est permise&amp;#160;: [. , ( ) &quot;])&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;text1&quot; name=&quot;text1&quot; type=&quot;text&quot; pattern=&quot;[A-Za-z-.,()'&amp;#34;\s]&quot; data-rule-letterswithbasicpunc=&quot;true&quot; /&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;form-group&quot;&gt;
+				&lt;label for=&quot;password1&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Mot de passe&lt;/span&gt; (entre 5 et 10 caractères)&lt;/label&gt;
+				&lt;input class=&quot;form-control&quot; id=&quot;password1&quot; name=&quot;password1&quot; type=&quot;password&quot; maxlength=&quot;10&quot; size=&quot;10&quot; pattern=&quot;.{5,10}&quot; data-rule-rangelength=&quot;[5,10]&quot; /&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+
+		&lt;fieldset&gt;
+			&lt;legend class=&quot;required&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Animaux favoris&lt;/span&gt; &lt;strong class=&quot;required&quot;&gt;(obligatoire)&lt;/strong&gt;&lt;/legend&gt;
+			&lt;div class=&quot;checkbox&quot;&gt;
+				&lt;label for=&quot;animal1&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;1&quot; id=&quot;animal1&quot; required=&quot;required&quot; /&gt;&amp;#160;&amp;#160;Chien&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;checkbox&quot;&gt;
+				&lt;label for=&quot;animal2&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;2&quot; id=&quot;animal2&quot; /&gt;&amp;#160;&amp;#160;Chat&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;checkbox&quot;&gt;
+				&lt;label for=&quot;animal3&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;3&quot; id=&quot;animal3&quot; /&gt;&amp;#160;&amp;#160;Poisson&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;checkbox&quot;&gt;
+				&lt;label for=&quot;animal4&quot;&gt;&lt;input type=&quot;checkbox&quot; name=&quot;animal&quot; value=&quot;4&quot; id=&quot;animal4&quot; /&gt;&amp;#160;&amp;#160;Autre&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+
+		&lt;fieldset&gt;
+			&lt;legend class=&quot;required&quot;&gt;&lt;span class=&quot;field-name&quot;&gt;Statut de citoyen&lt;/span&gt; &lt;strong class=&quot;required&quot;&gt;(obligatoire)&lt;/strong&gt;&lt;/legend&gt;
+			&lt;div class=&quot;radio&quot;&gt;
+				&lt;label for=&quot;status1&quot; class=&quot;required&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;status&quot; value=&quot;1&quot; id=&quot;status1&quot; required=&quot;required&quot; /&gt;&amp;#160;&amp;#160;Citoyen canadien&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;radio&quot;&gt;
+				&lt;label for=&quot;status2&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;status&quot; value=&quot;2&quot; id=&quot;status2&quot; /&gt;&amp;#160;&amp;#160;Résident permanent&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;radio&quot;&gt;
+				&lt;label for=&quot;status3&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;status&quot; value=&quot;3&quot; id=&quot;status3&quot; /&gt;&amp;#160;&amp;#160;Permis de travail&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;radio&quot;&gt;
+				&lt;label for=&quot;status4&quot;&gt;&lt;input type=&quot;radio&quot; name=&quot;status&quot; value=&quot;4&quot; id=&quot;status4&quot; /&gt;&amp;#160;&amp;#160;Autre&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;
+
+		&lt;input type=&quot;submit&quot; value=&quot;Soumettre&quot; class=&quot;btn btn-primary&quot; /&gt; &lt;input type=&quot;reset&quot; value=&quot;Réinitialiser&quot; class=&quot;btn btn-default&quot; /&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+
+&lt;noscript&gt;
+	&lt;p&gt;Ce formulaire ne peut pas être soumis sans Javascript. Veuillez utiliser une des méthodes précisées ci-dessous&amp;#160;:&lt;/p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;Méthode 1&lt;/li&gt;
+		&lt;li&gt;Méthode 2&lt;/li&gt;
+		&lt;li&gt;Méthode n&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/noscript&gt;</code></pre>
+</details>
 <div class="wb-frmvld">
 <form action="#" method="get" id="validation-example">
 <fieldset>
@@ -212,7 +337,6 @@
 <input type="submit" value="Soumettre" class="btn btn-primary"/> <input type="reset" value="Réinitialiser" class="btn btn-default"/>
 </form>
 </div>
-<div class="clear"></div>
 <noscript>
 <p>Ce formulaire ne peut pas être soumis sans Javascript. Veuillez utiliser une des méthodes précisées ci-dessous&#160;:</p>
 <ul>
@@ -221,9 +345,10 @@
 <li>Méthode n</li>
 </ul>
 </noscript>
+</section>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2014-05-23</time></dd>
+<dd><time property="dateModified">2014-07-20</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
