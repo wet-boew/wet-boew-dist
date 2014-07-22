@@ -47,3 +47,7 @@
 
 .datepicker-format {
   display: inline !important; }
+
+[dir=rtl] .picker-toggle {
+  margin-left: 0;
+  margin-right: 5px; }
