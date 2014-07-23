@@ -1737,6 +1737,7 @@ var pluginName = "wb-calevt",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	evDetails = "ev-details",
 	$document = wb.doc,
 	i18n, i18nText,
@@ -2080,6 +2081,9 @@ $document.on( "displayed.wb-cal", selector + "-cal", function( event, year, mont
 		addEvents( year, month, days, containerId, events.list );
 		showOnlyEventsFor( year, month, containerId );
 		$target.find( ".cal-index-" + day + " .cal-evt" ).trigger( "setfocus.wb" );
+
+		// Identify that the plugin is ready
+		$target.trigger( readyEvent );
 	}
 });
 
@@ -2841,6 +2845,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	tableParsingEvent = "passiveparse.wb-tableparser",
 	tableParsingCompleteEvent = "parsecomplete.wb-tableparser",
 	$document = wb.doc,
@@ -3894,6 +3899,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 		$( "canvas:eq(1)", $placeHolder ).css( "position", "static" );
 		$( "canvas:eq(0)", $placeHolder ).css( "width", "100%" );
 
+		$elm.trigger( readyEvent );
 	},
 
 	/**
@@ -9245,6 +9251,7 @@ var pluginName = "wb-tables",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	$document = wb.doc,
 	idCount = 0,
 	i18n, i18nText, defaults,
@@ -9316,8 +9323,8 @@ var pluginName = "wb-tables",
 							.filter( ".current" )
 								.attr( "aria-pressed", "true" );
 
-					// Trigger the table-draw.wb-tables callback event
-					$( "#" + elmId ).trigger( "table-draw.wb-tables", [ this, settings ] );
+					// Trigger the wb-ready.wb-tables callback event
+					$( "#" + elmId ).trigger( readyEvent, [ this, settings ] );
 				}
 			};
 
