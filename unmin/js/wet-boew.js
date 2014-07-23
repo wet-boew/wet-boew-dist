@@ -4658,7 +4658,7 @@ var selector = ".wb-eqht",
 $document.on( eventTimerpoke, selector, init );
 
 // Handle text and window resizing
-$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb tables-draw.wb", onResize );
+$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb table-draw.wb-tables", onResize );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -9305,7 +9305,7 @@ var pluginName = "wb-tables",
 				asStripeClasses: [],
 				language: i18nText,
 				dom: "<'top'ilf>rt<'bottom'p><'clear'>",
-				drawCallback: function() {
+				drawCallback: function( settings ) {
 
 					// Update the aria-pressed properties on the pagination buttons
 					// Should be pushed upstream to DataTables
@@ -9316,8 +9316,8 @@ var pluginName = "wb-tables",
 							.filter( ".current" )
 								.attr( "aria-pressed", "true" );
 
-					// Trigger the tables-draw.wb callback event
-					$( "#" + elmId ).trigger( "tables-draw.wb" );
+					// Trigger the table-draw.wb-tables callback event
+					$( "#" + elmId ).trigger( "table-draw.wb-tables", [ this, settings ] );
 				}
 			};
 
