@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-22
+ * v4.0.4-development - 2014-07-23
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -4919,11 +4919,13 @@ var pluginName = "wb-feeds",
 				title = content.replace( /(<([^>]+)>)/ig, "" ).match( /\(?[^\.\?\!]+[\.!\?]\)?/g );
 
 			// Sanitize the HTML from Facebook - extra 'br' tags
-			content = content.replace( /(<br>\n?)+/gi, "<br>" );
+			content = content.replace( /(<br>\n?)+/gi, "<br />" );
 
-			return "<li class='media'><a class='pull-left' href=''><img src='" + data.fIcon + "' alt='" + data.author +
+			return "<li class='media'><a class='pull-left' href=''><img src='" +
+				data.fIcon + "' alt='" + data.author +
 				"' height='64px' width='64px' class='media-object'/></a><div class='media-body'>" +
-				"<h4 class='media-heading'><a href='" + data.link + "'><span class='wb-inv'>" + title[0] + " - </span>" + data.author + "</a>  " +
+				"<h4 class='media-heading'><a href='" + data.link + "'><span class='wb-inv'>" +
+				title[ 0 ] + " - </span>" + data.author + "</a>  " +
 				( data.publishedDate !== "" ? " <small class='feeds-date text-right'>[" +
 				wb.date.toDateISO( data.publishedDate, true ) + "]</small>" : "" ) +
 				"</h4><p>" + content + "</p></div></li>";
@@ -4944,7 +4946,7 @@ var pluginName = "wb-feeds",
 				description = data.description.replace( /^\s*<p>(.*?)<\/p>\s*<p>(.*?)<\/p>/i, "");
 
 			// due to CORS we cannot default to simple ajax pulls of the image. We have to inline the content box
-			return "<li class='col-md-4 col-sm-6'><a class='wb-lbx' href='#" + seed + "' title='" + title + "'><img src='" + thumbnail + "' alt='" + title + "' class='img-responsive'/></a>" +
+			return "<li class='col-md-4 col-sm-6'><a class='wb-lbx' href='#" + seed + "'><img src='" + thumbnail + "' alt='" + title + "' title='" + title + "' class='img-responsive'/></a>" +
 					"<section id='" + seed + "' class='mfp-hide modal-dialog modal-content overlay-def'>" +
 					"<header class='modal-header'><h2 class='modal-title'>" + title + "</h2></header>" +
 					"<div class='modal-body'><img src='" + image + "' class='thumbnail center-block' alt='" + title + "' />" +
@@ -4961,12 +4963,12 @@ var pluginName = "wb-feeds",
 			var seed = "id" + wb.guid(),
 				mediaGroup = data.media$group,
 				title = mediaGroup.media$title.$t,
-				thumbnail = mediaGroup.media$thumbnail[1].url,
+				thumbnail = mediaGroup.media$thumbnail[ 1 ].url,
 				description = mediaGroup.media$description.$t,
 				videoid = mediaGroup.yt$videoid.$t;
 
-				// due to CORS we cannot default to simple ajax pulls of the image. We have to inline the content box
-			return "<li class='col-md-4 col-sm-6' ><a class='wb-lbx' href='#" + seed + "' title='" + title + "'><img src='" + thumbnail + "' alt='" + title + "' class='img-responsive' /></a>" +
+			// Due to CORS we cannot default to simple ajax pulls of the image. We have to inline the content box
+			return "<li class='col-md-4 col-sm-6' ><a class='wb-lbx' href='#" + seed + "'><img src='" + thumbnail + "' alt='" + title + "' title='" + title + "' class='img-responsive' /></a>" +
 					"<section id='" + seed + "' class='mfp-hide modal-dialog modal-content overlay-def'>" +
 					"<header class='modal-header'><h2 class='modal-title'>" + title + "</h2></header>" +
 					"<div class='modal-body'>" +
@@ -5012,15 +5014,14 @@ var pluginName = "wb-feeds",
 			limit = getLimit( elm );
 			feeds = $content.find( feedLinkSelector );
 			last = feeds.length - 1;
-			i = last;
 
 			// Lets bind some varialbes to the node to ensure safe ajax thread counting
 
 			$content.data( "toProcess", feeds.length )
 					.data( "feedLimit", limit )
-					.data( "entries", []);
+					.data( "entries", [] );
 
-			while ( i >= 0 ) {
+			for ( i = last; i !== -1; i -= 1 ) {
 				fElem = feeds.eq( i );
 				fIcon = fElem.find( "> img" );
 
@@ -5031,7 +5032,7 @@ var pluginName = "wb-feeds",
 
 				if ( fElem.attr( "data-ajax" ) ) {
 
-					if ( fElem.attr( "href" ).indexOf( "flickr" ) > -1 ) {
+					if ( fElem.attr( "href" ).indexOf( "flickr" ) !== -1 ) {
 						fType =  "flickr";
 						callback = "jsoncallback";
 						$content.data( "postProcess", [ ".wb-lbx" ] );
@@ -5048,8 +5049,8 @@ var pluginName = "wb-feeds",
 					url = jsonRequest( fElem.attr( "href" ), limit );
 					fetch.url = url;
 
-					// lets bind the template to the Entries
-					if ( url.indexOf( "facebook.com" ) > -1 ) {
+					// Let's bind the template to the Entries
+					if ( url.indexOf( "facebook.com" ) !== -1 ) {
 						fType = "facebook";
 					} else {
 						fType = "generic";
@@ -5059,7 +5060,7 @@ var pluginName = "wb-feeds",
 				fetch.jsonp = callback;
 
 				fetch.context = {
-					fIcon: ( fIcon.length > 0 )  ? fIcon.attr( "src" ) : "",
+					fIcon: ( fIcon.length !== 0 ) ? fIcon.attr( "src" ) : "",
 					feedType: fType,
 					_content: $content
 				};
@@ -5069,10 +5070,7 @@ var pluginName = "wb-feeds",
 					element: fElem,
 					fetch: fetch
 				});
-
-				i -= 1;
 			}
-			//$.extend( {}, results );
 		}
 	},
 
@@ -5088,6 +5086,39 @@ var pluginName = "wb-feeds",
 			return 0;
 		}
 		return Number( count[ 0 ].replace( /limit-/i, "" ) );
+	},
+
+	/**
+	 * Activates results view
+	 * @method checkIfVisible
+	 * @param = {jQuery EventObject}
+	 */
+	activateIfVisible = function() {
+		var $elm = $( this ),
+			$tabPanelHidden = $elm.closest( "[role=tabpanel]" ).filter( "[aria-hidden]" ),
+			needTimer = $tabPanelHidden.length !== 0,
+			isHidden = $tabPanelHidden.attr( "aria-hidden" ) === "true",
+			result, postProcess, i;
+
+		if ( !needTimer || ( needTimer && !isHidden ) ) {
+			postProcess = $elm.data( "postProcess" );
+			result = $elm.data( "result" );
+
+			$elm.empty()
+				.removeClass( "waiting" )
+				.append( result )
+				.off( "timerpoke.wb", activateIfVisible );
+
+			if ( postProcess ) {
+				for ( i = postProcess.length - 1; i !== -1; i -= 1 ) {
+					wb.add( postProcess[ i ] );
+				}
+			}
+		} else if ( this.className.indexOf( "waiting" ) === -1 ) {
+			$elm.empty().addClass( "waiting" );
+		}
+
+		return false;
 	},
 
 	/**
@@ -5120,7 +5151,6 @@ var pluginName = "wb-feeds",
 	parseEntries = function( entries, limit, $elm, feedtype ) {
 		var cap = ( limit > 0 && limit < entries.length ? limit : entries.length ),
 			result = "",
-			postProcess = $elm.data( "postProcess" ),
 			compare = wb.date.compare,
 			i, sorted, sortedEntry;
 
@@ -5132,15 +5162,13 @@ var pluginName = "wb-feeds",
 			sortedEntry = sorted[ i ];
 			result += Templates[ feedtype ]( sortedEntry );
 		}
-		$elm.empty().append( result );
 
-		if ( postProcess ) {
+		wb.selectors.push( $elm );
 
-			for ( i = postProcess.length - 1; i >= 0; i -= 1 ) {
-				wb.add( postProcess[i] );
-			}
+		$elm.data( "result", result );
 
-		}
+		$elm.on( "timerpoke.wb", activateIfVisible );
+
 		return true;
 	};
 
@@ -9700,7 +9728,7 @@ var pluginName = "wb-tabs",
 			$currPanel = $panels.filter( ".in" ),
 			mPlayers = $currPanel.find( ".wb-mltmd-inited" ).get(),
 			mPlayersLen = mPlayers.length,
-			i, j, last;
+			mPlayer, i, j, last;
 
 		// Handle the direction of the slide transitions
 		if ( $currPanel[ 0 ].className.indexOf( "slide" ) !== -1 ) {
@@ -9724,7 +9752,10 @@ var pluginName = "wb-tabs",
 
 		// Pause all multimedia players in the current panel
 		for ( i = 0; i !== mPlayersLen; i += 1 ) {
-			mPlayers[ i ].player( "pause" );
+			mPlayer = mPlayers[ i ];
+			if ( mPlayer.player ) {
+				mPlayer.player( "pause" );
+			}
 		}
 
 		$next

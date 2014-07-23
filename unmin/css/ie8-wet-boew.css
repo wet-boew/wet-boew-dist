@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.4-development - 2014-07-22
+ * v4.0.4-development - 2014-07-23
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -7139,6 +7139,46 @@ button.geomap-geoloc-aoi-btn {
 
 .wb-zebra-col-hover col.table-hover {
   background-color: #f0f0f0; }
+
+.feeds-cont.waiting:after, .feeds-cont.waiting:before {
+  bottom: 0;
+  content: " ";
+  height: 50px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px; }
+
+#details-facebook, #details-flickr, #details-youtube {
+  padding-left: 0;
+  padding-right: 0; }
+  #details-facebook .tgl-panel, #details-flickr .tgl-panel, #details-youtube .tgl-panel {
+    margin-left: 0; }
+  #details-facebook .feeds-cont, #details-flickr .feeds-cont, #details-youtube .feeds-cont {
+    border: 0; }
+    #details-facebook .feeds-cont li, #details-flickr .feeds-cont li, #details-youtube .feeds-cont li {
+      border: 0; }
+      #details-facebook .feeds-cont li:nth-child(even), #details-flickr .feeds-cont li:nth-child(even), #details-youtube .feeds-cont li:nth-child(even) {
+        background-color: #f9f9f9; }
+  #details-facebook[open] summary, #details-flickr[open] summary, #details-youtube[open] summary {
+    border-bottom: 1px solid #eee; }
+
+.feeds-cont.waiting {
+  min-height: 100px;
+  min-width: 100px; }
+  .feeds-cont.waiting:after {
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-name: spin;
+    animation-timing-function: linear;
+    background: url("../assets/loading.png") center center no-repeat;
+    background-size: 30px 30px;
+    z-index: 2; }
+  .feeds-cont.waiting:before {
+    background: rgba(0, 0, 0, 0);
+    z-index: 1; }
 
 /*
  Polyfills
