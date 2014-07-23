@@ -4666,9 +4666,11 @@ var pluginName = "wb-feeds",
 	 */
 	activateIfVisible = function() {
 		var $elm = $( this ),
-			$tabPanelHidden = $elm.closest( "[role=tabpanel]" ).filter( "[aria-hidden]" ),
-			needTimer = $tabPanelHidden.length !== 0,
-			isHidden = $tabPanelHidden.attr( "aria-hidden" ) === "true",
+			$details = $elm.closest( "details" ),
+			needTimer = $details.length !== 0,
+			isTabPanel = $details.attr( "role" ) === "tabpanel",
+			isHidden = ( isTabPanel && $details.attr( "aria-hidden" ) === "true" ) ||
+						( !isTabPanel && !$details.attr( "open" ) ),
 			result, postProcess, i;
 
 		if ( !needTimer || ( needTimer && !isHidden ) ) {
@@ -9103,7 +9105,7 @@ var pluginName = "wb-tabs",
 
 					if ( isSmallView ) {
 						if ( !Modernizr.details ) {
-							$panel.toggleClass( "open", !isOpen );
+							$panel.toggleClass( "open", isOpen );
 						}
 					} else {
 						$panel.attr({
@@ -9457,30 +9459,22 @@ var pluginName = "wb-tabs",
 
 						// Switch to small view
 						$active = $tablist.find( ".active a" );
-						$openDetails = $details.filter( "#" + $active.attr( "href" ).substring( 1 ) );
-						$nonOpenDetails = $details
+						$details
+							.removeAttr( "role aria-expanded aria-hidden" )
 							.removeAttr( "role" )
-							.removeClass( "fade out in" )
-							.not( $openDetails )
-								.removeAttr( "open" );
-						if ( !Modernizr.details ) {
-							$nonOpenDetails
-								.attr({
-									"aria-expanded": "false",
-									"aria-hidden": "true"
-								});
-							$openDetails.attr({
-								"aria-expanded": "true",
-								"aria-hidden": "false"
-							});
-						}
+							.removeClass( "fade out in" );
+						$openDetails = $details
+											.filter( "#" + $active.attr( "href" ).substring( 1 ) )
+												.attr( "open", "open" )
+												.addClass( "open" );
+						$nonOpenDetails = $details.not( $openDetails )
+													.removeAttr( "open" )
+													.removeClass( "open" );
 					} else if ( oldIsSmallView ) {
 
 						// Switch to large view
 						$openDetails = $details.filter( "[open]" );
-						if ( $openDetails.length === 0 ) {
-							$openDetails = $details.eq( 0 );
-						}
+						$openDetails = ( $openDetails.length === 0 ? $details : $openDetails ).eq( 0 );
 
 						$details
 							.attr({
@@ -9488,10 +9482,18 @@ var pluginName = "wb-tabs",
 								open: "open"
 							})
 							.not( $openDetails )
-								.addClass( "fade out" );
+								.addClass( "fade out" )
+								.attr({
+									"aria-hidden": "true",
+									"aria-expanded": "false"
+								});
 
 						$openDetails
 							.addClass( "fade in" )
+							.attr({
+									"aria-hidden": "false",
+									"aria-expanded": "true"
+								})
 							.parent()
 								.find( "> ul [href$='" + $openDetails.attr( "id" ) + "']" )
 									.trigger( "click" );
