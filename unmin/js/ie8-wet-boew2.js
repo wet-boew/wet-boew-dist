@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-07-23
+ * v4.0.5-development - 2014-07-24
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4235,7 +4235,7 @@ var selector = ".wb-eqht",
 $document.on( eventTimerpoke, selector, init );
 
 // Handle text and window resizing
-$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb table-draw.wb-tables", onResize );
+$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb wb-ready.wb-tables", onResize );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
@@ -4894,6 +4894,7 @@ var pluginName = "wb-frmvld",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
 	idCount = 0,
@@ -5172,6 +5173,8 @@ var pluginName = "wb-frmvld",
 
 					// Tell the i18n file to execute to run any $.validator extends
 					$form.trigger( "formLanguages.wb" );
+
+					$( eventTarget ).trigger( readyEvent );
 				}
 			});
 		}
@@ -5287,6 +5290,7 @@ var pluginName = "wb-lbx",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	setFocusEvent = "setfocus.wb",
 	extendedGlobal = false,
 	$document = wb.doc,
@@ -5468,7 +5472,7 @@ var pluginName = "wb-lbx",
 							window[ pluginName ],
 							wb.getData( $elm, pluginName )
 						)
-					);
+					).trigger( readyEvent );
 				}
 			});
 		}
@@ -5620,6 +5624,7 @@ var pluginName = "wb-menu",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	breadcrumb = document.getElementById( "wb-bc" ),
 	navCurrentEvent = "navcurr.wb",
 	focusEvent = "setfocus.wb",
@@ -5970,6 +5975,8 @@ var pluginName = "wb-menu",
 					.parent()
 						.prop( "open", "open" );
 			}
+
+			$elm.trigger( readyEvent );
 		}, 1 );
 	},
 
@@ -7620,6 +7627,7 @@ var pluginName = "wb-overlay",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	closeClass = "overlay-close",
 	linkClass = "overlay-lnk",
 	ignoreOutsideClass = "outside-off",
@@ -7674,6 +7682,8 @@ var pluginName = "wb-overlay",
 
 			$elm.append( overlayClose );
 			elm.setAttribute( "aria-hidden", "true" );
+
+			$elm.trigger( readyEvent );
 		}
 	},
 

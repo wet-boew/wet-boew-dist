@@ -403,6 +403,16 @@
 				<td>Triggered manually (e.g., <code>$elm.trigger( "wb-init.wb-frmvld" );</code>).</td>
 				<td>Used to manually initialize the form validation. <strong>Note:</strong> The Form validation plugin will be initialized automatically unless the form elements are added after the page has already loaded.</td>
 			</tr>
+			<tr>
+				<td><code>wb-ready.wb-frmvld</code> (v4.0.5+)</td>
+				<td>Triggered automatically after form validation initializes.</td>
+				<td>Used to identify the element where form validation has initialized (target of the event)
+					<pre><code>$( document ).on( "wb-ready.wb-frmvld", ".wb-frmvld", function( event ) {
+});</code></pre>
+					<pre><code>$elm.on( "wb-ready.wb-frmvld", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	<p>See <a href="http://jqueryvalidation.org/documentation/">jQuery Validation Plugin - Documentation</a> for details about events specific to jQuery Validation.</p>
@@ -417,7 +427,7 @@
 
 			<dl id="wb-dtmd">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time property="dateModified">2014-07-20</time></dd>
+	<dd><time property="dateModified">2014-07-23</time></dd>
 </dl>
 
 

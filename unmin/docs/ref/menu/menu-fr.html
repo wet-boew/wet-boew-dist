@@ -323,6 +323,16 @@ Example of multi-line code</code></pre>
 				<td>Triggered manually (e.g., <code>$elm.trigger( "wb-init.wb-menu" );</code>).</td>
 				<td>Used to manually initialize the menu plugin. <strong>Note:</strong> The menu plugin will be initialized automatically unless the menu markup is added after the page has already loaded.</td>
 			</tr>
+			<tr>
+				<td><code>wb-ready.wb-menu</code> (v4.0.5+)</td>
+				<td>Triggered automatically after a menu has initialized.</td>
+				<td>Used to identify which menu has initialized (target of the event).
+					<pre><code>$( document ).on( "wb-ready.wb-menu", ".wb-menu", function( event, instance, settings ) {
+});</code></pre>
+					<pre><code>$elm.on( "wb-ready.wb-menu", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
@@ -336,7 +346,7 @@ Example of multi-line code</code></pre>
 
 			<dl id="wb-dtmd">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time property="dateModified">2014-03-31</time></dd>
+	<dd><time property="dateModified">2014-07-23</time></dd>
 </dl>
 
 
