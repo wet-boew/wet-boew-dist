@@ -5863,6 +5863,10 @@ var pluginName = "wb-lbx",
 						settings = {},
 						firstLink;
 
+					if ( !elm ) {
+						return;
+					}
+
 					// Set the dependency i18nText only once
 					if ( !extendedGlobal ) {
 						$.extend( true, $.magnificPopup.defaults, i18nText );
