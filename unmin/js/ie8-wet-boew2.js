@@ -3580,6 +3580,7 @@ wb.add( selector );
 var pluginName = "wb-ctrycnt",
 	selector = "[data-ctrycnt]",
 	initEvent = "wb-init." + pluginName,
+	readyEvent = "wb-ready." + pluginName,
 	initedClass = pluginName + "-inited",
 	$document = wb.doc,
 
@@ -3605,10 +3606,12 @@ var pluginName = "wb-ctrycnt",
 
 			$.when( getCountry() ).then( function( countryCode ) {
 
-				if ( countryCode === "") {
-					// Leave default content since we couldn"t find the country
+				if ( countryCode === "" ) {
+
+					// Leave default content since we couldn't find the country
 					return;
 				} else {
+
 					// @TODO: Handle bad country values or any whitelist of countries.
 				}
 
@@ -3616,7 +3619,9 @@ var pluginName = "wb-ctrycnt",
 
 				$elm.removeAttr( "data-ctrycnt" );
 
-				$elm.load(url);
+				$elm.load( url, function() {
+					$elm.trigger( readyEvent );
+				});
 			});
 		}
 	},
@@ -3698,6 +3703,7 @@ var pluginName = "wb-data-ajax",
 		"[data-ajax-prepend], [data-ajax-replace]",
 	inited = "-inited",
 	initEvent = "wb-init." + pluginName,
+	readyEvent = "wb-ready." + pluginName,
 	$document = wb.doc,
 
 	/**
@@ -3771,7 +3777,7 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, functi
 				$elm[ ajaxType ]( content );
 			}
 
-			$elm.trigger( pluginName + "-" + ajaxType + "-loaded.wb" );
+			$elm.trigger( readyEvent, [ ajaxType ] );
 		}
 	}
 
@@ -3807,6 +3813,7 @@ var pluginName = "wb-inview",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	scrollEvent = "scroll" + selector,
 	$elms = $( selector ),
 	$document = wb.doc,
@@ -3828,6 +3835,7 @@ var pluginName = "wb-inview",
 			// Allow other plugins to run first
 			setTimeout(function() {
 				onInView( $elm );
+				$elm.trigger( readyEvent );
 			}, 1 );
 		}
 	},
