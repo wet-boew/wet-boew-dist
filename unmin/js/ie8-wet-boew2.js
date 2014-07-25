@@ -3963,6 +3963,7 @@ var imgClass,
 	selector = "[data-pic]",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init." + pluginName,
+	readyEvent = "wb-ready." + pluginName,
 	picturefillEvent = "picfill." + pluginName,
 	$document = wb.doc,
 
@@ -4020,13 +4021,17 @@ var imgClass,
 
 			// Fixes bug with IE8 constraining the height of the image
 			// when the .img-responsive class is used.
-			img.removeAttribute( "width" );
-			img.removeAttribute( "height" );
+			if ( wb.ielt9 ) {
+				img.removeAttribute( "width" );
+				img.removeAttribute( "height" );
+			}
 
 		// No match and an image exists: delete it
 		} else if ( img ) {
 			img.parentNode.removeChild( img );
 		}
+
+		$( elm ).trigger( readyEvent );
 	};
 
 // Bind the init event of the plugin
@@ -4073,9 +4078,13 @@ wb.add( selector );
  * not once per instance of plugin on the page. So, this is a good place to define
  * variables that are common to all instances of the plugin on a page.
  */
-var selector = ".wb-eqht",
+var pluginName = "wb-eqht",
+	selector = "." + pluginName,
 	$document = wb.doc,
 	eventTimerpoke = "timerpoke.wb",
+	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
+	updateEvent = "wb-update" + selector,
 	vAlignCSS = "vertical-align",
 	vAlignDefault = "top",
 	minHeightCSS = "min-height",
@@ -4174,6 +4183,8 @@ var selector = ".wb-eqht",
 				}
 			}
 			$elm = reattachElement( $anchor );
+
+			$elm.trigger( readyEvent );
 		}
 	},
 
@@ -4240,10 +4251,10 @@ var selector = ".wb-eqht",
 	};
 
 // Bind the init event of the plugin
-$document.on( eventTimerpoke, selector, init );
+$document.on( eventTimerpoke + " " + initEvent, selector, init );
 
 // Handle text and window resizing
-$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb wb-ready.wb-tables", onResize );
+$document.on( "txt-rsz.wb win-rsz-width.wb win-rsz-height.wb wb-ready.wb-tables " + updateEvent, onResize );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
