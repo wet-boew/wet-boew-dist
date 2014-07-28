@@ -4292,6 +4292,7 @@ wb.add( selector );
 var pluginName = "wb-favicon",
 	selector = "link[rel='icon']",
 	initEvent = "wb-init." + pluginName,
+	readyEvent = "wb-ready." + pluginName,
 	mobileEvent = "mobile." + pluginName,
 	iconEvent = "icon." + pluginName,
 	$document = wb.doc,
@@ -4352,6 +4353,8 @@ var pluginName = "wb-favicon",
 				favicon.parentNode.insertBefore( faviconMobile[ 0 ], favicon );
 			}
 		}
+
+		$document.trigger( readyEvent, [ "mobile" ] );
 	},
 
 	/**
@@ -4364,6 +4367,8 @@ var pluginName = "wb-favicon",
 	icon = function( favicon, event, data ) {
 		var faviconPath = data.path !== null ? data.path : getPath( favicon.getAttribute( "href" ) );
 		favicon.setAttribute( "href", faviconPath + data.filename );
+
+		$document.trigger( readyEvent, [ "icon" ] );
 	},
 
 	/**
@@ -4813,6 +4818,7 @@ var pluginName = "wb-fnote",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	setFocusEvent = "setfocus.wb",
 	$document = wb.doc,
 
@@ -4854,6 +4860,8 @@ var pluginName = "wb-fnote",
 
 			// Remove "first/premier/etc"-style text from certain footnote return links (via the child spans that hold those bits of text)
 			$returnLinks = $elm.find( "dd p.fn-rtn a span span" ).remove();
+
+			$elm.trigger( readyEvent );
 		}
 	};
 
@@ -7959,6 +7967,7 @@ var pluginName = "wb-prettify",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	prettyPrintEvent = "prettyprint" + selector,
 	$document = wb.doc,
 
@@ -8038,6 +8047,8 @@ var pluginName = "wb-prettify",
 			typeof window.prettyPrint === "function" ) {
 
 			window.prettyPrint();
+
+			$document.trigger( readyEvent );
 		}
 	};
 
@@ -8210,6 +8221,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	confirmClass = pluginName + "-confirm",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	resetEvent = "reset" + selector,
 	keepaliveEvent = "keepalive" + selector,
 	inactivityEvent = "inactivity" + selector,
@@ -8275,7 +8287,10 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 			initRefreshOnClick( $elm, settings );
 
 			// Initialize the keepalive and inactive timeouts of the plugin
-			$elm.trigger( resetEvent, settings );
+			// then fire the wb-ready event
+			$elm
+				.trigger( resetEvent, settings )
+				.trigger( readyEvent );
 		}
 	},
 
@@ -8631,6 +8646,7 @@ var pluginName = "wb-share",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	shareLink = "shr-lnk",
 	panelCount = 0,
 	$document = wb.doc,
@@ -8855,6 +8871,8 @@ var pluginName = "wb-share",
 			$share
 				.trigger( initEvent )
 				.trigger( "wb-init.wb-lbx" );
+
+			$elm.trigger( readyEvent );
 		}
 	};
 
@@ -9850,6 +9868,7 @@ var pluginName = "wb-txthl",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	$document = wb.doc,
 
 	/**
@@ -9884,6 +9903,8 @@ var pluginName = "wb-txthl",
 					return ( !group2 ? "" : group2 ) + "<span class='txthl'><mark>" + group3 + "</mark></span>";
 				});
 				elm.innerHTML = newText;
+
+				$( elm ).trigger( readyEvent );
 			}
 		}
 	};
@@ -10420,6 +10441,7 @@ var pluginName = "wb-twitter",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	$document = wb.doc,
 
 	/**
@@ -10441,7 +10463,10 @@ var pluginName = "wb-twitter",
 			eventTarget.className += " " + initedClass;
 
 			Modernizr.load( {
-				load: ( protocol.indexOf( "http" ) === -1 ? "http:" : protocol ) + "//platform.twitter.com/widgets.js"
+				load: ( protocol.indexOf( "http" ) === -1 ? "http:" : protocol ) + "//platform.twitter.com/widgets.js",
+				complete: function() {
+					$document.trigger( readyEvent );
+				}
 			});
 		}
 	};

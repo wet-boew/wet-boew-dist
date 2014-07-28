@@ -305,9 +305,19 @@ Example of multi-line code</code></pre>
 		</thead>
 		<tbody>
 			<tr>
-				<td>wb-init.wb-twitter</td>
+				<td><code>wb-init.wb-twitter</code></td>
 				<td>Triggered manually (e.g., <code>$elm.trigger( "wb-init.wb-twitter" );</code>).</td>
 				<td>Used to manually initialize the Twitter embedded timeline. <strong>Note:</strong> The Twitter embedded timeline will be initialized automatically unless the required markup is added after the page has already loaded.</td>
+			</tr>
+			<tr>
+				<td><code>wb-ready.wb-twitter</code> (v4.0.5+)</td>
+				<td>Triggered automatically after the Twitter embedded timeline initializes.</td>
+				<td>Used to identify where the Twitter embedded timeline was initialized (target of the event).
+					<pre><code>$( document ).on( "wb-ready.wb-twitter", ".wb-twitter", function( event ) {
+});</code></pre>
+					<pre><code>$elm.on( "wb-ready.wb-twitter", function( event ) {
+});</code></pre>
+				</td>
 			</tr>
 		</tbody>
 	</table>
@@ -322,7 +332,7 @@ Example of multi-line code</code></pre>
 
 			<dl id="wb-dtmd">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time property="dateModified">2014-03-31</time></dd>
+	<dd><time property="dateModified">2014-07-28</time></dd>
 </dl>
 
 

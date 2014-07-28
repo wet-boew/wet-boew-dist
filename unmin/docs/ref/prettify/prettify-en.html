@@ -347,6 +347,14 @@
 				<td>Initializes the plugin and applies syntax highlighting to the web page's pre and code elements. <b>Note: </b> the prettify plugin will be initialized automatically unless the element is added after the page has already loaded.</td>
 			</tr>
 			<tr>
+				<td><code>wb-ready.wb-prettify</code> (v4.0.5+)</td>
+				<td>Triggered automatically after the Prettify enhancement has completed.</td>
+				<td>Used to identify when Prettify has finished enhancing the page.
+					<pre><code>$( document ).on( "wb-ready.wb-prettify", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
+			<tr>
 				<td><code>prettyprint.wb-prettify</code></td>
 				<td>Triggered manually and during plugin initialization.</td>
 				<td>Applies syntax highlighting to the web page's pre and code elements.</td>
@@ -363,7 +371,7 @@
 
 			<dl id="wb-dtmd">
 	<dt>Date modified:&#32;</dt>
-	<dd><time property="dateModified">2014-02-19</time></dd>
+	<dd><time property="dateModified">2014-07-28</time></dd>
 </dl>
 
 

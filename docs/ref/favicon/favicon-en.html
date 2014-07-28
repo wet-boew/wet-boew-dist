@@ -241,6 +241,14 @@
 <td>Initializes the plugin and creates a mobile favicon if it doesn't already exist. <b>Note: </b> the favicon plugin will be initialized automatically unless the link element is added after the page has already loaded.</td>
 </tr>
 <tr>
+<td><code>wb-ready.wb-favicon</code> (v4.0.5+)</td>
+<td>Triggered automatically after the favicon update has completed.</td>
+<td>Used to identify when the plugin has finished updating the favicon and to pass along what type of favicon was updated (<code>mobile</code>, <code>icon</code>).
+<pre><code>$( document ).on( "wb-ready.wb-favicon", function( event, type ) {
+});</code></pre>
+</td>
+</tr>
+<tr>
 <td><code>mobile.wb-favicon</code></td>
 <td>Triggered manually and during plugin initialization.</td>
 <td>Adds or updates the mobile favicon on the web page. This will only update a mobile favicon that was added by the plugin.</td>
@@ -259,7 +267,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-02-19</time></dd>
+<dd><time property="dateModified">2014-07-28</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
