@@ -4429,6 +4429,8 @@ var pluginName = "wb-feeds",
 	feedLinkSelector = "li > a",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
+	feedReadyEvent = "wb-feed-ready" + selector,
 	$document = wb.doc,
 	patt = /\\u([\d\w]{4})/g,
 
@@ -4712,6 +4714,7 @@ var pluginName = "wb-feeds",
 					wb.add( postProcess[ i ] );
 				}
 			}
+			$elm.trigger( feedReadyEvent );
 		} else if ( this.className.indexOf( "waiting" ) === -1 ) {
 			$elm.empty().addClass( "waiting" );
 		}
@@ -4772,12 +4775,15 @@ var pluginName = "wb-feeds",
 
 $document.on( "ajax-fetched.wb", selector + " " + feedLinkSelector, function( event, context ) {
 	var response = event.fetch.response,
+		eventTarget = event.target,
 		data;
 
 	// Filter out any events triggered by descendants
-	if ( event.currentTarget === event.target ) {
+	if ( event.currentTarget === eventTarget ) {
 		data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry,
 		processEntries.apply( context, [ data ] );
+
+		$( eventTarget ).closest( selector ).trigger( readyEvent );
 	}
 });
 
