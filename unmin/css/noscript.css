@@ -69,6 +69,7 @@ details > * {
   background: #fff; }
 
 .wb-slc {
+  display: block !important;
   position: static; }
   .wb-slc .wb-sl {
     background: none;
@@ -82,6 +83,9 @@ details > * {
     width: inherit; }
     .wb-slc .wb-sl:hover, .wb-slc .wb-sl:focus {
       color: #0535d2; }
+
+#wb-dtmd {
+  float: none !important; }
 
 .nojs-show {
   display: block !important; }

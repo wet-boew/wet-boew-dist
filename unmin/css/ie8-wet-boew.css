@@ -4370,9 +4370,12 @@ button.close {
   .wb-disable .wb-slc .wb-sl {
     background: none;
     color: #295376;
+    display: block !important;
     font-weight: 400; }
     .wb-disable .wb-slc .wb-sl:hover, .wb-disable .wb-slc .wb-sl:focus {
       color: #0535d2; }
+.wb-disable #wb-dtmd {
+  float: none !important; }
 
 q:before, q:after {
   content: ""; }
