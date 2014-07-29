@@ -9,6 +9,10 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+/*
  Plugins
  */
 /*
@@ -60,6 +64,24 @@ details > * {
  */
 .datepicker-format {
   display: inline; }
+
+#wb-tphp {
+  background: #fff; }
+
+.wb-slc {
+  position: static; }
+  .wb-slc .wb-sl {
+    background: none;
+    clip: rect(auto, auto, auto, auto);
+    color: #295376;
+    font-weight: 400;
+    height: inherit;
+    margin: inherit;
+    overflow: inherit;
+    position: static;
+    width: inherit; }
+    .wb-slc .wb-sl:hover, .wb-slc .wb-sl:focus {
+      color: #0535d2; }
 
 .nojs-show {
   display: block !important; }

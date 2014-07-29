@@ -4322,7 +4322,7 @@ button.close {
   position: absolute;
   width: 1px; }
 
-.wb-show-onfocus:focus, .wb-sl:focus {
+.wb-show-onfocus:focus, .wb-sl:focus, .wb-disable .wb-slc .wb-sl {
   clip: rect(auto, auto, auto, auto);
   height: inherit;
   margin: inherit;
@@ -4362,6 +4362,17 @@ button.close {
 .wb-sl {
   padding: 5px;
   z-index: 501; }
+
+.wb-disable #wb-tphp {
+  background: #fff; }
+.wb-disable .wb-slc {
+  position: static; }
+  .wb-disable .wb-slc .wb-sl {
+    background: none;
+    color: #295376;
+    font-weight: 400; }
+    .wb-disable .wb-slc .wb-sl:hover, .wb-disable .wb-slc .wb-sl:focus {
+      color: #0535d2; }
 
 q:before, q:after {
   content: ""; }
