@@ -274,6 +274,16 @@
 });</code></pre>
 				</td>
 			</tr>
+			<tr>
+				<td><code>*.dt</code> events (e.g., <code>xhr.dt</code></td>
+				<td>Events triggered automatically by DataTables (<a href="http://datatables.net/reference/event/">documentation on DataTables events</a>.</td>
+				<td>Used by DataTables to identify what events are occurring.
+					<pre><code>$( document ).on( "xhr.dt", ".wb-tables", function( event ) {
+});</code></pre>
+					<pre><code>$elm.on( "xhr.dt", function( event ) {
+});</code></pre>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </section>
@@ -288,7 +298,7 @@
 
 			<dl id="wb-dtmd">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time property="dateModified">2014-07-28</time></dd>
+	<dd><time property="dateModified">2014-07-30</time></dd>
 </dl>
 
 
