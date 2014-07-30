@@ -386,6 +386,77 @@
 					</li>
 				</ul>
 			</li>
+			<li>
+				Wrapped Tabbed interface details and carousel tab panels with <code>div class="tabpanels"</code>
+				<ul>
+					<li>Tabbed interface:
+						<ul>
+							<li>Before:
+								<pre><code>&lt;div class="wb-tabs wb-eqht"&gt;
+	&lt;details id="details-panel1"&gt;
+		...
+	&lt;/details&gt;
+	&lt;details id="details-panel2"&gt;
+		...
+	&lt;/details&gt;
+	&lt;details id="details-panel3"&gt;
+		...
+	&lt;/details&gt;
+&lt;/div&gt;</code></pre>
+							</li>
+							<li>After:
+								<pre><code>&lt;div class="wb-tabs wb-eqht"&gt;
+	<strong>&lt;div class="tabpanels"&gt;</strong>
+		&lt;details id="details-panel1"&gt;
+			...
+		&lt;/details&gt;
+		&lt;details id="details-panel2"&gt;
+			...
+		&lt;/details&gt;
+		&lt;details id="details-panel3"&gt;
+			...
+		&lt;/details&gt;
+	<strong>&lt;/div&gt;</strong>
+&lt;/div&gt;</code></pre>
+							</li>
+						</ul>
+					</li>
+					<li>Carousel:
+						<ul>
+							<li>Before:
+								<pre><code>&lt;div class=&quot;wb-tabs carousel-s1&quot;&gt;
+	&lt;ul role=&quot;tablist&quot;&gt;
+		...
+	&lt;/ul&gt;
+	&lt;div role=&quot;tabpanel&quot; id=&quot;panel1&quot; class=&quot;in fade&quot;&gt;
+		...
+	&lt;/div&gt;
+	&lt;div role=&quot;tabpanel&quot; id=&quot;panel2&quot; class=&quot;out fade&quot;&gt;
+		..
+	&lt;/div&gt;
+	...
+&lt;/div&gt;</code></pre>
+							</li>
+							<li>After:
+								<pre><code>&lt;div class=&quot;wb-tabs carousel-s1&quot;&gt;
+	&lt;ul role=&quot;tablist&quot;&gt;
+		...
+	&lt;/ul&gt;
+	<strong>&lt;div class="tabpanels"&gt;</strong>
+		&lt;div role=&quot;tabpanel&quot; id=&quot;panel1&quot; class=&quot;in fade&quot;&gt;
+			...
+		&lt;/div&gt;
+		&lt;div role=&quot;tabpanel&quot; id=&quot;panel2&quot; class=&quot;out fade&quot;&gt;
+			..
+		&lt;/div&gt;
+		...
+	<strong>&lt;/div&gt;</strong>
+&lt;/div&gt;</code></pre>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
 		</ol>
 	</section>
 	</div>
@@ -721,7 +792,7 @@
 
 			<dl id="wb-dtmd">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time property="dateModified">2014-07-28</time></dd>
+	<dd><time property="dateModified">2014-07-30</time></dd>
 </dl>
 
 
