@@ -6461,6 +6461,7 @@ var pluginName = "wb-mltmd",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	uniqueCount = 0,
 	template,
 	i18n, i18nText,
@@ -7242,6 +7243,8 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 			$media.parent().before( $share );
 			wb.add( $share );
 		}
+
+		$this.trigger( readyEvent );
 	}
 });
 
@@ -9084,6 +9087,7 @@ var pluginName = "wb-tabs",
 	selector = "." + pluginName,
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	shiftEvent = "shift" + selector,
 	setFocusEvent = "setfocus.wb",
 	controls = selector + " [role=tablist] a",
@@ -9300,6 +9304,8 @@ var pluginName = "wb-tabs",
 
 			initialized = true;
 			onResize();
+
+			$elm.trigger( readyEvent );
 		}
 	},
 
@@ -10646,6 +10652,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 	selectorHoverCol = "." + hoverColClass + " td, " + hoverColClass + " th",
 	initedClass = pluginName + "-inited",
 	initEvent = "wb-init" + selector,
+	readyEvent = "wb-ready" + selector,
 	tableParsingEvent = "passiveparse.wb-tableparser",
 	tableParsingCompleteEvent = "parsecomplete.wb-tableparser",
 	$document = wb.doc,
@@ -10703,6 +10710,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 			}
 		}
 
+		$elm.trigger( readyEvent );
 	},
 
 	/**
