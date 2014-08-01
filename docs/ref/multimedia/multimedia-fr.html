@@ -151,9 +151,14 @@
 <li>Each multimedia player must be placed in its own <code>&lt;figure&gt;</code> using the <code>wb-mltmd</code> class:
 <pre><code>&lt;figure class="wb-mltmd"&gt;</code></pre>
 </li>
-<li>Each container should contain one <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> tag.
-<ul>
-<li><strong>Video:</strong>
+<li>Each container should contain one <code>&lt;video&gt;</code> or <code>&lt;audio&gt;</code> tag.</li>
+<li>
+<strong>Optional:</strong> Add a "Share this video" link by adding the following to the <code>figure</code> element:
+<pre><code>data-wb-mltmd='{"shareUrl": "http://youtu.be/p2-1ZIHu1W0"}'</code></pre>
+</li>
+</ol>
+<section>
+<h4>Video</h4>
 <ol>
 <li>Add a <code>poster</code> attribute to the <code>video</code> element with the value being the URL for the thumbnail image.</li>
 <li>Add a <code>title</code> attribute to the <code>video</code> element with the value being the title of the video.</li>
@@ -205,8 +210,9 @@ Add a <code>figcaption</code> element to the <code>figure</code> element with th
 		&lt;p&gt;Looking for a Job (&lt;a href="http://www.servicecanada.gc.ca/eng/video/lj.shtml"&gt;Transcript&lt;/a&gt;)&lt;/p&gt;
 	&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-</li>
-<li><strong>Video (YouTube):</strong>
+</section>
+<section>
+<h4>Video (YouTube)</h4>
 <ol>
 <li>Add a <code>title</code> attribute to the <code>video</code> element with the value being the title of the video.</li>
 <li>Add a <code>source</code> element to the <code>video</code> element with <code>type="video/youtube"</code> and the <code>src</code> attribute being the URL of the video.
@@ -228,8 +234,9 @@ Add a <code>figcaption</code> element to the <code>figure</code> element with th
 		&lt;p&gt;Suspect&lt;/p&gt;
 	&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-</li>
-<li><strong>Audio:</strong>
+</section>
+<section>
+<h4>Audio</h4>
 <ol>
 <li>Add a <code>title</code> attribute to the <code>audio</code> element with the value being the title of the audio.</li>
 <li>
@@ -254,16 +261,34 @@ Add a <code>figcaption</code> element to the <code>figure</code> element with th
 		&lt;p&gt;Ride of the Valkyries&lt;/p&gt;
 	&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-</li>
-</ul>
-</li>
-</ol>
+</section>
 </section>
 </section>
 <section>
 <h2>Configuration options</h2>
-<p>Coming soon</p>
-
+<table class="table">
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>How to configure</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shareUrl</code></td>
+<td>Adds a "Share this video" link</td>
+<td>Add <pre><code>data-wb-mltmd='{"shareUrl": "http://youtu.be/p2-1ZIHu1W0"}'</code></pre> to the element with <code>class="wb-mltmd"</code>.</td>
+<td>
+<dl>
+<dt>URL</dt>
+<dd>URL of the video file to share.</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section>
 <h2>Events</h2>
