@@ -122,13 +122,28 @@
 </section>
 <section>
 <h2>How to implement</h2>
-<p>Coming soon</p>
-
+<ol>
+<li>Create an embedded timeline on Twitter.com according to Twitter's <a rel="external" href="https://dev.twitter.com/docs/embedded-timelines#creating">Creating an Embeddable Timeline</a> documentation.</li>
+<li>For each area that will display a Twitter embedded timeline, create a <code>div</code> element with <code>class="wb-twitter"</code>.
+<pre><code>&lt;div class="wb-twitter"&gt;&lt;/div&gt;</code></pre>
+</li>
+<li>Inside the <code>div</code> element add a link with:
+<ol>
+<li><code>class="twitter-timeline"</code></li>
+<li><code>href</code> attribute with the URL for the equivalent query on Twitter.com (e.g., https://twitter.com/search?q=%23WxT)</li>
+<li><code>widget-id</code> attribute with the id of the embedded timeline (e.g., "329066756620566528")</li>
+<li>link text that describes timeline (e.g., <code>Tweets about "#WxT"</code>)</li>
+</ol>
+<pre><code>&lt;div class="wb-twitter"&gt;
+	&lt;a class="twitter-timeline" href="https://twitter.com/search?q=%23WxT" data-widget-id="329066756620566528"&gt;Tweets about "#WxT"&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+</li>
+<li>Configure the timeline according to Twitter's <a rel="external" href="https://dev.twitter.com/docs/embedded-timelines#customization">Customization Options</a> documentation.</li>
+</ol>
 </section>
 <section>
 <h2>Configuration options</h2>
-<p>Coming soon</p>
-
+<p>All configuration options are detailed in Twitter's <a rel="external" href="https://dev.twitter.com/docs/embedded-timelines#customization">Customization Options</a> documentation.</p>
 </section>
 <section>
 <h2>Events</h2>
@@ -165,7 +180,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-07-28</time></dd>
+<dd><time property="dateModified">2014-08-01</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
