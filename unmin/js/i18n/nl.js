@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Deel",
 	"shr-pg": " deze pagina",
 	"shr-vid": " deze video",
+	"shr-aud": " dit audiobestand",
 	"shr-hnt": " met {s} ",
 	"shr-disc": "Er wordt hier geen goedkeuring van producten of diensten uitgedrukt.",
 	/* Form validation */

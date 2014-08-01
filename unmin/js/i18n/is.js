@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Deila",
 	"shr-pg": " þessari síðu",
 	"shr-vid": " þessu myndbandi",
+	"shr-aud": " þetta hljóðskrá",
 	"shr-hnt": " með {s} ",
 	"shr-disc": "Engin áritun allar vörur eða þjónustu er gefið eða gefið í skyn.",
 	/* Form validation */

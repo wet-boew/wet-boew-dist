@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Berbagi",
 	"shr-pg": " halaman ini",
 	"shr-vid": " video ini",
+	"shr-aud": " file musik ini",
 	"shr-hnt": " dengan {s} ",
 	"shr-disc": "Tidak ada dukungan dari produk atau jasa yang tersurat maupun tersi",
 	/* Form validation */

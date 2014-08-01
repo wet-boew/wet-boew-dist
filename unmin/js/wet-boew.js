@@ -7486,6 +7486,8 @@ $document.on( initializedEvent, selector, function( event ) {
 		} else {
 			$this.trigger( fallbackEvent );
 		}
+
+		$this.trigger( readyEvent );
 	}
 });
 
@@ -7654,6 +7656,17 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 		// Load the slider polyfill if needed
 		$this.find( "input[type='range']" ).trigger( "wb-init.wb-slider" );
 
+		// Create the share widgets if needed
+		// TODO: Remove .parent() when getting rid of the overlay
+		if ( data.shareUrl !== undef ) {
+			$share = $( "<div class='wb-share' data-wb-share=\'{\"type\": \"" +
+				( type === "audio" ? type : "video" ) + "\", \"title\": \"" +
+				data.title + "\", \"url\": \"" + data.shareUrl +
+				"\", \"pnlId\": \"" + data.id + "-shr\"}\'></div>" );
+			$media.parent().before( $share );
+			wb.add( $share );
+		}
+
 		if ( data.captions === undef ) {
 			return 1;
 		}
@@ -7664,16 +7677,6 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 		} else {
 			loadCaptionsInternal( $player, $( captionsUrl.hash ) );
 		}
-
-		// Create the share widgets if needed
-		// TODO: Remove .parent() when getting rid of the overlay
-		if ( data.shareUrl !== undef ) {
-			$share = $( "<div class='wb-share' data-wb-share=\'{\"type\": \"video\", \"title\": \"" + data.title + "\", \"url\": \"" + data.shareUrl + "\", \"pnlId\": \"" + data.id + "-shr\"}\'></div>" );
-			$media.parent().before( $share );
-			wb.add( $share );
-		}
-
-		$this.trigger( readyEvent );
 	}
 });
 
@@ -9091,7 +9094,7 @@ var pluginName = "wb-share",
 	defaults = {
 		hdLvl: "h2",
 
-		// Supported types are: "page" and "video"
+		// Supported types are: "page", "video" and "audio"
 		type: "page",
 
 		// For custom types
@@ -9211,6 +9214,7 @@ var pluginName = "wb-share",
 					shareText: i18n( "shr-txt" ),
 					page: i18n( "shr-pg" ),
 					video: i18n( "shr-vid" ),
+					audio: i18n( "shr-aud" ),
 					disclaimer: i18n( "shr-disc" ),
 					email: i18n( "email" )
 				};

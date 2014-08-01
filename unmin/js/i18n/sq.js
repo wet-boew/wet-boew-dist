@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Share",
 	"shr-pg": " këtë faqe",
 	"shr-vid": " këtë video",
+	"shr-aud": " hierdie audio",
 	"shr-hnt": " me {s} ",
 	"shr-disc": "Asnjë miratimi i ndonjë produkteve apo shërbimeve është shprehur apo të nënkuptuar",
 	/* Form validation */

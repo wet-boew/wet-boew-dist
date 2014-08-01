@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Compartir",
 	"shr-pg": " esta página",
 	"shr-vid": " este vídeo",
+	"shr-aud": " este archivo de audio",
 	"shr-hnt": " con {s} ",
 	"shr-disc": "No implica la promoción ni recomendación de ningún producto o servicio.",
 	/* Form validation */

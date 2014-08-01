@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Jaga seda lehekülge",
 	"shr-pg": " seda lehekülge",
 	"shr-vid": " seda videot",
+	"shr-aud": " see helifail",
 	"shr-hnt": "koos {s}",
 	"shr-disc": "Mistahes tootele või teenusele pole otseselt ega kaudselt toetust avaldatud.",
 	/* Form validation */

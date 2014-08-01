@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "共有",
 	"shr-pg": "このページ",
 	"shr-vid": "このビデオ",
+	"shr-aud": "このオーディオファイル",
 	"shr-hnt": "{s}と",
 	"shr-disc": "製品またはサービスを推薦／保証するものではありません。",
 	/* Form validation */

@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Oszd",
 	"shr-pg": " meg a oldal",
 	"shr-vid": " meg a videót",
+	"shr-aud": " ezt a hangfájlt",
 	"shr-hnt": " a {s} ",
 	"shr-disc": "I jóváhagyását olyan termékek vagy szolgáltatások kifejezett vagy hallgatólagos.",
 	/* Form validation */

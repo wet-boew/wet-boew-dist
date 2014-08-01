@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Prześlij",
 	"shr-pg": " tę stronę",
 	"shr-vid": " ten film",
+	"shr-aud": " audiofile",
 	"shr-hnt": " do {s} ",
 	"shr-disc": "Nie wyrażamy bezposrednio lub pośrednio poparcia dla żadnych produktów ani usług.",
 	/* Form validation */

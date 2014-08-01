@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "공유",
 	"shr-pg": " 이 페이지",
 	"shr-vid": " 이 비디오",
+	"shr-aud": " 이 오디오 파일",
 	"shr-hnt": "{s} 로 ",
 	"shr-disc": "제품이나 서비스의 어떠한 보증을 표현하거나 암시합니다.",
 	/* Form validation */

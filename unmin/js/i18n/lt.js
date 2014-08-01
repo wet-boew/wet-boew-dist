@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Dalytis ",
 	"shr-pg": " šiuo puslapiu",
 	"shr-vid": " šiuo vaizdo",
+	"shr-aud": " tai garso failas",
 	"shr-hnt": " su {s} ",
 	"shr-disc": "Išreikštų ar numanomų ne bet kokius produktus ar paslaugas įrašas.",
 	/* Form validation */

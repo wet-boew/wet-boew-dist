@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Paylaş",
 	"shr-pg": " bu sayfayı",
 	"shr-vid": " bu videoyu",
+	"shr-aud": " bu ses dosyası",
 	"shr-hnt": " ile {s} ",
 	"shr-disc": "Herhangi bir ürün veya hizmet yok onaylandığı ifade ya da ima edilir.",
 	/* Form validation */

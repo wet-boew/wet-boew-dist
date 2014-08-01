@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Zdieľať",
 	"shr-pg": " túto stránku",
 	"shr-vid": " toto video",
+	"shr-aud": " tento audio súbor",
 	"shr-hnt": " s {s} ",
 	"shr-disc": "Č schválenie akýchkoľvek výrobkov alebo služieb je vyjadrené alebo predpokladané.",
 	/* Form validation */

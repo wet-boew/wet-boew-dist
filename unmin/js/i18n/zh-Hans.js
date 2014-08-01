@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "分享",
 	"shr-pg": "该页面",
 	"shr-vid": "该视频",
+	"shr-aud": "这个音频文件",
 	"shr-hnt": "与{s}",
 	"shr-disc": "没有代言的任何产品或服务的明示或暗示的保证。",
 	/* Form validation */

@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Ieteikt",
 	"shr-pg": " šo lapu",
 	"shr-vid": " šo video",
+	"shr-aud": " šis audio fails",
 	"shr-hnt": " ar {s} ",
 	"shr-disc": "Neviena jebkuru produktu vai pakalpojumu apstiprināšanu vai ietverta.",
 	/* Form validation */

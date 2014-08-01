@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "Condividi",
 	"shr-pg": " questa pagina",
 	"shr-vid": " questo video",
+	"shr-aud": " questo file audio",
 	"shr-hnt": " con {s} ",
 	"shr-disc": "Nessuna approvazione di prodotti o servizi è espressa o implicita",
 	/* Form validation */

@@ -99,6 +99,7 @@ wb.i18nDict = {
 	"shr-txt": "分享",
 	"shr-pg": "此頁",
 	"shr-vid": "該視頻",
+	"shr-aud": "這個音頻文件",
 	"shr-hnt": "與{s}",
 	"shr-disc": "沒有明示或暗示保證代言任何產品或服務。",
 	/* Form validation */
