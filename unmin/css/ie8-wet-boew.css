@@ -4330,7 +4330,7 @@ button.close {
   position: static;
   width: inherit; }
 
-.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-icons:after, table.dataTable thead .sorting_disabled .sorting-icons:before, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
+.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-cnt, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
   display: none; }
 
 .wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
@@ -6550,17 +6550,16 @@ table.dataTable {
   table.dataTable thead .sorting-cnt {
     white-space: nowrap; }
     table.dataTable thead .sorting-cnt:before {
-      content: " ";
-      padding-left: 5px; }
+      content: " "; }
   table.dataTable thead .sorting-icons {
     display: inline-block;
     margin-top: 2px; }
     table.dataTable thead .sorting-icons:before {
       content: "\e093";
-      padding: 0 0.2em; }
+      padding: 0 0.1em 0 0; }
     table.dataTable thead .sorting-icons:after {
       content: "\e094";
-      padding: 0 0.2em; }
+      padding: 0 0.04em 0 0.06em; }
   table.dataTable tbody tr {
     background-color: #fff; }
     table.dataTable tbody tr.selected {
