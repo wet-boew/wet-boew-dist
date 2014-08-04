@@ -300,8 +300,8 @@ Add one or more <code>source</code> elements to the <code>audio</code> element w
 </thead>
 <tbody>
 <tr>
-<td>wb-init.wb-mltmd</td>
-<td>Triggered manually (e.g., <code>$elm.trigger( "wb-init.wb-mltmd" );</code>).</td>
+<td><code>wb-init.wb-mltmd</code></td>
+<td>Triggered manually (e.g., <code>$( ".wb-mltmd" ).trigger( "wb-init.wb-mltmd" );</code>).</td>
 <td>Used to manually initialize the multimedia player. <strong>Note:</strong> The multimedia player will be initialized automatically unless the multimedia player markup is added after the page has already loaded.</td>
 </tr>
 <tr>
@@ -310,7 +310,15 @@ Add one or more <code>source</code> elements to the <code>audio</code> element w
 <td>Used to identify which multimedia player initialized (target of the event)
 <pre><code>$( document ).on( "wb-ready.wb-mltmd", ".wb-mltmd", function( event ) {
 });</code></pre>
-<pre><code>$elm.on( "wb-ready.wb-mltmd", function( event ) {
+<pre><code>$( ".wb-mltmd" ).on( "wb-ready.wb-mltmd", function( event ) {
+});</code></pre>
+</td>
+</tr>
+<tr>
+<td><code>wb-ready.wb</code> (v4.0.5+)</td>
+<td>Triggered automatically when WET has finished loading and executing.</td>
+<td>Used to identify when all WET plugins and polyfills have finished loading and executing.
+<pre><code>$( document ).on( "wb-ready.wb", function( event ) {
 });</code></pre>
 </td>
 </tr>
@@ -323,7 +331,7 @@ Add one or more <code>source</code> elements to the <code>audio</code> element w
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-08-01</time></dd>
+<dd><time property="dateModified">2014-08-04</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

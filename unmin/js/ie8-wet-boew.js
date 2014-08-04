@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-08-01
+ * v4.0.5-development - 2014-08-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3270,6 +3270,9 @@ var getUrlParts = function( url ) {
 		pageUrlParts: currentpage,
 		getUrlParts: getUrlParts,
 		isDisabled: disabled,
+		isStarted: false,
+		isReady: false,
+		initQueue: 0,
 
 		getPath: function( property ) {
 			return this.hasOwnProperty( property ) ? this[ property ] : undef;
@@ -3277,6 +3280,42 @@ var getUrlParts = function( url ) {
 
 		getMode: function() {
 			return this.mode;
+		},
+
+		init: function( event, componentName, selector ) {
+			var	eventTarget = event.target,
+				isEvent = !!eventTarget,
+				node = isEvent ? eventTarget : event,
+				initedClass = componentName + "-inited",
+				isDocumentNode = node === document;
+
+			// Filter out any events triggered by descendants and only initializes
+			// the element once (if is an event and document node is not the target)
+			if ( !isEvent || isDocumentNode || ( event.currentTarget === node &&
+				node.className.indexOf( initedClass ) === -1 ) ) {
+
+				this.initQueue += 1;
+				this.remove( selector );
+				if ( !isDocumentNode ) {
+					node.className += " " + initedClass;
+				}
+
+				return node;
+			}
+
+			return undef;
+		},
+
+		ready: function( $elm, componentName, context ) {
+			if ( $elm ) {
+				$elm.trigger( "wb-ready." + componentName, context );
+				this.initQueue -= 1;
+			}
+
+			if ( !this.isReady && this.isStarted && this.initQueue < 1 ) {
+				this.isReady = true;
+				this.doc.trigger( "wb-ready.wb" );
+			}
 		},
 
 		// Lets load some variables into wb for IE detection
@@ -3340,12 +3379,12 @@ var getUrlParts = function( url ) {
 
 		// Remove a selector targeted by timerpoke
 		remove: function( selector ) {
-			var len = wb.selectors.length,
+			var len = this.selectors.length,
 				i;
 
 			for ( i = 0; i !== len; i += 1 ) {
-				if ( wb.selectors[ i ] === selector ) {
-					wb.selectors.splice( i, 1 );
+				if ( this.selectors[ i ] === selector ) {
+					this.selectors.splice( i, 1 );
 					break;
 				}
 			}
@@ -3367,7 +3406,7 @@ var getUrlParts = function( url ) {
 
 				// If the selector returns no elements, remove the selector
 				} else {
-					wb.remove( selector );
+					this.remove( selector );
 				}
 			}
 		},
@@ -3375,7 +3414,9 @@ var getUrlParts = function( url ) {
 		start: function() {
 
 			// Initiate timerpoke events right way
-			wb.timerpoke();
+			wb.timerpoke( true );
+			this.isStarted = true;
+			this.ready();
 
 			// Initiate timerpoke events again every half second
 			setInterval( wb.timerpoke, 500 );
@@ -3514,8 +3555,10 @@ Modernizr.load([
 
 		// Cleanup Modernizr test and add selector to global timer
 		complete: function() {
-			var selector = "math",
-				math = document.getElementsByTagName( selector );
+			var	componentName = "wb-math",
+				selector = "math",
+				math = document.getElementsByTagName( selector ),
+				$document = wb.doc;
 
 			// Cleanup elements that Modernizr.mathml test leaves behind.
 			if ( math.length ) {
@@ -3524,16 +3567,23 @@ Modernizr.load([
 
 			// Defer loading the polyfill till an element is detected due to the size
 			if ( !Modernizr.mathml ) {
+
 				// Bind the init event of the plugin
-				wb.doc.on( "timerpoke.wb", selector, function() {
-					// All plugins need to remove their reference from the timer in the
-					// init sequence unless they have a requirement to be poked every 0.5 seconds
-					wb.remove( selector );
+				$document.one( "timerpoke.wb wb-init." + componentName, selector, function() {
+
+					// Start initialization
+					wb.init( document, componentName, selector );
 
 					// Load the MathML dependency. Since the polyfill is only loaded
 					// when !Modernizr.mathml, we can skip the test here.
-					Modernizr.load( "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=Accessible" );
+					Modernizr.load({
+						load: "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=Accessible",
+						complete: function() {
 
+							// Identify that initialization has completed
+							wb.ready( $document, componentName );
+						}
+					});
 				});
 
 				wb.add( selector );

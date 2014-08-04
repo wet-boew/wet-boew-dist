@@ -136,8 +136,40 @@
 </section>
 <section>
 <h2>Events</h2>
-<p>Coming soon</p>
-
+<table class="table">
+<thead>
+<tr>
+<th>Event</th>
+<th>Trigger</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wb-init.wb-calevt</code></td>
+<td>Triggered manually (e.g., <code>$( "[data-ctrycnt]" ).trigger( "wb-init.wb-ctrycnt" );</code>).</td>
+<td>Used to manually initialize the Country Content plugin. <strong>Note:</strong> The Country Content plugin will be initialized automatically unless the required markup is added after the page has already loaded.</td>
+</tr>
+<tr>
+<td><code>wb-ready.wb-ctrycnt</code> (v4.0.5+)</td>
+<td>Triggered automatically after the country content has loaded.</td>
+<td>Used to identify where country content has loaded (target of the event)
+<pre><code>$( document ).on( "wb-ready.wb-ctrycnt", "[data-ctrycnt]", function( event ) {
+});</code></pre>
+<pre><code>$( "[data-ctrycnt]" ).on( "wb-ready.wb-calevt", function( event ) {
+});</code></pre>
+</td>
+</tr>
+<tr>
+<td><code>wb-ready.wb</code> (v4.0.5+)</td>
+<td>Triggered automatically when WET has finished loading and executing.</td>
+<td>Used to identify when all WET plugins and polyfills have finished loading and executing.
+<pre><code>$( document ).on( "wb-ready.wb", function( event ) {
+});</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
 </section>
 <section>
 <h2>Source code</h2>
@@ -145,7 +177,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-07-25</time></dd>
+<dd><time property="dateModified">2014-08-04</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

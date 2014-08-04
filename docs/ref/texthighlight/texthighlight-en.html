@@ -185,7 +185,7 @@
 <tbody>
 <tr>
 <td><code>wb-init.wb-txthl</code></td>
-<td>Triggered manually (e.g., <code>$elm.trigger( "wb-init.wb-txthl" );</code>).</td>
+<td>Triggered manually (e.g., <code>$( ".wb-txthl" ).trigger( "wb-init.wb-txthl" );</code>).</td>
 <td>Used to manually enhance an element with the Text highlighting plugin. <strong>Note:</strong> The Text highlighting plugin will be initialized automatically unless the element is added after the page has already loaded.</td>
 </tr>
 <tr>
@@ -194,7 +194,15 @@
 <td>Used to identify where the Text highlight plugin was initialized (target of the event).
 <pre><code>$( document ).on( "wb-ready.wb-txthl", ".wb-txthl", function( event ) {
 });</code></pre>
-<pre><code>$elm.on( "wb-ready.wb-txthl", function( event ) {
+<pre><code>$( ".wb-txthl" ).on( "wb-ready.wb-txthl", function( event ) {
+});</code></pre>
+</td>
+</tr>
+<tr>
+<td><code>wb-ready.wb</code> (v4.0.5+)</td>
+<td>Triggered automatically when WET has finished loading and executing.</td>
+<td>Used to identify when all WET plugins and polyfills have finished loading and executing.
+<pre><code>$( document ).on( "wb-ready.wb", function( event ) {
 });</code></pre>
 </td>
 </tr>
@@ -207,7 +215,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-07-28</time></dd>
+<dd><time property="dateModified">2014-08-04</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
