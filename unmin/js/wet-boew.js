@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-08-04
+ * v4.0.5-development - 2014-08-05
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -1744,9 +1744,8 @@ $document.on( "ajax-fetch.wb", function( event ) {
 					xhr: xhr
 				};
 
-				if ( typeof response === "string" ) {
-					fetchData.pointer = $( "<div id='" + wb.guid() + "' />" ).append( response );
-				}
+				fetchData.pointer = $( "<div id='" + wb.guid() + "' />" )
+										.append( typeof response === "string" ? response : "" );
 
 				$( caller ).trigger({
 					type: "ajax-fetched.wb",
@@ -9554,7 +9553,6 @@ var componentName = "wb-tabs",
 	isSmallView, oldIsSmallView,
 
 	defaults = {
-		addControls: true,
 		excludePlay: false,
 		interval: 6
 	},
@@ -9563,19 +9561,21 @@ var componentName = "wb-tabs",
 	 * @method init
 	 * @param {jQuery Event} event Event that triggered the function call
 	 */
-	init = function( event, $elm ) {
+	init = function( event ) {
 
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
 			hashFocus = false,
+			isCarousel = true,
 			open = "open",
-			$panels, $tablist, activeId, $openPanel, elmId, settings,
-			interval, addControls, excludePlay, $panel, i, len, tablist,
-			isOpen, newId, positionY, groupClass;
+			$panels, $tablist, activeId, $openPanel, $elm, elmId,
+			settings, $panel, i, len, tablist, isOpen,
+			newId, positionY, groupClass;
 
 		if ( elm ) {
+			$elm = $( elm );
 
 			// For backwards compatibility. Should be removed in WET v4.1
 			if ( $elm.children( ".tabpanels" ).length === 0 ) {
@@ -9584,6 +9584,7 @@ var componentName = "wb-tabs",
 
 			$panels = $elm.find( "> .tabpanels > [role=tabpanel], > .tabpanels > details" );
 			$tablist = $elm.children( "[role=tablist]" );
+			isCarousel = $tablist.length !== 0;
 			activeId = wb.pageUrlParts.hash.substring( 1 );
 			$openPanel = activeId.length !== 0 ? $panels.filter( "#" + activeId ) : undefined;
 			elmId = elm.id;
@@ -9591,15 +9592,16 @@ var componentName = "wb-tabs",
 				true,
 				{},
 				defaults,
-				{ interval: $elm.hasClass( "slow" ) ?
+				{
+					interval: $elm.hasClass( "slow" ) ?
 								9 : $elm.hasClass( "fast" ) ?
-									3 : defaults.interval },
+									3 : defaults.interval,
+					excludePlay: $elm.hasClass( "exclude-play" ),
+					playing: $elm.hasClass( "playing" )
+				},
 				window[ componentName ],
 				wb.getData( $elm, componentName )
 			);
-			interval = settings.interval;
-			addControls = settings.addControls;
-			excludePlay = settings.excludePlay;
 
 			// Ensure there is an id on the element
 			if ( !elmId ) {
@@ -9649,10 +9651,9 @@ var componentName = "wb-tabs",
 			}
 
 			// Build the tablist and enhance the panels as needed for details/summary
-			if ( $tablist.length === 0 ) {
+			if ( !isCarousel ) {
 				$elm.addClass( "tabs-acc" );
 				groupClass = elmId + "-grp";
-				addControls = false;
 				$panels = $elm.find( "> .tabpanels > details" );
 				len = $panels.length;
 
@@ -9731,8 +9732,14 @@ var componentName = "wb-tabs",
 
 			drizzleAria( $panels, $tablist );
 
-			if ( addControls ) {
-				createControls( $tablist, excludePlay );
+			if ( isCarousel ) {
+
+				// Returns true if the tabs should be rotating automatically
+				if ( createControls( $tablist, settings ) ) {
+
+					// Register this specific tabs instance for timerpoke.wb events
+					wb.add( "#" + elmId + selector );
+				}
 			}
 
 			// If focus is being set by the URL hash, then ensure the tabs are
@@ -9749,10 +9756,12 @@ var componentName = "wb-tabs",
 			}
 
 			$elm.data({
-				panels: $panels,
-				tablist: $tablist,
-				delay: interval,
-				ctime: 0
+				"wb-tabs": {
+					panels: $panels,
+					tablist: $tablist,
+					settings: settings,
+					ctime: 0
+				}
 			});
 
 			initialized = true;
@@ -9766,34 +9775,33 @@ var componentName = "wb-tabs",
 	/**
 	 * @method onTimerPoke
 	 * @param {jQuery DOM element} $elm The plugin element
-	 * @param {string} dataDelay The setting for the tab rotation delay
 	 */
-	onTimerPoke = function( $elm, dataDelay ) {
-		var setting, delay;
+	onTimerPoke = function( $elm ) {
+		var data = $elm.data( componentName ),
+			delayCurrent = parseFloat( data.ctime ) + 0.5;
 
-		// Add settings and counter
-		setting = parseFloat( dataDelay );
-		delay = parseFloat( $elm.data( "ctime" ) ) + 0.5;
-
-		// Check if we need
-		if ( setting < delay ) {
+		// Check if we need to rotate panels
+		if ( parseFloat( data.settings.interval ) <= delayCurrent ) {
 			$elm.trigger( shiftEvent );
-			delay = 0;
+			delayCurrent = 0;
 		}
-		$elm.data( "ctime", delay );
+
+		data.ctime = delayCurrent;
+		$elm.data( componentName, data );
 	},
 
 	/**
 	 * @method createControls
 	 * @param {jQuery DOM element} $tablist The plugin element
-	 * @param {boolean} excludePlay Whether or not to exclude the play/pause control
+	 * @param {object} settings Settings for the tabs instance
+	 * @returns {boolean} Whether or not the tabs should be rotating initially
 	 */
-	createControls = function( $tablist, excludePlay ) {
-		var $sldr = $tablist.parents( selector ),
-			prevText = i18nText.prev,
+	createControls = function( $tablist, settings ) {
+		var prevText = i18nText.prev,
 			nextText = i18nText.next,
 			spaceText = i18nText.space,
-			isPlaying = $sldr.hasClass( "playing" ),
+			excludePlay = settings.excludePlay,
+			isPlaying = !excludePlay && settings.playing,
 			state = isPlaying ? i18nText.pause : i18nText.play,
 			hidden = isPlaying ? i18nText.rotStop : i18nText.rotStart,
 			glyphiconStart = "<span class='glyphicon glyphicon-",
@@ -9830,6 +9838,8 @@ var componentName = "wb-tabs",
 		if ( !excludePlay ) {
 			$tablist.append( playControl );
 		}
+
+		return isPlaying;
 	},
 
 	/**
@@ -9956,8 +9966,9 @@ var componentName = "wb-tabs",
 	 * @param {jQuery DOM element} $elm The selected link from the tablist
 	 */
 	onPick = function( $sldr, $elm ) {
-		var $panels = $sldr.data( "panels" ),
-			$controls =  $sldr.data( "tablist" ),
+		var data = $sldr.data( componentName ),
+			$panels = data.panels,
+			$controls = data.tablist,
 			$next = $panels.filter( "#" + $elm.attr( "aria-controls" ) );
 
 		updateNodes( $panels, $controls, $next, $elm );
@@ -9965,12 +9976,13 @@ var componentName = "wb-tabs",
 
 	/**
 	 * @method onShift
-	 * @param {jQuery DOM element} $elm The plugin element
 	 * @param (jQuery event} event Current event
+	 * @param {jQuery DOM element} $elm The plugin element
 	 */
-	onShift = function( $elm, event ) {
-		var $panels = $elm.data( "panels" ),
-			$controls = $elm.data( "tablist" ),
+	onShift = function( event, $elm ) {
+		var data = $elm.data( componentName ),
+			$panels = data.panels,
+			$controls = data.tablist,
 			len = $panels.length,
 			current = $elm.find( ".in" ).prevAll( "[role=tabpanel]" ).length,
 			shiftto = event.shiftto ? event.shiftto : 1,
@@ -10098,21 +10110,19 @@ var componentName = "wb-tabs",
  // Bind the init event of the plugin
  $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent, selector, function( event ) {
 	var eventTarget = event.target,
-		isOrigin = event.currentTarget === eventTarget,
-		$elm = $( eventTarget ),
-		dataDelay;
+		eventCurrentTarget = event.currentTarget,
+		$elm;
 
 		switch ( event.type ) {
 		case "timerpoke":
-			dataDelay = $elm.data( "delay" );
-
-			if ( !dataDelay ) {
-				init( event, $elm );
+			$elm = $( eventTarget );
+			if ( !$elm.hasClass( componentName + "-inited" ) ) {
+				init( event );
 			} else if ( $elm.hasClass( "playing" ) ) {
 
 				// Filter out any events triggered by descendants
-				if ( isOrigin ) {
-					onTimerPoke( $elm, dataDelay );
+				if ( eventCurrentTarget === eventTarget ) {
+					onTimerPoke( $elm );
 				}
 			}
 			break;
@@ -10121,7 +10131,7 @@ var componentName = "wb-tabs",
 		 * Init
 		 */
 		case "wb-init":
-			init( event, $elm );
+			init( event );
 			break;
 
 		/*
@@ -10130,8 +10140,8 @@ var componentName = "wb-tabs",
 		case "shift":
 
 			// Filter out any events triggered by descendants
-			if ( isOrigin ) {
-				onShift( event, $elm );
+			if ( eventCurrentTarget === eventTarget ) {
+				onShift( event, $( eventTarget ) );
 			}
 			break;
 		}
@@ -10152,7 +10162,7 @@ var componentName = "wb-tabs",
 		className = elm.className,
 		rotStopText = i18nText.rotStop,
 		playText = i18nText.play,
-		$elm, text, inv, $sldr, $plypause;
+		$elm, text, inv, $sldr, sldrId, $plypause, data, isPlaying, isPlayPause;
 
 	// Ignore middle and right mouse buttons and modified keys
 	if ( !( event.ctrlKey || event.altKey || event.metaKey ) &&
@@ -10161,20 +10171,32 @@ var componentName = "wb-tabs",
 
 		event.preventDefault();
 		$elm = $( elm );
-		$sldr = $elm
-			.parents( selector )
-			.attr( "data-ctime", 0 );
+		$sldr = $elm.closest( selector );
+		sldrId = $sldr[ 0 ].id;
+		isPlaying = $sldr.hasClass( "playing" ),
+		isPlayPause = className.indexOf( "plypause" ) !== -1;
+
+		// Reset ctime to 0
+		data = $sldr.data( componentName );
+		data.ctime = 0;
+		$sldr.data( componentName, data );
 
 		// Stop the slider from playing unless it is already stopped
 		// and the play button is activated
-		if ( $sldr.hasClass( "playing" ) ||
-			( which < 37 && className.indexOf( "plypause" ) !== -1 ) ) {
+		if ( isPlaying || ( which < 37 && isPlayPause ) ) {
+			if ( isPlaying ) {
+				wb.remove( "#" + sldrId + selector );
+			} else {
+				wb.add( "#" + sldrId + selector );
+			}
 
 			$plypause = $sldr.find( "a.plypause" );
 			$plypause
 				.find( ".glyphicon" )
 					.toggleClass( "glyphicon-play glyphicon-pause" );
+
 			$sldr.toggleClass( "playing" );
+			isPlaying = !isPlaying;
 
 			text = $plypause[ 0 ].getElementsByTagName( "span" )[ 1 ];
 			text.innerHTML = text.innerHTML === playText ?
@@ -10188,18 +10210,17 @@ var componentName = "wb-tabs",
 		}
 
 		if ( which > 36 ) {
-			onCycle( $elm, which < 39 ? -1 : 1 );
+			onCycle( $sldr, which < 39 ? -1 : 1 );
 			$sldr.find( ".active a" ).trigger( setFocusEvent );
 		} else {
 			if ( elm.getAttribute( "role" ) === "tab" ) {
 				onPick( $sldr, $elm );
 				if ( which > 1 ) {
-					$sldr.find( $elm.attr( "href" ) ).trigger( "setfocus.wb" );
+					$sldr.find( elm.getAttribute( "href" ) )
+						.trigger( setFocusEvent );
 				}
-			} else if ( !$sldr.hasClass( "playing" ) &&
-				className.indexOf( "plypause" ) === -1 ) {
-
-				onCycle( $elm, className.indexOf( "prv" ) !== -1 ? -1 : 1 );
+			} else if ( !isPlaying && !isPlayPause ) {
+				onCycle( $sldr, className.indexOf( "prv" ) !== -1 ? -1 : 1 );
 			}
 		}
 	}
