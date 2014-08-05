@@ -9233,7 +9233,7 @@ var componentName = "wb-tabs",
 					.prepend( $tablist )
 					.find( "> .tabpanels > details > summary" )
 						.addClass( "wb-toggle tgl-tab" )
-						.attr( "data-toggle", "{\"parent\": \"#" + elmId +
+						.attr( "data-wb-toggle", "{\"parent\": \"#" + elmId +
 							"\", \"group\": \"." + groupClass + "\"}" )
 						.trigger( "wb-init.wb-toggle" );
 			} else if ( $openPanel && $openPanel.length !== 0 ) {
@@ -9963,8 +9963,8 @@ var componentName = "wb-toggle",
 
 			// Merge the elements settings with the defaults
 			$link = $( link );
-			data = $.extend( {}, defaults, $link.data( "toggle" ) );
-			$link.data( "toggle", data );
+			data = $.extend( {}, defaults, $link.data( componentName ) );
+			$link.data( componentName, data );
 
 			// Add aria attributes of the toggle element
 			initAria( link, data );
@@ -10117,7 +10117,7 @@ var componentName = "wb-toggle",
 	click = function( event ) {
 		var $link = $( event.target );
 
-		$link.trigger( toggleEvent, $link.data( "toggle" ) );
+		$link.trigger( toggleEvent, $link.data( componentName ) );
 		event.preventDefault();
 
 		// Assign focus to eventTarget
@@ -10274,7 +10274,7 @@ var componentName = "wb-toggle",
 
 		// When no selector, use the data attribute of the link
 		} else if ( !selector ) {
-			return $link.data( "state" ) || data.stateOff;
+			return $link.data( componentName + "-state" ) || data.stateOff;
 
 		// Get the current on/off state of the elements specified by the selector and parent
 		} else if ( states.hasOwnProperty( selector ) ) {
@@ -10322,7 +10322,7 @@ var componentName = "wb-toggle",
 		}
 
 		// Store the state on the elements as well. This allows a link to toggle itself.
-		$elms.data( "state", state );
+		$elms.data( componentName + "-state", state );
 	};
 
 // Bind the plugin's events
@@ -10357,7 +10357,7 @@ $document.on( "keydown", selectorTab, function( event ) {
 	if ( !event.ctrlKey && which > 34 && which < 41 ) {
 		event.preventDefault();
 		$elm = $( event.currentTarget );
-		data = $elm.data( "toggle" );
+		data = $elm.data( componentName );
 		$parent = $document.find( data.parent );
 		$group = $parent.find( data.group );
 		index = $group.index( $elm.parent() );
