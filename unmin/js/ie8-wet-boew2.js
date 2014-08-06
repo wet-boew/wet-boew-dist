@@ -3606,8 +3606,6 @@ var componentName = "wb-ctrycnt",
 
 				url = url.replace( "{country}", countryCode.toLowerCase() );
 
-				$elm.removeAttr( "data-ctrycnt" );
-
 				$elm.load( url, function() {
 
 					// Identify that initialization has completed
@@ -3744,7 +3742,6 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, functi
 			pointer = event.fetch.pointer;
 			if ( pointer ) {
 				content = pointer.html();
-				$elm.removeAttr( "data-ajax-" + ajaxType );
 
 				// "replace" is the only event that doesn't map to a jQuery function
 				if ( ajaxType === "replace") {
