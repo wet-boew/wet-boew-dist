@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-08-05
+ * v4.0.5-development - 2014-08-06
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -9535,7 +9535,8 @@ wb.add( selector );
 var componentName = "wb-tabs",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
-	shiftEvent = "shift" + selector,
+	shiftEvent = "wb-shift" + selector,
+	updatedEvent = "wb-updated" + selector,
 	setFocusEvent = "setfocus.wb",
 	controls = selector + " [role=tablist] a",
 	uniqueCount = 0,
@@ -9888,6 +9889,7 @@ var componentName = "wb-tabs",
 		var $tabs = $controls.find( "[role=tab]" ),
 			newIndex = $tabs.index( $control ) + 1,
 			$currPanel = $panels.filter( ".in" ),
+			$container = $next.closest( selector ),
 			mPlayers = $currPanel.find( ".wb-mltmd-inited" ).get(),
 			mPlayersLen = mPlayers.length,
 			mPlayer, i, j, last;
@@ -9953,11 +9955,14 @@ var componentName = "wb-tabs",
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				$next.parent().attr( "id" ) + activePanel,
+				$container.attr( "id" ) + activePanel,
 				$next.attr( "id" )
 			);
 		} catch ( error ) {
 		}
+
+		// Identify that the tabbed interface/carousel was updated
+		$container.trigger( updatedEvent, [ $next ] );
 	},
 
 	/**
@@ -10308,19 +10313,25 @@ $window.on( "hashchange", onHashChange );
 
 $document.on( activateEvent, selector + " .tabpanels > details > summary", function( event ) {
 	var which = event.which,
-		details = event.currentTarget.parentNode;
+		details = event.currentTarget.parentNode,
+		$details;
 
 	if ( !( event.ctrlKey || event.altKey || event.metaKey ) &&
 		( !which || which === 1 || which === 13 || which === 32 ) ) {
 
+		$details = $( details );
+
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				details.parentNode.id + activePanel,
+				$details.closest( selector ).attr( "id" ) + activePanel,
 				details.id
 			);
 		} catch ( error ) {
 		}
+
+		// Identify that the tabbed interface was updated
+		$details.closest( selector ).trigger( updatedEvent, [ $details ] );
 	}
 });
 
