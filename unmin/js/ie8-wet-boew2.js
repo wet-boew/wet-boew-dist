@@ -3788,9 +3788,9 @@ var componentName = "wb-inview",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
 	scrollEvent = "scroll" + selector,
-	$elms = $( selector ),
 	$document = wb.doc,
 	$window = wb.win,
+	$elms = $(),
 
 	/**
 	 * @method init
@@ -3806,6 +3806,7 @@ var componentName = "wb-inview",
 
 		if ( elm ) {
 			$elm = $( elm );
+			$elms = $elms.add( $elm );
 
 			// Allow other plugins to run first
 			setTimeout(function() {
