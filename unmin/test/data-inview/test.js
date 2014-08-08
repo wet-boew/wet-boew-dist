@@ -47,6 +47,8 @@ describe( "data-inview test suite", function() {
 		$content
 			.appendTo( $body )
 			.trigger( initEvent );
+
+		$window.scrollTop( 0 );
 	});
 
 	/*
@@ -134,7 +136,7 @@ describe( "data-inview test suite", function() {
 
 				before( function( done ) {
 					callback = done;
-					$window.scrollTop( $content.offset().top );
+					$window.scrollTop( $content.offset().top - 1 );
 				});
 
 				it( "should not have an inview bottom bar visible", function() {
@@ -196,7 +198,7 @@ describe( "data-inview test suite", function() {
 
 				before(function( done ) {
 					callback = done;
-					$window.scrollTop( $content.offset().top );
+					$window.scrollTop( $content.offset().top - 1 );
 				});
 
 				it( "should not have an inview top bar visible", function() {
@@ -211,7 +213,7 @@ describe( "data-inview test suite", function() {
 
 			before(function( done ) {
 				callback = done;
-				$window.scrollTop( $content.offset().top + 50 );
+				$window.scrollTop( $content.offset().top + 40 );
 			});
 
 			it( "should have an inview top bar visible", function() {
