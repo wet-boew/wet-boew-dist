@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-08-09
+ * v4.0.5-development - 2014-08-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -9466,10 +9466,10 @@ var componentName = "wb-tables",
 
 						// Formatted number sorting
 						"formatted-num-asc": function( a, b ) {
-							return wb.formattedNumCompare( b, a );
+							return wb.formattedNumCompare( a, b );
 						},
 						"formatted-num-desc": function( a, b ) {
-							return wb.formattedNumCompare( a, b );
+							return wb.formattedNumCompare( b, a );
 						}
 					} );
 
