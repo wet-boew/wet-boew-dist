@@ -4121,6 +4121,11 @@ var componentName = "wb-eqht",
 				currentChild = $children[ j ];
 				childCSS = currentChild.style.cssText.toLowerCase();
 
+				//Ensure the CSS string ends by a seperator
+				if ( childCSS.length > 0 && childCSS.substr( childCSS.length - 1 ) !== cssPropertySeparator ) {
+					childCSS += cssPropertySeparator;
+				}
+
 				// Ensure all children that are on the same baseline have the same 'top' value.
 				if ( childCSS.indexOf( vAlignCSS ) !== -1 ) {
 					childCSS = childCSS.replace( regexVAlign, vAlignCSS + cssValueSeparator + vAlignDefault + cssPropertySeparator );
@@ -9685,7 +9690,7 @@ var componentName = "wb-tabs",
 		/*
 		 * Change Slides
 		 */
-		case "shift":
+		case "wb-shift":
 
 			// Filter out any events triggered by descendants
 			if ( eventCurrentTarget === eventTarget ) {
