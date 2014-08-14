@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-08-13
+ * v4.0.5-development - 2014-08-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"prv-l": "Sebelumnya (tombol panah kiri)",
 	first: "Pertama",
 	last: "Terakhir",
-	"srch-menus": "Cari dan menu",
+	"srch-menus": "Cari dari menu",
 	email: "Email",
 	"menu-close": "Tutup menu",
 	"overlay-close": "Tutup hamparan",
@@ -90,8 +90,8 @@ wb.i18nDict = {
 	},
 	"cc-err": "Galat saat memuat subtitel",
 	adesc: {
-		on: "Fungsikan desktripsi audio",
-		off: "Disfungsikan deskripsi audio"
+		on: "Aktifkan deskripsi audio",
+		off: "Deskripsi audio diaktifkan"
 	},
 	pos: "Posisi saat ini:",
 	dur: "Total waktu:",
@@ -116,7 +116,7 @@ wb.i18nDict = {
 		"Selasa",
 		"Rabu",
 		"Kamis",
-		"Jum'at",
+		"Jumat",
 		"Sabtu"
 	],
 	mnths: [
@@ -152,8 +152,8 @@ wb.i18nDict = {
 	/* Session timeout */
 	"st-to-msg-bgn": "Sesi Anda akan berakhir secara otomatis dalam #min# menit #sec# detik.",
 	"st-to-msg-end": "Pilih \"Lanjutkan sesi\" untuk memperpanjang sesi Anda.",
-	"st-msgbx-ttl": "Sessione batas waktu peringatan",
-	"st-alrdy-to-msg": "Maaf sessione Anda sudah berakhir. Silahkan login kembali.",
+	"st-msgbx-ttl": "Sesi batas waktu peringatan",
+	"st-alrdy-to-msg": "Maaf sesi Anda sudah berakhir. Silahkan login kembali.",
 	"st-btn-cont": "Lanjutkan sesi",
 	"st-btn-end": "Mengakhiri sesi sekarang",
 	/* Toggle details */
