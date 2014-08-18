@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.5-development - 2014-08-14
+ * v4.0.5-development - 2014-08-18
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -5073,17 +5073,20 @@ blockquote {
     -webkit-transform: scale(0.8);
     transform: scale(0.8); } }
 
-.fade.in {
-  -webkit-animation-duration: 225ms;
-  animation-duration: 225ms;
-  -webkit-animation-name: fadein;
-  animation-name: fadein; }
-.fade.out {
-  -webkit-animation-duration: 125ms;
-  animation-duration: 125ms;
-  -webkit-animation-name: fadeout;
-  animation-name: fadeout;
-  z-index: -1; }
+.fade {
+  -webkit-transition: all 0 ease 0;
+  transition: all 0 ease 0; }
+  .fade.in {
+    -webkit-animation-duration: 225ms;
+    animation-duration: 225ms;
+    -webkit-animation-name: fadein;
+    animation-name: fadein; }
+  .fade.out {
+    -webkit-animation-duration: 125ms;
+    animation-duration: 125ms;
+    -webkit-animation-name: fadeout;
+    animation-name: fadeout;
+    z-index: -1; }
 
 @-webkit-keyframes fadein {
   0% {
