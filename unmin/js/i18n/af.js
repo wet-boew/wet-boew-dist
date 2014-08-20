@@ -30,7 +30,7 @@ wb.i18nDict = {
 	hide: "Steek",
 	err: "Fout",
 	colon: ":",
-	hyphen: " - ",
+	hyphen: "[MIXIN] jam yang lalu",
 	"full-stop": ".",
 	"comma-space": ", ",
 	space: "&#32;",
