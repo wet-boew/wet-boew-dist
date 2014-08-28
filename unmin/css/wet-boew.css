@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.6-development - 2014-08-22
+ * v4.0.6-development - 2014-08-28
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4744,9 +4744,6 @@ a {
 .alert > strong:first-child, .alert > em:first-child, .alert > span:first-child {
   display: inline-block; }
 
-section.alert > :first-child {
-  margin-left: 1.2em; }
-
 .label-default, .label-default[href]:hover, .label-default[href]:focus, .label-default[href]:active, .label-primary, .label-primary[href]:hover, .label-primary[href]:focus, .label-primary[href]:active, .label-success, .label-success[href]:hover, .label-success[href]:focus, .label-success[href]:active, .alert-success, .label-info, .label-info[href]:hover, .label-info[href]:focus, .label-info[href]:active, .alert-info, .label-warning, .label-warning[href]:hover, .label-warning[href]:focus, .label-warning[href]:active, .alert-warning, .label-danger, .label-danger[href]:hover, .label-danger[href]:focus, .label-danger[href]:active, .alert-danger {
   color: #000; }
 
@@ -4802,11 +4799,16 @@ details.alert {
     margin-left: -1.3em;
     margin-top: -3px;
     position: absolute; }
-  details.alert > :first-child:before {
-    color: #000;
-    content: ""; }
+  details.alert > * {
+    margin-left: 0.7em; }
+  details.alert > :first-child {
+    margin-left: 0.4em; }
+    details.alert > :first-child:before {
+      color: #000;
+      content: "";
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 details.alert-success:before {
-  color: #f90;
+  color: #278400;
   content: "\e084"; }
 details.alert-info:before {
   color: #269abc;
@@ -4960,8 +4962,14 @@ blockquote {
   [dir=rtl] .alert > :first-child:before {
     margin-left: auto;
     margin-right: -1.3em; }
-[dir=rtl] section.alert > :first-child {
-  margin-right: 1.2em; }
+[dir=rtl] details.alert {
+  padding-right: 45px; }
+  [dir=rtl] details.alert:before {
+    margin-right: -1.3em; }
+  [dir=rtl] details.alert > * {
+    margin-right: 0.7em; }
+  [dir=rtl] details.alert > :first-child {
+    margin-right: 0.4em; }
 [dir=rtl] .list-unstyled, [dir=rtl] .list-inline {
   padding-right: 0; }
 [dir=rtl] .pagination [rel="prev"], [dir=rtl] .pager [rel="prev"] {
@@ -5654,17 +5662,20 @@ summary {
   summary:hover, summary:focus {
     background: #ddd;
     color: #000; }
+  summary > :first-child {
+    display: inline; }
 
 details[open] {
   padding-bottom: 1em; }
 details > * {
-  margin-left: 1.3em; }
+  margin-left: 1.5em;
+  margin-right: auto; }
 details > summary {
   margin-left: auto; }
 
 [dir=rtl] details > * {
   margin-left: auto;
-  margin-right: 1.3em; }
+  margin-right: 1.5em; }
 [dir=rtl] details > summary {
   margin-right: auto; }
 
