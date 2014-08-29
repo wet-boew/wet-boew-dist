@@ -590,6 +590,16 @@
 				</td>
 			</tr>
 			<tr>
+				<td><code>wb-shift.wb-tabs</code> (carousel only)</td>
+				<td>Triggered manually or automatically to change which tab panel is visible.</td>
+				<td>Changes which tab panel is visible. The value of <code>shiftto</code> is the number of tab panels to move forwards (positive number) or backwards (negative number).
+					<pre><code>$elm.trigger({
+    type: "wb-shift.wb-tabs",
+    shiftto: 1
+});</code></pre>
+				</td>
+			</tr>
+			<tr>
 				<td><code>wb-ready.wb</code> (v4.0.5+)</td>
 				<td>Triggered automatically when WET has finished loading and executing.</td>
 				<td>Used to identify when all WET plugins and polyfills have finished loading and executing. 
@@ -610,7 +620,7 @@
 
 			<dl id="wb-dtmd">
 	<dt>Date de modification&#160;:&#32;</dt>
-	<dd><time property="dateModified">2014-08-06</time></dd>
+	<dd><time property="dateModified">2014-08-28</time></dd>
 </dl>
 
 
