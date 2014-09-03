@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Correctif « datalist » (saisie automatique)
-- Exemples pratiques
-- Boîte à outils de l'expérience Web
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Correctif « datalist » (saisie automatique) - Exemples pratiques - Boîte à outils de l'expérience Web
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Émule l&#x27;attribut « list » de l&#x27;élément « input », ainsi que l&#x27;élément « datalist », pour les navigateurs qui ne les supportent pas. Ceci ajoute des fonctionnalités de saisie semi-automatique des champs de « input » spécifiques en affichant dynamiquement une liste de mots qui correspondent à la « datalist »."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Émule l&#x27;attribut « list » de l&#x27;élément « input », ainsi que l&#x27;élément « datalist », pour les navigateurs qui ne les supportent pas. Ceci ajoute des fonctionnalités de saisie semi-automatique des champs de « input » spécifiques en affichant dynamiquement une liste de mots qui correspondent à la « datalist »."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -61,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Recherchez le site Web</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
 </form>
@@ -120,8 +120,7 @@
 <label for="city">Ville</label>
 <input class="form-control" type="text" id="city" name="city" list="suggestions">
 </div>
-<datalist id="suggestions">
-<!--[if lte IE 9]><select><![endif]-->
+<datalist id="suggestions"> <!--[if lte IE 9]><select><![endif]-->
 <option label="Barrie" value="Barrie"></option>
 <option label="Calgary" value="Calgary"></option>
 <option label="Charlottetown" value="Charlottetown"></option>
@@ -143,8 +142,7 @@
 <option label="Vancouver" value="Vancouver"></option>
 <option label="Whitehorse" value="Whitehorse"></option>
 <option label="Winnipeg" value="Winnipeg"></option>
-<option label="Yellowknife" value="Yellowknife"></option>
-<!--[if lte IE 9]></select><![endif]-->
+<option label="Yellowknife" value="Yellowknife"></option> <!--[if lte IE 9]></select><![endif]-->
 </datalist>
 </form>
 <details>
@@ -216,8 +214,10 @@
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

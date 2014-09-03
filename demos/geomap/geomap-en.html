@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Geomap
-- Working examples
-- Web Experience Toolkit
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Geomap - Working examples - Web Experience Toolkit
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Displays a dynamic map over which information from additional sources can be overlaid."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Displays a dynamic map over which information from additional sources can be overlaid."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -61,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Search website</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
 </form>
@@ -115,92 +115,84 @@
 <p>Displays a dynamic map over which information from additional sources can be overlaid.</p>
 </section>
 <section>
-<h2>Dynamic map example</h2>
-
-<div id="sample_map"
-class="wb-geomap position scaleline tab geocoder geolocation aoi"
-data-wb-geomap='{
-"layersFile": "demo/config-en.min.js",
-"tables": [{
-"id": "bbox",
-"tab": false,
-"zoom": true,
-"visible": false,
-"popups": true
-},{
-"id": "cities",
-"zoom": true,
-"tab": false,
-"popups": true,
-"visible": true,
-"popupsInfo": {
-"id": "citiesPopup",
-"height": 200,
-"width": 300,
-"close": true,
-"content": "<div style=\"white-space:nowrap;\"><p><strong>Census subdivision: </strong>_Census subdivision<div><a href=\"#\" class=\"button\" role=\"button\" title=\"Zoom to city\" aria-label=\"Zoom to city\" onclick=\"wb.doc.zoomFeature()\">Zoom to city</a></div></div>"
-},
-"style": {
-"type": "rule",
-"rule": [
-{
-"field": "Rank",
-"value": [3],
-"filter": "GREATER_THAN",
-"init": {
-"strokeColor": "#0083f5",
-"fillColor": "#57a8f0",
-"pointRadius": 6,
-"fillOpacity": 0.80,
-"strokeWidth": 1.0
-}
-},
-{
-"field": "Rank",
-"value": [2, 3],
-"filter": "BETWEEN",
-"init": {
-"strokeColor": "#F90",
-"fillColor": "#F90",
-"pointRadius": 8,
-"fillOpacity": 0.80,
-"strokeWidth": 1.0
-}
-},
-{
-"field": "Rank",
-"value": [1],
-"filter": "EQUAL_TO",
-"init": {
-"strokeColor": "#F00",
-"fillColor": "#F00",
-"pointRadius": 10,
-"fillOpacity": 0.80,
-"strokeWidth": 1.0
-}
-}
-]}
-}]
-}'>
+<h2>Dynamic map example</h2> <!-- GeomapStart -->
+<div id="sample_map" class="wb-geomap position scaleline tab geocoder geolocation aoi" data-wb-geomap="{
+			&quot;layersFile&quot;: &quot;demo/config-en.js&quot;,
+			&quot;tables&quot;: [{
+				&quot;id&quot;: &quot;bbox&quot;,
+				&quot;tab&quot;: false,
+				&quot;zoom&quot;: true,
+				&quot;visible&quot;: false,
+				&quot;popups&quot;: true
+			},{
+				&quot;id&quot;: &quot;cities&quot;,
+				&quot;zoom&quot;: true,
+				&quot;tab&quot;: false,
+				&quot;popups&quot;: true,
+				&quot;visible&quot;: true,
+				&quot;popupsInfo&quot;: {
+					&quot;id&quot;: &quot;citiesPopup&quot;,
+					&quot;height&quot;: 200,
+					&quot;width&quot;: 300,
+					&quot;close&quot;: true,
+					&quot;content&quot;: &quot;<div style=\"white-space:nowrap;\"><p><strong>Census subdivision: </strong>_Census subdivision<div><a href=\"#\" class=\"button\" role=\"button\" title=\"Zoom to city\" aria-label=\"Zoom to city\" onclick=\"wb.doc.zoomFeature()\">Zoom to city</a></div></div>&quot;
+				},
+				&quot;style&quot;: {
+					&quot;type&quot;: &quot;rule&quot;,
+					&quot;rule&quot;: [
+					{
+						&quot;field&quot;: &quot;Rank&quot;,
+						&quot;value&quot;: [3],
+						&quot;filter&quot;: &quot;GREATER_THAN&quot;,
+						&quot;init&quot;: {
+							&quot;strokeColor&quot;: &quot;#0083f5&quot;,
+							&quot;fillColor&quot;: &quot;#57a8f0&quot;,
+							&quot;pointRadius&quot;: 6,
+							&quot;fillOpacity&quot;: 0.80,
+							&quot;strokeWidth&quot;: 1.0
+						}
+					},
+					{
+						&quot;field&quot;: &quot;Rank&quot;,
+						&quot;value&quot;: [2, 3],
+						&quot;filter&quot;: &quot;BETWEEN&quot;,
+						&quot;init&quot;: {
+							&quot;strokeColor&quot;: &quot;#F90&quot;,
+							&quot;fillColor&quot;: &quot;#F90&quot;,
+							&quot;pointRadius&quot;: 8,
+							&quot;fillOpacity&quot;: 0.80,
+							&quot;strokeWidth&quot;: 1.0
+						}
+					},
+					{
+						&quot;field&quot;: &quot;Rank&quot;,
+						&quot;value&quot;: [1],
+						&quot;filter&quot;: &quot;EQUAL_TO&quot;,
+						&quot;init&quot;: {
+							&quot;strokeColor&quot;: &quot;#F00&quot;,
+							&quot;fillColor&quot;: &quot;#F00&quot;,
+							&quot;pointRadius&quot;: 10,
+							&quot;fillOpacity&quot;: 0.80,
+							&quot;strokeWidth&quot;: 1.0
+						}
+					}
+				]}
+			}]
+		}">
 <div class="row">
-<div class="col-md-9">
-
-<div class="wb-geomap-map"></div>
-
-</div>
-
+<div class="col-md-9"> <!-- Insert Map Start (mandatory) -->
+<div class="wb-geomap-map"></div> <!-- Insert Map End -->
+</div> <!-- Insert Legend Start (optional) -->
 <section class="wb-geomap-legend col-md-3">
 <h3>Legend</h3>
-</section>
-
+</section> <!-- Insert Legend End -->
 </div>
 <div class="row">
 <section class="col-md-12">
 <h3>Example - Remote &amp; File-based Layer Data</h3>
 <p>Layers are created from file-based formats, feeds, and web API's.</p>
 </section>
-</div>
-
+</div> <!-- Insert Layer Data Start (mandatory) -->
 <div class="row">
 <section>
 <div class="wb-geomap-layers col-md-12">
@@ -295,10 +287,8 @@ data-wb-geomap='{
 </table>
 </section>
 </section>
-</div>
-
-</div>
-
+</div> <!-- Insert Layer Data End -->
+</div> <!-- GeomapEnd -->
 <section>
 <h3>Code</h3>
 <details class="mrgn-bttm-lg">
@@ -500,31 +490,25 @@ data-wb-geomap='{
 </section>
 <section>
 <h2>Static Map example</h2>
-<p>Geomap can be configured to provide a static map ideally suited to display a location or bounding box extent.</p>
-
-<div id="location_map"
-class="wb-geomap static"
-data-wb-geomap='{
-"tables": [{
-"id": "addNRCan",
-"style": {
-"type": "symbol",
-"init": {
-"pointRadius": 12,
-"graphicName": "star",
-"strokeColor": "#FF0000",
-"fillColor": "#FF0000",
-"fillOpacity": 0.7
-}
-}
-}]
-}'>
+<p>Geomap can be configured to provide a static map ideally suited to display a location or bounding box extent.</p> <!-- GeomapStart -->
+<div id="location_map" class="wb-geomap static" data-wb-geomap="{
+			&quot;tables&quot;: [{
+				&quot;id&quot;: &quot;addNRCan&quot;,
+				&quot;style&quot;: {
+					&quot;type&quot;: &quot;symbol&quot;,
+					&quot;init&quot;: {
+						&quot;pointRadius&quot;: 12,
+						&quot;graphicName&quot;: &quot;star&quot;,
+						&quot;strokeColor&quot;: &quot;#FF0000&quot;,
+						&quot;fillColor&quot;: &quot;#FF0000&quot;,
+						&quot;fillOpacity&quot;: 0.7
+					}
+				}
+			}]
+		}">
 <div class="row">
-<div class="col-md-12">
-
-<div class="wb-geomap-map col-md-4"></div>
-
-
+<div class="col-md-12"> <!-- Insert Map Start (mandatory) -->
+<div class="wb-geomap-map col-md-4"></div> <!-- Insert Map End --> <!-- Insert Layer Data Start (mandatory) -->
 <div class="wb-geomap-layers col-md-4">
 <table id="addNRCan" aria-label="NRCan Ottawa office adress" class="table">
 <caption class="wb-inv">Natural Resources Canada Ottawa office adress</caption>
@@ -535,16 +519,14 @@ data-wb-geomap='{
 </thead>
 <tbody>
 <tr data-geometry="POINT (-75.70535, 45.3995)" data-type="wkt">
-<td>615 Booth St.,<br/>Ottawa (ON),<br/>Canada,<br/>K1A 0E8</td>
+<td>615 Booth St.,<br>Ottawa (ON),<br>Canada,<br>K1A 0E8</td>
 </tr>
 </tbody>
 </table>
-</div>
-
-</div>
+</div> <!-- Insert Layer Data End -->
 </div>
 </div>
-
+</div> <!-- GeomapEnd -->
 <section>
 <h3>Code</h3>
 <details class="mrgn-tp-lg">
@@ -634,9 +616,11 @@ data-wb-geomap='{
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 <script src="demo/client_functions.min.js"></script>
 </body>
 </html>

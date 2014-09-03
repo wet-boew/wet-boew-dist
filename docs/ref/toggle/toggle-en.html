@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Toggle
-- Plugins
-- Documentation
-- Web Experience Toolkit
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Toggle - Plugins - Documentation - Web Experience Toolkit
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Allows an element to toggle elements between on and off states."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Allows an element to toggle elements between on and off states."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -62,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Search website</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
 </form>
@@ -249,8 +248,7 @@ current page in WET v3.1</a>.</p>
 <td><code>selector</code></td>
 <td>CSS selector that specifies the elements the toggle element controls. If no CSS selector is supplied, the toggle element controls itself.</td>
 <td>
-Specify the CSS selector. All elements to be toggled should match this selector.
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'selector': '.cssSelector'}"&gt;</code></pre>
+Specify the CSS selector. All elements to be toggled should match this selector.[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'selector': '.cssSelector'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -265,8 +263,7 @@ Specify the CSS selector. All elements to be toggled should match this selector.
 <td><code>parent</code></td>
 <td>CSS selector that causes the toggle element to only control elements within a given parent element.</td>
 <td>
-Specify the CSS selector. When a toggle element is clicked, it will only toggle elements that are children of this selector.
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'parent': '.parentCssSelector'}"&gt;</code></pre>
+Specify the CSS selector. When a toggle element is clicked, it will only toggle elements that are children of this selector.[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'parent': '.parentCssSelector'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -281,8 +278,7 @@ Specify the CSS selector. When a toggle element is clicked, it will only toggle 
 <td><code>group</code></td>
 <td>CSS selector that groups multiple toggle elements together and only allows one of the elements to be open at a time.</td>
 <td>
-Specify the CSS group selector. All elements to be toggled should match this selector.
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'group': '.groupCssSelector'}"&gt;</code></pre>
+Specify the CSS group selector. All elements to be toggled should match this selector.[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'group': '.groupCssSelector'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -297,8 +293,7 @@ Specify the CSS group selector. All elements to be toggled should match this sel
 <td><code>persist</code></td>
 <td>Causes a toggle element to remember its current state and re-apply it when the page reloads.</td>
 <td>
-Supports persistence. Only "session" and "local" are supported:
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'persist': 'session'}"&gt;</code></pre>
+Supports persistence. Only "session" and "local" are supported:[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'persist': 'session'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -315,8 +310,7 @@ Supports persistence. Only "session" and "local" are supported:
 <td><code>print</code></td>
 <td>Causes a toggle element to turn the elements it controls on or off when the page is printed.</td>
 <td>
-Specify the print behaviour. Only "on" or "off" are supported:
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'print': 'on'}"&gt;</code></pre>
+Specify the print behaviour. Only "on" or "off" are supported:[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'print': 'on'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -333,8 +327,7 @@ Specify the print behaviour. Only "on" or "off" are supported:
 <td><code>type</code></td>
 <td>Causes a toggle element to only turn the elements it controls on or off.</td>
 <td>
-Specify the type. Only "on" or "off" are supported:
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'type': 'on'}"&gt;</code></pre>
+Specify the type. Only "on" or "off" are supported:[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'type': 'on'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -351,8 +344,7 @@ Specify the type. Only "on" or "off" are supported:
 <td><code>stateOn</code></td>
 <td>CSS class that's added to elements when they are toggled on.</td>
 <td>
-Specify a CSS class name without the leading "."
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOn': 'cssClass'}"&gt;</code></pre>
+Specify a CSS class name without the leading "."[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOn': 'cssClass'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -367,8 +359,7 @@ Specify a CSS class name without the leading "."
 <td><code>stateOff</code></td>
 <td>CSS class that's added to elements when they are toggled off.</td>
 <td>
-Specify a CSS class name without the leading "."
-<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOff': 'cssClass'}"&gt;</code></pre>
+Specify a CSS class name without the leading "."[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOff': 'cssClass'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -413,8 +404,7 @@ Specify a CSS class name without the leading "."
 <td><code>toggle.wb-toggle</code></td>
 <td>Triggered manually and automatically by plugin (e.g., <code>$( ".wb-toggle" ).trigger( "toggle.wb-toggle" );</code>).</td>
 <td>
-Causes a toggle element to change the toggle state of the elements it controls. Normally triggered by clicking on the toggle element. When triggering this event manually, the data-toggle attribute must be passed as the second argument:
-<pre><code>// Get a reference to the toggle element and its settings
+Causes a toggle element to change the toggle state of the elements it controls. Normally triggered by clicking on the toggle element. When triggering this event manually, the data-toggle attribute must be passed as the second argument:[{htmlmin-lb}]<pre><code>// Get a reference to the toggle element and its settings
 var $toggler = $( ".wb-toggle" );
     settings = $toggler.data( "toggle" );
 
@@ -474,8 +464,10 @@ $toggler.trigger( "toggle.wb-toggle", settings );</code></pre>
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

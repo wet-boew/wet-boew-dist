@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Text highlighting
-- Plugins
-- Documentation
-- Web Experience Toolkit
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Text highlighting - Plugins - Documentation - Web Experience Toolkit
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Automatically highlights certain words on a Web page. The highlighted words can be selected via the query string."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Automatically highlights certain words on a Web page. The highlighted words can be selected via the query string."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -62,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Search website</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
 </form>
@@ -146,7 +145,7 @@
 <h2>How to implement</h2>
 <ol>
 <li>Define your search area. Add the <code>wb-txthl</code> class to the tag whose contents you want to search in.</li>
-<li>Specify the search criteria in a URL query string. Add <code>txthl=&lt;text_1&gt;+&lt;text_2&gt;+&lt;text_3&gt;</code> to the query string.<br/><strong>Note:</strong> HTML markup validation requires all spaces in links to be replaced by <code>%20</code>.</li>
+<li>Specify the search criteria in a URL query string. Add <code>txthl=&lt;text_1&gt;+&lt;text_2&gt;+&lt;text_3&gt;</code> to the query string.<br><strong>Note:</strong> HTML markup validation requires all spaces in links to be replaced by <code>%20</code>.</li>
 </ol>
 <p><strong>Note:</strong> HTML markup validation requires all spaces in links to be replaced by <code>%20</code>.</p>
 </section>
@@ -165,7 +164,7 @@
 <tr>
 <td><code>txthl</code></td>
 <td>Query string parameter that specifies the search criteria for the text to highlight.</td>
-<td>Add <code>txthl=&lt;text_1&gt;+&lt;text_2&gt;+&lt;text_3&gt;</code> to the query string.<br/><strong>Note:</strong> HTML markup validation requires all spaces in links to be replaced by <code>%20</code>.</td>
+<td>Add <code>txthl=&lt;text_1&gt;+&lt;text_2&gt;+&lt;text_3&gt;</code> to the query string.<br><strong>Note:</strong> HTML markup validation requires all spaces in links to be replaced by <code>%20</code>.</td>
 <td>Strings separated by + characters.</td>
 </tr>
 </tbody>
@@ -250,8 +249,10 @@
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

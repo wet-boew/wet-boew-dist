@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Graphiques - Personalisation
-- Exemples pratiques
-- Boîte à outils de l'expérience Web
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Graphiques - Personalisation - Exemples pratiques - Boîte à outils de l'expérience Web
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Personalisation, préréglages personnalisés et plusieurs types de graphique."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Personalisation, préréglages personnalisés et plusieurs types de graphique."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -61,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Recherchez le site Web</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
 </form>
@@ -129,7 +129,7 @@ version de la page actuelle pour la BOEW v3.1</a> a été déplacée.</p>
 <li><code>wb-charts-bar</code> : Applique le préréglage nommé &quot;bar&quot;</li>
 <li><code>data-flot</code> : Étend les options existante de les paramètre globale de Flot, ceci après l'application de tout les préréglages. Le contenu est un objet JSON.</li>
 </ul>
-<table class="wb-charts wb-charts-bar table" data-flot='{ "yaxis": { "max": 150000} }'>
+<table class="wb-charts wb-charts-bar table" data-flot="{ &quot;yaxis&quot;: { &quot;max&quot;: 150000} }">
 <caption>Requêtes</caption>
 <thead>
 <tr>
@@ -141,13 +141,13 @@ version de la page actuelle pour la BOEW v3.1</a> a été déplacée.</p>
 </thead>
 <tbody>
 <tr>
-<th data-flot='{ "color":"#191970" }'>Requêtes</th>
+<th data-flot="{ &quot;color&quot;:&quot;#191970&quot; }">Requêtes</th>
 <td>80189</td>
 <td>65297</td>
 <td>70387</td>
 </tr>
 <tr>
-<th data-flot='{ "color":"#FF2222" }'>Seuil</th>
+<th data-flot="{ &quot;color&quot;:&quot;#FF2222&quot; }">Seuil</th>
 <td colspan="2">70000</td>
 <td>75000</td>
 </tr>
@@ -189,7 +189,7 @@ version de la page actuelle pour la BOEW v3.1</a> a été déplacée.</p>
 <li><code>data-flot</code> : Étend les options existante de les paramètre globale de Flot, ceci après l'application de tout les préréglages. Le contenu est un objet JSON.</li>
 </ul>
 <p>Afain de créer un graphique qui contient des graphiques à barres avec un graphique linéaire, le type de graphique doit être définie au niveau du jeu de données.</p>
-<table class="wb-charts table" data-flot='{ "yaxis": { "max": 150000} }'>
+<table class="wb-charts table" data-flot="{ &quot;yaxis&quot;: { &quot;max&quot;: 150000} }">
 <caption>Requêtes</caption>
 <thead>
 <tr>
@@ -201,13 +201,13 @@ version de la page actuelle pour la BOEW v3.1</a> a été déplacée.</p>
 </thead>
 <tbody>
 <tr>
-<th data-flot='{ "color":"#191970" }' class="wb-charts-bar">Requêtes</th>
+<th data-flot="{ &quot;color&quot;:&quot;#191970&quot; }" class="wb-charts-bar">Requêtes</th>
 <td>80189</td>
 <td>65297</td>
 <td>70387</td>
 </tr>
 <tr>
-<th data-flot='{ "color":"#FF2222" }'>Seuil</th>
+<th data-flot="{ &quot;color&quot;:&quot;#FF2222&quot; }">Seuil</th>
 <td colspan="2">70000</td>
 <td>75000</td>
 </tr>
@@ -262,8 +262,7 @@ window[ "wb-charts" ] = {
 	}
 };
 &lt;/script&gt;</code></pre>
-<script>
-	window[ "wb-charts" ] = {
+<script>window[ "wb-charts" ] = {
 		flot: {
 			personalise: {
 				colors: [ "#ff0000",
@@ -277,8 +276,7 @@ window[ "wb-charts" ] = {
 						"#0000ff"]
 			}
 		}
-	};
-	</script>
+	};</script>
 <p><code>&lt;table class=&quot;wb-charts <strong>wb-charts-personalise</strong> table&quot;&gt;</code></p>
 <table class="wb-charts wb-charts-personalise table">
 <caption>Nombre de page par objectif principal et par audience</caption>
@@ -292,7 +290,7 @@ window[ "wb-charts" ] = {
 <th>Entreprise</th>
 </tr>
 <tr>
-<th data-flot='{ "bars":{ "show": true, "barWidth": 0.9, "order":1}}'>Général</th>
+<th data-flot="{ &quot;bars&quot;:{ &quot;show&quot;: true, &quot;barWidth&quot;: 0.9, &quot;order&quot;:1}}">Général</th>
 <td>2</td>
 <td>0</td>
 <td>20</td>
@@ -301,7 +299,7 @@ window[ "wb-charts" ] = {
 <td>50</td>
 </tr>
 <tr>
-<th data-flot='{ "bars":{ "show": true, "barWidth": 0.9, "order":2}}'>Étudiants</th>
+<th data-flot="{ &quot;bars&quot;:{ &quot;show&quot;: true, &quot;barWidth&quot;: 0.9, &quot;order&quot;:2}}">Étudiants</th>
 <td>2</td>
 <td>2</td>
 <td>1</td>
@@ -310,7 +308,7 @@ window[ "wb-charts" ] = {
 <td>0</td>
 </tr>
 <tr>
-<th data-flot='{ "bars":{ "show": true, "barWidth": 0.9, "order":3}}'>Entreprise</th>
+<th data-flot="{ &quot;bars&quot;:{ &quot;show&quot;: true, &quot;barWidth&quot;: 0.9, &quot;order&quot;:3}}">Entreprise</th>
 <td>60</td>
 <td>10</td>
 <td>20</td>
@@ -319,7 +317,7 @@ window[ "wb-charts" ] = {
 <td>8</td>
 </tr>
 <tr>
-<th data-flot='{ "bars":{ "show": true, "barWidth": 0.9, "order":4}}'>Professionnel</th>
+<th data-flot="{ &quot;bars&quot;:{ &quot;show&quot;: true, &quot;barWidth&quot;: 0.9, &quot;order&quot;:4}}">Professionnel</th>
 <td>46</td>
 <td>26</td>
 <td>5</td>
@@ -328,7 +326,7 @@ window[ "wb-charts" ] = {
 <td>142</td>
 </tr>
 <tr>
-<th data-flot='{ "bars":{ "show": true, "barWidth": 0.9, "order":5}}'>Avocat</th>
+<th data-flot="{ &quot;bars&quot;:{ &quot;show&quot;: true, &quot;barWidth&quot;: 0.9, &quot;order&quot;:5}}">Avocat</th>
 <td>0</td>
 <td>2</td>
 <td>4</td>
@@ -408,7 +406,7 @@ window[ "wb-charts" ] = {
 	
 };
 &lt;/script&gt;</code></pre>
-</section>
+</p></section>
 </section>
 <section>
 <h2>Graphique avec des valeurs négative</h2>
@@ -482,21 +480,21 @@ window[ "wb-charts" ] = {
 		&lt;th&gt;Avocat&lt;/th&gt;
 	&lt;/tr&gt;
 &lt;/thead&gt;</code></pre>
-<table class="wb-charts wb-charts-pie table" data-wb-charts='{ "height": 300, "decimal": 1 }'>
+<table class="wb-charts wb-charts-pie table" data-wb-charts="{ &quot;height&quot;: 300, &quot;decimal&quot;: 1 }">
 <caption>Nombre de pages ayant une tâche comme objectif principal et par audience</caption>
-<colgroup><col/></colgroup>
+<colgroup><col></colgroup>
 <colgroup>
-<col/>
-<col/>
-<col/>
-<col/>
-<col/>
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
 <td></td>
 <th>Général</th>
-<th data-flot='{"color":"#00FF00"}'>Étudiants</th>
+<th data-flot="{&quot;color&quot;:&quot;#00FF00&quot;}">Étudiants</th>
 <th>Avocat</th>
 <th>Professionnel</th>
 <th>Avocat</th>
@@ -551,8 +549,10 @@ window[ "wb-charts" ] = {
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

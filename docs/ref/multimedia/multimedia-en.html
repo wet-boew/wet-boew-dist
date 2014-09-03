@@ -1,22 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Multimedia Player
-- Plugins
-- Documentation
-- Web Experience Toolkit
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Multimedia Player - Plugins - Documentation - Web Experience Toolkit
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Provides an accessible multimedia player for embedding video and audio into web pages."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Provides an accessible multimedia player for embedding video and audio into web pages."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -62,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Search website</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
 </form>
@@ -179,7 +178,7 @@ Add a <code>figcaption</code> element to the <code>figure</code> element with th
 <li>Add a <code>poster</code> attribute to the <code>video</code> element with the value being the URL for the thumbnail image.</li>
 <li>Add a <code>title</code> attribute to the <code>video</code> element with the value being the title of the video.</li>
 <li>
-Add one or more <code>source</code> elements to the <code>video</code> element with the <code>src</code> attribute value being the URL of the media file and the <code>type</code> attribute being the media file MIME type.<br/>
+Add one or more <code>source</code> elements to the <code>video</code> element with the <code>src</code> attribute value being the URL of the media file and the <code>type</code> attribute being the media file MIME type.<br>
 <strong>Note:</strong> If you list multiple media sources for the video, the player will play the first media source file that works (is available, compatible, etc.).
 <pre><code>&lt;source type="video/webm" src="http://video2.servicecanada.gc.ca/video/boew-wet/te-lj-eng.webm" /&gt;
 &lt;source type="video/mp4" src="http://video2.servicecanada.gc.ca/video/boew-wet/te-lj-eng.mp4" /&gt;</code></pre>
@@ -241,7 +240,7 @@ Add the <code>srclang</code> and <code>label</code> attributes to the <code>trac
 <ol>
 <li>Add a <code>title</code> attribute to the <code>audio</code> element with the value being the title of the audio.</li>
 <li>
-Add one or more <code>source</code> elements to the <code>audio</code> element with the <code>src</code> attribute value being the URL of the media file and the <code>type</code> attribute being the media file MIME type.<br/>
+Add one or more <code>source</code> elements to the <code>audio</code> element with the <code>src</code> attribute value being the URL of the media file and the <code>type</code> attribute being the media file MIME type.<br>
 <strong>Note:</strong> If you list multiple media sources for the audio, the player will play the first media source file that works (is available, compatible, etc.).
 <pre><code>&lt;source src="http://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.mp3" type="audio/mp3" /&gt;
 &lt;source src="http://www.archive.org/download/RideOfTheValkyries/ride_of_the_valkyries_2.ogg" type="audio/ogg" /&gt;</code></pre>
@@ -366,8 +365,10 @@ Add one or more <code>source</code> elements to the <code>audio</code> element w
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

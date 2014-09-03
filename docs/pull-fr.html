@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Créér une demande de retrait
-- Documentation
-- Boîte à outils de l'expérience Web
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Créér une demande de retrait - Documentation - Boîte à outils de l'expérience Web
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Comment créer une demande de retrait"/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Comment créer une demande de retrait"> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -61,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Recherchez le site Web</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
 </form>
@@ -105,11 +105,9 @@
 <h2 class="h3">Vous cherchez la BOEW v3.1?</h2>
 <p>La BOEW v4.0 est maintenant la version courrante. La <a href="http://wet-boew.github.io/v3.1-ci/docs/gs-cd/index-fr.html">Comment démarrer pour la BOEW v3.1</a> a été déplacée.</p>
 </section>
-<p>Les demandes de retrait (<span lang="en">Pull requests</span>) sont bienvenues. Veuillez vous assurer que vos modifications sont à jour et limitez la portée d'engagement (<span lang="en">commit</span>)
-seulement aux fichiers que vous désirez modifier (pour éviter des conflits).</p>
+<p>Les demandes de retrait (<span lang="en">Pull requests</span>) sont bienvenues. Veuillez vous assurer que vos modifications sont à jour et limitez la portée d'engagement (<span lang="en">commit</span>) seulement aux fichiers que vous désirez modifier (pour éviter des conflits).</p>
 <ul>
-<li>Pour réduire la pollution d'engagement dans la base de code principale, considérez <a rel="external" href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebaser</a> vos engagements avant de créer
-une demande de retrait de la branche principale.</li>
+<li>Pour réduire la pollution d'engagement dans la base de code principale, considérez <a rel="external" href="http://git-scm.com/book/en/Git-Branching-Rebasing">rebaser</a> vos engagements avant de créer une demande de retrait de la branche principale.</li>
 </ul>
 <section>
 <h2>Nouvelles composantes</h2>
@@ -146,8 +144,7 @@ une demande de retrait de la branche principale.</li>
 <li>Validez vos balises HTML pour vous assurer du HTML5 bien formé.
 <ul>
 <li>Ces tests seront exécutés comme partie de l'intégration (<span lang="en">build</span>) par défaut, ou en apellant <code>grunt htmllint</code> pour exécuter la tâche sur votre construction HTML.</li>
-<li>Vous pouvez manuellement tester pour des balises bien formées en utilisant le <a rel="external" href="http://validator.w3.org/nu/">validateur HTML W3C</a>, validez avec une paramètre XHTML5
-et un crochet à <span lang="en">"Be lax about HTTP Content-Type"</span>.</li>
+<li>Vous pouvez manuellement tester pour des balises bien formées en utilisant le <a rel="external" href="http://validator.w3.org/nu/">validateur HTML W3C</a>, validez avec une paramètre XHTML5 et un crochet à <span lang="en">"Be lax about HTTP Content-Type"</span>.</li>
 </ul>
 </li>
 <li>
@@ -163,13 +160,11 @@ et un crochet à <span lang="en">"Be lax about HTTP Content-Type"</span>.</li>
 <ul>
 <li>L'indentation peut être renforcé en installant un module d'extension <a href="http://editorconfig.org">EditorConfig</a> pour votre environnement de développement intégré préféré.</li>
 <li>Indenter avec la tabulation en utilisant le <a rel="external" href="http://en.wikipedia.org/wiki/Indent_style#K.26R_style">style d'indentation K&amp;R</a></li>
-<li>Utiliser des guillemets simples pour des chaînes de caractères en JavaScript (pour que les double guillemets non échappés
-puissent être utilisés pour des attributs dans le code de sortie HTML).</li>
+<li>Utiliser des guillemets simples pour des chaînes de caractères en JavaScript (pour que les double guillemets non échappés puissent être utilisés pour des attributs dans le code de sortie HTML).</li>
 </ul>
 </li>
 <li>
-Tester les pages Web contre la base de test des fureteurs suivants&#160;:
-<ul>
+Tester les pages Web contre la base de test des fureteurs suivants&#160;:[{htmlmin-lb}]<ul>
 <li>Les versions majeures courante et précédente de chaque fureteur qui compte pour au moins 5 pourcent des visites<sup id="fn1-rf"><a class="fn-lnk" href="#fn1"><span class="wb-inv">Footnote </span>1</a></sup> sur le site Web;</li>
 <li>N'importe quelle version majeure d'un fureteur qui, par lui même, compte pour 5 pourcent des visites<sup id="fn2-rf"><a class="fn-lnk" href="#fn1"><span class="wb-inv">Footnote </span>1</a></sup> du site Web; et</li>
 <li>La version majeure courante de fureteur mobile qui compte pour au moins 5 pourcent des visites<sup id="fn3-rf"><a class="fn-lnk" href="#fn1"><span class="wb-inv">Footnote </span>1</a></sup> sur le site Web effecutées avec les appareils mobiles.</li>
@@ -227,8 +222,10 @@ Tester les pages Web contre la base de test des fureteurs suivants&#160;:
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

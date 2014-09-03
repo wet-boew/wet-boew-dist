@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Charts and graphs - Specific test cases
-- Working examples
-- Web Experience Toolkit
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Charts and graphs - Specific test cases - Working examples - Web Experience Toolkit
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Specific test cases for testing purposes."/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Specific test cases for testing purposes."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -61,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Search website</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
 </form>
@@ -119,7 +119,7 @@ current page in WET v3.1</a>.</p>
 <li><a href="functionandnumbers-en.html">Thousands separator</a></li>
 <li><a href="functionandnumbers-en.html#functionpreset">Custom preset functions</a></li>
 </ul>
-<hr/>
+<hr>
 <section>
 <h2>100% pie charts</h2>
 <p>The expected result is a circle where the legend only contains one value. The <em>emphasis</em> text in the table caption should be cloned into the title of the chart (<code>&lt;figcaption&gt;</code>) and into the link title (<code>&lt;summary&gt;</code>) for viewing the table.</p>
@@ -149,7 +149,7 @@ current page in WET v3.1</a>.</p>
 <li><em>Internal needs</em>, x-axis position 5 of 5</li>
 </ul>
 <p><code>&lt;table class=&quot;wb-charts table&quot; data-wb-charts='{&quot;labelposition&quot;: 1, &quot;noencapsulation&quot;: true}'&gt;</code></p>
-<table class="wb-charts table" data-wb-charts='{"labelposition": 1, "noencapsulation": true}'>
+<table class="wb-charts table" data-wb-charts="{&quot;labelposition&quot;: 1, &quot;noencapsulation&quot;: true}">
 <caption>Number of pages by main purpose and audience</caption>
 <thead>
 <tr>
@@ -215,9 +215,9 @@ current page in WET v3.1</a>.</p>
 </tr>
 </tbody>
 </table>
-<hr/>
+<hr>
 <p><code>&lt;table class=&quot;wb-charts table&quot; data-wb-charts='{&quot;labelposition&quot;: 1, &quot;noencapsulation&quot;: true, &quot;reversettblparsing&quot;: true}'&gt;</code></p>
-<table class="wb-charts table" data-wb-charts='{"labelposition": 1, "noencapsulation": true, "reversettblparsing": true}'>
+<table class="wb-charts table" data-wb-charts="{&quot;labelposition&quot;: 1, &quot;noencapsulation&quot;: true, &quot;reversettblparsing&quot;: true}">
 <caption>Number of pages by main purpose and audience</caption>
 <thead>
 <tr>
@@ -288,15 +288,15 @@ current page in WET v3.1</a>.</p>
 <h2>Pie charts and reversed table parsing</h2>
 <p>The expecting result is the table produceds the same chart or graph. There is one exception where the width of both pie charts could be different.</p>
 <p><code>&lt;table class=&quot;wb-charts wb-charts-pie table&quot; data-wb-charts='{ &quot;height&quot;: 500, &quot;decimal&quot;: 1 }'&gt;</code></p>
-<table class="wb-charts wb-charts-pie table" data-wb-charts='{ "height": 500, "decimal": 1 }'>
+<table class="wb-charts wb-charts-pie table" data-wb-charts="{ &quot;height&quot;: 500, &quot;decimal&quot;: 1 }">
 <caption>Number of pages with tasks as a main purpose per audience</caption>
-<colgroup><col/></colgroup>
+<colgroup><col></colgroup>
 <colgroup>
-<col/>
-<col/>
-<col/>
-<col/>
-<col/>
+<col>
+<col>
+<col>
+<col>
+<col>
 </colgroup>
 <thead>
 <tr>
@@ -319,13 +319,13 @@ current page in WET v3.1</a>.</p>
 </tr>
 </tbody>
 </table>
-<hr/>
+<hr>
 <p>Please note that <code>&lt;colgroup&gt;</code> elements are required for creating the following pie charts.</p>
 <p><code>&lt;table class=&quot;wb-charts wb-charts-pie table&quot; data-wb-charts='{ &quot;height&quot;: 500, &quot;decimal&quot;: 1, &quot;reversettblparsing&quot;: true }'&gt;</code></p>
-<table class="wb-charts wb-charts-pie table" data-wb-charts='{ "height": 500, "decimal": 1, "reversettblparsing": true }'>
+<table class="wb-charts wb-charts-pie table" data-wb-charts="{ &quot;height&quot;: 500, &quot;decimal&quot;: 1, &quot;reversettblparsing&quot;: true }">
 <caption>Number of pages with tasks as a main purpose per audience</caption>
-<colgroup><col/></colgroup>
-<colgroup><col/></colgroup>
+<colgroup><col></colgroup>
+<colgroup><col></colgroup>
 <tr>
 <td></td>
 <th>Task</th>
@@ -396,8 +396,10 @@ current page in WET v3.1</a>.</p>
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 </body>
 </html>

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
 <head>
-<meta charset="utf-8"/>
-
-<title>Validateur de tableau
-- Exemples pratiques
-- Boîte à outils de l'expérience Web
+<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Validateur de tableau - Exemples pratiques - Boîte à outils de l'expérience Web
 </title>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-<meta name="description" content="Outils pour les éditeur web qui fourni une assistance afin de produire des tableaux conforme au norme WCAG"/>
-
-<!--[if gte IE 9 | !IE ]><!--> <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon"/> <link rel="stylesheet" href="../../css/wet-boew.min.css"/> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"/>
-<!--[if lt IE 9]><link href="../../assets/favicon.ico" rel="shortcut icon"/> <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css"/> <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <script src="../../js/ie8-wet-boew.min.js"></script><![endif]-->
-<noscript><link rel="stylesheet" href="../../css/noscript.min.css"/></noscript>
+<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
+<meta name="description" content="Outils pour les éditeur web qui fourni une assistance afin de produire des tableaux conforme au norme WCAG"> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link href="../../assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../../js/ie8-wet-boew.min.js"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" href="../../css/noscript.min.css" /></noscript>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
@@ -61,8 +61,8 @@
 <form action="https://google.ca/search" method="get" role="search" class="form-inline">
 <div class="form-group">
 <label for="wb-srch-q">Recherchez le site Web</label>
-<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150"/>
-<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/"/>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
 </div>
 <button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
 </form>
@@ -118,12 +118,12 @@
 <legend>Options</legend>
 <div class="checkbox-inline">
 <label for="chkHassum">
-<input type="checkbox" value="chkHassum" id="chkHassum"/> Contient des groupes sommaire
+<input type="checkbox" value="chkHassum" id="chkHassum"> Contient des groupes sommaire
 </label>
 </div>
 <div class="checkbox-inline">
 <label for="chkCleanMarkup">
-<input type="checkbox" value="chkCleanMarkup" id="chkCleanMarkup"/> Ne pas nettoyer l'HTML
+<input type="checkbox" value="chkCleanMarkup" id="chkCleanMarkup"> Ne pas nettoyer l'HTML
 </label>
 </div>
 </fieldset>
@@ -132,28 +132,28 @@
 <div class="col-xs-6">
 <div class="radio-inline">
 <label for="access-1">
-<input type="radio" name="access" checked="checked" id="access-1"/> Automatique <em>(par défaut)</em>
+<input type="radio" name="access" checked="checked" id="access-1"> Automatique <em>(par défaut)</em>
 </label>
 </div>
 <div class="radio-inline">
 <label for="access-2">
-<input type="radio" name="access" id="access-2"/> Scope
+<input type="radio" name="access" id="access-2"> Scope
 </label>
 </div>
 <div class="radio-inline">
 <label for="access-3">
-<input type="radio" name="access" id="access-3"/> Ids/Headers
+<input type="radio" name="access" id="access-3"> Ids/Headers
 </label>
 </div>
 </div>
 <div class="col-xs-4 col-xs-push-2">
 <div class="form-group">
 <label for="idprefix">Préfixe d'Ids:</label>
-<input type="text" id="idprefix" value="tbl"/>
+<input type="text" id="idprefix" value="tbl">
 </div>
 <div class="form-group">
 <label for="uniqueprefix">
-<input type="checkbox" value="uniqueprefix" id="uniqueprefix"/> Auto généré le préfixe
+<input type="checkbox" value="uniqueprefix" id="uniqueprefix"> Auto généré le préfixe
 </label>
 </div>
 </div>
@@ -164,8 +164,8 @@
 <textarea id="inputsourcecode" class="col-xs-12" rows="15" placeholder="Collez votre code HTML du tableau"></textarea>
 <p><code>&lt;/table&gt;</code></p>
 </fieldset>
-<input id="validatetable" type="submit" value="Validez"/>
-<input type="reset" value="Réinitializer"/>
+<input id="validatetable" type="submit" value="Validez">
+<input type="reset" value="Réinitializer">
 <fieldset>
 <legend>Résultats</legend>
 <p id="lblerrors"><strong>Erreur\Avertissement:</strong></p>
@@ -219,9 +219,11 @@
 </section>
 </nav>
 </div>
-</footer>
-<!--[if gte IE 9 | !IE ]><!--> <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <script src="../../js/wet-boew.min.js"></script> <!--<![endif]-->
-<!--[if lt IE 9]><script src="../../js/ie8-wet-boew2.min.js"></script><![endif]-->
+</footer> <!--[if gte IE 9 | !IE ]><!-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/ie8-wet-boew2.min.js"></script>
+<![endif]-->
 <script src="demo/tablevalidator.min.js"></script>
 </body>
 </html>
