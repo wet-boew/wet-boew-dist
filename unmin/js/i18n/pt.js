@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.6-development - 2014-09-03
+ * v4.0.6-development - 2014-09-05
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -220,9 +220,10 @@ wb.doc.one( "formLanguages.wb", function() {
  * Localized default methods for the jQuery validation plugin.
  * Locale: PT_BR
  */
-jQuery.extend(jQuery.validator.methods, {
+$.extend($.validator.methods, {
 	date: function(value, element) {
 		return this.optional(element) || /^\d\d?\/\d\d?\/\d\d\d?\d?$/.test(value);
 	}
 });
+
 });
