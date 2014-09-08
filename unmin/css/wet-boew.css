@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.6-development - 2014-09-05
+ * v4.0.6-development - 2014-09-08
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -6502,7 +6502,7 @@ img.mfp-img {
 .wb-mltmd.audio .wb-mm-ovrly, .wb-mltmd.audio .lastpnl, .wb-mltmd.youtube.cc_on .wb-mm-cc, .wb-mltmd.youtube .wb-mm-ovrly {
   display: none; }
 
-.wb-mltmd .btn:focus, .wb-mltmd .display .wb-mm-ovrly:focus, .wb-mm-ctrls progress:focus, .wb-mm-ctrls input[type=range]:focus {
+.wb-mltmd .wb-mm-ctrls .btn:focus, .wb-mltmd .display .wb-mm-ovrly:focus, .wb-mm-ctrls progress:focus, .wb-mm-ctrls input[type=range]:focus {
   outline: 1px solid #4aafff; }
 
 .wb-mm-ctrls .fd-slider-bar, .wb-mm-ctrls .fd-slider-range {
@@ -6558,7 +6558,7 @@ img.mfp-img {
   .wb-mltmd video {
     height: auto;
     width: 100%; }
-  .wb-mltmd .btn {
+  .wb-mltmd .wb-mm-ctrls .btn {
     background: transparent;
     border: 0;
     border-top-left-radius: 0 !important;
@@ -6622,10 +6622,10 @@ img.mfp-img {
     .wb-mltmd.skn-lt .wb-mm-ctrls {
       background: #fff;
       color: #000; }
-    .wb-mltmd.skn-lt .btn {
-      background: #fff;
-      border: 0;
-      color: #000; }
+      .wb-mltmd.skn-lt .wb-mm-ctrls .btn {
+        background: #fff;
+        border: 0;
+        color: #000; }
   .wb-mltmd .wb-share {
     text-align: right; }
 
