@@ -1259,14 +1259,16 @@ $document.on( "ajax-fetch.wb", function( event ) {
 	if ( event.currentTarget === event.target ) {
 		$.ajax( fetchOpts )
 			.done(function( response, status, xhr ) {
+				var responseType = typeof response;
+
 				fetchData = {
 					response: response,
 					status: status,
 					xhr: xhr
 				};
 
-				fetchData.pointer = $( "<div id='" + wb.guid() + "' />" )
-										.append( typeof response === "string" ? response : "" );
+				fetchData.pointer = $( "<div id='" + wb.guid() + "' data-type='" + responseType + "' />" )
+										.append( responseType === "string" ? response : "" );
 
 				$( caller ).trigger({
 					type: "ajax-fetched.wb",
@@ -5970,7 +5972,7 @@ var componentName = "wb-menu",
 	 * @param {jQuery DOM element} $ajaxResult The AJAXed in menu content to import
 	 */
 	onAjaxLoaded = function( $elm, $ajaxResult ) {
-		var $ajaxed = !$ajaxResult ? $elm : $ajaxResult,
+		var $ajaxed = $ajaxResult && $ajaxResult.attr( "data-type" ) === "string" ? $ajaxResult : $elm,
 			$menubar = $ajaxed.find( ".menu" ),
 			$menu = $menubar.find( "> li > a" ),
 			target = $elm.data( "trgt" ),
