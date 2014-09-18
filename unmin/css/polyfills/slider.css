@@ -64,7 +64,7 @@
 
 .fd-slider-bar, .fd-slider-range {
   -webkit-background-clip: padding-box;
-  background-clip: padding-box; }
+          background-clip: padding-box; }
 
 .fd-slider-handle, .fd-slider-handle:focus {
   outline: 0; }
@@ -76,9 +76,9 @@
   text-align: center;
   text-decoration: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .fd-slider-bar {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#ececec), to(#ccc));
@@ -98,7 +98,7 @@
 
 .fd-slider-focused .fd-slider-bar {
   -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
-  box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
+          box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
   /* Not sure what to do with this
 		@include experimental(animation, fd-pulse 2s infinite, -moz, -webkit, -o, not -ms, not -khtml, official);
 		*/ }
@@ -123,9 +123,9 @@
 	@if $experimental-support-for-webkit {-webkit-touch-callout: none;}
 	*/
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   .fd-slider-handle:focus {
     /* Is this needed?
 		@if $experimental-support-for-mozilla {-moz-user-focus: normal;}
@@ -148,9 +148,9 @@ body.fd-slider-drag-horizontal, body.fd-slider-drag-horizontal * {
   cursor: N-resize !important;
   cursor: W-resize !important;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .fd-slider-disabled {
   cursor: default;
@@ -181,52 +181,52 @@ body.fd-slider-drag-horizontal, body.fd-slider-drag-horizontal * {
 @-webkit-keyframes fd-pulse {
   0% {
     -webkit-box-shadow: 0 0 3px rgba(100, 130, 170, 0.55);
-    box-shadow: 0 0 3px rgba(100, 130, 170, 0.55); }
+            box-shadow: 0 0 3px rgba(100, 130, 170, 0.55); }
 
   20% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
-    box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); }
+            box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); }
 
   40% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
-    box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
+            box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
 
   60% {
     -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
-    box-shadow: 0 0 6px rgba(10, 130, 170, 0.7); }
+            box-shadow: 0 0 6px rgba(10, 130, 170, 0.7); }
 
   80% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
-    box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
+            box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
 
   100% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
-    box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); } }
+            box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); } }
 
 @keyframes fd-pulse {
   0% {
     -webkit-box-shadow: 0 0 3px rgba(100, 130, 170, 0.55);
-    box-shadow: 0 0 3px rgba(100, 130, 170, 0.55); }
+            box-shadow: 0 0 3px rgba(100, 130, 170, 0.55); }
 
   20% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
-    box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); }
+            box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); }
 
   40% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
-    box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
+            box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
 
   60% {
     -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
-    box-shadow: 0 0 6px rgba(10, 130, 170, 0.7); }
+            box-shadow: 0 0 6px rgba(10, 130, 170, 0.7); }
 
   80% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
-    box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
+            box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
 
   100% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
-    box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); } }
+            box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); } }
 
 #fd-slider-describedby {
   background: #fff;
