@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.6-development - 2014-09-12
+ * v4.0.6-development - 2014-09-18
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7359,9 +7359,9 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 			$share = $( "<div class='wb-share' data-wb-share=\'{\"type\": \"" +
 				( type === "audio" ? type : "video" ) + "\", \"title\": \"" +
 				data.title + "\", \"url\": \"" + data.shareUrl +
-				"\", \"pnlId\": \"" + data.id + "-shr\"}\'></div>" );
-			$media.parent().before( $share );
-			wb.add( $share );
+				"\", \"pnlId\": \"" + data.id + "-shr\"}\'></div>" )
+				.insertBefore( $media.parent() )
+				.trigger( "wb-init.wb-share" );
 		}
 
 		if ( data.captions === undef ) {
@@ -9009,7 +9009,6 @@ var componentName = "wb-share",
 			$elm.append( $share );
 
 			$share
-				.trigger( initEvent )
 				.trigger( "wb-init.wb-lbx" );
 
 			// Identify that initialization has completed
