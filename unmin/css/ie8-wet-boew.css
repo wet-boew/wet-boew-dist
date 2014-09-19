@@ -7186,6 +7186,12 @@ table.dataTable {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
 */
+.lt-ie9 .olButtonGeolocateItemInactive, .olButtonGeolocateItemActive, .olButtonGeolocateItemInactive, .lt-ie9 .olButtonGeolocateItemInactive {
+  background: url("../assets/sprites_geomap.png") no-repeat; }
+
+.lt-ie9 .olButtonGeolocateItemInactive {
+  background-position: 0 -40px; }
+
 .olDragDown, .olControlDragFeatureOver {
   cursor: move; }
 
@@ -7194,6 +7200,9 @@ table.dataTable {
   font-size: 1px;
   opacity: 0.5;
   position: absolute; }
+
+.olButtonGeolocateItemActive, .olButtonGeolocateItemInactive {
+  background-size: 33px auto; }
 
 /**
  * Openlayer pan zoom bar button
@@ -7230,15 +7239,8 @@ table.dataTable {
     height: 33px;
     width: 33px; }
 
-.olButtonGeolocateItemActive {
-  background: url("../assets/locate-active.png") no-repeat;
-  background-position: 0 0;
-  background-size: 33px 33px; }
-
 .olButtonGeolocateItemInactive {
-  background: url("../assets/locate.png") no-repeat;
-  background-position: 0 0;
-  background-size: 33px 33px; }
+  background-position: 0 -34px; }
 
 /*
  * When a potential text is bigger than the image it move the image
@@ -7947,6 +7949,19 @@ details:not([open]) > * {
 /*
  Plugins
  */
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
+*/
+.lt-ie9 .olButtonGeolocateItemInactive, .olButtonGeolocateItemActive, .olButtonGeolocateItemInactive, .lt-ie9 .olButtonGeolocateItemInactive {
+  background: url("../assets/sprites_geomap.png") no-repeat; }
+
+.lt-ie9 .olButtonGeolocateItemInactive {
+  background-position: 0 -40px; }
+
+.lt-ie9 .olControlZoom a:hover, .lt-ie9 .olControlZoom a:focus {
+  background: #130085; }
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
