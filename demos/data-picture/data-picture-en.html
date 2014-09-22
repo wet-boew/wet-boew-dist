@@ -1,15 +1,22 @@
 <!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
 <head>
-<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
 <title>Data Picture - Working examples - Web Experience Toolkit
 </title>
-<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
-<meta name="description" content="Event driven port of Picturefill"> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<!-- Meta data -->
+<meta name="description" content="Event driven port of Picturefill">
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
 <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
-<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link rel="stylesheet" href="../../css/wet-boew.min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css">
+<!--[if lt IE 9]>
 <link href="../../assets/favicon.ico" rel="shortcut icon" />
 <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -121,14 +128,17 @@ current page in WET v3.1</a>.</p>
 <h3>Browser Width</h3>
 <p>This example uses <a href="http://www.w3.org/TR/css3-mediaqueries/#width">min-width</a> to determine which image should be displayed. Resize the browser window to see the different images load.</p>
 <figure>
-<span data-pic="data-pic" data-alt="Parliament Hill" data-class="img-responsive"> <!-- Default image: <div [data-src]> with no data-media attribute is displayed when:
+<span data-pic="data-pic" data-alt="Parliament Hill" data-class="img-responsive">
+<!-- Default image: <div [data-src]> with no data-media attribute is displayed when:
 					1. None of the other <div [data-src]> media queries match.
 					2. The browser doesn't support media queries -->
-<span data-src="img/parliament-hill-large.jpg"></span> <!-- Images for browsers with CSS media query support -->
+<span data-src="img/parliament-hill-large.jpg"></span>
+<!-- Images for browsers with CSS media query support -->
 <span data-src="img/parliament-hill-small.jpg" data-media="(min-width: 0px)"></span>
 <span data-src="img/parliament-hill-medium.jpg" data-media="(min-width: 768px)"></span>
 <span data-src="img/parliament-hill-large.jpg" data-media="(min-width: 992px)"></span>
-<span data-src="img/parliament-hill-extralarge.jpg" data-media="(min-width: 1200px)"></span> <!-- Fallback content for non-JS browsers -->
+<span data-src="img/parliament-hill-extralarge.jpg" data-media="(min-width: 1200px)"></span>
+<!-- Fallback content for non-JS browsers -->
 <noscript><img src="img/parliament-hill-large.jpg" alt="Parliament Hill"></noscript>
 </span>
 <figcaption>
@@ -162,9 +172,11 @@ current page in WET v3.1</a>.</p>
 <h3>High Pixel Density</h3>
 <p>This example uses <a href="http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/" title="Read about high resolution media queries">two media queries</a> to serve high resolution images to devices that will benefit from them (i.e. Retina displays).</p>
 <figure>
-<span data-pic="data-pic" data-alt="False Kiva in the Canyonlands" data-class="img-responsive"> <!-- Images for different device resolutions -->
+<span data-pic="data-pic" data-alt="False Kiva in the Canyonlands" data-class="img-responsive">
+<!-- Images for different device resolutions -->
 <span data-src="img/cave-low-res.jpg"></span>
-<span data-src="img/cave-high-res.jpg" data-media="(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)"></span> <!-- Fallback content for non-JS browsers -->
+<span data-src="img/cave-high-res.jpg" data-media="(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)"></span>
+<!-- Fallback content for non-JS browsers -->
 <noscript><img src="img/cave-low-res.jpg" alt="False Kiva in the Canyonlands"></noscript>
 </span>
 <figcaption>
@@ -226,9 +238,12 @@ current page in WET v3.1</a>.</p>
 </section>
 </nav>
 </div>
-</footer> <!--[if gte IE 9 | !IE ]><!-->
+</footer>
+<!--[if gte IE 9 | !IE ]><!-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
 <script src="../../js/ie8-wet-boew2.min.js"></script>
 <![endif]-->
 </body>

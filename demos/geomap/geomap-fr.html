@@ -1,15 +1,22 @@
 <!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="fr" dir="ltr"> <!--<![endif]-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
 <head>
-<meta charset="utf-8"> <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
 <title>Géocarte - Exemples pratiques - Boîte à outils de l'expérience Web
 </title>
-<meta content="width=device-width,initial-scale=1" name="viewport"> <!-- Meta data -->
-<meta name="description" content="Affiche une carte dynamique sur laquelle des informations de sources supplémentaires peuvent être superposées."> <!-- Meta data--> <!--[if gte IE 9 | !IE ]><!-->
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<!-- Meta data -->
+<meta name="description" content="Affiche une carte dynamique sur laquelle des informations de sources supplémentaires peuvent être superposées.">
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
 <link href="../../assets/favicon.ico" rel="icon" type="image/x-icon">
-<link rel="stylesheet" href="../../css/wet-boew.min.css"> <!--<![endif]-->
-<link rel="stylesheet" href="../../css/theme.min.css"> <!--[if lt IE 9]>
+<link rel="stylesheet" href="../../css/wet-boew.min.css">
+<!--<![endif]-->
+<link rel="stylesheet" href="../../css/theme.min.css">
+<!--[if lt IE 9]>
 <link href="../../assets/favicon.ico" rel="shortcut icon" />
 <link rel="stylesheet" href="../../css/ie8-wet-boew.min.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -115,77 +122,83 @@
 <p>Affiche une carte dynamique sur laquelle des informations de sources supplémentaires peuvent être superposées.</p>
 </section>
 <section>
-<h2>Carte dynamique - Exemple</h2> <!-- GeomapStart -->
-<div id="sample_map" class="wb-geomap position scaleline tab geocoder aoi geolocation" data-wb-geomap="{
-			&quot;layersFile&quot;: &quot;demo/config-fr.js&quot;,
-			&quot;tables&quot;: [{
-				&quot;id&quot;: &quot;bbox&quot;,
-				&quot;tab&quot;: false,
-				&quot;zoom&quot;: true,
-				&quot;popups&quot;: true,
-				&quot;visible&quot;: false
+<h2>Carte dynamique - Exemple</h2>
+<!-- GeomapStart -->
+<div id="sample_map" class="wb-geomap position scaleline tab geocoder aoi geolocation" data-wb-geomap='{
+			"layersFile": "demo/config-fr.min.js",
+			"tables": [{
+				"id": "bbox",
+				"tab": false,
+				"zoom": true,
+				"popups": true,
+				"visible": false
 			},{
-				&quot;id&quot;: &quot;cities&quot;,
-				&quot;zoom&quot;: true,
-				&quot;tab&quot;: false,
-				&quot;popups&quot;: true,
-				&quot;popupsInfo&quot;: {
-					&quot;id&quot;: &quot;citiesPopup&quot;,
-					&quot;height&quot;: 200,
-					&quot;width&quot;: 300,
-					&quot;close&quot;: true,
-					&quot;content&quot;: &quot;<div style=\"white-space:nowrap;\"><p><strong>Subdivision de recensement: </strong>_Subdivision de recensement<div><a href=\"#\" class=\"button\" role=\"button\" title=\"Zoom à la ville\" aria-label=\"Zoom à la ville\" onclick=\"wb.doc.zoomFeature()\">Zoom à la ville</a></div></div>&quot;
+				"id": "cities",
+				"zoom": true,
+				"tab": false,
+				"popups": true,
+				"popupsInfo": {
+					"id": "citiesPopup",
+					"height": 200,
+					"width": 300,
+					"close": true,
+					"content": "<div style=\"white-space:nowrap;\"><p><strong>Subdivision de recensement: </strong>_Subdivision de recensement<div><a href=\"#\" class=\"button\" role=\"button\" title=\"Zoom à la ville\" aria-label=\"Zoom à la ville\" onclick=\"wb.doc.zoomFeature()\">Zoom à la ville</a></div></div>"
 				},
-				&quot;style&quot;: {
-					&quot;type&quot;: &quot;rule&quot;,
-					&quot;rule&quot;: [
+				"style": {
+					"type": "rule",
+					"rule": [
 					{
-						&quot;field&quot;: &quot;Rang&quot;,
-						&quot;value&quot;: [3],
-						&quot;filter&quot;: &quot;GREATER_THAN&quot;,
-						&quot;init&quot;: {
-							&quot;strokeColor&quot;: &quot;#0083f5&quot;,
-							&quot;fillColor&quot;: &quot;#57a8f0&quot;,
-							&quot;pointRadius&quot;: &quot;6&quot;,
-							&quot;fillOpacity&quot;: 0.80,
-							&quot;strokeWidth&quot;: 1.0
+						"field": "Rang",
+						"value": [3],
+						"filter": "GREATER_THAN",
+						"init": {
+							"strokeColor": "#0083f5",
+							"fillColor": "#57a8f0",
+							"pointRadius": "6",
+							"fillOpacity": 0.80,
+							"strokeWidth": 1.0
 						}
 					},
 					{
-						&quot;field&quot;: &quot;Rang&quot;,
-						&quot;value&quot;: [2, 3],
-						&quot;filter&quot;: &quot;BETWEEN&quot;,
-						&quot;init&quot;: {
-							&quot;strokeColor&quot;: &quot;#F90&quot;,
-							&quot;fillColor&quot;: &quot;#F90&quot;,
-							&quot;pointRadius&quot;: &quot;8&quot;,
-							&quot;fillOpacity&quot;: 0.80,
-							&quot;strokeWidth&quot;: 1.0
+						"field": "Rang",
+						"value": [2, 3],
+						"filter": "BETWEEN",
+						"init": {
+							"strokeColor": "#F90",
+							"fillColor": "#F90",
+							"pointRadius": "8",
+							"fillOpacity": 0.80,
+							"strokeWidth": 1.0
 						}
 					},
 					{
-						&quot;field&quot;: &quot;Rang&quot;,
-						&quot;value&quot;: [1],
-						&quot;filter&quot;: &quot;EQUAL_TO&quot;,
-						&quot;init&quot;: {
-							&quot;strokeColor&quot;: &quot;#F00&quot;,
-							&quot;fillColor&quot;: &quot;#F00&quot;,
-							&quot;pointRadius&quot;: &quot;10&quot;,
-							&quot;fillOpacity&quot;: 0.80,
-							&quot;strokeWidth&quot;: 1.0
+						"field": "Rang",
+						"value": [1],
+						"filter": "EQUAL_TO",
+						"init": {
+							"strokeColor": "#F00",
+							"fillColor": "#F00",
+							"pointRadius": "10",
+							"fillOpacity": 0.80,
+							"strokeWidth": 1.0
 						}
 					}
 				]}
 			}]
-		}">
+		}'>
 <div class="row">
-<div class="col-md-9"> <!-- Insert Map Start (mandatory) -->
-<div class="wb-geomap-map"></div> <!-- Insert Map End -->
-</div> <!-- Insert Legend Start (optional) -->
+<div class="col-md-9">
+<!-- Insert Map Start (mandatory) -->
+<div class="wb-geomap-map"></div>
+<!-- Insert Map End -->
+</div>
+<!-- Insert Legend Start (optional) -->
 <section class="wb-geomap-legend col-md-3">
 <h3>Légende</h3>
-</section> <!-- Insert Legend End -->
-</div> <!-- Insert Layer Data Start (mandatory) -->
+</section>
+<!-- Insert Legend End -->
+</div>
+<!-- Insert Layer Data Start (mandatory) -->
 <div class="row">
 <section class="col-md-12">
 <h3>Exemple - Données extérieure &amp; provenant de fichiers</h3>
@@ -286,8 +299,10 @@
 </table>
 </section>
 </section>
-</div> <!-- Insert Layer Data End-->
-</div> <!-- GeomapEnd -->
+</div>
+<!-- Insert Layer Data End-->
+</div>
+<!-- GeomapEnd -->
 <section>
 <h3>Code</h3>
 <details class="mrgn-bttm-lg">
@@ -484,25 +499,29 @@
 </section>
 <section>
 <h2>Carte statique - Exemple</h2>
-<p>Geomap peux être configuré pour créer une carte statique afin de situer un endroit comme un bureau ou une étendue à l'aide d'une "bbox".</p> <!-- GeomapStart -->
-<div id="location_map" class="wb-geomap static" data-wb-geomap="{
-			&quot;tables&quot;: [{
-				&quot;id&quot;: &quot;addNRCan&quot;,
-				&quot;style&quot;: {
-					&quot;type&quot;: &quot;symbol&quot;,
-					&quot;init&quot;: {
-						&quot;pointRadius&quot;: 12,
-						&quot;graphicName&quot;: &quot;star&quot;,
-						&quot;strokeColor&quot;: &quot;#FF0000&quot;,
-						&quot;fillColor&quot;: &quot;#FF0000&quot;,
-						&quot;fillOpacity&quot;: 0.7
+<p>Geomap peux être configuré pour créer une carte statique afin de situer un endroit comme un bureau ou une étendue à l'aide d'une "bbox".</p>
+<!-- GeomapStart -->
+<div id="location_map" class="wb-geomap static" data-wb-geomap='{
+			"tables": [{
+				"id": "addNRCan",
+				"style": {
+					"type": "symbol",
+					"init": {
+						"pointRadius": 12,
+						"graphicName": "star",
+						"strokeColor": "#FF0000",
+						"fillColor": "#FF0000",
+						"fillOpacity": 0.7
 					}
 				}
 			}]
-		}">
+		}'>
 <div class="row">
-<div class="col-md-12"> <!-- Insert Map Start (mandatory) -->
-<div class="wb-geomap-map col-md-4"></div> <!-- Insert Map End --> <!-- Insert Layer Data Start (mandatory) -->
+<div class="col-md-12">
+<!-- Insert Map Start (mandatory) -->
+<div class="wb-geomap-map col-md-4"></div>
+<!-- Insert Map End -->
+<!-- Insert Layer Data Start (mandatory) -->
 <div class="wb-geomap-layers col-md-4">
 <table id="addNRCan" aria-label="Adresse des bureaux de RNCan Ottawa" class="table">
 <caption class="wb-inv">Adresse des bureaux de Ressources naturelles Canada Ottawa</caption>
@@ -517,10 +536,12 @@
 </tr>
 </tbody>
 </table>
-</div> <!-- Insert Layer Data End -->
+</div>
+<!-- Insert Layer Data End -->
 </div>
 </div>
-</div> <!-- GeomapEnd -->
+</div>
+<!-- GeomapEnd -->
 <section>
 <h3>Code</h3>
 <details>
@@ -610,9 +631,12 @@
 </section>
 </nav>
 </div>
-</footer> <!--[if gte IE 9 | !IE ]><!-->
+</footer>
+<!--[if gte IE 9 | !IE ]><!-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="../../js/wet-boew.min.js"></script> <!--<![endif]--> <!--[if lt IE 9]>
+<script src="../../js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
 <script src="../../js/ie8-wet-boew2.min.js"></script>
 <![endif]-->
 <script src="demo/client_functions.min.js"></script>
