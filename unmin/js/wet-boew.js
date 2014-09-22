@@ -4176,6 +4176,7 @@ var componentName = "wb-data-ajax",
 	selector = "[data-ajax-after], [data-ajax-append], [data-ajax-before], " +
 		"[data-ajax-prepend], [data-ajax-replace]",
 	initEvent = "wb-init." + componentName,
+	updateEvent = "wb-update." + componentName,
 	$document = wb.doc,
 
 	/**
@@ -4188,23 +4189,30 @@ var componentName = "wb-data-ajax",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName + "-" + ajaxType, selector ),
-			$elm;
+		var elm = wb.init( event, componentName + "-" + ajaxType, selector );
 
 		if ( elm ) {
+			ajax.apply( this, arguments );
+
+			// Identify that initialization has completed
+			wb.ready( $( elm ), componentName, [ ajaxType ] );
+		}
+	},
+
+	ajax = function( event, ajaxType ) {
+		var elm = event.target,
 			$elm = $( elm );
 
-			$document.trigger({
-				type: "ajax-fetch.wb",
-				element: $( elm ),
-				fetch: {
-					url: $elm.data( "ajax-" + ajaxType )
-				}
-			});
-		}
+		$document.trigger({
+			type: "ajax-fetch.wb",
+			element: $elm,
+			fetch: {
+				url: elm.getAttribute( "data-ajax-" + ajaxType )
+			}
+		});
 	};
 
-$document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, function( event ) {
+$document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.wb", selector, function( event ) {
 	var eventTarget = event.target,
 		ajaxTypes = [
 			"before",
@@ -4229,7 +4237,9 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, functi
 	case "wb-init":
 		init( event, ajaxType );
 		break;
-
+	case "wb-update":
+		ajax( event, ajaxType );
+		break;
 	default:
 
 		// Filter out any events triggered by descendants
@@ -4248,9 +4258,6 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb", selector, functi
 					$elm[ ajaxType ]( content );
 				}
 			}
-
-			// Identify that initialization has completed
-			wb.ready( $elm, componentName, [ ajaxType ] );
 		}
 	}
 
