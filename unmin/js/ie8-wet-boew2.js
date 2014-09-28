@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.7-development - 2014-09-26
+ * v4.0.7-development - 2014-09-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7911,10 +7911,10 @@ var componentName = "wb-overlay",
 
 			// Returns focus to the source link for the overlay
 			$( sourceLink ).trigger( setFocusEvent );
-
-			// Delete the source link reference
-			delete sourceLinks[ overlayId ];
 		}
+
+		// Delete the source link reference
+		delete sourceLinks[ overlayId ];
 	};
 
 $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
