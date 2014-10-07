@@ -10077,22 +10077,18 @@ var componentName = "wb-txthl",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
+			params = wb.pageUrlParts.params,
 			searchCriteria, newText;
 
 		if ( elm ) {
-
-			searchCriteria = event.txthl || ( function() {
-				var criteria = wb.pageUrlParts.params.txthl;
-
-				if ( criteria ) {
-
-					// clean up the search criteria and OR each value
-					criteria = criteria.replace( /^\s+|\s+$|\|+|\"|\(|\)/g, "" ).replace( /\++/g, "|" );
-					criteria = decodeURIComponent( criteria );
-				}
-
-				return criteria;
-			} () );
+			if ( event.txthl ) {
+				searchCriteria = $.isArray(event.txthl) ? event.txthl.join( "|" ) : event.txthl;
+			} else if ( params && params.txthl ) {
+				searchCriteria = decodeURIComponent(
+					wb.pageUrlParts.params.txthl
+						.replace( /^\s+|\s+$|\|+|\"|\(|\)/g, "" ).replace( /\++/g, "|" )
+				);
+			}
 
 			if ( searchCriteria ) {
 
