@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.7-development - 2014-10-07
+ * v4.0.7-development - 2014-10-08
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -1747,12 +1747,14 @@ var $document = wb.doc;
 
 // Event binding
 $document.on( "ajax-fetch.wb", function( event ) {
-	var caller = event.element,
+
+	// TODO: Remove event.element in future versions
+	var caller = event.element || event.target,
 		fetchOpts = event.fetch,
 		fetchData;
 
 	// Filter out any events triggered by descendants
-	if ( event.currentTarget === event.target ) {
+	if ( caller = event.target || event.currentTarget === event.target ) {
 		$.ajax( fetchOpts )
 			.done(function( response, status, xhr ) {
 				var responseType = typeof response;
@@ -4327,9 +4329,8 @@ var componentName = "wb-data-ajax",
 		var elm = event.target,
 			$elm = $( elm );
 
-		$document.trigger({
+		$elm.trigger({
 			type: "ajax-fetch.wb",
-			element: $elm,
 			fetch: {
 				url: elm.getAttribute( "data-ajax-" + ajaxType )
 			}
@@ -5289,9 +5290,8 @@ var componentName = "wb-feeds",
 					_content: $content
 				};
 
-				$document.trigger({
+				fElem.trigger({
 					type: "ajax-fetch.wb",
-					element: fElem,
 					fetch: fetch
 				});
 			}
@@ -6342,9 +6342,8 @@ var componentName = "wb-menu",
 			// Lets test to see if we have any menus to fetch
 			ajaxFetch = $elm.data( "ajax-fetch" );
 			if ( ajaxFetch ) {
-				$document.trigger({
+				$elm.trigger({
 					type: "ajax-fetch.wb",
-					element: $elm,
 					fetch: {
 						url: ajaxFetch
 					}
@@ -7156,9 +7155,8 @@ var componentName = "wb-mltmd",
 
 			if ( template === undef ) {
 				template = "";
-				$document.trigger({
+				$( eventTarget ).trigger({
 					type: "ajax-fetch.wb",
-					element: selector,
 					fetch: {
 						url: wb.getPath( "/assets" ) + "/mediacontrols.html"
 					}
@@ -7613,9 +7611,13 @@ $document.on( "ajax-fetched.wb " + templateLoadedEvent, selector, function( even
 
 	if ( event.type === "ajax-fetched" ) {
 		template = event.fetch.pointer.html();
+
+		//Notify all player waiting for the controls to load
+		$this = $( selector );
 	}
 
 	$this.data( "template", template );
+
 	$this.trigger({
 		type: initializedEvent
 	});
