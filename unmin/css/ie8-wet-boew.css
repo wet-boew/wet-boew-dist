@@ -5618,6 +5618,9 @@ figure .pieLabel {
   padding: 1px 10px 2px;
   white-space: nowrap; }
 
+.wb-fnote h2, .wb-fnote dd > ul:first-child, .wb-fnote dd > ol:first-child, .wb-fnote table:first-child {
+  margin-top: 0.375em; }
+
 .fn-lnk {
   margin-left: 5px; }
 
@@ -5628,8 +5631,7 @@ figure .pieLabel {
   margin: 2em 10px 0; }
   .wb-fnote h2 {
     margin-left: 0;
-    margin-right: 0;
-    margin-top: 0.375em; }
+    margin-right: 0; }
   .wb-fnote dl {
     margin: 0; }
   .wb-fnote dd {
@@ -5639,11 +5641,17 @@ figure .pieLabel {
     .wb-fnote dd:focus {
       background-color: #eee;
       border-color: #555; }
+    .wb-fnote dd > ul, .wb-fnote dd > ol {
+      margin: 0 0.375em 0.375em 4.125em; }
   .wb-fnote p {
     margin: 0 0 0 3.75em;
     padding: 0 0.375em 0.375em; }
     .wb-fnote p:first-child {
       padding-top: 0.375em; }
+  .wb-fnote ul, .wb-fnote ol {
+    margin-bottom: 0.375em; }
+  .wb-fnote table {
+    margin: 0 0.375em 0.375em 4.125em; }
   .wb-fnote .fn-rtn {
     margin: 0;
     overflow: hidden;
