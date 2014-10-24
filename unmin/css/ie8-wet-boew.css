@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-10-22
+ * v4.0.8-development - 2014-10-24
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -7475,13 +7475,18 @@ datalist {
   @title: Details/summary polyfill pre-Modernizr CSS
  */
 summary {
-  display: block !important; }
+  display: block !important;
+  visibility: visible !important; }
 
-details:not([open]) > * {
-  display: none; }
+details:not([open]) {
+  visibility: hidden; }
+  details:not([open]) > details, details:not([open]) > * {
+    display: none; }
 
-.wb-disable details > * {
-  display: block !important; }
+.wb-disable details {
+  visibility: visible !important; }
+  .wb-disable details > * {
+    display: block !important; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -8026,10 +8031,14 @@ details:not([open]) > * {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.lt-ie9 details > * {
-  display: none; }
-.lt-ie9 details[open] > * {
-  display: block !important; }
+.lt-ie9 details {
+  visibility: hidden; }
+  .lt-ie9 details > details, .lt-ie9 details > * {
+    display: none; }
+  .lt-ie9 details[open] {
+    visibility: visible; }
+    .lt-ie9 details[open] > details, .lt-ie9 details[open] > * {
+      display: block !important; }
 
 /* Print view */
 @media print {
