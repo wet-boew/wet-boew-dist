@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-10-24
+ * v4.0.8-development - 2014-10-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5529,6 +5529,15 @@ var componentName = "wb-lbx",
 
 					if ( elm.className.indexOf( "lbx-modal" ) !== -1 ) {
 						settings.modal = true;
+					}
+					if ( elm.className.indexOf( "lbx-ajax" ) !== -1 ) {
+						settings.type = "ajax";
+					}
+					if ( elm.className.indexOf( "lbx-image" ) !== -1 ) {
+						settings.type = "image";
+					}
+					if ( elm.className.indexOf( "lbx-inline" ) !== -1 ) {
+						settings.type = "inline";
 					}
 
 					// Extend the settings with window[ "wb-lbx" ] then data-wb-lbx
