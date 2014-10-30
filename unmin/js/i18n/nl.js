@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Einde van het deelvenster met tabs.",
 	"tab-pnl-end2": "Terug naar de lijst met tabs",
 	"tab-pnl-end3": "of om met de rest van de pagina door te gaan.",
+	"tab-play": "Afspelen",
 	/* Multimedia player */
-	play: "Afspelen",
+	"mmp-play": "Afspelen",
 	pause: "Pauze",
 	open: "Openen",
 	close: "Afsluiten",

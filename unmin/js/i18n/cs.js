@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Konec této kartě panelu.",
 	"tab-pnl-end2": "Návrat na kartu seznamu",
 	"tab-pnl-end3": "nebo pokračovat až do konce stránky.",
+	"tab-play": "Hrát",
 	/* Multimedia player */
-	play: "Hrát",
+	"mmp-play": "Hrát",
 	pause: "Pauza",
 	open: "Otevřít",
 	close: "Zavřít",

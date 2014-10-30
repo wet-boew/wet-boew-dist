@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Fin de ce panneau à onglets.",
 	"tab-pnl-end2": "Retourner à la liste des onglets",
 	"tab-pnl-end3": "ou continuer au reste de la page.",
+	"tab-play": "Lancer",
 	/* Multimedia player */
-	play: "Jouer",
+	"mmp-play": "Lire",
 	pause: "Pause",
 	open: "Ouvrir",
 	close: "Fermer",

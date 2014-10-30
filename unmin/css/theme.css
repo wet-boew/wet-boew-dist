@@ -107,23 +107,25 @@
 /*
  Breadcrumbs
  */
-#wb-bc ol {
-  background: #fff;
-  border-radius: 0;
-  margin-bottom: 0; }
-#wb-bc li {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-  #wb-bc li:before, #wb-bc li:after {
-    color: #333;
-    font-family: "Glyphicons Halflings";
-    font-size: 0.7em; }
-  #wb-bc li:before {
-    content: "\e092"; }
-  #wb-bc li:first-child:before {
-    display: none; }
+#wb-bc {
+  background: #f9f9f9; }
+  #wb-bc ol {
+    background: #fff;
+    border-radius: 0;
+    margin-bottom: 0; }
+  #wb-bc li {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    #wb-bc li:before, #wb-bc li:after {
+      color: #333;
+      font-family: "Glyphicons Halflings";
+      font-size: 0.7em; }
+    #wb-bc li:before {
+      content: "\e092"; }
+    #wb-bc li:first-child:before {
+      display: none; }
 
 [dir=rtl] #wb-bc li:before {
   content: "";
@@ -138,13 +140,8 @@
 /*
  Site information
 */
-#wb-info {
-  background-color: #eaebed;
-  color: #0e4164; }
-  #wb-info a {
-    color: #0e4164; }
-  #wb-info li {
-    margin-bottom: 0.75em; }
+#wb-info li {
+  margin-bottom: 0.75em; }
 
 #wb-lng .btn-group {
   float: right;
@@ -175,22 +172,22 @@ main {
   color: #fff; }
 
 #wb-sm .menu > li > a:hover, #wb-sm .menu > li.active > a {
-  background: #bdccd4;
-  border-color: #0b3048;
-  color: #0b3048; }
+  background: #ccc;
+  border-color: #ccc;
+  color: #000; }
 
 #wb-sm {
-  background: #eaebed; }
+  background: #0e4164; }
   #wb-sm .menu {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    text-shadow: 1px 1px 1px #666; }
     #wb-sm .menu > li > a {
-      border-left: 1px solid #0b3048;
-      color: #0b3048;
-      font-weight: bold; }
+      border-left: 1px solid #999;
+      color: #fff; }
     #wb-sm .menu > li:last-child > a {
-      border-right: 1px solid #0b3048; }
+      border-right: 1px solid #999; }
   #wb-sm .sm.open {
-    background: #bdccd4;
+    background: #ccc;
     border-bottom: 5px solid #243850;
     border-left: 0;
     border-right: 0;
@@ -320,7 +317,7 @@ main {
   @title: All screen views
  */
   body {
-    background: #fff; }
+    background: #f9f9f9; }
   .overlay-def .modal-header {
     background: #2e5274; } }
 

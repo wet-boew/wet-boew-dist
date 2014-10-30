@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Vége a lap panel.",
 	"tab-pnl-end2": "Vissza a lap listája",
 	"tab-pnl-end3": "vagy továbbra is a többi oldalon.",
+	"tab-play": "Lejátszás",
 	/* Multimedia player */
-	play: "Lejátszás",
+	"mmp-play": "Lejátszás",
 	pause: "Pillanatmegállító",
 	open: "Nyitva",
 	close: "Bezárás",

@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Akhir panel tab ini.",
 	"tab-pnl-end2": "Kembali ke daftar tab",
 	"tab-pnl-end3": "atau melanjutkan ke seluruh halaman.",
+	"tab-play": "Main",
 	/* Multimedia player */
-	play: "Main",
+	"mmp-play": "Main",
 	pause: "Jeda",
 	open: "Buka",
 	close: "Tutup",
