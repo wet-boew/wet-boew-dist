@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Fundi i këtij paneli tab.",
 	"tab-pnl-end2": "Kthehuni tek lista tab",
 	"tab-pnl-end3": "ose të vazhdojë për pjesën tjetër të faqes.",
+	"tab-play": "Luaj",
 	/* Multimedia player */
-	play: "Luaj",
+	"mmp-play": "Luaj",
 	pause: "Pushim",
 	open: "Hapur",
 	close: "Afër",

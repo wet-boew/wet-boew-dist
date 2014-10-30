@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Ende dieser Registerkarte angezeigt.",
 	"tab-pnl-end2": "Zurück zur Liste der Registerkarte",
 	"tab-pnl-end3": "oder der Rest der Seite fortzusetzen.",
+	"tab-play": "Spielen",
 	/* Multimedia player */
-	play: "Spielen",
+	"mmp-play": "Spielen",
 	pause: "Pausieren",
 	open: "Öffnen",
 	close: "Schließen",

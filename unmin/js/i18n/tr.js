@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Bu tab paneli sonu.",
 	"tab-pnl-end2": "Tab listesine dön",
 	"tab-pnl-end3": "ya da geri kalan sayfa devam etmektedir.",
+	"tab-play": "Oynat",
 	/* Multimedia player */
-	play: "Oynat",
+	"mmp-play": "Oynat",
 	pause: "Duraklat",
 	open: "Açık",
 	close: "Kapat",

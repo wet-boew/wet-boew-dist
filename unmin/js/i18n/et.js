@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Selle sakkide paneeli lõpp",
 	"tab-pnl-end2": "Tagasi sakkide nimekirja",
 	"tab-pnl-end3": "või edasi ülejäänud lehele",
+	"tab-play": "Mängi",
 	/* Multimedia player */
-	play: "Mängi",
+	"mmp-play": "Mängi",
 	pause: "Paus",
 	open: "Ava",
 	close: "Sulge",

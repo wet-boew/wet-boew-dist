@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Fin de este panel de pestaña.",
 	"tab-pnl-end2": "Volver a la lista de pestañas",
 	"tab-pnl-end3": "o continuar al resto de la página.",
+	"tab-play": "Reproducir",
 	/* Multimedia player */
-	play: "Reproducir",
+	"mmp-play": "Reproducir",
 	pause: "Pausa",
 	open: "Abrir",
 	close: "Cerrar",

@@ -491,4 +491,10 @@ main {
  Secondary menu (print view)
 */
   #wb-bar, #wb-sttl a:after, #wb-info, #wb-sm, #wb-srch, #wb-sec {
-    display: none !important; } }
+    display: none !important; }
+  #wb-bc .breadcrumb {
+    margin-bottom: 0; }
+  #wb-bc a[href]:after {
+    content: ""; }
+  #wb-cont {
+    margin-top: 0; } }

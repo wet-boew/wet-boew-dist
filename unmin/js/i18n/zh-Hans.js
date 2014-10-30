@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "此选项卡面板的结束。",
 	"tab-pnl-end2": "返回到标签列表",
 	"tab-pnl-end3": "或继续其余的页面。",
+	"tab-play": "播放",
 	/* Multimedia player */
-	play: "播放",
+	"mmp-play": "播放",
 	pause: "暂停",
 	open: "打开",
 	close: "关闭",

@@ -74,8 +74,9 @@ wb.i18nDict = {
 	"tab-pnl-end1": "最後のタブパネル",
 	"tab-pnl-end2": "タブの一覧に戻る",
 	"tab-pnl-end3": "または、ページの残りの部分に進む。",
+	"tab-play": "再生",
 	/* Multimedia player */
-	play: "再生",
+	"mmp-play": "再生",
 	pause: "一時停止",
 	open: "開く",
 	close: "閉じる",
