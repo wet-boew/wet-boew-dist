@@ -1,13 +1,13 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-10-28
+ * v4.0.8-development - 2014-10-30
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-elem_details-elem_progress_meter-mathml-load-mq-css3-input-inputtypes-svg-cssclasses-csstransitions-fontface-backgroundsize-borderimage-teststyles-testprops-testallprops-hasevents-prefixes-domprefixes
+ * Build: http://modernizr.com/download/#-elem_details-elem_progress_meter-mathml-cors-load-mq-css3-input-inputtypes-svg-cssclasses-csstransitions-fontface-backgroundsize-borderimage-teststyles-testprops-testallprops-hasevents-prefixes-domprefixes
  */
-;window.Modernizr=function(e,t,n){function L(e){f.cssText=e}function A(e,t){return L(p.join(e+";")+(t||""))}function O(e,t){return typeof e===t}function M(e,t){return!!~(""+e).indexOf(t)}function _(e,t){for(var r in e){var i=e[r];if(!M(i,"-")&&f[i]!==n)return t=="pfx"?i:!0}return!1}function D(e,t,r){for(var i in e){var s=t[e[i]];if(s!==n)return r===!1?e[i]:O(s,"function")?s.bind(r||t):s}return!1}function P(e,t,n){var r=e.charAt(0).toUpperCase()+e.slice(1),i=(e+" "+v.join(r+" ")+r).split(" ");return O(t,"string")||O(t,"undefined")?_(i,t):(i=(e+" "+m.join(r+" ")+r).split(" "),D(i,t,n))}function H(){i.input=function(n){for(var r=0,i=n.length;r<i;r++)w[n[r]]=n[r]in l;return w.list&&(w.list=!!t.createElement("datalist")&&!!e.HTMLDataListElement),w}("autocomplete autofocus list placeholder max min multiple pattern required step".split(" ")),i.inputtypes=function(e){for(var r=0,i,s,u,a=e.length;r<a;r++)l.setAttribute("type",s=e[r]),i=l.type!=="text",i&&(l.value=c,l.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(s)&&l.style.WebkitAppearance!==n?(o.appendChild(l),u=t.defaultView,i=u.getComputedStyle&&u.getComputedStyle(l,null).WebkitAppearance!=="textfield"&&l.offsetHeight!==0,o.removeChild(l)):/^(search|tel)$/.test(s)||(/^(url|email)$/.test(s)?i=l.checkValidity&&l.checkValidity()===!1:i=l.value!=c)),b[e[r]]=!!i;return b}("search tel url email datetime date month week time datetime-local number range color".split(" "))}var r="2.8.3",i={},s=!0,o=t.documentElement,u="modernizr",a=t.createElement(u),f=a.style,l=t.createElement("input"),c=":)",h={}.toString,p=" -webkit- -moz- -o- -ms- ".split(" "),d="Webkit Moz O ms",v=d.split(" "),m=d.toLowerCase().split(" "),g={svg:"http://www.w3.org/2000/svg"},y={},b={},w={},E=[],S=E.slice,x,T=function(e,n,r,i){var s,a,f,l,c=t.createElement("div"),h=t.body,p=h||t.createElement("body");if(parseInt(r,10))while(r--)f=t.createElement("div"),f.id=i?i[r]:u+(r+1),c.appendChild(f);return s=["&#173;",'<style id="s',u,'">',e,"</style>"].join(""),c.id=u,(h?c:p).innerHTML+=s,p.appendChild(c),h||(p.style.background="",p.style.overflow="hidden",l=o.style.overflow,o.style.overflow="hidden",o.appendChild(p)),a=n(c,e),h?c.parentNode.removeChild(c):(p.parentNode.removeChild(p),o.style.overflow=l),!!a},N=function(t){var n=e.matchMedia||e.msMatchMedia;if(n)return n(t)&&n(t).matches||!1;var r;return T("@media "+t+" { #"+u+" { position: absolute; } }",function(t){r=(e.getComputedStyle?getComputedStyle(t,null):t.currentStyle)["position"]=="absolute"}),r},C={}.hasOwnProperty,k;!O(C,"undefined")&&!O(C.call,"undefined")?k=function(e,t){return C.call(e,t)}:k=function(e,t){return t in e&&O(e.constructor.prototype[t],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(t){var n=this;if(typeof n!="function")throw new TypeError;var r=S.call(arguments,1),i=function(){if(this instanceof i){var e=function(){};e.prototype=n.prototype;var s=new e,o=n.apply(s,r.concat(S.call(arguments)));return Object(o)===o?o:s}return n.apply(t,r.concat(S.call(arguments)))};return i}),y.backgroundsize=function(){return P("backgroundSize")},y.borderimage=function(){return P("borderImage")},y.csstransitions=function(){return P("transition")},y.fontface=function(){var e;return T('@font-face {font-family:"font";src:url("https://")}',function(n,r){var i=t.getElementById("smodernizr"),s=i.sheet||i.styleSheet,o=s?s.cssRules&&s.cssRules[0]?s.cssRules[0].cssText:s.cssText||"":"";e=/src/i.test(o)&&o.indexOf(r.split(" ")[0])===0}),e},y.svg=function(){return!!t.createElementNS&&!!t.createElementNS(g.svg,"svg").createSVGRect};for(var B in y)k(y,B)&&(x=B.toLowerCase(),i[x]=y[B](),E.push((i[x]?"":"no-")+x));return i.input||H(),i.addTest=function(e,t){if(typeof e=="object")for(var r in e)k(e,r)&&i.addTest(r,e[r]);else{e=e.toLowerCase();if(i[e]!==n)return i;t=typeof t=="function"?t():t,typeof s!="undefined"&&s&&(o.className+=" "+(t?"":"no-")+e),i[e]=t}return i},L(""),a=l=null,i._version=r,i._prefixes=p,i._domPrefixes=m,i._cssomPrefixes=v,i.mq=N,i.testProp=function(e){return _([e])},i.testAllProps=P,i.testStyles=T,o.className=o.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(s?" js "+E.join(" "):""),i}(this,this.document),function(e,t,n){function r(e){return"[object Function]"==d.call(e)}function i(e){return"string"==typeof e}function s(){}function o(e){return!e||"loaded"==e||"complete"==e||"uninitialized"==e}function u(){var e=v.shift();m=1,e?e.t?h(function(){("c"==e.t?k.injectCss:k.injectJs)(e.s,0,e.a,e.x,e.e,1)},0):(e(),u()):m=0}function a(e,n,r,i,s,a,f){function l(t){if(!d&&o(c.readyState)&&(w.r=d=1,!m&&u(),c.onload=c.onreadystatechange=null,t)){"img"!=e&&h(function(){b.removeChild(c)},50);for(var r in T[n])T[n].hasOwnProperty(r)&&T[n][r].onload()}}var f=f||k.errorTimeout,c=t.createElement(e),d=0,g=0,w={t:r,s:n,e:s,a:a,x:f};1===T[n]&&(g=1,T[n]=[]),"object"==e?c.data=n:(c.src=n,c.type=e),c.width=c.height="0",c.onerror=c.onload=c.onreadystatechange=function(){l.call(this,g)},v.splice(i,0,w),"img"!=e&&(g||2===T[n]?(b.insertBefore(c,y?null:p),h(l,f)):T[n].push(c))}function f(e,t,n,r,s){return m=0,t=t||"j",i(e)?a("c"==t?E:w,e,t,this.i++,n,r,s):(v.splice(this.i++,0,e),1==v.length&&u()),this}function l(){var e=k;return e.loader={load:f,i:0},e}var c=t.documentElement,h=e.setTimeout,p=t.getElementsByTagName("script")[0],d={}.toString,v=[],m=0,g="MozAppearance"in c.style,y=g&&!!t.createRange().compareNode,b=y?c:p.parentNode,c=e.opera&&"[object Opera]"==d.call(e.opera),c=!!t.attachEvent&&!c,w=g?"object":c?"script":"img",E=c?"script":w,S=Array.isArray||function(e){return"[object Array]"==d.call(e)},x=[],T={},N={timeout:function(e,t){return t.length&&(e.timeout=t[0]),e}},C,k;k=function(e){function t(e){var e=e.split("!"),t=x.length,n=e.pop(),r=e.length,n={url:n,origUrl:n,prefixes:e},i,s,o;for(s=0;s<r;s++)o=e[s].split("="),(i=N[o.shift()])&&(n=i(n,o));for(s=0;s<t;s++)n=x[s](n);return n}function o(e,i,s,o,u){var a=t(e),f=a.autoCallback;a.url.split(".").pop().split("?").shift(),a.bypass||(i&&(i=r(i)?i:i[e]||i[o]||i[e.split("/").pop().split("?")[0]]),a.instead?a.instead(e,i,s,o,u):(T[a.url]?a.noexec=!0:T[a.url]=1,s.load(a.url,a.forceCSS||!a.forceJS&&"css"==a.url.split(".").pop().split("?").shift()?"c":n,a.noexec,a.attrs,a.timeout),(r(i)||r(f))&&s.load(function(){l(),i&&i(a.origUrl,u,o),f&&f(a.origUrl,u,o),T[a.url]=2})))}function u(e,t){function n(e,n){if(e){if(i(e))n||(f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}),o(e,f,t,0,u);else if(Object(e)===e)for(p in h=function(){var t=0,n;for(n in e)e.hasOwnProperty(n)&&t++;return t}(),e)e.hasOwnProperty(p)&&(!n&&!--h&&(r(f)?f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}:f[p]=function(e){return function(){var t=[].slice.call(arguments);e&&e.apply(this,t),c()}}(l[p])),o(e[p],f,t,p,u))}else!n&&c()}var u=!!e.test,a=e.load||e.both,f=e.callback||s,l=f,c=e.complete||s,h,p;n(u?e.yep:e.nope,!!a),a&&n(a)}var a,f,c=this.yepnope.loader;if(i(e))o(e,0,c,0);else if(S(e))for(a=0;a<e.length;a++)f=e[a],i(f)?o(f,0,c,0):S(f)?k(f):Object(f)===f&&u(f,c);else Object(e)===e&&u(e,c)},k.addPrefix=function(e,t){N[e]=t},k.addFilter=function(e){x.push(e)},k.errorTimeout=1e4,null==t.readyState&&t.addEventListener&&(t.readyState="loading",t.addEventListener("DOMContentLoaded",C=function(){t.removeEventListener("DOMContentLoaded",C,0),t.readyState="complete"},0)),e.yepnope=l(),e.yepnope.executeStack=u,e.yepnope.injectJs=function(e,n,r,i,a,f){var l=t.createElement("script"),c,d,i=i||k.errorTimeout;l.src=e;for(d in r)l.setAttribute(d,r[d]);n=f?u:n||s,l.onreadystatechange=l.onload=function(){!c&&o(l.readyState)&&(c=1,n(),l.onload=l.onreadystatechange=null)},h(function(){c||(c=1,n(1))},i),a?l.onload():p.parentNode.insertBefore(l,p)},e.yepnope.injectCss=function(e,n,r,i,o,a){var i=t.createElement("link"),f,n=a?u:n||s;i.href=e,i.rel="stylesheet",i.type="text/css";for(f in r)i.setAttribute(f,r[f]);o||(p.parentNode.insertBefore(i,p),h(n,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("progressbar",function(){return document.createElement("progress").max!==undefined}),Modernizr.addTest("meter",function(){return document.createElement("meter").max!==undefined}),Modernizr.addTest("details",function(){var e=document,t=e.createElement("details"),n,r,i;return"open"in t?(r=e.body||function(){var t=e.documentElement;return n=!0,t.insertBefore(e.createElement("body"),t.firstElementChild||t.firstChild)}(),t.innerHTML="<summary>a</summary>b",t.style.display="block",r.appendChild(t),i=t.offsetHeight,t.open=!0,i=i!=t.offsetHeight,r.removeChild(t),n&&r.parentNode.removeChild(r),i):!1}),Modernizr.addTest("mathml",function(){var e=!1;if(document.createElementNS){var t="http://www.w3.org/1998/Math/MathML",n=document.createElement("div");n.style.position="absolute";var r=n.appendChild(document.createElementNS(t,"math")).appendChild(document.createElementNS(t,"mfrac"));r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("xx")),r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("yy")),document.body.appendChild(n),e=n.offsetHeight>n.offsetWidth}return e});
+;window.Modernizr=function(e,t,n){function L(e){f.cssText=e}function A(e,t){return L(p.join(e+";")+(t||""))}function O(e,t){return typeof e===t}function M(e,t){return!!~(""+e).indexOf(t)}function _(e,t){for(var r in e){var i=e[r];if(!M(i,"-")&&f[i]!==n)return t=="pfx"?i:!0}return!1}function D(e,t,r){for(var i in e){var s=t[e[i]];if(s!==n)return r===!1?e[i]:O(s,"function")?s.bind(r||t):s}return!1}function P(e,t,n){var r=e.charAt(0).toUpperCase()+e.slice(1),i=(e+" "+v.join(r+" ")+r).split(" ");return O(t,"string")||O(t,"undefined")?_(i,t):(i=(e+" "+m.join(r+" ")+r).split(" "),D(i,t,n))}function H(){i.input=function(n){for(var r=0,i=n.length;r<i;r++)w[n[r]]=n[r]in l;return w.list&&(w.list=!!t.createElement("datalist")&&!!e.HTMLDataListElement),w}("autocomplete autofocus list placeholder max min multiple pattern required step".split(" ")),i.inputtypes=function(e){for(var r=0,i,s,u,a=e.length;r<a;r++)l.setAttribute("type",s=e[r]),i=l.type!=="text",i&&(l.value=c,l.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(s)&&l.style.WebkitAppearance!==n?(o.appendChild(l),u=t.defaultView,i=u.getComputedStyle&&u.getComputedStyle(l,null).WebkitAppearance!=="textfield"&&l.offsetHeight!==0,o.removeChild(l)):/^(search|tel)$/.test(s)||(/^(url|email)$/.test(s)?i=l.checkValidity&&l.checkValidity()===!1:i=l.value!=c)),b[e[r]]=!!i;return b}("search tel url email datetime date month week time datetime-local number range color".split(" "))}var r="2.8.3",i={},s=!0,o=t.documentElement,u="modernizr",a=t.createElement(u),f=a.style,l=t.createElement("input"),c=":)",h={}.toString,p=" -webkit- -moz- -o- -ms- ".split(" "),d="Webkit Moz O ms",v=d.split(" "),m=d.toLowerCase().split(" "),g={svg:"http://www.w3.org/2000/svg"},y={},b={},w={},E=[],S=E.slice,x,T=function(e,n,r,i){var s,a,f,l,c=t.createElement("div"),h=t.body,p=h||t.createElement("body");if(parseInt(r,10))while(r--)f=t.createElement("div"),f.id=i?i[r]:u+(r+1),c.appendChild(f);return s=["&#173;",'<style id="s',u,'">',e,"</style>"].join(""),c.id=u,(h?c:p).innerHTML+=s,p.appendChild(c),h||(p.style.background="",p.style.overflow="hidden",l=o.style.overflow,o.style.overflow="hidden",o.appendChild(p)),a=n(c,e),h?c.parentNode.removeChild(c):(p.parentNode.removeChild(p),o.style.overflow=l),!!a},N=function(t){var n=e.matchMedia||e.msMatchMedia;if(n)return n(t)&&n(t).matches||!1;var r;return T("@media "+t+" { #"+u+" { position: absolute; } }",function(t){r=(e.getComputedStyle?getComputedStyle(t,null):t.currentStyle)["position"]=="absolute"}),r},C={}.hasOwnProperty,k;!O(C,"undefined")&&!O(C.call,"undefined")?k=function(e,t){return C.call(e,t)}:k=function(e,t){return t in e&&O(e.constructor.prototype[t],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(t){var n=this;if(typeof n!="function")throw new TypeError;var r=S.call(arguments,1),i=function(){if(this instanceof i){var e=function(){};e.prototype=n.prototype;var s=new e,o=n.apply(s,r.concat(S.call(arguments)));return Object(o)===o?o:s}return n.apply(t,r.concat(S.call(arguments)))};return i}),y.backgroundsize=function(){return P("backgroundSize")},y.borderimage=function(){return P("borderImage")},y.csstransitions=function(){return P("transition")},y.fontface=function(){var e;return T('@font-face {font-family:"font";src:url("https://")}',function(n,r){var i=t.getElementById("smodernizr"),s=i.sheet||i.styleSheet,o=s?s.cssRules&&s.cssRules[0]?s.cssRules[0].cssText:s.cssText||"":"";e=/src/i.test(o)&&o.indexOf(r.split(" ")[0])===0}),e},y.svg=function(){return!!t.createElementNS&&!!t.createElementNS(g.svg,"svg").createSVGRect};for(var B in y)k(y,B)&&(x=B.toLowerCase(),i[x]=y[B](),E.push((i[x]?"":"no-")+x));return i.input||H(),i.addTest=function(e,t){if(typeof e=="object")for(var r in e)k(e,r)&&i.addTest(r,e[r]);else{e=e.toLowerCase();if(i[e]!==n)return i;t=typeof t=="function"?t():t,typeof s!="undefined"&&s&&(o.className+=" "+(t?"":"no-")+e),i[e]=t}return i},L(""),a=l=null,i._version=r,i._prefixes=p,i._domPrefixes=m,i._cssomPrefixes=v,i.mq=N,i.testProp=function(e){return _([e])},i.testAllProps=P,i.testStyles=T,o.className=o.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(s?" js "+E.join(" "):""),i}(this,this.document),function(e,t,n){function r(e){return"[object Function]"==d.call(e)}function i(e){return"string"==typeof e}function s(){}function o(e){return!e||"loaded"==e||"complete"==e||"uninitialized"==e}function u(){var e=v.shift();m=1,e?e.t?h(function(){("c"==e.t?k.injectCss:k.injectJs)(e.s,0,e.a,e.x,e.e,1)},0):(e(),u()):m=0}function a(e,n,r,i,s,a,f){function l(t){if(!d&&o(c.readyState)&&(w.r=d=1,!m&&u(),c.onload=c.onreadystatechange=null,t)){"img"!=e&&h(function(){b.removeChild(c)},50);for(var r in T[n])T[n].hasOwnProperty(r)&&T[n][r].onload()}}var f=f||k.errorTimeout,c=t.createElement(e),d=0,g=0,w={t:r,s:n,e:s,a:a,x:f};1===T[n]&&(g=1,T[n]=[]),"object"==e?c.data=n:(c.src=n,c.type=e),c.width=c.height="0",c.onerror=c.onload=c.onreadystatechange=function(){l.call(this,g)},v.splice(i,0,w),"img"!=e&&(g||2===T[n]?(b.insertBefore(c,y?null:p),h(l,f)):T[n].push(c))}function f(e,t,n,r,s){return m=0,t=t||"j",i(e)?a("c"==t?E:w,e,t,this.i++,n,r,s):(v.splice(this.i++,0,e),1==v.length&&u()),this}function l(){var e=k;return e.loader={load:f,i:0},e}var c=t.documentElement,h=e.setTimeout,p=t.getElementsByTagName("script")[0],d={}.toString,v=[],m=0,g="MozAppearance"in c.style,y=g&&!!t.createRange().compareNode,b=y?c:p.parentNode,c=e.opera&&"[object Opera]"==d.call(e.opera),c=!!t.attachEvent&&!c,w=g?"object":c?"script":"img",E=c?"script":w,S=Array.isArray||function(e){return"[object Array]"==d.call(e)},x=[],T={},N={timeout:function(e,t){return t.length&&(e.timeout=t[0]),e}},C,k;k=function(e){function t(e){var e=e.split("!"),t=x.length,n=e.pop(),r=e.length,n={url:n,origUrl:n,prefixes:e},i,s,o;for(s=0;s<r;s++)o=e[s].split("="),(i=N[o.shift()])&&(n=i(n,o));for(s=0;s<t;s++)n=x[s](n);return n}function o(e,i,s,o,u){var a=t(e),f=a.autoCallback;a.url.split(".").pop().split("?").shift(),a.bypass||(i&&(i=r(i)?i:i[e]||i[o]||i[e.split("/").pop().split("?")[0]]),a.instead?a.instead(e,i,s,o,u):(T[a.url]?a.noexec=!0:T[a.url]=1,s.load(a.url,a.forceCSS||!a.forceJS&&"css"==a.url.split(".").pop().split("?").shift()?"c":n,a.noexec,a.attrs,a.timeout),(r(i)||r(f))&&s.load(function(){l(),i&&i(a.origUrl,u,o),f&&f(a.origUrl,u,o),T[a.url]=2})))}function u(e,t){function n(e,n){if(e){if(i(e))n||(f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}),o(e,f,t,0,u);else if(Object(e)===e)for(p in h=function(){var t=0,n;for(n in e)e.hasOwnProperty(n)&&t++;return t}(),e)e.hasOwnProperty(p)&&(!n&&!--h&&(r(f)?f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}:f[p]=function(e){return function(){var t=[].slice.call(arguments);e&&e.apply(this,t),c()}}(l[p])),o(e[p],f,t,p,u))}else!n&&c()}var u=!!e.test,a=e.load||e.both,f=e.callback||s,l=f,c=e.complete||s,h,p;n(u?e.yep:e.nope,!!a),a&&n(a)}var a,f,c=this.yepnope.loader;if(i(e))o(e,0,c,0);else if(S(e))for(a=0;a<e.length;a++)f=e[a],i(f)?o(f,0,c,0):S(f)?k(f):Object(f)===f&&u(f,c);else Object(e)===e&&u(e,c)},k.addPrefix=function(e,t){N[e]=t},k.addFilter=function(e){x.push(e)},k.errorTimeout=1e4,null==t.readyState&&t.addEventListener&&(t.readyState="loading",t.addEventListener("DOMContentLoaded",C=function(){t.removeEventListener("DOMContentLoaded",C,0),t.readyState="complete"},0)),e.yepnope=l(),e.yepnope.executeStack=u,e.yepnope.injectJs=function(e,n,r,i,a,f){var l=t.createElement("script"),c,d,i=i||k.errorTimeout;l.src=e;for(d in r)l.setAttribute(d,r[d]);n=f?u:n||s,l.onreadystatechange=l.onload=function(){!c&&o(l.readyState)&&(c=1,n(),l.onload=l.onreadystatechange=null)},h(function(){c||(c=1,n(1))},i),a?l.onload():p.parentNode.insertBefore(l,p)},e.yepnope.injectCss=function(e,n,r,i,o,a){var i=t.createElement("link"),f,n=a?u:n||s;i.href=e,i.rel="stylesheet",i.type="text/css";for(f in r)i.setAttribute(f,r[f]);o||(p.parentNode.insertBefore(i,p),h(n,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("progressbar",function(){return document.createElement("progress").max!==undefined}),Modernizr.addTest("meter",function(){return document.createElement("meter").max!==undefined}),Modernizr.addTest("cors",!!(window.XMLHttpRequest&&"withCredentials"in new XMLHttpRequest)),Modernizr.addTest("mathml",function(){var e=!1;if(document.createElementNS){var t="http://www.w3.org/1998/Math/MathML",n=document.createElement("div");n.style.position="absolute";var r=n.appendChild(document.createElementNS(t,"math")).appendChild(document.createElementNS(t,"mfrac"));r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("xx")),r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("yy")),document.body.appendChild(n),e=n.offsetHeight>n.offsetWidth}return e}),Modernizr.addTest("details",function(){var e=document,t=e.createElement("details"),n,r,i;return"open"in t?(r=e.body||function(){var t=e.documentElement;return n=!0,t.insertBefore(e.createElement("body"),t.firstElementChild||t.firstChild)}(),t.innerHTML="<summary>a</summary>b",t.style.display="block",r.appendChild(t),i=t.offsetHeight,t.open=!0,i=i!=t.offsetHeight,r.removeChild(t),n&&r.parentNode.removeChild(r),i):!1});
 /**
  * @title WET-BOEW Vapour loader
  * @overview Helper methods for WET
@@ -4320,6 +4320,7 @@ var componentName = "wb-data-ajax",
 		var elm = wb.init( event, componentName + "-" + ajaxType, selector );
 
 		if ( elm ) {
+
 			ajax.apply( this, arguments );
 
 			// Identify that initialization has completed
@@ -4329,13 +4330,29 @@ var componentName = "wb-data-ajax",
 
 	ajax = function( event, ajaxType ) {
 		var elm = event.target,
-			$elm = $( elm );
+			$elm = $( elm ),
+			settings = window[ componentName ],
+			url = elm.getAttribute( "data-ajax-" + ajaxType ),
+			fetchObj = {
+				url: url
+			},
+			urlParts;
+
+		// Detect CORS requests
+		if ( settings && url.substr( 0, 4 ) === "http" ) {
+			urlParts = wb.getUrlParts( url );
+			if ( ( wb.pageUrlParts.protocol !== urlParts.protocol || wb.pageUrlParts.host !== urlParts.host ) && ( !Modernizr.cors || settings.forceCorsFallback ) ) {
+				if ( typeof settings.corsFallback === "function" ) {
+					fetchObj.dataType = "jsonp";
+					fetchObj.jsonp = "callback";
+					fetchObj = settings.corsFallback(fetchObj);
+				}
+			}
+		}
 
 		$elm.trigger({
 			type: "ajax-fetch.wb",
-			fetch: {
-				url: elm.getAttribute( "data-ajax-" + ajaxType )
-			}
+			fetch: fetchObj
 		});
 	};
 
@@ -4349,7 +4366,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 			"prepend"
 		],
 		len = ajaxTypes.length,
-		$elm, ajaxType, i, content, pointer;
+		$elm, ajaxType, i, content;
 
 	for ( i = 0; i !== len; i += 1 ) {
 		ajaxType = ajaxTypes[ i ];
@@ -4374,9 +4391,8 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 			$elm = $( eventTarget );
 
 			// ajax-fetched event
-			pointer = event.fetch.pointer;
-			if ( pointer ) {
-				content = pointer.html();
+			content = event.fetch.response;
+			if ( content ) {
 
 				// "replace" is the only event that doesn't map to a jQuery function
 				if ( ajaxType === "replace") {
@@ -7244,6 +7260,16 @@ var componentName = "wb-mltmd",
 		return -1;
 	},
 
+	// TODO: Document this function
+	expand = function( elm, withPlayer ) {
+		var $this = $( elm ),
+			data = $this.data( "properties" );
+
+		return withPlayer !== undef ?
+			[ $this, data, data.player ] :
+			[ $this, data ];
+	},
+
 	/*
 	 * Peformant micro templater
 	 * @credit: https://github.com/premasagar/tim/blob/master/tinytim.js
@@ -7494,7 +7520,7 @@ var componentName = "wb-mltmd",
 	 * @param {object} args The arguments to send to the function call
 	 */
 	youTubeApi = function( fn, args ) {
-		var $media = $( event.target.getIframe() ),
+		var $player = $( this.object.a ),
 			state;
 
 		switch ( fn ) {
@@ -7524,7 +7550,7 @@ var componentName = "wb-mltmd",
 				this.object.unMute();
 			}
 			setTimeout( function() {
-				$media.trigger( "volumechange" );
+				$player.trigger( "volumechange" );
 			}, 50 );
 			break;
 		case "getVolume":
@@ -7532,7 +7558,7 @@ var componentName = "wb-mltmd",
 		case "setVolume":
 			this.object.setVolume( args * 100 );
 			setTimeout( function() {
-				$media.trigger( "volumechange" );
+				$player.trigger( "volumechange" );
 			}, 50 );
 			break;
 		case "getCaptionsVisible":
@@ -7547,7 +7573,7 @@ var componentName = "wb-mltmd",
 				this.object.unloadModule("cc");
 				this.object.unloadModule("captions");
 			}
-			$media.trigger( "ccvischange" );
+			$player.trigger( "ccvischange" );
 		}
 	},
 
@@ -7557,36 +7583,36 @@ var componentName = "wb-mltmd",
 	 * @param {object} event The event object fior the triggered event
 	 */
 	youTubeEvents = function( event ) {
-		var media = event.target.getIframe(),
-			$media = $( media ),
+		var playerTarget = event.target.getIframe(),
+			$playerTarget = $( playerTarget ),
 			timeline = function() {
-				$media.trigger( "timeupdate" );
+				$playerTarget.trigger( "timeupdate" );
 			};
 
 		switch ( event.data ) {
 		case null:
-			$media.trigger( "canplay" );
-			$media.trigger( "durationchange" );
+			$playerTarget.trigger( "canplay" );
+			$playerTarget.trigger( "durationchange" );
 			break;
 		case -1:
 			event.target.unMute();
-			$media.trigger( "durationchange" );
+			$playerTarget.trigger( "durationchange" );
 			break;
 		case 0:
-			$media.trigger( "ended" );
-			media.timeline = clearInterval( media.timeline );
+			$playerTarget.trigger( "ended" );
+			playerTarget.timeline = clearInterval( playerTarget.timeline );
 			break;
 		case 1:
-			$media.trigger( "canplay" );
-			$media.trigger( "play" );
-			media.timeline = setInterval( timeline, 250 );
+			$playerTarget.trigger( "canplay" );
+			$playerTarget.trigger( "play" );
+			playerTarget.timeline = setInterval( timeline, 250 );
 			break;
 		case 2:
-			$media.trigger( "pause" );
-			media.timeline = clearInterval( media.timeline );
+			$playerTarget.trigger( "pause" );
+			playerTarget.timeline = clearInterval( playerTarget.timeline );
 			break;
 		case 3:
-			media.timeline = clearInterval( media.timeline );
+			playerTarget.timeline = clearInterval( playerTarget.timeline );
 			break;
 		}
 	},
@@ -7616,6 +7642,8 @@ $document.on( "ajax-fetched.wb " + templateLoadedEvent, selector, function( even
 		//Notify all player waiting for the controls to load
 		$this = $( selector );
 	}
+
+	$this.data( "template", template );
 
 	$this.trigger({
 		type: initializedEvent
@@ -7658,12 +7686,14 @@ $document.on( initializedEvent, selector, function( event ) {
 
 		$this.addClass( type );
 
+		$this.data( "properties", data );
+
 		if ( $media.find( "[type='video/youtube']" ).length > 0 ) {
 			// lets tweak some variables and start the load sequence
 			url = wb.getUrlParts( $this.find( "[type='video/youtube']").attr( "src") );
 
 			// lets set the flag for the call back
-			data.youTubeId = url.params.v;
+			$this.data( "youtube", url.params.v );
 
 			// Method called the the YouTUbe API when ready
 
@@ -7683,9 +7713,9 @@ $document.on( initializedEvent, selector, function( event ) {
 			} );
 
 		} else if ( media.error === null && media.currentSrc !== "" && media.currentSrc !== undef ) {
-			$this.trigger( renderUIEvent, [ type, data ] );
+			$this.trigger( type + selector );
 		} else {
-			$this.trigger( fallbackEvent, data );
+			$this.trigger( fallbackEvent );
 		}
 
 		// Identify that initialization has completed
@@ -7693,29 +7723,30 @@ $document.on( initializedEvent, selector, function( event ) {
 	}
 });
 
-$document.on( fallbackEvent, selector, function( event, data ) {
+$document.on( fallbackEvent, selector, function( event ) {
 	if ( event.namespace === componentName ) {
-		var $this = $( event.currentTarget ),
+		var ref = expand( this ),
+			$this = ref[ 0 ],
+			data = ref[ 1 ],
 			$media = data.media,
 			type = data.type,
 			source = $media.find( ( type === "video" ? "[type='video/mp4']" : "[type='audio/mp3']" ) ).attr( "src" ),
-			posterUrl = $media.attr( "poster" ),
+			poster = $media.attr( "poster" ),
 			flashvars = "id=" + data.mId,
 			width = data.width,
 			height = data.height > 0 ? data.height : Math.round( data.width / 1.777 ),
-			playerresource = wb.getPath( "/assets" ) + "/multimedia.swf?" + new Date().getTime(),
-			poster;
+			playerresource = wb.getPath( "/assets" ) + "/multimedia.swf?" + new Date().getTime();
 
 		flashvars += "&amp;media=" + encodeURI( wb.getUrlParts( source ).absolute );
 		if ( type === "video" ) {
-			poster = "<img src='" + posterUrl + "' class='img-responsive' height='" +
+			data.poster = "<img src='" + poster + "' class='img-responsive' height='" +
 				height + "' width='" + width + "' alt='" + $media.attr( "title" ) + "'/>";
 
 			flashvars += "&amp;height=" + height + "&amp;width=" +
-				width + "&amp;posterimg=" + encodeURI( wb.getUrlParts( posterUrl ).absolute );
+				width + "&amp;posterimg=" + encodeURI( wb.getUrlParts( poster ).absolute );
 		}
 
-		data.media = $media.replaceWith( "<object id='" + data.mId + "' width='" + width +
+		$this.find( "video, audio" ).replaceWith( "<object id='" + data.mId + "' width='" + width +
 			"' height='" + height + "' class='" + type +
 			"' type='application/x-shockwave-flash' data='" +
 			playerresource + "' tabindex='-1' play='' pause=''>" +
@@ -7724,25 +7755,27 @@ $document.on( fallbackEvent, selector, function( event, data ) {
 			"<param name='allowScriptAccess' value='always'/>" +
 			"<param name='bgcolor' value='#000000'/>" +
 			"<param name='wmode' value='opaque'/>" +
-			poster + "</object>" );
-
-		$this.trigger( renderUIEvent, [ type, data ] );
+			data.poster + "</object>" );
+		$this.data( "properties", data );
+		$this.trigger( renderUIEvent, type );
 	}
 });
 
 /*
  *  Youtube Video mode Event
  */
-$document.on( youtubeEvent, selector, function( event, data ) {
+$document.on( youtubeEvent, selector, function( event ) {
 	if ( event.namespace === componentName ) {
-		var $this = $( event.currentTarget ),
+		var ref = expand( this ),
+			ytPlayer,
+			$this = ref[ 0 ],
+			data = ref[ 1 ],
 			$media = data.media,
-			id = data.id,
-			ytPlayer;
+			id = $media.get( 0 ).id;
 
-		data.media = $media.replaceWith( "<div id=" + id + "/>" );
+		$media.replaceWith( "<div id=" + id + "/>" );
 		ytPlayer = new YT.Player( id, {
-			videoId: data.youTubeId,
+			videoId: $this.data( "youtube" ),
 			playerVars: {
 				autoplay: 0,
 				controls: 0,
@@ -7771,39 +7804,82 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 
 		$this.find( "iframe" ).attr( "tabindex", -1 );
 
+		data.poster = "<img src='" + $media.attr( "poster" ) +
+			"' class='img-responsive' height='" + data.height +
+			"' width='" + data.width + "' alt='" + data.media.attr( "title" ) + "'/>";
 		data.ytPlayer = ytPlayer;
 
-		$this.trigger( renderUIEvent, "youtube", data );
+		$this.data( "properties", data );
+		$this.trigger( renderUIEvent, "youtube" );
 	}
 });
 
-$document.on( renderUIEvent, selector, function( event, type, data ) {
+/*
+ *  Native Video mode Event
+ */
+$document.on( "video" + selector, selector, function( event ) {
 	if ( event.namespace === componentName ) {
-		var $this = $( event.currentTarget ),
+		var ref = expand( this ),
+			$this = ref[ 0 ],
+			data = ref[ 1 ];
+
+		data.poster = "<img src='" + data.media.attr( "poster" ) +
+			"' class='img-responsive' height='" + data.height +
+			"' width='" + data.width + "' alt='" + data.media.attr( "title" ) + "'/>";
+
+		$this.data( "properties", data );
+
+		$this.trigger( renderUIEvent, "video" );
+	}
+});
+
+/*
+ *  Native Audio mode Event
+ */
+$document.on( "audio" + selector, selector, function( event ) {
+	if ( event.namespace === componentName ) {
+		var ref = expand (this ),
+			$this = ref[ 0 ],
+			data = ref[ 1 ];
+
+		data.poster = "";
+
+		$this.data( "properties", data );
+
+		$this.trigger( renderUIEvent, "audio" );
+	}
+});
+
+$document.on( renderUIEvent, selector, function( event, type ) {
+	if ( event.namespace === componentName ) {
+		var ref = expand( this ),
+			$this = ref[ 0 ],
+			data = ref[ 1 ],
 			captionsUrl = wb.getUrlParts( data.captions ),
 			currentUrl = wb.getUrlParts( window.location.href ),
-			$media = data.media,
-			$eventReceiver, $share;
+			$media = $this.find( "video, audio, iframe, object" ),
+			$player, $overlay, $share;
 
-		$media
-			.after( tmpl( template, data ) )
-			.wrap("<div class=\"display\"></div>");
+		$media.after( tmpl( $this.data( "template" ), data ) );
+		$overlay = $media.next().find( ".wb-mm-ovrly" ).after( $media );
 
-		$eventReceiver = $media.is( "object" ) ? $media.children( ":first-child" ) : $media;
+		$player = $( "#" + data.mId );
+		data.player = $player.is( "object" ) ? $player.children( ":first-child" ) : $player;
 
 		// Create an adapter for the event management
-		$eventReceiver.on( "durationchange play pause ended volumechange timeupdate " +
+		data.player.on( "durationchange play pause ended volumechange timeupdate " +
 			captionsLoadedEvent + " " + captionsLoadFailedEvent + " " +
 			captionsVisibleChangeEvent + " waiting canplay progress", function( event ) {
 			$this.trigger( event );
 		});
 
-		this.object = data.ytPlayer || $media.get( 0 );
+		this.object = data.ytPlayer || $player.get( 0 );
 		this.player = ( data.ytPlayer ) ? youTubeApi : playerApi;
+		$this.data( "properties", data );
 
 		// Trigger the duration change for cases where the event was called before the event binding
 		if ( type !== "youtube" && !isNaN( this.player( "getDuration" ) ) ) {
-			$eventReceiver.trigger( "durationchange" );
+			data.player.trigger( "durationchange" );
 		}
 
 		// Load the progress polyfill if needed
@@ -7813,6 +7889,7 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 		$this.find( "input[type='range']" ).trigger( "wb-init.wb-slider" );
 
 		// Create the share widgets if needed
+		// TODO: Remove .parent() when getting rid of the overlay
 		if ( data.shareUrl !== undef ) {
 			$share = $( "<div class='wb-share' data-wb-share=\'{\"type\": \"" +
 				( type === "audio" ? type : "video" ) + "\", \"title\": \"" +
@@ -7828,9 +7905,9 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 
 		// Load the captions
 		if ( currentUrl.absolute.replace( currentUrl.hash, "" ) !== captionsUrl.absolute.replace( captionsUrl.hash, "" ) ) {
-			loadCaptionsExternal( $media, captionsUrl.absolute );
+			loadCaptionsExternal( $player, captionsUrl.absolute );
 		} else {
-			loadCaptionsInternal( $media, $( captionsUrl.hash ) );
+			loadCaptionsInternal( $player, $( captionsUrl.hash ) );
 		}
 	}
 });
@@ -7847,25 +7924,23 @@ $document.on( "click", selector, function( event ) {
 	if ( event.which === 2 || event.which === 3 ) {
 		return true;
 	}
-	//TODO: Test in IE < 11
-	if ( className.match( /\bplaypause\b/ ) || $target.is( "object" ) || $target.is( "video" ) ) {
 
+	// Optimized multiple class tests to include child glyphicon because Safari was reporting the click event
+	// from the child span not the parent button, forcing us to have to check for both elements
+	// JSPerf for multiple class matching http://jsperf.com/hasclass-vs-is-stackoverflow/7
+	if ( className.match( /playpause|-play|-pause|wb-mm-ovrly/ ) || $target.is( "object" ) ) {
 		this.player( "getPaused" ) ? this.player( "play" ) : this.player( "pause" );
-
-	} else if ( className.match( /\bcc\b/ )  ) {
-
+	} else if ( className.match( /\bcc\b|-subtitles/ )  ) {
 		this.player( "setCaptionsVisible", !this.player( "getCaptionsVisible" ) );
-
-	} else if ( className.match( /\bmute\b/ ) ) {
-
+	} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
 		this.player( "setMuted", !this.player( "getMuted" ) );
-
 	} else if ( $target.is( "progress" ) || $target.hasClass( "progress" ) || $target.hasClass( "progress-bar" ) ) {
-
 		this.player( "setCurrentTime", this.player( "getDuration" ) * ( ( event.pageX - $target.offset().left ) / $target.width() ) );
-
+	} else if ( className.match( /\brewind\b|-backward/ ) ) {
+		this.player( "setCurrentTime", this.player( "getCurrentTime" ) - this.player( "getDuration" ) * 0.05);
+	} else if ( className.match( /\bfastforward\b|-forward/ ) ) {
+		this.player( "setCurrentTime", this.player( "getCurrentTime" ) + this.player( "getDuration" ) * 0.05);
 	} else if ( className.match( /cuepoint/ ) ) {
-
 		$(this).trigger( { type: "cuepoint", cuepoint: $target.data( "cuepoint" ) } );
 	}
 });
@@ -7880,10 +7955,11 @@ $document.on( "input change", selector, function(event) {
 });
 
 $document.on( "keydown", selector, function( event ) {
-	var $this = $( event.currentTarget ),
-		playerTarget = event.currentTarget,
+	var playerTarget = event.currentTarget,
 		which = event.which,
 		ctrls = ".wb-mm-ctrls",
+		ref = expand( playerTarget ),
+		$this = ref[ 0 ],
 		volume = 0,
 		step = 0.05;
 
@@ -7937,7 +8013,7 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 		$this = $( eventTarget ),
 		invStart = "<span class='wb-inv'>",
 		invEnd = "</span>",
-		currentTime, $button, $slider, buttonData, isPlay, isMuted, isCCVisible, skipTo, volume;
+		currentTime, $button, $slider, buttonData, isPlay, isMuted, isCCVisible, ref, skipTo, volume;
 	switch ( eventType ) {
 	case "play":
 	case "pause":
@@ -7946,13 +8022,11 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 		$button = $this.find( ".playpause" );
 		buttonData = $button.data( "state-" + ( isPlay ? "off" : "on" ) );
 		if ( isPlay ) {
-			$this.addClass( "playing" );
+			$this.find( ".wb-mm-ovrly" ).addClass( "playing" );
 			$this.find( ".progress" ).addClass( "active" );
-		} else {
-			if ( eventType === "ended" ) {
-				this.loading = clearTimeout( this.loading );
-			}
-			$this.removeClass( "playing" );
+		} else if ( eventType === "ended" ) {
+			this.loading = clearTimeout( this.loading );
+			$this.find( ".wb-mm-ovrly" ).removeClass( "playing" );
 		}
 		$button
 			.attr( "title", buttonData )
@@ -8006,7 +8080,8 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 			.text( formatTime( eventTarget.player( "getDuration" ) ) );
 
 		// Skip to pointer from the querystring
-		skipTo = wb.pageUrlParts.params[ event.target.id ];
+		ref = expand( this );
+		skipTo = wb.pageUrlParts.params[ ref[ 1 ].id ];
 		if ( skipTo ) {
 				skipTo = parseTime( skipTo );
 				eventTarget.player( "setCurrentTime", skipTo );
@@ -8046,13 +8121,13 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 			$document.off( "progress", selector );
 		}
 		this.loading = setTimeout( function() {
-			$this.addClass( "waiting" );
+			$this.find( ".display" ).addClass( "waiting" );
 		}, 500 );
 		break;
 
 	case "canplay":
 		this.loading = clearTimeout( this.loading );
-		$this.removeClass( "waiting" );
+		$this.find( ".display" ).removeClass( "waiting" );
 		break;
 	case "cuepoint":
 		eventTarget.player( "setCurrentTime", parseTime( event.cuepoint ) );
@@ -8082,20 +8157,20 @@ $document.on( "progress", selector, function( event ) {
 
 $document.on( resizeEvent, selector, function( event ) {
 	if ( event.namespace === componentName ) {
-		var media = event.target,
-			$media = $( media ),
+		var player = event.target,
+			$player = $( player ),
 			ratio, newHeight;
 
 		if ( $( event.currentTarget ).hasClass( "video" ) ) {
-			if ( media.videoWidth === 0 || media.videoWidth === undef ) {
-				ratio = $media.attr( "height" ) / $media.attr( "width" );
+			if ( player.videoWidth === 0 || player.videoWidth === undef ) {
+				ratio = $player.attr( "height" ) / $player.attr( "width" );
 
 				// Calculate the new height based on the specified ratio or assume a default 16:9 ratio
-				newHeight = Math.round( $media.width() * ( !isNaN( ratio ) ? ratio : 0.5625 ) );
+				newHeight = Math.round( $player.width() * ( !isNaN( ratio ) ? ratio : 0.5625 ) );
 
-				$media.css( "height", newHeight + "px" );
+				$player.css( "height", newHeight + "px" );
 			} else {
-				$media.css( "height", "" );
+				$player.css( "height", "" );
 			}
 		}
 	}
@@ -8864,7 +8939,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 
 			// Merge default settings with overrides from the plugin element
 			// and save back to the element for future reference
-			settings = $.extend( {}, defaults, $elm.data( "wet-boew" ) );
+			settings = $.extend( {}, defaults, window[ componentName ], $elm.data( "wet-boew" ) );
 			$elm.data( "wet-boew", settings );
 
 			// Only initialize the i18nText once

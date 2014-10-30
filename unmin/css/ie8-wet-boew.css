@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-10-28
+ * v4.0.8-development - 2014-10-30
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -6209,10 +6209,10 @@ img.mfp-img {
 /*
   Multimedia Player Code
  */
-.wb-mltmd.audio .lastpnl, .wb-mltmd.youtube.cc_on .wb-mm-cc {
+.wb-mltmd.audio .wb-mm-ovrly, .wb-mltmd.audio .lastpnl, .wb-mltmd.youtube.cc_on .wb-mm-cc, .wb-mltmd.youtube .wb-mm-ovrly {
   display: none; }
 
-.wb-mm-ctrls .btn:focus, .wb-mm-ctrls progress:focus, .wb-mm-ctrls input[type=range]:focus {
+.wb-mltmd .wb-mm-ctrls .btn:focus, .wb-mltmd .display .wb-mm-ovrly:focus, .wb-mm-ctrls progress:focus, .wb-mm-ctrls input[type=range]:focus {
   outline: 1px solid #4aafff; }
 
 .wb-mm-ctrls .fd-slider-bar, .wb-mm-ctrls .fd-slider-range {
@@ -6229,21 +6229,16 @@ img.mfp-img {
   to {
     transform: rotate(360deg); } }
 
-.wb-mltmd .display:before, .wb-mltmd.waiting .display:after {
+.wb-mltmd .display.waiting:after, .wb-mltmd .display.waiting:before {
   bottom: 0;
+  content: " ";
   height: 100px;
   left: 0;
   margin: auto;
-  pointer-events: none;
   position: absolute;
   right: 0;
   top: 0;
-  width: 100px;
-  z-index: 1; }
-
-.wb-mltmd video, .wb-mltmd object, .wb-mltmd iframe {
-  margin-bottom: -7px;
-  width: 100%; }
+  width: 100px; }
 
 .wb-mm-cc {
   max-height: 0;
@@ -6256,41 +6251,53 @@ img.mfp-img {
 
 .wb-mltmd {
   display: block;
-  position: relative;
   /*
 	  Light Skinning of mediacontrols
 	 */ }
-  .wb-mltmd .display {
-    position: relative; }
-    .wb-mltmd .display:before {
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 10px; }
-  .wb-mltmd .display:before {
-    color: #fff;
-    content: "";
-    font-family: "Glyphicons Halflings";
-    font-size: 65px;
-    text-align: center; }
   .wb-mltmd video {
     height: auto;
     width: 100%; }
+  .wb-mltmd .wb-mm-ctrls .btn {
+    background: transparent;
+    border: 0;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    color: #fff;
+    font-size: 130%; }
   .wb-mltmd.audio object {
     position: absolute; }
-  .wb-mltmd.playing .display:before {
-    display: none; }
-  .wb-mltmd.playing .errmsg {
-    display: none; }
-  .wb-mltmd.waiting .display:before {
-    content: " ";
-    display: block; }
-  .wb-mltmd.waiting .display:after {
-    animation-duration: 1000ms;
-    animation-iteration-count: infinite;
-    animation-name: spin;
-    animation-timing-function: linear;
-    background: url("../assets/loading.png") center center no-repeat;
-    content: " ";
-    z-index: 2; }
+  .wb-mltmd .display {
+    background: #000;
+    position: relative; }
+    .wb-mltmd .display .wb-mm-ovrly {
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 1; }
+    .wb-mltmd .display video, .wb-mltmd .display object, .wb-mltmd .display iframe {
+      margin-bottom: -7px;
+      width: 100%; }
+    .wb-mltmd .display.waiting:after {
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+      animation-name: spin;
+      animation-timing-function: linear;
+      background: url("../assets/loading.png") center center no-repeat;
+      z-index: 2; }
+    .wb-mltmd .display.waiting:before {
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      z-index: 1; }
+  .wb-mltmd .wb-mm-ovrly {
+    background: transparent;
+    border: 0;
+    padding: 0; }
+    .wb-mltmd .wb-mm-ovrly img {
+      width: 100%; }
+    .wb-mltmd .wb-mm-ovrly.playing img {
+      visibility: hidden; }
+    .wb-mltmd .wb-mm-ovrly.playing .errmsg {
+      display: none; }
   .wb-mltmd.cc_on .wb-mm-cc {
     display: table;
     height: 4em;
@@ -6301,8 +6308,6 @@ img.mfp-img {
     display: block;
     margin-left: -2px;
     width: 1.2em; }
-  .wb-mltmd.youtube .display:before {
-    display: none; }
   .wb-mltmd.youtube .wb-mm-ctrls {
     border-bottom: 10px solid #fff; }
   .wb-mltmd.skn-lt {
@@ -6340,15 +6345,6 @@ img.mfp-img {
   width: 100%;
   /* Progress Bar */
   /* Slider polyfill styles */ }
-  .wb-mm-ctrls .btn {
-    background: transparent;
-    border: 0;
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    color: #fff;
-    font-size: 130%; }
-    .wb-mm-ctrls .btn .glyphicon {
-      pointer-events: none; }
   .wb-mm-ctrls .frstpnl {
     text-align: center;
     width: 13em; }
