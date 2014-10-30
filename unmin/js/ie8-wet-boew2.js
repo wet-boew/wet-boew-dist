@@ -6664,7 +6664,7 @@ var componentName = "wb-mltmd",
 			if ( !i18nText ) {
 				i18n = wb.i18n;
 				i18nText = {
-					play: i18n( "mmp-play" ),
+					play: i18n( "play" ),
 					pause: i18n( "pause" ),
 					volume: i18n( "volume" ),
 					cc_on: i18n( "cc", "on" ),
@@ -9368,7 +9368,7 @@ var componentName = "wb-tabs",
 				i18nText = {
 					prev: i18n( "prv" ),
 					next: i18n( "nxt" ),
-					play: i18n( "tab-play" ),
+					play: i18n( "play" ),
 					rotStart: i18n( "tab-rot" ).on,
 					rotStop: i18n( "tab-rot" ).off,
 					space: i18n( "space" ),

@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Fine di questo pannello a schede.",
 	"tab-pnl-end2": "Ritorna alla lista schede",
 	"tab-pnl-end3": "o continuare con il resto della pagina.",
-	"tab-play": "Play",
 	/* Multimedia player */
-	"mmp-play": "Play",
+	play: "Play",
 	pause: "Pausa",
 	open: "Aprire",
 	close: "Chiudere",

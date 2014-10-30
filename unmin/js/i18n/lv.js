@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Beigas cilnes paneļa.",
 	"tab-pnl-end2": "Atgriezties uz sarakstu cilnēm",
 	"tab-pnl-end3": "vai turpināt uz pārējo lapu.",
-	"tab-play": "Spēlēt",
 	/* Multimedia player */
-	"mmp-play": "Spēlēt",
+	play: "Spēlēt",
 	pause: "Pauze",
 	open: "Atvērt",
 	close: "Aizvērt",

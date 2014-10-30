@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "End of this tab panel.",
 	"tab-pnl-end2": "Return to the tab list",
 	"tab-pnl-end3": "or continue to the rest of page.",
-	"tab-play": "Play",
 	/* Multimedia player */
-	"mmp-play": "Play",
+	play: "Play",
 	pause: "Pause",
 	open: "Open",
 	close: "Close",

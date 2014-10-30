@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Šio skirtuko skydelyje pabaiga.",
 	"tab-pnl-end2": "Grįžti į skirtukų sąrašą",
 	"tab-pnl-end3": "ar toliau likusia puslapio dalimi.",
-	"tab-play": "Žaisti",
 	/* Multimedia player */
-	"mmp-play": "Žaisti",
+	play: "Žaisti",
 	pause: "Pauzė",
 	open: "Atidaryti",
 	close: "Uždaryti",

@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Final deste painel da guia.",
 	"tab-pnl-end2": "Voltar para a lista de guias",
 	"tab-pnl-end3": "ou continuar com o resto da página.",
-	"tab-play": "Executar",
 	/* Multimedia player */
-	"mmp-play": "Executar",
+	play: "Executar",
 	pause: "Pausar",
 	open: "Abrir",
 	close: "Fechar",

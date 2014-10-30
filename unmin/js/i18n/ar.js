@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "نهاية هذا الفريق التبويب.",
 	"tab-pnl-end2": "العودة إلى قائمة التبويب",
 	"tab-pnl-end3": "أو الاستمرار في بقية الصفحة.",
-	"tab-play": "لعب",
 	/* Multimedia player */
-	"mmp-play": "لعب",
+	play: "لعب",
 	pause: "وقفة",
 	open: "فتح",
 	close: "أغلق",

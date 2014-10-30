@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Koniec tego panelu zakładek.",
 	"tab-pnl-end2": "Powrót do listy zakładek",
 	"tab-pnl-end3": "lub kontynuuj do końca strony.",
-	"tab-play": "Odtwarzanie",
 	/* Multimedia player */
-	"mmp-play": "Odtwarzanie",
+	play: "Odtwarzanie",
 	pause: "Pauza",
 	open: "Otwórz",
 	close: "Zamknij",

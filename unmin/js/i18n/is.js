@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Lok þessa flipann spjaldið.",
 	"tab-pnl-end2": "Fara aftur á flipann lista",
 	"tab-pnl-end3": "eða halda áfram til the hvíla af síðunni.",
-	"tab-play": "Spila",
 	/* Multimedia player */
-	"mmp-play": "Spila",
+	play: "Spila",
 	pause: "Brot",
 	open: "Opinn",
 	close: "Loka",

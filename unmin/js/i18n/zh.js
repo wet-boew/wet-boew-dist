@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "此籤頁選項結束。",
 	"tab-pnl-end2": "返回到籤頁列表",
 	"tab-pnl-end3": "或繼續其餘的頁面。",
-	"tab-play": "播放",
 	/* Multimedia player */
-	"mmp-play": "播放",
+	play: "播放",
 	pause: "暫停",
 	open: "打開",
 	close: "停止",

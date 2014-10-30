@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "इस टैब पैनल के अंत.",
 	"tab-pnl-end2": "टैब सूची पर लौटें",
 	"tab-pnl-end3": "या पृष्ठ के आराम करने के लिए जारी है.",
-	"tab-play": "खेल",
 	/* Multimedia player */
-	"mmp-play": "खेल",
+	play: "खेल",
 	pause: "ठहराव",
 	open: "खुला",
 	close: "पास",

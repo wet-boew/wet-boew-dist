@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Koniec tejto záložke paneli.",
 	"tab-pnl-end2": "Návrat na kartu zoznamu",
 	"tab-pnl-end3": "alebo pokračovať až do konca stránky.",
-	"tab-play": "Hrať",
 	/* Multimedia player */
-	"mmp-play": "Hrať",
+	play: "Hrať",
 	pause: "Pauza",
 	open: "Otvoriť",
 	close: "Zavrieť",

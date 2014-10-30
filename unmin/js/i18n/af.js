@@ -74,9 +74,8 @@ wb.i18nDict = {
 	"tab-pnl-end1": "Einde van hierdie blad paneel.",
 	"tab-pnl-end2": "Keer terug na die blad lys",
 	"tab-pnl-end3": "of voortgaan om die res van die bladsy.",
-	"tab-play": "Speel",
 	/* Multimedia player */
-	"mmp-play": "Speel",
+	play: "Speel",
 	pause: "Pause",
 	open: "Oop",
 	close: "Close",
