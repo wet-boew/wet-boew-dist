@@ -7955,6 +7955,8 @@ details:not([open]) {
 .lt-ie9 .pagination > li:first-child [rel="prev"]:before, .lt-ie9 .pager > li:first-child [rel="prev"]:before {
   content: none;
   margin-right: -1px; }
+.lt-ie9 .dl-horizontal dt {
+  white-space: normal; }
 
 @media print {
   .lt-ie9 abbr[title]:after {
