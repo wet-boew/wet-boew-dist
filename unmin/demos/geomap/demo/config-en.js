@@ -40,20 +40,14 @@ var wet_boew_geomap = {
 			title: "KML Demo",
 			caption: "This is a sample KML file loaded locally by Geomap.",
 			type: "kml",
-			url: "demo/proposed_roads.kml",
+			url: "demo/sample.kml",
 			visible: false,
 			datatable: false,
 			tab: true,
 			popups: true,
 			attributes: {
-				RD_NAME: "RD_NAME",
-				RD_SUFFIX: "RD_SUFFIX"
-			},
-			style: {
-				init: {
-					strokeWidth: 2,
-					strokeColor: "#FF0000"
-				}
+				name: "Product Title",
+				description: "Description"
 			}
 		},
 		{
@@ -131,10 +125,10 @@ var wet_boew_geomap = {
 					graphicOpacity: 1.0
 				},
 				select: {
-					graphicWidth: 30,
-					graphicHeight: 30,
+					graphicWidth: 20,
+					graphicHeight: 20,
 					externalGraphic: "demo/trafficcamera_active.png",
-					graphicOpacity: 1.0
+					graphicOpacity: 0.5
 				}
 			}
 

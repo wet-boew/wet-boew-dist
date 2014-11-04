@@ -24,11 +24,12 @@ $document.zoomFeature = function() {
 	}
 };
 
-$( "#sample_map" ).on( "wb-ready.wb-geomap", function( event, map ) {
+$document.on( "wb-ready.wb-geomap", "#sample_map", function( event, map ) {
 
 	// Get the sample_map to use in zoomFeature function
-	var $aoiExtent = $( "#geomap-aoi-extent-" + map.id ),
-		$aoiExtentLonLat = $( "#geomap-aoi-extent-lonlat-" + map.id );
+	mapSample = map;
+	var $aoiExtent = $( "#geomap-aoi-extent-" + mapSample.uniqueId ),
+		$aoiExtentLonLat = $( "#geomap-aoi-extent-lonlat-" + mapSample.uniqueId );
 
 	if ( $aoiExtent ) {
 
@@ -40,14 +41,12 @@ $( "#sample_map" ).on( "wb-ready.wb-geomap", function( event, map ) {
 			//console.log( "BBox LonLat: " + $( this ).val() );
 		} );
 	}
-
 });
 
-//Zoom to location on location_map
-$( "#location_map" ).on( "wb-ready.wb-geomap", function( event, map ) {
+$document.on( "wb-ready.wb-geomap", "#location_map", function( event, map ) {
 
+	// Zoom to location on location_map
 	map.zoomToExtent( map.getLayer( "#addNRCan" ).getDataExtent() );
-
 });
 
 })( jQuery, wb );

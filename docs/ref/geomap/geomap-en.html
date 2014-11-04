@@ -118,6 +118,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <p>
 <a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Geomap:%20">Questions or comments?</a>
 </p>
+<span class="wb-prettify all-pre hide"></span>
 <section>
 <h2>Purpose</h2>
 <p>Displays a map over which information from additional sources can be overlaid.</p>
@@ -136,6 +137,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <li><a href="../../../demos/geomap/geomap-fr.html">French example</a></li>
 </ul>
 </section>
+<span class="wet-boew-prettify all-pre"></span>
 <section>
 <h2>How to implement</h2>
 <ol>
@@ -143,37 +145,57 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 </li><li>Add <code>div</code> with <code>class="wb-geomap-map"</code> to the <code>div</code> created in step 1 where you want the map to be rendered.</li>
 <li>Add <code>div</code> with <code>class="wb-geomap-layers"</code> to the <code>div</code> created in step 1 where you want the layer(s) listing to be rendered.</li>
 </ol>
-<section>
 <h3>Optional elements</h3>
 <ul>
 <li><strong>Add legend:</strong> If a map legend is required add <code>div</code> with <code>class="wb-geomap-legend"</code> to the <code>div</code> created in step 1 where you want it to be rendered.</li>
 <li><strong>Add widgets:</strong> Widgets (e.g. position, scaleline, etc.) are configured using classes on the plugin element created in step 1.</li>
 </ul>
-<section class="alert alert-info">
-<h4>Note:</h4>
-<p>If you are implementing the working example on your development environment you may need to add the necessary support for the mime-types required by the various formats demonstrated (e.g. ".kml" "application/vnd.google-earth.kml+xml") to your web server.</p>
-</section>
-</section>
-<section>
+<div class="alert alert-info"><strong>Note:</strong> If you are implementing the working example on your development environment you may need to add the necessary support for the mime-types required by the various formats demonstrated (e.g. ".kml" "application/vnd.google-earth.kml+xml") to your web server.</div>
 <h3>Example implementation markup</h3>
 <pre><code>&lt;-- Add plugin with optional position widget --&gt;
-	&lt;div id="mygeomap" class="wb-geomap position"&gt;
-	    &lt;div class="row"&gt;
-	        &lt;div class="col-md-9"&gt;
-	            &lt;div class="wb-geomap-map"&gt;&lt;/div&gt;
-	        &lt;/div&gt;
-	        &lt;-- Add optional map legend --&gt;
-	        &lt;div class="wb-geomap-legend col-md-3"&gt;
-	            &lt;h2&gt;Legend&lt;/h2&gt;
-	            &lt;-- Geomap will insert legend here --&gt;
-	        &lt;/div&gt;
-	        &lt;div class="row"&gt;
-	            &lt;-- Add placeholder for overlays --&gt;
-	            &lt;div class="wb-geomap-layers col-md-12"&gt;&lt;/div&gt;
-	        &lt;/div&gt;
-	    &lt;/div&gt;
-	&lt;/div&gt;</code></pre>
-</section>
+&lt;div id="mygeomap" class="wb-geomap position"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-9"&gt;
+            &lt;div class="wb-geomap-map"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;-- Add optional map legend --&gt;
+        &lt;div class="wb-geomap-legend col-md-3"&gt;
+            &lt;h2&gt;Legend&lt;/h2&gt;
+            &lt;-- Geomap will insert legend here --&gt;
+        &lt;/div&gt;
+        &lt;div class="row"&gt;
+            &lt;-- Add placeholder for overlays --&gt;
+            &lt;div class="wb-geomap-layers col-md-12"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<!--
+	<section>
+		<h3>File based (e.g. "config-en.min.js") configuration example</h3>
+		<pre><code>var wet_boew_geomap = {
+    basemap : {
+        title: 'CBMT',
+        type: 'wms',
+	url: 'http://geogratis.gc.ca/maps/CBMT',
+	layers: 'CBMT',
+	format: 'image/png',
+	version: '1.1.1'
+    },
+    overlays : [
+        {
+            title: 'KML Demo EN',
+            caption: 'This is a sample KML file loaded locally by Geomap.',
+	    type: 'kml',
+	    url: 'data/sample.kml',
+	    visible: true
+        },
+        {
+            ...
+        }
+    ]
+};</code></pre>
+	</section>
+-->
 <section>
 <h3>Plugin configuration options</h3>
 <p>Geomap can be configured in four ways:</p>
@@ -183,10 +205,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <li>Using a configuration file</li>
 <li>Using CSS classes on the plugin element</li>
 </ul>
-<section class="alert alert-info">
-<h4>Note:</h4>
-<p>all plugin configuration parameters are optional.</p>
-</section>
+<div class="alert alert-info"><strong>Note:</strong> all plugin configuration parameters are optional.</div>
 <section>
 <h4>Configuration using <code>data-wb-geomap</code> attribute on plugin element</h4>
 <p>Use the <code>data-wb-geomap</code> attribute to configure the display of map features from inline HTML tables or from a local/remote data source.</p>
@@ -236,10 +255,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 </tr>
 </tbody>
 </table>
-<section>
 <h5>Example configuration file reference</h5>
 <pre><code>&lt;div id="mygeomap" class="wb-geomap" data-wb-geomap='{ "layersFile": "data/config-en.min.js" }'&gt; ... &lt;/div&gt;</code></pre>
-</section>
 </section>
 <section>
 <h4>Configuration using CSS classes</h4>
@@ -417,10 +434,8 @@ Add the unique <code>id</code> created in step 1 to a <code>tables</code> array 
 <pre><code>&lt;div id="mygeomap" class="wb-geomap" data-wb-geomap='{ "tables": [ { "id": "myTable", "style": { ... } } ] }'&gt; ... &lt;/div&gt;</code></pre>
 </li>
 </ol>
-<section>
 <h5>Inline HTML table configuration</h5>
 <p>Geomap requires a <code>data-geometry</code> attribute with feature geometry encoded in <strong>Well Known Text (WKT)</strong> or as a bounding box extent with lower left and upper right coordinate pairs, and a <code>data-type</code> attribute that specifies the encoding as either <code>wkt</code> or <code>bbox</code>.</p>
-</section>
 <section>
 <h5>WKT examples</h5>
 <pre><code>&lt;tr data-geometry="POINT (-114.05879, 51.04668)" data-type="wkt"&gt; ... &lt;/tr&gt;</code></pre>
@@ -469,28 +484,26 @@ Add the unique <code>id</code> created in step 1 to a <code>tables</code> array 
 </section>
 <section>
 <h4>Adding features from external data sources via a configuration file</h4>
-<section>
 <h5>Steps:</h5>
 <ol>
 <li>Create a Javascript configuration file and save it to a web accessible directory (e.g. "data/config-en.min.js").</li>
 <li>Add an <code>overlays</code> array to the <code>wet_boew_geomap</code> variable in the configuration file.
 <pre><code>// Configuration file ("data/config-en.min.js")
-	var wet_boew_geomap = {
-	    overlays : [
-	        {
-	            title: 'KML Demo EN',
-	            caption: 'This is a sample KML file loaded locally by Geomap.',
-		    type: 'kml',
-		    url: 'data/sample.kml',
-		    visible: true
-	        },
-	        { ... }
-	    ]
-	};</code></pre></li>
+var wet_boew_geomap = {
+    overlays : [
+        {
+            title: 'KML Demo EN',
+            caption: 'This is a sample KML file loaded locally by Geomap.',
+	    type: 'kml',
+	    url: 'data/sample.kml',
+	    visible: true
+        },
+        { ... }
+    ]
+};</code></pre></li>
 <li>Reference the configuration file in the <code>data-wb-geomap</code> attribute of the plugin element by setting the <code>layersFile</code> property to the file path.
 <pre><code>&lt;div id="mygeomap" class="wb-geomap" data-wb-geomap='{ "layersFile": "data/config-en.min.js" }'&gt; ... &lt;/div&gt;</code></pre></li>
 </ol>
-</section>
 </section>
 <section>
 <h4>Overlay configuration options</h4>
