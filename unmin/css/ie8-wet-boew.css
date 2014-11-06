@@ -7744,7 +7744,11 @@ details:not([open]) {
       .wb-tabs > details[open] > summary, .wb-tabs > .tabpanels > details[open] > summary {
         display: none !important; }
   .wb-tabs {
-    /* Only for backwards compatibility. Should be removed in v4.1. */ } }
+    /* Only for backwards compatibility. Should be removed in v4.1. */ }
+    .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li[role="presentation"] {
+      display: inline-block; }
+    .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.prv, .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.tab-count, .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.nxt {
+      display: none; } }
 
 /* Large view and over */
 @media screen and (min-width: 1200px) {
