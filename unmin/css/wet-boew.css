@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-11-06
+ * v4.0.8-development - 2014-11-07
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -8108,11 +8108,7 @@ details:not([open]) {
       .wb-tabs > details[open] > summary, .wb-tabs > .tabpanels > details[open] > summary {
         display: none !important; }
   .wb-tabs {
-    /* Only for backwards compatibility. Should be removed in v4.1. */ }
-    .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li[role="presentation"] {
-      display: inline-block; }
-    .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.prv, .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.tab-count, .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.nxt {
-      display: none; } }
+    /* Only for backwards compatibility. Should be removed in v4.1. */ } }
 
 /* Large view and over */
 @media screen and (min-width: 1200px) {
