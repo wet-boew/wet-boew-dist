@@ -9583,7 +9583,7 @@ var componentName = "wb-tabs",
 			listItems = $tabList.children().get(),
 			listCounter = listItems.length - 1,
 			isDetails = $panels[ 0 ].nodeName.toLowerCase() === "details",
-			isActive, item, link;
+			isActive, item, link, panelId;
 
 		$panels.attr( "tabindex", "-1" );
 
@@ -9604,10 +9604,13 @@ var componentName = "wb-tabs",
 			isActive = item.className.indexOf( "active" ) !== -1;
 
 			link = item.getElementsByTagName( "a" )[ 0 ];
+			panelId = link.getAttribute( "href" ).substring( 1 );
+
 			link.tabIndex = isActive ? "0" : "-1";
 			link.setAttribute( "role", "tab" );
 			link.setAttribute( "aria-selected", isActive ? "true" : "false" );
-			link.setAttribute( "aria-controls", link.getAttribute( "href" ).substring( 1 ) );
+			link.setAttribute( "aria-controls", panelId );
+			link.id = panelId + "-lnk";
 		}
 		$tabList.attr( "aria-live", "off" );
 	},
@@ -9774,22 +9777,18 @@ var componentName = "wb-tabs",
 
 		if ( initialized ) {
 			isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
-			$elms = $currentElm.length ? $currentElm : $( selector );
-			len = $elms.length;
 
-			for ( i = 0; i !== len; i += 1 ) {
-				$elm = $elms.eq( i );
-				$details = $elm.find( "> .tabpanels > details" );
+			if ( isSmallView !== oldIsSmallView ) {
+				$elms = $currentElm.length ? $currentElm : $( selector );
+				len = $elms.length;
 
-				if ( $details.length !== 0 ) {
-					if ( isSmallView !== oldIsSmallView ) {
+				for ( i = 0; i !== len; i += 1 ) {
+					$elm = $elms.eq( i );
+					$details = $elm.find( "> .tabpanels > details" );
+
+					if ( $details.length !== 0 ) {
 						$summary = $details.children( "summary" );
 						$tablist = $elm.children( "ul" );
-
-						// Disable equal heights for small view
-						if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
-							$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
-						}
 
 						if ( isSmallView ) {
 
@@ -9834,14 +9833,13 @@ var componentName = "wb-tabs",
 										.trigger( "click" );
 						}
 
-						$summary.attr( "aria-hidden", !isSmallView );
-						$tablist.attr( "aria-hidden", isSmallView );
-					} else {
-
-						// Enable equal heights for large view
-						if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
+						// Enable equal heights for large view or disable for small view
+						if ( isSmallView !== $elm.hasClass( equalHeightOffClass ) ) {
 							$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
 						}
+
+						$summary.attr( "aria-hidden", !isSmallView );
+						$tablist.attr( "aria-hidden", isSmallView );
 					}
 				}
 			}
