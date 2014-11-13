@@ -253,7 +253,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <td><code>selector</code></td>
 <td>CSS selector that specifies the elements the toggle element controls. If no CSS selector is supplied, the toggle element controls itself.</td>
 <td>
-Specify the CSS selector. All elements to be toggled should match this selector.[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'selector': '.cssSelector'}"&gt;</code></pre>
+Specify the CSS selector. All elements to be toggled should match this selector.
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'selector': '.cssSelector'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -268,7 +269,8 @@ Specify the CSS selector. All elements to be toggled should match this selector.
 <td><code>parent</code></td>
 <td>CSS selector that causes the toggle element to only control elements within a given parent element.</td>
 <td>
-Specify the CSS selector. When a toggle element is clicked, it will only toggle elements that are children of this selector.[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'parent': '.parentCssSelector'}"&gt;</code></pre>
+Specify the CSS selector. When a toggle element is clicked, it will only toggle elements that are children of this selector.
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'parent': '.parentCssSelector'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -283,7 +285,8 @@ Specify the CSS selector. When a toggle element is clicked, it will only toggle 
 <td><code>group</code></td>
 <td>CSS selector that groups multiple toggle elements together and only allows one of the elements to be open at a time.</td>
 <td>
-Specify the CSS group selector. All elements to be toggled should match this selector.[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'group': '.groupCssSelector'}"&gt;</code></pre>
+Specify the CSS group selector. All elements to be toggled should match this selector.
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'group': '.groupCssSelector'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -298,7 +301,8 @@ Specify the CSS group selector. All elements to be toggled should match this sel
 <td><code>persist</code></td>
 <td>Causes a toggle element to remember its current state and re-apply it when the page reloads.</td>
 <td>
-Supports persistence. Only "session" and "local" are supported:[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'persist': 'session'}"&gt;</code></pre>
+Supports persistence. Only "session" and "local" are supported:
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'persist': 'session'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -315,7 +319,8 @@ Supports persistence. Only "session" and "local" are supported:[{htmlmin-lb}]<pr
 <td><code>print</code></td>
 <td>Causes a toggle element to turn the elements it controls on or off when the page is printed.</td>
 <td>
-Specify the print behaviour. Only "on" or "off" are supported:[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'print': 'on'}"&gt;</code></pre>
+Specify the print behaviour. Only "on" or "off" are supported:
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'print': 'on'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -332,7 +337,8 @@ Specify the print behaviour. Only "on" or "off" are supported:[{htmlmin-lb}]<pre
 <td><code>type</code></td>
 <td>Causes a toggle element to only turn the elements it controls on or off.</td>
 <td>
-Specify the type. Only "on" or "off" are supported:[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'type': 'on'}"&gt;</code></pre>
+Specify the type. Only "on" or "off" are supported:
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'type': 'on'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -349,7 +355,8 @@ Specify the type. Only "on" or "off" are supported:[{htmlmin-lb}]<pre><code>&lt;
 <td><code>stateOn</code></td>
 <td>CSS class that's added to elements when they are toggled on.</td>
 <td>
-Specify a CSS class name without the leading "."[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOn': 'cssClass'}"&gt;</code></pre>
+Specify a CSS class name without the leading "."
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOn': 'cssClass'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -364,7 +371,8 @@ Specify a CSS class name without the leading "."[{htmlmin-lb}]<pre><code>&lt;spa
 <td><code>stateOff</code></td>
 <td>CSS class that's added to elements when they are toggled off.</td>
 <td>
-Specify a CSS class name without the leading "."[{htmlmin-lb}]<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOff': 'cssClass'}"&gt;</code></pre>
+Specify a CSS class name without the leading "."
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'stateOff': 'cssClass'}"&gt;</code></pre>
 </td>
 <td>
 <dl>
@@ -409,7 +417,8 @@ Specify a CSS class name without the leading "."[{htmlmin-lb}]<pre><code>&lt;spa
 <td><code>toggle.wb-toggle</code></td>
 <td>Triggered manually and automatically by plugin (e.g., <code>$( ".wb-toggle" ).trigger( "toggle.wb-toggle" );</code>).</td>
 <td>
-Causes a toggle element to change the toggle state of the elements it controls. Normally triggered by clicking on the toggle element. When triggering this event manually, the data-toggle attribute must be passed as the second argument:[{htmlmin-lb}]<pre><code>// Get a reference to the toggle element and its settings
+Causes a toggle element to change the toggle state of the elements it controls. Normally triggered by clicking on the toggle element. When triggering this event manually, the data-toggle attribute must be passed as the second argument:
+<pre><code>// Get a reference to the toggle element and its settings
 var $toggler = $( ".wb-toggle" );
     settings = $toggler.data( "toggle" );
 
