@@ -9768,6 +9768,7 @@ var componentName = "wb-tabs",
 	equalHeightOffClass = equalHeightClass + "-off",
 	activePanel = "-activePanel",
 	activateEvent = "click keydown",
+	pagePath = wb.pageUrlParts.pathname + "#",
 	$document = wb.doc,
 	$window = wb.win,
 	i18n, i18nText,
@@ -9839,7 +9840,7 @@ var componentName = "wb-tabs",
 				// If the panel was not set by URL hash, then attempt to
 				// retrieve from sessionStorage
 				if ( !$openPanel || $openPanel.length === 0 ) {
-					activeId = sessionStorage.getItem( elmId + activePanel );
+					activeId = sessionStorage.getItem( pagePath + elmId + activePanel );
 					if ( activeId ) {
 						$openPanel = $panels.filter( "#" + activeId );
 					}
@@ -9848,7 +9849,7 @@ var componentName = "wb-tabs",
 				} else {
 					hashFocus = true;
 					try {
-						sessionStorage.setItem( elmId + activePanel, activeId );
+						sessionStorage.setItem( pagePath + elmId + activePanel, activeId );
 					} catch ( error ) {
 					}
 				}
@@ -10181,7 +10182,7 @@ var componentName = "wb-tabs",
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				$container.attr( "id" ) + activePanel,
+				pagePath + $container.attr( "id" ) + activePanel,
 				$next.attr( "id" )
 			);
 		} catch ( error ) {
@@ -10564,7 +10565,7 @@ $document.on( activateEvent, selector + " > .tabpanels > details > summary", fun
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				$details.closest( selector ).attr( "id" ) + activePanel,
+				pagePath + $details.closest( selector ).attr( "id" ) + activePanel,
 				details.id
 			);
 		} catch ( error ) {

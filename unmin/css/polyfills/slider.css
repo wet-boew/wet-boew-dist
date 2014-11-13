@@ -98,7 +98,7 @@
 
 .fd-slider-focused .fd-slider-bar {
   -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
-          box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
+          box-shadow: 0 0 6px rgba(10, 130, 170, 0.7)
   /* Not sure what to do with this
 		@include experimental(animation, fd-pulse 2s infinite, -moz, -webkit, -o, not -ms, not -khtml, official);
 		*/ }

@@ -6067,7 +6067,7 @@ img.mfp-img {
 
 .mfp-close {
   cursor: pointer !important;
-  font-weight: 700;
+  font-weight: 700
   /* Should fix upstream in Magnific Popup rather than overriding in WET */ }
 
 /* Should fix upstream in Magnific Popup rather than overriding in WET */
@@ -6250,7 +6250,7 @@ img.mfp-img {
   vertical-align: middle; }
 
 .wb-mltmd {
-  display: block;
+  display: block
   /*
 	  Light Skinning of mediacontrols
 	 */ }
@@ -6342,7 +6342,7 @@ img.mfp-img {
   display: table;
   padding-top: 2em;
   position: relative;
-  width: 100%;
+  width: 100%
   /* Progress Bar */
   /* Slider polyfill styles */ }
   .wb-mm-ctrls .frstpnl {
@@ -6553,7 +6553,7 @@ pre.prettyprint {
   border: 1px solid #ddd;
   color: #707070;
   font-size: 95%;
-  padding: 8px;
+  padding: 8px
   /* Specify class=linenums on a pre to get line numbering */ }
   pre.prettyprint.linenums {
     box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eee inset; }
