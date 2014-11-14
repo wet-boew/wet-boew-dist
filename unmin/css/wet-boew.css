@@ -7291,9 +7291,6 @@ table.dataTable {
 .wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   position: relative; }
 
-.wb-tabs.carousel-s2 [role="tablist"] {
-  position: absolute; }
-
 .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
   z-index: 100; }
 
@@ -7452,6 +7449,7 @@ table.dataTable {
     padding-bottom: 4.375em; }
     .wb-tabs.carousel-s2 [role="tablist"] {
       bottom: 0;
+      position: absolute;
       width: 100%; }
       .wb-tabs.carousel-s2 [role="tablist"] li {
         background: transparent;
