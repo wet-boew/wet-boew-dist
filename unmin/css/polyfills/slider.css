@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-11-13
+ * v4.0.8-development - 2014-11-14
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -98,7 +98,7 @@
 
 .fd-slider-focused .fd-slider-bar {
   -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
-          box-shadow: 0 0 6px rgba(10, 130, 170, 0.7)
+          box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
   /* Not sure what to do with this
 		@include experimental(animation, fd-pulse 2s infinite, -moz, -webkit, -o, not -ms, not -khtml, official);
 		*/ }
