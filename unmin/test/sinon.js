@@ -1,5 +1,5 @@
 /**
- * Sinon.JS 1.11.1, 2014/10/27
+ * Sinon.JS 1.12.1, 2014/11/16
  *
  * @author Christian Johansen (christian@cjohansen.no)
  * @author Contributors: https://github.com/cjohansen/Sinon.JS/blob/master/AUTHORS
@@ -33,11 +33,29 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-this.sinon = (function () {
-var samsam, formatio;
-(function () {
-function define(mod, deps, fn) { if (mod == "samsam") { samsam = deps(); } else if (typeof fn === "function") { formatio = fn(samsam); } }
-define.amd = {};
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], function () {
+      return (root.sinon = factory());
+    });
+  } else if (typeof exports === 'object') {
+    module.exports = factory();
+  } else {
+    root.sinon = factory();
+  }
+}(this, function () {
+  var samsam, formatio;
+  (function () {
+                function define(mod, deps, fn) {
+                  if (mod == "samsam") {
+                    samsam = deps();
+                  } else if (typeof deps === "function" && mod.length === 0) {
+                    lolex = deps();
+                  } else if (typeof fn === "function") {
+                    formatio = fn(samsam);
+                  }
+                }
+    define.amd = {};
 ((typeof define === "function" && define.amd && function (m) { define("samsam", m); }) ||
  (typeof module === "object" &&
       function (m) { module.exports = m(); }) || // Node
@@ -69,6 +87,7 @@ define.amd = {};
      * ``false`` otherwise.
      */
     function isArguments(object) {
+        if (getClass(object) === 'Arguments') { return true; }
         if (typeof object !== "object" || typeof object.length !== "number" ||
                 getClass(object) === "Array") {
             return false;
@@ -394,7 +413,12 @@ define.amd = {};
         if (matcher && typeof matcher === "object") {
             var prop;
             for (prop in matcher) {
-                if (!match(object[prop], matcher[prop])) {
+                var value = object[prop];
+                if (typeof value === "undefined" &&
+                        typeof object.getAttribute === "function") {
+                    value = object.getAttribute(prop);
+                }
+                if (typeof value === "undefined" || !match(value, matcher[prop])) {
                     return false;
                 }
             }
@@ -425,7 +449,8 @@ define.amd = {};
     
     var formatio = {
         excludeConstructors: ["Object", /^.$/],
-        quoteStrings: true
+        quoteStrings: true,
+        limitChildrenCount: 0
     };
 
     var hasOwn = Object.prototype.hasOwnProperty;
@@ -522,10 +547,18 @@ define.amd = {};
     ascii.array = function (array, processed) {
         processed = processed || [];
         processed.push(array);
-        var i, l, pieces = [];
-        for (i = 0, l = array.length; i < l; ++i) {
+        var pieces = [];
+        var i, l;
+        l = (this.limitChildrenCount > 0) ? 
+            Math.min(this.limitChildrenCount, array.length) : array.length;
+
+        for (i = 0; i < l; ++i) {
             pieces.push(ascii(this, array[i], processed));
         }
+
+        if(l < array.length)
+            pieces.push("[... " + (array.length - l) + " more elements]");
+
         return "[" + pieces.join(", ") + "]";
     };
 
@@ -535,9 +568,11 @@ define.amd = {};
         indent = indent || 0;
         var pieces = [], properties = samsam.keys(object).sort();
         var length = 3;
-        var prop, str, obj, i, l;
+        var prop, str, obj, i, k, l;
+        l = (this.limitChildrenCount > 0) ? 
+            Math.min(this.limitChildrenCount, properties.length) : properties.length;
 
-        for (i = 0, l = properties.length; i < l; ++i) {
+        for (i = 0; i < l; ++i) {
             prop = properties[i];
             obj = object[prop];
 
@@ -555,7 +590,10 @@ define.amd = {};
         var cons = constructorName(this, object);
         var prefix = cons ? "[" + cons + "] " : "";
         var is = "";
-        for (i = 0, l = indent; i < l; ++i) { is += " "; }
+        for (i = 0, k = indent; i < k; ++i) { is += " "; }
+
+        if(l < properties.length)
+            pieces.push("[... " + (properties.length - l) + " more elements]");
 
         if (length + indent > 80) {
             return prefix + "{\n  " + is + pieces.join(",\n  " + is) + "\n" +
@@ -614,7 +652,435 @@ define.amd = {};
 
     return Formatio.prototype;
 });
-})();
+!function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.lolex=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function (global){
+/*jslint eqeqeq: false, plusplus: false, evil: true, onevar: false, browser: true, forin: false*/
+/*global global*/
+/**
+ * @author Christian Johansen (christian@cjohansen.no) and contributors
+ * @license BSD
+ *
+ * Copyright (c) 2010-2014 Christian Johansen
+ */
+
+// node expects setTimeout/setInterval to return a fn object w/ .ref()/.unref()
+// browsers, a number.
+// see https://github.com/cjohansen/Sinon.JS/pull/436
+var timeoutResult = setTimeout(function() {}, 0);
+var addTimerReturnsObject = typeof timeoutResult === "object";
+clearTimeout(timeoutResult);
+
+var NativeDate = Date;
+var id = 1;
+
+/**
+ * Parse strings like "01:10:00" (meaning 1 hour, 10 minutes, 0 seconds) into
+ * number of milliseconds. This is used to support human-readable strings passed
+ * to clock.tick()
+ */
+function parseTime(str) {
+    if (!str) {
+        return 0;
+    }
+
+    var strings = str.split(":");
+    var l = strings.length, i = l;
+    var ms = 0, parsed;
+
+    if (l > 3 || !/^(\d\d:){0,2}\d\d?$/.test(str)) {
+        throw new Error("tick only understands numbers and 'h:m:s'");
+    }
+
+    while (i--) {
+        parsed = parseInt(strings[i], 10);
+
+        if (parsed >= 60) {
+            throw new Error("Invalid time " + str);
+        }
+
+        ms += parsed * Math.pow(60, (l - i - 1));
+    }
+
+    return ms * 1000;
+}
+
+/**
+ * Used to grok the `now` parameter to createClock.
+ */
+function getEpoch(epoch) {
+    if (!epoch) { return 0; }
+    if (typeof epoch.getTime === "function") { return epoch.getTime(); }
+    if (typeof epoch === "number") { return epoch; }
+    throw new TypeError("now should be milliseconds since UNIX epoch");
+}
+
+function inRange(from, to, timer) {
+    return timer && timer.callAt >= from && timer.callAt <= to;
+}
+
+function mirrorDateProperties(target, source) {
+    if (source.now) {
+        target.now = function now() {
+            return target.clock.now;
+        };
+    } else {
+        delete target.now;
+    }
+
+    if (source.toSource) {
+        target.toSource = function toSource() {
+            return source.toSource();
+        };
+    } else {
+        delete target.toSource;
+    }
+
+    target.toString = function toString() {
+        return source.toString();
+    };
+
+    target.prototype = source.prototype;
+    target.parse = source.parse;
+    target.UTC = source.UTC;
+    target.prototype.toUTCString = source.prototype.toUTCString;
+
+    for (var prop in source) {
+        if (source.hasOwnProperty(prop)) {
+            target[prop] = source[prop];
+        }
+    }
+
+    return target;
+}
+
+function createDate() {
+    function ClockDate(year, month, date, hour, minute, second, ms) {
+        // Defensive and verbose to avoid potential harm in passing
+        // explicit undefined when user does not pass argument
+        switch (arguments.length) {
+        case 0:
+            return new NativeDate(ClockDate.clock.now);
+        case 1:
+            return new NativeDate(year);
+        case 2:
+            return new NativeDate(year, month);
+        case 3:
+            return new NativeDate(year, month, date);
+        case 4:
+            return new NativeDate(year, month, date, hour);
+        case 5:
+            return new NativeDate(year, month, date, hour, minute);
+        case 6:
+            return new NativeDate(year, month, date, hour, minute, second);
+        default:
+            return new NativeDate(year, month, date, hour, minute, second, ms);
+        }
+    }
+
+    return mirrorDateProperties(ClockDate, NativeDate);
+}
+
+function addTimer(clock, timer) {
+    if (typeof timer.func === "undefined") {
+        throw new Error("Callback must be provided to timer calls");
+    }
+
+    if (!clock.timers) {
+        clock.timers = {};
+    }
+
+    timer.id = id++;
+    timer.createdAt = clock.now;
+    timer.callAt = clock.now + (timer.delay || 0);
+
+    clock.timers[timer.id] = timer;
+
+    if (addTimerReturnsObject) {
+        return {
+            id: timer.id,
+            ref: function() {},
+            unref: function() {}
+        };
+    }
+    else {
+        return timer.id;
+    }
+}
+
+function firstTimerInRange(clock, from, to) {
+    var timers = clock.timers, timer = null;
+
+    for (var id in timers) {
+        if (!inRange(from, to, timers[id])) {
+            continue;
+        }
+
+        if (!timer || ~compareTimers(timer, timers[id])) {
+            timer = timers[id];
+        }
+    }
+
+    return timer;
+}
+
+function compareTimers(a, b) {
+    // Sort first by absolute timing
+    if (a.callAt < b.callAt) {
+        return -1;
+    }
+    if (a.callAt > b.callAt) {
+        return 1;
+    }
+
+    // Sort next by immediate, immediate timers take precedence
+    if (a.immediate && !b.immediate) {
+        return -1;
+    }
+    if (!a.immediate && b.immediate) {
+        return 1;
+    }
+
+    // Sort next by creation time, earlier-created timers take precedence
+    if (a.createdAt < b.createdAt) {
+        return -1;
+    }
+    if (a.createdAt > b.createdAt) {
+        return 1;
+    }
+
+    // Sort next by id, lower-id timers take precedence
+    if (a.id < b.id) {
+        return -1;
+    }
+    if (a.id > b.id) {
+        return 1;
+    }
+
+    // As timer ids are unique, no fallback `0` is necessary
+}
+
+function callTimer(clock, timer) {
+    if (typeof timer.interval == "number") {
+        clock.timers[timer.id].callAt += timer.interval;
+    } else {
+        delete clock.timers[timer.id];
+    }
+
+    try {
+        if (typeof timer.func == "function") {
+            timer.func.apply(null, timer.args);
+        } else {
+            eval(timer.func);
+        }
+    } catch (e) {
+        var exception = e;
+    }
+
+    if (!clock.timers[timer.id]) {
+        if (exception) {
+            throw exception;
+        }
+        return;
+    }
+
+    if (exception) {
+        throw exception;
+    }
+}
+
+function uninstall(clock, target) {
+    var method;
+
+    for (var i = 0, l = clock.methods.length; i < l; i++) {
+        method = clock.methods[i];
+
+        if (target[method].hadOwnProperty) {
+            target[method] = clock["_" + method];
+        } else {
+            try {
+                delete target[method];
+            } catch (e) {}
+        }
+    }
+
+    // Prevent multiple executions which will completely remove these props
+    clock.methods = [];
+}
+
+function hijackMethod(target, method, clock) {
+    clock[method].hadOwnProperty = Object.prototype.hasOwnProperty.call(target, method);
+    clock["_" + method] = target[method];
+
+    if (method == "Date") {
+        var date = mirrorDateProperties(clock[method], target[method]);
+        target[method] = date;
+    } else {
+        target[method] = function () {
+            return clock[method].apply(clock, arguments);
+        };
+
+        for (var prop in clock[method]) {
+            if (clock[method].hasOwnProperty(prop)) {
+                target[method][prop] = clock[method][prop];
+            }
+        }
+    }
+
+    target[method].clock = clock;
+}
+
+var timers = {
+    setTimeout: setTimeout,
+    clearTimeout: clearTimeout,
+    setImmediate: (typeof setImmediate !== "undefined" ? setImmediate : undefined),
+    clearImmediate: (typeof clearImmediate !== "undefined" ? clearImmediate: undefined),
+    setInterval: setInterval,
+    clearInterval: clearInterval,
+    Date: Date
+};
+
+var keys = Object.keys || function (obj) {
+    var ks = [];
+    for (var key in obj) {
+        ks.push(key);
+    }
+    return ks;
+};
+
+exports.timers = timers;
+
+var createClock = exports.createClock = function (now) {
+    var clock = {
+        now: getEpoch(now),
+        timeouts: {},
+        Date: createDate()
+    };
+
+    clock.Date.clock = clock;
+
+    clock.setTimeout = function setTimeout(func, timeout) {
+        return addTimer(clock, {
+            func: func,
+            args: Array.prototype.slice.call(arguments, 2),
+            delay: timeout
+        });
+    };
+
+    clock.clearTimeout = function clearTimeout(timerId) {
+        if (!timerId) {
+            // null appears to be allowed in most browsers, and appears to be
+            // relied upon by some libraries, like Bootstrap carousel
+            return;
+        }
+        if (!clock.timers) {
+            clock.timers = [];
+        }
+        // in Node, timerId is an object with .ref()/.unref(), and
+        // its .id field is the actual timer id.
+        if (typeof timerId === "object") {
+            timerId = timerId.id
+        }
+        if (timerId in clock.timers) {
+            delete clock.timers[timerId];
+        }
+    };
+
+    clock.setInterval = function setInterval(func, timeout) {
+        return addTimer(clock, {
+            func: func,
+            args: Array.prototype.slice.call(arguments, 2),
+            delay: timeout,
+            interval: timeout
+        });
+    };
+
+    clock.clearInterval = function clearInterval(timerId) {
+        clock.clearTimeout(timerId);
+    };
+
+    clock.setImmediate = function setImmediate(func) {
+        return addTimer(clock, {
+            func: func,
+            args: Array.prototype.slice.call(arguments, 1),
+            immediate: true
+        });
+    };
+
+    clock.clearImmediate = function clearImmediate(timerId) {
+        clock.clearTimeout(timerId);
+    };
+
+    clock.tick = function tick(ms) {
+        ms = typeof ms == "number" ? ms : parseTime(ms);
+        var tickFrom = clock.now, tickTo = clock.now + ms, previous = clock.now;
+        var timer = firstTimerInRange(clock, tickFrom, tickTo);
+
+        var firstException;
+        while (timer && tickFrom <= tickTo) {
+            if (clock.timers[timer.id]) {
+                tickFrom = clock.now = timer.callAt;
+                try {
+                    callTimer(clock, timer);
+                } catch (e) {
+                    firstException = firstException || e;
+                }
+            }
+
+            timer = firstTimerInRange(clock, previous, tickTo);
+            previous = tickFrom;
+        }
+
+        clock.now = tickTo;
+
+        if (firstException) {
+            throw firstException;
+        }
+
+        return clock.now;
+    };
+
+    clock.reset = function reset() {
+        clock.timers = {};
+    };
+
+    return clock;
+};
+
+exports.install = function install(target, now, toFake) {
+    if (typeof target === "number") {
+        toFake = now;
+        now = target;
+        target = null;
+    }
+
+    if (!target) {
+        target = global;
+    }
+
+    var clock = createClock(now);
+
+    clock.uninstall = function () {
+        uninstall(clock, target);
+    };
+
+    clock.methods = toFake || [];
+
+    if (clock.methods.length === 0) {
+        clock.methods = keys(timers);
+    }
+
+    for (var i = 0, l = clock.methods.length; i < l; i++) {
+        hijackMethod(target, clock.methods[i], clock);
+    }
+
+    return clock;
+};
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}]},{},[1])(1)
+});
+  })();
+  var define;
 /**
  * Sinon core utilities. For internal use only.
  *
@@ -3271,6 +3737,8 @@ var sinon = (function () {
     }
 }(typeof sinon == "object" && sinon || null));
 
+/*global lolex */
+
 /**
  * Fake timer API
  * setTimeout
@@ -3294,372 +3762,27 @@ if (typeof sinon == "undefined") {
 }
 
 (function (global) {
-    // node expects setTimeout/setInterval to return a fn object w/ .ref()/.unref()
-    // browsers, a number.
-    // see https://github.com/cjohansen/Sinon.JS/pull/436
-    var timeoutResult = setTimeout(function () {}, 0);
-    var addTimerReturnsObject = typeof timeoutResult === "object";
-    clearTimeout(timeoutResult);
+    function makeApi(sinon, lol) {
+        var _lolex = typeof lolex !== "undefined" ? lolex : lol;
 
-    var id = 1;
+        sinon.useFakeTimers = function () {
+            var now, methods = Array.prototype.slice.call(arguments);
 
-    function addTimer(args, recurring) {
-        if (args.length === 0) {
-            throw new Error("Function requires at least 1 parameter");
-        }
-
-        if (typeof args[0] === "undefined") {
-            throw new Error("Callback must be provided to timer calls");
-        }
-
-        var toId = id++;
-        var delay = args[1] || 0;
-
-        if (!this.timeouts) {
-            this.timeouts = {};
-        }
-
-        this.timeouts[toId] = {
-            id: toId,
-            func: args[0],
-            callAt: this.now + delay,
-            invokeArgs: Array.prototype.slice.call(args, 2)
-        };
-
-        if (recurring === true) {
-            this.timeouts[toId].interval = delay;
-        }
-
-        if (addTimerReturnsObject) {
-            return {
-                id: toId,
-                ref: function () {},
-                unref: function () {}
-            };
-        } else {
-            return toId;
-        }
-    }
-
-    function parseTime(str) {
-        if (!str) {
-            return 0;
-        }
-
-        var strings = str.split(":");
-        var l = strings.length, i = l;
-        var ms = 0, parsed;
-
-        if (l > 3 || !/^(\d\d:){0,2}\d\d?$/.test(str)) {
-            throw new Error("tick only understands numbers and 'h:m:s'");
-        }
-
-        while (i--) {
-            parsed = parseInt(strings[i], 10);
-
-            if (parsed >= 60) {
-                throw new Error("Invalid time " + str);
-            }
-
-            ms += parsed * Math.pow(60, (l - i - 1));
-        }
-
-        return ms * 1000;
-    }
-
-    function createObject(object) {
-        var newObject;
-
-        if (Object.create) {
-            newObject = Object.create(object);
-        } else {
-            var F = function () {};
-            F.prototype = object;
-            newObject = new F();
-        }
-
-        newObject.Date.clock = newObject;
-        return newObject;
-    }
-
-    function mirrorDateProperties(target, source) {
-        if (source.now) {
-            target.now = function now() {
-                return target.clock.now;
-            };
-        } else {
-            delete target.now;
-        }
-
-        if (source.toSource) {
-            target.toSource = function toSource() {
-                return source.toSource();
-            };
-        } else {
-            delete target.toSource;
-        }
-
-        target.toString = function toString() {
-            return source.toString();
-        };
-
-        target.prototype = source.prototype;
-        target.parse = source.parse;
-        target.UTC = source.UTC;
-        target.prototype.toUTCString = source.prototype.toUTCString;
-
-        for (var prop in source) {
-            if (source.hasOwnProperty(prop)) {
-                target[prop] = source[prop];
-            }
-        }
-
-        return target;
-    }
-
-    var methods = ["Date", "setTimeout", "setInterval",
-                   "clearTimeout", "clearInterval"];
-
-    if (typeof global.setImmediate !== "undefined") {
-        methods.push("setImmediate");
-    }
-
-    if (typeof global.clearImmediate !== "undefined") {
-        methods.push("clearImmediate");
-    }
-
-    function restore() {
-        var method;
-
-        for (var i = 0, l = this.methods.length; i < l; i++) {
-            method = this.methods[i];
-
-            if (global[method].hadOwnProperty) {
-                global[method] = this["_" + method];
+            if (typeof methods[0] === "string") {
+                now = 0;
             } else {
-                try {
-                    delete global[method];
-                } catch (e) {}
+                now = methods.shift();
             }
-        }
 
-        // Prevent multiple executions which will completely remove these props
-        this.methods = [];
-    }
-
-    function stubGlobal(method, clock) {
-        clock[method].hadOwnProperty = Object.prototype.hasOwnProperty.call(global, method);
-        clock["_" + method] = global[method];
-
-        if (method == "Date") {
-            var date = mirrorDateProperties(clock[method], global[method]);
-            global[method] = date;
-        } else {
-            global[method] = function () {
-                return clock[method].apply(clock, arguments);
-            };
-
-            for (var prop in clock[method]) {
-                if (clock[method].hasOwnProperty(prop)) {
-                    global[method][prop] = clock[method][prop];
-                }
-            }
-        }
-
-        global[method].clock = clock;
-    }
-    function makeApi(sinon) {
-        sinon.clock = {
-            now: 0,
-
-            create: function create(now) {
-                var clock = createObject(this);
-
-                if (typeof now == "number") {
-                    clock.now = now;
-                }
-
-                if (!!now && typeof now == "object") {
-                    throw new TypeError("now should be milliseconds since UNIX epoch");
-                }
-
-                return clock;
-            },
-
-            setTimeout: function setTimeout(callback, timeout) {
-                return addTimer.call(this, arguments, false);
-            },
-
-            clearTimeout: function clearTimeout(timerId) {
-                if (!timerId) {
-                    // null appears to be allowed in most browsers, and appears to be relied upon by some libraries, like Bootstrap carousel
-                    return;
-                }
-                if (!this.timeouts) {
-                    this.timeouts = [];
-                }
-                // in Node, timerId is an object with .ref()/.unref(), and
-                // its .id field is the actual timer id.
-                if (typeof timerId === "object") {
-                    timerId = timerId.id
-                }
-                if (timerId in this.timeouts) {
-                    delete this.timeouts[timerId];
-                }
-            },
-
-            setInterval: function setInterval(callback, timeout) {
-                return addTimer.call(this, arguments, true);
-            },
-
-            clearInterval: function clearInterval(timerId) {
-                this.clearTimeout(timerId);
-            },
-
-            setImmediate: function setImmediate(callback) {
-                var passThruArgs = Array.prototype.slice.call(arguments, 1);
-
-                return addTimer.call(this, [callback, 0].concat(passThruArgs), false);
-            },
-
-            clearImmediate: function clearImmediate(timerId) {
-                this.clearTimeout(timerId);
-            },
-
-            tick: function tick(ms) {
-                ms = typeof ms == "number" ? ms : parseTime(ms);
-                var tickFrom = this.now, tickTo = this.now + ms, previous = this.now;
-                var timer = this.firstTimerInRange(tickFrom, tickTo);
-
-                var firstException;
-                while (timer && tickFrom <= tickTo) {
-                    if (this.timeouts[timer.id]) {
-                        tickFrom = this.now = timer.callAt;
-                        try {
-                            this.callTimer(timer);
-                        } catch (e) {
-                            firstException = firstException || e;
-                        }
-                    }
-
-                    timer = this.firstTimerInRange(previous, tickTo);
-                    previous = tickFrom;
-                }
-
-                this.now = tickTo;
-
-                if (firstException) {
-                    throw firstException;
-                }
-
-                return this.now;
-            },
-
-            firstTimerInRange: function (from, to) {
-                var timer, smallest = null, originalTimer;
-
-                for (var id in this.timeouts) {
-                    if (this.timeouts.hasOwnProperty(id)) {
-                        if (this.timeouts[id].callAt < from || this.timeouts[id].callAt > to) {
-                            continue;
-                        }
-
-                        if (smallest === null || this.timeouts[id].callAt < smallest) {
-                            originalTimer = this.timeouts[id];
-                            smallest = this.timeouts[id].callAt;
-
-                            timer = {
-                                func: this.timeouts[id].func,
-                                callAt: this.timeouts[id].callAt,
-                                interval: this.timeouts[id].interval,
-                                id: this.timeouts[id].id,
-                                invokeArgs: this.timeouts[id].invokeArgs
-                            };
-                        }
-                    }
-                }
-
-                return timer || null;
-            },
-
-            callTimer: function (timer) {
-                if (typeof timer.interval == "number") {
-                    this.timeouts[timer.id].callAt += timer.interval;
-                } else {
-                    delete this.timeouts[timer.id];
-                }
-
-                try {
-                    if (typeof timer.func == "function") {
-                        timer.func.apply(null, timer.invokeArgs);
-                    } else {
-                        eval(timer.func);
-                    }
-                } catch (e) {
-                    var exception = e;
-                }
-
-                if (!this.timeouts[timer.id]) {
-                    if (exception) {
-                        throw exception;
-                    }
-                    return;
-                }
-
-                if (exception) {
-                    throw exception;
-                }
-            },
-
-            reset: function reset() {
-                this.timeouts = {};
-            },
-
-            Date: (function () {
-                var NativeDate = Date;
-
-                function ClockDate(year, month, date, hour, minute, second, ms) {
-                    // Defensive and verbose to avoid potential harm in passing
-                    // explicit undefined when user does not pass argument
-                    switch (arguments.length) {
-                    case 0:
-                        return new NativeDate(ClockDate.clock.now);
-                    case 1:
-                        return new NativeDate(year);
-                    case 2:
-                        return new NativeDate(year, month);
-                    case 3:
-                        return new NativeDate(year, month, date);
-                    case 4:
-                        return new NativeDate(year, month, date, hour);
-                    case 5:
-                        return new NativeDate(year, month, date, hour, minute);
-                    case 6:
-                        return new NativeDate(year, month, date, hour, minute, second);
-                    default:
-                        return new NativeDate(year, month, date, hour, minute, second, ms);
-                    }
-                }
-
-                return mirrorDateProperties(ClockDate, NativeDate);
-            }())
+            var clock = _lolex.install(now || 0, methods);
+            clock.restore = clock.uninstall;
+            return clock;
         };
 
-        sinon.useFakeTimers = function useFakeTimers(now) {
-            var clock = sinon.clock.create(now);
-            clock.restore = restore;
-            clock.methods = Array.prototype.slice.call(arguments,
-                                                    typeof now == "number" ? 1 : 0);
-
-            if (clock.methods.length === 0) {
-                clock.methods = methods;
+        sinon.clock = {
+            create: function (now) {
+                return _lolex.createClock(now);
             }
-
-            for (var i = 0, l = clock.methods.length; i < l; i++) {
-                stubGlobal(clock.methods[i], clock);
-            }
-
-            return clock;
         };
 
         sinon.timers = {
@@ -3678,7 +3801,7 @@ if (typeof sinon == "undefined") {
 
     function loadDependencies(require, epxorts, module) {
         var sinon = require("./core");
-        makeApi(sinon);
+        makeApi(sinon, require("lolex"));
         module.exports = sinon;
     }
 
@@ -4676,7 +4799,7 @@ if (typeof sinon == "undefined") {
                     }
 
                     if (request.readyState != 4) {
-                        sinon.fakeServer.log(response, request);
+                        this.log(response, request);
 
                         request.respond(response[0], response[1], response[2]);
                     }
@@ -5610,4 +5733,5 @@ if (typeof sinon == "undefined") {
     }
 })(this);
 
-return sinon;}.call(typeof window != 'undefined' && window || {}));
+  return sinon;
+}));
