@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-11-18
+ * v4.0.9-development - 2014-11-19
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4587,8 +4587,6 @@ var componentName = "wb-feeds",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	patt = /\\u([\d\w]{4})/g,
-	limitTypes = [ "load", "display" ],
-	i18n, i18nText,
 
 	/**
 	 * @object Templates
@@ -4708,19 +4706,15 @@ var componentName = "wb-feeds",
 	/**
 	 * Helper function that returns a class-based set limit on plugin instances
 	 * @method getLimit
-	 * @param {DOM object} elm The element to search for a class of the form {limit-type}-5
-	 * @param {string} type The type of limit ("load" or "display")
+	 * @param {DOM object} elm The element to search for a class of the form limit-5
 	 * @return {number} 0 if none found, which means the plugin default
 	 */
-	getLimit = function( elm, type ) {
-		var re = new RegExp( "\\b" + type + "-(\\d+)", "i" ),
-			limit = elm.className.match( re );
-
-		if ( !limit ) {
+	getLimit = function( elm ) {
+		var count = elm.className.match( /\blimit-\d+/ );
+		if ( !count ) {
 			return 0;
 		}
-
-		return Number( limit[ 1 ] );
+		return Number( count[ 0 ].replace( /limit-/i, "" ) );
 	},
 
 	/**
@@ -4752,37 +4746,18 @@ var componentName = "wb-feeds",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			fetch, url, $content, loadLimit, displayLimit, feeds, fType, last, i, callback, fElem, fIcon;
-
-		// Only initialize the i18nText once
-		if ( !i18nText ) {
-			i18n = wb.i18n;
-			i18nText = {
-				previous: i18n( "prv" ),
-				next: i18n( "nxt" )
-			};
-		}
+			fetch, url, $content, limit, feeds, fType, last, i, callback, fElem, fIcon;
 
 		if ( elm ) {
 			$content = $( elm ).find( ".feeds-cont" );
-			loadLimit = getLimit( elm, limitTypes[ 0 ] );
-			displayLimit = getLimit( elm, limitTypes[ 1 ] );
+			limit = getLimit( elm );
 			feeds = $content.find( feedLinkSelector );
 			last = feeds.length - 1;
-
-			// Ensure load and display limits are either non-zero or both zero
-			if ( loadLimit === 0 && displayLimit !== 0 ) {
-				loadLimit = displayLimit;
-			} else if ( displayLimit === 0 && loadLimit !== 0 ) {
-				displayLimit = loadLimit;
-			}
 
 			// Lets bind some variables to the node to ensure safe ajax thread counting
 
 			$content.data( "toProcess", feeds.length )
-					.data( "startAt", 0 )
-					.data( "loadLimit", loadLimit )
-					.data( "displayLimit", displayLimit )
+					.data( "feedLimit", limit )
 					.data( "entries", [] );
 
 			for ( i = last; i !== -1; i -= 1 ) {
@@ -4810,7 +4785,7 @@ var componentName = "wb-feeds",
 					fetch.url = fElem.attr( "data-ajax" );
 					fetch.jsonp = callback;
 				} else {
-					url = jsonRequest( fElem.attr( "href" ), loadLimit );
+					url = jsonRequest( fElem.attr( "href" ), limit );
 					fetch.url = url;
 
 					// Let's bind the template to the Entries
@@ -4865,7 +4840,7 @@ var componentName = "wb-feeds",
 		entries = $.merge( entries, $content.data( "entries" ) );
 
 		if ( toProcess === 1 ) {
-			parseEntries( entries, $content.data( "startAt" ), $content.data( "displayLimit" ), $content, this.feedType );
+			parseEntries( entries, $content.data( "feedLimit" ), $content, this.feedType );
 			return 0;
 		}
 
@@ -4882,15 +4857,12 @@ var componentName = "wb-feeds",
 	 * Parses the results from a JSON request and appends to an element
 	 * @method parseEntries
 	 * @param {object} entries Results from a JSON request.
-	 * @param {integer} startAt Entry from which to start appending results to the element.
 	 * @param {integer} limit Limit on the number of results to append to the element.
 	 * @param {jQuery DOM element} $elm Element to which the elements will be appended.
 	 * @return {url} The URL for the JSON request
 	 */
-	parseEntries = function( entries, startAt, limit, $elm, feedtype ) {
-		var cap = ( limit > 0 && limit < ( entries.length - startAt ) ? limit : ( entries.length - startAt ) ) + startAt,
-			displaying = cap - startAt,
-			showPagination = (displaying <= entries.length),
+	parseEntries = function( entries, limit, $elm, feedtype ) {
+		var cap = ( limit > 0 && limit < entries.length ? limit : entries.length ),
 			result = "",
 			compare = wb.date.compare,
 			$details = $elm.closest( "details" ),
@@ -4899,13 +4871,11 @@ var componentName = "wb-feeds",
 			hasVisibilityHandler = "vis-handler",
 			i, sorted, sortedEntry, $tabs;
 
-		$elm.data( "displaying", displaying );
-
 		sorted = entries.sort( function( a, b ) {
 			return compare( b.publishedDate, a.publishedDate );
 		});
 
-		for ( i = startAt; i !== cap; i += 1 ) {
+		for ( i = 0; i !== cap; i += 1 ) {
 			sortedEntry = sorted[ i ];
 			result += Templates[ feedtype ]( sortedEntry );
 		}
@@ -4924,7 +4894,7 @@ var componentName = "wb-feeds",
 							.on( "wb-updated.wb-tabs", function( event, $newPanel ) {
 								var $feedCont = $newPanel.find( feedContSelector );
 								if ( !$feedCont.hasClass( "feed-active" ) ) {
-									activateFeed( $feedCont, showPagination );
+									activateFeed( $feedCont );
 								}
 							})
 							.addClass( hasVisibilityHandler );
@@ -4937,13 +4907,13 @@ var componentName = "wb-feeds",
 					.children( "summary" )
 						.on( "click.wb-feeds", function( event ) {
 							var $summary = $( event.currentTarget ).off( "click.wb-feeds" );
-							activateFeed( $summary.parent().find( feedContSelector ), showPagination );
+							activateFeed( $summary.parent().find( feedContSelector ) );
 						});
 			}
 		}
 
 		if ( activate ) {
-			activateFeed( $elm, showPagination );
+			activateFeed( $elm );
 		}
 
 		return true;
@@ -4953,42 +4923,16 @@ var componentName = "wb-feeds",
 	 * Activates feed results view
 	 * @method activateFeed
 	 * @param = {jQuery object} $elm Feed container
-	 * @param = {boolean} showPagination Show pagination if `true`
 	 */
-	activateFeed = function( $elm, showPagination ) {
+	activateFeed = function( $elm ) {
 		var result = $elm.data( componentName + "-result" ),
 			postProcess = $elm.data( componentName + "-postProcess" ),
-			i, postProcessSelector, paginationMarkup;
+			i, postProcessSelector;
 
 		$elm.empty()
 			.removeClass( "waiting" )
 			.addClass( "feed-active" )
 			.append( result );
-
-		if ( showPagination ) {
-			//Check for and remove outdated pagination markup
-			if ( $elm.hasClass( "mrgn-bttm-0" ) ) {
-				$elm.removeClass( "mrgn-bttm-0" );
-				$elm.next().remove();
-				$elm.next().remove();
-			}
-
-			paginationMarkup = "<div class=\"clearfix\"></div><ul class=\"pager mrgn-tp-sm\"><li";
-
-			if ( $elm.data( "startAt" ) === 0 ) {
-				paginationMarkup += " class=\"disabled\"";
-			}
-
-			paginationMarkup += "><a href=\"#\" rel=\"prev\">" + i18nText.previous + "</a></li><li";
-
-			if ( ( $elm.data( "entries" ).length - $elm.data( "startAt" ) - $elm.data( "displaying" ) ) <= 0 ) {
-				paginationMarkup += " class=\"disabled\"";
-			}
-
-			paginationMarkup += "><a href=\"#\" rel=\"next\">" + i18nText.next + "</a></li></ul>";
-
-			$elm.addClass( "mrgn-bttm-0" ).after( paginationMarkup );
-		}
 
 		if ( postProcess ) {
 			for ( i = postProcess.length - 1; i !== -1; i -= 1 ) {
@@ -5018,41 +4962,6 @@ $document.on( "ajax-fetched.wb", selector + " " + feedLinkSelector, function( ev
 		}
 	}
 });
-
-// Listen for clicks on pagination links
-$document.on( "click vclick", ".wb-feeds .pager a[rel]", function( event ) {
-	var $linkCtx = $(event.target),
-		$content = $(event.target).closest(".wb-feeds").find(".feeds-cont"),
-		newStartAt;
-
-	if ( $linkCtx.attr("rel") === "next" ) {
-		newStartAt = $content.data( "startAt" ) + $content.data( "displayLimit" );
-
-		// Ensure that the next page's starting entry isn't higher than the highest entry
-		if ( newStartAt < $content.data( "entries" ).length ) {
-
-			// Set the new start entry's number
-			$content.data( "startAt", newStartAt);
-
-			// Update the feed entries that are shown
-			// TODO: Don't force "generic"
-			parseEntries( $content.data( "entries" ), newStartAt, $content.data( "displayLimit" ), $content, "generic" );
-		}
-	} else {
-		newStartAt = $content.data( "startAt" ) - $content.data( "displayLimit" );
-
-		// Ensure that the previous page's starting entry isn't smaller than 0
-		if ( newStartAt >= 0 ) {
-
-			// Set the new start entry's number
-			$content.data( "startAt", newStartAt );
-
-			// Update the feed entries that are shown
-			// TODO: Don't force "generic"
-			parseEntries( $content.data( "entries" ), newStartAt, $content.data( "displayLimit" ), $content, "generic" );
-		}
-	}
-} );
 
 // Bind the init event to the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
@@ -8501,6 +8410,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	resetEvent = "reset" + selector,
 	keepaliveEvent = "keepalive" + selector,
 	inactivityEvent = "inactivity" + selector,
+	dataAttr = componentName,
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -8532,10 +8442,15 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 		if ( elm ) {
 			$elm = $( elm );
 
+			// For backwards compatibility where data-wet-boew was used instead of data-wb-sessto
+			if ( !$elm.attr( "data-" + componentName ) ) {
+				dataAttr = "wet-boew";
+			}
+
 			// Merge default settings with overrides from the plugin element
 			// and save back to the element for future reference
-			settings = $.extend( {}, defaults, window[ componentName ], $elm.data( "wet-boew" ) );
-			$elm.data( "wet-boew", settings );
+			settings = $.extend( {}, defaults, window[ componentName ], $elm.data( dataAttr ) );
+			$elm.data( dataAttr, settings );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -9354,6 +9269,7 @@ var componentName = "wb-tabs",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
 	shiftEvent = "wb-shift" + selector,
+	selectEvent = "wb-select" + selector,
 	updatedEvent = "wb-updated" + selector,
 	setFocusEvent = "setfocus.wb",
 	controls = selector + " [role=tablist] a, " + selector + " [role=tablist] .tab-count",
@@ -9363,6 +9279,7 @@ var componentName = "wb-tabs",
 	equalHeightOffClass = equalHeightClass + "-off",
 	activePanel = "-activePanel",
 	activateEvent = "click keydown",
+	pagePath = wb.pageUrlParts.pathname + "#",
 	$document = wb.doc,
 	$window = wb.win,
 	i18n, i18nText,
@@ -9391,7 +9308,7 @@ var componentName = "wb-tabs",
 			open = "open",
 			$panels, $tablist, activeId, $openPanel, $elm, elmId,
 			settings, $panel, i, len, tablist, isOpen,
-			newId, positionY, groupClass;
+			newId, positionY, groupClass, $tabPanels;
 
 		if ( elm ) {
 			$elm = $( elm );
@@ -9434,7 +9351,7 @@ var componentName = "wb-tabs",
 				// If the panel was not set by URL hash, then attempt to
 				// retrieve from sessionStorage
 				if ( !$openPanel || $openPanel.length === 0 ) {
-					activeId = sessionStorage.getItem( elmId + activePanel );
+					activeId = sessionStorage.getItem( pagePath + elmId + activePanel );
 					if ( activeId ) {
 						$openPanel = $panels.filter( "#" + activeId );
 					}
@@ -9443,7 +9360,7 @@ var componentName = "wb-tabs",
 				} else {
 					hashFocus = true;
 					try {
-						sessionStorage.setItem( elmId + activePanel, activeId );
+						sessionStorage.setItem( pagePath + elmId + activePanel, activeId );
 					} catch ( error ) {
 					}
 				}
@@ -9473,8 +9390,11 @@ var componentName = "wb-tabs",
 			if ( !isCarousel ) {
 				$elm.addClass( "tabs-acc" );
 				groupClass = elmId + "-grp";
-				$panels = $elm.find( "> .tabpanels > details" );
+				$tabPanels = $elm.children( ".tabpanels" );
+				$panels = $tabPanels.children( "details" );
 				len = $panels.length;
+
+				$tabPanels.detach();
 
 				// Ensure there is only one panel open
 				// Order of priority is hash, open property, first details
@@ -9518,7 +9438,7 @@ var componentName = "wb-tabs",
 							open: open
 						});
 						$panel.addClass( ( Modernizr.details ? "" :  open + " " ) +
-							"fade " + ( isOpen ? "in" : "out" ) );
+							"fade " + ( isOpen ? "in" : "out wb-inv" ) );
 					}
 
 					tablist += "<li" + ( isOpen ? " class='active'" : "" ) +
@@ -9527,13 +9447,15 @@ var componentName = "wb-tabs",
 				}
 
 				$tablist = $( tablist + "</ul>" );
+				$tabPanels.find( "> details > summary" )
+					.addClass( "wb-toggle tgl-tab" )
+					.attr( "data-toggle", "{\"parent\": \"#" + elmId +
+						"\", \"group\": \"." + groupClass + "\"}" );
+
 				$elm
 					.prepend( $tablist )
-					.find( "> .tabpanels > details > summary" )
-						.addClass( "wb-toggle tgl-tab" )
-						.attr( "data-toggle", "{\"parent\": \"#" + elmId +
-							"\", \"group\": \"." + groupClass + "\"}" )
-						.trigger( "wb-init.wb-toggle" );
+					.append( $tabPanels )
+					.trigger( "wb-init.wb-toggle" );
 			} else if ( $openPanel && $openPanel.length !== 0 ) {
 				$panels.filter( ".in" )
 					.addClass( "out" )
@@ -9584,7 +9506,7 @@ var componentName = "wb-tabs",
 			});
 
 			initialized = true;
-			onResize();
+			onResize( $elm );
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
@@ -9674,7 +9596,7 @@ var componentName = "wb-tabs",
 			listItems = $tabList.children().get(),
 			listCounter = listItems.length - 1,
 			isDetails = $panels[ 0 ].nodeName.toLowerCase() === "details",
-			isActive, item, link;
+			isActive, item, link, panelId;
 
 		$panels.attr( "tabindex", "-1" );
 
@@ -9695,10 +9617,13 @@ var componentName = "wb-tabs",
 			isActive = item.className.indexOf( "active" ) !== -1;
 
 			link = item.getElementsByTagName( "a" )[ 0 ];
+			panelId = link.getAttribute( "href" ).substring( 1 );
+
 			link.tabIndex = isActive ? "0" : "-1";
 			link.setAttribute( "role", "tab" );
 			link.setAttribute( "aria-selected", isActive ? "true" : "false" );
-			link.setAttribute( "aria-controls", link.getAttribute( "href" ).substring( 1 ) );
+			link.setAttribute( "aria-controls", panelId );
+			link.id = panelId + "-lnk";
 		}
 		$tabList.attr( "aria-live", "off" );
 	},
@@ -9773,7 +9698,7 @@ var componentName = "wb-tabs",
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				$container.attr( "id" ) + activePanel,
+				pagePath + $container.attr( "id" ) + activePanel,
 				$next.attr( "id" )
 			);
 		} catch ( error ) {
@@ -9805,17 +9730,28 @@ var componentName = "wb-tabs",
 	onShift = function( event, $elm ) {
 		var data = $elm.data( componentName ),
 			$panels = data.panels,
-			$controls = data.tablist,
 			len = $panels.length,
 			current = $elm.find( "> .tabpanels > .in" ).prevAll( "[role=tabpanel]" ).length,
-			shiftto = event.shiftto ? event.shiftto : 1,
-			next = current > len ? 0 : current + shiftto,
-			$next = $panels.eq( ( next > len - 1 ) ? 0 : ( next < 0 ) ? len - 1 : next );
+			next = current > len ? 0 : current + ( event.shiftto ? event.shiftto : 1 );
 
-		updateNodes(
-			$panels, $controls, $next,
-			$controls.find( "[href=#" + $next.attr( "id" ) + "]" )
-		);
+		onSelect( $panels[( next > len - 1 ) ? 0 : ( next < 0 ) ? len - 1 : next ].id );
+	},
+
+	/**
+	 * @method onSelect
+	 * @param (string) id Id attribute of the panel
+	 */
+	onSelect = function( id ) {
+		var panelSelector = "#" + id,
+			$panel = $( panelSelector );
+
+		if ( isSmallView && $panel[ 0 ].nodeName.toLowerCase() === "details" ) {
+			$panel.children( "summary" ).trigger( $panel.attr( "open" ) ? setFocusEvent : "click" );
+		} else {
+			$( panelSelector + "-lnk" )
+				.trigger( "click" )
+				.trigger( setFocusEvent );
+		}
 	},
 
 	/**
@@ -9855,83 +9791,97 @@ var componentName = "wb-tabs",
 		}
 	},
 
-	onResize = function() {
-		var $elm, $details, $tablist, $openDetails,
-			$nonOpenDetails, $active, $summary;
+	/**
+	 * @method onResize
+	 * @param {jQuery Object} $currentElm Element being initialized (only during initialization process).
+	 */
+	onResize = function( $currentElm ) {
+		var $elms, $elm, $tabPanels, $details, $tablist, $openDetails,
+			$nonOpenDetails, $active, $summary, i, len;
 
 		if ( initialized ) {
 			isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
-			$elm = $( selector );
-			$details = $elm.find( "> .tabpanels > details" );
-			if ( $details.length !== 0 ) {
-				if ( isSmallView !== oldIsSmallView ) {
-					$summary = $details.children( "summary" );
-					$tablist = $elm.children( "ul" );
 
-					// Disable equal heights for small view
-					if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
-						$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
-					}
+			if ( isSmallView !== oldIsSmallView ) {
+				$elms = $currentElm.length ? $currentElm : $( selector );
+				len = $elms.length;
 
-					if ( isSmallView ) {
+				for ( i = 0; i !== len; i += 1 ) {
+					$elm = $elms.eq( i );
+					$tabPanels = $elm.children( ".tabpanels" );
+					$details = $tabPanels.children( "details" );
 
-						// Switch to small view
-						$active = $tablist.find( ".active a" );
-						$details
-							.removeAttr( "role aria-expanded aria-hidden" )
-							.removeClass( "fade out in" );
-						$openDetails = $details
-											.filter( "#" + $active.attr( "href" ).substring( 1 ) )
-												.attr( "open", "open" )
-												.addClass( "open" );
-						$nonOpenDetails = $details.not( $openDetails )
-													.removeAttr( "open" )
-													.removeClass( "open" );
-					} else if ( oldIsSmallView ) {
+					if ( $details.length !== 0 ) {
+						$tabPanels.detach();
+						$summary = $details.children( "summary" );
+						$tablist = $elm.children( "ul" );
 
-						// Switch to large view
-						$openDetails = $details.filter( "[open]" );
-						$openDetails = ( $openDetails.length === 0 ? $details : $openDetails ).eq( 0 );
+						if ( isSmallView ) {
 
-						$details
-							.attr({
-								role: "tabpanel",
-								open: "open"
-							})
-							.not( $openDetails )
-								.addClass( "fade out" )
+							// Switch to small view
+							$active = $tablist.find( ".active a" );
+							$details
+								.removeAttr( "role aria-expanded aria-hidden" )
+								.removeClass( "fade out in" );
+							$openDetails = $details
+												.filter( "#" + $active.attr( "href" ).substring( 1 ) )
+													.attr( "open", "open" )
+													.addClass( "open" );
+							$nonOpenDetails = $details.not( $openDetails )
+														.removeAttr( "open" )
+														.removeClass( "open" );
+						} else if ( oldIsSmallView ) {
+
+							// Switch to large view
+							$openDetails = $details.filter( "[open]" );
+							$openDetails = ( $openDetails.length === 0 ? $details : $openDetails ).eq( 0 );
+
+							$details
 								.attr({
-									"aria-hidden": "true",
-									"aria-expanded": "false"
-								});
-
-						$openDetails
-							.addClass( "fade in" )
-							.attr({
-									"aria-hidden": "false",
-									"aria-expanded": "true"
+									role: "tabpanel",
+									open: "open"
 								})
-							.parent()
-								.find( "> ul [href$='" + $openDetails.attr( "id" ) + "']" )
-									.trigger( "click" );
-					}
+								.not( $openDetails )
+									.addClass( "fade out wb-inv" )
+									.attr({
+										"aria-hidden": "true",
+										"aria-expanded": "false"
+									});
 
-					$summary.attr( "aria-hidden", !isSmallView );
-					$tablist.attr( "aria-hidden", isSmallView );
-				} else {
+							$openDetails
+								.addClass( "fade in" )
+								.attr({
+										"aria-hidden": "false",
+										"aria-expanded": "true"
+									})
+								.parent()
+									.find( "> ul [href$='" + $openDetails.attr( "id" ) + "']" )
+										.trigger( "click" );
+						}
 
-					// Enable equal heights for large view
-					if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
-						$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
+						// Enable equal heights for large view or disable for small view
+						if ( isSmallView !== $elm.hasClass( equalHeightOffClass ) ) {
+							$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
+						}
+
+						$summary.attr( "aria-hidden", !isSmallView );
+						$tablist.attr( "aria-hidden", isSmallView );
+
+						$elm.append( $tabPanels );
 					}
 				}
-				oldIsSmallView = isSmallView;
+
+				// Remove wb-inv from regular tabs that were used to prevent FOUC (after 300ms delay)
+				setTimeout(function() {
+					$( selector + " .tabpanels > details.wb-inv" ).removeClass( "wb-inv" );
+				}, 300 );
 			}
+			oldIsSmallView = isSmallView;
 		}
 	};
 
  // Bind the init event of the plugin
- $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent, selector, function( event ) {
+ $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent + " " + selectEvent, selector, function( event ) {
 	var eventTarget = event.target,
 		eventCurrentTarget = event.currentTarget,
 		$elm;
@@ -9956,10 +9906,17 @@ var componentName = "wb-tabs",
 				break;
 
 			/*
-			 * Change Slides
+			 * Change tab panels by a delta
 			 */
 			case "wb-shift":
 				onShift( event, $( eventTarget ) );
+				break;
+
+			/*
+			 * Select a specific tab panel
+			 */
+			case "wb-select":
+				onSelect( event.id );
 				break;
 			}
 		}
@@ -10104,7 +10061,7 @@ $document.on( "click keydown", selector + " [role=tabpanel]", function( event ) 
 			$( currentTarget )
 				.closest( selector )
 					.find( "[href$='#" + currentTarget.id + "']" )
-						.trigger( "setfocus.wb" );
+						.trigger( setFocusEvent );
 		}
 	}
 });
@@ -10151,7 +10108,7 @@ $document.on( activateEvent, selector + " > .tabpanels > details > summary", fun
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				$details.closest( selector ).attr( "id" ) + activePanel,
+				pagePath + $details.closest( selector ).attr( "id" ) + activePanel,
 				details.id
 			);
 		} catch ( error ) {
@@ -10159,6 +10116,17 @@ $document.on( activateEvent, selector + " > .tabpanels > details > summary", fun
 
 		// Identify that the tabbed interface was updated
 		$details.closest( selector ).trigger( updatedEvent, [ $details ] );
+	}
+});
+
+// Change the panel based upon an external link click
+$document.on( "click", ".wb-tabs-ext", function( event ) {
+	var which = event.which;
+
+	// Ignore middle and right mouse buttons
+	if ( !which || which === 1 ) {
+		event.preventDefault();
+		onSelect( event.currentTarget.getAttribute( "href" ).substring( 1 ) );
 	}
 });
 

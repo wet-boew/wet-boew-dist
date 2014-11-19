@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.8-development - 2014-11-18
+ * v4.0.9-development - 2014-11-19
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -7291,9 +7291,6 @@ table.dataTable {
 .wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   position: relative; }
 
-.wb-tabs.carousel-s2 [role="tablist"] {
-  position: absolute; }
-
 .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
   z-index: 100; }
 
@@ -7452,6 +7449,7 @@ table.dataTable {
     padding-bottom: 4.375em; }
     .wb-tabs.carousel-s2 [role="tablist"] {
       bottom: 0;
+      position: absolute;
       width: 100%; }
       .wb-tabs.carousel-s2 [role="tablist"] li {
         background: transparent;
@@ -7828,6 +7826,9 @@ details:not([open]) {
   visibility: hidden; }
   details:not([open]) > details, details:not([open]) > * {
     display: none; }
+
+.tabpanels > details:not([open]) {
+  visibility: visible; }
 
 .wb-disable details {
   visibility: visible !important; }
