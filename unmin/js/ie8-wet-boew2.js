@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.9-development - 2014-11-25
+ * v4.0.9-development - 2014-11-27
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3870,7 +3870,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 			"prepend"
 		],
 		len = ajaxTypes.length,
-		$elm, ajaxType, i, content;
+		$elm, ajaxType, i, content, jQueryCaching;
 
 	for ( i = 0; i !== len; i += 1 ) {
 		ajaxType = ajaxTypes[ i ];
@@ -3898,12 +3898,19 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 			content = event.fetch.response;
 			if ( content ) {
 
+				//Prevents the force caching of nested resources
+				jQueryCaching = jQuery.ajaxSettings.cache;
+				jQuery.ajaxSettings.cache = true;
+
 				// "replace" is the only event that doesn't map to a jQuery function
 				if ( ajaxType === "replace") {
 					$elm.html( content );
 				} else {
 					$elm[ ajaxType ]( content );
 				}
+
+				//Resets the initial jQuery caching setting
+				jQuery.ajaxSettings.cache = jQueryCaching;
 			}
 		}
 	}
