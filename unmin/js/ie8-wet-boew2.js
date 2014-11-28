@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.9-development - 2014-11-27
+ * v4.0.9-development - 2014-11-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3843,7 +3843,7 @@ var componentName = "wb-data-ajax",
 			urlParts;
 
 		// Detect CORS requests
-		if ( settings && url.substr( 0, 4 ) === "http" ) {
+		if ( settings && ( url.substr( 0, 4 ) === "http" || url.substr( 0, 2 ) === "//" ) ) {
 			urlParts = wb.getUrlParts( url );
 			if ( ( wb.pageUrlParts.protocol !== urlParts.protocol || wb.pageUrlParts.host !== urlParts.host ) && ( !Modernizr.cors || settings.forceCorsFallback ) ) {
 				if ( typeof settings.corsFallback === "function" ) {
