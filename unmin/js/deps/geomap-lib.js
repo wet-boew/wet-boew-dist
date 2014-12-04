@@ -117,13 +117,11 @@ var componentName = "wb-geomap",
 			// Bind the merged settings to the element node for faster access in other events.
 			$elm.data( { settings: settings } );
 
-			// Set the proj4s object so that openlayers can use proj4.
+			// Set the proj4 dependency name to match OpenLayers
 			window.Proj4js = {
 				Proj: function( code ) {
-				var newProj4 = proj4( window.Proj4js.defs[ code ] );
-					newProj4.srsCode = code;
-					return newProj4;
-					},
+					return proj4( window.Proj4js.defs[ code ] );
+				},
 				defs: proj4.defs,
 				transform: proj4
 			};

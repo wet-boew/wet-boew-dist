@@ -1,13 +1,13 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.9-development - 2014-12-03
+ * v4.0.8-development - 2014-12-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
  * Build: http://modernizr.com/download/#-elem_details-elem_progress_meter-mathml-cors-load-mq-css3-input-inputtypes-svg-cssclasses-csstransitions-fontface-backgroundsize-borderimage-teststyles-testprops-testallprops-hasevents-prefixes-domprefixes
  */
-;window.Modernizr=function(e,t,n){function L(e){f.cssText=e}function A(e,t){return L(p.join(e+";")+(t||""))}function O(e,t){return typeof e===t}function M(e,t){return!!~(""+e).indexOf(t)}function _(e,t){for(var r in e){var i=e[r];if(!M(i,"-")&&f[i]!==n)return t=="pfx"?i:!0}return!1}function D(e,t,r){for(var i in e){var s=t[e[i]];if(s!==n)return r===!1?e[i]:O(s,"function")?s.bind(r||t):s}return!1}function P(e,t,n){var r=e.charAt(0).toUpperCase()+e.slice(1),i=(e+" "+v.join(r+" ")+r).split(" ");return O(t,"string")||O(t,"undefined")?_(i,t):(i=(e+" "+m.join(r+" ")+r).split(" "),D(i,t,n))}function H(){i.input=function(n){for(var r=0,i=n.length;r<i;r++)w[n[r]]=n[r]in l;return w.list&&(w.list=!!t.createElement("datalist")&&!!e.HTMLDataListElement),w}("autocomplete autofocus list placeholder max min multiple pattern required step".split(" ")),i.inputtypes=function(e){for(var r=0,i,s,u,a=e.length;r<a;r++)l.setAttribute("type",s=e[r]),i=l.type!=="text",i&&(l.value=c,l.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(s)&&l.style.WebkitAppearance!==n?(o.appendChild(l),u=t.defaultView,i=u.getComputedStyle&&u.getComputedStyle(l,null).WebkitAppearance!=="textfield"&&l.offsetHeight!==0,o.removeChild(l)):/^(search|tel)$/.test(s)||(/^(url|email)$/.test(s)?i=l.checkValidity&&l.checkValidity()===!1:i=l.value!=c)),b[e[r]]=!!i;return b}("search tel url email datetime date month week time datetime-local number range color".split(" "))}var r="2.8.3",i={},s=!0,o=t.documentElement,u="modernizr",a=t.createElement(u),f=a.style,l=t.createElement("input"),c=":)",h={}.toString,p=" -webkit- -moz- -o- -ms- ".split(" "),d="Webkit Moz O ms",v=d.split(" "),m=d.toLowerCase().split(" "),g={svg:"http://www.w3.org/2000/svg"},y={},b={},w={},E=[],S=E.slice,x,T=function(e,n,r,i){var s,a,f,l,c=t.createElement("div"),h=t.body,p=h||t.createElement("body");if(parseInt(r,10))while(r--)f=t.createElement("div"),f.id=i?i[r]:u+(r+1),c.appendChild(f);return s=["&#173;",'<style id="s',u,'">',e,"</style>"].join(""),c.id=u,(h?c:p).innerHTML+=s,p.appendChild(c),h||(p.style.background="",p.style.overflow="hidden",l=o.style.overflow,o.style.overflow="hidden",o.appendChild(p)),a=n(c,e),h?c.parentNode.removeChild(c):(p.parentNode.removeChild(p),o.style.overflow=l),!!a},N=function(t){var n=e.matchMedia||e.msMatchMedia;if(n)return n(t)&&n(t).matches||!1;var r;return T("@media "+t+" { #"+u+" { position: absolute; } }",function(t){r=(e.getComputedStyle?getComputedStyle(t,null):t.currentStyle)["position"]=="absolute"}),r},C={}.hasOwnProperty,k;!O(C,"undefined")&&!O(C.call,"undefined")?k=function(e,t){return C.call(e,t)}:k=function(e,t){return t in e&&O(e.constructor.prototype[t],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(t){var n=this;if(typeof n!="function")throw new TypeError;var r=S.call(arguments,1),i=function(){if(this instanceof i){var e=function(){};e.prototype=n.prototype;var s=new e,o=n.apply(s,r.concat(S.call(arguments)));return Object(o)===o?o:s}return n.apply(t,r.concat(S.call(arguments)))};return i}),y.backgroundsize=function(){return P("backgroundSize")},y.borderimage=function(){return P("borderImage")},y.csstransitions=function(){return P("transition")},y.fontface=function(){var e;return T('@font-face {font-family:"font";src:url("https://")}',function(n,r){var i=t.getElementById("smodernizr"),s=i.sheet||i.styleSheet,o=s?s.cssRules&&s.cssRules[0]?s.cssRules[0].cssText:s.cssText||"":"";e=/src/i.test(o)&&o.indexOf(r.split(" ")[0])===0}),e},y.svg=function(){return!!t.createElementNS&&!!t.createElementNS(g.svg,"svg").createSVGRect};for(var B in y)k(y,B)&&(x=B.toLowerCase(),i[x]=y[B](),E.push((i[x]?"":"no-")+x));return i.input||H(),i.addTest=function(e,t){if(typeof e=="object")for(var r in e)k(e,r)&&i.addTest(r,e[r]);else{e=e.toLowerCase();if(i[e]!==n)return i;t=typeof t=="function"?t():t,typeof s!="undefined"&&s&&(o.className+=" "+(t?"":"no-")+e),i[e]=t}return i},L(""),a=l=null,i._version=r,i._prefixes=p,i._domPrefixes=m,i._cssomPrefixes=v,i.mq=N,i.testProp=function(e){return _([e])},i.testAllProps=P,i.testStyles=T,o.className=o.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(s?" js "+E.join(" "):""),i}(this,this.document),function(e,t,n){function r(e){return"[object Function]"==d.call(e)}function i(e){return"string"==typeof e}function s(){}function o(e){return!e||"loaded"==e||"complete"==e||"uninitialized"==e}function u(){var e=v.shift();m=1,e?e.t?h(function(){("c"==e.t?k.injectCss:k.injectJs)(e.s,0,e.a,e.x,e.e,1)},0):(e(),u()):m=0}function a(e,n,r,i,s,a,f){function l(t){if(!d&&o(c.readyState)&&(w.r=d=1,!m&&u(),c.onload=c.onreadystatechange=null,t)){"img"!=e&&h(function(){b.removeChild(c)},50);for(var r in T[n])T[n].hasOwnProperty(r)&&T[n][r].onload()}}var f=f||k.errorTimeout,c=t.createElement(e),d=0,g=0,w={t:r,s:n,e:s,a:a,x:f};1===T[n]&&(g=1,T[n]=[]),"object"==e?c.data=n:(c.src=n,c.type=e),c.width=c.height="0",c.onerror=c.onload=c.onreadystatechange=function(){l.call(this,g)},v.splice(i,0,w),"img"!=e&&(g||2===T[n]?(b.insertBefore(c,y?null:p),h(l,f)):T[n].push(c))}function f(e,t,n,r,s){return m=0,t=t||"j",i(e)?a("c"==t?E:w,e,t,this.i++,n,r,s):(v.splice(this.i++,0,e),1==v.length&&u()),this}function l(){var e=k;return e.loader={load:f,i:0},e}var c=t.documentElement,h=e.setTimeout,p=t.getElementsByTagName("script")[0],d={}.toString,v=[],m=0,g="MozAppearance"in c.style,y=g&&!!t.createRange().compareNode,b=y?c:p.parentNode,c=e.opera&&"[object Opera]"==d.call(e.opera),c=!!t.attachEvent&&!c,w=g?"object":c?"script":"img",E=c?"script":w,S=Array.isArray||function(e){return"[object Array]"==d.call(e)},x=[],T={},N={timeout:function(e,t){return t.length&&(e.timeout=t[0]),e}},C,k;k=function(e){function t(e){var e=e.split("!"),t=x.length,n=e.pop(),r=e.length,n={url:n,origUrl:n,prefixes:e},i,s,o;for(s=0;s<r;s++)o=e[s].split("="),(i=N[o.shift()])&&(n=i(n,o));for(s=0;s<t;s++)n=x[s](n);return n}function o(e,i,s,o,u){var a=t(e),f=a.autoCallback;a.url.split(".").pop().split("?").shift(),a.bypass||(i&&(i=r(i)?i:i[e]||i[o]||i[e.split("/").pop().split("?")[0]]),a.instead?a.instead(e,i,s,o,u):(T[a.url]?a.noexec=!0:T[a.url]=1,s.load(a.url,a.forceCSS||!a.forceJS&&"css"==a.url.split(".").pop().split("?").shift()?"c":n,a.noexec,a.attrs,a.timeout),(r(i)||r(f))&&s.load(function(){l(),i&&i(a.origUrl,u,o),f&&f(a.origUrl,u,o),T[a.url]=2})))}function u(e,t){function n(e,n){if(e){if(i(e))n||(f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}),o(e,f,t,0,u);else if(Object(e)===e)for(p in h=function(){var t=0,n;for(n in e)e.hasOwnProperty(n)&&t++;return t}(),e)e.hasOwnProperty(p)&&(!n&&!--h&&(r(f)?f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}:f[p]=function(e){return function(){var t=[].slice.call(arguments);e&&e.apply(this,t),c()}}(l[p])),o(e[p],f,t,p,u))}else!n&&c()}var u=!!e.test,a=e.load||e.both,f=e.callback||s,l=f,c=e.complete||s,h,p;n(u?e.yep:e.nope,!!a),a&&n(a)}var a,f,c=this.yepnope.loader;if(i(e))o(e,0,c,0);else if(S(e))for(a=0;a<e.length;a++)f=e[a],i(f)?o(f,0,c,0):S(f)?k(f):Object(f)===f&&u(f,c);else Object(e)===e&&u(e,c)},k.addPrefix=function(e,t){N[e]=t},k.addFilter=function(e){x.push(e)},k.errorTimeout=1e4,null==t.readyState&&t.addEventListener&&(t.readyState="loading",t.addEventListener("DOMContentLoaded",C=function(){t.removeEventListener("DOMContentLoaded",C,0),t.readyState="complete"},0)),e.yepnope=l(),e.yepnope.executeStack=u,e.yepnope.injectJs=function(e,n,r,i,a,f){var l=t.createElement("script"),c,d,i=i||k.errorTimeout;l.src=e;for(d in r)l.setAttribute(d,r[d]);n=f?u:n||s,l.onreadystatechange=l.onload=function(){!c&&o(l.readyState)&&(c=1,n(),l.onload=l.onreadystatechange=null)},h(function(){c||(c=1,n(1))},i),a?l.onload():p.parentNode.insertBefore(l,p)},e.yepnope.injectCss=function(e,n,r,i,o,a){var i=t.createElement("link"),f,n=a?u:n||s;i.href=e,i.rel="stylesheet",i.type="text/css";for(f in r)i.setAttribute(f,r[f]);o||(p.parentNode.insertBefore(i,p),h(n,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("progressbar",function(){return document.createElement("progress").max!==undefined}),Modernizr.addTest("meter",function(){return document.createElement("meter").max!==undefined}),Modernizr.addTest("cors",!!(window.XMLHttpRequest&&"withCredentials"in new XMLHttpRequest)),Modernizr.addTest("details",function(){var e=document,t=e.createElement("details"),n,r,i;return"open"in t?(r=e.body||function(){var t=e.documentElement;return n=!0,t.insertBefore(e.createElement("body"),t.firstElementChild||t.firstChild)}(),t.innerHTML="<summary>a</summary>b",t.style.display="block",r.appendChild(t),i=t.offsetHeight,t.open=!0,i=i!=t.offsetHeight,r.removeChild(t),n&&r.parentNode.removeChild(r),i):!1}),Modernizr.addTest("mathml",function(){var e=!1;if(document.createElementNS){var t="http://www.w3.org/1998/Math/MathML",n=document.createElement("div");n.style.position="absolute";var r=n.appendChild(document.createElementNS(t,"math")).appendChild(document.createElementNS(t,"mfrac"));r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("xx")),r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("yy")),document.body.appendChild(n),e=n.offsetHeight>n.offsetWidth}return e});
+;window.Modernizr=function(e,t,n){function L(e){f.cssText=e}function A(e,t){return L(p.join(e+";")+(t||""))}function O(e,t){return typeof e===t}function M(e,t){return!!~(""+e).indexOf(t)}function _(e,t){for(var r in e){var i=e[r];if(!M(i,"-")&&f[i]!==n)return t=="pfx"?i:!0}return!1}function D(e,t,r){for(var i in e){var s=t[e[i]];if(s!==n)return r===!1?e[i]:O(s,"function")?s.bind(r||t):s}return!1}function P(e,t,n){var r=e.charAt(0).toUpperCase()+e.slice(1),i=(e+" "+v.join(r+" ")+r).split(" ");return O(t,"string")||O(t,"undefined")?_(i,t):(i=(e+" "+m.join(r+" ")+r).split(" "),D(i,t,n))}function H(){i.input=function(n){for(var r=0,i=n.length;r<i;r++)w[n[r]]=n[r]in l;return w.list&&(w.list=!!t.createElement("datalist")&&!!e.HTMLDataListElement),w}("autocomplete autofocus list placeholder max min multiple pattern required step".split(" ")),i.inputtypes=function(e){for(var r=0,i,s,u,a=e.length;r<a;r++)l.setAttribute("type",s=e[r]),i=l.type!=="text",i&&(l.value=c,l.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(s)&&l.style.WebkitAppearance!==n?(o.appendChild(l),u=t.defaultView,i=u.getComputedStyle&&u.getComputedStyle(l,null).WebkitAppearance!=="textfield"&&l.offsetHeight!==0,o.removeChild(l)):/^(search|tel)$/.test(s)||(/^(url|email)$/.test(s)?i=l.checkValidity&&l.checkValidity()===!1:i=l.value!=c)),b[e[r]]=!!i;return b}("search tel url email datetime date month week time datetime-local number range color".split(" "))}var r="2.8.3",i={},s=!0,o=t.documentElement,u="modernizr",a=t.createElement(u),f=a.style,l=t.createElement("input"),c=":)",h={}.toString,p=" -webkit- -moz- -o- -ms- ".split(" "),d="Webkit Moz O ms",v=d.split(" "),m=d.toLowerCase().split(" "),g={svg:"http://www.w3.org/2000/svg"},y={},b={},w={},E=[],S=E.slice,x,T=function(e,n,r,i){var s,a,f,l,c=t.createElement("div"),h=t.body,p=h||t.createElement("body");if(parseInt(r,10))while(r--)f=t.createElement("div"),f.id=i?i[r]:u+(r+1),c.appendChild(f);return s=["&#173;",'<style id="s',u,'">',e,"</style>"].join(""),c.id=u,(h?c:p).innerHTML+=s,p.appendChild(c),h||(p.style.background="",p.style.overflow="hidden",l=o.style.overflow,o.style.overflow="hidden",o.appendChild(p)),a=n(c,e),h?c.parentNode.removeChild(c):(p.parentNode.removeChild(p),o.style.overflow=l),!!a},N=function(t){var n=e.matchMedia||e.msMatchMedia;if(n)return n(t)&&n(t).matches||!1;var r;return T("@media "+t+" { #"+u+" { position: absolute; } }",function(t){r=(e.getComputedStyle?getComputedStyle(t,null):t.currentStyle)["position"]=="absolute"}),r},C={}.hasOwnProperty,k;!O(C,"undefined")&&!O(C.call,"undefined")?k=function(e,t){return C.call(e,t)}:k=function(e,t){return t in e&&O(e.constructor.prototype[t],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(t){var n=this;if(typeof n!="function")throw new TypeError;var r=S.call(arguments,1),i=function(){if(this instanceof i){var e=function(){};e.prototype=n.prototype;var s=new e,o=n.apply(s,r.concat(S.call(arguments)));return Object(o)===o?o:s}return n.apply(t,r.concat(S.call(arguments)))};return i}),y.backgroundsize=function(){return P("backgroundSize")},y.borderimage=function(){return P("borderImage")},y.csstransitions=function(){return P("transition")},y.fontface=function(){var e;return T('@font-face {font-family:"font";src:url("https://")}',function(n,r){var i=t.getElementById("smodernizr"),s=i.sheet||i.styleSheet,o=s?s.cssRules&&s.cssRules[0]?s.cssRules[0].cssText:s.cssText||"":"";e=/src/i.test(o)&&o.indexOf(r.split(" ")[0])===0}),e},y.svg=function(){return!!t.createElementNS&&!!t.createElementNS(g.svg,"svg").createSVGRect};for(var B in y)k(y,B)&&(x=B.toLowerCase(),i[x]=y[B](),E.push((i[x]?"":"no-")+x));return i.input||H(),i.addTest=function(e,t){if(typeof e=="object")for(var r in e)k(e,r)&&i.addTest(r,e[r]);else{e=e.toLowerCase();if(i[e]!==n)return i;t=typeof t=="function"?t():t,typeof s!="undefined"&&s&&(o.className+=" "+(t?"":"no-")+e),i[e]=t}return i},L(""),a=l=null,i._version=r,i._prefixes=p,i._domPrefixes=m,i._cssomPrefixes=v,i.mq=N,i.testProp=function(e){return _([e])},i.testAllProps=P,i.testStyles=T,o.className=o.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(s?" js "+E.join(" "):""),i}(this,this.document),function(e,t,n){function r(e){return"[object Function]"==d.call(e)}function i(e){return"string"==typeof e}function s(){}function o(e){return!e||"loaded"==e||"complete"==e||"uninitialized"==e}function u(){var e=v.shift();m=1,e?e.t?h(function(){("c"==e.t?k.injectCss:k.injectJs)(e.s,0,e.a,e.x,e.e,1)},0):(e(),u()):m=0}function a(e,n,r,i,s,a,f){function l(t){if(!d&&o(c.readyState)&&(w.r=d=1,!m&&u(),c.onload=c.onreadystatechange=null,t)){"img"!=e&&h(function(){b.removeChild(c)},50);for(var r in T[n])T[n].hasOwnProperty(r)&&T[n][r].onload()}}var f=f||k.errorTimeout,c=t.createElement(e),d=0,g=0,w={t:r,s:n,e:s,a:a,x:f};1===T[n]&&(g=1,T[n]=[]),"object"==e?c.data=n:(c.src=n,c.type=e),c.width=c.height="0",c.onerror=c.onload=c.onreadystatechange=function(){l.call(this,g)},v.splice(i,0,w),"img"!=e&&(g||2===T[n]?(b.insertBefore(c,y?null:p),h(l,f)):T[n].push(c))}function f(e,t,n,r,s){return m=0,t=t||"j",i(e)?a("c"==t?E:w,e,t,this.i++,n,r,s):(v.splice(this.i++,0,e),1==v.length&&u()),this}function l(){var e=k;return e.loader={load:f,i:0},e}var c=t.documentElement,h=e.setTimeout,p=t.getElementsByTagName("script")[0],d={}.toString,v=[],m=0,g="MozAppearance"in c.style,y=g&&!!t.createRange().compareNode,b=y?c:p.parentNode,c=e.opera&&"[object Opera]"==d.call(e.opera),c=!!t.attachEvent&&!c,w=g?"object":c?"script":"img",E=c?"script":w,S=Array.isArray||function(e){return"[object Array]"==d.call(e)},x=[],T={},N={timeout:function(e,t){return t.length&&(e.timeout=t[0]),e}},C,k;k=function(e){function t(e){var e=e.split("!"),t=x.length,n=e.pop(),r=e.length,n={url:n,origUrl:n,prefixes:e},i,s,o;for(s=0;s<r;s++)o=e[s].split("="),(i=N[o.shift()])&&(n=i(n,o));for(s=0;s<t;s++)n=x[s](n);return n}function o(e,i,s,o,u){var a=t(e),f=a.autoCallback;a.url.split(".").pop().split("?").shift(),a.bypass||(i&&(i=r(i)?i:i[e]||i[o]||i[e.split("/").pop().split("?")[0]]),a.instead?a.instead(e,i,s,o,u):(T[a.url]?a.noexec=!0:T[a.url]=1,s.load(a.url,a.forceCSS||!a.forceJS&&"css"==a.url.split(".").pop().split("?").shift()?"c":n,a.noexec,a.attrs,a.timeout),(r(i)||r(f))&&s.load(function(){l(),i&&i(a.origUrl,u,o),f&&f(a.origUrl,u,o),T[a.url]=2})))}function u(e,t){function n(e,n){if(e){if(i(e))n||(f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}),o(e,f,t,0,u);else if(Object(e)===e)for(p in h=function(){var t=0,n;for(n in e)e.hasOwnProperty(n)&&t++;return t}(),e)e.hasOwnProperty(p)&&(!n&&!--h&&(r(f)?f=function(){var e=[].slice.call(arguments);l.apply(this,e),c()}:f[p]=function(e){return function(){var t=[].slice.call(arguments);e&&e.apply(this,t),c()}}(l[p])),o(e[p],f,t,p,u))}else!n&&c()}var u=!!e.test,a=e.load||e.both,f=e.callback||s,l=f,c=e.complete||s,h,p;n(u?e.yep:e.nope,!!a),a&&n(a)}var a,f,c=this.yepnope.loader;if(i(e))o(e,0,c,0);else if(S(e))for(a=0;a<e.length;a++)f=e[a],i(f)?o(f,0,c,0):S(f)?k(f):Object(f)===f&&u(f,c);else Object(e)===e&&u(e,c)},k.addPrefix=function(e,t){N[e]=t},k.addFilter=function(e){x.push(e)},k.errorTimeout=1e4,null==t.readyState&&t.addEventListener&&(t.readyState="loading",t.addEventListener("DOMContentLoaded",C=function(){t.removeEventListener("DOMContentLoaded",C,0),t.readyState="complete"},0)),e.yepnope=l(),e.yepnope.executeStack=u,e.yepnope.injectJs=function(e,n,r,i,a,f){var l=t.createElement("script"),c,d,i=i||k.errorTimeout;l.src=e;for(d in r)l.setAttribute(d,r[d]);n=f?u:n||s,l.onreadystatechange=l.onload=function(){!c&&o(l.readyState)&&(c=1,n(),l.onload=l.onreadystatechange=null)},h(function(){c||(c=1,n(1))},i),a?l.onload():p.parentNode.insertBefore(l,p)},e.yepnope.injectCss=function(e,n,r,i,o,a){var i=t.createElement("link"),f,n=a?u:n||s;i.href=e,i.rel="stylesheet",i.type="text/css";for(f in r)i.setAttribute(f,r[f]);o||(p.parentNode.insertBefore(i,p),h(n,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("mathml",function(){var e=!1;if(document.createElementNS){var t="http://www.w3.org/1998/Math/MathML",n=document.createElement("div");n.style.position="absolute";var r=n.appendChild(document.createElementNS(t,"math")).appendChild(document.createElementNS(t,"mfrac"));r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("xx")),r.appendChild(document.createElementNS(t,"mi")).appendChild(document.createTextNode("yy")),document.body.appendChild(n),e=n.offsetHeight>n.offsetWidth}return e}),Modernizr.addTest("details",function(){var e=document,t=e.createElement("details"),n,r,i;return"open"in t?(r=e.body||function(){var t=e.documentElement;return n=!0,t.insertBefore(e.createElement("body"),t.firstElementChild||t.firstChild)}(),t.innerHTML="<summary>a</summary>b",t.style.display="block",r.appendChild(t),i=t.offsetHeight,t.open=!0,i=i!=t.offsetHeight,r.removeChild(t),n&&r.parentNode.removeChild(r),i):!1}),Modernizr.addTest("cors",!!(window.XMLHttpRequest&&"withCredentials"in new XMLHttpRequest)),Modernizr.addTest("progressbar",function(){return document.createElement("progress").max!==undefined}),Modernizr.addTest("meter",function(){return document.createElement("meter").max!==undefined});
 /**
  * @title WET-BOEW Vapour loader
  * @overview Helper methods for WET
@@ -1754,7 +1754,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
 		fetchData;
 
 	// Filter out any events triggered by descendants
-	if ( caller === event.target || event.currentTarget === event.target ) {
+	if ( caller = event.target || event.currentTarget === event.target ) {
 		$.ajax( fetchOpts )
 			.done(function( response, status, xhr ) {
 				var responseType = typeof response;
@@ -4339,7 +4339,7 @@ var componentName = "wb-data-ajax",
 			urlParts;
 
 		// Detect CORS requests
-		if ( settings && ( url.substr( 0, 4 ) === "http" || url.substr( 0, 2 ) === "//" ) ) {
+		if ( settings && url.substr( 0, 4 ) === "http" ) {
 			urlParts = wb.getUrlParts( url );
 			if ( ( wb.pageUrlParts.protocol !== urlParts.protocol || wb.pageUrlParts.host !== urlParts.host ) && ( !Modernizr.cors || settings.forceCorsFallback ) ) {
 				if ( typeof settings.corsFallback === "function" ) {
@@ -4366,7 +4366,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 			"prepend"
 		],
 		len = ajaxTypes.length,
-		$elm, ajaxType, i, content, jQueryCaching;
+		$elm, ajaxType, i, content;
 
 	for ( i = 0; i !== len; i += 1 ) {
 		ajaxType = ajaxTypes[ i ];
@@ -4394,19 +4394,12 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 			content = event.fetch.response;
 			if ( content ) {
 
-				//Prevents the force caching of nested resources
-				jQueryCaching = jQuery.ajaxSettings.cache;
-				jQuery.ajaxSettings.cache = true;
-
 				// "replace" is the only event that doesn't map to a jQuery function
 				if ( ajaxType === "replace") {
 					$elm.html( content );
 				} else {
 					$elm[ ajaxType ]( content );
 				}
-
-				//Resets the initial jQuery caching setting
-				jQuery.ajaxSettings.cache = jQueryCaching;
 			}
 		}
 	}
@@ -5090,6 +5083,8 @@ var componentName = "wb-feeds",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	patt = /\\u([\d\w]{4})/g,
+	limitTypes = [ "load", "display" ],
+	i18n, i18nText,
 
 	/**
 	 * @object Templates
@@ -5173,17 +5168,6 @@ var componentName = "wb-feeds",
 					"</li>";
 		},
 		/**
-		 * [pinterest template]
-		 * @param  {entry object}    data
-		 * @return {string}    HTML string of formatted using a simple list / anchor view
-		 */
-		pinterest: function( data ) {
-			var content = fromCharCode( data.content ).replace(/<a href="\/pin[^"]*"><img ([^>]*)><\/a>([^<]*)(<a .*)?/, "<a href='" + data.link + "'><img alt='' class='center-block' $1><br/>$2</a>$3");
-			return "<li class='media'>" + content +
-			( data.publishedDate !== "" ? " <small class='small'>[" +
-			wb.date.toDateISO( data.publishedDate, true ) + "]</small>" : "" ) + "</li>";
-		},
-		/**
 		 * [generic template]
 		 * @param  {entry object}	data
 		 * @return {string}	HTML string of formatted using a simple list / anchor view
@@ -5220,15 +5204,19 @@ var componentName = "wb-feeds",
 	/**
 	 * Helper function that returns a class-based set limit on plugin instances
 	 * @method getLimit
-	 * @param {DOM object} elm The element to search for a class of the form limit-5
+	 * @param {DOM object} elm The element to search for a class of the form {limit-type}-5
+	 * @param {string} type The type of limit ("load" or "display")
 	 * @return {number} 0 if none found, which means the plugin default
 	 */
-	getLimit = function( elm ) {
-		var count = elm.className.match( /\blimit-\d+/ );
-		if ( !count ) {
+	getLimit = function( elm, type ) {
+		var re = new RegExp( "\\b" + type + "-(\\d+)", "i" ),
+			limit = elm.className.match( re );
+
+		if ( !limit ) {
 			return 0;
 		}
-		return Number( count[ 0 ].replace( /limit-/i, "" ) );
+
+		return Number( limit[ 1 ] );
 	},
 
 	/**
@@ -5260,18 +5248,37 @@ var componentName = "wb-feeds",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			fetch, url, $content, limit, feeds, fType, last, i, callback, fElem, fIcon;
+			fetch, url, $content, loadLimit, displayLimit, feeds, fType, last, i, callback, fElem, fIcon;
+
+		// Only initialize the i18nText once
+		if ( !i18nText ) {
+			i18n = wb.i18n;
+			i18nText = {
+				previous: i18n( "prv" ),
+				next: i18n( "nxt" )
+			};
+		}
 
 		if ( elm ) {
 			$content = $( elm ).find( ".feeds-cont" );
-			limit = getLimit( elm );
+			loadLimit = getLimit( elm, limitTypes[ 0 ] );
+			displayLimit = getLimit( elm, limitTypes[ 1 ] );
 			feeds = $content.find( feedLinkSelector );
 			last = feeds.length - 1;
+
+			// Ensure load and display limits are either non-zero or both zero
+			if ( loadLimit === 0 && displayLimit !== 0 ) {
+				loadLimit = displayLimit;
+			} else if ( displayLimit === 0 && loadLimit !== 0 ) {
+				displayLimit = loadLimit;
+			}
 
 			// Lets bind some variables to the node to ensure safe ajax thread counting
 
 			$content.data( "toProcess", feeds.length )
-					.data( "feedLimit", limit )
+					.data( "startAt", 0 )
+					.data( "loadLimit", loadLimit )
+					.data( "displayLimit", displayLimit )
 					.data( "entries", [] );
 
 			for ( i = last; i !== -1; i -= 1 ) {
@@ -5299,14 +5306,12 @@ var componentName = "wb-feeds",
 					fetch.url = fElem.attr( "data-ajax" );
 					fetch.jsonp = callback;
 				} else {
-					url = jsonRequest( fElem.attr( "href" ), limit );
+					url = jsonRequest( fElem.attr( "href" ), loadLimit );
 					fetch.url = url;
 
 					// Let's bind the template to the Entries
 					if ( url.indexOf( "facebook.com" ) !== -1 ) {
 						fType = "facebook";
-					} else if ( url.indexOf( "pinterest.com" ) > -1  ) {
-						fType = "pinterest";
 					} else {
 						fType = "generic";
 					}
@@ -5340,6 +5345,7 @@ var componentName = "wb-feeds",
 			icon = this.fIcon,
 			$content = this._content,
 			toProcess = $content.data( "toProcess" ),
+			compare = wb.date.compare,
 			i, len;
 
 		len = items.length;
@@ -5352,11 +5358,15 @@ var componentName = "wb-feeds",
 
 			entries.push( items[ i ] );
 		}
+
 		// lets merge with latest entries
 		entries = $.merge( entries, $content.data( "entries" ) );
 
 		if ( toProcess === 1 ) {
-			parseEntries( entries, $content.data( "feedLimit" ), $content, this.feedType );
+			entries = entries.sort( function( a, b ) {
+				return compare( b.publishedDate, a.publishedDate );
+			});
+			parseEntries( entries, $content.data( "startAt" ), $content.data( "displayLimit" ), $content.data("loadLimit"), $content, this.feedType );
 			return 0;
 		}
 
@@ -5373,27 +5383,26 @@ var componentName = "wb-feeds",
 	 * Parses the results from a JSON request and appends to an element
 	 * @method parseEntries
 	 * @param {object} entries Results from a JSON request.
+	 * @param {integer} startAt Entry from which to start appending results to the element.
 	 * @param {integer} limit Limit on the number of results to append to the element.
 	 * @param {jQuery DOM element} $elm Element to which the elements will be appended.
 	 * @return {url} The URL for the JSON request
 	 */
-	parseEntries = function( entries, limit, $elm, feedtype ) {
-		var cap = ( limit > 0 && limit < entries.length ? limit : entries.length ),
+	parseEntries = function( entries, startAt, limit, numload, $elm, feedtype ) {
+		var cap = ( limit > 0 && limit < ( entries.length - startAt ) ? limit : ( entries.length - startAt ) ) + startAt,
+			displaying = cap - startAt,
+			showPagination = (limit < numload),
 			result = "",
-			compare = wb.date.compare,
 			$details = $elm.closest( "details" ),
 			activate = true,
 			feedContSelector = ".feeds-cont",
 			hasVisibilityHandler = "vis-handler",
-			i, sorted, sortedEntry, $tabs;
+			i, $tabs;
 
-		sorted = entries.sort( function( a, b ) {
-			return compare( b.publishedDate, a.publishedDate );
-		});
+		$elm.data( "displaying", displaying );
 
-		for ( i = 0; i !== cap; i += 1 ) {
-			sortedEntry = sorted[ i ];
-			result += Templates[ feedtype ]( sortedEntry );
+		for ( i = startAt; i !== cap; i += 1 ) {
+			result += Templates[ feedtype ]( entries[ i ] );
 		}
 		$elm.data( componentName + "-result", result );
 
@@ -5410,7 +5419,7 @@ var componentName = "wb-feeds",
 							.on( "wb-updated.wb-tabs", function( event, $newPanel ) {
 								var $feedCont = $newPanel.find( feedContSelector );
 								if ( !$feedCont.hasClass( "feed-active" ) ) {
-									activateFeed( $feedCont );
+									activateFeed( $feedCont, showPagination );
 								}
 							})
 							.addClass( hasVisibilityHandler );
@@ -5423,13 +5432,13 @@ var componentName = "wb-feeds",
 					.children( "summary" )
 						.on( "click.wb-feeds", function( event ) {
 							var $summary = $( event.currentTarget ).off( "click.wb-feeds" );
-							activateFeed( $summary.parent().find( feedContSelector ) );
+							activateFeed( $summary.parent().find( feedContSelector ), showPagination );
 						});
 			}
 		}
 
 		if ( activate ) {
-			activateFeed( $elm );
+			activateFeed( $elm, showPagination );
 		}
 
 		return true;
@@ -5439,16 +5448,42 @@ var componentName = "wb-feeds",
 	 * Activates feed results view
 	 * @method activateFeed
 	 * @param = {jQuery object} $elm Feed container
+	 * @param = {boolean} showPagination Show pagination if `true`
 	 */
-	activateFeed = function( $elm ) {
+	activateFeed = function( $elm, showPagination ) {
 		var result = $elm.data( componentName + "-result" ),
 			postProcess = $elm.data( componentName + "-postProcess" ),
-			i, postProcessSelector;
+			i, postProcessSelector, paginationMarkup;
 
 		$elm.empty()
 			.removeClass( "waiting" )
 			.addClass( "feed-active" )
 			.append( result );
+
+		if ( showPagination ) {
+			//Check for and remove outdated pagination markup
+			if ( $elm.hasClass( "mrgn-bttm-0" ) ) {
+				$elm.removeClass( "mrgn-bttm-0" );
+				$elm.next().remove();
+				$elm.next().remove();
+			}
+
+			paginationMarkup = "<div class=\"clearfix\"></div><ul class=\"pager mrgn-tp-sm\"><li";
+
+			if ( $elm.data( "startAt" ) === 0 ) {
+				paginationMarkup += " class=\"disabled\"";
+			}
+
+			paginationMarkup += "><a href=\"#\" rel=\"prev\">" + i18nText.previous + "</a></li><li";
+
+			if ( ( $elm.data( "entries" ).length - $elm.data( "startAt" ) - $elm.data( "displaying" ) ) <= 0 ) {
+				paginationMarkup += " class=\"disabled\"";
+			}
+
+			paginationMarkup += "><a href=\"#\" rel=\"next\">" + i18nText.next + "</a></li></ul>";
+
+			$elm.addClass( "mrgn-bttm-0" ).after( paginationMarkup );
+		}
 
 		if ( postProcess ) {
 			for ( i = postProcess.length - 1; i !== -1; i -= 1 ) {
@@ -5478,6 +5513,43 @@ $document.on( "ajax-fetched.wb", selector + " " + feedLinkSelector, function( ev
 		}
 	}
 });
+
+// Listen for clicks on pagination links
+$document.on( "click vclick", ".wb-feeds .pager a[rel]", function( event ) {
+	var $linkCtx = $(event.target),
+		$content = $(event.target).closest(".wb-feeds").find(".feeds-cont"),
+		newStartAt;
+
+	if ( $linkCtx.attr("rel") === "next" ) {
+		newStartAt = $content.data( "startAt" ) + $content.data( "displayLimit" );
+
+		// Ensure that the next page's starting entry isn't higher than the highest entry
+		if ( newStartAt < $content.data( "entries" ).length ) {
+
+			// Set the new start entry's number
+			$content.data( "startAt", newStartAt);
+
+			// Update the feed entries that are shown
+			// TODO: Don't force "generic"
+			parseEntries( $content.data( "entries" ), newStartAt, $content.data( "displayLimit" ), $content.data("loadLimit"), $content, "generic" );
+		}
+	} else {
+		newStartAt = $content.data( "startAt" ) - $content.data( "displayLimit" );
+
+		// Ensure that the previous page's starting entry isn't smaller than 0
+		if ( newStartAt >= 0 ) {
+
+			// Set the new start entry's number
+			$content.data( "startAt", newStartAt );
+
+			// Update the feed entries that are shown
+			// TODO: Don't force "generic"
+			parseEntries( $content.data( "entries" ), newStartAt, $content.data( "displayLimit" ), $content.data("loadLimit"), $content, "generic" );
+		}
+	}
+
+	event.preventDefault();
+} );
 
 // Bind the init event to the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
@@ -5670,7 +5742,7 @@ var componentName = "wb-frmvld",
 						$inputs = $formElms.filter( "input" ),
 						$pattern = $inputs.filter( "[pattern]" ),
 						submitted = false,
-						$required = $formElms.filter( "[required], [data-rule-required], .required" ),
+						$required = $form.find( "[required]" ).attr( "aria-required", "true" ),
 						errorFormId = "errors-" + ( !formId ? "default" : formId ),
 						settings = $.extend(
 							true,
@@ -6138,10 +6210,7 @@ var componentName = "wb-lbx",
 						$content.attr( "role", "document" );
 					}
 
-					$wrap.append( "<span tabindex='0' class='lbx-end wb-inv'></span>" )
-                        .find( ".activate-open" )
-                        .trigger( "wb-activate" );
-
+					$wrap.append( "<span tabindex='0' class='lbx-end wb-inv'></span>" );
 				},
 				change: function() {
 					var $item = this.currItem,
@@ -6390,7 +6459,6 @@ var componentName = "wb-menu",
 			menuCount += 1;
 
 			// Lets test to see if we have any menus to fetch
-			// This is required for backwards compatibility. In previous versions, the menu was not integrated witht he data ajax plugin.
 			ajaxFetch = $elm.data( "ajax-fetch" );
 			if ( ajaxFetch ) {
 				$elm.trigger({
@@ -6400,12 +6468,7 @@ var componentName = "wb-menu",
 					}
 				});
 			} else {
-
-				//Enhance menus that don't rely on the data-ajax plugin
-				ajaxFetch = $elm.data( "ajax-replace" ) || $elm.data( "ajax-append" ) || $elm.data( "ajax-prepend" );
-				if ( !ajaxFetch ) {
-					onAjaxLoaded( $elm, $elm );
-				}
+				onAjaxLoaded( $elm, $elm );
 			}
 		}
 	},
@@ -8031,15 +8094,6 @@ $document.on( "keyup", selector, function( event ) {
 	}
 });
 
-// TODO: recode with a more efficient to use the API than DOM crawling
-$document.on( "wb-activate", selector, function( event ) {
-    var playerTarget = event.currentTarget,
-        ctrls = ".wb-mm-ctrls",
-        ref = expand( playerTarget ),
-        $this = ref[ 0 ];
-    $this.find( ctrls + " .playpause" ).trigger( "click" );
-});
-
 $document.on( "durationchange play pause ended volumechange timeupdate " +
 	captionsLoadedEvent + " " + captionsLoadFailedEvent + " " +
 	captionsVisibleChangeEvent + " " + cuepointEvent +
@@ -8944,7 +8998,6 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	resetEvent = "reset" + selector,
 	keepaliveEvent = "keepalive" + selector,
 	inactivityEvent = "inactivity" + selector,
-	dataAttr = componentName,
 
 	/*
 	 * Plugin users can override these defaults by setting attributes on the html elements that the
@@ -8976,15 +9029,10 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 		if ( elm ) {
 			$elm = $( elm );
 
-			// For backwards compatibility where data-wet-boew was used instead of data-wb-sessto
-			if ( !$elm.attr( "data-" + componentName ) ) {
-				dataAttr = "wet-boew";
-			}
-
 			// Merge default settings with overrides from the plugin element
 			// and save back to the element for future reference
-			settings = $.extend( {}, defaults, window[ componentName ], $elm.data( dataAttr ) );
-			$elm.data( dataAttr, settings );
+			settings = $.extend( {}, defaults, window[ componentName ], $elm.data( "wet-boew" ) );
+			$elm.data( "wet-boew", settings );
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -9803,7 +9851,6 @@ var componentName = "wb-tabs",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
 	shiftEvent = "wb-shift" + selector,
-	selectEvent = "wb-select" + selector,
 	updatedEvent = "wb-updated" + selector,
 	setFocusEvent = "setfocus.wb",
 	controls = selector + " [role=tablist] a, " + selector + " [role=tablist] .tab-count",
@@ -9813,8 +9860,6 @@ var componentName = "wb-tabs",
 	equalHeightOffClass = equalHeightClass + "-off",
 	activePanel = "-activePanel",
 	activateEvent = "click keydown",
-	ignoreHashChange = false,
-	pagePath = wb.pageUrlParts.pathname + "#",
 	$document = wb.doc,
 	$window = wb.win,
 	i18n, i18nText,
@@ -9825,8 +9870,7 @@ var componentName = "wb-tabs",
 
 	defaults = {
 		excludePlay: false,
-		interval: 6,
-		updateHash: false
+		interval: 6
 	},
 
 	/**
@@ -9844,7 +9888,7 @@ var componentName = "wb-tabs",
 			open = "open",
 			$panels, $tablist, activeId, $openPanel, $elm, elmId,
 			settings, $panel, i, len, tablist, isOpen,
-			newId, positionY, groupClass, $tabPanels;
+			newId, positionY, groupClass;
 
 		if ( elm ) {
 			$elm = $( elm );
@@ -9869,7 +9913,6 @@ var componentName = "wb-tabs",
 								9 : $elm.hasClass( "fast" ) ?
 									3 : defaults.interval,
 					excludePlay: $elm.hasClass( "exclude-play" ),
-					updateHash: $elm.hasClass( "update-hash" ),
 					playing: $elm.hasClass( "playing" )
 				},
 				window[ componentName ],
@@ -9888,7 +9931,7 @@ var componentName = "wb-tabs",
 				// If the panel was not set by URL hash, then attempt to
 				// retrieve from sessionStorage
 				if ( !$openPanel || $openPanel.length === 0 ) {
-					activeId = sessionStorage.getItem( pagePath + elmId + activePanel );
+					activeId = sessionStorage.getItem( elmId + activePanel );
 					if ( activeId ) {
 						$openPanel = $panels.filter( "#" + activeId );
 					}
@@ -9897,7 +9940,7 @@ var componentName = "wb-tabs",
 				} else {
 					hashFocus = true;
 					try {
-						sessionStorage.setItem( pagePath + elmId + activePanel, activeId );
+						sessionStorage.setItem( elmId + activePanel, activeId );
 					} catch ( error ) {
 					}
 				}
@@ -9927,11 +9970,8 @@ var componentName = "wb-tabs",
 			if ( !isCarousel ) {
 				$elm.addClass( "tabs-acc" );
 				groupClass = elmId + "-grp";
-				$tabPanels = $elm.children( ".tabpanels" );
-				$panels = $tabPanels.children( "details" );
+				$panels = $elm.find( "> .tabpanels > details" );
 				len = $panels.length;
-
-				$tabPanels.detach();
 
 				// Ensure there is only one panel open
 				// Order of priority is hash, open property, first details
@@ -9975,7 +10015,7 @@ var componentName = "wb-tabs",
 							open: open
 						});
 						$panel.addClass( ( Modernizr.details ? "" :  open + " " ) +
-							"fade " + ( isOpen ? "in" : "out wb-inv" ) );
+							"fade " + ( isOpen ? "in" : "out" ) );
 					}
 
 					tablist += "<li" + ( isOpen ? " class='active'" : "" ) +
@@ -9984,15 +10024,13 @@ var componentName = "wb-tabs",
 				}
 
 				$tablist = $( tablist + "</ul>" );
-				$tabPanels.find( "> details > summary" )
-					.addClass( "wb-toggle tgl-tab" )
-					.attr( "data-toggle", "{\"parent\": \"#" + elmId +
-						"\", \"group\": \"." + groupClass + "\"}" );
-
 				$elm
 					.prepend( $tablist )
-					.append( $tabPanels )
-					.trigger( "wb-init.wb-toggle" );
+					.find( "> .tabpanels > details > summary" )
+						.addClass( "wb-toggle tgl-tab" )
+						.attr( "data-toggle", "{\"parent\": \"#" + elmId +
+							"\", \"group\": \"." + groupClass + "\"}" )
+						.trigger( "wb-init.wb-toggle" );
 			} else if ( $openPanel && $openPanel.length !== 0 ) {
 				$panels.filter( ".in" )
 					.addClass( "out" )
@@ -10043,12 +10081,7 @@ var componentName = "wb-tabs",
 			});
 
 			initialized = true;
-			onResize( $elm );
-
-			// Update the URL hash if needed
-			if ( settings.updateHash ) {
-				updateHash( $openPanel[ 0 ] );
-			}
+			onResize();
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
@@ -10138,7 +10171,7 @@ var componentName = "wb-tabs",
 			listItems = $tabList.children().get(),
 			listCounter = listItems.length - 1,
 			isDetails = $panels[ 0 ].nodeName.toLowerCase() === "details",
-			isActive, item, link, panelId;
+			isActive, item, link;
 
 		$panels.attr( "tabindex", "-1" );
 
@@ -10159,29 +10192,12 @@ var componentName = "wb-tabs",
 			isActive = item.className.indexOf( "active" ) !== -1;
 
 			link = item.getElementsByTagName( "a" )[ 0 ];
-			panelId = link.getAttribute( "href" ).substring( 1 );
-
 			link.tabIndex = isActive ? "0" : "-1";
 			link.setAttribute( "role", "tab" );
 			link.setAttribute( "aria-selected", isActive ? "true" : "false" );
-			link.setAttribute( "aria-controls", panelId );
-			link.id = panelId + "-lnk";
+			link.setAttribute( "aria-controls", link.getAttribute( "href" ).substring( 1 ) );
 		}
 		$tabList.attr( "aria-live", "off" );
-	},
-
-	/**
-	 * @method updateHash
-	 * @param {DOM element} elm Tabpanel to be referenced in the URL hash
-	 */
-	updateHash = function( elm ) {
-		var elmId = elm.id;
-
-		ignoreHashChange = true;
-		elm.id += "-off";
-		window.location.hash = elmId;
-		elm.id = elmId;
-		ignoreHashChange = false;
 	},
 
 	updateNodes = function( $panels, $controls, $next, $control ) {
@@ -10254,15 +10270,10 @@ var componentName = "wb-tabs",
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				pagePath + $container.attr( "id" ) + activePanel,
+				$container.attr( "id" ) + activePanel,
 				$next.attr( "id" )
 			);
 		} catch ( error ) {
-		}
-
-		// Update the URL hash if needed
-		if ( $container.data( componentName ).settings.updateHash ) {
-			updateHash( $next[ 0 ] );
 		}
 
 		// Identify that the tabbed interface/carousel was updated
@@ -10291,28 +10302,17 @@ var componentName = "wb-tabs",
 	onShift = function( event, $elm ) {
 		var data = $elm.data( componentName ),
 			$panels = data.panels,
+			$controls = data.tablist,
 			len = $panels.length,
 			current = $elm.find( "> .tabpanels > .in" ).prevAll( "[role=tabpanel]" ).length,
-			next = current > len ? 0 : current + ( event.shiftto ? event.shiftto : 1 );
+			shiftto = event.shiftto ? event.shiftto : 1,
+			next = current > len ? 0 : current + shiftto,
+			$next = $panels.eq( ( next > len - 1 ) ? 0 : ( next < 0 ) ? len - 1 : next );
 
-		onSelect( $panels[ ( next > len - 1 ) ? 0 : ( next < 0 ) ? len - 1 : next ].id );
-	},
-
-	/**
-	 * @method onSelect
-	 * @param (string) id Id attribute of the panel
-	 */
-	onSelect = function( id ) {
-		var panelSelector = "#" + id,
-			$panel = $( panelSelector );
-
-		if ( isSmallView && $panel[ 0 ].nodeName.toLowerCase() === "details" ) {
-			$panel.children( "summary" ).trigger( $panel.attr( "open" ) ? setFocusEvent : "click" );
-		} else {
-			$( panelSelector + "-lnk" )
-				.trigger( "click" )
-				.trigger( setFocusEvent );
-		}
+		updateNodes(
+			$panels, $controls, $next,
+			$controls.find( "[href=#" + $next.attr( "id" ) + "]" )
+		);
 	},
 
 	/**
@@ -10332,7 +10332,7 @@ var componentName = "wb-tabs",
 	 * @param {jQuery Event} event Event that triggered the function call
 	 */
 	onHashChange = function( event ) {
-		if ( initialized && !ignoreHashChange ) {
+		if ( initialized ) {
 			var hash = window.location.hash,
 				$hashTarget = $( hash );
 
@@ -10345,108 +10345,90 @@ var componentName = "wb-tabs",
 				} else {
 					$hashTarget
 						.parent()
-							.parent()
-								.find( "> ul [href$='" + hash + "']" )
-									.trigger( "click" );
+							.find( "> ul [href$='" + hash + "']" )
+								.trigger( "click" );
 				}
 			}
 		}
 	},
 
-	/**
-	 * @method onResize
-	 * @param {jQuery Object} $currentElm Element being initialized (only during initialization process).
-	 */
-	onResize = function( $currentElm ) {
-		var $elms, $elm, $tabPanels, $details, $tablist, $openDetails, openDetailsId,
-			$nonOpenDetails, $active, $summary, i, len;
+	onResize = function() {
+		var $elm, $details, $tablist, $openDetails,
+			$nonOpenDetails, $active, $summary;
 
 		if ( initialized ) {
 			isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
+			$elm = $( selector );
+			$details = $elm.find( "> .tabpanels > details" );
+			if ( $details.length !== 0 ) {
+				if ( isSmallView !== oldIsSmallView ) {
+					$summary = $details.children( "summary" );
+					$tablist = $elm.children( "ul" );
 
-			if ( isSmallView !== oldIsSmallView ) {
-				$elms = $currentElm.length ? $currentElm : $( selector );
-				len = $elms.length;
+					// Disable equal heights for small view
+					if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
+						$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
+					}
 
-				for ( i = 0; i !== len; i += 1 ) {
-					$elm = $elms.eq( i );
-					$tabPanels = $elm.children( ".tabpanels" );
-					$details = $tabPanels.children( "details" );
+					if ( isSmallView ) {
 
-					if ( $details.length !== 0 ) {
-						$tabPanels.detach();
-						$summary = $details.children( "summary" );
-						$tablist = $elm.children( "ul" );
+						// Switch to small view
+						$active = $tablist.find( ".active a" );
+						$details
+							.removeAttr( "role aria-expanded aria-hidden" )
+							.removeClass( "fade out in" );
+						$openDetails = $details
+											.filter( "#" + $active.attr( "href" ).substring( 1 ) )
+												.attr( "open", "open" )
+												.addClass( "open" );
+						$nonOpenDetails = $details.not( $openDetails )
+													.removeAttr( "open" )
+													.removeClass( "open" );
+					} else if ( oldIsSmallView ) {
 
-						if ( isSmallView ) {
+						// Switch to large view
+						$openDetails = $details.filter( "[open]" );
+						$openDetails = ( $openDetails.length === 0 ? $details : $openDetails ).eq( 0 );
 
-							// Switch to small view
-							$active = $tablist.find( ".active a" );
-							$details
-								.removeAttr( "role aria-expanded aria-hidden" )
-								.removeClass( "fade out in" );
-							$openDetails = $details
-												.filter( "#" + $active.attr( "href" ).substring( 1 ) )
-													.attr( "open", "open" )
-													.addClass( "open" );
-							$nonOpenDetails = $details.not( $openDetails )
-														.removeAttr( "open" )
-														.removeClass( "open" );
-						} else if ( oldIsSmallView ) {
-
-							// Switch to large view
-							$openDetails = $details.filter( "[open]" );
-							openDetailsId = $openDetails.attr( "id" );
-
-							$openDetails = ( $openDetails.length === 0 ? $details : $openDetails ).eq( 0 );
-
-							$details
+						$details
+							.attr({
+								role: "tabpanel",
+								open: "open"
+							})
+							.not( $openDetails )
+								.addClass( "fade out" )
 								.attr({
-									role: "tabpanel",
-									open: "open"
+									"aria-hidden": "true",
+									"aria-expanded": "false"
+								});
+
+						$openDetails
+							.addClass( "fade in" )
+							.attr({
+									"aria-hidden": "false",
+									"aria-expanded": "true"
 								})
-								.not( $openDetails )
-									.addClass( "fade out wb-inv" )
-									.attr({
-										"aria-hidden": "true",
-										"aria-expanded": "false"
-									});
+							.parent()
+								.find( "> ul [href$='" + $openDetails.attr( "id" ) + "']" )
+									.trigger( "click" );
+					}
 
-							$openDetails
-								.addClass( "fade in" )
-								.attr({
-										"aria-hidden": "false",
-										"aria-expanded": "true"
-									});
-						}
+					$summary.attr( "aria-hidden", !isSmallView );
+					$tablist.attr( "aria-hidden", isSmallView );
+				} else {
 
-						// Enable equal heights for large view or disable for small view
-						if ( isSmallView !== $elm.hasClass( equalHeightOffClass ) ) {
-							$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
-						}
-
-						$summary.attr( "aria-hidden", !isSmallView );
-						$tablist.attr( "aria-hidden", isSmallView );
-
-						$elm.append( $tabPanels );
-
-						if ( oldIsSmallView ) {
-							$elm.find( "> ul [href$='" + openDetailsId + "']" ).trigger( "click" );
-						}
+					// Enable equal heights for large view
+					if ( $elm.attr( "class" ).indexOf( equalHeightClass ) !== -1 ) {
+						$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
 					}
 				}
-
-				// Remove wb-inv from regular tabs that were used to prevent FOUC (after 300ms delay)
-				setTimeout(function() {
-					$( selector + " .tabpanels > details.wb-inv" ).removeClass( "wb-inv" );
-				}, 300 );
+				oldIsSmallView = isSmallView;
 			}
-			oldIsSmallView = isSmallView;
 		}
 	};
 
  // Bind the init event of the plugin
- $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent + " " + selectEvent, selector, function( event ) {
+ $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent, selector, function( event ) {
 	var eventTarget = event.target,
 		eventCurrentTarget = event.currentTarget,
 		$elm;
@@ -10471,17 +10453,10 @@ var componentName = "wb-tabs",
 				break;
 
 			/*
-			 * Change tab panels by a delta
+			 * Change Slides
 			 */
 			case "wb-shift":
 				onShift( event, $( eventTarget ) );
-				break;
-
-			/*
-			 * Select a specific tab panel
-			 */
-			case "wb-select":
-				onSelect( event.id );
 				break;
 			}
 		}
@@ -10626,7 +10601,7 @@ $document.on( "click keydown", selector + " [role=tabpanel]", function( event ) 
 			$( currentTarget )
 				.closest( selector )
 					.find( "[href$='#" + currentTarget.id + "']" )
-						.trigger( setFocusEvent );
+						.trigger( "setfocus.wb" );
 		}
 	}
 });
@@ -10636,19 +10611,19 @@ $document.on( "click", selector + " [role=tabpanel] a", function( event ) {
 	var currentTarget = event.currentTarget,
 		href = currentTarget.getAttribute( "href" ),
 		which = event.which,
-		$tabpanels, $panel, $summary;
+		$container, $panel, $summary;
 
 	// Ignore middle and right mouse buttons
 	if ( ( !which || which === 1 ) && href.charAt( 0 ) === "#" ) {
-		$tabpanels = $( currentTarget ).closest( ".tabpanels" );
-		$panel = $tabpanels.children( href );
+		$container = $( currentTarget ).closest( selector );
+		$panel = $container.find( href + "[role=tabpanel]" );
 		if ( $panel.length !== 0 ) {
 			event.preventDefault();
 			$summary = $panel.children( "summary" );
 			if ( $summary.length !== 0 && $summary.attr( "aria-hidden" ) !== "true" ) {
 				$summary.trigger( "click" );
 			} else {
-				$tabpanels.find( href + "-lnk" ).trigger( "click" );
+				$container.find( href + "-lnk" ).trigger( "click" );
 			}
 		}
 	}
@@ -10663,7 +10638,7 @@ $window.on( "hashchange", onHashChange );
 $document.on( activateEvent, selector + " > .tabpanels > details > summary", function( event ) {
 	var which = event.which,
 		details = event.currentTarget.parentNode,
-		$details, $container;
+		$details;
 
 	if ( !( event.ctrlKey || event.altKey || event.metaKey ) &&
 		( !which || which === 1 || which === 13 || which === 32 ) ) {
@@ -10673,32 +10648,14 @@ $document.on( activateEvent, selector + " > .tabpanels > details > summary", fun
 		// Update sessionStorage with the current active panel
 		try {
 			sessionStorage.setItem(
-				pagePath + $details.closest( selector ).attr( "id" ) + activePanel,
+				$details.closest( selector ).attr( "id" ) + activePanel,
 				details.id
 			);
 		} catch ( error ) {
 		}
 
-		$container = $details.closest( selector );
-
-		// Update the URL hash if needed
-		if ( $container.data( componentName ).settings.updateHash ) {
-			updateHash( details );
-		}
-
 		// Identify that the tabbed interface was updated
-		$container.trigger( updatedEvent, [ $details ] );
-	}
-});
-
-// Change the panel based upon an external link click
-$document.on( "click", ".wb-tabs-ext", function( event ) {
-	var which = event.which;
-
-	// Ignore middle and right mouse buttons
-	if ( !which || which === 1 ) {
-		event.preventDefault();
-		onSelect( event.currentTarget.getAttribute( "href" ).substring( 1 ) );
+		$details.closest( selector ).trigger( updatedEvent, [ $details ] );
 	}
 });
 
