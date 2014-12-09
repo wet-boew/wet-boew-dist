@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.9-development - 2014-12-08
+ * v4.0.9-development - 2014-12-09
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1255,10 +1255,16 @@ $document.on( "ajax-fetch.wb", function( event ) {
 	// TODO: Remove event.element in future versions
 	var caller = event.element || event.target,
 		fetchOpts = event.fetch,
-		fetchData;
+		fetchData, callerId;
 
 	// Filter out any events triggered by descendants
 	if ( caller === event.target || event.currentTarget === event.target ) {
+
+		if ( !caller.id ) {
+			caller.id = wb.guid();
+		}
+		callerId = caller.id;
+
 		$.ajax( fetchOpts )
 			.done(function( response, status, xhr ) {
 				var responseType = typeof response;
@@ -1272,13 +1278,13 @@ $document.on( "ajax-fetch.wb", function( event ) {
 				fetchData.pointer = $( "<div id='" + wb.guid() + "' data-type='" + responseType + "' />" )
 										.append( responseType === "string" ? response : "" );
 
-				$( caller ).trigger({
+				$( "#" + callerId ).trigger({
 					type: "ajax-fetched.wb",
 					fetch: fetchData
 				}, this );
 			})
 			.fail(function( xhr, status, error ) {
-				$( caller ).trigger({
+				$( "#" + callerId ).trigger({
 					type: "ajax-failed.wb",
 					fetch: {
 						xhr: xhr,
@@ -6667,7 +6673,6 @@ wb.add( selector );
 var componentName = "wb-mltmd",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
-	uniqueCount = 0,
 	template,
 	i18n, i18nText,
 	captionsLoadedEvent = "ccloaded" + selector,
@@ -6714,13 +6719,6 @@ var componentName = "wb-mltmd",
 					duration: i18n( "dur" ),
 					position: i18n( "pos" )
 				};
-			}
-
-			// Ensure there is an id on the element
-			if ( !elmId ) {
-				elmId = "wb-mm-" + uniqueCount;
-				eventTarget.id = elmId;
-				uniqueCount += 1;
 			}
 
 			if ( template === undef ) {
