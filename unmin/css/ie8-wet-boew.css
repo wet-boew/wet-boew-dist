@@ -5678,11 +5678,11 @@ figure .pieLabel {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.wb-frmvld label strong.error, .wb-frmvld legend .error {
+.wb-frmvld label strong.error, .wb-frm label strong.error, .wb-frmvld legend .error, .wb-frm legend .error {
   display: inline-block;
   width: 100%; }
 
-.wb-frmvld label strong.error .label, .wb-frmvld legend .error .label {
+.wb-frmvld label strong.error .label, .wb-frm label strong.error .label, .wb-frmvld legend .error .label, .wb-frm legend .error .label {
   font-size: 100%; }
 
 /*
