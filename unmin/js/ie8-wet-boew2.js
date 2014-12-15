@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.9 - 2014-12-11
+ * v4.0.10-development - 2014-12-15
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1099,7 +1099,7 @@
 	 * Originally from http://stackoverflow.com/a/2117523/455535
 	 */
 	wb.guid = function() {
-		return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function( replacementChar ) {
+		return "wb-xxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function( replacementChar ) {
 			var rand = Math.random() * 16 | 0,
 				newChar = replacementChar === "x" ? rand : ( rand & 0x3 | 0x8 );
 			return newChar.toString(16);
