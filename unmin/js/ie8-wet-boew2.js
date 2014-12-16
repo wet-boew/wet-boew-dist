@@ -10018,7 +10018,8 @@ var componentName = "wb-tabs",
 	var which = event.which,
 		elm = event.currentTarget,
 		className = elm.className,
-		$elm, $sldr, sldrId, $plypause, data, isPlaying, isPlayPause;
+		spaceText = i18nText.space,
+		$elm, $sldr, sldrId, plypause, buttonText, data, isPlaying, isPlayPause;
 
 	// No control, alt or meta keys and only left mouse button, enter key,
 	// space bar, escape key and arrow keys
@@ -10054,21 +10055,17 @@ var componentName = "wb-tabs",
 				wb.add( "#" + sldrId + selector );
 			}
 
-			$plypause = $sldr.find( "a.plypause" );
-			$plypause
-				.find( ".glyphicon" )
-					.toggleClass( "glyphicon-play glyphicon-pause" );
-
 			$sldr.toggleClass( "playing" );
 			isPlaying = !isPlaying;
+			buttonText = isPlaying ? i18nText.pause : i18nText.play;
 
-			$plypause[ 0 ].getElementsByTagName( "span" )[ 1 ].innerHTML = isPlaying ?
-				i18nText.pause :
-				i18nText.play;
-
-			$plypause.find( ".wb-inv" )[ 0 ].innerHTML = isPlaying ?
-				i18nText.rotStop :
-				i18nText.rotStart;
+			plypause = $sldr.find( "a.plypause" )[ 0 ];
+			plypause.setAttribute( "title", buttonText );
+			plypause.innerHTML = "<span class='glyphicon glyphicon-" +
+				( isPlaying ? "pause" : "play" ) + "'></span> " +
+				"<span>" + buttonText + "</span><span class='wb-inv'>" +
+				spaceText + i18nText.hyphen + spaceText +
+				( isPlaying ? i18nText.rotStop : i18nText.rotStart ) + "</span>";
 		}
 
 		// Arrow keys
