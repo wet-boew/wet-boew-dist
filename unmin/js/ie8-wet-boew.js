@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2014-12-15
+ * v4.0.10-development - 2014-12-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3302,7 +3302,7 @@ var getUrlParts = function( url ) {
 
 					// TODO: Remove ID generation in individual plugins
 					if ( !node.id ) {
-						node.id = wb.guid();
+						node.id = "id" + wb.guid();
 					}
 				}
 
