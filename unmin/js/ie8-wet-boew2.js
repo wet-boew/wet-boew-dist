@@ -1261,7 +1261,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
 	if ( caller === event.target || event.currentTarget === event.target ) {
 
 		if ( !caller.id ) {
-			caller.id = wb.getId();
+			caller.id = "id" + wb.guid();
 		}
 		callerId = caller.id;
 
@@ -1275,7 +1275,7 @@ $document.on( "ajax-fetch.wb", function( event ) {
 					xhr: xhr
 				};
 
-				fetchData.pointer = $( "<div id='" + wb.getId() + "' data-type='" + responseType + "' />" )
+				fetchData.pointer = $( "<div id='id" + wb.guid() + "' data-type='" + responseType + "' />" )
 										.append( responseType === "string" ? response : "" );
 
 				$( "#" + callerId ).trigger({
@@ -1477,7 +1477,7 @@ var componentName = "wb-calevt",
 				 *	- 'evt-anchor' class dynamically generates page anchors on the links it maps to the event
 				 */
 				if ( !directLinking ) {
-					linkId = event.attr( "id" ) || wb.getId();
+					linkId = event.attr( "id" ) || "id" + wb.guid();
 					event.attr( "id", linkId );
 
 					/*
@@ -2421,6 +2421,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 	tableParsingEvent = "passiveparse.wb-tableparser",
 	tableParsingCompleteEvent = "parsecomplete.wb-tableparser",
 	$document = wb.doc,
+	idCount = 0,
 	i18n, i18nText,
 
 	/**
@@ -3482,7 +3483,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			elmId, modeJS, deps;
 
 		if ( elm ) {
@@ -3495,6 +3496,13 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 				"site!deps/jquery.flot.orderBars" + modeJS,
 				"site!deps/tableparser" + modeJS
 			];
+
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = componentName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -3819,7 +3827,7 @@ var componentName = "wb-data-ajax",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName + "-" + ajaxType, selector, true );
+		var elm = wb.init( event, componentName + "-" + ajaxType, selector );
 
 		if ( elm ) {
 
@@ -4634,7 +4642,7 @@ var componentName = "wb-feeds",
 		 */
 		flickr: function( data ) {
 
-			var seed = wb.getId(),
+			var seed = "id" + wb.guid(),
 				title = data.title,
 				media = data.media.m,
 				thumbnail = media.replace( "_m.", "_s." ),
@@ -4656,7 +4664,7 @@ var componentName = "wb-feeds",
 		 * @return {string}	HTML string for creating a photowall effect
 		 */
 		youtube: function( data ) {
-			var seed = wb.getId(),
+			var seed = "id" + wb.guid(),
 				mediaGroup = data.media$group,
 				title = mediaGroup.media$title.$t,
 				thumbnail = mediaGroup.media$thumbnail[ 1 ].url,
@@ -5445,7 +5453,7 @@ var componentName = "wb-geomap",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			$elm, modeJS;
 
 		if ( elm ) {
@@ -5497,6 +5505,7 @@ var componentName = "wb-lbx",
 	dependenciesLoadedEvent = "deps-loaded" + selector,
 	extendedGlobal = false,
 	$document = wb.doc,
+	idCount = 0,
 	callbacks, i18n, i18nText,
 
 	/**
@@ -5508,11 +5517,18 @@ var componentName = "wb-lbx",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			elmId;
 
 		if ( elm ) {
 			elmId = elm.id;
+
+			// Ensure there is a unique id on the element
+			if ( !elmId ) {
+				elmId = componentName + "-id-" + idCount;
+				idCount += 1;
+				elm.id = elmId;
+			}
 
 			// Ensure the dependencies are loaded first
 			$document.one( dependenciesLoadedEvent, function() {
@@ -6683,7 +6699,7 @@ var componentName = "wb-mltmd",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var eventTarget = wb.init( event, componentName, selector, true ),
+		var eventTarget = wb.init( event, componentName, selector ),
 			elmId;
 
 		if ( eventTarget ) {
@@ -9304,6 +9320,7 @@ var componentName = "wb-tabs",
 	updatedEvent = "wb-updated" + selector,
 	setFocusEvent = "setfocus.wb",
 	controls = selector + " [role=tablist] a, " + selector + " [role=tablist] .tab-count",
+	uniqueCount = 0,
 	initialized = false,
 	equalHeightClass = "wb-eqht",
 	equalHeightOffClass = equalHeightClass + "-off",
@@ -9334,7 +9351,7 @@ var componentName = "wb-tabs",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			hashFocus = false,
 			isCarousel = true,
 			open = "open",
@@ -9371,6 +9388,13 @@ var componentName = "wb-tabs",
 				window[ componentName ],
 				wb.getData( $elm, componentName )
 			);
+
+			// Ensure there is an id on the element
+			if ( !elmId ) {
+				elmId = "tabs-cnt-" + uniqueCount;
+				$elm.attr( "id", elmId );
+				uniqueCount += 1;
+			}
 
 			try {
 
@@ -9448,7 +9472,8 @@ var componentName = "wb-tabs",
 
 					newId = $panel.attr( "id" );
 					if ( !newId ) {
-						newId = wb.getId();
+						newId = "tabpanel" + uniqueCount;
+						uniqueCount += 1;
 						$panel.attr( "id", newId );
 					}
 					isOpen = !!$panel.attr( open );
@@ -10273,6 +10298,7 @@ var componentName = "wb-toggle",
 	toggleEvent = "toggle" + selector,
 	toggledEvent = "toggled" + selector,
 	setFocusEvent = "setfocus.wb",
+	elmIdx = 0,
 	states = {},
 	$document = wb.doc,
 	$window = wb.win,
@@ -10291,10 +10317,12 @@ var componentName = "wb-toggle",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var link = wb.init( event, componentName, selector, true ),
+		var link = wb.init( event, componentName, selector ),
 			$link, data;
 
 		if ( link ) {
+			elmIdx += 1;
+
 			// Merge the elements settings with the defaults
 			$link = $( link );
 			data = $.extend( {}, defaults, $link.data( "toggle" ) );
@@ -10326,7 +10354,8 @@ var componentName = "wb-toggle",
 	initAria = function( link, data ) {
 		var i, len, elm, elms, parent, tabs, tab, panel, isOpen,
 			ariaControls = "",
-			hasOpen = false;
+			hasOpen = false,
+			prefix = "wb-" + elmIdx;
 
 		// Group toggle elements with a parent are assumed to be a tablist
 		if ( data.group != null && data.parent != null ) {
@@ -10357,7 +10386,7 @@ var componentName = "wb-toggle",
 					}
 
 					if ( !tab.getAttribute( "id" ) ) {
-						tab.setAttribute( "id", wb.getId() );
+						tab.setAttribute( "id", prefix + i );
 					}
 					tab.setAttribute( "role", "tab" );
 					tab.setAttribute( "aria-selected", isOpen );
@@ -10383,7 +10412,7 @@ var componentName = "wb-toggle",
 			for ( i = 0, len = elms.length; i !== len; i += 1 ) {
 				elm = elms[ i ];
 				if ( !elm.id ) {
-					elm.id = wb.getId();
+					elm.id = prefix + i;
 				}
 				ariaControls += elm.id + " ";
 			}
@@ -10399,6 +10428,12 @@ var componentName = "wb-toggle",
 	initPersist = function( $link, data ) {
 		var state,
 			link = $link[ 0 ];
+
+		// Make sure the toggle link has an ID.
+		// This will be used as part of the unique storage key.
+		if ( !link.id ) {
+			link.id = "wb-" + elmIdx;
+		}
 
 		// Store the persistence type and key for later use
 		data.persist = data.persist === "session" ? sessionStorage : localStorage;
