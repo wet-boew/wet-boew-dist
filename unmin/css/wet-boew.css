@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2014-12-23
+ * v4.0.10-development - 2014-12-27
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4900,6 +4900,17 @@ blockquote {
 .form-control {
   max-width: 100%;
   width: auto; }
+
+/*
+ *	Fieldset legend border position
+ *
+ *	Bootstrap puts the border below the legend which creates a visual
+ *	separation between the legend and the fields to which it relates. Putting
+ *	the border above eliminates that visual separation.
+ */
+legend {
+  border-bottom: 0;
+  border-top: 1px solid #e5e5e5; }
 
 /*
  *	Pagination
