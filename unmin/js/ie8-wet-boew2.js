@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2014-12-27
+ * v4.0.10-development - 2014-12-29
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9632,7 +9632,7 @@ var componentName = "wb-tabs",
 
 		for ( ; tabCounter !== -1; tabCounter -= 1 ) {
 			item = panels[ tabCounter ];
-			isActive = item.className.indexOf( "in" ) !== -1;
+			isActive = item.className.indexOf( "out" ) === -1;
 
 			if ( !isDetails || !isSmallView ) {
 				item.setAttribute( "aria-hidden", isActive ? "false" : "true" );
@@ -10124,7 +10124,7 @@ $document.on( "click", selector + " [role=tabpanel] a", function( event ) {
 			if ( $summary.length !== 0 && $summary.attr( "aria-hidden" ) !== "true" ) {
 				$summary.trigger( "click" );
 			} else {
-				$tabpanels.find( href + "-lnk" ).trigger( "click" );
+				$tabpanels.parent().find( href + "-lnk" ).trigger( "click" );
 			}
 		}
 	}
@@ -10909,7 +10909,25 @@ var $document = wb.doc,
 // Bind the setfocus event
 $document.on( setFocusEvent, function( event ) {
 	if ( event.namespace === "wb" ) {
-		var $elm = $( event.target );
+		var $elm = $( event.target ),
+			$closedParents = $elm.not( "summary" ).parents( "details, [role='tabpanel']" ),
+			$closedPanels, $closedPanel, len, i;
+
+		if ( $closedParents.length !== 0 ) {
+
+			// Open any closed ancestor details elements
+			$closedParents.not( "[open]" ).children( "summary" ).trigger( "click" );
+
+			// Open any closed tabpanels
+			$closedPanels = $closedParents.filter( "[aria-hidden='true']" );
+			len = $closedPanels.length;
+			for ( i = 0; i !== len; i += 1 ) {
+				$closedPanel = $closedPanels.eq( i );
+				$closedPanel.closest( ".wb-tabs" )
+					.find( "#" + $closedPanel.attr( "aria-labelledby" ) )
+						.trigger( "click" );
+			}
+		}
 
 		// Set the tabindex to -1 (as needed) to ensure the element is focusable
 		$elm
@@ -10934,9 +10952,11 @@ $document.on( setFocusEvent, function( event ) {
 
 // Set focus to the target of a deep link from a different page
 // (helps browsers that can't set the focus on their own)
-if ( hash && ( $linkTarget = $( hash ) ).length !== 0 ) {
-	$linkTarget.trigger( setFocusEvent );
-}
+$document.on( "wb-ready.wb", function() {
+	if ( hash && ( $linkTarget = $( hash ) ).length !== 0 ) {
+		$linkTarget.trigger( setFocusEvent );
+	}
+});
 
 // Helper for browsers that can't change keyboard and/or event focus on a same page link click
 $document.on( clickEvents, linkSelector, function( event ) {
