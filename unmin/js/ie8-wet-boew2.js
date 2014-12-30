@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2014-12-29
+ * v4.0.10-development - 2014-12-30
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9799,13 +9799,15 @@ var componentName = "wb-tabs",
 	 */
 	onResize = function( $currentElm ) {
 		var $elms, $elm, $tabPanels, $details, $tablist, $openDetails, openDetailsId,
-			$nonOpenDetails, $active, $summary, i, len;
+			$nonOpenDetails, $active, $summary, i, len, viewChange, isInit;
 
 		if ( initialized ) {
 			isSmallView = document.documentElement.className.indexOf( smallViewPattern ) !== -1;
+			viewChange = isSmallView !== oldIsSmallView;
+			isInit = $currentElm.length ? true : false;
 
-			if ( isSmallView !== oldIsSmallView ) {
-				$elms = $currentElm.length ? $currentElm : $( selector );
+			if ( viewChange ) {
+				$elms = isInit ? $currentElm : $( selector );
 				len = $elms.length;
 
 				for ( i = 0; i !== len; i += 1 ) {
@@ -9875,13 +9877,17 @@ var componentName = "wb-tabs",
 						}
 					}
 				}
-
-				// Remove wb-inv from regular tabs that were used to prevent FOUC (after 300ms delay)
-				setTimeout(function() {
-					$( selector + " .tabpanels > details.wb-inv" ).removeClass( "wb-inv" );
-				}, 300 );
 			}
+
 			oldIsSmallView = isSmallView;
+		}
+
+		if ( viewChange || isInit ) {
+
+			// Remove wb-inv from regular tabs that were used to prevent FOUC (after 300ms delay)
+			setTimeout(function() {
+				$( selector + " .tabpanels > details.wb-inv" ).removeClass( "wb-inv" );
+			}, 300 );
 		}
 	};
 
