@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2014-12-30
+ * v4.0.10-development - 2015-01-02
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4553,6 +4553,29 @@ button.close {
 .wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
   text-decoration: none; }
 
+.wb-mltmd .display.waiting:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd .display.waiting:before, .wb-enable .wb-twitter .twitter-timeline:before {
+  bottom: 0;
+  content: " ";
+  height: 100px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px; }
+
+.wb-mltmd .display.waiting:after, .wb-enable .wb-twitter .twitter-timeline:after {
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-timing-function: linear;
+  background: url("../assets/loading.png") center center no-repeat;
+  z-index: 2; }
+.wb-mltmd .display.waiting:before, .wb-enable .wb-twitter .twitter-timeline:before {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  z-index: 1; }
+
 /*! WET-BOEW Core and Plugins */
 /*
   WET-BOEW
@@ -6240,17 +6263,6 @@ img.mfp-img {
   to {
     transform: rotate(360deg); } }
 
-.wb-mltmd .display.waiting:after, .wb-mltmd .display.waiting:before {
-  bottom: 0;
-  content: " ";
-  height: 100px;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100px; }
-
 .wb-mm-cc {
   max-height: 0;
   padding: 0; }
@@ -6288,17 +6300,6 @@ img.mfp-img {
     .wb-mltmd .display video, .wb-mltmd .display object, .wb-mltmd .display iframe {
       margin-bottom: -7px;
       width: 100%; }
-    .wb-mltmd .display.waiting:after {
-      animation-duration: 1000ms;
-      animation-iteration-count: infinite;
-      animation-name: spin;
-      animation-timing-function: linear;
-      background: url("../assets/loading.png") center center no-repeat;
-      z-index: 2; }
-    .wb-mltmd .display.waiting:before {
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      z-index: 1; }
   .wb-mltmd .wb-mm-ovrly {
     background: transparent;
     border: 0;
@@ -7161,39 +7162,19 @@ table.dataTable {
 .wb-disable .wb-twitter .twitter-timeline {
   text-indent: 0 !important; }
 
-.wb-twitter .twitter-timeline a:link, .wb-twitter .twitter-timeline a:visited {
-  color: #707070; }
-.wb-twitter .twitter-timeline .stats span {
-  color: #707070; }
-.wb-twitter .twitter-timeline .byline {
-  color: #707070; }
-.wb-twitter .twitter-timeline .retweet-credit {
-  color: #707070; }
-.wb-twitter .twitter-timeline .no-more-pane {
-  color: #707070; }
-.wb-twitter .twitter-timeline .no-tweets-pane p {
-  color: #707070; }
-.wb-twitter .twitter-timeline .p-geo {
-  color: #707070; }
-.wb-twitter .twitter-timeline .cards-base .byline-user {
-  color: #707070; }
-.wb-twitter .twitter-timeline .tweet-box-button {
-  color: #707070; }
-.wb-twitter a.twitter-timeline {
-  background: #fff;
-  border: 1px solid #ccc;
-  direction: ltr;
+.wb-twitter .twitter-timeline {
   display: block;
-  font-size: 90%;
-  margin: 0 !important;
-  min-height: 50px;
-  overflow: auto;
-  padding: 5px !important;
   text-indent: -9999px; }
+.wb-twitter iframe[style] {
+  width: 100% !important; }
+
+.wb-enable .wb-twitter .twitter-timeline {
+  min-height: 100px;
+  min-width: 100px;
+  position: relative; }
 
 /* Right to left (RTL) CSS */
 [dir="rtl"] .wb-twitter .twitter-timeline {
-  direction: rtl;
   text-indent: 9999px; }
 
 /*
