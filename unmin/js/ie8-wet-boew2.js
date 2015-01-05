@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2015-01-02
+ * v4.0.10-development - 2015-01-05
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5658,7 +5658,7 @@ var componentName = "wb-lbx",
 					// by the URL hash
 					// TODO: Should be dealt with upstream by Magnific Popup
 					if ( urlHash ) {
-						mfpResponse.data = $( mfpResponse.data ).find( "#" + wb.jqEscape( urlHash ) );
+						mfpResponse.data = $( "<div>" + mfpResponse.data + "</div>" ).find( "#" + wb.jqEscape( urlHash ) );
 					}
 				}
 			};

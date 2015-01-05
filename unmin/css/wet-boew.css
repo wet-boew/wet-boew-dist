@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2015-01-02
+ * v4.0.10-development - 2015-01-05
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -6149,13 +6149,15 @@ button::-moz-focus-inner {
   text-decoration: none;
   text-align: center;
   opacity: 0.65;
+  filter: alpha(opacity=65);
   padding: 0 0 18px 10px;
   color: #FFF;
   font-style: normal;
   font-size: 28px;
   font-family: Arial, Baskerville, monospace; }
   .mfp-close:hover, .mfp-close:focus {
-    opacity: 1; }
+    opacity: 1;
+    filter: alpha(opacity=100); }
   .mfp-close:active {
     top: 1px; }
 
@@ -6175,11 +6177,13 @@ button::-moz-focus-inner {
   right: 0;
   color: #CCC;
   font-size: 12px;
-  line-height: 18px; }
+  line-height: 18px;
+  white-space: nowrap; }
 
 .mfp-arrow {
   position: absolute;
   opacity: 0.65;
+  filter: alpha(opacity=65);
   margin: 0;
   top: 50%;
   margin-top: -55px;
@@ -6190,7 +6194,8 @@ button::-moz-focus-inner {
   .mfp-arrow:active {
     margin-top: -54px; }
   .mfp-arrow:hover, .mfp-arrow:focus {
-    opacity: 1; }
+    opacity: 1;
+    filter: alpha(opacity=100); }
   .mfp-arrow:before, .mfp-arrow:after, .mfp-arrow .mfp-b, .mfp-arrow .mfp-a {
     content: '';
     display: block;
@@ -6208,7 +6213,8 @@ button::-moz-focus-inner {
     top: 8px; }
   .mfp-arrow:before, .mfp-arrow .mfp-b {
     border-top-width: 21px;
-    border-bottom-width: 21px; }
+    border-bottom-width: 21px;
+    opacity: 0.7; }
 
 .mfp-arrow-left {
   left: 0; }
@@ -6217,7 +6223,7 @@ button::-moz-focus-inner {
     margin-left: 31px; }
   .mfp-arrow-left:before, .mfp-arrow-left .mfp-b {
     margin-left: 25px;
-    border-right: 27px solid #3f3f3f; }
+    border-right: 27px solid #3F3F3F; }
 
 .mfp-arrow-right {
   right: 0; }
@@ -6225,7 +6231,7 @@ button::-moz-focus-inner {
     border-left: 17px solid #FFF;
     margin-left: 39px; }
   .mfp-arrow-right:before, .mfp-arrow-right .mfp-b {
-    border-left: 27px solid #3f3f3f; }
+    border-left: 27px solid #3F3F3F; }
 
 .mfp-iframe-holder {
   padding-top: 40px;
@@ -6288,6 +6294,8 @@ img.mfp-img {
     display: block;
     font-size: 12px;
     line-height: 14px; }
+  .mfp-figure figure {
+    margin: 0; }
 
 .mfp-bottom-bar {
   margin-top: -36px;
@@ -6319,14 +6327,12 @@ img.mfp-img {
     padding-right: 0; }
   .mfp-img-mobile img.mfp-img {
     padding: 0; }
-  .mfp-img-mobile .mfp-figure {
-    /* The shadow behind the image */ }
-    .mfp-img-mobile .mfp-figure:after {
-      top: 0;
-      bottom: 0; }
-    .mfp-img-mobile .mfp-figure small {
-      display: inline;
-      margin-left: 5px; }
+  .mfp-img-mobile .mfp-figure:after {
+    top: 0;
+    bottom: 0; }
+  .mfp-img-mobile .mfp-figure small {
+    display: inline;
+    margin-left: 5px; }
   .mfp-img-mobile .mfp-bottom-bar {
     background: rgba(0, 0, 0, 0.6);
     bottom: 0;
