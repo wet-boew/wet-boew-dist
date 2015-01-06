@@ -24,7 +24,7 @@
  */
 .wb-tabs > details, .wb-tabs > .tabpanels > details {
   display: block; }
-  .wb-tabs > details[open] > summary, .wb-tabs > .tabpanels > details[open] > summary {
+  .wb-tabs > details[open] > summary {
     display: block !important; }
 
 .wb-tabs {
