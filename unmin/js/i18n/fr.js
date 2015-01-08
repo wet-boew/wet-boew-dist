@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2015-01-07
+ * v4.0.10-development - 2015-01-08
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -194,7 +194,7 @@ wb.i18nDict = {
 	"geo-sel": "Sélectionnez",
 	"geo-lblsel": "Cochez pour sélectionner cet élément sur la carte",
 	"geo-locurl-geogratis": "http://geogratis.gc.ca/services/geolocation/fr/locate",
-	"geo-loc-placeholder": "Indiquer le nom de l'endroit&#44; le code postal&#44; l'adresse (postale)&#44; le numéro du SNRC...",
+	"geo-loc-placeholder": "Indiquer le nom de l&#39;endroit&#44; le code postal&#44; l&#39;adresse (postale)&#44; le numéro du SNRC...",
 	"geo-loc-label": "Location",
 	"geo-aoi-north": "Nord",
 	"geo-aoi-east": "Est",
