@@ -2,18 +2,11 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10-development - 2015-01-08
+ * v4.0.10-development - 2015-01-09
  *
  *//*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-/*
- * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
  */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -4523,98 +4516,6 @@ button.close {
     display: none !important; } }
 
 /*
- Global placeholders
- */
-.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, #wb-lng h2, .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: 0;
-  overflow: hidden;
-  position: absolute;
-  width: 1px; }
-
-.wb-show-onfocus:focus, .wb-sl:focus, .wb-disable .wb-slc .wb-sl {
-  clip: rect(auto, auto, auto, auto);
-  height: inherit;
-  margin: inherit;
-  overflow: inherit;
-  position: static;
-  width: inherit; }
-
-.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-cnt, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
-  display: none; }
-
-.wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
-  display: block; }
-
-.wb-disable .wb-tabs > details[open] > summary, .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
-  display: block !important; }
-
-.wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
-  text-decoration: none; }
-
-.wb-mltmd .display.waiting:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd .display.waiting:before, .wb-enable .wb-twitter .twitter-timeline:before {
-  bottom: 0;
-  content: " ";
-  height: 100px;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100px; }
-
-.wb-mltmd .display.waiting:after, .wb-enable .wb-twitter .twitter-timeline:after {
-  animation-duration: 1000ms;
-  animation-iteration-count: infinite;
-  animation-name: spin;
-  animation-timing-function: linear;
-  background: url("../assets/loading.png") center center no-repeat;
-  z-index: 2; }
-.wb-mltmd .display.waiting:before, .wb-enable .wb-twitter .twitter-timeline:before {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  z-index: 1; }
-
-/*! WET-BOEW Core and Plugins */
-/*
-  WET-BOEW
-  @title: Accessibility Additions to WET-BOEW
- */
-#wb-tphp {
-  list-style-type: none;
-  margin-bottom: 0; }
-
-.wb-slc {
-  left: 0;
-  position: absolute;
-  text-align: center;
-  top: 10px;
-  width: 100%;
-  z-index: 3; }
-
-.wb-sl {
-  padding: 5px;
-  z-index: 501; }
-
-.wb-disable #wb-tphp {
-  background: #fff; }
-.wb-disable .wb-slc {
-  position: static; }
-  .wb-disable .wb-slc .wb-sl {
-    background: none;
-    color: #295376;
-    display: block !important;
-    font-weight: 400; }
-    .wb-disable .wb-slc .wb-sl:hover, .wb-disable .wb-slc .wb-sl:focus {
-      color: #0535d2; }
-.wb-disable #wb-dtmd {
-  float: none !important; }
-
-q:before, q:after {
-  content: ""; }
-
-/*
   WET-BOEW
   @title: Bootstrap overrides for WET-BOEW
  */
@@ -4949,6 +4850,129 @@ legend {
     border-top-left-radius: 0;
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px; }
+
+/*
+  WET-BOEW
+  @title: Bootstrap IE8-specific overrides for WET-BOEW
+ */
+.lt-ie9 .pagination > li:first-child [rel="prev"]:before, .lt-ie9 .pager > li:first-child [rel="prev"]:before {
+  content: none;
+  margin-right: -1px; }
+.lt-ie9 .dl-horizontal dt {
+  white-space: normal; }
+
+@media print {
+  .lt-ie9 abbr[title]:after {
+    content: ""; }
+  .lt-ie9 .pagination, .lt-ie9 .pager {
+    width: 100%; }
+    .lt-ie9 .pagination > li > a, .lt-ie9 .pagination > li > span, .lt-ie9 .pager > li > a, .lt-ie9 .pager > li > span {
+      cursor: hand; }
+    .lt-ie9 .pagination > li.active > a, .lt-ie9 .pagination > li.active > span, .lt-ie9 .pager > li.active > a, .lt-ie9 .pager > li.active > span {
+      cursor: default; } }
+
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+/*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+/*
+ * GLYPHICONS Halflings for Twitter Bootstrap by GLYPHICONS.com | Licensed under http://www.apache.org/licenses/LICENSE-2.0
+ */
+/*
+ Global placeholders
+ */
+.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, #wb-lng h2, .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 1px; }
+
+.wb-show-onfocus:focus, .wb-sl:focus, .wb-disable .wb-slc .wb-sl {
+  clip: rect(auto, auto, auto, auto);
+  height: inherit;
+  margin: inherit;
+  overflow: inherit;
+  position: static;
+  width: inherit; }
+
+.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-cnt, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
+  display: none; }
+
+.wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
+  display: block; }
+
+.wb-disable .wb-tabs > details[open] > summary, .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
+  display: block !important; }
+
+.wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
+  text-decoration: none; }
+
+.wb-mltmd .display.waiting:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd .display.waiting:before, .wb-enable .wb-twitter .twitter-timeline:before {
+  bottom: 0;
+  content: " ";
+  height: 100px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px; }
+
+.wb-mltmd .display.waiting:after, .wb-enable .wb-twitter .twitter-timeline:after {
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-name: spin;
+  animation-timing-function: linear;
+  background: url("../assets/loading.png") center center no-repeat;
+  z-index: 2; }
+.wb-mltmd .display.waiting:before, .wb-enable .wb-twitter .twitter-timeline:before {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  z-index: 1; }
+
+/*! WET-BOEW Core and Plugins */
+/*
+  WET-BOEW
+  @title: Accessibility Additions to WET-BOEW
+ */
+#wb-tphp {
+  list-style-type: none;
+  margin-bottom: 0; }
+
+.wb-slc {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 100%;
+  z-index: 3; }
+
+.wb-sl {
+  padding: 5px;
+  z-index: 501; }
+
+.wb-disable #wb-tphp {
+  background: #fff; }
+.wb-disable .wb-slc {
+  position: static; }
+  .wb-disable .wb-slc .wb-sl {
+    background: none;
+    color: #295376;
+    display: block !important;
+    font-weight: 400; }
+    .wb-disable .wb-slc .wb-sl:hover, .wb-disable .wb-slc .wb-sl:focus {
+      color: #0535d2; }
+.wb-disable #wb-dtmd {
+  float: none !important; }
+
+q:before, q:after {
+  content: ""; }
 
 /*
   WET-BOEW
@@ -7965,26 +7989,6 @@ details.alert:not([open]) {
       position: static; }
     .wb-tabs [role="tabpanel"] summary {
       display: block !important; } }
-
-/*
-  WET-BOEW
-  @title: Bootstrap IE8-specific overrides for WET-BOEW
- */
-.lt-ie9 .pagination > li:first-child [rel="prev"]:before, .lt-ie9 .pager > li:first-child [rel="prev"]:before {
-  content: none;
-  margin-right: -1px; }
-.lt-ie9 .dl-horizontal dt {
-  white-space: normal; }
-
-@media print {
-  .lt-ie9 abbr[title]:after {
-    content: ""; }
-  .lt-ie9 .pagination, .lt-ie9 .pager {
-    width: 100%; }
-    .lt-ie9 .pagination > li > a, .lt-ie9 .pagination > li > span, .lt-ie9 .pager > li > a, .lt-ie9 .pager > li > span {
-      cursor: hand; }
-    .lt-ie9 .pagination > li.active > a, .lt-ie9 .pagination > li.active > span, .lt-ie9 .pager > li.active > a, .lt-ie9 .pager > li.active > span {
-      cursor: default; } }
 
 /*
  Plugins

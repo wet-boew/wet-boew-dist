@@ -1,7 +1,3 @@
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
 #simple .wb-eqht section {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -14,9 +10,9 @@
   margin-bottom: 15px;
   padding: 15px;
   width: 100%; }
-  @media (min-width: 768px) {
-    #simple .wb-eqht section {
-      width: 49%; } }
-  @media (min-width: 1200px) {
-    #simple .wb-eqht section {
-      width: 33%; } }
+
+.smallview #simple .wb-eqht section, .mediumview #simple .wb-eqht section {
+  width: 49%; }
+
+.largeview #simple .wb-eqht section, .xlargeview #simple .wb-eqht section {
+  width: 33%; }
