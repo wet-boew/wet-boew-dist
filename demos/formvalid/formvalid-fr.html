@@ -340,6 +340,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 <div class="form-group">
 <label for="password1"><span class="field-name">Mot de passe</span> (entre 5 et 10 caractères)</label>
 <input class="form-control" id="password1" name="password1" type="password" maxlength="10" size="10" pattern=".{5,10}" data-rule-rangelength="[5,10]">
+<label for="passwordconfirm"><span class="field-name">Confirmez votre mot de passe</span></label>
+<input class="form-control" id="passwordconfirm" name="passwordconfirm" type="password" maxlength="10" size="10" data-rule-equalto="#password1">
 </div>
 <details class="mrgn-bttm-md">
 <summary>Visualiser le code</summary>
@@ -349,6 +351,8 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 		&lt;div class="form-group"&gt;
 			&lt;label for="password1"&gt;&lt;span class="field-name"&gt;Mot de passe&lt;/span&gt; (entre 5 et 10 caractères)&lt;/label&gt;
 			&lt;input class="form-control" id="password1" name="password1" type="password" maxlength="10" size="10" pattern=".{5,10}" data-rule-rangelength="[5,10]" /&gt;
+			&lt;label for="passwordconfirm"&gt;&lt;span class="field-name"&gt;Confirmez votre mot de passe&lt;/span&gt;&lt;/label&gt;
+			&lt;input class="form-control" id="passwordconfirm" name="passwordconfirm" type="password" maxlength="10" size="10" data-rule-equalTo="#password1" /&gt;
 		&lt;/div&gt;</code></pre>
 </details>
 </fieldset>
