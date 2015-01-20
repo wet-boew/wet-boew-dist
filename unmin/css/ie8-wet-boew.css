@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.10 - 2015-01-20
+ * v4.0.11-development - 2015-01-20
  *
  */
 /*
@@ -7479,6 +7479,10 @@ button.geomap-geoloc-aoi-btn {
   .feeds-cont.waiting:before {
     background: rgba(0, 0, 0, 0);
     z-index: 1; }
+.feeds-cont .feeds-date:before {
+  content: "["; }
+.feeds-cont .feeds-date:after {
+  content: "]"; }
 
 /*
  Polyfills
