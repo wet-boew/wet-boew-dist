@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-01-27
+ * v4.0.11-development - 2015-01-28
  *
  */
 /*
@@ -299,6 +299,10 @@ main {
       background: #e6e6e6;
       color: black;
       padding-left: 1.8em; }
+
+[dir=rtl] #wb-sec .list-group .list-group .list-group-item {
+  padding-left: 15px;
+  padding-right: 1.8em; }
 
 .wb-sl {
   background-color: #000;
