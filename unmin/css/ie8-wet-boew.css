@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-01-28
+ * v4.0.11-development - 2015-02-02
  *
  */
 /*
@@ -7404,9 +7404,9 @@ table.dataTable {
   margin-top: 20px !important; }
 
 .geomap-geoloc {
-  left: 60px;
+  left: 70px;
   position: absolute;
-  right: 60px;
+  right: 70px;
   top: 15px;
   z-index: 10000; }
   .geomap-geoloc input[type="text"] {
