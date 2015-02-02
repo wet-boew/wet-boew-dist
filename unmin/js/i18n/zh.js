@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "放大到當前位置",
 	"geo-geoloc-fail": "位置失敗。請確保該位置的服務被啟用。",
 	"geo-geoloc-uncapable": "本地化不是由您的瀏覽器支持。",
+	"geo-lgnd-grphc": "傳說中的圖形在地圖圖層。",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "基本HTML版本",
 	"wb-enable": "標準版本",

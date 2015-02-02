@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Aumentar la ubicación actual",
 	"geo-geoloc-fail": "Ubicación falló. Por favor asegúrese de que los servicios de localización están habilitados.",
 	"geo-geoloc-uncapable": "Localización puede no ser compatible con su navegador.",
+	"geo-lgnd-grphc": "Gráfico leyenda para la capa de mapa.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Versión HTML básica",
 	"wb-enable": "Versión estándar",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom ke lokasi saat ini",
 	"geo-geoloc-fail": "Lokalisasi gagal. Pastikan bahwa layanan lokasi diaktifkan.",
 	"geo-geoloc-uncapable": "Lokalisasi tidak didukung oleh browser Anda.",
+	"geo-lgnd-grphc": "Legenda grafis untuk layer peta.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Versi HTML dasar",
 	"wb-enable": "Versi standar",

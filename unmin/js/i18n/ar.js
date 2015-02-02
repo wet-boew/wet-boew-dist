@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "التكبير لموقعك الحالي",
 	"geo-geoloc-fail": "فشل الموقع. يرجى التأكد من أن يتم تمكين خدمات الموقع.",
 	"geo-geoloc-uncapable": "غير معتمد التعريب بواسطة المتصفح الخاص بك.",
+	"geo-lgnd-grphc": "رسم خريطة لأسطورة طبقة.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "إصدار HTML الأساسي",
 	"wb-enable": "الإصدار القياسي",

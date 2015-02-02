@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Geçerli konuma yakınlaştırma",
 	"geo-geoloc-fail": "Yer başarısız oldu. Yer hizmetleri etkin olduğundan emin olun.",
 	"geo-geoloc-uncapable": "Yerelleştirme tarayıcınız tarafından desteklenmiyor.",
+	"geo-lgnd-grphc": "Harita katmanı için efsane grafik.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Basit HTML sürümü",
 	"wb-enable": "Standart sürüm",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "ขยายไปยังสถานที่ปัจจุบัน",
 	"geo-geoloc-fail": "ที่ล้มเหลว โปรดตรวจสอบว่าบริการสถานที่มีการใช้งาน",
 	"geo-geoloc-uncapable": "ท้องถิ่นไม่ได้รับการสนับสนุนโดยเบราว์เซอร์ของคุณ",
+	"geo-lgnd-grphc": "กราฟิกตำนานสำหรับชั้นแผนที่",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "เวอร์ชันพื้นฐานของ HTM​​L",
 	"wb-enable": "รุ่นมาตรฐาน",

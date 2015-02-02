@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom to current location",
 	"geo-geoloc-fail": "Geolocation failed. Please ensure that location services are enabled.",
 	"geo-geoloc-uncapable": "Geolocation is not supported by your browser.",
+	"geo-lgnd-grphc": "Legend graphic for map layer.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Basic HTML version",
 	"wb-enable": "Standard version",

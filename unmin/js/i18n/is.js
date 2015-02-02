@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Aðdráttur til núverandi staðsetningu",
 	"geo-geoloc-fail": "Staðsetning mistókst. Skaltu tryggja að staðsetningu þjónustu eru virk.",
 	"geo-geoloc-uncapable": "Staðsetning er ekki stutt af vafranum þínum.",
+	"geo-lgnd-grphc": "Legend grafík fyrir kortinu lag.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Undirstöðu HTML útgáfa",
 	"wb-enable": "Standard útgáfa",

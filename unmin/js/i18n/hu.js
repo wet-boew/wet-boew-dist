@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Nagyítás az aktuális helyre",
 	"geo-geoloc-fail": "Hely sikerült. Ügyeljen arra, hogy a helymeghatározó szolgáltatások engedélyezve vannak.",
 	"geo-geoloc-uncapable": "A honosítás nem támogatja a böngészője.",
+	"geo-lgnd-grphc": "Legend grafika térképen réteg.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Egyszerű HTML verzió",
 	"wb-enable": "Standard verzió",

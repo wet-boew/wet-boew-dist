@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "現在の場所にズーム",
 	"geo-geoloc-fail": "場所は、失敗しました。位置情報サービスが有効になっていることを確認してください。",
 	"geo-geoloc-uncapable": "ローカリゼーションは、お使いのブラウザでサポートされていません。",
+	"geo-lgnd-grphc": "マップレイヤの凡例のグラフィック。",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "HTMLベーシック版",
 	"wb-enable": "スタンダード版",

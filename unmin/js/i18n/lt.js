@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Padidinti dabartinę vietą",
 	"geo-geoloc-fail": "Vieta nepavyko. Prašome užtikrinti, kad vietos nustatymo paslaugos yra įjungtas.",
 	"geo-geoloc-uncapable": "Lokalizacijos nepalaikomas jūsų naršyklėje.",
+	"geo-lgnd-grphc": "Legenda grafinis už žemėlapio sluoksnį.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Pagrindinė HTML versija",
 	"wb-enable": "Standartinė versija",

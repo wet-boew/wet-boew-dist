@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoomen naar onderdeel",
 	"geo-geoloc-fail": "Locatie mislukt. Zorg ervoor dat locatiediensten zijn ingeschakeld.",
 	"geo-geoloc-uncapable": "Lokalisatie wordt niet ondersteund door uw browser.",
+	"geo-lgnd-grphc": "Legende grafische kaart voor laag.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Versie in basis-HTML",
 	"wb-enable": "Standaardversie",

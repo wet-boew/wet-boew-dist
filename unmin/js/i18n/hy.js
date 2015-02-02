@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Մեծացնել ձեր զբաղեցրած պաշտոնը",
 	"geo-geoloc-fail": "Որտեղից ձախողվեց. Խնդրում ենք համոզվել, որ այդ վայրում ծառայություններ հնարավորություն.",
 	"geo-geoloc-uncapable": "Տեղայնացման չի ապահովվում է ձեր բրոուզերում.",
+	"geo-lgnd-grphc": "Լեգենդ արվեստ քարտեզ շերտ.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "հիմնական HTML տարբերակ",
 	"wb-enable": "Դնել",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom uz pašreizējo atrašanās vietu",
 	"geo-geoloc-fail": "Atrašanās vieta neizdevās. Lūdzu, pārliecinieties, ka uz atrašanās vietas pakalpojumi tiek iespējots.",
 	"geo-geoloc-uncapable": "Lokalizācija neatbalsta pārlūkprogramma.",
+	"geo-lgnd-grphc": "Leģenda grafiskais attiecīgā karte slāni.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Pamata HTML versija",
 	"wb-enable": "Standarta versija",

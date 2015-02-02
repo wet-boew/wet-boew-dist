@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom in jou huidige posisie",
 	"geo-geoloc-fail": "Plek gefaal het. Maak asseblief seker dat plek dienste word aangeskakel.",
 	"geo-geoloc-uncapable": "Lokalisering word nie ondersteun deur die leser.",
+	"geo-lgnd-grphc": "Legende grafiese vir kaart laag.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Basiese HTML-weergawe",
 	"wb-enable": "Standaard weergawe",

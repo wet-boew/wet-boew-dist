@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Priblížiť sa k aktuálnej polohe",
 	"geo-geoloc-fail": "Lokalita zlyhalo. Uistite sa, že umiestnenie služby sú povolené.",
 	"geo-geoloc-uncapable": "Lokalizácia nie je podporovaná vo vašom prehliadači.",
+	"geo-lgnd-grphc": "Legenda grafický pre mapovú vrstvu.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Základné HTML verzia",
 	"wb-enable": "Štandardná verzia",

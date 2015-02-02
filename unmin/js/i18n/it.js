@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom alla posizione corrente",
 	"geo-geoloc-fail": "Posizione non riuscita. Assicurarsi che i servizi di localizzazione sono abilitati.",
 	"geo-geoloc-uncapable": "La localizzazione non è supportato dal browser.",
+	"geo-lgnd-grphc": "Legenda grafica per layer.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Versione HTML di base",
 	"wb-enable": "Versione standard",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "현재 위치로 확대",
 	"geo-geoloc-fail": "위치에 실패했습니다. 위치 서비스가 활성화되어 있는지 확인하십시오.",
 	"geo-geoloc-uncapable": "현지화는 브라우저에서 지원되지 않습니다.",
+	"geo-lgnd-grphc": "지도 계층에 대한 전설 그래픽.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "기본 HTML 버전",
 	"wb-enable": "표준 버전",

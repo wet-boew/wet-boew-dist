@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Powiększyć się do bieżącej lokalizacji",
 	"geo-geoloc-fail": "Lokalizacja nie powiodło się. Proszę upewnić się, że usługi lokalizacyjne są włączone.",
 	"geo-geoloc-uncapable": "Lokalizacja nie jest obsługiwany przez przeglądarkę.",
+	"geo-lgnd-grphc": "Grafika Legenda warstwy mapy.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Podstawowa wersja HTML",
 	"wb-enable": "Wersja standardowa",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Suumi elemente",
 	"geo-geoloc-fail": "Asukoht ei ole. Palun veenduge, et asukoha määramise teenuste on lubatud.",
 	"geo-geoloc-uncapable": "Lokaliseerimine ei toeta teie brauser.",
+	"geo-lgnd-grphc": "Legend graafika kaardi kiht.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Lihtsustatud HTML versioon",
 	"wb-enable": "Standardversioon",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom në pozicionin juaj e tanishme",
 	"geo-geoloc-fail": "Vendndodhja dështuar. Ju lutemi të sigurojë që shërbimet lokacioni janë të aktivizuara.",
 	"geo-geoloc-uncapable": "Lokalizimi nuk mbështetet nga browseri juaj.",
+	"geo-lgnd-grphc": "Legjenda grafik për shtresë hartë.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Versioni bazë HTML",
 	"wb-enable": "Versioni standard",

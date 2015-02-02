@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Zoom auf die aktuelle Lage",
 	"geo-geoloc-fail": "Lage fehlgeschlagen. Bitte stellen Sie sicher, dass die Ortungsdienste aktiviert sind.",
 	"geo-geoloc-uncapable": "Der Ort ist nicht von Ihrem Browser unterstützt.",
+	"geo-lgnd-grphc": "Legende Grafik für Karten-Layer.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Grundlegende HTML-Version",
 	"wb-enable": "Standardausführung",

@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Ζουμ στην τρέχουσα θέση",
 	"geo-geoloc-fail": "Τοποθεσία απέτυχε. Παρακαλούμε βεβαιωθείτε ότι οι υπηρεσίες τοποθεσίας ενεργοποιημένη.",
 	"geo-geoloc-uncapable": "Localization δεν υποστηρίζεται από το πρόγραμμα περιήγησής σας.",
+	"geo-lgnd-grphc": "Γραφικό Υπόμνημα για χάρτη στρώμα.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Βασικές έκδοση HTML",
 	"wb-enable": "Βασική έκδοση",

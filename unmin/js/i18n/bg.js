@@ -206,6 +206,7 @@ wb.i18nDict = {
 	"geo-geoloc-btn": "Увеличите към текущото местоположение",
 	"geo-geoloc-fail": "Местоположение провали. Моля, уверете се, че местоположението услуги са разрешени.",
 	"geo-geoloc-uncapable": "Локализация не се поддържа от вашия браузър.",
+	"geo-lgnd-grphc": "Legend графичен за карта слой.",
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Базов HTML версия",
 	"wb-enable": "Стандартната версия",
