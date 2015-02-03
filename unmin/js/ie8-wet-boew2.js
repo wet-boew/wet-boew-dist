@@ -10300,6 +10300,10 @@ var componentName = "wb-toggle",
 				initPrint( $link, data );
 			}
 
+			if ( data.state ) {
+				setState( $link, data, data.state );
+			}
+
 			// Identify that initialization has completed
 			wb.ready( $link, componentName );
 		}
@@ -10429,7 +10433,7 @@ var componentName = "wb-toggle",
 	 * @param {jQuery Event} event The event that triggered this invocation
 	 */
 	click = function( event ) {
-		var $link = $( event.target );
+		var $link = $( event.currentTarget );
 
 		$link.trigger( toggleEvent, $link.data( "toggle" ) );
 		event.preventDefault();

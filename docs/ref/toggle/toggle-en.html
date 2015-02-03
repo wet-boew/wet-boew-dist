@@ -352,6 +352,22 @@ Specify the type. Only "on" or "off" are supported:
 </td>
 </tr>
 <tr>
+<td><code>state</code> (v4.0.11+)</td>
+<td>Sets the initial state of a toggle element</td>
+<td>
+Specify the initial state. Only "on" or "off" are supported:
+<pre><code>&lt;span class="wb-toggle" data-toggle="{'state': 'on'}"&gt;</code></pre>
+</td>
+<td>
+<dl>
+<dt>"off" (default):</dt>
+<dd>Toggle element initial state is "off"</dd>
+<dt>"on":</dt>
+<dd>Toggle element initial state is "on"</dd>
+</dl>
+</td>
+</tr>
+<tr>
 <td><code>stateOn</code></td>
 <td>CSS class that's added to elements when they are toggled on.</td>
 <td>
@@ -443,7 +459,7 @@ $toggler.trigger( "toggle.wb-toggle", settings );</code></pre>
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-08-06</time></dd>
+<dd><time property="dateModified">2015-02-03</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
