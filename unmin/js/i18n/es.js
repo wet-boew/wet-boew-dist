@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "es",
 	"lang-native": "Español",
+	add: "Añadir",
 	all: "Todo",
 	tphp: "Arriba",
 	load: "cargando …",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Este",
 	"geo-aoi-south": "Sur",
 	"geo-aoi-west": "Oeste",
-	"geo-aoi-instructions": "Delimitar una zona en el mapa o rellene el formulario a continuación&#44; haga clic en el botón \"Dibujar\".",
+	"geo-aoi-instructions": "Delimitar una zona en el mapa o rellene el formulario a continuación&#44; haga clic en el botón \"Añadir\".",
 	"geo-aoi-btndraw": "Dibujar",
 	"geo-aoi-btnclear": "Eliminar",
 	"geo-geoloc-btn": "Aumentar la ubicación actual",

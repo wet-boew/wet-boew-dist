@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "en",
 	"lang-native": "English",
+	add: "Add",
 	all: "All",
 	tphp: "Top of page",
 	load: "loading...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "East",
 	"geo-aoi-south": "South",
 	"geo-aoi-west": "West",
-	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the \"Draw\" button.",
+	"geo-aoi-instructions": "Draw box on map or enter coordinates below and click the \"Add\" button.",
 	"geo-aoi-btndraw": "Draw",
 	"geo-aoi-btnclear": "Clear",
 	"geo-geoloc-btn": "Zoom to current location",

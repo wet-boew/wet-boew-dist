@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "lv",
 	"lang-native": "Latviešu valoda",
+	add: "Pievienot",
 	all: "Visi",
 	tphp: "Lapas augša",
 	load: "ielādēšana ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Austrumi",
 	"geo-aoi-south": "Dienvidu",
 	"geo-aoi-west": "Rietumi",
-	"geo-aoi-instructions": "Uzmest platību kartē vai ievadiet informāciju zemāk&#44; tad uzklikšķiniet uz \"Izdarīt\" pogu.",
+	"geo-aoi-instructions": "Zīmēt rūtiņu uz kartes vai ievadīt koordinātas zemāk un noklikšķiniet uz pogas \"Pievienot\".",
 	"geo-aoi-btndraw": "Izdarīt",
 	"geo-aoi-btnclear": "Noņemt",
 	"geo-geoloc-btn": "Zoom uz pašreizējo atrašanās vietu",

@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "af",
 	"lang-native": "Afrikaans",
+	add: "Voeg",
 	all: "Alle",
 	tphp: "Top van die bladsy",
 	load: "loading ...",

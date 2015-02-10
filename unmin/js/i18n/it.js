@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "it",
 	"lang-native": "Italiano",
+	add: "Aggiungere",
 	all: "Tutti",
 	tphp: "Inizio pagina",
 	load: "caricamento...",

@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "is",
 	"lang-native": "Íslenska",
+	add: "Bæta",
 	all: "Allt",
 	tphp: "Efst á síðu",
 	load: "hleðsla ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Austur",
 	"geo-aoi-south": "Suður",
 	"geo-aoi-west": "Vestur",
-	"geo-aoi-instructions": "Afmarka svæði á kortinu eða slá inn upplýsingar hér að neðan og smelltu á \"Draga\" hnappinn.",
+	"geo-aoi-instructions": "Draw kassi á kortið eða sláðu hnit neðan og smelltu á \"Bæta við\" hnappinn.",
 	"geo-aoi-btndraw": "Draga",
 	"geo-aoi-btnclear": "Fjarlægja",
 	"geo-geoloc-btn": "Aðdráttur til núverandi staðsetningu",

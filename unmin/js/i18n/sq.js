@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "sq",
 	"lang-native": "Shqip",
+	add: "Shtoj",
 	all: "Të gjithë",
 	tphp: "Fillimi i faqes",
 	load: "ngarkimin ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Lindja",
 	"geo-aoi-south": "Jug",
 	"geo-aoi-west": "Perëndimi",
-	"geo-aoi-instructions": "Përshkruaj një zonë në hartë ose të hyjë në detajet më poshtë pastaj klikoni mbi \"Barazim\" button.",
+	"geo-aoi-instructions": "Teken boks op kaart of ingaan koördinate hieronder en klik op die knoppie \"Voeg deur\".",
 	"geo-aoi-btndraw": "Barazim",
 	"geo-aoi-btnclear": "Heq",
 	"geo-geoloc-btn": "Zoom në pozicionin juaj e tanishme",

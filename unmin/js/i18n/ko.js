@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "ko",
 	"lang-native": "한국어",
+	add: "추가",
 	all: "모든",
 	tphp: "맨 위로",
 	load: "로드 중 ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "동쪽",
 	"geo-aoi-south": "남쪽으로",
 	"geo-aoi-west": "서쪽",
-	"geo-aoi-instructions": "지도에서 지역을 묘사하거나 아래의 정보를 입력 한 후 \"무승부\"버튼을 클릭합니다.",
+	"geo-aoi-instructions": "지도에 상자를 그리거나 아래 좌표를 입력하고 \"추가\"버튼을 클릭합니다.",
 	"geo-aoi-btndraw": "무승부",
 	"geo-aoi-btnclear": "제거",
 	"geo-geoloc-btn": "현재 위치로 확대",

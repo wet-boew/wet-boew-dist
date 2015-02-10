@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "hu",
 	"lang-native": "Magyar",
+	add: "Hozzáad",
 	all: "Mind",
 	tphp: "Oldal teteje",
 	load: "betöltése ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Kelet",
 	"geo-aoi-south": "Dél",
 	"geo-aoi-west": "Nyugat",
-	"geo-aoi-instructions": "Ismertesse a terület a térképen&#44; vagy írja be az alábbi adatokat&#44; majd kattintson a \"Rajzol\" gombra.",
+	"geo-aoi-instructions": "Döntetlen box a térképen vagy adja meg a koordinátákat, majd kattintson a \"Hozzáadás\" gombra.",
 	"geo-aoi-btndraw": "Rajzol",
 	"geo-aoi-btnclear": "Eltávolít",
 	"geo-geoloc-btn": "Nagyítás az aktuális helyre",

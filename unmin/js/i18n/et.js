@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "et",
 	"lang-native": "Eesti keel",
+	add: "Lisama",
 	all: "Kõik",
 	tphp: "Lehekülje algusesse",
 	load: "laadimine....",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Ida",
 	"geo-aoi-south": "lõuna",
 	"geo-aoi-west": "Lääs",
-	"geo-aoi-instructions": "Piiritleda ala kaardil või sisesta allpool ja siis vajuta \"Joonistama\" nuppu.",
+	"geo-aoi-instructions": "Joonista kasti kaardil või sisesta koordinaadid ja klikkige \"Lisa\" nuppu.",
 	"geo-aoi-btndraw": "Joonistama",
 	"geo-aoi-btnclear": "Eemaldama",
 	"geo-geoloc-btn": "Suumi elemente",

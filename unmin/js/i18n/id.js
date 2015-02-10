@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "id",
 	"lang-native": "Bahasa Indonesia",
+	add: "Menambahkan",
 	all: "Semua",
 	tphp: "Halaman Atas",
 	load: "memuat ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Timur",
 	"geo-aoi-south": "Selatan",
 	"geo-aoi-west": "Barat",
-	"geo-aoi-instructions": "Menggambarkan sebuah area pada peta atau masukkan rincian di bawah ini kemudian klik pada \"Menarik\" tombol.",
+	"geo-aoi-instructions": "Menggambar kotak pada peta atau masukkan koordinat di bawah ini dan klik tombol \"Add\".",
 	"geo-aoi-btndraw": "Menarik",
 	"geo-aoi-btnclear": "Menghapus",
 	"geo-geoloc-btn": "Zoom ke lokasi saat ini",

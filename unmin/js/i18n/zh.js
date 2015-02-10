@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "zh",
 	"lang-native": "繁體字",
+	add: "添加",
 	all: "全部",
 	tphp: "頁首",
 	load: "下載中…",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "東方",
 	"geo-aoi-south": "南",
 	"geo-aoi-west": "西方",
-	"geo-aoi-instructions": "在地圖上劃定一個區域或輸入下面的詳細信息，然後點擊“畫”按鈕。",
+	"geo-aoi-instructions": "抽獎箱在地圖上或在下方輸入坐標，然後點擊“添加”按鈕。",
 	"geo-aoi-btndraw": "畫",
 	"geo-aoi-btnclear": "清除",
 	"geo-geoloc-btn": "放大到當前位置",

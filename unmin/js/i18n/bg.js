@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "bg",
 	"lang-native": "Български език",
+	add: "Добави",
 	all: "Всички",
 	tphp: "Начало на страницата",
 	load: "зарежда се ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Изток",
 	"geo-aoi-south": "Юг",
 	"geo-aoi-west": "Запад",
-	"geo-aoi-instructions": "Xəritədə sahəsi tasvir və ya aşağıda detalları daxil sonra \"Равенство\" düyməsinə basın.",
+	"geo-aoi-instructions": "Равен кутия на картата или въведете координатите по-долу и кликнете върху бутона \"Добави\".",
 	"geo-aoi-btndraw": "Равенство",
 	"geo-aoi-btnclear": "Премахнете",
 	"geo-geoloc-btn": "Увеличите към текущото местоположение",

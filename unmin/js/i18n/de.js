@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "de",
 	"lang-native": "Deutsch",
+	add: "Hinzufügen",
 	all: "Alle",
 	tphp: "Zum Seitenanfang",
 	load: "Be ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Osten",
 	"geo-aoi-south": "Süden",
 	"geo-aoi-west": "Westen",
-	"geo-aoi-instructions": "Beschreiben eine Fläche auf der Karte oder geben Sie die Details klicken dann auf die Schaltfläche \"Ziehen\".",
+	"geo-aoi-instructions": "Zeichnen Feld auf der Karte oder geben Sie die Koordinaten ein und klicken Sie auf \"Hinzufügen\".",
 	"geo-aoi-btndraw": "Ziehen",
 	"geo-aoi-btnclear": "Entfernen",
 	"geo-geoloc-btn": "Zoom auf die aktuelle Lage",

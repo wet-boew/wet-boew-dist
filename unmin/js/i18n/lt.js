@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "lt",
 	"lang-native": "Lietuvių kalba",
+	add: "papildyti",
 	all: "Visi",
 	tphp: "Puslapio viršus",
 	load: "pakrovimo ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "Rytų",
 	"geo-aoi-south": "Į pietus",
 	"geo-aoi-west": "Vakarai",
-	"geo-aoi-instructions": "Apibrėžti sritį žemėlapyje arba įveskite žemiau pateiktus duomenis&#44; tada spustelėkite \"Atkreipti\" mygtuką.",
+	"geo-aoi-instructions": "Lygiosios langelį žemėlapyje arba įveskite koordinates žemiau ir spustelėkite mygtuką \"Pridėti\".",
 	"geo-aoi-btndraw": "Atkreipti",
 	"geo-aoi-btnclear": "Pašalinti",
 	"geo-geoloc-btn": "Padidinti dabartinę vietą",

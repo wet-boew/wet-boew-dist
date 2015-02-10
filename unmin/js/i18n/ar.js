@@ -17,6 +17,7 @@
 wb.i18nDict = {
 	"lang-code": "ar",
 	"lang-native": "العربية",
+	add: "إضافة",
 	all: "جميع",
 	tphp: "أعلى الصفحة",
 	load: "   تحميل ...",
@@ -200,7 +201,7 @@ wb.i18nDict = {
 	"geo-aoi-east": "شرق",
 	"geo-aoi-south": "جنوب",
 	"geo-aoi-west": "غرب",
-	"geo-aoi-instructions": "تحدد مساحة على الخريطة أو أدخل التفاصيل أدناه ثم انقر على زر \"رسم\".",
+	"geo-aoi-instructions": "مربع رسم على الخريطة أو أدخل إحداثيات أدناه وانقر على زر \"إضافة\".",
 	"geo-aoi-btndraw": "رسم",
 	"geo-aoi-btnclear": "نزع",
 	"geo-geoloc-btn": "التكبير لموقعك الحالي",
