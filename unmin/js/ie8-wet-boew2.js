@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-02-10
+ * v4.0.11-development - 2015-02-11
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5953,7 +5953,7 @@ var componentName = "wb-menu",
 			$subItems = $elm.parent().find( "> ul > li" );
 			subItemsLength = $subItems.length;
 
-			if ( subItemsLength === 0 && elm.nodeName.toLowerCase() === "a" ) {
+			if ( elm && subItemsLength === 0 && elm.nodeName.toLowerCase() === "a" ) {
 				sectionHtml += "<li>" + $item[ 0 ].innerHTML.replace(
 						/(<a\s)/,
 						"$1 " + menuitem + itemsLength +

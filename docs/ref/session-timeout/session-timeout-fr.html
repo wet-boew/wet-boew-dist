@@ -341,7 +341,7 @@ Add a <code>class="wb-sessto"</code> element to the web page (only required once
 <p><strong>Note:</strong> when manually triggering the <code>inactivity</code>, <code>keepalive</code> and <code>reset</code> events, you must pass the <code>data-wb-sessto</code> attribute as a second argument:</p>
 <pre><code>// Get a reference to the session timeout element and its <code>data-wb-sessto</code> attribute	
 	var $element = $( ".wb-sessto" ),
-	    settings = $element.data( "wb-sessto" );
+		settings = $element.data( "wb-sessto" );
 		
 	// Trigger the event on the element
 	$element.trigger( "reset.wb-sessto", settings );</code></pre>
