@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-02-11
+ * v4.0.11-development - 2015-02-12
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -59,6 +59,7 @@ wb.i18nDict = {
 	"prv-l": "Fyrri (vinstri ör lykill)",
 	first: "First",
 	last: "Síðasta",
+	page: "Page",
 	"srch-menus": "Leit og valmyndir",
 	email: "Email",
 	"menu-close": "Loka valmynd",

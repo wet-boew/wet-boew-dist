@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-02-11
+ * v4.0.11-development - 2015-02-12
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5953,7 +5953,7 @@ var componentName = "wb-menu",
 			$subItems = $elm.parent().find( "> ul > li" );
 			subItemsLength = $subItems.length;
 
-			if ( subItemsLength === 0 && elm.nodeName.toLowerCase() === "a" ) {
+			if ( elm && subItemsLength === 0 && elm.nodeName.toLowerCase() === "a" ) {
 				sectionHtml += "<li>" + $item[ 0 ].innerHTML.replace(
 						/(<a\s)/,
 						"$1 " + menuitem + itemsLength +
@@ -9148,7 +9148,8 @@ var componentName = "wb-tables",
 						first: i18n( "first" ),
 						last: i18n( "last" ),
 						next: i18n( "nxt" ),
-						previous: i18n( "prv" )
+						previous: i18n( "prv" ),
+						page: i18n( "page" )
 					},
 					processing: i18n( "process" ),
 					search: i18n( "filter" ),
@@ -9239,9 +9240,15 @@ $document.on( "init.dt draw.dt", selector, function( event, settings ) {
 	// Update the aria-pressed properties on the pagination buttons
 	// Should be pushed upstream to DataTables
 	$( ".dataTables_paginate a" )
-		.attr( "role", "button" )
+		.attr({
+			"role": "button",
+			"href": "javascript;"
+		})
 		.not( ".previous, .next" )
 			.attr( "aria-pressed", "false" )
+			.html( function(index) {
+				return "<span class='wb-inv'>" + i18nText.paginate.page + " </span>" + ( index + 1 ) ;
+			})
 			.filter( ".current" )
 				.attr( "aria-pressed", "true" );
 

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-02-11
+ * v4.0.11-development - 2015-02-12
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -59,6 +59,7 @@ wb.i18nDict = {
 	"prv-l": "Предишен (лява стрелка ключ)",
 	first: "Първи",
 	last: "Последно",
+	page: "Page",
 	"srch-menus": "Търсене и менюта",
 	email: "Мейл",
 	"menu-close": "Затворете менюто",
