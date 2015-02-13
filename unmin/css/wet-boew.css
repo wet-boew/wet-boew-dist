@@ -7726,6 +7726,7 @@ table.dataTable {
 
 .olControlAttribution {
   bottom: 5px;
+  font-size: x-small;
   right: 5px; }
 
 .olHandlerBoxZoomBox {
