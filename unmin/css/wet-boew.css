@@ -8401,6 +8401,8 @@ details.alert:not([open]) {
       width: 100%; }
     .wb-fnote .fn-rtn {
       overflow: visible; }
+      .wb-fnote .fn-rtn a:after {
+        content: none; }
   .wb-geomap-detail, .olControlMousePosition, .olControlPanZoomBar {
     visibility: hidden; }
   .mfp-wrap, .mfp-container {
