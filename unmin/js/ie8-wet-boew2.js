@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-02-13
+ * v4.0.11-development - 2015-02-16
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6650,6 +6650,8 @@ var componentName = "wb-mltmd",
 	templateLoadedEvent = "templateloaded" + selector,
 	cuepointEvent = "cuepoint" + selector,
 	captionClass = "cc_on",
+	multimediaEvents = "durationchange playing pause ended volumechange timeupdate waiting canplay progress" +
+			captionsLoadedEvent + " " + captionsLoadFailedEvent + " " + captionsVisibleChangeEvent + " " + cuepointEvent,
 	$document = wb.doc,
 	$window = wb.win,
 
@@ -7372,9 +7374,7 @@ $document.on( renderUIEvent, selector, function( event, type ) {
 		data.player = $player.is( "object" ) ? $player.children( ":first-child" ) : $player;
 
 		// Create an adapter for the event management
-		data.player.on( "durationchange play pause ended volumechange timeupdate " +
-			captionsLoadedEvent + " " + captionsLoadFailedEvent + " " +
-			captionsVisibleChangeEvent + " waiting canplay progress", function( event ) {
+		data.player.on( multimediaEvents, function( event ) {
 			$this.trigger( event );
 		});
 
@@ -7434,7 +7434,7 @@ $document.on( "click", selector, function( event ) {
 	// from the child span not the parent button, forcing us to have to check for both elements
 	// JSPerf for multiple class matching http://jsperf.com/hasclass-vs-is-stackoverflow/7
 	if ( className.match( /playpause|-play|-pause|wb-mm-ovrly/ ) || $target.is( "object" ) ) {
-		this.player( "getPaused" ) ? this.player( "play" ) : this.player( "pause" );
+		this.player( "getPaused" ) || this.player( "getEnded" ) ? this.player( "play" ) : this.player( "pause" );
 	} else if ( className.match( /\bcc\b|-subtitles/ )  ) {
 		this.player( "setCaptionsVisible", !this.player( "getCaptionsVisible" ) );
 	} else if ( className.match( /\bmute\b|-volume-(up|off)/ ) ) {
@@ -7516,11 +7516,7 @@ $document.on( "wb-activate", selector, function( event ) {
     $this.find( ctrls + " .playpause" ).trigger( "click" );
 });
 
-$document.on( "durationchange play pause ended volumechange timeupdate " +
-	captionsLoadedEvent + " " + captionsLoadFailedEvent + " " +
-	captionsVisibleChangeEvent + " " + cuepointEvent +
-	" waiting canplay", selector, function( event, simulated ) {
-
+$document.on( multimediaEvents, selector, function( event, simulated ) {
 	var eventTarget = event.currentTarget,
 		eventType = event.type,
 		eventNamespace = event.namespace,
@@ -7529,10 +7525,10 @@ $document.on( "durationchange play pause ended volumechange timeupdate " +
 		invEnd = "</span>",
 		currentTime, $button, $slider, buttonData, isPlay, isMuted, isCCVisible, ref, skipTo, volume;
 	switch ( eventType ) {
-	case "play":
+	case "playing":
 	case "pause":
 	case "ended":
-		isPlay = eventType === "play";
+		isPlay = eventType === "playing";
 		$button = $this.find( ".playpause" );
 		buttonData = $button.data( "state-" + ( isPlay ? "off" : "on" ) );
 		if ( isPlay ) {
@@ -9092,6 +9088,7 @@ wb.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @jeresiv
  */
+ /*jshint scripturl:true*/
 (function( $, window, wb ) {
 "use strict";
 
@@ -9239,10 +9236,10 @@ $document.on( "init.dt draw.dt", selector, function( event, settings ) {
 
 	// Update the aria-pressed properties on the pagination buttons
 	// Should be pushed upstream to DataTables
-	$( ".dataTables_paginate a" )
+	$elm.next( ".bottom" ).find( ".paginate_button" )
 		.attr({
 			"role": "button",
-			"href": "javascript;"
+			"href": "javascript:;"
 		})
 		.not( ".previous, .next" )
 			.attr( "aria-pressed", "false" )
