@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.11-development - 2015-02-16
+ * v4.0.11-development - 2015-02-17
  *
  */
 /*
@@ -4933,7 +4933,12 @@ caption {
 .lt-ie9 .dl-horizontal dt {
   white-space: normal; }
 
+/* Print view */
 @media print {
+  /*
+  WET-BOEW
+  @title: Bootstrap IE8-specific print overrides for WET-BOEW
+ */
   .lt-ie9 abbr[title]:after {
     content: ""; }
   .lt-ie9 .pagination, .lt-ie9 .pager {
@@ -8120,16 +8125,25 @@ details.alert:not([open]) {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
 */
+.lt-ie9 table.dataTable thead .sorting-icons, .lt-ie9 .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, .lt-ie9 .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, .lt-ie9[dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:after, .lt-ie9[dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:before {
+  font-family: "Glyphicons Halflings"; }
+
 .lt-ie9 table.dataTable thead .sorting, .lt-ie9 table.dataTable thead .sorting_asc, .lt-ie9 table.dataTable thead .sorting_desc {
   cursor: hand; }
-.lt-ie9 table.dataTable thead .sorting-icons {
-  font-family: "Glyphicons Halflings"; }
 .lt-ie9 .dataTables_wrapper {
   zoom: 1; }
   .lt-ie9 .dataTables_wrapper .dataTables_paginate .paginate_button {
     cursor: hand; }
+    .lt-ie9 .dataTables_wrapper .dataTables_paginate .paginate_button.next:after {
+      content: "\e092";
+      margin-left: 0.5em; }
   .lt-ie9 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
     margin-top: -1px; }
+.lt-ie9[dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button {
+  cursor: hand; }
+  .lt-ie9[dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:after {
+    content: "\e092";
+    margin-left: 0.5em; }
 
 /*
  Polyfills
