@@ -13,6 +13,11 @@
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+/*
+ * HOW TO USE THIS FILE
+ * Use this file to override Bootstrap variables and WET custom variables.
+ * If there is a Bootstrap variable not shown here that you want to override, go to "../lib/bootstrap-sass-official/assets/stylesheets/bootstrap/variables" to view the variables that you can override. Simply copy and paste the variable and its applicable section (if applicable) from the Bootstrap file into this override file and override the variables as applicable.
+ */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -5291,6 +5296,11 @@ q:before, q:after {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+/*
+ * HOW TO USE THIS FILE
+ * Use this file to override Bootstrap variables and WET custom variables.
+ * If there is a Bootstrap variable not shown here that you want to override, go to "../lib/bootstrap-sass-official/assets/stylesheets/bootstrap/variables" to view the variables that you can override. Simply copy and paste the variable and its applicable section (if applicable) from the Bootstrap file into this override file and override the variables as applicable.
+ */
 .opct-100 {
   opacity: 1; }
 
@@ -5633,8 +5643,6 @@ details > summary {
   padding: 0.5em 0;
   width: 100%; }
 
-.cal-days a {
-  color: #111; }
 .cal-days .cal-currday {
   font-weight: bolder; }
 
@@ -5712,8 +5720,6 @@ details > summary {
   padding: 0.5em 0;
   width: 100%; }
 
-.cal-days a {
-  color: #111; }
 .cal-days .cal-currday {
   font-weight: bolder; }
 
@@ -5741,6 +5747,11 @@ figure .pieLabel {
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+/*
+ * HOW TO USE THIS FILE
+ * Use this file to override Bootstrap variables and WET custom variables.
+ * If there is a Bootstrap variable not shown here that you want to override, go to "../lib/bootstrap-sass-official/assets/stylesheets/bootstrap/variables" to view the variables that you can override. Simply copy and paste the variable and its applicable section (if applicable) from the Bootstrap file into this override file and override the variables as applicable.
  */
 .fn-lnk:hover, .fn-lnk:focus, .wb-fnote dd:focus .fn-rtn a, .wb-fnote .fn-rtn a:hover, .wb-fnote .fn-rtn a:focus {
   background-color: #555;
@@ -5827,6 +5838,11 @@ figure .pieLabel {
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+/*
+ * HOW TO USE THIS FILE
+ * Use this file to override Bootstrap variables and WET custom variables.
+ * If there is a Bootstrap variable not shown here that you want to override, go to "../lib/bootstrap-sass-official/assets/stylesheets/bootstrap/variables" to view the variables that you can override. Simply copy and paste the variable and its applicable section (if applicable) from the Bootstrap file into this override file and override the variables as applicable.
  */
 /* Magnific Popup CSS */
 .mfp-bg {
@@ -7066,13 +7082,6 @@ table.dataTable {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-/**
- * Shared variables
- */
 .wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   position: relative; }
 
@@ -7169,7 +7178,9 @@ table.dataTable {
     position: relative; }
     .wb-tabs [role="tablist"] li {
       background: #ebf2fc;
-      border: 1px solid #ccc;
+      border-color: #ccc;
+      border-style: solid;
+      border-width: 1px;
       color: #000;
       cursor: pointer;
       margin: 0 10px 0 0;
@@ -7189,9 +7200,11 @@ table.dataTable {
         padding-bottom: 1px;
         z-index: 2; }
         .wb-tabs [role="tablist"] li.active a {
-          border-top: 4px solid #666;
           cursor: default;
-          padding-top: 6px; }
+          padding-top: 6px;
+          border-color: #666;
+          border-style: solid;
+          border-width: 4px 0 0 0; }
       .wb-tabs [role="tablist"] li.tab-count {
         line-height: normal; }
         .wb-tabs [role="tablist"] li.tab-count > div {
@@ -7695,15 +7708,10 @@ details.alert:not([open]) {
     float: right;
     text-align: right; }
   .wb-tabs > details, .wb-tabs > .tabpanels > details {
-    border: 1px solid #adadad;
-    border-top: 0;
+    border-bottom: #ccc solid 1px;
     padding: 6px 12px; }
-    .wb-tabs > details:first-of-type, .wb-tabs > .tabpanels > details:first-of-type {
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px; }
     .wb-tabs > details:last-of-type, .wb-tabs > .tabpanels > details:last-of-type {
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px; }
+      border-bottom: 0; }
     .wb-tabs > details[style], .wb-tabs > .tabpanels > details[style] {
       min-height: 0 !important; }
     .wb-tabs > details > summary, .wb-tabs > .tabpanels > details > summary {
@@ -7713,8 +7721,10 @@ details.alert:not([open]) {
       margin-bottom: 0; }
   .wb-tabs {
     /* Only for backwards compatibility. Should be removed in v4.1. */
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 1px;
     border-radius: 4px;
-    border-top: 1px solid #adadad;
     margin-bottom: 15px;
     padding-left: 0;
     padding-right: 0; }
@@ -7848,7 +7858,9 @@ details.alert:not([open]) {
     padding-left: 0;
     padding-right: 0; }
   .wb-tabs > details, .wb-tabs > .tabpanels > details {
-    border: 1px solid #ccc;
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 1px;
     display: none; }
     .wb-tabs > details[open], .wb-tabs > .tabpanels > details[open] {
       display: block; }
@@ -7857,7 +7869,9 @@ details.alert:not([open]) {
   .wb-tabs {
     /* Only for backwards compatibility. Should be removed in v4.1. */ }
     .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.active a {
-      border: 10px solid #666;
+      border-color: #666;
+      border-style: solid;
+      border-width: 10px;
       margin-bottom: 1px;
       padding: 0; }
     .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li[role="presentation"] {
