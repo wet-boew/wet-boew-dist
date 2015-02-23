@@ -9220,7 +9220,7 @@ var componentName = "wb-tabs",
 	selectEvent = "wb-select" + selector,
 	updatedEvent = "wb-updated" + selector,
 	setFocusEvent = "setfocus.wb",
-	controls = selector + " [role=tablist] a, " + selector + " [role=tablist] .tab-count",
+	controls = selector + " ul[role=tablist] a, " + selector + " ul[role=tablist] .tab-count",
 	initialized = false,
 	equalHeightClass = "wb-eqht",
 	equalHeightOffClass = equalHeightClass + "-off",
@@ -10157,7 +10157,7 @@ var componentName = "wb-txthl",
 				searchCriteria = "(?=([^>]*<))([\\s'])?(" + searchCriteria + ")(?!>)";
 
 				newText = elm.innerHTML.replace( new RegExp( searchCriteria, "gi" ), function( match, group1, group2, group3 ) {
-					return ( !group2 ? "" : group2 ) + "<span class='txthl'><mark>" + group3 + "</mark></span>";
+					return ( !group2 ? "" : group2 ) + "<mark class='txthl'>" + group3 + "</mark>";
 				});
 				elm.innerHTML = newText;
 			}
@@ -10263,7 +10263,14 @@ var componentName = "wb-toggle",
 
 			// Check that the tablist widget hasn't already been initialized
 			if ( parent.getAttribute( "role" ) !== "tablist" ) {
-				parent.setAttribute( "role", "tablist" );
+
+				// Only apply the tablist role if the parent is not the tabbed interface container
+				// or the page is currently in "smallview", "xsmallview" or "xxsmallview"
+				if ( parent.className.indexOf( "wb-tabs" ) === -1 ||
+					document.documentElement.className.indexOf( "smallview" ) !== -1 ) {
+					parent.setAttribute( "role", "tablist" );
+				}
+
 				elms = parent.querySelectorAll( data.group );
 				tabs = parent.querySelectorAll( data.group + " " + selectorTab );
 

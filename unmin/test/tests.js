@@ -2076,7 +2076,7 @@ describe( "Text highlighting test suite", function() {
 		it( "should have highlighted words matching the query", function() {
 			var matchesLength;
 
-			$matches = $elm.find( ".txthl > mark" );
+			$matches = $elm.find( "mark.txthl" );
 			matchesLength = $matches.length;
 
 			expect( matchesLength ).to.equal( 3 );
@@ -2099,7 +2099,7 @@ describe( "Text highlighting test suite", function() {
 			it( "should have highlighted words matching the query", function() {
 				var matchesLength, m;
 
-				$matches = $elm.find( ".txthl > mark" );
+				$matches = $elm.find( "mark.txthl" );
 				matchesLength = $matches.length;
 
 				expect( matchesLength ).to.equal( 2 );
@@ -2119,7 +2119,7 @@ describe( "Text highlighting test suite", function() {
 			it( "should have highlighted words matching the query", function() {
 				var matchesLength;
 
-				$matches = $elm.find( ".txthl > mark" );
+				$matches = $elm.find( "mark.txthl" );
 				matchesLength = $matches.length;
 
 				expect( matchesLength ).to.equal( 3 );
@@ -2142,7 +2142,7 @@ describe( "Text highlighting test suite", function() {
 			it( "should have highlighted words matching the query", function() {
 				var matchesLength;
 
-				$matches = $elm.find( ".txthl > mark" );
+				$matches = $elm.find( "mark.txthl" );
 				matchesLength = $matches.length;
 
 				expect( matchesLength ).to.equal( 3 );
