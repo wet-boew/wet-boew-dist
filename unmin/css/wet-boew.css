@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.12-development - 2015-02-23
+ * v4.0.12-development - 2015-02-24
  *
  */
 /*
@@ -5819,19 +5819,19 @@ summary {
   summary > :first-child {
     display: inline; }
 
-details[open] {
-  padding-bottom: 1em; }
-details > * {
-  margin-left: 1.5em;
-  margin-right: auto; }
-details > summary {
-  margin-left: auto; }
+details {
+  padding-left: 1.1em; }
+  details[open] {
+    padding-bottom: 1em; }
+  details > summary {
+    margin-left: -1.1em; }
 
-[dir=rtl] details > * {
-  margin-left: auto;
-  margin-right: 1.5em; }
-[dir=rtl] details > summary {
-  margin-right: auto; }
+[dir=rtl] details {
+  padding-left: 0;
+  padding-right: 1.1em; }
+  [dir=rtl] details > summary {
+    margin-left: 0;
+    margin-right: -1.1em; }
 
 /*
  Plugins
@@ -7475,6 +7475,9 @@ table.dataTable {
 
 .wb-tabs > details, .wb-tabs > .tabpanels > details {
   padding: 6px 12px; }
+  .wb-tabs > details > summary, .wb-tabs > .tabpanels > details > summary {
+    margin: -6px -12px;
+    padding: 6px 12px; }
 
 .csstransitions .wb-tabs [role="tabpanel"].out {
   position: absolute;
@@ -8046,15 +8049,11 @@ details.alert:not([open]) {
     float: right;
     text-align: right; }
   .wb-tabs > details, .wb-tabs > .tabpanels > details {
-    border-bottom: #ccc solid 1px;
-    padding: 6px 12px; }
+    border-bottom: #ccc solid 1px; }
     .wb-tabs > details:last-of-type, .wb-tabs > .tabpanels > details:last-of-type {
       border-bottom: 0; }
     .wb-tabs > details[style], .wb-tabs > .tabpanels > details[style] {
       min-height: 0 !important; }
-    .wb-tabs > details > summary, .wb-tabs > .tabpanels > details > summary {
-      margin: -6px -12px;
-      padding: 6px 12px; }
     .wb-tabs > details[open] > summary, .wb-tabs > .tabpanels > details[open] > summary {
       margin-bottom: 0; }
   .wb-tabs {
