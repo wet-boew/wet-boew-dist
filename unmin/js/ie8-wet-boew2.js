@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.12-development - 2015-02-24
+ * v4.0.12-development - 2015-02-25
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3475,6 +3475,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector, true ),
+			settings = window[ componentName ],
 			elmId, modeJS, deps;
 
 		if ( elm ) {
@@ -3487,6 +3488,11 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 				"site!deps/jquery.flot.orderBars" + modeJS,
 				"site!deps/tableparser" + modeJS
 			];
+
+			//TODO: Revist this in the new plugin structure
+			if (settings && settings.plugins) {
+				deps = deps.concat(settings.plugins);
+			}
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
