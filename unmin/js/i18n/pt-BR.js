@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.12-development - 2015-02-26
+ * v4.0.12-development - 2015-03-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -216,4 +216,4 @@ wb.i18nDict = {
 	"tmpl-signin": "Iniciar a sessão"
 };
 
-})( wb );
+} )( wb );

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.12-development - 2015-02-26
+ * v4.0.12-development - 2015-03-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -16,30 +16,30 @@ wb.doc.on( "wb-ready.wb", function() {
 	runner.on( "end", function() {
 		window.mochaResults = runner.stats;
 		window.mochaResults.reports = failedTests;
-	});
+	} );
 
-	runner.on( "fail", logFailure);
+	runner.on( "fail", logFailure );
 
-	function logFailure(test, err) {
+	function logFailure( test, err ) {
 
-		var flattenTitles = function(test) {
+		var flattenTitles = function( test ) {
 			var titles = [];
-			while (test.parent.title) {
-				titles.push(test.parent.title);
+			while ( test.parent.title ) {
+				titles.push( test.parent.title );
 				test = test.parent;
 			}
 			return titles.reverse();
 		};
 
-		failedTests.push({
+		failedTests.push( {
 			name: test.title,
 			result: false,
 			message: err.message,
 			stack: err.message + "\n" + err.stack || "",
 			titles: flattenTitles( test )
-		});
+		} );
 	}
-});
+} );
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -50,7 +50,7 @@ wb.doc.on( "wb-ready.wb", function() {
  */
 /* global jQuery, describe, it, expect, before, after */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -60,7 +60,7 @@ wb.doc.on( "wb-ready.wb", function() {
 describe( "Feedback test suite", function() {
 
 	var $document = wb.doc,
-		$body = $document.find("body"),
+		$body = $document.find( "body" ),
 		$elm, $script, $form, $reason, $reasonWeb, $access, $accessComp, $accessMobile, $info, $contact1, $contact2,
 
 		// Tests sections for visibility.  Not using the ":visible" jQuery selector
@@ -79,20 +79,20 @@ describe( "Feedback test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function( done ) {
-		$elm = $("<div class='feedback'></div>")
+	before( function( done ) {
+		$elm = $( "<div class='feedback'></div>" )
 			.appendTo( $body );
 
-		$elm.trigger({
+		$elm.trigger( {
 			type: "ajax-fetch.wb",
 			fetch: {
 				url: "../demos/feedback/feedback-en.html"
 			}
-		});
+		} );
 
 		$document.on( "ajax-fetched.wb ajax-failed.wb", ".feedback", function( event ) {
 			if ( event.type === "ajax-fetched" ) {
-				$script = $("<script src='../demos/feedback/demo/feedback.js'></script>")
+				$script = $( "<script src='../demos/feedback/demo/feedback.js'></script>" )
 					.appendTo( $elm );
 				$form = event.fetch.pointer.find( ".wb-fdbck" )
 					.appendTo( $elm )
@@ -108,16 +108,16 @@ describe( "Feedback test suite", function() {
 			} else {
 				done( event.fetch.error );
 			}
-		});
+		} );
 
 		$document.on( "wb-init.wb-fdbck", ".wb-fdbck", function() {
 			done();
-		});
-	});
+		} );
+	} );
 
-	after(function() {
+	after( function() {
 		$elm.remove();
-	});
+	} );
 
 	/*
 	 * Test the initialization events of the plugin
@@ -125,96 +125,96 @@ describe( "Feedback test suite", function() {
 	describe( "plugin init", function() {
 		it( "should have added the plugin init class to the form", function() {
 			expect( $form.hasClass( "wb-fdbck-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have set aria-controls attributes", function() {
 			expect( $reason.attr( "aria-controls" ) ).to.equal( "fbweb" );
 			expect( $access.attr( "aria-controls" ) ).to.equal( "fbmob fbcomp" );
-		});
+		} );
 
 		it( "should have set the referrer", function() {
 			expect( $( "#fbpg" ).val() ).to.equal( document.referrer );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test showHide Web behaviour
 	 */
 	describe( "showHide Web", function() {
 
-		before(function() {
+		before( function() {
 			$reasonWeb.hide();
-		});
+		} );
 
 		it( "should hide the 'Web' section when reason is not 'web'", function() {
 			$reason.val( "" ).trigger( "change" );
 			expectHidden( $reasonWeb );
-		});
+		} );
 
 		it( "should show the 'Web' section when reason is 'web'", function() {
 			$reason.val( "web" ).trigger( "change" );
 			expectVisible( $reasonWeb );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test showHide Access behaviour
 	 */
 	describe( "showHide Access", function() {
 
-		before(function() {
+		before( function() {
 			$accessComp.hide();
 			$accessMobile.hide();
-		});
+		} );
 
 		it( "should hide the 'Mobile' section when reason is not 'mobile'", function() {
 			$access.val( "desktop" ).trigger( "change" );
 			expectVisible( $accessComp );
 			expectHidden( $accessMobile );
-		});
+		} );
 
 		it( "should show the 'Mobile' section when reason is 'mobile'", function() {
 			$access.val( "mobile" ).trigger( "change" );
 			expectVisible( $accessMobile );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test showHide Info behaviour
 	 */
 	describe( "showHide Info", function() {
 
-		before(function() {
+		before( function() {
 			$info.hide();
-		});
+		} );
 
 		it( "should hide the 'Info' section when contacts are not checked", function() {
 			$contact1.prop( "checked", false );
 			$contact2.prop( "checked", false ).trigger( "change" );
 			expectHidden( $info );
-		});
+		} );
 
 		it( "should show the 'Info' section when contact1 is checked", function() {
 			$contact1.prop( "checked", true ).trigger( "change" );
 			expectVisible( $info );
-		});
+		} );
 
 		it( "should show the 'Info' section when contact2 is checked", function() {
 			$contact1.prop( "checked", false ).trigger( "change" );
 			$contact2.prop( "checked", true ).trigger( "change" );
 			expectVisible( $info );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test reset button behaviour
 	 */
 	describe( "Reset button click", function() {
 
-		before(function() {
+		before( function() {
 			$reason.val( "web" );
 			$contact1.prop( "checked", true ).trigger( "change" );
-		});
+		} );
 
 		it( "should hide all sections when reset is clicked", function() {
 			expectVisible( $info );
@@ -224,11 +224,11 @@ describe( "Feedback test suite", function() {
 
 			expectHidden( $info );
 			expectHidden( $reasonWeb );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /**
  * @title Country Content Plugin Unit Tests
@@ -238,7 +238,7 @@ describe( "Feedback test suite", function() {
  */
 /* global jQuery, describe, it, expect, sinon, before, after */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -255,7 +255,7 @@ describe( "Country Content test suite", function() {
 			stubs = {},
 			sandbox = sinon.sandbox.create();
 
-		before(function() {
+		before( function() {
 
 			// Stub the $.ajax method to return data.country_code = "CA" on success.
 			// This must be used instead of Sinon's fakeServer because the plugin uses
@@ -270,17 +270,17 @@ describe( "Country Content test suite", function() {
 			$elm = $( "<div data-ctrycnt='ajax/country-content-{country}-en.html'>" )
 				.appendTo( wb.doc.find( "body" ) )
 				.trigger( "wb-init.wb-ctrycnt" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			// Restore original behaviour of $.ajax
 			sandbox.restore();
 			$elm.remove();
-		});
+		} );
 
 		it( "should have added the wb-ctrycnt-inited CSS class", function() {
 			expect( $elm.hasClass( "wb-ctrycnt-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have performed a geo IP lookup", function() {
 			var i = 0,
@@ -294,16 +294,16 @@ describe( "Country Content test suite", function() {
 				}
 			}
 			expect( isLookup ).to.equal( true );
-		});
+		} );
 
 		it( "should have loaded the country specific content", function() {
 			expect( stubs.load.calledWith( "ajax/country-content-ca-en.html" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have saved the country code", function() {
 			expect( localStorage.getItem( "countryCode" ) ).to.equal( "CA" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test loading specific content
@@ -311,7 +311,7 @@ describe( "Country Content test suite", function() {
 	describe( "load specific country content from localStorage", function() {
 		var $elm;
 
-		before(function( done ) {
+		before( function( done ) {
 			// Load the US content
 			localStorage.setItem( "countryCode", "US" );
 
@@ -322,19 +322,19 @@ describe( "Country Content test suite", function() {
 
 			// Give the content time to load
 			setTimeout( done, 100 );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should have saved the country code", function() {
 			expect( localStorage.getItem( "countryCode" ) ).to.equal( "US" );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /**
  * @title data-ajax Plugin Unit Tests
@@ -344,7 +344,7 @@ describe( "Country Content test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -370,7 +370,7 @@ describe( "data-ajax test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function() {
+	before( function() {
 
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
@@ -379,16 +379,16 @@ describe( "data-ajax test suite", function() {
 			if ( typeof callback === "function" ) {
 				callback();
 			}
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * After finishing the test suite, this function is executed once.
 	 */
-	after(function() {
+	after( function() {
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
-	});
+	} );
 
 	/*
 	 * Test the initialization events of the plugin
@@ -396,25 +396,25 @@ describe( "data-ajax test suite", function() {
 	describe( "init events", function() {
 		var $elm;
 
-		before(function(  ) {
+		before( function(  ) {
 			$elm = createElm( "replace" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should trigger an ajax-fetch.wb event", function() {
 			var arg,
 				len = spy.args.length,
 				isEvent = false;
 			while ( len-- && !isEvent ) {
-				arg = spy.args[len][0];
+				arg = spy.args[ len ][ 0 ];
 				isEvent = typeof arg === "object" && arg.type === "ajax-fetch.wb";
 			}
 			expect( isEvent ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test data-ajax-before
@@ -422,25 +422,25 @@ describe( "data-ajax test suite", function() {
 	describe( "data-ajax-before", function() {
 		var $elm, $before;
 
-		before(function( done ) {
+		before( function( done ) {
 			$elm = createElm( "before", done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
 			$before.remove();
-		});
+		} );
 
 		it( "should add the .wb-data-ajax-before-inited class", function() {
 			expect( $elm.hasClass( "wb-data-ajax-before-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should load an element before itself", function() {
 			$before = $elm.prev( ".ajaxed-in" );
 			expect( $before.length ).to.be.greaterThan( 0 );
 			expect( $before.children().length ).to.be.greaterThan( 0 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test data-ajax-after
@@ -448,25 +448,25 @@ describe( "data-ajax test suite", function() {
 	describe( "data-ajax-after", function() {
 		var $elm, $after;
 
-		before(function( done ) {
+		before( function( done ) {
 			$elm = createElm( "after", done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
 			$after.remove();
-		});
+		} );
 
 		it( "should add the .wb-data-ajax-after-inited class", function() {
 			expect( $elm.hasClass( "wb-data-ajax-after-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should load an element after itself", function() {
 			$after = $elm.next( ".ajaxed-in" );
 			expect( $after.length ).to.be.greaterThan( 0 );
 			expect( $after.children().length ).to.be.greaterThan( 0 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test data-ajax-replace
@@ -474,25 +474,25 @@ describe( "data-ajax test suite", function() {
 	describe( "data-ajax-replace", function() {
 		var $elm;
 
-		before(function( done ) {
+		before( function( done ) {
 			$elm = createElm( "replace", done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should add the .wb-data-ajax-replace-inited class", function() {
 			expect( $elm.hasClass( "wb-data-ajax-replace-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should replace its content", function() {
 			var $replace = $elm.find( ".ajaxed-in" );
-			expect( $elm.children().first()[0] ).to.equal( $replace[ 0 ] );
+			expect( $elm.children().first()[ 0 ] ).to.equal( $replace[ 0 ] );
 			expect( $replace.length ).to.be.greaterThan( 0 );
 			expect( $replace.children().length ).to.be.greaterThan( 0 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test data-ajax-prepend
@@ -500,25 +500,25 @@ describe( "data-ajax test suite", function() {
 	describe( "data-ajax-prepend", function() {
 		var $elm;
 
-		before(function( done ) {
+		before( function( done ) {
 			$elm = createElm( "prepend", done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should add the .wb-data-ajax-prepend-inited class", function() {
 			expect( $elm.hasClass( "wb-data-ajax-prepend-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should prepend to its content", function() {
 			var $prepend = $elm.find( ".ajaxed-in" );
-			expect( $elm.children().first()[0] ).to.equal( $prepend[0] );
+			expect( $elm.children().first()[ 0 ] ).to.equal( $prepend[ 0 ] );
 			expect( $prepend.length ).to.be.greaterThan( 0 );
 			expect( $prepend.children().length ).to.be.greaterThan( 0 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test data-ajax-append
@@ -526,36 +526,36 @@ describe( "data-ajax test suite", function() {
 	describe( "data-ajax-append", function() {
 		var $elm;
 
-		before(function( done ) {
+		before( function( done ) {
 			$elm = createElm( "append", done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should add the .wb-data-ajax-append-inited class", function() {
 			expect( $elm.hasClass( "wb-data-ajax-append-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should append to its content", function() {
 			var $append = $elm.find( ".ajaxed-in" );
-			expect( $elm.children().last()[0] ).to.equal( $append[0] );
+			expect( $elm.children().last()[ 0 ] ).to.equal( $append[ 0 ] );
 			expect( $append.length ).to.be.greaterThan( 0 );
 			expect( $append.children().length ).to.be.greaterThan( 0 );
-		});
-	});
+		} );
+	} );
 
 	describe( "dynamic data-ajax", function() {
 		var $elm;
 
-		before(function( done ) {
+		before( function( done ) {
 			$elm = createElm( "append", done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should use the updated URL", function( done ) {
 			callback = done;
@@ -568,11 +568,11 @@ describe( "data-ajax test suite", function() {
 				expect( $elm.find( ".ajaxed-in2" ).length ).to.be.greaterThan( 0 );
 				done();
 			};
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /**
  * @title data-inview Plugin Unit Tests
@@ -582,7 +582,7 @@ describe( "data-ajax test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, beforeEach, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -608,19 +608,19 @@ describe( "data-inview test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function( done ) {
+	before( function( done ) {
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
 		$document.on( initEvent, selector, function( event ) {
 			done();
-		});
+		} );
 
 		$document.on( "all.wb-inview partial.wb-inview none.wb-inview", selector, function( event ) {
-			if (callback) {
+			if ( callback ) {
 				callback();
 			}
-		});
+		} );
 
 		$bar.appendTo( $body );
 
@@ -629,19 +629,19 @@ describe( "data-inview test suite", function() {
 			.trigger( initEvent );
 
 		$window.scrollTop( 0 );
-	});
+	} );
 
 	/*
 	 * After finishing the test suite, this function is executed once.
 	 */
-	after(function() {
+	after( function() {
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 		$bar.remove();
 		$content.remove();
 
 		$window.scrollTop( 0 );
-	});
+	} );
 
 	/*
 	 * Test the initialization events of the plugin
@@ -653,57 +653,57 @@ describe( "data-inview test suite", function() {
 				isSelector = false,
 				len = spy.thisValues.length;
 			while ( !isSelector && len-- ) {
-				elm = spy.thisValues[len][0];
+				elm = spy.thisValues[ len ][ 0 ];
 				isSelector = elm && elm.className && elm.className.indexOf( "wb-inview" ) > -1;
 			}
 			expect( isSelector ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test triggering of the 'scroll.wb-inview' event
 	 */
 	describe( "scroll.wb-inview event triggering", function() {
 
-		beforeEach(function() {
+		beforeEach( function() {
 			spy.reset();
-		});
+		} );
 
 		it( "window 'scroll' event should trigger a scroll.wb-inview event", function() {
 			$window.trigger( "scroll" );
 			expect( spy.calledWith( "scroll.wb-inview" ) ).to.equal( true );
-		});
+		} );
 
 		it( "window 'scrollstop' event should trigger a scroll.wb-inview event", function() {
 			$window.trigger( "scrollstop" );
 			expect( spy.calledWith( "scroll.wb-inview" ) ).to.equal( true );
-		});
+		} );
 
 		it( "document 'txt-rsz.wb' event should trigger a scroll.wb-inview event", function() {
 			$document.trigger( "txt-rsz.wb" );
 			expect( spy.calledWith( "scroll.wb-inview" ) ).to.equal( true );
-		});
+		} );
 
 		it( "document 'win-rsz-width.wb' event should trigger a scroll.wb-inview event", function() {
 			$document.trigger( "win-rsz-width.wb" );
 			expect( spy.calledWith( "scroll.wb-inview" ) ).to.equal( true );
-		});
+		} );
 
 		it( "document 'win-rsz-height.wb' event should trigger a scroll.wb-inview event", function() {
 			$document.trigger( "win-rsz-height.wb" );
 			expect( spy.calledWith( "scroll.wb-inview" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	describe( "inview bottom", function() {
 
 		before( function() {
 			$bar.addClass( "wb-bar-b" );
-		});
+		} );
 
 		after( function() {
 			$bar.removeClass( "wb-bar-b" );
-		});
+		} );
 
 		/*
 		 * Test that inview bottom works as expected
@@ -717,55 +717,55 @@ describe( "data-inview test suite", function() {
 				before( function( done ) {
 					callback = done;
 					$window.scrollTop( $content.offset().top - 1 );
-				});
+				} );
 
 				it( "should not have an inview bottom bar visible", function() {
 					expect( $content.attr( "data-inviewstate" ) ).to.equal( "all" );
 					expect( $bar.hasClass( "open" ) ).to.equal( false );
 					expect( $bar.is( ":visible" ) ).to.equal( false );
-				});
-			});
+				} );
+			} );
 		}
 
 		describe( "'partial'", function() {
 
-			before(function( done ) {
+			before( function( done ) {
 				callback = done;
 				$window.scrollTop( $content.offset().top + 50 );
-			});
+			} );
 
 			it( "should have an inview bottom bar visible", function() {
 				expect( $content.attr( "data-inviewstate" ) ).to.equal( "partial" );
 				expect( $bar.hasClass( "open" ) ).to.equal( true );
 				expect( $bar.is( ":visible" ) ).to.equal( true );
-			});
-		});
+			} );
+		} );
 
 		describe( "'none'", function() {
 
-			before(function( done ) {
+			before( function( done ) {
 				callback = done;
 				$window.scrollTop( $content.offset().top + 500 );
-			});
+			} );
 
 			it( "should have an inview bottom bar visible", function() {
 				expect( $content.attr( "data-inviewstate" ) ).to.equal( "none" );
 				expect( $bar.hasClass( "open" ) ).to.equal( true );
 				expect( $bar.is( ":visible" ) ).to.equal( true );
-			});
-		});
+			} );
+		} );
 
-	});
+	} );
 
 	describe( "inview top", function() {
 
 		before( function() {
 			$bar.addClass( "wb-bar-t" );
-		});
+		} );
 
 		after( function() {
 			$bar.removeClass( "wb-bar-t" );
-		});
+		} );
 
 		/*
 		 * Test that inview top works as expected.
@@ -776,72 +776,72 @@ describe( "data-inview test suite", function() {
 
 			describe( "'all'", function() {
 
-				before(function( done ) {
+				before( function( done ) {
 					callback = done;
 					$window.scrollTop( $content.offset().top - 1 );
-				});
+				} );
 
 				it( "should not have an inview top bar visible", function() {
 					expect( $content.attr( "data-inviewstate" ) ).to.equal( "all" );
 					expect( $bar.hasClass( "open" ) ).to.equal( false );
 					expect( $bar.is( ":visible" ) ).to.equal( false );
-				});
-			});
+				} );
+			} );
 		}
 
 		describe( "'partial'", function() {
 
-			before(function( done ) {
+			before( function( done ) {
 				callback = done;
 				$window.scrollTop( $content.offset().top + 40 );
-			});
+			} );
 
 			it( "should have an inview top bar visible", function() {
 				expect( $content.attr( "data-inviewstate" ) ).to.equal( "partial" );
 				expect( $bar.hasClass( "open" ) ).to.equal( true );
 				expect( $bar.is( ":visible" ) ).to.equal( true );
-			});
-		});
+			} );
+		} );
 
 		describe( "'none'", function() {
 
-			before(function( done ) {
+			before( function( done ) {
 				callback = done;
 				$window.scrollTop( $content.offset().top + 500 );
-			});
+			} );
 
 			it( "should have an inview top bar visible", function() {
 				expect( $content.attr( "data-inviewstate" ) ).to.equal( "none" );
 				expect( $bar.hasClass( "open" ) ).to.equal( true );
 				expect( $bar.is( ":visible" ) ).to.equal( true );
-			});
-		});
-	});
+			} );
+		} );
+	} );
 
 	describe( "inview show-none", function() {
-		before(function( done ) {
+		before( function( done ) {
 			callback = done;
 
 			$bar.addClass( "wb-bar-t" );
-			$content.addClass("show-none");
+			$content.addClass( "show-none" );
 
 			$window.scrollTop( $content.offset().top + 50 );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$bar.removeClass( "wb-bar-t" );
-			$content.removeClass("show-none");
-		});
+			$content.removeClass( "show-none" );
+		} );
 
 		it( "should not have an inview top bar visible (.show-none CSS class prevents it)", function() {
 			expect( $content.attr( "data-inviewstate" ) ).to.equal( "partial" );
 			expect( $bar.hasClass( "open" ) ).to.equal( false );
 			expect( $bar.is( ":visible" ) ).to.equal( false );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /**
  * @title data-picture Plugin Unit Tests
@@ -851,7 +851,7 @@ describe( "data-inview test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -868,13 +868,13 @@ describe( "[data-pic] test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function( done ) {
+	before( function( done ) {
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
 		$document.on( "wb-init.wb-pic", selector, function() {
 			done();
-		});
+		} );
 
 		$elm = $(
 			"<span data-pic data-alt='foo' data-class='foo' class='test'>" +
@@ -885,18 +885,18 @@ describe( "[data-pic] test suite", function() {
 		$elm.appendTo( $body );
 
 		$( selector ).trigger( "wb-init.wb-pic" );
-	});
+	} );
 
 	/*
 	 * After finishing the test suite, this function is executed once.
 	 */
-	after(function() {
+	after( function() {
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 
 		// Remove test data from the page
 		$elm.remove();
-	});
+	} );
 
 	/*
 	 * Test the initialization events of the plugin
@@ -905,17 +905,17 @@ describe( "[data-pic] test suite", function() {
 
 		it( "should have a picfill.wb-pic event", function() {
 			expect( spy.calledWith( "picfill.wb-pic" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have been triggered on a [data-pic] element", function() {
 			var len = spy.thisValues.length,
 				isSelector = false;
 			while ( !isSelector && len-- ) {
-				isSelector = spy.thisValues[len].selector === "[data-pic]";
+				isSelector = spy.thisValues[ len ].selector === "[data-pic]";
 			}
 			expect( isSelector ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test that onresize, the plugin reacts correctly
@@ -925,18 +925,18 @@ describe( "[data-pic] test suite", function() {
 		it( "should have txt-rsz.wb event handler", function() {
 			$document.trigger( "txt-rsz.wb" );
 			expect( spy.calledWith( "picfill.wb-pic" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have win-rsz-width.wb event handler", function() {
 			$document.trigger( "win-rsz-width.wb" );
 			expect( spy.calledWith( "picfill.wb-pic" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have win-rsz-height.wb event handler", function() {
 			$document.trigger( "win-rsz-height.wb" );
 			expect( spy.calledWith( "picfill.wb-pic" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test that the plugin creates responsive images as expected
@@ -944,74 +944,74 @@ describe( "[data-pic] test suite", function() {
 	describe( "responsive images", function() {
 		var $img;
 
-		before(function() {
+		before( function() {
 			$img = $elm.find( "img" );
-		});
+		} );
 
 		it( "should have created one responsive image that matches one of the span[data-src] elements", function() {
 			var $span;
 
-			$span = $elm.find( "[data-src='" + $img.attr("src") + "']" );
+			$span = $elm.find( "[data-src='" + $img.attr( "src" ) + "']" );
 			expect( $img ).to.have.length( 1 );
 			expect( $span.length ).to.be.greaterThan( 0 );
-		});
+		} );
 
 		it( "should create a responsive image with src for the matching media query", function() {
 			expect( $img ).to.have.length( 1 );
 			expect( $img.attr( "src" ) ).to.equal( "baz.jpg" );
-		});
+		} );
 
 		it( "should have set the responsive image alt attribute", function() {
 			expect( $img.attr( "alt" ) ).to.equal( $elm.data( "alt" ) );
-		});
+		} );
 
 		it( "should have set the responsive image's class attribute", function() {
 			expect( $img.attr( "class" ) ).to.equal( $elm.data( "class" ) );
-		});
-	});
+		} );
+	} );
 
 	describe( "responsive images with no matching media query", function() {
 		var $img;
 
-		before(function() {
+		before( function() {
 			$img = $(
 					"<span data-pic data-alt='foo' class='test'>" +
 					"<span data-src='bar.jpg' data-media='print'></span>" +
 					"</span>" )
 				.appendTo( $body )
 				.trigger( "picfill.wb-pic" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$img.remove();
-		});
+		} );
 
 		it( "should not create a responsive image when no matching media query", function() {
 			expect( $img.find( "img" ) ).to.have.length( 0 );
-		});
-	});
+		} );
+	} );
 
 	describe( "responsive images with no source", function() {
 		var $img;
 
-		before(function() {
-			$img = $("<span data-pic data-alt='foo' class='test'>" )
+		before( function() {
+			$img = $( "<span data-pic data-alt='foo' class='test'>" )
 				.appendTo( $body )
 				.trigger( "picfill.wb-pic" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$img.remove();
-		});
+		} );
 
 		it( "should not create a responsive image when no span[data-src]", function() {
 			expect( $img.find( "img" ) ).to.have.length( 0 );
-		});
-	});
+		} );
+	} );
 
-});
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /**
  * @title Equal Heights Plugin Unit Tests
@@ -1021,7 +1021,7 @@ describe( "[data-pic] test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, beforeEach, after */
 /* jshint unused:vars */
-(function( $, wb, undef ) {
+( function( $, wb, undef ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -1080,156 +1080,156 @@ describe( "equalheights test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function() {
+	before( function() {
 		$document.on( "wb-updated.wb-eqht", function( event ) {
 			var currentTest = test || defaultTest;
 			if ( $row !== undef ) {
 				currentTest();
 				callback();
 			}
-		});
+		} );
 
 		$document.on( "wb-ready.wb-eqht", function() {
 			callback();
-		});
-	});
+		} );
+	} );
 
 	// Before each test, reset the height and min-height values of the elements
-	beforeEach(function() {
+	beforeEach( function() {
 		$row.css( "min-height", "" );
 		height = -1;
 		minHeight = -1;
-	});
+	} );
 
 	/*
 	 * Test resizing with all children on same baseline
 	 */
 	describe( "resize float on same baseline", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 			addFixture( $( "<div class='wb-eqht test'>" +
 				"<div style='width:49%; float:left;'>foo</div>" +
 				"<div style='width:49%; float:left;'>bar</div>" +
 			"</div>" ), done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			removeFixture();
-		});
+		} );
 
 		it( "should resize on txt-rsz.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "txt-rsz.wb" );
-		});
+		} );
 
 		it( "should resize on win-rsz-width.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "win-rsz-width.wb" );
-		});
+		} );
 
 		it( "should resize on win-rsz-height.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "win-rsz-height.wb" );
-		});
+		} );
 
 		it( "should resize on wb-updated.wb-tables event", function( done ) {
 			callback = done;
 
 			$document.trigger( "wb-updated.wb-tables" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test resizing with children dropping to next baseline
 	 */
 	describe( "resize multiple floated baselines", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 			addFixture( $( "<div class='wb-eqht test'>" +
 				"<div style='width:49%; float:left'>all</div>" +
 				"<div style='width:49%; float:left'>yours</div>" +
 				"<div style='width:49%; float:left'>bases</div>" +
 				"<div style='width:49%; float:left; height: 100px;'>are belong to us</div>" +
 			"</div>" ), done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			removeFixture();
-		});
+		} );
 
 		it( "should resize on txt-rsz.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "txt-rsz.wb" );
-		});
+		} );
 
 		it( "should resize on win-rsz-width.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "win-rsz-width.wb" );
-		});
+		} );
 
 		it( "should resize on win-rsz-height.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "win-rsz-height.wb" );
-		});
+		} );
 
 		it( "should resize on wb-updated.wb-tables event", function( done ) {
 			callback = done;
 
 			$document.trigger( "wb-updated.wb-tables" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test resizing with children dropping to next baseline
 	 */
 	describe( "resize multiple inline-block baselines", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 			addFixture( $( "<div class='wb-eqht test'>" +
 					"<div style='width:49%; display: inline-block; height: 25px'></div>" +
 					"<div style='width:49%; display: inline-block; height: 50px'></div>" +
 					"<div style='width:49%; display: inline-block; height: 75px'></div>" +
 				"</div>" ), done );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			removeFixture();
-		});
+		} );
 
 		it( "should resize on txt-rsz.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "txt-rsz.wb" );
-		});
+		} );
 
 		it( "should resize on win-rsz-width.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "win-rsz-width.wb" );
-		});
+		} );
 
 		it( "should resize on win-rsz-height.wb event", function( done ) {
 			callback = done;
 
 			$document.trigger( "win-rsz-height.wb" );
-		});
+		} );
 
 		it( "should resize on wb-updated.wb-tables event", function( done ) {
 			callback = done;
 
 			$document.trigger( "wb-updated.wb-tables" );
-		});
-	});
+		} );
+	} );
 
 	describe( "resize nested elements", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 			addFixture( $( "<div class='wb-eqht test'>" +
 				"<div style='width:49%; float:left; height: 50px'><div class='hght-inhrt'>foo</div></div>" +
 				"<div style='width:49%; float:left;'><div>bar</div></div>" +
@@ -1237,7 +1237,7 @@ describe( "equalheights test suite", function() {
 
 			test = function() {
 				var $nestedBlocks = $row.find( ".hght-inhrt" ),
-					$nestedNonEqBlocks = $row.find(":not(.hght-inhrt)"),
+					$nestedNonEqBlocks = $row.find( ":not(.hght-inhrt)" ),
 					nestedLength = $nestedBlocks.length,
 					nestedNonEqLength = $nestedNonEqBlocks.length,
 					$nested, n;
@@ -1255,24 +1255,24 @@ describe( "equalheights test suite", function() {
 					expect( $nested.height() ).to.be.lessThan( $nested.parent().height() );
 				}
 			};
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			removeFixture();
 
 			test = null;
-		});
+		} );
 
 		it( "should resize nested elements with the 'hght-inhrt' class", function( done ) {
 			callback = done;
 
 			$document.trigger( "txt-rsz.wb" );
-		});
+		} );
 
-	});
-});
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -1283,7 +1283,7 @@ describe( "equalheights test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -1298,26 +1298,26 @@ describe( "Favicon test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function() {
+	before( function() {
 		// Spy on jQuery's trigger methods
 		spy = sandbox.spy( $.prototype, "trigger" );
 
 		$favicon = $( "<link href='test/path/favicon.ico' rel='icon' type='image/x-icon'>" )
 			.appendTo( wb.doc.find( "head" ) )
 			.trigger( "wb-init.wb-favicon" );
-	});
+	} );
 
 	/*
 	 * After finishing the test suite, this function is executed once.
 	 */
-	after(function() {
+	after( function() {
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 
 		// Remove the test elements
 		$favicon.remove();
 		$faviconMobile.remove();
-	});
+	} );
 
 	/*
 	 * Test the initialization events of the plugin
@@ -1325,8 +1325,8 @@ describe( "Favicon test suite", function() {
 	describe( "init events", function() {
 		it( "should trigger mobile.wb-favicon event", function() {
 			expect( spy.calledWith( "mobile.wb-favicon" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test that a mobile favicon was added with the correct attributes
@@ -1334,93 +1334,93 @@ describe( "Favicon test suite", function() {
 	describe( "create default mobile favicon", function() {
 
 		var href, path;
-		before(function() {
+		before( function() {
 			$faviconMobile = $( ".wb-favicon" );
 			href = $favicon.attr( "href" );
 			path = href.substring( 0, href.lastIndexOf( "/" ) + 1 );
-		});
+		} );
 
 		it( "should have created a mobile favicon", function() {
 			expect( $faviconMobile ).to.have.length( 1 );
-		});
+		} );
 
 		it( "should have set a default 'rel' attribute", function() {
 			expect( $faviconMobile.attr( "rel" ) ).to.equal( "apple-touch-icon" );
-		});
+		} );
 
 		it( "should have set a default 'sizes' attribute", function() {
 			expect( $faviconMobile.attr( "sizes" ) ).to.equal( "57x57 72x72 114x114 144x144 150x150" );
-		});
+		} );
 
 		it( "should have set a default 'href' attribute", function() {
 			expect( $faviconMobile.attr( "href" ) ).to.equal( path + "favicon-mobile.png" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test that a mobile favicon can be created with custom data
 	 */
 	describe( "create custom mobile favicon", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 			$favicon.removeClass( "wb-favicon-inited" );
 			$faviconMobile.remove();
 
-			$favicon.data({
+			$favicon.data( {
 				rel: "apple-touch-icon-precomposed",
 				sizes: "57x57",
 				path: "foo/",
 				filename: "bar"
-			}).trigger( "wb-init.wb-favicon" );
+			} ).trigger( "wb-init.wb-favicon" );
 
-			setTimeout(function() {
+			setTimeout( function() {
 				$faviconMobile = $( ".wb-favicon" );
 				done();
 			}, 1 );
 
-		});
+		} );
 
 		it( "should have created a mobile favicon", function() {
 			expect( $faviconMobile ).to.have.length( 1 );
-		});
+		} );
 
 		it( "should have set a custom 'rel' attribute", function() {
 			expect( $faviconMobile.attr( "rel" ) ).to.equal( "apple-touch-icon-precomposed" );
-		});
+		} );
 
 		it( "should have set a custom 'sizes' attribute", function() {
 			expect( $faviconMobile.attr( "sizes" ) ).to.equal( "57x57" );
-		});
+		} );
 
 		it( "should have set a custom 'href' attribute", function() {
 			expect( $faviconMobile.attr( "href" ) ).to.equal( "foo/bar" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test update of favicon
 	 */
 	describe( "update favicon", function() {
 
-		before(function() {
+		before( function() {
 			$faviconMobile.remove();
 			$favicon.trigger( "icon.wb-favicon", {
 				path: "foobar/",
 				filename: "baz"
-			});
-		});
+			} );
+		} );
 
 		it( "should not have created a mobile favicon", function() {
 			expect( $( ".wb-favicon" ) ).to.have.length( 0 );
-		});
+		} );
 
 		it( "should have set a custom 'href' attribute", function() {
 			expect( $favicon.attr( "href" ) ).to.equal( "foobar/baz" );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -1431,7 +1431,7 @@ describe( "Favicon test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -1445,14 +1445,14 @@ describe( "Feeds test suite", function() {
 		$document = wb.doc,
 		ajaxCalls, callback;
 
-	before(function() {
+	before( function() {
 
 		//Replaces the ajax-fetch event handler with a simulated one
 		$document.off( ajaxEvent );
 
 		$document.on( ajaxEvent, function( event ) {
 			ajaxCalls.push( event.fetch );
-			$( event.target ).trigger({
+			$( event.target ).trigger( {
 				type: fetchedEvent,
 				fetch: {
 					response: {
@@ -1484,12 +1484,12 @@ describe( "Feeds test suite", function() {
 
 		$document.on( "wb-feed-ready.wb-feeds", ".wb-feeds .feeds-cont", function() {
 			callback();
-		});
-	});
+		} );
+	} );
 
-	after(function() {
+	after( function() {
 		sandbox.restore();
-	});
+	} );
 
 	/*
 	 * Test the initialization of the plugin
@@ -1508,15 +1508,15 @@ describe( "Feeds test suite", function() {
 				.appendTo( $document.find( "body" ) )
 				.trigger( "wb-init.wb-feeds" );
 
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should have added the plugin init class to the element", function() {
 			expect( $elm.hasClass( "wb-feeds-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have made an ajax call to load the feed entries", function() {
 			var i = 0,
@@ -1529,12 +1529,12 @@ describe( "Feeds test suite", function() {
 				isLookup = ajaxCalls.length && ajaxCalls[ i ].url === feedurl;
 			}
 			expect( isLookup ).to.equal( true );
-		});
+		} );
 
 		it( "should have populated .feeds-cont with 3 feed links", function() {
 			expect( $elm.find( ".feeds-cont > li" ).length ).to.equal( 3 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test limiting feed entries
@@ -1552,16 +1552,16 @@ describe( "Feeds test suite", function() {
 				"</ul></div>" )
 				.appendTo( $document.find( "body" ) )
 				.trigger( "wb-init.wb-feeds" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should have limited to 2 feed entries", function() {
 			expect( $elm.find( ".feeds-cont > li" ).length ).to.equal( 2 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test loading multiple feeds
@@ -1569,7 +1569,7 @@ describe( "Feeds test suite", function() {
 	describe( "multiple feed links", function() {
 		var $elm;
 
-		before (function( done ) {
+		before ( function( done ) {
 			ajaxCalls = [];
 			callback = done;
 
@@ -1580,11 +1580,11 @@ describe( "Feeds test suite", function() {
 				"</ul></div>" )
 				.appendTo( $document.find( "body" ) )
 				.trigger( "wb-init.wb-feeds" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$elm.remove();
-		});
+		} );
 
 		it( "should have made two ajax calls to load the feed entries", function() {
 			var i = 0,
@@ -1602,15 +1602,15 @@ describe( "Feeds test suite", function() {
 			}
 			expect( isLookup1 ).to.equal( true );
 			expect( isLookup2 ).to.equal( true );
-		});
+		} );
 
 		it( "should have populated .feeds-cont with 6 feed links", function() {
 			expect( $elm.find( ".feeds-cont > li" ).length ).to.equal( 6 );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /**
  * @title Prettify Plugin Unit Tests
@@ -1620,7 +1620,7 @@ describe( "Feeds test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -1636,14 +1636,14 @@ describe( "Prettify test suite", function() {
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function(done) {
+	before( function( done ) {
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
 		// Start the tests once the plugin has been finished processing
 		$document.on( "wb-ready.wb-prettify", function() {
 			callback();
-		});
+		} );
 
 		callback = done;
 
@@ -1654,19 +1654,19 @@ describe( "Prettify test suite", function() {
 
 		$body.append( "<pre class='test prettyprint'></pre>" );
 		$body.append( "<pre class='test noprettify'></pre>" );
-	});
+	} );
 
 	/*
 	 * After finishing the test suite, this function is executed once.
 	 */
-	after(function() {
+	after( function() {
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 
 		// Remove test elements from the page
 		$prettify.remove();
 		$( "pre.test" ).remove();
-	});
+	} );
 
 	/*
 	 * Test the initialization events of the plugin
@@ -1675,24 +1675,24 @@ describe( "Prettify test suite", function() {
 
 		it( "should have marked the element as initialized", function() {
 			expect( $prettify.hasClass( "wb-prettify-inited" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should have created a window.prettyPrint function", function() {
 			expect( typeof window.prettyPrint ).to.equal( "function" );
-		});
+		} );
 
 		it( "should have added a .prettyprinted CSS class to pre.prettyprint elements", function() {
-			$( "pre.prettyprint" ).each(function() {
+			$( "pre.prettyprint" ).each( function() {
 				expect( this.className.indexOf( "prettyprinted" ) ).to.be.greaterThan( -1 );
-			});
-		});
+			} );
+		} );
 
 		it( "should not have added a .prettyprinted CSS class to pre elements without a .prettyprint class", function() {
-			$( "pre.noprettify" ).each(function() {
+			$( "pre.noprettify" ).each( function() {
 				expect( this.className.indexOf( "prettyprinted" ) ).to.equal( -1 );
-			});
-		});
-	});
+			} );
+		} );
+	} );
 
 	/*
 	 * Test default plugin settings
@@ -1700,27 +1700,27 @@ describe( "Prettify test suite", function() {
 	describe( "dependency loading", function() {
 
 		it( "should have loaded prettify.js file", function() {
-			expect( $("script[src*='deps/prettify']") ).to.have.length( 1 );
-		});
+			expect( $( "script[src*='deps/prettify']" ) ).to.have.length( 1 );
+		} );
 
 		it( "should have loaded lang-css.js syntax file", function() {
-			expect( $("script[src*='/lang-css']") ).to.have.length( 1 );
-		});
+			expect( $( "script[src*='/lang-css']" ) ).to.have.length( 1 );
+		} );
 
 		it( "should not have loaded lang-sql.js syntax file", function() {
-			expect( $("script[src*='/lang-sql']") ).to.have.length( 0 );
-		});
-	});
+			expect( $( "script[src*='/lang-sql']" ) ).to.have.length( 0 );
+		} );
+	} );
 
 	/*
 	 * Test plugin settings
 	 */
 	describe( "override plugin settings with CSS classes", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 
 			//Prettify needs more time in IE to complete, due to the pre from mocha results
-			this.timeout(5000);
+			this.timeout( 5000 );
 
 			callback = done;
 
@@ -1731,55 +1731,55 @@ describe( "Prettify test suite", function() {
 				.addClass( "all-pre" )
 				.addClass( "linenums" )
 				.trigger( "wb-init.wb-prettify" );
-		});
+		} );
 
 		it( "should have loaded lang-sql.js syntax file", function() {
-			expect( $("script[src*='/lang-sql']") ).to.have.length( 1 );
-		});
+			expect( $( "script[src*='/lang-sql']" ) ).to.have.length( 1 );
+		} );
 
 		it( "should have added a .prettyprinted CSS class to all pre elements", function() {
 			expect( $( "pre.test.prettyprinted" ).length ).to.be( $( "pre.test" ).length );
-		});
+		} );
 
 		it( "should have added a .linenums CSS class to all pre elements", function() {
 			expect( $( "pre.test.linenums" ).length ).to.be( $( "pre.test" ).length );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test plugin settings
 	 */
 	describe( "override plugin settings with data attributes", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 
 			//Prettify needs more time in IE to complete, due to the pre from mocha results
-			this.timeout(5000);
+			this.timeout( 5000 );
 
 			callback = done;
 
 			$body.append( "<pre class='test'></pre>" );
 			$prettify
 				.removeClass( "wb-prettify-inited" )
-				.removeClass( "all-pre linenums")
-				.data({
+				.removeClass( "all-pre linenums" )
+				.data( {
 					allpre: true,
 					linenums: true
-				})
+				} )
 				.trigger( "wb-init.wb-prettify" );
-		});
+		} );
 
 		it( "should have added a .prettyprinted CSS class to all pre elements", function() {
 			expect( $( "pre.test.prettyprinted" ).length ).to.be( $( "pre.test" ).length );
-		});
+		} );
 
 		it( "should have added a .linenums CSS class to all pre elements", function() {
 			expect( $( "pre.test.linenums" ).length ).to.be( $( "pre.test" ).length );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -1790,7 +1790,7 @@ describe( "Prettify test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -1805,12 +1805,12 @@ describe( "Session Timeout test suite", function() {
 		$document = wb.doc,
 		callback;
 
-	this.timeout(5000);
+	this.timeout( 5000 );
 
 	/*
 	 * Before beginning the test suite, this function is executed once.
 	 */
-	before(function( done ) {
+	before( function( done ) {
 
 		// Spy on jQuery's trigger and post methods
 		spies.trigger = sandbox.spy( $.prototype, "trigger" );
@@ -1820,13 +1820,13 @@ describe( "Session Timeout test suite", function() {
 
 		$document.on( "inactivity.wb-sessto", function() {
 			$( ".wb-sessto-confirm.btn-primary" ).trigger( "click" );
-		});
+		} );
 
 		$document.on( "wb-ready.wb-sessto", ".wb-sessto", function() {
 			if ( callback ) {
 				callback();
 			}
-		});
+		} );
 
 		$session = $( "<span class='wb-sessto'></span>" )
 			.data( "wet-boew", {
@@ -1834,22 +1834,22 @@ describe( "Session Timeout test suite", function() {
 				sessionalive: 10000,
 				refreshLimit: 42000,
 				refreshOnClick: true
-			})
-			.appendTo( $document.find( "body" ))
+			} )
+			.appendTo( $document.find( "body" ) )
 			.trigger( "wb-init.wb-sessto" );
-	});
+	} );
 
 	/*
 	 * After finishing the test suite, this function is executed once.
 	 */
-	after(function() {
+	after( function() {
 		// Cleanup the test element
 		$session.remove();
 		$( "#wb-sessto-modal" ).remove();
 
 		// Restore the original behaviour of spies, server and timer
 		sandbox.restore();
-	});
+	} );
 
 	/*
 	 * Test initialization of the plugin
@@ -1857,16 +1857,16 @@ describe( "Session Timeout test suite", function() {
 	describe( "init plugin", function() {
 		it( "should trigger reset.wb-sessto event", function() {
 			expect( spies.trigger.calledWith( "reset.wb-sessto" ) ).to.equal( true );
-		});
+		} ) ;
 
 		it( "should have marked the element as initialized", function() {
 			expect( $session.hasClass( "wb-sessto-inited" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	describe( "inactivity", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 
 			// Allow time for magnificPopup dependency to load
 			setTimeout( function() {
@@ -1880,20 +1880,20 @@ describe( "Session Timeout test suite", function() {
 
 				done();
 			}, 500 );
-		});
+		} );
 
 		it( "should trigger inactivity.wb-sessto after 10000ms", function() {
 			clock.tick( 10010 );
 			expect( spies.trigger.calledWith( "inactivity.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should trigger keepalive.wb-sessto event after 10000ms", function() {
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should trigger reset.wb-sessto event after 10000ms", function() {
 			expect( spies.trigger.calledWith( "reset.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should not have triggered inactivity events 19950ms", function() {
 			spies.trigger.reset();
@@ -1901,7 +1901,7 @@ describe( "Session Timeout test suite", function() {
 			expect( spies.trigger.calledWith( "inactivity.wb-sessto" ) ).to.equal( false );
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( false );
 			expect( spies.trigger.calledWith( "reset.wb-sessto" ) ).to.equal( false );
-		});
+		} );
 
 		it( "should have triggered inactivity events after 20000ms", function() {
 			spies.trigger.reset();
@@ -1909,42 +1909,42 @@ describe( "Session Timeout test suite", function() {
 			expect( spies.trigger.calledWith( "inactivity.wb-sessto" ) ).to.equal( true );
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( true );
 			expect( spies.trigger.calledWith( "reset.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "has no refreshCallbackUrl so should not call $.post", function() {
 			expect( spies.post.called ).to.equal( false );
-		});
+		} );
 
-	});
+	} );
 
 	describe( "refresh onclick", function() {
 
-		before(function() {
+		before( function() {
 			// Reset the state of the spies
 			spies.trigger.reset();
 			spies.post.reset();
-		});
+		} );
 
 		it( "should trigger keepalive.wb-sessto on document click", function() {
 			clock.tick( 42010 );
 			$document.trigger( "click" );
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should trigger reset.wb-sessto on document click", function() {
 			expect( spies.trigger.calledWith( "reset.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "has no refreshCallbackUrl so should not call $.post", function() {
 			expect( spies.post.called ).to.equal( false );
-		});
+		} );
 
 		it( "should not trigger keepalive.wb-sessto on document click (refresh limit prevents)", function() {
 			spies.trigger.reset();
 
 			$document.trigger( "click" );
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( false );
-		});
+		} );
 
 		it( "should trigger keepalive.wb-sessto on document click (refresh limit allows)", function() {
 			spies.trigger.reset();
@@ -1952,12 +1952,12 @@ describe( "Session Timeout test suite", function() {
 
 			$document.trigger( "click" );
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	describe( "refreshCallbackUrl", function() {
 
-		before(function( done ) {
+		before( function( done ) {
 			// Setup the fake server response for all POST requests to foo.html
 			server = sandbox.useFakeServer();
 			server.respondWith( "POST", "foo.html", "true" );
@@ -1968,10 +1968,10 @@ describe( "Session Timeout test suite", function() {
 			$session.data( "wet-boew", {
 					sessionalive: 5000,
 					refreshCallbackUrl: "foo.html"
-				})
+				} )
 				.removeClass( "wb-sessto-inited" )
 				.trigger( "wb-init.wb-sessto" );
-		});
+		} );
 
 		it( "should trigger keepalive.wb-sessto after 5000ms", function() {
 			spies.trigger.reset();
@@ -1979,22 +1979,22 @@ describe( "Session Timeout test suite", function() {
 
 			clock.tick( 5010 );
 			expect( spies.trigger.calledWith( "keepalive.wb-sessto" ) ).to.equal( true );
-		});
+		} );
 
 		it( "has refreshCallbackUrl so should call $.post", function() {
 			expect( spies.post.called ).to.equal( true );
 			expect( spies.post.calledWith( "foo.html" ) ).to.equal( true );
-		});
+		} );
 
 		it( "successful response triggers reset.wb-sessto event", function() {
 			server.respond();
 			expect( spies.trigger.calledWith( "reset.wb-sessto" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
-});
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /*
  * @title Toggle Plugin Unit Tests
@@ -2004,7 +2004,7 @@ describe( "Session Timeout test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, beforeEach, after, afterEach, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -2031,15 +2031,15 @@ describe( "Text highlighting test suite", function() {
 			if ( callback ) {
 				callback();
 			}
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * After finishing the test suite, this function is exectued once.
 	 */
 	after( function() {
 		sandbox.restore();
-	});
+	} );
 
 	beforeEach( function( done ) {
 		callback = done;
@@ -2047,11 +2047,11 @@ describe( "Text highlighting test suite", function() {
 		$elm = $( "<div class='wb-txthl'><p>This is a test. It's just some testing.</p></div>" )
 			.appendTo( $body )
 			.trigger( initEventObj );
-	});
+	} );
 
 	afterEach( function() {
 		$elm.remove();
-	});
+	} );
 
 	/*
 	 * Test initialization of the plugin
@@ -2059,19 +2059,19 @@ describe( "Text highlighting test suite", function() {
 	describe( "init plugin", function() {
 		before( function() {
 			initEventObj = defaultInitEventObj;
-		});
+		} );
 
 		it( "should have marked the element as initialized", function() {
 			expect( $elm.hasClass( "wb-txthl-inited" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	( wb.pageUrlParts.params.txthl ? describe : describe.skip )( "search query from the querystring", function() {
 		var $matches;
 
 		before( function() {
 			initEventObj = defaultInitEventObj;
-		});
+		} );
 
 		it( "should have highlighted words matching the query", function() {
 			var matchesLength;
@@ -2084,8 +2084,8 @@ describe( "Text highlighting test suite", function() {
 			expect( $matches.eq( 0 ).text() ).to.equal( "test" );
 			expect( $matches.eq( 1 ).text() ).to.equal( "just some" );
 			expect( $matches.eq( 2 ).text() ).to.equal( "test" );
-		});
-	});
+		} );
+	} );
 
 	describe( "dynamic search query", function() {
 		var $matches;
@@ -2094,7 +2094,7 @@ describe( "Text highlighting test suite", function() {
 			before( function() {
 				initEventObj = defaultInitEventObj;
 				initEventObj.txthl = "test";
-			});
+			} );
 
 			it( "should have highlighted words matching the query", function() {
 				var matchesLength, m;
@@ -2107,14 +2107,14 @@ describe( "Text highlighting test suite", function() {
 				for ( m = 0; m < matchesLength; m += 1 ) {
 					expect( $matches.eq( m ).text() ).to.equal( "test" );
 				}
-			});
-		});
+			} );
+		} );
 
 		describe( "complex query as a string", function() {
 			before( function() {
 				initEventObj = defaultInitEventObj;
 				initEventObj.txthl = "just some|test";
-			});
+			} );
 
 			it( "should have highlighted words matching the query", function() {
 				var matchesLength;
@@ -2127,8 +2127,8 @@ describe( "Text highlighting test suite", function() {
 				expect( $matches.eq( 0 ).text() ).to.equal( "test" );
 				expect( $matches.eq( 1 ).text() ).to.equal( "just some" );
 				expect( $matches.eq( 2 ).text() ).to.equal( "test" );
-			});
-		});
+			} );
+		} );
 
 		describe( "complex query as an array", function() {
 			before( function() {
@@ -2137,7 +2137,7 @@ describe( "Text highlighting test suite", function() {
 					"just some",
 					"test"
 				];
-			});
+			} );
 
 			it( "should have highlighted words matching the query", function() {
 				var matchesLength;
@@ -2150,12 +2150,12 @@ describe( "Text highlighting test suite", function() {
 				expect( $matches.eq( 0 ).text() ).to.equal( "test" );
 				expect( $matches.eq( 1 ).text() ).to.equal( "just some" );
 				expect( $matches.eq( 2 ).text() ).to.equal( "test" );
-			});
-		});
-	});
-});
+			} );
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /*
  * @title Toggle Plugin Unit Tests
@@ -2165,7 +2165,7 @@ describe( "Text highlighting test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after, sinon */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -2180,18 +2180,18 @@ describe( "Toggle test suite", function() {
 	/*
 	 * Before begining the test suite, this function is exectued once.
 	 */
-	before(function() {
+	before( function() {
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
-	});
+	} );
 
 	/*
 	 * After finishing the test suite, this function is exectued once.
 	 */
-	after(function() {
+	after( function() {
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
-	});
+	} );
 
 	/*
 	 * Test initialization of the plugin
@@ -2199,7 +2199,7 @@ describe( "Toggle test suite", function() {
 	describe( "initialization", function() {
 		var $test, $toggleSelf, $toggleOthers, $accordion, $toggleTabs;
 
-		before(function() {
+		before( function() {
 			// Create test element
 			$test = $( "<div class='toggle-test'>" )
 				.appendTo( $body );
@@ -2222,36 +2222,36 @@ describe( "Toggle test suite", function() {
 						"<summary class='wb-toggle tgl-tab' data-toggle='{\"parent\": \".toggle-test-accordion\", \"group\": \".toggle-test-acc\"}'></summary>" +
 						"<div class='tgl-panel'></div>" +
 					"</details>" +
-				"</div>")
+				"</div>" )
 				.appendTo( $body );
 			$toggleTabs = $accordion.find( ".wb-toggle" )
 				.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$test.remove();
 			$toggleSelf.remove();
 			$toggleOthers.remove();
 			$accordion.remove();
-		});
+		} );
 
 		it( "should have been marked toggle elements as initialized", function() {
 			expect( $toggleSelf.hasClass( "wb-toggle-inited" ) ).to.equal( true );
 			expect( $toggleOthers.hasClass( "wb-toggle-inited" ) ).to.equal( true );
 			$toggleTabs.each( function() {
 				expect( $( this ).hasClass( "wb-toggle-inited" ) ).to.equal( true );
-			});
-		});
+			} );
+		} );
 
 		it( "should have merged default settings with toggle element's data", function() {
 			var data = $toggleSelf.data( "toggle" );
 			expect( data.stateOn ).to.equal( "on" );
 			expect( data.stateOff ).to.equal( "off" );
-		});
+		} );
 
 		it( "$toggleSelf should have aria-controls attribute set to own ID", function() {
 			expect( $toggleSelf.attr( "aria-controls" ) ).to.equal( $toggleSelf.attr( "id" ) );
-		});
+		} );
 
 		it( "$toggleOthers should have aria-controls attribute set to controlled elements", function() {
 			var ariaControls = "",
@@ -2259,9 +2259,9 @@ describe( "Toggle test suite", function() {
 
 				$( selector ).each( function() {
 					ariaControls += this.id + " ";
-				});
+				} );
 				expect( $toggleOthers.attr( "aria-controls" ) ).to.equal( $.trim( ariaControls ) );
-		});
+		} );
 
 		it( "should have aria tablist attributes if a tablist", function() {
 			var data, $panel, $parent;
@@ -2273,17 +2273,17 @@ describe( "Toggle test suite", function() {
 
 				$parent.find( ".tgl-tab" ).each( function() {
 					expect( this.getAttribute( "role" ) ).to.equal( "tab" );
-				});
+				} );
 				$parent.find( ".tgl-panel" ).each( function() {
 					expect( this.getAttribute( "role" ) ).to.equal( "tabpanel" );
-				});
+				} );
 				$parent.find( data.group ).each( function() {
 					$panel = $( this );
 					expect( $panel.find( ".tgl-panel" ).attr( "aria-labelledby" )  ).to.equal( $panel.find( ".tgl-tab" ).attr( "id" ) );
-				});
-			});
-		});
-	});
+				} );
+			} );
+		} );
+	} );
 
 	/*
 	 * Test plugin click event
@@ -2291,7 +2291,7 @@ describe( "Toggle test suite", function() {
 	describe( "click event", function() {
 		var $toggle;
 
-		before(function() {
+		before( function() {
 			spy.reset();
 
 			// Create toggle element and trigger plugin init
@@ -2299,24 +2299,24 @@ describe( "Toggle test suite", function() {
 				.appendTo( $body )
 				.trigger( "wb-init.wb-toggle" )
 				.trigger( "click" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$toggle.remove();
-		});
+		} );
 
 		it( "should trigger toggle.wb-toggle", function() {
 			expect( spy.calledWith( "toggle.wb-toggle" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should trigger toggled.wb-toggle", function() {
 			expect( spy.calledWith( "toggled.wb-toggle" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should trigger focus.wb", function() {
 			expect( spy.calledWith( "setfocus.wb" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test specific toggle element
@@ -2324,30 +2324,30 @@ describe( "Toggle test suite", function() {
 	describe( "toggle on/off states of selector", function() {
 		var $toggler, $toggledElm;
 
-		before(function() {
+		before( function() {
 			// Create the toggle element and start testing once it has been initialized
 			$toggledElm = $( "<div id='foo' class='test'/>" ).appendTo( $body );
 			$toggler = $( "<button type='button' class='wb-toggle test' data-toggle='{\"selector\": \"#foo\"}'/>" ).appendTo( $body );
 			$toggler.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$toggler.remove();
 			$toggledElm.remove();
-		});
+		} );
 
 		it( "should have been toggled on", function() {
 			$toggler.trigger( "click" );
 			expect( $toggledElm.hasClass( "on" ) ).to.equal( true );
 			expect( $toggledElm.data( "wb-toggle-state" ) ).to.equal( "on" );
-		});
+		} );
 
 		it( "should have been toggled off", function() {
 			$toggler.trigger( "click" );
 			expect( $toggledElm.hasClass( "off" ) ).to.equal( true );
 			expect( $toggledElm.data( "wb-toggle-state" ) ).to.equal( "off" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test toggle of self
@@ -2355,28 +2355,28 @@ describe( "Toggle test suite", function() {
 	describe( "toggle on/off states of self", function() {
 		var $toggler;
 
-		before(function() {
+		before( function() {
 			// Create the toggle element and start testing once it has been initialized
 			$toggler = $( "<button type='button' class='wb-toggle test'/>" ).appendTo( $body );
 			$toggler.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$toggler.remove();
-		});
+		} );
 
 		it( "should have been toggled on", function() {
 			$toggler.trigger( "click" );
 			expect( $toggler.hasClass( "on" ) ).to.equal( true );
 			expect( $toggler.data( "wb-toggle-state" ) ).to.equal( "on" );
-		});
+		} );
 
 		it( "should have been toggled off", function() {
 			$toggler.trigger( "click" );
 			expect( $toggler.hasClass( "off" ) ).to.equal( true );
 			expect( $toggler.data( "wb-toggle-state" ) ).to.equal( "off" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test toggle type with custom on/off state CSS classes
@@ -2384,44 +2384,44 @@ describe( "Toggle test suite", function() {
 	describe( "toggle type togglers with custom states", function() {
 		var $togglerOn, $togglerOff;
 
-		before(function() {
+		before( function() {
 			// Create the toggle elements and start testing once it has been initialized
 			$togglerOn = $( "<button type='button' class='wb-toggle test' data-toggle='{\"type\": \"on\", \"stateOn\": \"open\"}'/>" ).appendTo( $body );
 			$togglerOn.trigger( "wb-init.wb-toggle" );
 
 			$togglerOff = $( "<button type='button' class='wb-toggle test' data-toggle='{\"type\": \"off\", \"stateOff\": \"close\"}'/>" ).appendTo( $body );
 			$togglerOff.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$togglerOn.remove();
 			$togglerOff.remove();
-		});
+		} );
 
 		it( "should have been toggled on", function() {
 			$togglerOn.trigger( "click" );
 			expect( $togglerOn.hasClass( "open" ) ).to.equal( true );
 			expect( $togglerOn.data( "wb-toggle-state" ) ).to.equal( "open" );
-		});
+		} );
 
 		it( "should remain toggled on", function() {
 			$togglerOn.trigger( "click" );
 			expect( $togglerOn.hasClass( "open" ) ).to.equal( true );
 			expect( $togglerOn.data( "wb-toggle-state" ) ).to.equal( "open" );
-		});
+		} );
 
 		it( "should have been toggled off", function() {
 			$togglerOff.trigger( "click" );
 			expect( $togglerOff.hasClass( "close" ) ).to.equal( true );
 			expect( $togglerOff.data( "wb-toggle-state" ) ).to.equal( "close" );
-		});
+		} );
 
 		it( "should remain toggled off", function() {
 			$togglerOff.trigger( "click" );
 			expect( $togglerOff.hasClass( "close" ) ).to.equal( true );
 			expect( $togglerOff.data( "wb-toggle-state" ) ).to.equal( "close" );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Grouped toggles
@@ -2429,7 +2429,7 @@ describe( "Toggle test suite", function() {
 	describe( "Group toggle elements", function() {
 		var $toggle1, $toggle2, $toggle3, $toggler1, $toggler2, $toggler3;
 
-		before(function() {
+		before( function() {
 			// Create the toggle elements and start testing once it has been initialized
 			$toggler1 = $( "<button type='button' class='wb-toggle' data-toggle='{\"selector\": \"#test-toggle1\", \"group\": \".grouped\", \"type\": \"on\"}'/>" ).appendTo( $body );
 			$toggler2 = $( "<button type='button' class='wb-toggle' data-toggle='{\"selector\": \"#test-toggle2\", \"group\": \".grouped\", \"type\": \"on\"}'/>" ).appendTo( $body );
@@ -2442,9 +2442,9 @@ describe( "Toggle test suite", function() {
 			$toggler1.trigger( "wb-init.wb-toggle" );
 			$toggler2.trigger( "wb-init.wb-toggle" );
 			$toggler3.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$toggler1.remove();
 			$toggler2.remove();
 			$toggler3.remove();
@@ -2452,29 +2452,29 @@ describe( "Toggle test suite", function() {
 			$toggle1.remove();
 			$toggle2.remove();
 			$toggle3.remove();
-		});
+		} );
 
 		it( "should open the first example only", function() {
 			$toggler1.trigger( "click" );
 			expect( $toggle1.hasClass( "on" ) ).to.equal( true );
 			expect( $toggle2.hasClass( "on" ) ).to.equal( false );
 			expect( $toggle3.hasClass( "on" ) ).to.equal( false );
-		});
+		} );
 
 		it( "should open the second example only", function() {
 			$toggler2.trigger( "click" );
 			expect( $toggle1.hasClass( "on" ) ).to.equal( false );
 			expect( $toggle2.hasClass( "on" ) ).to.equal( true );
 			expect( $toggle3.hasClass( "on" ) ).to.equal( false );
-		});
+		} );
 
 		it( "should open the third example only", function() {
 			$toggler3.trigger( "click" );
 			expect( $toggle1.hasClass( "on" ) ).to.equal( false );
 			expect( $toggle2.hasClass( "on" ) ).to.equal( false );
 			expect( $toggle3.hasClass( "on" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Details elements
@@ -2482,19 +2482,19 @@ describe( "Toggle test suite", function() {
 	describe( "Toggle details elements", function() {
 		var $details, $toggler;
 
-		before(function() {
+		before( function() {
 			spy.reset();
 
 			// Create the toggle elements and start testing once it has been initialized
 			$toggler = $( "<button type='button' class='wb-toggle test' data-toggle='{\"selector\": \".test-details\"}'/>" ).appendTo( $body );
 			$details = $( "<details class=\"test test-details\"><summary></summary></details>" ).appendTo( $body );
 			$toggler.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$toggler.remove();
 			$details.remove();
-		});
+		} );
 
 		it( "should open details element", function() {
 			$toggler.trigger( "click" );
@@ -2507,7 +2507,7 @@ describe( "Toggle test suite", function() {
 				expect( $details.attr( "open" ) ).to.equal( "open" );
 				expect( spy.calledWith( "toggle.wb-details" ) ).to.equal( true );
 			}
-		});
+		} );
 
 		it( "should close details element", function() {
 			$toggler.trigger( "click" );
@@ -2520,8 +2520,8 @@ describe( "Toggle test suite", function() {
 				expect( $details.attr( "open" ) ).to.equal( undefined );
 				expect( spy.calledWith( "toggle.wb-details" ) ).to.equal( true );
 			}
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Accordion
@@ -2541,7 +2541,7 @@ describe( "Toggle test suite", function() {
 				expect( $panels.eq( idx ).attr( "aria-hidden" ) ).to.equal( "false" );
 			};
 
-		before(function() {
+		before( function() {
 			$accordion = $( "<div class='test-accordion'>" +
 					"<details class='test-acc'>" +
 						"<summary class='wb-toggle tgl-tab' data-toggle='{\"parent\": \".test-accordion\", \"group\": \".test-acc\"}'></summary>" +
@@ -2551,37 +2551,37 @@ describe( "Toggle test suite", function() {
 						"<summary class='wb-toggle tgl-tab' data-toggle='{\"parent\": \".test-accordion\", \"group\": \".test-acc\"}'></summary>" +
 						"<div class='tgl-panel'></div>" +
 					"</details>" +
-				"</div>")
+				"</div>" )
 				.appendTo( $body );
 
 			$details = $accordion.find( "details" );
 			$panels = $accordion.find( ".tgl-panel" );
 			$tabs = $accordion.find( ".tgl-tab" )
 				.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$accordion.remove();
-		});
+		} );
 
 		it( "should open the first accordion panel", function() {
 			$tabs.eq( 0 ).trigger( "click" );
 			testAccordionOpen( 0 );
 			testAccordionClosed( 1 );
-		});
+		} );
 
 		it( "should open the second accordion panel", function() {
 			$tabs.eq( 1 ).trigger( "click" );
 			testAccordionOpen( 1 );
 			testAccordionClosed( 0 );
-		});
+		} );
 
 		it( "should close the second accordion panel", function() {
 			$tabs.eq( 1 ).trigger( "click" );
 			testAccordionClosed( 0 );
 			testAccordionClosed( 1 );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test onbeforeprint behaviour
@@ -2589,7 +2589,7 @@ describe( "Toggle test suite", function() {
 	describe( "Printing toggle elements", function() {
 		var $detailsOn, $detailsOff;
 
-		before(function() {
+		before( function() {
 			spy.reset();
 
 			$detailsOn = $( "<details class=\"wb-toggle\" data-toggle='{\"print\": \"on\"}'><summary></summary></details>" )
@@ -2600,25 +2600,25 @@ describe( "Toggle test suite", function() {
 				.trigger( "wb-init.wb-toggle" );
 
 			wb.win.trigger( "beforeprint" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$detailsOn.remove();
 			$detailsOff.remove();
-		});
+		} );
 
 		it( "should trigger toggle.wb-toggle", function() {
 			expect( spy.calledWith( "toggle.wb-toggle" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should toggle on the $detailsOn element", function() {
 			expect( $detailsOn.hasClass( "on" ) ).to.equal( true );
-		});
+		} );
 
 		it( "should toggle off the $detailsOff element", function() {
 			expect( $detailsOff.hasClass( "off" ) ).to.equal( true );
-		});
-	});
+		} );
+	} );
 
 	/*
 	 * Test persistence behaviour
@@ -2628,7 +2628,7 @@ describe( "Toggle test suite", function() {
 			keyLocal = "wb-toggletest-local",
 			keySession = "wb-toggletest-session";
 
-		before(function() {
+		before( function() {
 			spy.reset();
 			localStorage.removeItem( keyLocal );
 			sessionStorage.removeItem( keySession );
@@ -2640,74 +2640,74 @@ describe( "Toggle test suite", function() {
 			$detailsSession = $( "<details class=\"wb-toggle\" id=\"test-session\" data-toggle='{\"persist\": \"session\"}'><summary></summary></details>" )
 				.appendTo( $body )
 				.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$detailsLocal.remove();
 			$detailsSession.remove();
-		});
+		} );
 
 		it( "should not trigger toggle.wb-toggle when initialized", function() {
 			expect( spy.calledWith( "toggle.wb-toggle" ) ).to.equal( false );
 			expect( localStorage.getItem( keyLocal ) ).to.equal( null );
 			expect( sessionStorage.getItem( keySession ) ).to.equal( null );
-		});
+		} );
 
 		it( "should save the toggle 'on' state in localStorage", function() {
 			$detailsLocal.trigger( "click" );
 			expect( localStorage.getItem( keyLocal ) ).to.equal( "on" );
-		});
+		} );
 
 		it( "should save the toggle 'off' state in localStorage", function() {
 			$detailsLocal.trigger( "click" );
 			expect( localStorage.getItem( keyLocal ) ).to.equal( "off" );
-		});
+		} );
 
 		it( "should save the toggle 'on' state in sessionStorage", function() {
 			$detailsSession.trigger( "click" );
 			expect( sessionStorage.getItem( keySession ) ).to.equal( "on" );
-		});
+		} );
 
 		it( "should save the toggle 'off' state in sessionStorage", function() {
 			$detailsSession.trigger( "click" );
 			expect( sessionStorage.getItem( keySession ) ).to.equal( "off" );
-		});
-	});
+		} );
+	} );
 
 	describe( "Persist toggle state: saved state", function() {
 		var $details,
 			key = "wb-toggletest-session";
 
-		before(function() {
+		before( function() {
 			spy.reset();
 			sessionStorage.setItem( key, "on" );
 
 			$details = $( "<details class=\"wb-toggle\" id=\"test-session\" data-toggle='{\"persist\": \"session\"}'><summary></summary></details>" )
 				.appendTo( $body )
 				.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$details.remove();
-		});
+		} );
 
 		it( "should trigger toggle.wb-toggle when initialized", function() {
 			expect( spy.calledWith( "toggle.wb-toggle" ) ).to.equal( true );
 			expect( sessionStorage.getItem( key ) ).to.equal( "on" );
-		});
+		} );
 
 		it( "should save the toggle 'off' state in sessionStorage", function() {
 			$details.trigger( "click" );
 			expect( sessionStorage.getItem( key ) ).to.equal( "off" );
-		});
-	});
+		} );
+	} );
 
 	describe( "Persist toggle state: group toggle", function() {
 		var $details1, $details2,
 			key1 = "wb-toggle.test-grouptest-1",
 			key2 = "wb-toggle.test-grouptest-2";
 
-		before(function() {
+		before( function() {
 			spy.reset();
 			sessionStorage.removeItem( key1 );
 			sessionStorage.removeItem( key2 );
@@ -2719,34 +2719,34 @@ describe( "Toggle test suite", function() {
 
 			$details1.trigger( "wb-init.wb-toggle" );
 			$details2.trigger( "wb-init.wb-toggle" );
-		});
+		} );
 
-		after(function() {
+		after( function() {
 			$details1.remove();
 			$details2.remove();
-		});
+		} );
 
 		it( "should save the 'on' state for $details1 and clear the state for $details2", function() {
 			$details1.trigger( "click" );
 			expect( sessionStorage.getItem( key1 ) ).to.equal( "on" );
 			expect( sessionStorage.getItem( key2 ) ).to.equal( null );
-		});
+		} );
 
 		it( "should save the 'off' state for $details1 and clear the state for $details2", function() {
 			$details1.trigger( "click" );
 			expect( sessionStorage.getItem( key1 ) ).to.equal( "off" );
 			expect( sessionStorage.getItem( key2 ) ).to.equal( null );
-		});
+		} );
 
 		it( "should clear the state for $details1 and save the 'on' state for $details2", function() {
 			$details2.trigger( "click" );
 			expect( sessionStorage.getItem( key1 ) ).to.equal( null );
 			expect( sessionStorage.getItem( key2 ) ).to.equal( "on" );
-		});
-	});
-});
+		} );
+	} );
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -2756,7 +2756,7 @@ describe( "Toggle test suite", function() {
  */
 /* global jQuery, describe, it, expect, before, after */
 /* jshint unused:vars */
-(function( $, wb ) {
+( function( $, wb ) {
 
 /*
  * Create a suite of related test cases using `describe`. Test suites can also be
@@ -2773,10 +2773,10 @@ describe( "Twitter test suite", function() {
     $document = wb.doc,
     $body = $document.find( "body" );
 
-  before(function( done ) {
+  before( function( done ) {
 
     // The Twitter widget sometimes takes longer than two second to load
-    this.timeout(5000);
+    this.timeout( 5000 );
 
     // Trigger plugin init
     $elm = $( "<div class='wb-twitter'><a class='twitter-timeline' href='https://twitter.com/search?q=%23WxT' data-widget-id='329066756620566528'>Tweets about '#WxT'</a></div>" )
@@ -2785,12 +2785,12 @@ describe( "Twitter test suite", function() {
 
     $document.on( "wb-ready.wb-twitter", ".wb-twitter", function() {
       done();
-    });
-  });
+    } );
+  } );
 
-  after(function() {
+  after( function() {
     $elm.remove();
-  });
+  } );
 
   /*
    * Test the initialization events of the plugin
@@ -2798,9 +2798,9 @@ describe( "Twitter test suite", function() {
   describe( "init event", function() {
     it( "should have added the wb-twitter-inited CSS class", function() {
       expect( $elm.hasClass( "wb-twitter-inited" ) ).to.equal( true );
-    });
-  });
+    } );
+  } );
 
-});
+} );
 
-}( jQuery, wb ));
+}( jQuery, wb ) );
