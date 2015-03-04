@@ -7112,8 +7112,9 @@ var componentName = "wb-mltmd",
 
 		switch ( event.data ) {
 		case null:
-			$media.trigger( "canplay" );
-			$media.trigger( "durationchange" );
+			$media
+				.trigger( "canplay" )
+				.trigger( "durationchange" );
 			break;
 		case -1:
 			event.target.unMute();
@@ -7124,8 +7125,10 @@ var componentName = "wb-mltmd",
 			media.timeline = clearInterval( media.timeline );
 			break;
 		case 1:
-			$media.trigger( "canplay" );
-			$media.trigger( "play" );
+			$media
+				.trigger( "canplay" )
+				.trigger( "play" )
+				.trigger( "playing" );
 			media.timeline = setInterval( timeline, 250 );
 			break;
 		case 2:
