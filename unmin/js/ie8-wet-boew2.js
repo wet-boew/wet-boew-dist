@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.12-development - 2015-03-04
+ * v4.0.12-development - 2015-03-20
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1255,7 +1255,16 @@ $document.on( "ajax-fetch.wb", function( event ) {
 	// TODO: Remove event.element in future versions
 	var caller = event.element || event.target,
 		fetchOpts = event.fetch,
+		urlParts = fetchOpts.url.split( " " ),
+		url = urlParts[ 0 ],
+		urlHash = url.split( "#" )[ 1 ],
+		selector = urlParts[ 1 ] || ( urlHash ? "#" + urlHash : false ),
 		fetchData, callerId;
+
+	// Separate the URL from the filtering criteria
+	if ( selector ) {
+		fetchOpts.url = urlParts[ 0 ];
+	}
 
 	// Filter out any events triggered by descendants
 	if ( caller === event.target || event.currentTarget === event.target ) {
@@ -1268,6 +1277,10 @@ $document.on( "ajax-fetch.wb", function( event ) {
 		$.ajax( fetchOpts )
 			.done( function( response, status, xhr ) {
 				var responseType = typeof response;
+
+				if ( selector ) {
+					response = $( "<div>" + response + "</div>" ).find( selector );
+				}
 
 				fetchData = {
 					response: response,
@@ -3892,7 +3905,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 
 			// ajax-fetched event
 			content = event.fetch.response;
-			if ( content ) {
+			if ( content &&  content.length > 0 ) {
 
 				//Prevents the force caching of nested resources
 				jQueryCaching = jQuery.ajaxSettings.cache;
@@ -5260,11 +5273,12 @@ var componentName = "wb-frmvld",
 								ariaLive = $form.parent().find( ".arialive" )[ 0 ],
 								summary, key, i, len, $error, prefix, $fieldName, $fieldset, label, labelString;
 
+							// Correct the colouring of fields that are no longer invalid
 							$form
-								.find( "[aria-invalid=true]" )
-									.removeAttr( "aria-invalid" )
-									.closest( ".form-group" )
+								.find( ".has-error [aria-invalid=false]" )
+									.closest( ".has-error" )
 										.removeClass( "has-error" );
+
 							if ( $errors.length !== 0 ) {
 
 								// Post process
@@ -5276,7 +5290,6 @@ var componentName = "wb-frmvld",
 											i18nText.errorFound
 									) + "</" + summaryHeading + "><ul>";
 								$errorfields
-									.attr( "aria-invalid", "true" )
 									.closest( ".form-group" )
 										.addClass( "has-error" );
 								len = $errors.length;
@@ -5374,7 +5387,6 @@ var componentName = "wb-frmvld",
 								$summaryContainer.empty();
 							}
 
-							$form.find( "[aria-invalid=true]" ).removeAttr( "aria-invalid" );
 							ariaLive = $form.parent().find( ".arialive" )[ 0 ];
 							if ( ariaLive.innerHTML.length !== 0 ) {
 								ariaLive.innerHTML = "";
@@ -5665,19 +5677,22 @@ var componentName = "wb-lbx",
 				},
 				parseAjax: function( mfpResponse ) {
 					var urlHash = this.currItem.src.split( "#" )[ 1 ],
-						$response = $( "<div>" + mfpResponse.data + "</div>" );
+						$response;
 
 					// Provide the ability to filter the AJAX response HTML
 					// by the URL hash
 					// TODO: Should be dealt with upstream by Magnific Popup
 					if ( urlHash ) {
-						$response = $response.find( "#" + wb.jqEscape( urlHash ) );
+						$response = $( "<div>" + mfpResponse.data + "</div>" )
+										.find( "#" + wb.jqEscape( urlHash ) );
+					} else {
+						$response = $( mfpResponse.data );
 					}
 
 					$response
 						.find( ".modal-title, h1" )
-						.first()
-						.attr( "id", "lbx-title" );
+							.first()
+								.attr( "id", "lbx-title" );
 
 					mfpResponse.data = $response;
 				}
@@ -9199,8 +9214,8 @@ $document.on( "init.dt draw.dt", selector, function( event, settings ) {
 		} )
 		.not( ".previous, .next" )
 			.attr( "aria-pressed", "false" )
-			.html( function( index ) {
-				return "<span class='wb-inv'>" + i18nText.paginate.page + " </span>" + ( index + 1 ) ;
+			.html( function( index, oldHtml ) {
+				return "<span class='wb-inv'>" + i18nText.paginate.page + " </span>" + oldHtml;
 			} )
 			.filter( ".current" )
 				.attr( "aria-pressed", "true" );
