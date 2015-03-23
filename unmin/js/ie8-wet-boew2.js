@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.12-development - 2015-03-20
+ * v4.0.12-development - 2015-03-23
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5558,14 +5558,15 @@ var componentName = "wb-lbx",
 					}
 
 					// Extend the settings with window[ "wb-lbx" ] then data-wb-lbx
-					$elm.magnificPopup(
-						$.extend(
-							true,
-							settings,
-							window[ componentName ],
-							wb.getData( $elm, componentName )
-						)
+					settings = $.extend(
+						true,
+						settings,
+						window[ componentName ],
+						wb.getData( $elm, componentName )
 					);
+					$elm.magnificPopup(
+						settings
+					).data( "wbLbxFilter", settings.filter );
 				}
 
 				// Identify that initialization has completed
@@ -5676,15 +5677,17 @@ var componentName = "wb-lbx",
 					$content.attr( "aria-labelledby", "lbx-title" );
 				},
 				parseAjax: function( mfpResponse ) {
-					var urlHash = this.currItem.src.split( "#" )[ 1 ],
+					var currItem = this.currItem,
+						urlHash = currItem.src.split( "#" )[ 1 ],
+						filter = currItem.el.data( "wbLbxFilter" ),
+						selector = filter || ( urlHash ? "#" + urlHash : false ),
 						$response;
 
 					// Provide the ability to filter the AJAX response HTML
-					// by the URL hash
+					// by the URL hash or a selector
 					// TODO: Should be dealt with upstream by Magnific Popup
-					if ( urlHash ) {
-						$response = $( "<div>" + mfpResponse.data + "</div>" )
-										.find( "#" + wb.jqEscape( urlHash ) );
+					if ( selector ) {
+						$response = $( "<div>" + mfpResponse.data + "</div>" ).find( selector );
 					} else {
 						$response = $( mfpResponse.data );
 					}
