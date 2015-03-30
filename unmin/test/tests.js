@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.13-development - 2015-03-26
+ * v4.0.13-development - 2015-03-30
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -273,6 +273,7 @@ describe( "Country Content test suite", function() {
 		} );
 
 		after( function() {
+
 			// Restore original behaviour of $.ajax
 			sandbox.restore();
 			$elm.remove();
@@ -312,6 +313,7 @@ describe( "Country Content test suite", function() {
 		var $elm;
 
 		before( function( done ) {
+
 			// Load the US content
 			localStorage.setItem( "countryCode", "US" );
 
@@ -400,6 +402,7 @@ describe( "data-ajax test suite", function() {
 	 * After finishing the test suite, this function is executed once.
 	 */
 	after( function() {
+
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 	} );
@@ -713,6 +716,7 @@ describe( "data-inview test suite", function() {
 	 * Before beginning the test suite, this function is executed once.
 	 */
 	before( function( done ) {
+
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
@@ -739,6 +743,7 @@ describe( "data-inview test suite", function() {
 	 * After finishing the test suite, this function is executed once.
 	 */
 	after( function() {
+
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 		$bar.remove();
@@ -973,6 +978,7 @@ describe( "[data-pic] test suite", function() {
 	 * Before beginning the test suite, this function is executed once.
 	 */
 	before( function( done ) {
+
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
@@ -995,6 +1001,7 @@ describe( "[data-pic] test suite", function() {
 	 * After finishing the test suite, this function is executed once.
 	 */
 	after( function() {
+
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 
@@ -1403,6 +1410,7 @@ describe( "Favicon test suite", function() {
 	 * Before beginning the test suite, this function is executed once.
 	 */
 	before( function() {
+
 		// Spy on jQuery's trigger methods
 		spy = sandbox.spy( $.prototype, "trigger" );
 
@@ -1415,6 +1423,7 @@ describe( "Favicon test suite", function() {
 	 * After finishing the test suite, this function is executed once.
 	 */
 	after( function() {
+
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 
@@ -1741,6 +1750,7 @@ describe( "Prettify test suite", function() {
 	 * Before beginning the test suite, this function is executed once.
 	 */
 	before( function( done ) {
+
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
@@ -1764,6 +1774,7 @@ describe( "Prettify test suite", function() {
 	 * After finishing the test suite, this function is executed once.
 	 */
 	after( function() {
+
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 
@@ -1947,6 +1958,7 @@ describe( "Session Timeout test suite", function() {
 	 * After finishing the test suite, this function is executed once.
 	 */
 	after( function() {
+
 		// Cleanup the test element
 		$session.remove();
 		$( "#wb-sessto-modal" ).remove();
@@ -2024,6 +2036,7 @@ describe( "Session Timeout test suite", function() {
 	describe( "refresh onclick", function() {
 
 		before( function() {
+
 			// Reset the state of the spies
 			spies.trigger.reset();
 			spies.post.reset();
@@ -2062,6 +2075,7 @@ describe( "Session Timeout test suite", function() {
 	describe( "refreshCallbackUrl", function() {
 
 		before( function( done ) {
+
 			// Setup the fake server response for all POST requests to foo.html
 			server = sandbox.useFakeServer();
 			server.respondWith( "POST", "foo.html", "true" );
@@ -2285,6 +2299,7 @@ describe( "Toggle test suite", function() {
 	 * Before begining the test suite, this function is exectued once.
 	 */
 	before( function() {
+
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 	} );
@@ -2293,6 +2308,7 @@ describe( "Toggle test suite", function() {
 	 * After finishing the test suite, this function is exectued once.
 	 */
 	after( function() {
+
 		// Restore the original behaviour of trigger once the tests are finished
 		sandbox.restore();
 	} );
@@ -2304,6 +2320,7 @@ describe( "Toggle test suite", function() {
 		var $test, $toggleSelf, $toggleOthers, $accordion, $toggleTabs;
 
 		before( function() {
+
 			// Create test element
 			$test = $( "<div class='toggle-test'>" )
 				.appendTo( $body );
@@ -2429,6 +2446,7 @@ describe( "Toggle test suite", function() {
 		var $toggler, $toggledElm;
 
 		before( function() {
+
 			// Create the toggle element and start testing once it has been initialized
 			$toggledElm = $( "<div id='foo' class='test'/>" ).appendTo( $body );
 			$toggler = $( "<button type='button' class='wb-toggle test' data-toggle='{\"selector\": \"#foo\"}'/>" ).appendTo( $body );
@@ -2460,6 +2478,7 @@ describe( "Toggle test suite", function() {
 		var $toggler;
 
 		before( function() {
+
 			// Create the toggle element and start testing once it has been initialized
 			$toggler = $( "<button type='button' class='wb-toggle test'/>" ).appendTo( $body );
 			$toggler.trigger( "wb-init.wb-toggle" );
@@ -2489,6 +2508,7 @@ describe( "Toggle test suite", function() {
 		var $togglerOn, $togglerOff;
 
 		before( function() {
+
 			// Create the toggle elements and start testing once it has been initialized
 			$togglerOn = $( "<button type='button' class='wb-toggle test' data-toggle='{\"type\": \"on\", \"stateOn\": \"open\"}'/>" ).appendTo( $body );
 			$togglerOn.trigger( "wb-init.wb-toggle" );
@@ -2534,6 +2554,7 @@ describe( "Toggle test suite", function() {
 		var $toggle1, $toggle2, $toggle3, $toggler1, $toggler2, $toggler3;
 
 		before( function() {
+
 			// Create the toggle elements and start testing once it has been initialized
 			$toggler1 = $( "<button type='button' class='wb-toggle' data-toggle='{\"selector\": \"#test-toggle1\", \"group\": \".grouped\", \"type\": \"on\"}'/>" ).appendTo( $body );
 			$toggler2 = $( "<button type='button' class='wb-toggle' data-toggle='{\"selector\": \"#test-toggle2\", \"group\": \".grouped\", \"type\": \"on\"}'/>" ).appendTo( $body );
