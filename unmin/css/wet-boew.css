@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.13-development - 2015-03-30
+ * v4.0.13-development - 2015-04-10
  *
  */
 /*
@@ -7643,7 +7643,7 @@ table.dataTable {
 
 .olHandlerBoxZoomBox, .olHandlerBoxSelectFeature {
   background-color: #fff;
-  font-size: 1px;
+  font-size: 0.01em;
   opacity: 0.5;
   position: absolute; }
 
@@ -7694,7 +7694,7 @@ table.dataTable {
  * with some headers (closes #3154)
  */
 .olControlPanZoomBar div {
-  font-size: 1px; }
+  font-size: 0.01em; }
 
 .olMap {
   cursor: default;
@@ -7715,21 +7715,21 @@ table.dataTable {
   bottom: 5px;
   display: block;
   font-family: Arial;
-  font-size: smaller;
+  font-size: 0.75em;
   left: 100px;
   position: absolute; }
 
 .olControlScale {
   bottom: 3em;
   display: block;
-  font-size: smaller;
+  font-size: 0.75em;
   position: absolute;
   right: 3px; }
 
 .olControlScaleLine {
   bottom: 15px;
   display: block;
-  font-size: xx-small;
+  font-size: 0.65em;
   left: 10px;
   position: absolute; }
 
@@ -7746,7 +7746,7 @@ table.dataTable {
 
 .olControlAttribution {
   bottom: 5px;
-  font-size: x-small;
+  font-size: 0.75em;
   right: 5px; }
 
 .olHandlerBoxZoomBox {

@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.13-development - 2015-03-30
+ * v4.0.13-development - 2015-04-10
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3491,7 +3491,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			settings = window[ componentName ],
 			elmId, modeJS, deps;
 
@@ -3834,7 +3834,7 @@ var componentName = "wb-data-ajax",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName + "-" + ajaxType, selector, true );
+		var elm = wb.init( event, componentName + "-" + ajaxType, selector );
 
 		if ( elm ) {
 
@@ -4483,7 +4483,7 @@ var componentName = "wb-favicon",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector ),
+		var elm = wb.init( event, componentName, selector, true ),
 			$favicon, settings;
 
 		if ( elm ) {
@@ -5442,7 +5442,7 @@ var componentName = "wb-geomap",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			$elm, modeJS;
 
 		if ( elm ) {
@@ -5505,7 +5505,7 @@ var componentName = "wb-lbx",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			elmId;
 
 		if ( elm ) {
@@ -6056,7 +6056,7 @@ var componentName = "wb-menu",
 
 			// Create the panel section
 			panel += "<nav role='navigation' typeof='SiteNavigationElement' id='" +
-				properties[ 1 ] + "' class='" + properties[ 1 ] + " wb-menu'>" +
+				properties[ 1 ] + "' class='" + properties[ 1 ] + " wb-menu wb-menu-inited'>" +
 				"<h3>" + properties[ 2 ] + "</h3>" +
 				"<ul class='list-unstyled mb-menu' role='menu'>" +
 				sectionHtml + "</ul></nav>";
@@ -6173,7 +6173,6 @@ var componentName = "wb-menu",
 		$panel
 			.trigger( "wb-init.wb-overlay" )
 			.find( "summary" )
-				.trigger( "wb-init.wb-details" )
 				.attr( "tabindex", "-1" );
 		$panel
 			.find( ".mb-menu > li:first-child" )
@@ -6714,7 +6713,7 @@ var componentName = "wb-mltmd",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var eventTarget = wb.init( event, componentName, selector, true ),
+		var eventTarget = wb.init( event, componentName, selector ),
 			elmId;
 
 		if ( eventTarget ) {
@@ -9318,7 +9317,7 @@ var componentName = "wb-tabs",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector, true ),
+		var elm = wb.init( event, componentName, selector ),
 			hashFocus = false,
 			isCarousel = true,
 			open = "open",
@@ -10358,9 +10357,6 @@ var componentName = "wb-toggle",
 				elms = parent.querySelectorAll( data.group );
 				tabs = parent.querySelectorAll( data.group + " " + selectorTab );
 
-				// Initialize the detail/summaries
-				$( tabs ).trigger( "wb-init.wb-details" );
-
 				// Set the tab and panel aria attributes
 				for ( i = 0, len = elms.length; i !== len; i += 1 ) {
 					elm = elms[ i ];
@@ -10850,7 +10846,7 @@ var componentName = "wb-disable",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector ),
+		var elm = wb.init( event, componentName, selector, true ),
 			nQuery = "?",
 			$html = wb.html,
 			i18n = wb.i18n,
