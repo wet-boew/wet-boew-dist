@@ -277,7 +277,7 @@ main {
  * Secondary menu
  */
 #wb-sec .list-group a.list-group-item.wb-navcurr, #wb-sec .list-group a.list-group-item[href]:hover, #wb-sec .list-group a.list-group-item[href]:focus {
-  background: #808080;
+  background: #666666;
   color: white; }
 
 #wb-sec {
