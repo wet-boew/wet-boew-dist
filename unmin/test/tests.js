@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.13 - 2015-04-20
+ * v4.0.14-development - 2015-04-21
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -1170,8 +1170,9 @@ describe( "equalheights test suite", function() {
 			expect( $elm.height() ).to.equal( height );
 		},
 
-		defaultTest = function( $rows, done ) {
+		defaultTest = function( done ) {
 			$row.each( testHeight );
+			done();
 		},
 
 		addFixture = function( $elm, done ) {
@@ -1194,14 +1195,16 @@ describe( "equalheights test suite", function() {
 	before( function() {
 		$document.on( "wb-updated.wb-eqht", function( event ) {
 			var currentTest = test || defaultTest;
-			if ( $row !== undef ) {
-				currentTest();
-				callback();
+			if ( $row !== undef && callback ) {
+				currentTest( callback );
 			}
 		} );
 
 		$document.on( "wb-ready.wb-eqht", function() {
-			callback();
+			if ( callback ) {
+				callback();
+			}
+
 		} );
 	} );
 
@@ -1346,7 +1349,7 @@ describe( "equalheights test suite", function() {
 				"<div style='width:49%; float:left;'><div>bar</div></div>" +
 			"</div>" ), done );
 
-			test = function() {
+			test = function( done ) {
 				var $nestedBlocks = $row.find( ".hght-inhrt" ),
 					$nestedNonEqBlocks = $row.find( ":not(.hght-inhrt)" ),
 					nestedLength = $nestedBlocks.length,
@@ -1365,13 +1368,15 @@ describe( "equalheights test suite", function() {
 					$nested = $nestedNonEqBlocks.eq( n );
 					expect( $nested.height() ).to.be.lessThan( $nested.parent().height() );
 				}
+
+				done();
 			};
 		} );
 
 		after( function() {
 			removeFixture();
 
-			test = null;
+			test = undef;
 		} );
 
 		it( "should resize nested elements with the 'hght-inhrt' class", function( done ) {
@@ -1380,6 +1385,43 @@ describe( "equalheights test suite", function() {
 			$document.trigger( "txt-rsz.wb" );
 		} );
 
+	} );
+
+	describe( "resize multiple equalheights", function() {
+		var $first = $( "<div class='wb-eqht test'>" +
+					"<div style='width:33%; display: inline-block; height: 25px'></div>" +
+					"<div style='width:33%; display: inline-block; height: 50px'></div>" +
+					"<div style='width:33%; display: inline-block; height: 75px'></div>" +
+				"</div>" ),
+			$second = $( "<div class='wb-eqht test'>" +
+					"<div style='width:33%; display: inline-block; height: 125px'></div>" +
+					"<div style='width:33%; display: inline-block; height: 150px'></div>" +
+					"<div style='width:33%; display: inline-block; height: 175px'></div>" +
+				"</div>" );
+
+		before( function( done ) {
+			test = function( done ) {
+				expect( $first.height() ).to.be( 75 );
+				expect( $second.height() ).to.be( 175 );
+
+				done();
+				callback = undef;
+			};
+
+			addFixture( $first.add( $second ), done );
+		} );
+
+		after( function() {
+			removeFixture();
+
+			test = undef;
+		} );
+
+		it( "should resize nested elements with the 'hght-inhrt' class", function( done ) {
+			callback = done;
+
+			$document.trigger( "txt-rsz.wb" );
+		} );
 	} );
 } );
 
