@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-04-21
+ * v4.0.14-development - 2015-04-24
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7120,8 +7120,13 @@ var componentName = "wb-mltmd",
 		case "setCaptionsVisible":
 			if ( args ) {
 				$( this ).addClass( captionClass );
-				this.object.loadModule( "cc" );
-				this.object.loadModule( "captions" );
+				try {
+					this.object.loadModule( "cc" );
+					this.object.setOption( "cc", "track", { languageCode: this.object.getOption( "cc", "tracklist" )[ 0 ].languageCode } );
+				} catch ( e ) {
+					this.object.loadModule( "captions" );
+					this.object.setOption( "captions", "track", { languageCode: this.object.getOption( "captions", "tracklist" )[ 0 ].languageCode } );
+				}
 			} else {
 				$( this ).removeClass( captionClass );
 				this.object.unloadModule( "cc" );
