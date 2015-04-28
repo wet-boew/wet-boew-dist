@@ -4711,36 +4711,6 @@ a {
   color: #d3080c;
   content: "\e101"; }
 
-details.alert {
-  padding-left: 45px; }
-  details.alert:before {
-    display: inline-block;
-    font-family: "Glyphicons Halflings";
-    font-size: 24px;
-    margin-left: -1.3em;
-    margin-top: -3px;
-    position: absolute; }
-  details.alert > * {
-    margin-left: 0.7em; }
-  details.alert > :first-child {
-    margin-left: 0.4em; }
-    details.alert > :first-child:before {
-      color: #000;
-      content: "";
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-details.alert-success:before {
-  color: #278400;
-  content: "\e084"; }
-details.alert-info:before {
-  color: #269abc;
-  content: "\e086"; }
-details.alert-warning:before {
-  color: #f90;
-  content: "\e107"; }
-details.alert-danger:before {
-  color: #d3080c;
-  content: "\e101"; }
-
 /*
  *	Heading top margins
  */
@@ -5740,6 +5710,42 @@ figure .pieLabel {
   border: solid #000 1px;
   color: #000;
   padding: 1px; }
+
+details.alert {
+  padding-left: 45px; }
+  details.alert:before {
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-size: 24px;
+    margin-left: -1.3em;
+    margin-top: -3px;
+    position: absolute; }
+  details.alert > * {
+    margin-left: 0.7em; }
+  details.alert > :first-child {
+    margin-left: 0.4em; }
+    details.alert > :first-child:before {
+      color: #000;
+      content: ""; }
+details.alert-success:before {
+  color: #278400;
+  content: "\e084"; }
+details.alert-info:before {
+  color: #269abc;
+  content: "\e086"; }
+details.alert-warning:before {
+  color: #f90;
+  content: "\e107"; }
+details.alert-danger:before {
+  color: #d3080c;
+  content: "\e101"; }
+
+.no-details details.alert > summary {
+  margin-left: 1.4em; }
+  .no-details details.alert > summary:before {
+    content: "\25BA\a0"; }
+.no-details[dir="rtl"] details.alert > summary {
+  margin-right: 1.4em; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
