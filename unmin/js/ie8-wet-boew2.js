@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-04-27
+ * v4.0.14-development - 2015-04-28
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -2441,8 +2441,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 			captionHtml = $caption.html() || "",
 			captionText = $caption.text() || "",
 			valuePoint = 0,
-			floatRegExp = /[\+\-0-9]+[0-9,\. ]*/,
-			floatRegExp2 = /[^\+\-\.\, 0-9]+[^\-\+0-9]*/,
+			dataCellUnitRegExp = /[^\+\-\.\, 0-9]+[^\-\+0-9]*/,
 			lowestFlotDelta, $imgContainer, $placeHolder,
 			$wetChartContainer, htmlPlaceHolder, figurehtml,
 			cellValue, datacolgroupfound, dataGroup, header,
@@ -2582,41 +2581,19 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 						fn: {
 							"/getcellvalue": function( elem ) {
 
-								// Default Cell value extraction
-								var cellRawValue = $.trim( $( elem ).text() ).replace( /\s/g, "" );
-
+								// Get the number from the data cell, #3267
+								var cellValue = $.trim( $( elem ).text() );
 								return [
-									parseFloat( cellRawValue.match( floatRegExp ) ),
-									cellRawValue.match ( floatRegExp2 )
+									parseFloat( cellValue.replace( /(\d{1,3}(?:(?: |,)\d{3})*)(?:(?:.|,)(\d{1,2}))?$/, function( a, b, c ) {
+										return b.replace( / |,/g, "" ) + "." + c || "0";
+									} ), 10 ),
+									cellValue.match ( dataCellUnitRegExp )
 								];
 							}
 						}
-
 					},
 					donut: {
 						decimal: 1
-					},
-					thousandcomma: {
-						fn: {
-							"/getcellvalue": function( elem ) {
-								var raw = $.trim( $( elem ).text() ).replace( /,/g, "" );
-								return [
-									parseFloat( raw.match( floatRegExp ) ),
-									raw.match( floatRegExp2 )
-								];
-							}
-						}
-					},
-					thousanddot: {
-						fn: {
-							"/getcellvalue": function( elem ) {
-								var raw = $.trim( $( elem ).text() ).replace( /\./g, "" );
-								return [
-									parseFloat( raw.match( floatRegExp ) ),
-									raw.match( floatRegExp2 )
-								];
-							}
-						}
 					}
 				}
 			};
