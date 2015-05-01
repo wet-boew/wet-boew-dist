@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-04-30
+ * v4.0.14-development - 2015-05-01
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6567,7 +6567,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 						// Close the menu but keep the referring link active
 						setTimeout( function() {
 							menuClose( $menuLink.parent(), false );
-						}, 1 );
+						}, 100 );
 
 					// Left / right key = Next / previous menu bar item
 					} else if ( $parentMenu.attr( "role" ) === "menubar" ) {
