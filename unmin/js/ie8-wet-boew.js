@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-05-08
+ * v4.0.14-development - 2015-05-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3496,6 +3496,29 @@ var getUrlParts = function( url ) {
 				default:
 					return "";
 			}
+		},
+
+		hashString: function( str ) {
+
+			// Sources:
+			//	http://werxltd.com/wp/2010/05/13/javascript-implementation-of-javas-string-hashcode-method/
+			//	http://jsperf.com/hashing-strings
+			var hash = 0,
+				chr, i;
+
+			if ( str.length === 0 ) {
+				return hash;
+			}
+
+			for ( i = 0; i < str.length; i++ ) {
+				chr = str.charCodeAt( i );
+				hash = ( ( hash << 5 ) - hash ) + chr;
+
+				// Convert to 32bit integer
+				hash = hash & hash;
+			}
+
+			return hash;
 		}
 	};
 
