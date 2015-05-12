@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-05-11
+ * v4.0.14-development - 2015-05-12
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
@@ -212,6 +212,8 @@ wb.i18nDict = {
 	/* Disable/enable WET plugins and polyfills */
 	"wb-disable": "Pamata HTML versija",
 	"wb-enable": "Standarta versija",
+	/* Dismissable content */
+	"dismiss": "Dismiss",
 	/* Template */
 	"tmpl-signin": "Pierakstīties"
 };
