@@ -5036,10 +5036,11 @@ caption {
   top: 0;
   width: 100px; }
 
+.wb-mltmd.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd .display:after {
+  z-index: 1; }
 .wb-mltmd.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd .display:before {
   background: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  z-index: 1; }
+  border-radius: 10px; }
 
 @-webkit-keyframes spin {
   from {
@@ -5059,16 +5060,23 @@ caption {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
 
+/* TODO: Use bootstratp placeholder when nested extends are supproted */
 .wb-mltmd.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after {
-  -webkit-animation-duration: 1000ms;
-          animation-duration: 1000ms;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
   -webkit-animation-name: spin;
           animation-name: spin;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
-  background: url("../assets/loading.png") center center no-repeat;
+  color: #fff;
+  content: "\e031";
+  font-family: "Glyphicons Halflings";
+  font-size: 3.5em;
+  height: 1em;
+  line-height: 1.03;
+  width: 1em;
   z-index: 2; }
 
 /*! WET-BOEW Core and Plugins */
@@ -6746,6 +6754,8 @@ img.mfp-img {
     cursor: pointer;
     position: relative; }
   .wb-mltmd .display:before {
+    text-align: center; }
+  .wb-mltmd .display:after {
     color: #fff;
     content: "";
     font-family: "Glyphicons Halflings";
@@ -6761,7 +6771,6 @@ img.mfp-img {
   .wb-mltmd.playing .errmsg {
     display: none; }
   .wb-mltmd.waiting .display:before, .wb-mltmd.waiting .display:after {
-    content: " ";
     display: block; }
   .wb-mltmd.cc_on .wb-mm-cc {
     display: table;
