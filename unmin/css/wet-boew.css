@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-05-12
+ * v4.0.14-development - 2015-05-13
  *
  */
 /*
@@ -5019,7 +5019,7 @@ caption {
 .wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
   display: block; }
 
-.wb-disable .wb-tabs > details[open] > summary, .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
+.wb-disable .mfp-hide, .wb-disable #wb-srch, .wb-disable #wb-sm, .wb-disable #wb-sec, .wb-disable #wb-info, .wb-disable .wb-overlay, .wb-disable .wb-tabs > details[open] > summary, .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
   display: block !important; }
 
 .wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
@@ -6675,9 +6675,6 @@ img.mfp-img {
   padding-left: 1.2em; }
 #mb-pnl details details {
   margin: 6px 0 6px -1.28em; }
-
-.wb-disable #wb-srch, .wb-disable #wb-sm, .wb-disable #wb-sec, .wb-disable #wb-info {
-  display: block !important; }
 
 .wb-disable #wb-glb-mn {
   display: none !important; }
