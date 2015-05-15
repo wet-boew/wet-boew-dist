@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.14-development - 2015-05-13
+ * v4.0.14-development - 2015-05-15
  *
  */
 /*
@@ -4882,15 +4882,23 @@ blockquote {
   width: auto; }
 
 /*
- *	Fieldset legend border position
+ *	Fieldset/legend border position
  *
  *	Bootstrap puts the border below the legend which creates a visual
  *	separation between the legend and the fields to which it relates. Putting
- *	the border above eliminates that visual separation.
+ *	the border above eliminates that visual separation. Putting it on the
+ *	fieldset element instead ensures that all fieldsets will have a separation
+ *	even when no legend is used.
  */
 legend {
   border-bottom: 0;
-  border-top: 1px solid #e5e5e5; }
+  float: left; }
+
+fieldset {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px; }
+  fieldset:first-child {
+    border-top: 0; }
 
 /*
  *	Pagination
