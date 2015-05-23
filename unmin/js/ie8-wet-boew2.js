@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-05-22
+ * v4.0.15-development - 2015-05-23
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4244,7 +4244,17 @@ var componentName = "wb-dismissable",
 			}
 
 			// Give the dismissable element a unique ID
-			itemId = wb.hashString( elm.innerHTML );
+			if ( elm.hasAttribute( "id" ) ) {
+				itemId = elm.getAttribute( "id" );
+
+				// Ignore an ID assigned by wb
+				if ( itemId.indexOf( "wb-auto-" ) === 0 ) {
+					itemId = undefined;
+				}
+			}
+			if ( itemId === undefined ) {
+				itemId = wb.hashString( wb.stripWhitespace( elm.innerHTML ) );
+			}
 
 			dismissedState = getDismissedState( itemId );
 
