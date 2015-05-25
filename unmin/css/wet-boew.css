@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-05-23
+ * v4.0.15-development - 2015-05-25
  *
  */
 /*
@@ -4948,6 +4948,8 @@ fieldset {
 	 * Bootstrap as a fix for button wrapping (see wet-boew/wet-boew#4454)
 	 */
   height: auto;
+  min-height: 36px;
+  min-width: 36px;
   white-space: normal; }
   .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     border-style: solid; }
