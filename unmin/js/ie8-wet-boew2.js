@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-05-28
+ * v4.0.15-development - 2015-05-29
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4271,7 +4271,7 @@ var componentName = "wb-dismissable",
 				$( contentWrapper ).wrap( "<div class='" + containerClass + "'>" );
 				contentContainer = contentWrapper.parentNode;
 
-				dismissButton = "<button class='mfp-close " + dismissClass +
+				dismissButton = "<button type='button' class='mfp-close " + dismissClass +
 					"' title='" + i18nText.dismiss + "'>&#xd7;<span class='wb-inv'> " +
 					i18nText.dismiss + "</span></button>";
 				$( contentContainer ).append( dismissButton );
@@ -8058,7 +8058,7 @@ var componentName = "wb-overlay",
 				closeText = i18nText.closeOverlay;
 			}
 			closeText = closeText.replace( "'", "&#39;" );
-			overlayClose = "<button class='mfp-close " + closeClass +
+			overlayClose = "<button type='button' class='mfp-close " + closeClass +
 				"' title='" + closeText + "'>&#xd7;<span class='wb-inv'> " +
 				closeText + "</span></button>";
 
