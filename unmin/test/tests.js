@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-05-29
+ * v4.0.15-development - 2015-06-02
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -840,7 +840,7 @@ describe( "data-inview test suite", function() {
 
 			before( function( done ) {
 				callback = done;
-				$window.scrollTop( $content.offset().top + 50 );
+				$window.scrollTop( $content.offset().top + 40 );
 			} );
 
 			it( "should have an inview bottom bar visible", function() {
