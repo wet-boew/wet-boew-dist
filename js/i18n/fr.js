@@ -191,7 +191,7 @@ wb.i18nDict = {
 	"geo-bmapurl": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
 	"geo-bmapttl": "BaseMaps_CBCT3978",
 	"geo-bmapurltxt": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBCT_TXT_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
-	"geo-attrlnk": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps",
+	"geo-attrlnk": "http://geogratis.gc.ca/geogratis/CBM_CBC?lang=fr",
 	"geo-attrttl": "GéoGratis - Carte de base du Canada",
 	"geo-sel": "Sélectionnez",
 	"geo-lblsel": "Cochez pour sélectionner cet élément sur la carte",
