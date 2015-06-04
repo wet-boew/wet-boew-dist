@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-06-03
+ * v4.0.15-development - 2015-06-04
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -10044,7 +10044,7 @@ var componentName = "wb-tabs",
 			viewChange = isSmallView !== oldIsSmallView;
 			isInit = $currentElm.length ? true : false;
 
-			if ( viewChange ) {
+			if ( viewChange || isInit ) {
 				$elms = isInit ? $currentElm : $( selector );
 				len = $elms.length;
 
