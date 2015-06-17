@@ -4981,7 +4981,7 @@ caption {
   position: static;
   width: inherit; }
 
-.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-cnt, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
+.pagination.disabled, .pager.disabled, .pagination > li.disabled, .pager > li.disabled, [dir=rtl] .pagination [rel="prev"]:before, [dir=rtl] .pager [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:after, [dir=rtl] .pager [rel="next"]:after, #mb-pnl .modal-body h2, table.dataTable thead .sorting_disabled .sorting-cnt, table.dataTable thead .sorting_asc_disabled .sorting-icons:before, table.dataTable thead .sorting_desc_disabled .sorting-icons:after, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .wb-tabs.carousel-s1 [role="tablist"] > li, .wb-tabs.carousel-s2 [role="tablist"] > li {
   display: none; }
 
 .wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
@@ -7153,7 +7153,7 @@ table.dataTable {
 .wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   position: relative; }
 
-.wb-tabs.carousel-s1 [role="tablist"] li, .wb-tabs.carousel-s2 [role="tablist"] li {
+.wb-tabs.carousel-s1 [role="tablist"] > li, .wb-tabs.carousel-s2 [role="tablist"] > li {
   z-index: 100; }
 
 .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
@@ -7175,25 +7175,25 @@ table.dataTable {
 .wb-tabs.carousel-s1 [role="tabpanel"] a, .wb-tabs.carousel-s1 figcaption a, .wb-tabs.carousel-s2 [role="tabpanel"] a, .wb-tabs.carousel-s2 figcaption a {
   color: #fff; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv, .wb-tabs.carousel-s2 [role="tablist"] li.nxt {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt {
   background: none;
   margin: 0;
   padding: 0; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv a, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a {
   border: 0;
   padding: 10px 5px;
   width: 100%; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a {
   background: #fff;
   border-radius: 999px;
   box-shadow: 0 0 4px #243850; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv a, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a, .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a {
   color: #243850; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a .glyphicon {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv a .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a .glyphicon {
   font-size: 1.75em;
   height: 1.75em;
   line-height: 1.75em;
@@ -7201,17 +7201,17 @@ table.dataTable {
   text-align: center;
   width: 1.75em; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv a:focus, .wb-tabs.carousel-s2 [role="tablist"] > li.prv a:hover, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a:focus, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a:hover {
   background: transparent; }
 
-.wb-tabs.carousel-s2 [role="tablist"] li.prv a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.prv a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.nxt a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a:focus, .wb-tabs.carousel-s2 [role="tablist"] li.plypause a:hover {
+.wb-tabs.carousel-s2 [role="tablist"] > li.prv a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.prv a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a:focus .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.nxt a:hover .glyphicon, .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a:focus, .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a:hover {
   box-shadow: none; }
 
-.wb-tabs.carousel-s1 [role="tablist"] li.active a, .wb-tabs.carousel-s1 [role="tablist"] li:focus a, .wb-tabs.carousel-s1 [role="tablist"] li:hover a {
+.wb-tabs.carousel-s1 [role="tablist"] > li.active a, .wb-tabs.carousel-s1 [role="tablist"] > li:focus a, .wb-tabs.carousel-s1 [role="tablist"] > li:hover a {
   border-top: 0;
   padding-top: 10px; }
 
-.wb-tabs [role="tablist"] li, .wb-tabs [role="tablist"] li a, .wb-tabs.carousel-s1 [role="tablist"] li.control, .wb-tabs.carousel-s2 [role="tablist"] li.control {
+.wb-tabs [role="tablist"] > li, .wb-tabs [role="tablist"] > li a, .wb-tabs.carousel-s1 [role="tablist"] > li.control, .wb-tabs.carousel-s2 [role="tablist"] > li.control {
   display: inline-block; }
 
 .wb-tabs.carousel-s1 figcaption p, .wb-tabs.carousel-s2 figcaption p {
@@ -7250,7 +7250,7 @@ table.dataTable {
     margin: 0;
     padding: 0;
     position: relative; }
-    .wb-tabs [role="tablist"] li {
+    .wb-tabs [role="tablist"] > li {
       background: #ebf2fc;
       border-color: #ccc;
       border-style: solid;
@@ -7262,33 +7262,33 @@ table.dataTable {
       margin: 0 10px 0 0;
       position: relative;
       text-align: center; }
-      .wb-tabs [role="tablist"] li a {
+      .wb-tabs [role="tablist"] > li a {
         color: #000;
         padding: 10px;
         text-decoration: none; }
-      .wb-tabs [role="tablist"] li:focus, .wb-tabs [role="tablist"] li:hover {
+      .wb-tabs [role="tablist"] > li:focus, .wb-tabs [role="tablist"] > li:hover {
         background: #ccc;
         background: rgba(204, 204, 204, 0.9); }
-      .wb-tabs [role="tablist"] li.active {
+      .wb-tabs [role="tablist"] > li.active {
         background: #fff;
         border-bottom: 0;
         cursor: default;
         padding-bottom: 1px;
         z-index: 2; }
-        .wb-tabs [role="tablist"] li.active a {
+        .wb-tabs [role="tablist"] > li.active a {
           cursor: default;
           padding-top: 6px;
           border-color: #666;
           border-style: solid;
           border-width: 4px 0 0 0; }
-      .wb-tabs [role="tablist"] li.tab-count {
+      .wb-tabs [role="tablist"] > li.tab-count {
         line-height: normal; }
-        .wb-tabs [role="tablist"] li.tab-count > div {
+        .wb-tabs [role="tablist"] > li.tab-count > div {
           position: relative;
           top: 0.4em; }
-        .wb-tabs [role="tablist"] li.tab-count .curr-count {
+        .wb-tabs [role="tablist"] > li.tab-count .curr-count {
           font-size: 1.5em; }
-        .wb-tabs [role="tablist"] li.tab-count:focus, .wb-tabs [role="tablist"] li.tab-count:hover {
+        .wb-tabs [role="tablist"] > li.tab-count:focus, .wb-tabs [role="tablist"] > li.tab-count:hover {
           background: transparent;
           cursor: default; }
     .wb-tabs [role="tablist"].generated li {
@@ -7310,18 +7310,18 @@ table.dataTable {
       bottom: 1em;
       left: 1em;
       position: static; }
-      .wb-tabs.carousel-s1 [role="tablist"] li.prv {
+      .wb-tabs.carousel-s1 [role="tablist"] > li.prv {
         margin-right: 5px; }
-      .wb-tabs.carousel-s1 [role="tablist"] li.tab-count {
+      .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count {
         background: none;
         border: 0;
         font-size: 0.9em; }
-        .wb-tabs.carousel-s1 [role="tablist"] li.tab-count > div {
+        .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count > div {
           top: 0.7em; }
-        .wb-tabs.carousel-s1 [role="tablist"] li.tab-count.active, .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:focus, .wb-tabs.carousel-s1 [role="tablist"] li.tab-count:hover {
+        .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count.active, .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count:focus, .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count:hover {
           cursor: default;
           top: 0; }
-      .wb-tabs.carousel-s1 [role="tablist"] li.active, .wb-tabs.carousel-s1 [role="tablist"] li:focus, .wb-tabs.carousel-s1 [role="tablist"] li:hover {
+      .wb-tabs.carousel-s1 [role="tablist"] > li.active, .wb-tabs.carousel-s1 [role="tablist"] > li:focus, .wb-tabs.carousel-s1 [role="tablist"] > li:hover {
         top: 1px; }
   .wb-tabs.carousel-s2 {
     background: #eee;
@@ -7330,18 +7330,18 @@ table.dataTable {
       bottom: 0;
       position: absolute;
       width: 100%; }
-      .wb-tabs.carousel-s2 [role="tablist"] li {
+      .wb-tabs.carousel-s2 [role="tablist"] > li {
         background: transparent;
         border: 0; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
+        .wb-tabs.carousel-s2 [role="tablist"] > li.prv a {
           padding-left: 1em; }
-        .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
+        .wb-tabs.carousel-s2 [role="tablist"] > li.plypause {
           background: none;
           border: 0;
           float: right;
           margin-right: 0;
           padding: 2px 0; }
-          .wb-tabs.carousel-s2 [role="tablist"] li.plypause a {
+          .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a {
             font-size: 1.5em;
             margin-top: 0.4em;
             margin-right: 0.65em;
