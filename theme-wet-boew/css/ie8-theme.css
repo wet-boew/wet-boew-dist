@@ -7710,6 +7710,7 @@ details.alert:not([open]) {
   WET-BOEW
   @title: All screen views
  */
+  /* Hide MathML check */
   /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -7727,7 +7728,7 @@ details.alert:not([open]) {
   /* a declaration */
   /* a variable name */
   /* a function name */
-  .nojs-show, .wb-disable .nojs-hide {
+  .mathml body > div > math, .no-mathml body > div > math, .nojs-show, .wb-disable .nojs-hide {
     display: none !important; }
   #wb-dtmd {
     margin: 2em 0 0; }
