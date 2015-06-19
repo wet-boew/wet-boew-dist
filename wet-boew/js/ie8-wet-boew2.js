@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-06-18
+ * v4.0.15-development - 2015-06-19
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5542,22 +5542,21 @@ var componentName = "wb-frmvld",
 
 					// Clear the form and remove error messages on reset
 					$document.on( "click vclick touchstart", selector + " input[type=reset]", function( event ) {
-						var $summaryContainer,
-							which = event.which,
+						var which = event.which,
 							ariaLive;
 
 						// Ignore middle/right mouse buttons
 						if ( !which || which === 1 ) {
 							validator.resetForm();
-							$summaryContainer = $form.find( "#" + errorFormId );
-							if ( $summaryContainer.length > 0 ) {
-								$summaryContainer.empty();
-							}
+							$( "#" + errorFormId ).detach();
 
 							ariaLive = $form.parent().find( ".arialive" )[ 0 ];
 							if ( ariaLive.innerHTML.length !== 0 ) {
 								ariaLive.innerHTML = "";
 							}
+
+							// Correct the colouring of fields that are no longer invalid
+							$form.find( ".has-error" ).removeClass( "has-error" );
 						}
 					} );
 
