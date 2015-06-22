@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.15-development - 2015-06-19
+ * v4.0.15-development - 2015-06-22
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9828,7 +9828,7 @@ var componentName = "wb-tabs",
 			listItems = $tabList.children().get(),
 			listCounter = listItems.length - 1,
 			isDetails = $panels[ 0 ].nodeName.toLowerCase() === "details",
-			isActive, item, link, panelId;
+			isActive, item, link, panelId, activeFound;
 
 		$panels.attr( "tabindex", "-1" );
 
@@ -9843,10 +9843,18 @@ var componentName = "wb-tabs",
 			item.setAttribute( "aria-labelledby", item.id + "-lnk" );
 		}
 
+		activeFound = false;
 		for ( ; listCounter !== -1; listCounter -= 1 ) {
 			item = listItems[ listCounter ];
 			item.setAttribute( "role", "presentation" );
+
 			isActive = item.className.indexOf( "active" ) !== -1;
+			if ( isActive ) {
+				activeFound = true;
+			} else if ( listCounter === 0 && !activeFound ) {
+				isActive = true;
+				item.className += " active";
+			}
 
 			link = item.getElementsByTagName( "a" )[ 0 ];
 			panelId = link.getAttribute( "href" ).substring( 1 );
