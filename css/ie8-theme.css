@@ -8157,7 +8157,7 @@ details.alert:not([open]) {
     font-style: italic; }
   .lit {
     color: #044; }
-  .wb-tabs [role="tablist"] {
+  .wb-tabs [role="tablist"], .wb-tabs.print-active > .tabpanels > div.out, .wb-tabs.print-active > .tabpanels > details.out .tgl-panel, .wb-tabs.print-active > .tabpanels > details > summary[aria-expanded="false"] + .tgl-panel {
     display: none !important; }
   .wb-tabs [role="tabpanel"] {
     display: block !important;
