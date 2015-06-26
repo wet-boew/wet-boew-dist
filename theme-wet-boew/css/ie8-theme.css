@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.16-development - 2015-06-24
+ * v4.0.16-development - 2015-06-26
  *
  */
 /*
@@ -5849,7 +5849,7 @@ details.alert-danger:before {
   border-color: #ccc;
   border-style: solid;
   border-width: 1px 0;
-  margin: 2em 10px 0; }
+  margin: 2em 0 0; }
   .wb-fnote h2 {
     margin-left: 0;
     margin-right: 0; }
@@ -5863,16 +5863,17 @@ details.alert-danger:before {
       background-color: #eee;
       border-color: #555; }
     .wb-fnote dd > ul, .wb-fnote dd > ol {
-      margin: 0 0.375em 0.375em 4.125em; }
+      margin: 0 0.375em 0.375em 4.25em; }
   .wb-fnote p {
-    margin: 0 0 0 3.75em;
+    margin: 0 0 0 3.875em;
     padding: 0 0.375em 0.375em; }
     .wb-fnote p:first-child {
+      margin-top: 0.11em;
       padding-top: 0.375em; }
   .wb-fnote ul, .wb-fnote ol {
     margin-bottom: 0.375em; }
   .wb-fnote table {
-    margin: 0 0.375em 0.375em 4.125em; }
+    margin: 0 0.375em 0.375em 4.25em; }
   .wb-fnote .fn-rtn {
     margin: 0;
     overflow: hidden;
@@ -5880,9 +5881,10 @@ details.alert-danger:before {
     padding-top: 0.375em;
     position: absolute;
     top: 0;
-    width: 3.375em; }
+    width: 3.5em; }
     .wb-fnote .fn-rtn a {
       display: inline-block;
+      margin-top: 0;
       padding-bottom: 0; }
 
 /* Right to left (RTL) SCSS */
@@ -5890,7 +5892,7 @@ details.alert-danger:before {
   margin-left: 0;
   margin-right: 5px; }
 [dir="rtl"] .wb-fnote p {
-  margin: 0 3.75em 0 0; }
+  margin: 0 3.875em 0 0; }
 [dir="rtl"] .wb-fnote .fn-rtn {
   margin-right: 0;
   padding-right: 0; }

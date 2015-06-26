@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.16-development - 2015-06-24
+ * v4.0.16-development - 2015-06-26
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -3114,13 +3114,18 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 		 * @method wrapTableIntoDetails
 		 */
 		function wrapTableIntoDetails() {
+			var $summary;
+
 			if ( !captionHtml.length ) {
 				return;
 			}
 
+			$summary = $( "<summary>" + captionHtml + i18nText.tableMention + "</summary>" );
 			$elm
 				.wrap( "<details/>" )
-				.before( "<summary>" + captionHtml + i18nText.tableMention + "</summary>" );
+				.before( $summary );
+
+			$summary.trigger( "wb-init.wb-details" );
 		}
 
 		function createContainer( withDimension ) {
