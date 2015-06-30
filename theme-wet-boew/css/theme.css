@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.16-development - 2015-06-26
+ * v4.0.16-development - 2015-06-30
  *
  */
 /*
@@ -7823,6 +7823,8 @@ table.dataTable {
   bottom: 5px;
   font-size: 0.75em;
   right: 5px; }
+  .olControlAttribution p {
+    margin: 0; }
 
 .olHandlerBoxZoomBox {
   border: 2px solid #f00; }
