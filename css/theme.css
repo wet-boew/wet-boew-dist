@@ -5049,7 +5049,7 @@ caption {
 .wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
   text-decoration: none; }
 
-.wb-mltmd.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd .display:after, .wb-mltmd.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd .display:before {
+.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd.video .display:after, .wb-mltmd.video.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd.video .display:before {
   bottom: 0;
   content: " ";
   height: 100px;
@@ -5060,9 +5060,9 @@ caption {
   top: 0;
   width: 100px; }
 
-.wb-mltmd.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd .display:after {
+.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd.video .display:after {
   z-index: 1; }
-.wb-mltmd.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd .display:before {
+.wb-mltmd.video.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd.video .display:before {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px; }
 
@@ -5085,7 +5085,7 @@ caption {
             transform: rotate(360deg); } }
 
 /* TODO: Use bootstratp placeholder when nested extends are supproted */
-.wb-mltmd.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after {
+.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after {
   -webkit-animation-duration: 500ms;
           animation-duration: 500ms;
   -webkit-animation-iteration-count: infinite;
@@ -6776,28 +6776,26 @@ img.mfp-img {
   /*
 	  Light Skinning of mediacontrols
 	 */ }
-  .wb-mltmd .display {
+  .wb-mltmd.video .display {
     cursor: pointer;
     position: relative; }
-  .wb-mltmd .display:before {
+  .wb-mltmd.video .display:before {
     text-align: center; }
-  .wb-mltmd .display:after {
+  .wb-mltmd.video .display:after {
     color: #fff;
     content: "";
     font-family: "Glyphicons Halflings";
     font-size: 65px;
     text-align: center; }
+  .wb-mltmd.video.playing .errmsg {
+    display: none; }
+  .wb-mltmd.video.waiting .display:before, .wb-mltmd.video.waiting .display:after {
+    display: block; }
+  .wb-mltmd.audio object {
+    position: absolute; }
   .wb-mltmd video {
     height: auto;
     width: 100%; }
-  .wb-mltmd.audio object {
-    position: absolute; }
-  .wb-mltmd.playing .display:before, .wb-mltmd.playing .display:after {
-    display: none; }
-  .wb-mltmd.playing .errmsg {
-    display: none; }
-  .wb-mltmd.waiting .display:before, .wb-mltmd.waiting .display:after {
-    display: block; }
   .wb-mltmd.cc_on .wb-mm-cc {
     display: table;
     height: 4em;
@@ -6808,8 +6806,6 @@ img.mfp-img {
     display: block;
     margin-left: -2px;
     width: 1.2em; }
-  .wb-mltmd.youtube .display:before, .wb-mltmd.youtube .display:after {
-    display: none; }
   .wb-mltmd.skn-lt {
     border-bottom: 1px solid #ddd;
     color: #000; }
@@ -7467,6 +7463,9 @@ table.dataTable {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
+.wb-tabs [role="tablist"].allow-wrap li, .wb-tabs.carousel-s1 [role="tablist"] > li, .wb-tabs.carousel-s2 [role="tablist"] > li {
+  margin: 0 10px 0 0; }
+
 .wb-tabs, .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
   position: relative; }
 
@@ -7578,7 +7577,6 @@ table.dataTable {
       cursor: pointer;
       display: table-cell;
       left: -10px;
-      margin: 0 10px 0 0;
       position: relative;
       text-align: center; }
       .wb-tabs [role="tablist"] > li a {
