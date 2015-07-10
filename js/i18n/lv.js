@@ -1,3 +1,9 @@
+/*!
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * v4.0.16-development - 2015-07-10
+ *
+ *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -213,3 +219,31 @@ wb.i18nDict = {
 };
 
 } )( wb );
+
+wb.doc.one( "formLanguages.wb", function() {
+/*
+ * Translated default messages for the jQuery validation plugin.
+ * Locale: LV (Latvian; latviešu valoda)
+ */
+$.extend($.validator.messages, {
+	required: "Šis lauks ir obligāts.",
+	remote: "Lūdzu, pārbaudiet šo lauku.",
+	email: "Lūdzu, ievadiet derīgu e-pasta adresi.",
+	url: "Lūdzu, ievadiet derīgu URL adresi.",
+	date: "Lūdzu, ievadiet derīgu datumu.",
+	dateISO: "Lūdzu, ievadiet derīgu datumu (ISO).",
+	number: "Lūdzu, ievadiet derīgu numuru.",
+	digits: "Lūdzu, ievadiet tikai ciparus.",
+	creditcard: "Lūdzu, ievadiet derīgu kredītkartes numuru.",
+	equalTo: "Lūdzu, ievadiet to pašu vēlreiz.",
+	extension: "Lūdzu, ievadiet vērtību ar derīgu paplašinājumu.",
+	maxlength: $.validator.format("Lūdzu, ievadiet ne vairāk kā {0} rakstzīmes."),
+	minlength: $.validator.format("Lūdzu, ievadiet vismaz {0} rakstzīmes."),
+	rangelength: $.validator.format("Lūdzu ievadiet {0} līdz {1} rakstzīmes."),
+	range: $.validator.format("Lūdzu, ievadiet skaitli no {0} līdz {1}."),
+	max: $.validator.format("Lūdzu, ievadiet skaitli, kurš ir mazāks vai vienāds ar {0}."),
+	min: $.validator.format("Lūdzu, ievadiet skaitli, kurš ir lielāks vai vienāds ar {0}.")
+});
+
+
+});

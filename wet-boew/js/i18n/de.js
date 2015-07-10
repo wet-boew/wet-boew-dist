@@ -1,3 +1,9 @@
+/*!
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * v4.0.16-development - 2015-07-10
+ *
+ *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -213,3 +219,40 @@ wb.i18nDict = {
 };
 
 } )( wb );
+
+wb.doc.one( "formLanguages.wb", function() {
+/*
+ * Translated default messages for the jQuery validation plugin.
+ * Locale: DE (German, Deutsch)
+ */
+$.extend($.validator.messages, {
+	required: "Dieses Feld ist ein Pflichtfeld.",
+	maxlength: $.validator.format("Geben Sie bitte maximal {0} Zeichen ein."),
+	minlength: $.validator.format("Geben Sie bitte mindestens {0} Zeichen ein."),
+	rangelength: $.validator.format("Geben Sie bitte mindestens {0} und maximal {1} Zeichen ein."),
+	email: "Geben Sie bitte eine gültige E-Mail Adresse ein.",
+	url: "Geben Sie bitte eine gültige URL ein.",
+	date: "Bitte geben Sie ein gültiges Datum ein.",
+	number: "Geben Sie bitte eine Nummer ein.",
+	digits: "Geben Sie bitte nur Ziffern ein.",
+	equalTo: "Bitte denselben Wert wiederholen.",
+	range: $.validator.format("Geben Sie bitte einen Wert zwischen {0} und {1} ein."),
+	max: $.validator.format("Geben Sie bitte einen Wert kleiner oder gleich {0} ein."),
+	min: $.validator.format("Geben Sie bitte einen Wert größer oder gleich {0} ein."),
+	creditcard: "Geben Sie bitte eine gültige Kreditkarten-Nummer ein."
+});
+
+/*
+ * Localized default methods for the jQuery validation plugin.
+ * Locale: DE
+ */
+$.extend($.validator.methods, {
+	date: function(value, element) {
+		return this.optional(element) || /^\d\d?\.\d\d?\.\d\d\d?\d?$/.test(value);
+	},
+	number: function(value, element) {
+		return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test(value);
+	}
+});
+
+});

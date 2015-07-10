@@ -1,3 +1,9 @@
+/*!
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * v4.0.16-development - 2015-07-10
+ *
+ *//*! Modernizr (Custom Build) | MIT & BSD */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -213,3 +219,17 @@ wb.i18nDict = {
 };
 
 } )( wb );
+
+wb.doc.one( "formLanguages.wb", function() {
+
+/*
+ * Localized default methods for the jQuery validation plugin.
+ * Locale: PT_BR
+ */
+$.extend($.validator.methods, {
+	date: function(value, element) {
+		return this.optional(element) || /^\d\d?\/\d\d?\/\d\d\d?\d?$/.test(value);
+	}
+});
+
+});

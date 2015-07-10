@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.16-development - 2015-07-07
+ * v4.0.16-development - 2015-07-10
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6020,7 +6020,7 @@ $( document ).on( "click", ".popup-modal-dismiss", function( event ) {
 } );
 
 // Event handler for opening a popup without a link
-$( document ).on( "open" + selector, function( event, items, modal, title ) {
+$( document ).on( "open" + selector, function( event, items, modal, title, ajax ) {
 	if ( event.namespace === componentName ) {
 		var isGallery = items.length > 1,
 			isModal = modal && !isGallery ? modal : false,
@@ -6041,8 +6041,11 @@ $( document ).on( "open" + selector, function( event, items, modal, title ) {
 				image: {
 					titleSrc: titleSrc
 				},
-				callbacks: callbacks
+				callbacks: callbacks,
+				ajax: ajax
 			} );
+
+			wb.ready( undef, componentName );
 		} );
 
 		// Load dependencies as needed
