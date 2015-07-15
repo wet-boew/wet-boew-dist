@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.16-development - 2015-07-10
+ * v4.0.16-development - 2015-07-15
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6554,12 +6554,13 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb ajax-failed.wb", s
 } );
 
 $document.on( "mouseleave", selector + " .menu", function( event ) {
+    var $currentTarget = $( event.currentTarget );
 
 	// Clear the timeout for open/closing menus
 	clearTimeout( globalTimeout );
 
 	globalTimeout = setTimeout( function() {
-		menuClose( $( event.currentTarget ).find( ".active" ), true );
+		menuClose( $currentTarget.find( ".active" ), true );
 	}, hoverDelay );
 } );
 
