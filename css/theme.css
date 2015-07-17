@@ -5821,19 +5821,14 @@ summary {
   summary > :first-child {
     display: inline; }
 
-details {
-  padding-left: 1.1em; }
-  details[open] {
-    padding-bottom: 1em; }
-  details > summary {
-    margin-left: -1.1em; }
+details > :not(summary) {
+  margin-left: 1.1em; }
+details[open] {
+  padding-bottom: 1em; }
 
-[dir=rtl] details {
-  padding-left: 0;
-  padding-right: 1.1em; }
-  [dir=rtl] details > summary {
-    margin-left: 0;
-    margin-right: -1.1em; }
+[dir=rtl] details > :not(summary) {
+  margin-left: 0;
+  margin-right: 1.1em; }
 
 /*
  Plugins

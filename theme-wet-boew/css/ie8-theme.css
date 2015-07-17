@@ -5538,19 +5538,14 @@ summary {
   summary > :first-child {
     display: inline; }
 
-details {
-  padding-left: 1.1em; }
-  details[open] {
-    padding-bottom: 1em; }
-  details > summary {
-    margin-left: -1.1em; }
+details > :not(summary) {
+  margin-left: 1.1em; }
+details[open] {
+  padding-bottom: 1em; }
 
-[dir=rtl] details {
-  padding-left: 0;
-  padding-right: 1.1em; }
-  [dir=rtl] details > summary {
-    margin-left: 0;
-    margin-right: -1.1em; }
+[dir=rtl] details > :not(summary) {
+  margin-left: 0;
+  margin-right: 1.1em; }
 
 /*
  Plugins
@@ -8172,6 +8167,22 @@ details.alert:not([open]) {
       position: static; }
     .wb-tabs [role="tabpanel"] summary {
       display: block !important; } }
+
+/*! WET-BOEW Core and Plugins */
+/*
+  WET-BOEW
+  @title: IE8-specific details/summary CSS
+ */
+.lt-ie9 details {
+  padding-left: 1.1em; }
+  .lt-ie9 details > summary {
+    margin-left: -1.1em; }
+.lt-ie9 [dir=rtl] details {
+  padding-left: 0;
+  padding-right: 1.1em; }
+  .lt-ie9 [dir=rtl] details > summary {
+    margin-left: 0 !important;
+    margin-right: -1.1em; }
 
 /*
  Plugins
