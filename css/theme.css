@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.16-development - 2015-07-17
+ * v4.0.16-development - 2015-07-20
  *
  */
 /*
@@ -8006,12 +8006,29 @@ summary {
 details:not([open]) details summary, details .out details summary {
   display: none !important; }
 
-details:not([open]) {
-  visibility: hidden; }
-  details:not([open]) > details, details:not([open]) > * {
-    display: none; }
-details.alert:not([open]) {
-  visibility: visible; }
+details {
+  border: 1px solid #ddd;
+  border-radius: 4px; }
+  details summary {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #295376;
+    padding: 5px 15px; }
+    details summary:focus, details summary:hover {
+      background-color: transparent;
+      color: #0535d2;
+      text-decoration: underline; }
+  details[open] summary {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+  details:not([open]) {
+    visibility: hidden; }
+    details:not([open]) > details, details:not([open]) > * {
+      display: none; }
+  details.alert:not([open]) {
+    visibility: visible; }
 
 .tabpanels > details:not([open]) {
   visibility: visible; }
