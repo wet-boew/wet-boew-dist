@@ -4907,6 +4907,9 @@ legend {
   border-bottom: 0;
   float: left; }
 
+fieldset[disabled] .btn, .btn.disabled, .btn[disabled] {
+  border-style: solid; }
+
 fieldset {
   border-top: 1px solid #e5e5e5;
   padding-top: 10px; }
@@ -4964,8 +4967,6 @@ fieldset {
   min-height: 36px;
   min-width: 36px;
   white-space: normal; }
-  .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
-    border-style: solid; }
 
 /*
  *  Right-to-left support
@@ -7588,11 +7589,11 @@ table.dataTable {
         padding-bottom: 1px;
         z-index: 2; }
         .wb-tabs [role="tablist"] > li.active a {
-          cursor: default;
-          padding-top: 6px;
           border-color: #666;
           border-style: solid;
-          border-width: 4px 0 0 0; }
+          border-width: 4px 0 0 0;
+          cursor: default;
+          padding-top: 6px; }
       .wb-tabs [role="tablist"] > li.tab-count {
         line-height: normal; }
         .wb-tabs [role="tablist"] > li.tab-count > div {
@@ -7655,8 +7656,8 @@ table.dataTable {
           padding: 2px 0; }
           .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a {
             font-size: 1.5em;
-            margin-top: 0.4em;
             margin-right: 0.65em;
+            margin-top: 0.4em;
             padding: 8px 10px 4px; }
 
 .wb-disable .csstransitions .wb-tabs [role="tabpanel"].out {
@@ -7908,7 +7909,7 @@ button.geomap-geoloc-aoi-btn {
   background-color: #fff;
   border-color: #eee;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
   color: #666;
   position: absolute;
   right: 15px;
@@ -8145,9 +8146,9 @@ details {
   .wb-tabs {
     /* Only for backwards compatibility. Should be removed in v4.1. */
     border-color: #ccc;
+    border-radius: 4px;
     border-style: solid;
     border-width: 1px;
-    border-radius: 4px;
     margin-bottom: 15px;
     padding-left: 0;
     padding-right: 0; }
