@@ -5,4 +5,4 @@
  * v4.0.17-development - 2015-07-22
  *
  */
-.wb-share .demosite:before{background:url(demosite.png) no-repeat}
+@charset "UTF-8";.wb-share .demosite:before{background:url(demosite.png) no-repeat}

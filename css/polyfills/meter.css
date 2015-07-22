@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
@@ -16,7 +17,8 @@ meter {
     border-right: 1px solid #000;
     display: block;
     height: 20px; }
-  meter.meterValueTooHigh div, meter.meterValueTooLow div {
+  meter.meterValueTooHigh div,
+  meter.meterValueTooLow div {
     background: #ffd65e;
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffd65e), color-stop(35%, #fbff47), to(#febf04));
     background-image: -webkit-linear-gradient(top, #ffd65e 0, #fbff47 35%, #febf04 100%);

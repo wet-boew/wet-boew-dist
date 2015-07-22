@@ -8,8 +8,10 @@
   padding: 15px;
   width: 100%; }
 
-.smallview #simple .wb-eqht section, .mediumview #simple .wb-eqht section {
+.smallview #simple .wb-eqht section,
+.mediumview #simple .wb-eqht section {
   width: 49%; }
 
-.largeview #simple .wb-eqht section, .xlargeview #simple .wb-eqht section {
+.largeview #simple .wb-eqht section,
+.xlargeview #simple .wb-eqht section {
   width: 33%; }

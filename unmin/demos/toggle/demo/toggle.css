@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -12,5 +13,7 @@ main .box {
   width: 30px; }
   main .box.on {
     background-color: #428bca; }
-main details, main .btn-group {
+
+main details,
+main .btn-group {
   margin: 10px 0; }

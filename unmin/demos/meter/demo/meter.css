@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -8,5 +9,6 @@ meter {
 .meter {
   margin-bottom: 0; }
 
-.no-js #decreaseMeter, .no-js #increaseMeter {
+.no-js #decreaseMeter,
+.no-js #increaseMeter {
   display: none; }

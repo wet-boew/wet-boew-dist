@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -132,13 +133,16 @@
 	}
 }
 */
-.fd-slider-focused .fd-slider-handle, .fd-slider-hover .fd-slider-handle, .fd-slider-active .fd-slider-handle {
+.fd-slider-focused .fd-slider-handle,
+.fd-slider-hover .fd-slider-handle,
+.fd-slider-active .fd-slider-handle {
   background-position: 0 -20px; }
 
 .fd-slider-no-value .fd-slider-handle {
   background-position: 0 -59px; }
 
-body.fd-slider-drag-horizontal, body.fd-slider-drag-horizontal * {
+body.fd-slider-drag-horizontal,
+body.fd-slider-drag-horizontal * {
   cursor: N-resize !important;
   cursor: W-resize !important;
   -webkit-user-select: none;
@@ -176,23 +180,18 @@ body.fd-slider-drag-horizontal, body.fd-slider-drag-horizontal * {
   0% {
     -webkit-box-shadow: 0 0 3px rgba(100, 130, 170, 0.55);
             box-shadow: 0 0 3px rgba(100, 130, 170, 0.55); }
-
   20% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
             box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); }
-
   40% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
             box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
-
   60% {
     -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
             box-shadow: 0 0 6px rgba(10, 130, 170, 0.7); }
-
   80% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
             box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
-
   100% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
             box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); } }
@@ -201,23 +200,18 @@ body.fd-slider-drag-horizontal, body.fd-slider-drag-horizontal * {
   0% {
     -webkit-box-shadow: 0 0 3px rgba(100, 130, 170, 0.55);
             box-shadow: 0 0 3px rgba(100, 130, 170, 0.55); }
-
   20% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
             box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); }
-
   40% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
             box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
-
   60% {
     -webkit-box-shadow: 0 0 6px rgba(10, 130, 170, 0.7);
             box-shadow: 0 0 6px rgba(10, 130, 170, 0.7); }
-
   80% {
     -webkit-box-shadow: 0 0 5px rgba(40, 130, 170, 0.65);
             box-shadow: 0 0 5px rgba(40, 130, 170, 0.65); }
-
   100% {
     -webkit-box-shadow: 0 0 4px rgba(70, 130, 170, 0.6);
             box-shadow: 0 0 4px rgba(70, 130, 170, 0.6); } }
