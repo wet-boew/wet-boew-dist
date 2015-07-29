@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.17-development - 2015-07-24
+ * v4.0.17-development - 2015-07-29
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -387,9 +387,9 @@ describe( "data-ajax test suite", function() {
 
 		server = sinon.fakeServer.create();
 
-		server.respondWith( "/data-ajax.html", ajax["/data-ajax.html"] );
-		server.respondWith( "/data-ajax-update.html", ajax["/data-ajax-update.html"] );
-		server.respondWith( "/data-ajax-filtered.html", ajax["/data-ajax-filtered.html"] );
+		server.respondWith( "/data-ajax.html", ajax[ "/data-ajax.html" ] );
+		server.respondWith( "/data-ajax-update.html", ajax[ "/data-ajax-update.html" ] );
+		server.respondWith( "/data-ajax-filtered.html", ajax[ "/data-ajax-filtered.html" ] );
 
 		$document.on( "ajax-fetched.wb ajax-failed.wb", ".ajax", function() {
 			if ( typeof callback === "function" ) {
