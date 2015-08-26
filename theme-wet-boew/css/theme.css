@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.18-development - 2015-08-25
+ * v4.0.18-development - 2015-08-26
  *
  */
 @charset "UTF-8";
@@ -6114,7 +6114,7 @@ caption {
 .wb-menu .menu > li a:focus, .wb-menu .active > a {
   text-decoration: none; }
 
-.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd.video .display:after, .wb-mltmd.video.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd.video .display:before {
+.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd.video:not(.playing):not(.waiting) .display:after, .wb-mltmd.video.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd.video:not(.playing):not(.waiting) .display:before {
   bottom: 0;
   content: " ";
   height: 100px;
@@ -6125,10 +6125,10 @@ caption {
   top: 0;
   width: 100px; }
 
-.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd.video .display:after {
+.wb-mltmd.video.waiting .display:after, .wb-enable .wb-twitter .twitter-timeline:after, .wb-mltmd.video:not(.playing):not(.waiting) .display:after {
   z-index: 1; }
 
-.wb-mltmd.video.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd.video .display:before {
+.wb-mltmd.video.waiting .display:before, .wb-enable .wb-twitter .twitter-timeline:before, .wb-mltmd.video:not(.playing):not(.waiting) .display:before {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px; }
 
@@ -7930,12 +7930,12 @@ img.mfp-img {
   /*
 	  Light Skinning of mediacontrols
 	 */ }
-  .wb-mltmd.video .display {
+  .wb-mltmd.video:not(.playing):not(.waiting) .display {
     cursor: pointer;
     position: relative; }
-  .wb-mltmd.video .display:before {
+  .wb-mltmd.video:not(.playing):not(.waiting) .display:before {
     text-align: center; }
-  .wb-mltmd.video .display:after {
+  .wb-mltmd.video:not(.playing):not(.waiting) .display:after {
     color: #fff;
     content: "";
     font-family: "Glyphicons Halflings";
