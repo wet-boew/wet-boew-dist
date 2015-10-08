@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-10-05
+ * v4.0.19-development - 2015-10-08
  *
  */
 @charset "UTF-8";
@@ -5653,8 +5653,19 @@ a {
 .btn-danger:visited {
   color: #fff; }
 
-.dl-horizontal dt {
-  white-space: normal; }
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    border-top: 1px solid #ccc;
+    padding: 10px 10px 10px 0;
+    text-align: left;
+    white-space: normal; }
+  .dl-horizontal dd {
+    border-top: 1px solid #ccc;
+    margin-bottom: 3px;
+    margin-left: 160px;
+    padding: 10px 10px 10px 0; }
+  .dl-horizontal dt + dd {
+    padding-bottom: 0; } }
 
 .dropdown-menu > li > a:visited {
   color: #333333; }
@@ -5948,9 +5959,20 @@ fieldset[disabled] .btn, .btn.disabled,
 
 fieldset {
   border-top: 1px solid #e5e5e5;
-  padding-top: 10px; }
+  padding-top: 10px;
+  /*
+	 *	Fieldset/legend as a label for a group of checkboxes or radio buttons
+	 *	https://github.com/wet-boew/wet-boew/issues/5797
+	 */ }
   fieldset:first-child {
     border-top: 0; }
+  fieldset.chkbxrdio-grp {
+    border-top: 0;
+    padding-top: 0; }
+    fieldset.chkbxrdio-grp legend {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px; }
 
 /*
  *	Pagination
