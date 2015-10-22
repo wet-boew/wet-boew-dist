@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-10-08
+ * v4.0.19-development - 2015-10-22
  *
  */
 @charset "UTF-8";
@@ -6362,6 +6362,10 @@ q:after {
     -webkit-animation-name: fadeout;
             animation-name: fadeout;
     z-index: -1; }
+    .fade.out.noheight {
+      -webkit-animation-name: fadeoutnoheight;
+              animation-name: fadeoutnoheight;
+      max-height: 0; }
 
 @-webkit-keyframes fadein {
   0% {
@@ -6394,6 +6398,30 @@ q:after {
   100% {
     opacity: 0;
     visibility: hidden; } }
+
+@-webkit-keyframes fadeoutnoheight {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100%; }
+  99.9999% {
+    max-height: 100%; }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0; } }
+
+@keyframes fadeoutnoheight {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    max-height: 100%; }
+  99.9999% {
+    max-height: 100%; }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0; } }
 
 .slide.out,
 .slide.in {
@@ -7325,7 +7353,8 @@ details.alert-danger:before {
 .wb-frmvld label strong.error .label,
 .wb-frm label strong.error .label, .wb-frmvld legend .error .label,
 .wb-frm legend .error .label {
-  font-size: 100%; }
+  font-size: 100%;
+  white-space: normal; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
