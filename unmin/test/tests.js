@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-10-22
+ * v4.0.19-development - 2015-11-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -1724,7 +1724,7 @@ describe( "Feeds test suite", function() {
 	describe( "multiple feed links", function() {
 		var $elm;
 
-		before ( function( done ) {
+		before( function( done ) {
 			ajaxCalls = [];
 			callback = done;
 

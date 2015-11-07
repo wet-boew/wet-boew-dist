@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-10-22
+ * v4.0.19-development - 2015-11-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3143,7 +3143,7 @@ $document.on( "click", ".cal-goto-cancel", function( event ) {
 									parseFloat( cellValue.replace( /(\d{1,3}(?:(?: |,)\d{3})*)(?:(?:.|,)(\d{1,2}))?$/, function( a, b, c ) {
 										return b.replace( / |,/g, "" ) + "." + c || "0";
 									} ), 10 ),
-									cellValue.match ( dataCellUnitRegExp )
+									cellValue.match( dataCellUnitRegExp )
 								];
 							}
 						}
@@ -7490,7 +7490,7 @@ var componentName = "wb-mltmd",
 					volume: i18n( "volume" ),
 					cc_on: i18n( "cc", "on" ),
 					cc_off: i18n( "cc", "off" ),
-					cc_error: i18n ( "cc-err" ),
+					cc_error: i18n( "cc-err" ),
 					mute_on: i18n( "mute", "on" ),
 					mute_off: i18n( "mute", "off" ),
 					duration: i18n( "dur" ),
@@ -7616,7 +7616,7 @@ var componentName = "wb-mltmd",
 				}
 			} );
 		};
-	} () ),
+	}() ),
 
 	/**
 	 * @method parseHtml
