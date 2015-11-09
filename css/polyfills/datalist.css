@@ -27,7 +27,6 @@
       display: block;
       padding-left: 10px;
       text-decoration: none; }
-      .wb-al-cnt .wb-al a:hover,
-      .wb-al-cnt .wb-al a:focus {
+      .wb-al-cnt .wb-al a:hover, .wb-al-cnt .wb-al a:focus {
         background: #406c93;
         color: #fff; }
