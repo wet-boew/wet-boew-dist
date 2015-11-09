@@ -5324,10 +5324,11 @@ button.close {
 /*
  *	Link colour and decoration
  */
+a.btn, .nav a {
+  text-decoration: none; }
+
 a {
   text-decoration: underline; }
-  a.btn {
-    text-decoration: none; }
   a:visited {
     color: #7834bc; }
 
