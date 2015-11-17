@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-11-09
+ * v4.0.19-development - 2015-11-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -2111,7 +2111,7 @@ var componentName = "wb-calevt",
 
 					events.list[ events.iCount ] = {
 						title: title,
-						date: date,
+						date: new Date( date.getTime() ),
 						href: href,
 						target: target
 					};
