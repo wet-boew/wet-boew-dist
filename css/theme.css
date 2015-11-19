@@ -9095,12 +9095,18 @@ details.alert:not([open]) {
  * Mobile-friendly styles
  */
   .wb-tabs > details, .wb-tabs > .tabpanels > details {
-    border-bottom: #ccc solid 1px; }
+    border: 0;
+    border-bottom: #ccc solid 1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
     .wb-tabs > details:last-of-type, .wb-tabs > .tabpanels > details:last-of-type {
       border-bottom: 0; }
     .wb-tabs > details[style], .wb-tabs > .tabpanels > details[style] {
       min-height: 0 !important; }
+    .wb-tabs > details > summary, .wb-tabs > .tabpanels > details > summary {
+      border: 0; }
     .wb-tabs > details[open] > summary, .wb-tabs > .tabpanels > details[open] > summary {
+      border: 0;
       margin-bottom: 0; }
   .wb-tabs {
     /* Only for backwards compatibility. Should be removed in v4.1. */
