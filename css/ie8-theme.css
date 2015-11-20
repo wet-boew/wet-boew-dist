@@ -7268,12 +7268,12 @@ img.mfp-img {
 .wb-menu .sm-open .expicon {
   z-index: -1; }
 
-.wb-menu details {
+.wb-menu details, .wb-menu details[open] {
   border: 0; }
-  .wb-menu details summary {
+  .wb-menu details summary, .wb-menu details[open] summary {
     border: 0;
     color: #fff; }
-    .wb-menu details summary:focus, .wb-menu details summary:hover {
+    .wb-menu details summary:focus, .wb-menu details summary:hover, .wb-menu details[open] summary:focus, .wb-menu details[open] summary:hover {
       text-decoration: none; }
 
 #mb-pnl nav a.wb-navcurr, #mb-pnl nav summary.wb-navcurr {
@@ -8208,7 +8208,7 @@ table.dataTable {
   /**
 	 * Style 2 - Slider-like carousel style
 	 */ }
-  .wb-tabs details.open {
+  .wb-tabs details[open] {
     border-top-left-radius: 0; }
   .wb-tabs > .tabpanels {
     overflow: hidden;
