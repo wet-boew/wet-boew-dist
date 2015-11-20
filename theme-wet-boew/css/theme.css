@@ -8509,7 +8509,7 @@ table.dataTable {
   /**
 	 * Style 2 - Slider-like carousel style
 	 */ }
-  .wb-tabs details[open] {
+  .wb-tabs details.open {
     border-top-left-radius: 0; }
   .wb-tabs > .tabpanels {
     overflow: hidden;
