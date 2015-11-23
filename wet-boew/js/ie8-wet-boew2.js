@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-11-20
+ * v4.0.19-development - 2015-11-23
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -10215,9 +10215,8 @@ var componentName = "wb-tabs",
 						}
 
 						// Enable equal heights for large view or disable for small view
-						if ( isSmallView !== $elm.hasClass( equalHeightOffClass ) ) {
-							$elm.toggleClass( equalHeightClass + " " + equalHeightOffClass );
-						}
+						$elm.toggleClass( equalHeightClass, !isSmallView );
+						$elm.toggleClass( equalHeightOffClass, isSmallView );
 
 						$summary.attr( "aria-hidden", !isSmallView );
 						$tablist.attr( "aria-hidden", isSmallView );
