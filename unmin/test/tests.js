@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.19-development - 2015-11-23
+ * v4.0.19-development - 2015-11-26
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -1152,20 +1152,12 @@ describe( "equalheights test suite", function() {
 
 				// Re-initialize the variables every 2 elements. This works because the test
 				// data only ever has 2 elements on a given baseline.
-				isInit = idx % 2 === 0,
-
-				// Is this a case where only one element exists on a baseline?
-				isSingleElm = isInit && $elm.is( ":last-child" );
+				isInit = idx % 2 === 0;
 
 			height = isInit ? $elm.height() : height;
 			minHeight = isInit ? parseInt( $elm.css( "min-height" ), 10 ) : minHeight;
 
-			// When only a single element on a baseline, its min-height should be set to 0
-			if ( isSingleElm ) {
-				expect( minHeight ).to.equal( 0 );
-			} else {
-				expect( minHeight ).to.be.greaterThan( 0 );
-			}
+			expect( minHeight ).to.be.greaterThan( 0 );
 			expect( parseInt( $elm.css( "min-height" ), 10 ) ).to.equal( minHeight );
 			expect( $elm.height() ).to.equal( height );
 		},
@@ -1401,8 +1393,8 @@ describe( "equalheights test suite", function() {
 
 		before( function( done ) {
 			test = function( done ) {
-				expect( $first.height() ).to.be( 75 );
-				expect( $second.height() ).to.be( 175 );
+				expect( $first.height() ).to.be.within( 75, 76 );
+				expect( $second.height() ).to.be.within( 175, 176 );
 
 				done();
 				callback = undef;
