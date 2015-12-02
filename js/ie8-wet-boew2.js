@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.20-development - 2015-12-01
+ * v4.0.20-development - 2015-12-02
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4890,12 +4890,8 @@ var componentName = "wb-feeds",
 	 */
 	jsonRequest = function( url, limit ) {
 
-		var requestURL = wb.pageUrlParts.protocol + "//ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" + encodeURIComponent( decodeURIComponent( url ) );
+		var requestURL = wb.pageUrlParts.protocol + "//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feed%20where%20url%20%3D%20'" + encodeURIComponent( decodeURIComponent( url ) ) + "'%20limit%20" + ( limit ? limit : 4 ) + "&format=json";
 
-		// API returns a maximum of 4 entries by default so only override if more entries should be returned
-		if ( limit > 4 ) {
-			requestURL += "&num=" + limit;
-		}
 		return requestURL;
 	},
 
@@ -5010,8 +5006,8 @@ var componentName = "wb-feeds",
 		for ( i = 0; i !== len; i += 1 ) {
 			items[ i ].fIcon =  icon ;
 
-			if ( items[ i ].publishedDate === undef && items[ i ].published !== undef ) {
-				items[ i ].publishedDate = items[ i ].published;
+			if ( items[ i ].publishedDate === undef ) {
+				items[ i ].publishedDate = ( items[ i ].published || items[ i ].pubDate || "" );
 			}
 
 			entries.push( items[ i ] );
@@ -5140,7 +5136,23 @@ $document.on( "ajax-fetched.wb data-ready.wb-feeds", selector + " " + feedLinkSe
 		switch ( event.type ) {
 			case "ajax-fetched":
 				response = event.fetch.response;
-				data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry;
+
+				if ( response.query ) {
+					var results = response.query.results;
+
+					if ( results ) {
+						data = results.entry ? results.entry : results.item;
+
+						if ( !Array.isArray( data ) ) {
+							data = [ data ];
+						}
+					} else {
+						data = [];
+					}
+				} else {
+					data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry;
+				}
+
 				break;
 			default:
 				data = event.feedsData;

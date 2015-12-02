@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.20-development - 2015-12-01
+ * v4.0.20-development - 2015-12-02
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -1669,8 +1669,8 @@ describe( "Feeds test suite", function() {
 			var i = 0,
 				len = ajaxCalls.length,
 				isLookup = false,
-				feedurl = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" +
-					encodeURIComponent( decodeURIComponent( "http://foobar.com/" ) );
+				feedurl = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feed%20where%20url%20%3D%20'" +
+					encodeURIComponent( decodeURIComponent( "http://foobar.com/" ) ) + "'%20limit%204&format=json";
 
 			for ( ; i !== len && !isLookup; i += 1 ) {
 				isLookup = ajaxCalls.length && ajaxCalls[ i ].url === feedurl;
@@ -1738,10 +1738,10 @@ describe( "Feeds test suite", function() {
 				len = ajaxCalls.length,
 				isLookup1 = false,
 				isLookup2 = false,
-				feedurl1 = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" +
-					encodeURIComponent( decodeURIComponent( "http://foobar.com/" ) ),
-				feedurl2 = "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&callback=?&q=" +
-					encodeURIComponent( decodeURIComponent( "http://bazbam.com/" ) );
+				feedurl1 = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feed%20where%20url%20%3D%20'" +
+					encodeURIComponent( decodeURIComponent( "http://foobar.com/" ) ) + "'%20limit%204&format=json",
+				feedurl2 = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20feed%20where%20url%20%3D%20'" +
+						encodeURIComponent( decodeURIComponent( "http://bazbam.com/" ) ) + "'%20limit%204&format=json";
 
 			for ( ; i !== len; i += 1 ) {
 				isLookup1 = isLookup1 || ( ajaxCalls.length && ajaxCalls[ i ].url === feedurl1 );
