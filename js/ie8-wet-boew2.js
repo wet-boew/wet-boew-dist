@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.20-development - 2015-12-11
+ * v4.0.20-development - 2015-12-14
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -10900,7 +10900,8 @@ var componentName = "wb-toggle",
 			var top,
 				isOn = data.isOn,
 				$elms = data.elms,
-				$detail = $( this );
+				$this = $( this ),
+				$detail = $this.is( "summary" ) ? $this.parent() : $this;
 
 			// Stop propagation of the toggleDetails event
 			if ( event.stopPropagation ) {
@@ -11049,7 +11050,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + toggleEvent +
 	}
 } );
 
-$document.on( toggledEvent, "details", toggleDetails );
+$document.on( toggledEvent, "summary, details", toggleDetails );
 
 // Keyboard handling for the accordion
 $document.on( "keydown", selectorTab, function( event ) {
