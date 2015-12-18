@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2015-12-16
+ * v4.0.21-development - 2015-12-18
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -6153,7 +6153,7 @@ var componentName = "wb-frmvld",
 								if ( ariaLive.innerHTML.length !== 0 ) {
 									ariaLive.innerHTML = "";
 								}
-								$summaryContainer.detach();
+								$form.find( "#" + errorFormId ).detach();
 							}
 
 						}, /* End of showErrors() */
