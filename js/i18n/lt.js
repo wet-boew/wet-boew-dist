@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " rastos klaidos.",
 	"err-fnd": " rasta klaida.",
 	/* Date picker */
+	"date-hide": "Slėpti kalendorių",
 	"date-show": "Pasirinkti datą iš kalendoriaus:",
 	"date-sel": "Atrinkta",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Gruodis"
 	],
 	cal: "Kalendorius",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Šiandien)",
 	"cal-goToLnk": "Eiti į<span class=\"wb-inv\"> mėnesius</span>",
 	"cal-goToTtl": "Eiti į mėnesius",

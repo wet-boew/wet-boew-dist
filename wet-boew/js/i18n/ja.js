@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": "複数のエラーが見つかりました。",
 	"err-fnd": "エラーが見つかりました。",
 	/* Date picker */
+	"date-hide": "カレンダーを非表示",
 	"date-show": "カレンダーから日付を選択：",
 	"date-sel": "選択済み",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"12月"
 	],
 	cal: "カレンダー",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "（今日）",
 	"cal-goToLnk": "<span class=\"wb-inv\">月</span>に移動",
 	"cal-goToTtl": "月移動",

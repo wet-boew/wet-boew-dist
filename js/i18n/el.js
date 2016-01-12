@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " τα σφάλματα βρέθηκαν.",
 	"err-fnd": " σφάλμα ήταν που βρέθηκαν.",
 	/* Date picker */
+	"date-hide": "Απόκρυψη ημερολόγιο",
 	"date-show": "Επιλέξτε μια ημερομηνία από το ημερολόγιο για τον τομέα:",
 	"date-sel": "Επιλεγμένα",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Δεκέμβριος"
 	],
 	cal: "Ημερολόγιο",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Τρέχουσα ημέρα)",
 	"cal-goToLnk": "Πηγαίνετε στο<span class=\"wb-inv\"> μήνα του έτους</span>",
 	"cal-goToTtl": "Πηγαίνετε στο μήνα του έτους",

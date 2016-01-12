@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " hatalar bulundu.",
 	"err-fnd": " hata bulundu.",
 	/* Date picker */
+	"date-hide": "Takvimi gizle",
 	"date-show": "Alan için takvimden bir tarih seçiniz:",
 	"date-sel": "Seçilmiş",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Aralık"
 	],
 	cal: "Takvim",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Geçerli gün)",
 	"cal-goToLnk": "<span class=\"wb-inv\">Yılın ayına </span>Git",
 	"cal-goToTtl": "Yılın ayına git",

@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " errori sono stati trovati.",
 	"err-fnd": " errore è stato trovato.",
 	/* Date picker */
+	"date-hide": "Nascondi calendario",
 	"date-show": "Scegli una data da un calendario per il campo:",
 	"date-sel": "Selezionato",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Dicembre"
 	],
 	cal: "Calendario",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Giorno attuale)",
 	"cal-goToLnk": "Vai ad un<span class=\"wb-inv\"> mese dell'anno</span>",
 	"cal-goToTtl": "Vai al mese dell'anno",

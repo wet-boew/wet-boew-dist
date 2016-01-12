@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " chyby boli nájdené.",
 	"err-fnd": " chyba bola nájdená.",
 	/* Date picker */
+	"date-hide": "Skryť kalendár",
 	"date-show": "Vyberte dátum z kalendára pre pole",
 	"date-sel": "Vybraný",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"December"
 	],
 	cal: "Kalendár",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Aktuálny deň)",
 	"cal-goToLnk": "Prejsť na<span class=\"wb-inv\">  mesiac roka</span>",
 	"cal-goToTtl": "Prejsť na mesiac roka",

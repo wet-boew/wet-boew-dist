@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " бяха открити грешки.",
 	"err-fnd": " грешка е намерен.",
 	/* Date picker */
+	"date-hide": "Скриване на календара",
 	"date-show": "Изберете дата от календара за областта:",
 	"date-sel": "Подбран",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Декември"
 	],
 	cal: "Календар",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Текущия ден)",
 	"cal-goToLnk": "Отиди на<span class=\"wb-inv\"> месец на годината</span>",
 	"cal-goToTtl": "Отиди на месец на годината",

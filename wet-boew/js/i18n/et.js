@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": "on leitud vigu.",
 	"err-fnd": "on leitud viga.",
 	/* Date picker */
+	"date-hide": "Peida kalender",
 	"date-show": "Vali kalendrist kuupäev:",
 	"date-sel": "Valitud",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Detsember"
 	],
 	cal: "Kalender",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Tänane päev)",
 	"cal-goToLnk": "Mine aastas</span>  kuule <span class=\"wb-inv\"> ",
 	"cal-goToTtl": "Mine sellele kuule aastas",

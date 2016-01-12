@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": "знайдено помилки.",
 	"err-fnd": "знайдено помилку.",
 	/* Date picker */
+	"date-hide": "Сховати календар",
 	"date-show": "Оберіть дату в календарі:",
 	"date-sel": "Вибрано",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Грудень"
 	],
 	cal: "Календар",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Поточний день)",
 	"cal-goToLnk": "Перейти до<span class=\"wb-inv\"> місяця року</span>",
 	"cal-goToTtl": "Перейти до місяця року",

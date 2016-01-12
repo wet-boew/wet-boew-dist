@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " 오류가 발견되었습니다.",
 	"err-fnd": " 오류가 발견되었습니다.",
 	/* Date picker */
+	"date-hide": "캘린더 숨기기",
 	"date-show": "필드에 달력에서 날짜를 선택:",
 	"date-sel": "선택된",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"12월"
 	],
 	cal: "달력",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(현재 일)",
 	"cal-goToLnk": "<span class=\"wb-inv\">년 개월</span>로 이동",
 	"cal-goToTtl": "년 개월로 이동",

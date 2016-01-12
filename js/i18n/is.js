@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " villur fundust.",
 	"err-fnd": " villa fannst.",
 	/* Date picker */
+	"date-hide": "Fela dagatal",
 	"date-show": "Veldu dagsetningu af dagatali fyrir akur:",
 	"date-sel": "Valin",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Desember"
 	],
 	cal: "Dagbók",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Núverandi dag)",
 	"cal-goToLnk": "Fara í<span class=\"wb-inv\"> mánuð á ári</span>",
 	"cal-goToTtl": "Fara í mánuð á ári",

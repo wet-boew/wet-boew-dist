@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " error ditemukan.",
 	"err-fnd": " error ditemukan.",
 	/* Date picker */
+	"date-hide": "Sembunyikan kalender",
 	"date-show": "Pilih satu tanggal pada kalender:",
 	"date-sel": "Sudah dipilih",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Desember"
 	],
 	cal: "Kalender",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "Hari ini",
 	"cal-goToLnk": "Pilih<span class=\"invisible\"> bulan dan tahun</span>",
 	"cal-goToTtl": "Pilih bulan dan tahun",

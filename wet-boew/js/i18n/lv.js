@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " tika atrastas kļūdas.",
 	"err-fnd": " tika atrasta kļūda.",
 	/* Date picker */
+	"date-hide": "Slēpt kalendāru",
 	"date-show": "Izvēlēties datumu no kalendāra lauka:",
 	"date-sel": "Atlasīts",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"Decembris"
 	],
 	cal: "Kalendārs",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Šodien)",
 	"cal-goToLnk": "Iet uz<span class=\"wb-inv\"> gada mēnesi</span>",
 	"cal-goToTtl": "Iet uz gada mēnesi",

@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " hibák léptek fel.",
 	"err-fnd": " hiba lépett fel.",
 	/* Date picker */
+	"date-hide": "A naptár elrejtése",
 	"date-show": "Válasszon egy dátumot a naptárból:",
 	"date-sel": "Kijelölt",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"December"
 	],
 	cal: "Naptár",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(Mai nap)",
 	"cal-goToLnk": "Ugrás<span class=\"wb-inv\"> erre a hónapra</span>",
 	"cal-goToTtl": "Ugrás erre a hónapra",

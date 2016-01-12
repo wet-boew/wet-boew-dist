@@ -104,6 +104,7 @@ wb.i18nDict = {
 	"errs-fnd": " พบข้อผิดพลาด.",
 	"err-fnd": " ข้อผิดพลาดที่พบ.",
 	/* Date picker */
+	"date-hide": "ซ่อนปฏิทิน",
 	"date-show": "เลือกวันที่จากปฏิทินสำหรับเขต",
 	"date-sel": "เลือก",
 	/* Calendar */
@@ -131,6 +132,7 @@ wb.i18nDict = {
 		"ธันวาคม"
 	],
 	cal: "ปฏิทิน",
+	"cal-format": "<span class='wb-inv'>{ddd}, {M} </span>{d}<span class='wb-inv'>, {Y}</span>",
 	currDay: "(วันที่ปัจจุบัน)",
 	"cal-goToLnk": "ไป<span class=\"wb-inv\">เดือนของปี</span>",
 	"cal-goToTtl": "ไปเดือนของปี",

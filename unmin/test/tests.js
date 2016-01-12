@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-01-11
+ * v4.0.21-development - 2016-01-12
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -224,6 +224,1184 @@ describe( "Feedback test suite", function() {
 
 			expectHidden( $info );
 			expectHidden( $reasonWeb );
+		} );
+	} );
+} );
+
+}( jQuery, wb ) );
+
+/**
+ * @title Calendar library Unit Tests
+ * @overview Test the calendar library behaviour
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @LaurentGoderre
+ */
+/* global jQuery, describe, it, expect, before, after, sinon */
+/* jshint unused:vars */
+( function( $, wb ) {
+
+describe( "calendar test suite", function() {
+	var sandbox = sinon.sandbox.create(),
+		trigger = sandbox.spy( $.prototype, "trigger" ),
+		$document = wb.doc,
+		$elm;
+
+	before( function() {
+		$elm = $( "<div id='test'></div>" ).appendTo( $document.find( "body" ) );
+	} );
+
+	after( function() {
+		$elm.remove();
+
+		sandbox.restore();
+	} );
+
+	describe( "create a calendar", function() {
+		var settings = {
+				year: 2012,
+				month: 1,
+				minDate: new Date( 2011, 0, 1 ),
+				maxDate: new Date( 2015, 0, 1 )
+			},
+			calendar, $calendarObj;
+
+		before( function() {
+			calendar = wb.calendar.create( $elm, settings );
+			$calendarObj = calendar.$o;
+		} );
+
+		after( function() {
+			$calendarObj.remove();
+		} );
+
+		it( "should create a calendar", function() {
+			expect( $calendarObj.length ).to.be( 1 );
+			expect( $calendarObj.find( ".cal-nav" ).length ).to.be( 1 );
+			expect( $calendarObj.find( ".cal-days" ).length ).to.be( 1 );
+		} );
+
+		it( "should populate the year field", function() {
+			var yearField = $calendarObj.find( ".cal-year" ).get( 0 );
+
+			expect( yearField.options.length ).to.be( 5 );
+		} );
+
+		it( "should select the specified year in the year navigation field", function() {
+			var yearField = $calendarObj.find( ".cal-year" ).get( 0 );
+
+			expect( yearField.options[ yearField.selectedIndex ].text ).to.be( "2012" );
+		} );
+
+		it( "should select the specified month in the month navigation field", function() {
+			var monthField = $calendarObj.find( ".cal-month" ).get( 0 ),
+				val = monthField.selectedIndex;
+
+			expect( val ).to.be( 1 );
+			expect( monthField.options[ val ].text ).to.be( "February" );
+		} );
+
+		it( "should create the days", function() {
+			var $days = $calendarObj.find( ".cal-days td:not(.cal-empty)" ),
+				firstDay = $days.filter( ":first" ).prevAll().length,
+				lastDay = 7 - $days.filter( ":last" ).nextAll().length;
+
+			expect( $days.length ).to.be( 29 );
+			expect( firstDay ).to.be( 3 );
+			expect( lastDay ).to.be( 4 );
+		} );
+
+		it( "should use the HTML5 time element and specify the date in ISO format", function() {
+			var $times = $calendarObj.find( ".cal-days time" );
+
+			expect( $times.length ).to.be( 29 );
+			expect( $times.filter( ":eq(0)" ).attr( "datetime" ) ).to.be( "2012-02-01" );
+		} );
+
+		it( "should format the dates", function() {
+			expect( $calendarObj.find( ".cal-days td:not(.cal-empty):eq(0)" ).text() ).to.be( "Wednesday, February 1, 2012" );
+		} );
+
+		it( "should store the calendar settings in the calendar", function() {
+			expect( calendar.year ).to.be( 2012 );
+			expect( calendar.month ).to.be( 1 );
+			expect( +calendar.minDate ).to.equal( +new Date( 2011, 0, 1 ) );
+			expect( +calendar.maxDate ).to.equal( +new Date( 2015, 0, 1 ) );
+		} );
+	} );
+
+	describe( "reinitialize a calendar", function() {
+		var minDate = new Date( 2011, 0, 1 ),
+			maxDate = new Date( 2015, 0, 1 ),
+			settings = {
+				year: 2012,
+				month: 1,
+				minDate: minDate,
+				maxDate: maxDate
+			},
+			calendar, $calendarObj;
+
+		before( function() {
+			calendar = wb.calendar.create( $elm );
+			$calendarObj = calendar.$o;
+			calendar.reInit( settings );
+		} );
+
+		after( function() {
+			$calendarObj.remove();
+
+			trigger.reset();
+		} );
+
+		it( "should update the year setting", function() {
+			expect( calendar.year ).to.be( 2012 );
+		} );
+
+		it( "should update the month setting", function() {
+			expect( calendar.month ).to.be( 1 );
+		} );
+
+		it( "should update the minDate setting", function() {
+			expect( calendar.minDate ).to.be( minDate );
+		} );
+
+		it( "should update the maxDate setting", function() {
+			expect( calendar.maxDate ).to.be( maxDate );
+		} );
+
+		it( "should update the list of years", function() {
+			var $yearField = $calendarObj.find( ".cal-year" ),
+				$years = $yearField.children();
+
+			expect( $years.length ).to.be( 5 );
+			expect( $years.get( 0 ).value ).to.be( "2011" );
+		} );
+
+		it( "should trigger a wb-navigate event with the new year and month", function() {
+			expect( trigger.calledWith( {
+				type: "wb-navigate.wb-clndr",
+				year: 2012,
+				month: 1
+			} ) ).to.be( true );
+		} );
+	} );
+
+	describe( "wb-navigate event navigation", function() {
+		var settings = {
+				year: 2012,
+				month: 1,
+				minDate: new Date( 2011, 0, 1 ),
+				maxDate: new Date( 2015, 0, 1 )
+			},
+			calendar, $calendarObj;
+
+		before( function() {
+			calendar = wb.calendar.create( $elm, settings );
+			$calendarObj = calendar.$o;
+
+			$calendarObj.trigger( {
+				type: "wb-navigate.wb-clndr",
+				year:2014,
+				month: 6
+			} );
+		} );
+
+		after( function() {
+			$calendarObj.remove();
+		} );
+
+		it( "should update the month setting", function() {
+			expect( calendar.month ).to.be( 6 );
+		} );
+
+		it( "should update the month field", function() {
+			var monthField = $calendarObj.find( ".cal-month" ).get( 0 ),
+			val = monthField.selectedIndex;
+
+			expect( val ).to.be( 6 );
+			expect( monthField.options[ val ].text ).to.be( "July" );
+		} );
+
+		it( "should update the year setting", function() {
+			expect( calendar.year ).to.be( 2014 );
+		} );
+
+		it( "should update the year field", function() {
+			var yearField = $calendarObj.find( ".cal-year" ).get( 0 );
+
+			expect( yearField.options[ yearField.selectedIndex ].text ).to.be( "2014" );
+		} );
+
+		it( "should update the days", function() {
+			var $days = $calendarObj.find( ".cal-days td:not(.cal-empty)" ),
+				firstDay = $days.filter( ":first" ).prevAll().length,
+				lastDay = 7 - $days.filter( ":last" ).nextAll().length;
+
+			expect( $days.length ).to.be( 31 );
+			expect( firstDay ).to.be( 2 );
+			expect( lastDay ).to.be( 5 );
+		} );
+	} );
+
+	describe( "arrow navigation", function() {
+
+		describe( "previous month arrow", function() {
+			var calendar, $calendarObj, $arrowLink, arrowLink;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2012,
+					month: 0,
+					minDate: new Date( 2011, 0, 1 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$arrowLink = $calendarObj.find( ".cal-month-prev" );
+				arrowLink = $arrowLink.get( 0 );
+				arrowLink.click();
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event with the new year and month", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 11
+				} ) ).to.be( true );
+			} );
+
+			it( "should be disabled if the lower limit is reached", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 0
+				} );
+
+				expect( $arrowLink.attr( "disabled" ) ).to.be( "disabled" );
+			} );
+
+			it( "should be enabled if leaving the lower limit month", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 1
+				} );
+
+				expect( $arrowLink.attr( "disabled" ) ).not.to.be( "disabled" );
+			} );
+		} );
+
+		describe( "next month arrow", function() {
+			var calendar, $calendarObj, $arrowLink, arrowLink;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2012,
+					month: 11,
+					maxDate: new Date( 2013, 11, 31 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$arrowLink = $calendarObj.find( ".cal-month-next" );
+				arrowLink = $arrowLink.get( 0 );
+				arrowLink.click();
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event with the new year and month", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2013,
+					month: 0
+				} ) ).to.be( true );
+			} );
+
+			it( "should be disabled if the lower limit is reached", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2013,
+					month: 11
+				} );
+
+				expect( $arrowLink.attr( "disabled" ) ).to.be( "disabled" );
+			} );
+
+			it( "should be enabled if leaving the lower limit month", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 10
+				} );
+
+				expect( $arrowLink.attr( "disabled" ) ).not.to.be( "disabled" );
+			} );
+		} );
+
+	} );
+
+	describe( "field navigation", function() {
+
+		describe( "year field", function() {
+			var calendar, $calendarObj, $yearField;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2013,
+					month: 0,
+					minDate: new Date( 2011, 0, 1 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$yearField = $calendarObj.find( ".cal-year" );
+				$yearField.get( 0 ).selectedIndex = 0;
+				$yearField.trigger( "change" );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event with the new year and month", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 0
+				} ) ).to.be( true );
+			} );
+		} );
+
+		describe( "month field", function() {
+			var calendar, $calendarObj, $monthField;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2013,
+					month: 0,
+					minDate: new Date( 2011, 0, 1 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$monthField = $calendarObj.find( ".cal-month" );
+				$monthField.get( 0 ).selectedIndex = 4;
+				$monthField.trigger( "change" );
+
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event with the new year and month", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2013,
+					month: 4
+				} ) ).to.be( true );
+			} );
+		} );
+
+	} );
+
+	describe( "basic keyboard navigation", function() {
+
+		describe( "page up key", function() {
+			var calendar, $calendarObj;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2013,
+					month: 0,
+					minDate: new Date( 2012, 11, 15 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$calendarObj.trigger( {
+					type: "keydown",
+					which: 33
+				} );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event to the previous month", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2012,
+					month: 11
+				} ) ).to.be( true );
+			} );
+		} );
+
+		describe( "(shift|ctrl) + page up key", function() {
+			var calendar, $calendarObj;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2013,
+					month: 0,
+					minDate: new Date( 2011, 0, 15 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$calendarObj
+					.trigger( {
+						type: "keydown",
+						which: 33,
+						shiftKey: true
+					} )
+					.trigger( {
+						type: "keydown",
+						which: 33,
+						ctrlKey: true
+					} );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event to the previous year", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 0
+				} ) ).to.be( true );
+			} );
+		} );
+
+		describe( "page down key", function() {
+			var calendar, $calendarObj;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2013,
+					month: 11,
+					maxDate: new Date( 2014, 0, 15 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$calendarObj.trigger( {
+					type: "keydown",
+					which: 34
+				} );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event to the next month", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 0
+				} ) ).to.be( true );
+			} );
+		} );
+
+		describe( "(shift|ctrl) + page down key", function() {
+			var calendar, $calendarObj;
+
+			before( function() {
+				calendar = wb.calendar.create( $elm,  {
+					year: 2010,
+					month: 0,
+					maxDate: new Date( 2012, 0, 15 )
+				} );
+				$calendarObj = calendar.$o;
+
+				$calendarObj
+					.trigger( {
+						type: "keydown",
+						which: 34,
+						shiftKey: true
+					} )
+					.trigger( {
+						type: "keydown",
+						which: 34,
+						ctrlKey: true
+					} );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+
+				trigger.reset();
+			} );
+
+			it( "should trigger a wb-navigate event to the next year", function() {
+				expect( trigger.calledWith( {
+					type: "wb-navigate.wb-clndr",
+					year: 2012,
+					month: 0
+				} ) ).to.be( true );
+			} );
+		} );
+	} );
+
+	describe( "days callback", function() {
+		var  callback = sinon.spy(),
+			settings = {
+				year: 2010,
+				month: 0,
+				minDate: new Date( 2010, 0, 12 ),
+				maxDate: new Date( 2010, 0, 24 ),
+				daysCallback: callback
+			},
+			calendar, $calendarObj, call, args;
+
+		before( function() {
+			calendar = wb.calendar.create( $elm, settings );
+			$calendarObj = calendar.$o;
+		} );
+
+		after( function() {
+			$calendarObj.remove();
+		} );
+
+		it( "should call the days callback when creating a calendar", function() {
+			expect( callback.called ).to.be( true );
+		} );
+
+		it( "should call the days callback with the calendar as the 'this' context", function() {
+			call = callback.lastCall;
+
+			expect( call.thisValue ).to.be( calendar );
+		} );
+
+		it( "should call the callback with an integer for the year", function() {
+			var year;
+
+			args = call.args;
+			year = args[ 0 ];
+
+			expect( typeof year ).to.be( "number" );
+			expect( year ).to.be( 2010 );
+		} );
+
+		it( "should call the callback with an integer for the month", function() {
+			var month = args[ 1 ];
+
+			expect( typeof month ).to.be( "number" );
+			expect( month ).to.be( 0 );
+		} );
+
+		it( "should call the callback with a jQuery object with the list of days in the month", function() {
+			var $days = args[ 2 ];
+
+			expect( typeof $days ).to.be( "object" );
+			expect( $days.length ).to.be( 31 );
+		} );
+
+		it( "should call the callback with an object specifying the days in range of the min and max dates", function() {
+			var range = args[ 3 ];
+
+			expect( typeof range ).to.be( "object" );
+			expect( range.min ).to.be( 11 );
+			expect( range.max ).to.be( 23 );
+		} );
+
+		describe( "callback on navigate", function() {
+			before( function() {
+				callback.reset();
+				calendar.reInit( settings );
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2010,
+					month: 1
+				} );
+			} );
+
+			it( "should call the days callback when navigating to a new month calendar", function() {
+				expect( callback.called ).to.be( true );
+			} );
+		} );
+
+		describe( "callback exception", function() {
+			before( function() {
+				calendar.daysCallback = function() {
+					throw "Exception";
+				};
+
+				try {
+					$calendarObj.trigger( {
+						type: "wb-navigate.wb-clndr",
+						year: 2010,
+						month: 4
+					} );
+				} catch ( e ) {}
+			} );
+
+			it( "should update the calendar even if the callback throws an exception", function() {
+				var monthField = $calendarObj.find( ".cal-month" ).get( 0 );
+
+				expect( calendar.month ).to.be( 4 );
+				expect( monthField.options[ monthField.selectedIndex ].text ).to.be( "May" );
+			} );
+		} );
+	} );
+
+	describe( "advanced keyboard navigation", function() {
+		var settings = {
+				year: 2013,
+				month: 0,
+				minDate: new Date( 2010, 0, 12 ),
+				maxDate: new Date( 2014, 11, 25 ),
+				daysCallback: function( year, month, days, range ) {
+					var inRange = days;
+
+					if ( range ) {
+						if ( range.max ) {
+							inRange = inRange.filter( ":lt(" + ( range.max + 1 ) + ")" );
+						} else if ( range.min ) {
+							inRange = inRange.filter( ":gt(" + ( range.min - 1 ) + ")" );
+						}
+					}
+
+					inRange.wrap( "<a href='javascript:;' tabindex='-1'></a>" ).filter( ":eq(0)" ).parent().removeAttr( "tabindex" );
+				}
+			},
+			calendar, $calendarObj, $daysArea, $focused;
+
+		describe( "up arrow key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-2 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 38
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the same day of the week in the previous week in the previous week", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-26" );
+			} );
+
+			it( "should not navigate past the minimum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2010,
+					month: 0
+				} );
+
+				$focused = $daysArea.find( ".cal-index-18 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 38
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-18" );
+			} );
+		} );
+
+		describe( "down arrow key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-29 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 40
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the same day of the week in the previous week in the previous week", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-5" );
+			} );
+
+			it( "should not navigate past the maximum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 11
+				} );
+
+				$focused = $daysArea.find( ".cal-index-19 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 40
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-19" );
+			} );
+		} );
+
+		describe( "left arrow key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-1 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 37
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to previous day", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-31" );
+			} );
+
+			it( "should not navigate past the minimum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2010,
+					month: 0
+				} );
+
+				$focused = $daysArea.find( ".cal-index-12 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 37
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-12" );
+			} );
+		} );
+
+		describe( "right arrow key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-31 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 39
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to next day", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-1" );
+			} );
+
+			it( "should not navigate past the maximum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 11
+				} );
+
+				$focused = $daysArea.find( ".cal-index-25 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 39
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-25" );
+			} );
+		} );
+
+		describe( "home key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-15 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 36
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to first day of the month", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-1" );
+			} );
+
+			it( "should not navigate past the minimum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2010,
+					month: 0
+				} );
+
+				$focused = $daysArea.find( ".cal-index-19 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 36
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-12" );
+			} );
+		} );
+
+		describe( "end key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-15 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 35
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the last day of the month", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-31" );
+			} );
+
+			it( "should not navigate past the maximum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 11
+				} );
+
+				$focused = $daysArea.find( ".cal-index-19 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 35
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-25" );
+			} );
+		} );
+
+		describe( "page up key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-15 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 33
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the same day in the previous month", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-15" );
+				expect( calendar.year ).to.be( 2012 );
+				expect( calendar.month ).to.be( 11 );
+			} );
+
+			it( "should not navigate past the minimum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2010,
+					month: 1
+				} );
+
+				$focused = $daysArea.find( ".cal-index-11 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 33
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-11" );
+				expect( calendar.month ).to.be( 1 );
+			} );
+
+			it( "should go to the last day of the month if coming from a month with 31 days to one with less than 31", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 2
+				} );
+
+				$focused = $daysArea.find( ".cal-index-31 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 33
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-28" );
+			} );
+		} );
+
+		describe( "page down key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-15 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 34
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the same day in the next month", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-15" );
+				expect( calendar.month ).to.be( 1 );
+			} );
+
+			it( "should not navigate past the maximum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 10
+				} );
+
+				$focused = $daysArea.find( ".cal-index-26 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 34
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-26" );
+				expect( calendar.month ).to.be( 10 );
+			} );
+
+			it( "should go to the last day of the month if coming from a month with 31 days to one with less than 31", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2014,
+					month: 0
+				} );
+
+				$focused = $daysArea.find( ".cal-index-31 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 34
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-28" );
+			} );
+		} );
+
+		describe( "(shift|ctrl) + page up key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days" );
+
+				$focused = $daysArea.find( ".cal-index-2 a" );
+				$focused.get( 0 ).focus();
+
+				$focused.trigger( {
+					type: "keydown",
+					which: 33,
+					shiftKey: true
+				} );
+				$focused = $( document.activeElement );
+
+				$focused.trigger( {
+					type: "keydown",
+					which: 33,
+					ctrlKey: true
+				} );
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the same day and month in the previous year", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-2" );
+				expect( calendar.year ).to.be( 2011 );
+				expect( calendar.month ).to.be( 0 );
+			} );
+
+			it( "should not navigate past the minimum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2011,
+					month: 0
+				} );
+
+				$focused = $daysArea.find( ".cal-index-11 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 33,
+					shiftKey: true
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-11" );
+				expect( calendar.year ).to.be( 2011 );
+				expect( calendar.month ).to.be( 0 );
+			} );
+		} );
+
+		describe( "(shift|ctrl) + page down key", function() {
+			before( function() {
+				calendar = wb.calendar.create( $elm, $.extend( {}, settings, { year: 2010 } ) );
+				$calendarObj = calendar.$o;
+				$daysArea = $calendarObj.find( ".cal-days " );
+
+				$focused = $daysArea.find( ".cal-index-15 a" );
+				$focused.get( 0 ).focus();
+
+				$focused.trigger( {
+					type: "keydown",
+					which: 34,
+					shiftKey: true
+				} );
+				$focused = $( document.activeElement );
+
+				$focused.trigger( {
+					type: "keydown",
+					which: 34,
+					ctrlKey: true
+				} );
+
+				$focused = $( document.activeElement );
+			} );
+
+			after( function() {
+				$calendarObj.remove();
+			} );
+
+			it( "should go to the same day and month in the next year", function() {
+				expect( $focused.length ).to.be( 1 );
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-15" );
+				expect( calendar.year ).to.be( 2012 );
+				expect( calendar.month ).to.be( 0 );
+			} );
+
+			it( "should not navigate past the maximum date", function() {
+				$calendarObj.trigger( {
+					type: "wb-navigate.wb-clndr",
+					year: 2013,
+					month: 11
+				} );
+
+				$focused = $daysArea.find( ".cal-index-26 a" );
+				$focused.get( 0 ).focus();
+				$focused.trigger( {
+					type: "keydown",
+					which: 34,
+					shiftKey: true
+				} );
+
+				$focused = $( document.activeElement );
+
+				expect( $focused.parent().attr( "class" ) ).to.be( "cal-index-26" );
+				expect( calendar.year ).to.be( 2013 );
+				expect( calendar.month ).to.be( 11 );
+			} );
 		} );
 	} );
 } );
@@ -2951,4 +4129,579 @@ describe( "Twitter test suite", function() {
 
 } );
 
+}( jQuery, wb ) );
+
+/**
+ * @title Date Picker Unit Tests
+ * @overview Test the date picker behaviour
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @LaurentGoderre
+ */
+/* global jQuery, describe, it, expect, before, after, sinon */
+/* jshint unused:vars */
+( function( $, wb ) {
+	var runTest = Modernizr.inputtypes.date ? describe.skip : describe;
+
+	runTest( "Input type=\"date\" polyfill (date picker)", function() {
+		var sandbox = sinon.sandbox.create(),
+			selector = "input[type=date]",
+			$document = wb.doc,
+			$body = $document.find( "body" ),
+			calendarSelector = "#wb-picker",
+			$formGroup, $calendar, $elm, spy, callback,
+			beforeFactory = function( elm, label ) {
+				elm = elm || "<input type=\"date\" id=\"appointment\"/>";
+				label = label || "<label for=\"appointment\">Appointment Date</label>";
+				return function( done ) {
+
+					// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
+					spy = sandbox.spy( $.prototype, "trigger" );
+
+					if ( !callback ) {
+						callback = done;
+					}
+
+					$formGroup = $(
+						"<div>" + label + "</div>"
+					)
+						.prependTo( $body );
+
+					$elm = $( elm )
+						.appendTo( $formGroup );
+
+					$elm.trigger( "wb-init.wb-date" );
+				};
+			},
+			defaultAfter = function() {
+
+				// Restore the original behaviour of trigger once the tests are finished
+				sandbox.restore();
+
+				// Remove test data from the page
+				$formGroup.remove();
+
+				callback = null;
+			};
+
+		before( function() {
+			$document.on( "wb-init.wb-date", selector, function() {
+				$calendar = $( calendarSelector );
+				if ( callback ) {
+					callback();
+				}
+			} );
+		} );
+
+		describe( "initialization", function() {
+			before( beforeFactory() );
+			after( defaultAfter );
+
+			it( "should have marked the element as initialized", function() {
+				expect( $elm.hasClass( "wb-date-inited" ) ).to.equal( true );
+			} );
+
+			it( "should have created the date picker toggle button", function() {
+				var $toggle = $elm.next().find( "a" );
+				expect( $toggle.attr( "class" ) ).to.contain( "picker-toggle" );
+				expect( $toggle.attr( "id" ) ).to.equal( "appointment-picker-toggle" );
+			} );
+
+			it( "should have created an instance of the calendar plugin", function() {
+				expect( $calendar.length ).to.equal( 1 );
+				expect( $calendar.find( ".wb-clndr" ).length ).to.equal( 1 );
+			} );
+
+			it( "should have created a close icon", function() {
+				expect( $calendar.find( ".picker-close" ).length ).to.equal( 1 );
+			} );
+
+			it( "should have hidden the calendar", function() {
+				expect( $calendar.css( "display" ) ).to.equal( "none" );
+				expect( $calendar.attr( "aria-hidden" ) ).to.equal( "true" );
+			} );
+
+			it( "should have added links to the calendar", function() {
+				var lastDay = new Date();
+				lastDay.setMonth( lastDay.getMonth() + 1, 0 );
+				expect( $calendar.find( ".cal-days a" ).length ).to.equal( lastDay.getDate() );
+			} );
+
+			it( "should have stored a state object in the field element", function() {
+				var field = $elm.get( 0 ),
+					state = field.state,
+					today = new Date();
+
+				expect( typeof state ).to.equal( "object" );
+				expect( state.labelText ).to.equal( "Appointment Date" );
+				expect( state.field ).to.equal( field );
+				expect( state.$field.get( 0 ) ).to.equal( $elm.get( 0 ) );
+				expect( state.minDate.toString() ).to.equal( new Date( 1800, 0, 1 ).toString() );
+				expect( state.maxDate.toString() ).to.equal( new Date( 2100, 0, 1 ).toString() );
+				expect( state.year ).to.equal( today.getFullYear() );
+				expect( state.month ).to.equal( today.getMonth() );
+				expect( typeof state.daysCallback ).to.equal( "function" );
+			} );
+		} );
+
+		describe( "with a date format and error in the label", function() {
+			var label = "<label for=\"appointment\">" +
+					"<span class=\"field-name\">Appointment Date</span>" +
+					"<span class=\"datepicker-format\">(YYYY-MM-DD)</span>" +
+					"<strong class=\"error\" id=\"appointment-error\">" +
+						"<span class=\"label label-danger\">" +
+							"<span class=\"prefix\">Error 1: </span>Please enter a valid date" +
+						"</span>" +
+					"</strong>" +
+				"</label>";
+
+			before( beforeFactory( null, label ) );
+			after( defaultAfter );
+
+			it( "should have stored only the field name in the label", function() {
+				var state = $elm.get( 0 ).state;
+				expect( state.labelText ).to.equal( "Appointment Date" );
+			} );
+		} );
+
+		describe( "with a populated date", function() {
+			before( beforeFactory( "<input type=\"date\" id=\"appointment\" value=\"2014-08-07\"/>" ) );
+			after( defaultAfter );
+
+			it( "should have stored the date in the state object", function() {
+				var state = $elm.get( 0 ).state;
+				expect( state.date.toString() ).to.equal( new Date( 2014, 7, 7 ).toString() );
+			} );
+		} );
+
+		describe( "toggle button", function() {
+			var hiddenAltText = "Pick a date from a calendar for field: Appointment Date";
+
+			before( beforeFactory() );
+			after( defaultAfter );
+
+			it( "should have added alternative text indentifying the parent control", function() {
+				var $toggle = $elm.next().find( "a" );
+				expect( $toggle.text() ).to.equal( hiddenAltText );
+				expect( $toggle.attr( "title" ) ).to.equal( hiddenAltText );
+			} );
+
+			describe( "click while calendar is closed", function() {
+				before( function() {
+					$elm.next().find( "a" ).click();
+				} );
+
+				after( function() {
+					$elm.next().find( "a" ).click();
+				} );
+
+				it( "should have opened the calendar", function() {
+					expect( $calendar.hasClass( "open" ) ).to.equal( true );
+					expect( $calendar.css( "display" ) ).to.equal( "block" );
+				} );
+
+				it( "should have updated the alternative text on open", function() {
+					var $toggle = $elm.next().find( "a" );
+					var altText = "Hide calendar  (escape key)";
+					expect( $toggle.text() ).to.equal( altText );
+					expect( $toggle.attr( "title" ) ).to.equal( altText );
+				} );
+			} );
+
+			describe( "click while calendar is opened", function() {
+				before( function() {
+					$elm.next().find( "a" ).click().click();
+				} );
+
+				it( "should have closed the calendar on a second click", function() {
+					expect( $calendar.hasClass( "open" ) ).to.equal( false );
+					expect( $calendar.css( "display" ) ).to.equal( "none" );
+				} );
+
+				it( "should have updated the alternative text on close", function() {
+					var $toggle = $elm.next().find( "a" );
+					expect( $toggle.text() ).to.equal( hiddenAltText );
+					expect( $toggle.attr( "title" ) ).to.equal( hiddenAltText );
+				} );
+			} );
+		} );
+
+		describe( "toggle button for disabled date field", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" readonly id=\"appointment\"/>" )();
+			} );
+			after( function() {
+
+				//Avoids breaking subsequent tests if the test fails.
+				$elm.next().find( "a" ).click();
+
+				defaultAfter();
+			} );
+
+			it( "should not have opend the calendar on click", function() {
+				expect( $calendar.hasClass( "open" ) ).to.equal( false );
+				expect( $calendar.css( "display" ) ).to.equal( "none" );
+			} );
+		} );
+
+		describe( "toggle button for read-only date field", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" readonly id=\"appointment\"/>" )();
+			} );
+			after( function() {
+
+				//Avoids breaking subsequent tests if the test fails.
+				$elm.next().find( "a" ).click();
+
+				defaultAfter();
+			} );
+
+			it( "should not have opend the calendar on click", function() {
+				expect( $calendar.hasClass( "open" ) ).to.equal( false );
+				expect( $calendar.css( "display" ) ).to.equal( "none" );
+			} );
+		} );
+
+		describe( "close button", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$( ".picker-close" ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"appointment\"/>" )();
+			} );
+			after( defaultAfter );
+
+			it( "should have closed the calendar on click", function() {
+				expect( $calendar.hasClass( "open" ) ).to.equal( false );
+				expect( $calendar.css( "display" ) ).to.equal( "none" );
+			} );
+		} );
+
+		describe( "keyboard shortcut", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$calendar.trigger( {
+						type: "keydown",
+						which: 27
+					} );
+					done();
+				};
+				beforeFactory()();
+			} );
+			after( defaultAfter );
+
+			it( "should have close the calendar on pressing the escape key", function() {
+				expect( $calendar.hasClass( "open" ) ).to.equal( false );
+				expect( $calendar.css( "display" ) ).to.equal( "none" );
+			} );
+		} );
+
+		describe( "opening the calendar", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"test\" min=\"2014-03-04\" max=\"2014-03-18\"/>", "<label for=\"test\">Test Date</label>" )();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+
+			it( "should have update the calendar settings object with the field state object", function() {
+				var state = $elm.get( 0 ).state,
+					calSettings = $calendar.get( 0 ).firstChild.lib,
+					key;
+
+				for ( key in state ) {
+					expect( calSettings[ key ] ).to.equal( state[ key ] );
+				}
+			} );
+
+			it( "should have updated the aria-hidden attribute", function() {
+				expect( $calendar.attr( "aria-hidden" ) ).to.equal( "false" );
+			} );
+
+			it( "should have updated the aria-controls to the date field", function() {
+				expect( $calendar.attr( "aria-controls" ) ).to.equal( "test" );
+			} );
+
+			it( "should have updated the aria-labelled-by to the toggle button", function() {
+				expect( $calendar.attr( "aria-labelledby" ) ).to.equal( "test-picker-toggle" );
+			} );
+
+			it( "should have positioned the date picker immediately under the control", function() {
+				var calendarPosition = $calendar.offset(),
+					fieldPosition = $elm.offset();
+
+				expect( Math.floor( calendarPosition.left ) ).to.equal( Math.floor( fieldPosition.left ) );
+				expect( Math.floor( calendarPosition.top ) ).to.equal( Math.floor( fieldPosition.top + $elm.outerHeight() ) );
+			} );
+		} );
+
+		describe( "opening the calendar when the field has no date and the current date is inside the date range", function() {
+				var today = new Date();
+
+				before( function( done ) {
+					var minDate = new Date(),
+						maxDate = new Date();
+
+					minDate.setMonth( -1 );
+					maxDate.setMonth( 1 );
+
+					callback = function() {
+						$elm.next().find( "a" ).click();
+						done();
+					};
+					beforeFactory( "<input type=\"date\" id=\"appointment\"" +
+						" min=\"" + minDate.toISOString().split( "T" )[ 0 ] +
+						" max=\"" + maxDate.toISOString().split( "T" )[ 0 ] +
+						" \"/>"
+					)();
+				} );
+				after( function() {
+					$elm.next().find( "a" ).click();
+					defaultAfter();
+				} );
+
+				it( "should have set the month and year to the current month and year", function() {
+					var settings = $calendar.get( 0 ).firstChild.lib;
+					expect( settings.year ).to.equal( today.getFullYear() );
+					expect( settings.month ).to.equal( today.getMonth() );
+				} );
+		} );
+
+		describe( "opening the calendar when the field has no date and the current date is outside the date range", function() {
+				var maxDate = new Date();
+
+				before( function( done ) {
+					var minDate = new Date();
+
+					minDate.setMonth( -2 );
+					maxDate.setMonth( -1 );
+
+					callback = function() {
+						$elm.next().find( "a" ).click();
+						done();
+					};
+					beforeFactory( "<input type=\"date\" id=\"appointment\" " +
+						"min=\"" + minDate.toISOString().split( "T" )[ 0 ] + "\" " +
+						"max=\"" + maxDate.toISOString().split( "T" )[ 0 ] + "\" />"
+					)();
+				} );
+				after( function() {
+					$elm.next().find( "a" ).click();
+					defaultAfter();
+				} );
+
+				it( "should have set the month and year to the maximum data's month and year", function() {
+					var settings = $calendar.get( 0 ).firstChild.lib;
+					expect( settings.year ).to.equal( maxDate.getFullYear() );
+					expect( settings.month ).to.equal( maxDate.getMonth() );
+				} );
+		} );
+
+		describe( "opening the calendar when the associated field has a date that is inside the date range", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"appointment\" min=\"2014-03-18\" max=\"2015-03-18\" value=\"2014-08-07\"/>" )();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+			it( "should have set the calendar to the same month as the field's date", function() {
+				var settings = $calendar.get( 0 ).firstChild.lib;
+				expect( settings.year ).to.equal( 2014 );
+				expect( settings.month ).to.equal( 7 );
+			} );
+
+			it( "should have highlighted the selected date", function() {
+				expect( $calendar.find( ".cal-index-7 > a" ).attr( "aria-selected" ) ).to.equal( "true" );
+			} );
+		} );
+
+		describe( "closing the calendar", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click().click();
+					done();
+				};
+				beforeFactory()();
+			} );
+			after( defaultAfter );
+
+			it( "should have updated the aria-hidden attribute", function() {
+				expect( $calendar.attr( "aria-hidden" ) ).to.equal( "true" );
+			} );
+		} );
+
+		describe( "minimum date", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$( ".cal-year" ).val( 2014 ).trigger( "change" );
+					$( ".cal-month" ).val( 2 ).trigger( "change" );
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"appointment\" min=\"2014-03-18\"/>" )();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+
+			it( "should have been added to the state object", function() {
+				expect( $elm.get( 0 ).state.minDate.toString() ).to.equal( new Date( 2014, 2, 18 ).toString() );
+			} );
+
+			it( "should have been passed the minimum to the calendar plugin", function() {
+				expect( $calendar.get( 0 ).firstChild.lib.minDate.toString() ).to.equal( new Date( 2014, 2, 18 ).toString() );
+			} );
+
+			it( "should have prevented the creation of links before the minimum date", function() {
+				expect( $calendar.find( ".cal-days a" ).length ).to.equal( 14 );
+			} );
+		} );
+
+		describe( "maximum date", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$( ".cal-year" ).val( 2014 ).trigger( "change" );
+					$( ".cal-month" ).val( 2 ).trigger( "change" );
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"appointment\" max=\"2014-03-18\"/>" )();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+
+			it( "should have been added to the state object", function() {
+				expect( $elm.get( 0 ).state.maxDate.toString() ).to.equal( new Date( 2014, 2, 18 ).toString() );
+			} );
+
+			it( "should have been passed the minimum to the calendar plugin", function() {
+				expect( $calendar.get( 0 ).firstChild.lib.maxDate.toString() ).to.equal( new Date( 2014, 2, 18 ).toString() );
+			} );
+
+			it( "should have prevented the creation of links past the maximum date", function() {
+				expect( $calendar.find( ".cal-days a" ).length ).to.equal( 18 );
+			} );
+		} );
+
+		describe( "minimum and maximum dates in same month", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"appointment\" min=\"2014-03-04\" max=\"2014-03-18\"/>" )();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+
+			it( "should have been passed the minimum and maximum to the calendar plugin", function() {
+				var settings = $calendar.get( 0 ).firstChild.lib;
+				expect( settings.minDate.toString() ).to.equal( new Date( 2014, 2, 4 ).toString() );
+				expect( settings.maxDate.toString() ).to.equal( new Date( 2014, 2, 18 ).toString() );
+			} );
+
+			it( "should have prevented the creation of links before the minimum date and past the maximum date", function() {
+				expect( $( calendarSelector ).find( ".cal-days a" ).length ).to.equal( 15 );
+			} );
+		} );
+
+		describe( "selecting a date", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$calendar.find( ".cal-days a" ).eq( 5 ).click();
+					done();
+				};
+				beforeFactory( "<input type=\"date\" id=\"appointment\" min=\"2014-03-01\" max=\"2014-03-31\"/>" )();
+			} );
+			after( defaultAfter );
+
+			it( "should have populated the from field with the selected date", function() {
+				expect( $elm.val() ).to.equal( "2014-03-06" );
+			} );
+
+			it( "should have triggered the change event on the form field", function() {
+				expect( spy.calledWith( "change" ) ).to.equal( true );
+				expect( spy.calledOn( $elm ) ).to.equal( true );
+			} );
+
+			it( "should have closed the calendar", function() {
+				expect( $calendar.hasClass( "open" ) ).to.equal( false );
+				expect( $calendar.css( "display" ) ).to.equal( "none" );
+			} );
+		} );
+
+		describe( "selecting a date for a disabled field", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$elm.attr( "disabled", "true" );
+					$calendar.find( ".cal-days a" ).eq( 5 ).click();
+					done();
+				};
+				beforeFactory()();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+
+			it( "should not have populated the form field", function() {
+				expect( $elm.val() ).to.equal( "" );
+			} );
+
+			it( "should not have triggered the change event on the form field", function() {
+				expect( spy.calledWith( "change" ) ).to.equal( false );
+			} );
+		} );
+
+		describe( "selecting a date for a read-only field", function() {
+			before( function( done ) {
+				callback = function() {
+					$elm.next().find( "a" ).click();
+					$elm.attr( "readonly", "true" );
+					$calendar.find( ".cal-days a" ).eq( 5 ).click();
+					done();
+				};
+				beforeFactory()();
+			} );
+			after( function() {
+				$elm.next().find( "a" ).click();
+				defaultAfter();
+			} );
+
+			it( "should not have populated the form field", function() {
+				expect( $elm.val() ).to.equal( "" );
+			} );
+
+			it( "should not have triggered the change event on the form field", function() {
+				expect( spy.calledWith( "change" ) ).to.equal( false );
+			} );
+		} );
+	} );
 }( jQuery, wb ) );

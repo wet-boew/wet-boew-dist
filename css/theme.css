@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-01-11
+ * v4.0.21-development - 2016-01-12
  *
  */
 @charset "UTF-8";
@@ -24,7 +24,7 @@
 /*
  Default Mixins and namespace variables
  */
-.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label, #wb-lng .curr span {
+.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, .wb-calevt-cal .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label, #wb-lng .curr span {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   margin: 0;
@@ -5825,7 +5825,7 @@ caption {
 /*
  Global placeholders
  */
-.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label, #wb-lng .curr span {
+.wb-invisible, .wb-inv, .wb-show-onfocus, .wb-sl, #wb-lng h2, #wb-glb-mn h2, #wb-srch h2, #wb-srch label, #wb-sm h2, #wb-bc h2, #wb-sec h2, #wb-info h2, #mb-pnl h3, .wb-calevt-cal .cal-days td ul, .wb-fnote dt, #mb-pnl .srch-pnl label, #wb-lng .curr span {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   margin: 0;
@@ -6686,7 +6686,7 @@ details {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.cal-days td ul.ev-details, .cal-days td:hover ul {
+.wb-calevt-cal .cal-days td ul.ev-details, .wb-calevt-cal .cal-days td:hover ul {
   background-color: #fff;
   border: 1px solid #333;
   clip: rect(auto, auto, auto, auto);
@@ -6700,181 +6700,77 @@ details {
   position: absolute;
   width: 10em;
   z-index: 5; }
-  .cal-days td ul.ev-details a:hover, .cal-days td:hover ul a:hover, .cal-days td ul.ev-details a:focus, .cal-days td:hover ul a:focus {
+  .wb-calevt-cal .cal-days td ul.ev-details a:hover, .wb-calevt-cal .cal-days td:hover ul a:hover, .wb-calevt-cal .cal-days td ul.ev-details a:focus, .wb-calevt-cal .cal-days td:hover ul a:focus {
     color: #fff; }
 
-.cal-days a.cal-evt {
-  background: #176ca7;
-  color: #fff; }
-
-.cal-cnt-fluid.cal-cnt, .cal-cnt-fluid table.cal-cnt {
-  width: 100%; }
-
-/*
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr, .cal-cnt .cal-goto-btn {
-  position: relative; }
-
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr, .cal-cnt .cal-goto-btn {
-  display: inline-block;
-  margin: 10px 5px; }
-
-.cal-cnt .cal-hd, .cal-nxtmnth.active:hover, .cal-nxtmnth.active:focus,
-.cal-prvmnth.active:hover,
-.cal-prvmnth.active:focus, .cal-days .cal-currday {
-  color: #fff; }
-
-.cal-cnt .cal-goto-lnk, .cal-days a:hover, .cal-days a:focus, .cal-days .cal-currday a {
-  color: #fff !important; }
-
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr {
-  color: #000; }
-
-.cal-cnt .cal-hd, .cal-days a:hover, .cal-days a:focus, .cal-days .cal-currday, .cal-days .cal-currday a {
-  background: #333; }
-
-.cal-cnt {
-  background: #fff;
-  text-shadow: none;
-  width: 18em; }
-  .cal-cnt * {
-    font-size: 100%; }
-  .cal-cnt .cal-hd {
-    font-weight: 700;
-    overflow: hidden;
-    padding: 0.5em 4px;
-    position: relative;
-    text-align: center; }
-  .cal-cnt .cal-mnth {
-    font-size: 110%; }
-  .cal-cnt .cal-goto {
-    display: inline-block; }
-  .cal-cnt .cal-goto-btn input {
-    min-width: 5em;
-    padding: 0.1em 0.2em; }
-  .cal-cnt td {
-    border: 1px solid #aaa;
-    padding: 0;
-    text-align: center; }
-
-.cal-nxtmnth,
-.cal-prvmnth {
-  background: none;
-  border: 0;
-  display: inline-block;
-  height: 2.5em;
-  width: 2.5em; }
-  .cal-nxtmnth:focus,
-  .cal-prvmnth:focus {
-    outline: 1px dotted;
-    outline-offset: -2px; }
-  .cal-nxtmnth[disabled],
-  .cal-prvmnth[disabled] {
-    opacity: 0.2; }
-  .cal-nxtmnth.active,
-  .cal-prvmnth.active {
-    color: #ccc; }
-
-.cal-wd {
-  background: #555;
-  border: 1px solid #333;
-  color: #fff;
-  padding: 0.5em 0;
-  text-align: center; }
-
-.cal-days a, .cal-days div {
-  display: block;
-  height: 100%;
-  padding: 0.5em 0;
-  width: 100%; }
-
-.cal-days .cal-currday {
-  font-weight: bolder; }
+.wb-calevt-cal {
+  width: 19em; }
+  .wb-calevt-cal .cal-days .cal-evt {
+    background: #176ca7;
+    color: #fff; }
+  .wb-calevt-cal .cal-evt-lnk {
+    display: block;
+    padding: 0.5em; }
+  .wb-calevt-cal.cal-cnt-fluid {
+    width: 100%; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr, .cal-cnt .cal-goto-btn {
-  position: relative; }
+.wb-clndr td > a {
+  display: block;
+  height: 100%;
+  width: 100%; }
 
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr, .cal-cnt .cal-goto-btn {
-  display: inline-block;
-  margin: 10px 5px; }
+.wb-clndr th abbr, .wb-clndr td > time, .wb-clndr td > a, .wb-clndr td div {
+  color: #000;
+  padding: 20% 0;
+  text-align: center; }
 
-.cal-cnt .cal-hd, .cal-nxtmnth.active:hover, .cal-nxtmnth.active:focus,
-.cal-prvmnth.active:hover,
-.cal-prvmnth.active:focus, .cal-days .cal-currday {
-  color: #fff; }
-
-.cal-cnt .cal-goto-lnk, .cal-days a:hover, .cal-days a:focus, .cal-days .cal-currday a {
-  color: #fff !important; }
-
-.cal-cnt .cal-goto-mnth, .cal-cnt .cal-goto-yr {
+.wb-clndr .cal-curr-day, .wb-clndr .cal-curr-day a,
+.wb-clndr .cal-curr-day div {
   color: #000; }
 
-.cal-cnt .cal-hd, .cal-days a:hover, .cal-days a:focus, .cal-days .cal-currday, .cal-days .cal-currday a {
-  background: #333; }
-
-.cal-cnt {
+.wb-clndr {
   background: #fff;
-  text-shadow: none;
-  width: 18em; }
-  .cal-cnt * {
-    font-size: 100%; }
-  .cal-cnt .cal-hd {
-    font-weight: 700;
-    overflow: hidden;
-    padding: 0.5em 4px;
-    position: relative;
+  position: relative;
+  width: 100%; }
+  .wb-clndr .cal-nav {
+    background: #333;
+    padding: 0.5em;
     text-align: center; }
-  .cal-cnt .cal-mnth {
-    font-size: 110%; }
-  .cal-cnt .cal-goto {
-    display: inline-block; }
-  .cal-cnt .cal-goto-btn input {
-    min-width: 5em;
-    padding: 0.1em 0.2em; }
-  .cal-cnt td {
+  .wb-clndr .form-group {
+    margin: 0;
+    padding: 6px 12px; }
+  .wb-clndr .btn {
+    background: none;
+    color: #fff; }
+    .wb-clndr .btn[disabled] {
+      color: #ccc; }
+  .wb-clndr option[disabled] {
+    color: #aaa; }
+  .wb-clndr table {
+    width: 100%; }
+  .wb-clndr th {
+    background: #555;
+    border: 1px solid #333; }
+    .wb-clndr th abbr {
+      color: #fff;
+      display: block; }
+  .wb-clndr td {
+    background: #fff;
     border: 1px solid #aaa;
     padding: 0;
     text-align: center; }
-
-.cal-nxtmnth,
-.cal-prvmnth {
-  background: none;
-  border: 0;
-  display: inline-block;
-  height: 2.5em;
-  width: 2.5em; }
-  .cal-nxtmnth:focus,
-  .cal-prvmnth:focus {
-    outline: 1px dotted;
-    outline-offset: -2px; }
-  .cal-nxtmnth[disabled],
-  .cal-prvmnth[disabled] {
-    opacity: 0.2; }
-  .cal-nxtmnth.active,
-  .cal-prvmnth.active {
-    color: #ccc; }
-
-.cal-wd {
-  background: #555;
-  border: 1px solid #333;
-  color: #fff;
-  padding: 0.5em 0;
-  text-align: center; }
-
-.cal-days a, .cal-days div {
-  display: block;
-  height: 100%;
-  padding: 0.5em 0;
-  width: 100%; }
-
-.cal-days .cal-currday {
-  font-weight: bolder; }
+    .wb-clndr td > time {
+      display: block; }
+    .wb-clndr td a:hover, .wb-clndr td a:focus {
+      background: #333;
+      color: #fff; }
+  .wb-clndr .cal-curr-day {
+    background: #ccc;
+    font-weight: bolder; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -9011,6 +8907,9 @@ details {
  */
 .datepicker-format {
   display: none; }
+
+.picker-overlay {
+  width: 19em; }
 
 /*
  Views
