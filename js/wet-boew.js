@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-01-13
+ * v4.0.21-development - 2016-01-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -67,7 +67,7 @@ var getUrlParts = function( url ) {
 	 * @variable $src
 	 * @return {jQuery Element} of wb script element
 	 */
-	$src = $( "script[src*='wet-boew.js'],script[src*='wet-boew.min.js']" )
+	$src = $( "script[src*='wet-boew.js'],script[src*='wet-boew.min.js'],script[data-wb-core]" )
 		.last(),
 
 	/**
@@ -76,27 +76,34 @@ var getUrlParts = function( url ) {
 	 */
 	lang = document.documentElement.lang,
 
-	/**
-	 * @variable $homepath
-	 * @return {string} of version current path to JS directory
-	 */
-	$homepath = $src.prop( "src" )
-		.split( "?" )[ 0 ].split( "/" )
-		.slice( 0, -1 )
-		.join( "/" ),
+	paths = ( function( ele ) {
+		var paths = {};
 
-	/**
-	 * @variable $homecss
-	 * @return {string} of version current path to CSS directory
-	 */
-	$homecss = $homepath.substring( 0, $homepath.length - 2 ) + "css",
+		paths.home = ele.prop( "src" )
+				.split( "?" )[ 0 ].split( "/" )
+				.slice( 0, -1 )
+				.join( "/" );
+		paths.assets = paths.home + "/../assets",
+		paths.template = paths.home + "/assets/templates";
+		paths.dep = paths.home + "/deps";
+		paths.js = paths.home;
+		paths.css = paths.home.substring( 0, paths.home.length - 2 ) + "css";
+		paths.mode = ele.prop( "src" ).indexOf( ".min" ) < 0 ? "" : ".min";
 
-	/**
-	 * @variable $mode
-	 * @return {string} of version of JS [development or production]
-	 */
-	$mode = $src.prop( "src" )
-		.indexOf( ".min" ) < 0 ? "" : ".min",
+		if ( ele[ 0 ].hasAttribute( "data-wb-core" ) ) {
+			$.extend( paths, {
+				home: ele.attr( "data-home" ),
+				asset: ele.attr( "data-asset" ),
+				template: ele.attr( "data-template" ),
+				dep: ele.attr( "data-dep" ),
+				js: ele.attr( "data-js" ),
+				css: ele.attr( "data-css" ),
+				mode: ele.attr( "data-mode" )
+			} );
+		}
+
+		return paths;
+	}( $src ) ),
 
 	/**
 	 * @variable oldie
@@ -143,12 +150,12 @@ var getUrlParts = function( url ) {
 	 *-----------------------------
 	 */
 	wb = {
-		"/": $homepath,
-		"/assets": $homepath + "/../assets",
-		"/templates": $homepath + "/assets/templates",
-		"/deps": $homepath + "/deps",
+		"/": paths.home,
+		"/assets": paths.asset,
+		"/templates": paths.template,
+		"/deps": paths.dep,
 		lang: lang,
-		mode: $mode,
+		mode: paths.mode,
 		doc: $( document ),
 		win: $( window ),
 		html: $( "html" ),
@@ -418,7 +425,7 @@ window.wb = wb;
  * @prefix: site! - adds the root js directory of yepnope resources
  */
 yepnope.addPrefix( "site", function( resourceObj ) {
-	resourceObj.url = $homepath + "/" + resourceObj.url;
+	resourceObj.url = paths.js + "/" + resourceObj.url;
 	return resourceObj;
 } );
 
@@ -431,15 +438,15 @@ yepnope.addPrefix( "plyfll", function( resourceObj ) {
 
 	if ( disabled && url.indexOf( "svg" ) === -1 ) {
 		resourceObj.bypass = true;
-	} else if ( !$mode ) {
+	} else if ( !paths.mode ) {
 		url = url.replace( ".min", "" );
 	}
 
 	if ( url.indexOf( ".css" ) !== -1 ) {
 		resourceObj.forceCSS = true;
-		path = $homecss;
+		path = paths.css;
 	} else {
-		path = $homepath;
+		path = paths.js;
 	}
 	resourceObj.url = path + "/polyfills/" + url;
 
@@ -450,7 +457,7 @@ yepnope.addPrefix( "plyfll", function( resourceObj ) {
  * @prefix: i18n! - adds the correct document language for our i18n library
  */
 yepnope.addPrefix( "i18n", function( resourceObj ) {
-	resourceObj.url = $homepath + "/" + resourceObj.url + lang + $mode + ".js";
+	resourceObj.url = paths.js + "/" + resourceObj.url + lang + paths.mode + ".js";
 	return resourceObj;
 } );
 
