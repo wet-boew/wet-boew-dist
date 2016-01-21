@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-01-14
+ * v4.0.21-development - 2016-01-21
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -83,7 +83,7 @@ var getUrlParts = function( url ) {
 				.split( "?" )[ 0 ].split( "/" )
 				.slice( 0, -1 )
 				.join( "/" );
-		paths.assets = paths.home + "/../assets",
+		paths.asset = paths.home + "/../assets",
 		paths.template = paths.home + "/assets/templates";
 		paths.dep = paths.home + "/deps";
 		paths.js = paths.home;
