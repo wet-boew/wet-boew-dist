@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-01-21
+ * v4.0.21-development - 2016-02-01
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9256,7 +9256,7 @@ var componentName = "wb-tables",
 			defaults = {
 				asStripeClasses: [],
 				language: i18nText,
-				dom: "<'top'ilf>rt<'bottom'p><'clear'>"
+				dom: "<'top'fil>rt<'bottom'p><'clear'>"
 			};
 
 			Modernizr.load( {
