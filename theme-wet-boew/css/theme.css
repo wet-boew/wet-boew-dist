@@ -9218,6 +9218,10 @@ details {
   WET-BOEW
   @title: Large view and over (screen only)
  */
+  .clr-lft-lg {
+    clear: left; }
+  .clr-rght-lg {
+    clear: right; }
   /*
   WET-BOEW
   @title: Proximity CSS - Medium view and over
@@ -9293,7 +9297,27 @@ details {
 
 /* Extra-small view */
 /* Small view */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /*
+  WET-BOEW
+  @title: Small view (screen only)
+ */
+  .clr-lft-sm {
+    clear: left; }
+  .clr-rght-sm {
+    clear: right; } }
+
 /* Medium view */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view (screen only)
+ */
+  .clr-lft-md {
+    clear: left; }
+  .clr-rght-md {
+    clear: right; } }
+
 /* Large view */
 /* Extra-large view */
 @media screen and (min-width: 1600px) {
