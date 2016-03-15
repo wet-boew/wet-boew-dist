@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-03-09
+ * v4.0.21-development - 2016-03-15
  *
  */
 @charset "UTF-8";
@@ -5991,6 +5991,12 @@ q:before, q:after {
 .wb-lng-lnks-rtl .wb-lng-lnk {
   float: right; }
 
+#wb-so {
+  text-align: right; }
+  #wb-so .row {
+    background: #fff;
+    padding: 1em 0 0; }
+
 /*
 * Based upon jQuery Mobile Transitions (http://jquerymobile.com)
 *
@@ -9501,11 +9507,6 @@ details {
   [dir=rtl] #wb-sttl object,
   [dir=rtl] #wb-sttl img {
     margin: 9px 0 9px 15px; }
-
-#wb-so {
-  text-align: right; }
-  #wb-so .row {
-    background: #fff; }
 
 /*
  Site information

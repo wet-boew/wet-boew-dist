@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21-development - 2016-03-09
+ * v4.0.21-development - 2016-03-15
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1261,8 +1261,8 @@ $document.on( "ajax-fetch.wb", function( event ) {
 		fetchOpts = event.fetch,
 		urlParts = fetchOpts.url.split( " " ),
 		url = urlParts[ 0 ],
-		urlHash = url.split( "#" )[ 1 ],
-		selector = urlParts[ 1 ] || ( urlHash ? "#" + urlHash : false ),
+		urlHash = url.split( "#" )[ 1 ],
+		selector = urlParts[ 1 ] || ( urlHash ? "#" + urlHash : false ),
 		fetchData, callerId;
 
 	// Separate the URL from the filtering criteria
