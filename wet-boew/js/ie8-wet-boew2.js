@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.21 - 2016-04-12
+ * v4.0.22-development - 2016-04-17
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9394,7 +9394,7 @@ wb.add( selector );
  * variables that are common to all instances of the plugin on a page.
  */
 var componentName = "wb-tabs",
-	selector = "." + componentName,
+	selector = "." + componentName + ":has( > .tabpanels > [role='tabpanel']:nth-of-type(2), > .tabpanels > details:nth-of-type(2), > [role='tabpanel']:nth-of-type(2), > details:nth-of-type(2))",
 	initEvent = "wb-init" + selector,
 	shiftEvent = "wb-shift" + selector,
 	selectEvent = "wb-select" + selector,
@@ -9451,6 +9451,7 @@ var componentName = "wb-tabs",
 			$panels = $elm.find( "> .tabpanels > [role=tabpanel], > .tabpanels > details" );
 			$tablist = $elm.children( "[role=tablist]" );
 			isCarousel = $tablist.length !== 0;
+
 			activeId = wb.jqEscape( wb.pageUrlParts.hash.substring( 1 ) );
 			hashFocus = activeId.length !== 0;
 			$openPanel = hashFocus ? $panels.filter( "#" + activeId ) : undefined;
