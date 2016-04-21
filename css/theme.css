@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.22-development - 2016-04-18
+ * v4.0.22-development - 2016-04-21
  *
  */
 @charset "UTF-8";
@@ -9009,6 +9009,12 @@ details {
     color: #f00; } }
 
 /* Extra-small view and under */
+@media screen and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and under (screen only)
+ */ }
+
 /* Small view and under */
 @media screen and (max-width: 991px) {
   /*
@@ -9062,7 +9068,19 @@ details {
       display: none; } }
 
 /* Medium view and under */
+@media screen and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view and under (screen only)
+ */ }
+
 /* Large view and under */
+@media screen and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view and under (screen only)
+ */ }
+
 /* Extra-small view and over */
 @media screen and (min-width: 480px) {
   /*
@@ -9306,6 +9324,12 @@ details {
       padding: 12px 10px 7px; } }
 
 /* Extra-small view */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view (screen only)
+ */ }
+
 /* Small view */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   /*
@@ -9329,6 +9353,12 @@ details {
     clear: right; } }
 
 /* Large view */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view (screen only)
+ */ }
+
 /* Extra-large view */
 @media screen and (min-width: 1600px) {
   /*
@@ -9745,6 +9775,12 @@ main {
     background: #2e5274; } }
 
 /* Extra-small view and under */
+@media screen and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and under (screen only)
+ */ }
+
 /* Small view and under */
 @media screen and (max-width: 991px) {
   /*
@@ -9789,9 +9825,33 @@ main {
     display: none; } }
 
 /* Medium view and under */
+@media screen and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view and under (screen only)
+ */ }
+
 /* Large view and under */
+@media screen and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view and under (screen only)
+ */ }
+
 /* Extra-small view and over */
+@media screen and (min-width: 480px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view and over (screen only)
+ */ }
+
 /* Small view and over */
+@media screen and (min-width: 768px) {
+  /*
+  WET-BOEW
+  @title: Small view and over (screen only)
+ */ }
+
 /* Medium view and over */
 @media screen and (min-width: 992px) {
   /*
@@ -9808,8 +9868,26 @@ main {
     vertical-align: middle; } }
 
 /* Large view and over */
+@media screen and (min-width: 1200px) {
+  /*
+  WET-BOEW
+  @title: Large view and over (screen only)
+ */ }
+
 /* Extra-extra-small view */
+@media screen and (max-width: 479px) {
+  /*
+  WET-BOEW
+  @title: Extra-extra-small view (screen only)
+ */ }
+
 /* Extra-small view */
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  /*
+  WET-BOEW
+  @title: Extra-small view (screen only)
+ */ }
+
 /* Small view */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   /*
@@ -9826,8 +9904,26 @@ main {
     margin-bottom: 20px; } }
 
 /* Medium view */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /*
+  WET-BOEW
+  @title: Medium view (screen only)
+ */ }
+
 /* Large view */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  /*
+  WET-BOEW
+  @title: Large view (screen only)
+ */ }
+
 /* Extra-large view */
+@media screen and (min-width: 1600px) {
+  /*
+  WET-BOEW
+  @title: Extra-large view (screen only)
+ */ }
+
 /* Print view */
 @media print {
   /*
