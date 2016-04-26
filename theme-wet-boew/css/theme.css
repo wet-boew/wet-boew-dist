@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.22-development - 2016-04-22
+ * v4.0.22-development - 2016-04-26
  *
  */
 @charset "UTF-8";
@@ -5704,25 +5704,25 @@ fieldset {
   font-weight: 400;
   line-height: 1em;
   position: relative;
-  top: 0.1em; }
+  top: .1em; }
 
 .pagination > li:first-child [rel="prev"]:before,
 .pager > li:first-child [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:before,
 [dir=rtl] .pager [rel="next"]:before, .dataTables_wrapper .dataTables_paginate .paginate_button.previous:before, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.next:before {
   content: "\e091";
-  margin-right: 0.5em; }
+  margin-right: .5em; }
 
 .pagination > li:last-child [rel="next"]:after,
 .pager > li:last-child [rel="next"]:after, [dir=rtl] .pagination [rel="prev"]:after,
 [dir=rtl] .pager [rel="prev"]:after, .dataTables_wrapper .dataTables_paginate .paginate_button.next:after, [dir=rtl] .dataTables_wrapper .dataTables_paginate .paginate_button.previous:after {
   content: "\e092";
-  margin-left: 0.5em; }
+  margin-left: .5em; }
 
 .pagination > li > a,
 .pager > li > a {
   cursor: pointer;
   display: inline-block;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
   padding: 10px 16px; }
 
 .pagination > li.active > a,
@@ -5780,9 +5780,9 @@ fieldset {
   [dir=rtl] details.alert:before {
     margin-right: -1.3em; }
   [dir=rtl] details.alert > * {
-    margin-right: 0.7em; }
+    margin-right: .7em; }
   [dir=rtl] details.alert > :first-child {
-    margin-right: 0.4em; }
+    margin-right: .4em; }
 
 [dir=rtl] .list-unstyled {
   padding-right: 0; }
@@ -6732,7 +6732,7 @@ details {
   height: inherit;
   list-style-type: none;
   margin: 0;
-  margin-top: -0.5em;
+  margin-top: -.5em;
   overflow: inherit;
   padding: 0;
   position: absolute;
@@ -6748,7 +6748,7 @@ details {
     color: #fff; }
   .wb-calevt-cal .cal-evt-lnk {
     display: block;
-    padding: 0.5em; }
+    padding: .5em; }
   .wb-calevt-cal.cal-cnt-fluid {
     width: 100%; }
 
@@ -6776,7 +6776,7 @@ details {
   width: 100%; }
   .wb-clndr .cal-nav {
     background: #333;
-    padding: 0.5em;
+    padding: .5em;
     text-align: center; }
   .wb-clndr .form-group {
     margin: 0;
@@ -6834,9 +6834,9 @@ details.alert, details.alert[open] {
   details.alert summary, details.alert[open] summary {
     border-width: 0; }
   details.alert > *, details.alert[open] > * {
-    margin-left: 0.7em; }
+    margin-left: .7em; }
   details.alert > :first-child, details.alert[open] > :first-child {
-    margin-left: 0.4em; }
+    margin-left: .4em; }
     details.alert > :first-child:before, details.alert[open] > :first-child:before {
       color: #000;
       content: ""; }
@@ -7456,8 +7456,8 @@ img.mfp-img {
  * Menu Sass
  */
 .expicon {
-  font-size: 0.7em;
-  margin: 0 -0.35em 0 0.7em; }
+  font-size: .7em;
+  margin: 0 -.35em 0 .7em; }
 
 .wb-menu .sm {
   display: none;
@@ -7570,7 +7570,7 @@ img.mfp-img {
   text-align: right; }
 
 [dir=rtl] .expicon {
-  margin: 0 0.7em 0 -0.35em; }
+  margin: 0 .7em 0 -.35em; }
 
 [dir=rtl] #mb-pnl .lng-ofr {
   text-align: left; }
@@ -7594,7 +7594,7 @@ img.mfp-img {
 
 [dir=rtl] #mb-pnl details ul {
   padding-left: 0;
-  padding-right: 0.7em; }
+  padding-right: .7em; }
 
 /*
   Multimedia Player Code
@@ -7655,7 +7655,7 @@ img.mfp-img {
   .wb-mltmd.cc_on .wb-mm-cc {
     display: table;
     height: 4em;
-    padding: 0.5em; }
+    padding: .5em; }
   .wb-mltmd.cc_on .cc:after {
     border-bottom: 3px solid #4aafff;
     content: " ";
@@ -7679,8 +7679,8 @@ img.mfp-img {
   background-color: #000;
   color: #fff;
   text-align: center;
-  -webkit-transition: all 0.26s ease;
-          transition: all 0.26s ease;
+  -webkit-transition: all .26s ease;
+          transition: all .26s ease;
   width: 100%; }
   .wb-mm-cc:before {
     content: " "; }
@@ -7713,7 +7713,7 @@ img.mfp-img {
     width: 3em; }
   .wb-mm-ctrls .tline .wb-mm-tmln-crrnt:after {
     content: " / ";
-    padding: 0 0.5em; }
+    padding: 0 .5em; }
   .wb-mm-ctrls .wb-mm-txtonly {
     padding: 0 1em; }
     .wb-mm-ctrls .wb-mm-txtonly p {
@@ -7861,7 +7861,7 @@ img.mfp-img {
   width: 100%; }
 
 .mfp-bg {
-  opacity: 0.97; }
+  opacity: .97; }
 
 /*
  *	Overlay parts
@@ -8017,7 +8017,7 @@ ol.linenums {
   background-position: 0 -512px; }
 
 .shr-opn span {
-  padding-right: 0.2em; }
+  padding-right: .2em; }
 
 .shr-pg .shr-lnk {
   font-size: 115%;
@@ -8031,7 +8031,7 @@ ol.linenums {
     content: " ";
     display: inline-block;
     height: 32px;
-    margin-right: 0.6em;
+    margin-right: .6em;
     vertical-align: middle;
     width: 32px; }
 
@@ -8043,7 +8043,7 @@ ol.linenums {
   display: inline-block;
   font-family: "Glyphicons Halflings";
   font-size: 32px;
-  margin-right: 0.3em; }
+  margin-right: .3em; }
 
 .shr-pg .shr-pg {
   text-align: left; }
@@ -8054,7 +8054,7 @@ ol.linenums {
   padding: 0; }
 
 [dir=rtl] .shr-opn span {
-  padding-left: 0.2em;
+  padding-left: .2em;
   padding-right: 0; }
 
 [dir=rtl] .shr-pg {
@@ -8062,11 +8062,11 @@ ol.linenums {
   [dir=rtl] .shr-pg .shr-lnk {
     text-align: right; }
     [dir=rtl] .shr-pg .shr-lnk:before {
-      margin-left: 0.4em;
+      margin-left: .4em;
       margin-right: auto; }
 
 [dir=rtl] .email:before {
-  margin-left: 0.6em;
+  margin-left: .6em;
   margin-right: auto; }
 
 /*
@@ -8216,10 +8216,10 @@ table.dataTable {
     margin-top: 2px; }
     table.dataTable thead .sorting-icons:before {
       content: "\e093";
-      padding: 0 0.1em 0 0; }
+      padding: 0 .1em 0 0; }
     table.dataTable thead .sorting-icons:after {
       content: "\e094";
-      padding: 0 0.04em 0 0.06em; }
+      padding: 0 .04em 0 .06em; }
   table.dataTable tbody tr {
     background-color: #fff; }
     table.dataTable tbody tr.selected {
@@ -8252,7 +8252,7 @@ table.dataTable {
     float: left;
     margin-right: 15px; }
     .dataTables_wrapper .dataTables_filter input {
-      margin-left: 0.5em; }
+      margin-left: .5em; }
   .dataTables_wrapper .dataTables_length {
     display: inline-block;
     margin-top: 5px; }
@@ -8268,7 +8268,7 @@ table.dataTable {
       cursor: pointer;
       display: inline-block;
       line-height: 1.4375;
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
       margin-left: -1px;
       padding: 10px 16px;
       position: relative;
@@ -8345,7 +8345,7 @@ table.dataTable {
   text-align: left; }
   [dir=rtl] .dataTables_wrapper .dataTables_filter input {
     margin-left: auto;
-    margin-right: 0.5em; }
+    margin-right: .5em; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -8371,7 +8371,7 @@ table.dataTable {
   bottom: 0;
   color: #fff;
   left: 0;
-  padding: 0.5em 1em;
+  padding: .5em 1em;
   position: relative;
   right: 0;
   z-index: 101; }
@@ -8492,7 +8492,7 @@ table.dataTable {
         line-height: normal; }
         .wb-tabs [role="tablist"] > li.tab-count > div {
           position: relative;
-          top: 0.4em; }
+          top: .4em; }
         .wb-tabs [role="tablist"] > li.tab-count .curr-count {
           font-size: 1.5em; }
         .wb-tabs [role="tablist"] > li.tab-count:focus, .wb-tabs [role="tablist"] > li.tab-count:hover {
@@ -8522,9 +8522,9 @@ table.dataTable {
       .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count {
         background: none;
         border: 0;
-        font-size: 0.9em; }
+        font-size: .9em; }
         .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count > div {
-          top: 0.7em; }
+          top: .7em; }
         .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count.active, .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count:focus, .wb-tabs.carousel-s1 [role="tablist"] > li.tab-count:hover {
           cursor: default;
           top: 0; }
@@ -8551,8 +8551,8 @@ table.dataTable {
           padding: 2px 0; }
           .wb-tabs.carousel-s2 [role="tablist"] > li.plypause a {
             font-size: 1.5em;
-            margin-right: 0.65em;
-            margin-top: 0.4em;
+            margin-right: .65em;
+            margin-top: .4em;
             padding: 8px 10px 4px; }
 
 .wb-disable .csstransitions .wb-tabs [role="tabpanel"].out {
@@ -8605,8 +8605,8 @@ table.dataTable {
 
 .olHandlerBoxZoomBox, .olHandlerBoxSelectFeature {
   background-color: #fff;
-  font-size: 0.01em;
-  opacity: 0.5;
+  font-size: .01em;
+  opacity: .5;
   position: absolute; }
 
 .olButtonGeolocateItemActive, .olButtonGeolocateItemInactive {
@@ -8656,7 +8656,7 @@ table.dataTable {
  * with some headers (closes #3154)
  */
 .olControlPanZoomBar div {
-  font-size: 0.01em; }
+  font-size: .01em; }
 
 .olMap {
   cursor: default;
@@ -8677,21 +8677,21 @@ table.dataTable {
   bottom: 5px;
   display: block;
   font-family: Arial;
-  font-size: 0.75em;
+  font-size: .75em;
   left: 100px;
   position: absolute; }
 
 .olControlScale {
   bottom: 3em;
   display: block;
-  font-size: 0.75em;
+  font-size: .75em;
   position: absolute;
   right: 3px; }
 
 .olControlScaleLine {
   bottom: 15px;
   display: block;
-  font-size: 0.65em;
+  font-size: .65em;
   left: 10px;
   position: absolute; }
 
@@ -8708,7 +8708,7 @@ table.dataTable {
 
 .olControlAttribution {
   bottom: 5px;
-  font-size: 0.75em;
+  font-size: .75em;
   right: 5px; }
   .olControlAttribution p {
     margin: 0; }
@@ -8756,8 +8756,8 @@ table.dataTable {
  * Animations
  */
 .olLayerGrid .olTileImage {
-  -webkit-transition: opacity 0.2s linear;
-          transition: opacity 0.2s linear; }
+  -webkit-transition: opacity .2s linear;
+          transition: opacity .2s linear; }
 
 /**
  * GeoMap
@@ -9117,7 +9117,7 @@ details {
     content: "|";
     font-size: 1.2em;
     line-height: 1em;
-    padding: 0 0.25em; } }
+    padding: 0 .25em; } }
 
 /* Small view and over */
 @media screen and (min-width: 768px) {
@@ -9310,11 +9310,11 @@ details {
   .wb-tabs.carousel-s2 [role="tablist"] li.prv {
     margin-left: 0; }
     .wb-tabs.carousel-s2 [role="tablist"] li.prv a {
-      padding: 10px 0 10px 0.4em; }
+      padding: 10px 0 10px .4em; }
   .wb-tabs.carousel-s2 [role="tablist"] li.nxt a {
     padding: 10px 0; }
   .wb-tabs.carousel-s2 [role="tablist"] li.tab-count {
-    font-size: 0.9em;
+    font-size: .9em;
     margin-right: 5px; }
   .wb-tabs.carousel-s2 [role="tablist"] li.plypause {
     margin-right: 2%; }
@@ -9543,7 +9543,7 @@ details {
 
 #wb-sttl small {
   display: block;
-  font-size: 0.4em;
+  font-size: .4em;
   margin-bottom: 4px; }
 
 #wb-sttl object {
@@ -9576,7 +9576,7 @@ details {
  Site information
 */
 #wb-info li {
-  margin-bottom: 0.75em; }
+  margin-bottom: .75em; }
 
 #wb-lng .btn-group {
   float: right;
@@ -9597,7 +9597,7 @@ main {
 
 #wb-cont {
   border-bottom: 1px solid #eee;
-  margin-top: 0.45em;
+  margin-top: .45em;
   padding-bottom: 5px; }
 
 /*
@@ -9701,7 +9701,7 @@ main {
  */
 #wb-srch {
   padding-right: 10px;
-  padding-top: 0.9em;
+  padding-top: .9em;
   text-align: right; }
   #wb-srch .form-group {
     width: 70%; }
