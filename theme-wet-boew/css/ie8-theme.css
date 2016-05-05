@@ -9046,6 +9046,8 @@ details {
  */
   .pg-brk-aft {
     page-break-after: always; }
+  a[href]:after {
+    content: none; }
   /*
   WET-BOEW
   @title: Breadcrumb print CSS overrides
@@ -9074,8 +9076,6 @@ details {
       width: 100%; }
     .wb-fnote .fn-rtn {
       overflow: visible; }
-      .wb-fnote .fn-rtn a:after {
-        content: none; }
   /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
