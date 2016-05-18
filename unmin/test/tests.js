@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.22-development - 2016-05-05
+ * v4.0.22-development - 2016-05-18
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -61,7 +61,7 @@ describe( "Feedback test suite", function() {
 
 	var $document = wb.doc,
 		$body = $document.find( "body" ),
-		$elm, $script, $form, $reason, $reasonWeb, $access, $accessComp, $accessMobile, $info, $contact1, $contact2,
+		$elm, $form, $reason, $reasonWeb, $access, $accessComp, $accessMobile, $info, $contact1, $contact2,
 
 		// Tests sections for visibility.  Not using the ":visible" jQuery selector
 		// because it is giving inconsistent results in PhantomJS.
@@ -92,7 +92,7 @@ describe( "Feedback test suite", function() {
 
 		$document.on( "ajax-fetched.wb ajax-failed.wb", ".feedback", function( event ) {
 			if ( event.type === "ajax-fetched" ) {
-				$script = $( "<script src='../demos/feedback/demo/feedback.js'></script>" )
+				$( "<script src='../demos/feedback/demo/feedback.js'></script>" )
 					.appendTo( $elm );
 				$form = event.fetch.pointer.find( ".wb-fdbck" )
 					.appendTo( $elm )
@@ -1898,11 +1898,11 @@ describe( "data-inview test suite", function() {
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
 		spy = sandbox.spy( $.prototype, "trigger" );
 
-		$document.on( initEvent, selector, function( event ) {
+		$document.on( initEvent, selector, function() {
 			done();
 		} );
 
-		$document.on( "all.wb-inview partial.wb-inview none.wb-inview", selector, function( event ) {
+		$document.on( "all.wb-inview partial.wb-inview none.wb-inview", selector, function() {
 			if ( callback ) {
 				callback();
 			}
@@ -2363,7 +2363,7 @@ describe( "equalheights test suite", function() {
 	 * Before beginning the test suite, this function is executed once.
 	 */
 	before( function() {
-		$document.on( "wb-updated.wb-eqht", function( event ) {
+		$document.on( "wb-updated.wb-eqht", function() {
 			var currentTest = test || defaultTest;
 			if ( $row !== undef && callback ) {
 				currentTest( callback );
@@ -2953,7 +2953,7 @@ describe( "Feeds test suite", function() {
  * teardown `after()` for more than one test suite (as is the case below.)
  */
 describe( "Prettify test suite", function() {
-	var spy, callback, $prettify,
+	var callback, $prettify,
 		$document = wb.doc,
 		$body = $document.find( "body" ),
 		sandbox = sinon.sandbox.create();
@@ -2964,7 +2964,7 @@ describe( "Prettify test suite", function() {
 	before( function( done ) {
 
 		// Spy on jQuery's trigger method to see how it's called during the plugin's initialization
-		spy = sandbox.spy( $.prototype, "trigger" );
+		sandbox.spy( $.prototype, "trigger" );
 
 		// Start the tests once the plugin has been finished processing
 		$document.on( "wb-ready.wb-prettify", function() {

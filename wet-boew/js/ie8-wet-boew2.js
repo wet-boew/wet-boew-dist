@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.22-development - 2016-05-05
+ * v4.0.22-development - 2016-05-18
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1398,7 +1398,7 @@ var componentName = "wb-calevt",
 
 	processEvents = function( $elm ) {
 		var settings = $.extend( {}, window[ componentName ], $elm.data( dataAttr ) ),
-			year, month, events, minDate, containerId, $container, $calendar;
+			year, month, events, minDate, containerId, $container;
 
 		events = getEvents( $elm );
 		containerId = $elm.data( "calevtSrc" );
@@ -1408,7 +1408,7 @@ var componentName = "wb-calevt",
 		year = settings.year || minDate.getFullYear();
 		month = settings.month || minDate.getMonth();
 
-		$calendar = wb.calendar.create( $container, {
+		wb.calendar.create( $container, {
 			year: year,
 			month: month,
 			minDate: minDate,
@@ -1472,10 +1472,10 @@ var componentName = "wb-calevt",
 		for ( i = 0; i !== iLen; i += 1 ) {
 			$event = objEventsList.eq( i );
 			event = $event[ 0 ];
-			$objTitle = $event.find( "*:header:first" ),
-			className = $objTitle.attr( "class" ),
-			title = $objTitle.text(),
-			link = $event.find( "a" )[ 0 ],
+			$objTitle = $event.find( "*:header:first" );
+			className = $objTitle.attr( "class" );
+			title = $objTitle.text();
+			link = $event.find( "a" )[ 0 ];
 			href = link.getAttribute( "href" );
 			target = link.getAttribute( "target" );
 			zLen = 1;
@@ -1585,7 +1585,6 @@ var componentName = "wb-calevt",
 		var $inRange = $days,
 			today = new Date(),
 			eventsList = this.events,
-			firstDay = true,
 			i, eLen, date, $day, $dayLink, $dayEvents, event, eventMonth, linkFocus;
 
 		// Fix required to make up with the IE z-index behaviour mismatch
@@ -1635,9 +1634,7 @@ var componentName = "wb-calevt",
 					}
 
 					///Add the event to the list
-					$dayEvents.append( "<li><a tabindex='-1' class='cal-evt-lnk' href='" + event.href + "'>" + event.title + "</a></li>" );
-
-					firstDay = false;
+					$dayEvents.append( "<li><a tabindex='-1' class='cal-evt-lnk' href='javascript:;''>" + event.title + "</a></li>" );
 				}
 			}
 		}
@@ -1781,7 +1778,7 @@ var i18nText,
 			dayNames: i18n( "days" ),
 			currDay: i18n( "currDay" ),
 			format: i18n( "cal-format" )
-		},
+		};
 
 		textWeekDayNames = i18nText.dayNames;
 		textMonthNames = i18nText.monthNames;
@@ -5082,7 +5079,7 @@ var componentName = "wb-fnote",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			$elm, footnoteDd, footnoteDt, i, len, dd, dt, dtId, $returnLinks;
+			$elm, footnoteDd, footnoteDt, i, len, dd, dt, dtId;
 
 		if ( elm ) {
 			$elm = $( elm );
@@ -5101,7 +5098,7 @@ var componentName = "wb-fnote",
 			}
 
 			// Remove "first/premier/etc"-style text from certain footnote return links (via the child spans that hold those bits of text)
-			$returnLinks = $elm.find( "dd p.fn-rtn a span span" ).remove();
+			$elm.find( "dd p.fn-rtn a span span" ).remove();
 
 			// Identify that initialization has completed
 			wb.ready( $elm, componentName );
@@ -5662,7 +5659,7 @@ var componentName = "wb-lbx",
 						$wrap = this.wrap,
 						$buttons = $wrap.find( ".mfp-close, .mfp-arrow" ),
 						len = $buttons.length,
-						i, button, $bottomBar;
+						i, button;
 
 					for ( i = 0; i !== len; i += 1 ) {
 						button = $buttons[ i ];
@@ -5670,7 +5667,7 @@ var componentName = "wb-lbx",
 					}
 
 					if ( $item.type === "image" ) {
-						$bottomBar = $content.find( ".mfp-bottom-bar" ).attr( "id", "lbx-title" );
+						$content.find( ".mfp-bottom-bar" ).attr( "id", "lbx-title" );
 					} else {
 						$content.attr( "role", "document" );
 					}
@@ -6060,7 +6057,7 @@ var componentName = "wb-menu",
 	createMobilePanelMenu = function( allProperties ) {
 		var panel = "",
 			sectionHtml, properties, sections, section, parent, $items,
-			href, linkHtml, i, j, len, sectionsLength, itemsLength;
+			linkHtml, i, j, len, sectionsLength, itemsLength;
 
 		// Process the secondary and site menus
 		len = allProperties.length;
@@ -6071,7 +6068,6 @@ var componentName = "wb-menu",
 			sectionsLength = sections.length;
 			for ( j = 0; j !== sectionsLength; j += 1 ) {
 				section = sections[ j ];
-				href = section.getAttribute( "href" );
 				$items = $( section.parentNode ).find( "> ul > li" );
 				itemsLength = $items.length;
 
@@ -6763,11 +6759,9 @@ var componentName = "wb-mltmd",
 		// Start initialization
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
-		var eventTarget = wb.init( event, componentName, selector ),
-			elmId;
+		var eventTarget = wb.init( event, componentName, selector );
 
 		if ( eventTarget ) {
-			elmId = eventTarget.id;
 
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
@@ -7383,7 +7377,7 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 			captionsUrl = wb.getUrlParts( data.captions ),
 			currentUrl = wb.getUrlParts( window.location.href ),
 			$media = data.media,
-			$eventReceiver, $share;
+			$eventReceiver;
 
 		$media
 			.after( tmpl( template, data ) )
@@ -7412,7 +7406,7 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 
 		// Create the share widgets if needed
 		if ( data.shareUrl !== undef ) {
-			$share = $( "<div class='wb-share' data-wb-share=\'{\"type\": \"" +
+			$( "<div class='wb-share' data-wb-share=\'{\"type\": \"" +
 				( type === "audio" ? type : "video" ) + "\", \"title\": \"" +
 				data.title.replace( "'", "&apos;" ) + "\", \"url\": \"" + data.shareUrl +
 				"\", \"pnlId\": \"" + data.id + "-shr\"}\'></div>" )
@@ -8337,7 +8331,7 @@ var componentName = "wb-rsz",
 		largeview: 1200,
 		xlargeview: 1600
 	},
-	eventsAll, resizeTest, currentView,
+	resizeTest, currentView,
 
 	/**
 	 * @method init
@@ -8366,9 +8360,6 @@ var componentName = "wb-rsz",
 				window.innerWidth || $document.width(),
 				window.innerHeight || $document.height()
 			];
-
-			// Create a string containing all the events
-			eventsAll = events.join( " " );
 
 			// Determine the current view
 			viewChange( sizes[ 1 ] );
@@ -8582,8 +8573,8 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 			child, modal, temp;
 
 		if ( $document.find( modalID ).length === 0 ) {
-				modal = document.createDocumentFragment(),
-				temp = document.createElement( "div" );
+			modal = document.createDocumentFragment();
+			temp = document.createElement( "div" );
 
 			// Create the modal dialog.  A temp <div> element is used so that its innerHTML can be set as a string.
 			temp.innerHTML = "<a class='wb-lbx lbx-modal mfp-hide' href='#" + componentName + "-modal'></a>" +
@@ -8594,7 +8585,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 				"</section>";
 
 			// Get the temporary <div>'s top level children and append to the fragment
-			while ( child = temp.firstChild ) {
+			while ( ( child = temp.firstChild ) !== null ) {
 				modal.appendChild( child );
 			}
 			document.body.appendChild( modal );
@@ -8815,7 +8806,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 				ks: 1000000
 			};
 
-		if ( value == null ) {
+		if ( value == null ) { //eslint-disable-line no-eq-null
 			return null;
 		}
 
@@ -8837,7 +8828,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	getTime = function( milliseconds ) {
 		var time = { minutes: "", seconds: "" };
 
-		if ( milliseconds != null ) {
+		if ( milliseconds != null ) { //eslint-disable-line no-eq-null
 			time.minutes = parseInt( ( milliseconds / ( 1000 * 60 ) ) % 60, 10 );
 			time.seconds = parseInt( ( milliseconds / 1000 ) % 60, 10 );
 		}
@@ -10136,7 +10127,7 @@ var componentName = "wb-tabs",
 		$elm = $( elm );
 		$sldr = $elm.closest( selector );
 		sldrId = $sldr[ 0 ].id;
-		isPlaying = $sldr.hasClass( "playing" ),
+		isPlaying = $sldr.hasClass( "playing" );
 		isPlayPause = className.indexOf( "plypause" ) !== -1;
 
 		// Reset ctime to 0
@@ -10469,7 +10460,7 @@ var componentName = "wb-toggle",
 			hasOpen = false;
 
 		// Group toggle elements with a parent are assumed to be a tablist
-		if ( data.group != null && data.parent != null ) {
+		if ( data.group != null && data.parent != null ) { //eslint-disable-line no-eq-null
 			parent = document.querySelector( data.parent );
 
 			// Check that the tablist widget hasn't already been initialized
