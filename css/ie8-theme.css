@@ -6555,6 +6555,7 @@ details.alert, details.alert[open] {
   border-radius: 0;
   border-width: 0 0 0 4px;
   padding-left: 45px;
+  padding-right: 0;
   position: relative; }
   details.alert:before, details.alert[open]:before {
     display: inline-block;
@@ -6565,7 +6566,29 @@ details.alert, details.alert[open] {
     position: absolute;
     top: 15px; }
   details.alert summary, details.alert[open] summary {
-    border-width: 0; }
+    border-width: 0;
+    margin-right: 15px;
+    padding-left: 5px; }
+    details.alert summary:focus, details.alert summary:hover, details.alert[open] summary:focus, details.alert[open] summary:hover {
+      text-decoration: none; }
+      details.alert summary:focus h2,
+      details.alert summary:focus h3,
+      details.alert summary:focus h4,
+      details.alert summary:focus h5,
+      details.alert summary:focus h6, details.alert summary:hover h2,
+      details.alert summary:hover h3,
+      details.alert summary:hover h4,
+      details.alert summary:hover h5,
+      details.alert summary:hover h6, details.alert[open] summary:focus h2,
+      details.alert[open] summary:focus h3,
+      details.alert[open] summary:focus h4,
+      details.alert[open] summary:focus h5,
+      details.alert[open] summary:focus h6, details.alert[open] summary:hover h2,
+      details.alert[open] summary:hover h3,
+      details.alert[open] summary:hover h4,
+      details.alert[open] summary:hover h5,
+      details.alert[open] summary:hover h6 {
+        text-decoration: underline; }
   details.alert > *, details.alert[open] > * {
     margin-left: .7em; }
   details.alert > :first-child, details.alert[open] > :first-child {
