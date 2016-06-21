@@ -6554,14 +6554,16 @@ figure .pieLabel {
 details.alert, details.alert[open] {
   border-radius: 0;
   border-width: 0 0 0 4px;
-  padding-left: 45px; }
+  padding-left: 45px;
+  position: relative; }
   details.alert:before, details.alert[open]:before {
     display: inline-block;
     font-family: "Glyphicons Halflings";
     font-size: 24px;
     margin-left: -1.3em;
     margin-top: -3px;
-    position: absolute; }
+    position: absolute;
+    top: 15px; }
   details.alert summary, details.alert[open] summary {
     border-width: 0; }
   details.alert > *, details.alert[open] > * {
@@ -8584,7 +8586,7 @@ datalist {
   @title: Details/summary polyfill pre-Modernizr CSS
  */
 summary {
-  display: block !important;
+  display: list-item !important;
   visibility: visible !important; }
 
 details:not([open]) details summary, details .out details summary {
