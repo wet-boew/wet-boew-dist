@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.22-development - 2016-07-06
+ * v4.0.22-development - 2016-07-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -2193,7 +2193,7 @@ var componentName = "wb-calevt",
 					}
 
 					///Add the event to the list
-					$dayEvents.append( "<li><a tabindex='-1' class='cal-evt-lnk' href='javascript:;''>" + event.title + "</a></li>" );
+					$dayEvents.append( "<li><a tabindex='-1' class='cal-evt-lnk' href='" + event.href + "'>" + event.title + "</a></li>" );
 				}
 			}
 		}
