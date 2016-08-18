@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.22 - 2016-08-11
+ * v4.0.23-development - 2016-08-18
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -9875,6 +9875,43 @@ $document.on( "init.dt draw.dt", selector, function( event, settings ) {
 	// Identify that the table has been updated
 	$elm.trigger( "wb-updated" + selector, [ settings ] );
 } );
+
+// Handle the draw.dt event
+$document.on( "submit", ".wb-tables-filter", function(event) {
+
+    event.preventDefault();
+
+    var $form = $(this),
+		$datatable = $("#" + $form.data("bind-to") ).dataTable({ "retrieve": true }).api();
+
+    // Lets reset the search;
+    $datatable.search('').columns().search('');
+
+    // Lets loop throug all options
+    $form.find('[name]').each(function() {
+        var $elm= $(this),
+            $value = ($elm.is('select')) ? $elm.find('option:selected').val() : $elm.val();
+
+        if ($value) {
+            $datatable.column( parseInt($elm.attr('data-column'),10 ) ).search( $value ).draw();
+        }
+    });
+
+    return false;
+});
+
+$document.on( "click", ".wb-tables-filter [type='reset']" ,function(event) {
+    event.preventDefault();
+
+    var $form = $(this).closest(".wb-tables-filter"),
+        $datatable = $("#" + $form.data("bind-to") ).dataTable({ "retrieve": true }).api();
+
+    $datatable.search('').columns().search('').draw();
+
+    $form.find("select").prop("selectedIndex",0);
+
+    return false;
+});
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
