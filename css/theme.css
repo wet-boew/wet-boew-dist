@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.23-development - 2016-08-18
+ * v4.0.23-development - 2016-08-23
  *
  */
 @charset "UTF-8";
@@ -6474,6 +6474,12 @@ q:before, q:after {
 
 .opct-10 {
   opacity: .1; }
+
+/*
+ *	Removes bold from elements
+ */
+.fnt-nrml {
+  font-weight: normal; }
 
 /*
  *	Fix for missing bullets in Chrome and Safari
