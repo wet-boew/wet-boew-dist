@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.23-development - 2016-09-14
+ * v4.0.23-development - 2016-09-21
  *
  */
 @charset "UTF-8";
@@ -7541,7 +7541,6 @@ img.mfp-img {
  */
 .wb-overlay {
   background-clip: border-box;
-  background-color: #fff;
   border: 0;
   border-radius: 0;
   display: none;
@@ -7606,15 +7605,11 @@ img.mfp-img {
 .overlay-def {
   overflow-y: auto; }
   .overlay-def header {
-    background-color: #000;
-    color: #fff;
     display: block;
     padding: 0 44px 0 1em; }
   .overlay-def .modal-title {
     font-size: 1.15em;
     padding: 10px 0; }
-  .overlay-def.wb-bar-t, .overlay-def.wb-bar-b {
-    background-color: #000; }
   .overlay-def .mfp-close {
     color: #fff; }
 
