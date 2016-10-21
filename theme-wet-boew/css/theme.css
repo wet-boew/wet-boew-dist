@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.23-development - 2016-10-05
+ * v4.0.23-development - 2016-10-21
  *
  */
 @charset "UTF-8";
@@ -5415,6 +5415,13 @@ a {
   text-decoration: underline; }
   a:visited {
     color: #7834bc; }
+  a:not([href]) {
+    color: inherit;
+    text-decoration: none; }
+    a:not([href]):hover, a:not([href]):focus {
+      color: inherit;
+      outline: none;
+      text-decoration: none; }
 
 .btn-default:visited {
   color: #335075; }
@@ -5693,6 +5700,7 @@ fieldset {
  *	Pagination
  *	  * Add left/right arrows to previous/next buttons
  *	  * Increase size of the pagination buttons
+ *	  * Prevent contrast ratio issues on active placeholder links
  */
 .pagination > li:first-child [rel="prev"]:before,
 .pager > li:first-child [rel="prev"]:before, [dir=rtl] .pagination [rel="next"]:before,
@@ -5742,6 +5750,9 @@ fieldset {
 .pager > li > span:focus {
   border-color: #bbbfc5;
   color: #335075; }
+
+.pagination > .active {
+  color: #fff; }
 
 /*
  *	Use button border style 'outset' to give buttons depth, except when disabled
