@@ -9080,6 +9080,8 @@ details {
   /**
  * Mobile-friendly styles
  */
+  .wb-tabs.carousel-s1, .wb-tabs.carousel-s2 {
+    border: 0; }
   .wb-tabs > details, .wb-tabs > .tabpanels > details {
     border: 0;
     border-bottom: #ccc solid 1px;
