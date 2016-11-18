@@ -8,26 +8,16 @@
 .wb-bar-b ul {
   display: inline-block; }
 
-.wb-overlay {
-  background-color: #fff; }
-
-.overlay-def header {
-  background-color: #000;
-  color: #fff; }
-
 .wb-panel-l ul li,
 .wb-panel-r ul li {
   margin-bottom: 10px; }
 
-.wb-bar-t,
-.wb-bar-b {
-  background-color: #000; }
-  .wb-bar-t ul,
-  .wb-bar-b ul {
-    margin-bottom: 0; }
-    .wb-bar-t ul li,
-    .wb-bar-b ul li {
-      margin-bottom: 5px; }
-    .wb-bar-t ul > li:first-child,
-    .wb-bar-b ul > li:first-child {
-      padding-left: 5px; }
+.wb-bar-t ul,
+.wb-bar-b ul {
+  margin-bottom: 0; }
+  .wb-bar-t ul li,
+  .wb-bar-b ul li {
+    margin-bottom: 5px; }
+  .wb-bar-t ul > li:first-child,
+  .wb-bar-b ul > li:first-child {
+    padding-left: 5px; }
