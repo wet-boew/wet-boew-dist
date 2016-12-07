@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+
+		<title>Hello world plugin example
+
+	
+		
+		 - Working examples
+	
+
+ - Web Experience Toolkit
+</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<!-- Meta data -->
+		<meta name="description" content="A quick tutorial on how you can create your own WET plugin." />
+
+		<!-- Meta data-->
+		<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.css" />
+<!--<![endif]-->
+
+<!--[if lt IE 9]>
+<link href="../../../theme-wet-boew/assets/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" href="../../../theme-wet-boew/css/ie8-theme.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script src="../../../wet-boew/js/ie8-wet-boew.js"></script>
+<![endif]-->
+
+<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.css" /></noscript>
+
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		
+<ul id="wb-tphp">
+	<li class="wb-slc">
+		<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+	</li>
+
+	<li class="wb-slc visible-sm visible-md visible-lg">
+		<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+	</li>
+
+
+</ul>
+
+<header role="banner">
+	<div id="wb-bnr">
+		<div id="wb-bar">
+			<div class="container">
+				<div class="row">
+					
+	<section id="wb-lng" class="visible-md visible-lg">
+	<h2>Language selection</h2>
+	<ul class="text-right">
+	
+		
+		<li><a lang="fr" hreflang="fr" href="helloworld-fr.html">Français</a></li>
+	
+	
+		<li class="curr">English&#32;<span>(current)</span></li>
+	
+	</ul>
+</section>
+
+
+
+
+	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+	<h2>Search and menus</h2>
+	<ul class="pnl-btn list-inline text-right">
+	<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+
+</section>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div id="wb-sttl" class="col-md-8">
+	<a href="../../index-en.html">
+		<object type="image/svg+xml" tabindex="-1" data="../../../theme-wet-boew/assets/logo.svg"></object>
+		<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+	</a>
+</div>
+
+
+	<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+	<h2>Search</h2>
+	<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+
+		<div class="form-group">
+			<label for="wb-srch-q">Search website</label>
+			<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+			<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+		</div>
+
+		<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+
+	</form>
+</section>
+
+
+			</div>
+		</div>
+	</div>
+
+	<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+	<div class="container nvbar">
+		<h2>Topics menu</h2>
+		<div class="row">
+			<ul class="list-inline menu">
+				
+	<li><a href="../../index-en.html">WET project</a></li>
+	<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+	<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+
+
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+
+	<nav role="navigation" id="wb-bc" property="breadcrumb">
+	<h2>You are here:</h2>
+	<div class="container">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li>
+	<a href="../../index-en.html">Home</a>
+</li>
+
+
+<li>
+	<a href="../../demos/index-en.html">Working examples</a>
+</li>
+
+
+
+<li>Hello world plugin example</li>
+
+			</ol>
+		</div>
+	</div>
+</nav>
+
+
+
+</header>
+
+
+
+	<main role="main" property="mainContentOfPage" class="container">
+
+		<h1 id="wb-cont" property="name">Hello world plugin example</h1>
+
+		
+
+		
+
+<ul class="list-inline">
+	<li><a class="btn btn-primary" href="../../docs/ref/helloworld/helloworld-en.html">Documentation</a></li>
+	<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Hello%20world%20plugin%20example:%20">Questions or comments?</a></li>
+</ul>
+
+
+
+		
+
+<p>A quick tutorial on how you can create your own WET plugin.</p>
+
+<div class="wb-prettify all-pre linenums"></div>
+
+<h2>Step 1 - Use a barebone plugin container</h2>
+
+<p>Use a barbone plugin container like:</p>
+
+<pre><code>/**
+ * @title WET-BOEW Barebone plugin container
+ * @overview Plugin contained to show an example of how to create your custom WET plugin
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+( function( $, window, wb ) {
+&quot;use strict&quot;;
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+<strong>var componentName = &quot;wb-barebone&quot;,</strong>
+	selector = &quot;.&quot; + componentName,
+	initEvent = &quot;wb-init&quot; + selector,
+	$document = wb.doc,
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm;
+
+		if ( elm ) {
+			$elm = $( elm );
+
+			<strong>// ... Do the plugin initialisation</strong>
+
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+		}
+	};
+
+<strong>// Add your plugin event handler</strong>
+$document.on( &quot;name.of.your.event&quot;, selector, function() {
+	<strong>//... your code here ...</strong>
+} );
+
+// Bind the init event of the plugin
+$document.on( &quot;timerpoke.wb &quot; + initEvent, selector, init );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( jQuery, window, wb );</code></pre>
+
+<dl>
+	<dt>At line 16 <code>var componentName = &quot;wb-barebone&quot;,</code></dt>
+	<dd>The value of <var>componentName</var> define the name of your plugin and the class name to use in order to initiate it</dd>
+
+	<dt>At line 36 <code>// ... Do the plugin initialisation</code></dt>
+	<dd>It is where you will do all the action in order to initiate your plugin. The chalenges here is to perform the minimalist task in order to have your plugin waiting for an action. WET plugin is focused on an event base aproach where we trend to not execute a line of script if is not required at that time, that for performance reason.</dd>
+
+	<dt>At line 43-45 <code>// Add your plugin event handler</code></dt>
+	<dd>It is where you will add a bunch of event that your plugin will deal with. You can trigger your own event by using the jQuery instance of an element, then call the function trigger with your custom event name in parameter followed by an object if you want to transfers some data. Like <code>$elm.trigger( "name.of.your.event", mydata );</code>. The mydata parameter is optional.</dd>
+</dl>
+
+<h2>Step 2 - Add your javascript code</h2>
+
+<p>Here a plugin sample that append the word "Hello World" to any element that contain the class <code>wb-helloworld</code> on the page the plugin is loaded.</p>
+
+<pre><code>/**
+ * @title WET-BOEW Hello world plugin
+ * @overview Plugin contained to show an example of how to create your custom WET plugin
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @duboisp
+ */
+( function( $, window, wb ) {
+&quot;use strict&quot;;
+
+/*
+ * Variable and function definitions.
+ * These are global to the plugin - meaning that they will be initialized once per page,
+ * not once per instance of plugin on the page. So, this is a good place to define
+ * variables that are common to all instances of the plugin on a page.
+ */
+var componentName = &quot;<strong>wb-helloworld</strong>&quot;,
+	selector = &quot;.&quot; + componentName,
+	initEvent = &quot;wb-init&quot; + selector,
+	$document = wb.doc,
+
+	/**
+	 * @method init
+	 * @param {jQuery Event} event Event that triggered the function call
+	 */
+	init = function( event ) {
+
+		// Start initialization
+		// returns DOM object = proceed with init
+		// returns undefined = do not proceed with init (e.g., already initialized)
+		var elm = wb.init( event, componentName, selector ),
+			$elm,
+			settings;
+
+		if ( elm ) {
+			$elm = $( elm );
+
+			// ... Do the plugin initialisation
+
+			// Get the plugin JSON configuration set on attribute data-wb-helloworld
+			<strong>settings = wb.getData( $elm, componentName );</strong>
+
+			// Call my custom event
+			<strong>$elm.trigger( &quot;name.of.your.event&quot;, settings );</strong>
+
+			// Identify that initialization has completed
+			wb.ready( $elm, componentName );
+		}
+	};
+
+// Add your plugin event handler
+$document.on( &quot;name.of.your.event&quot;, selector, function( event, data ) {
+	var elm = event.currentTarget,
+		$elm = $( elm );
+
+	<strong>$elm.append( &quot;Hello World&quot; );</strong>
+
+	<strong>if ( data &amp;&amp; data.domore ) {</strong>
+		$elm.prepend( &quot;Do more&quot; );
+	}
+} );
+
+// Bind the init event of the plugin
+$document.on( &quot;timerpoke.wb &quot; + initEvent, selector, init );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( jQuery, window, wb );</code></pre>
+
+<dl>
+	<dt>At line 16 <code>var componentName = &quot;wb-helloworld&quot;,</code></dt>
+	<dd>The plugin is named <strong>wb-helloworld</strong>.</dd>
+
+	<dt>At line 40 <code>settings = wb.getData( $elm, componentName );</code></dt>
+	<dd>It retreive and parse it into a JSON object the parameter set on the attribute <code>data-wb-helloworld</code></dd>
+
+	<dt>At line 43 <code>$elm.trigger( &quot;name.of.your.event&quot;, settings );</code></dt>
+	<dd>The event &quot;name.of.your.event&quot; is fired on the DOM element that have initiated the plugin</dd>
+
+	<dt>At line 55 <code>$elm.append(&quot;Hello World&quot;);</code></dt>
+	<dd>The words &quot;Hello World&quot; is added at the end of the content inside the elements</dd>
+
+	<dt>At line 57-58 <code>if ( data &amp;&amp; data.domore ) {</code></dt>
+	<dd>If a <var>data</var> has been set and the property <var>domore</var> is true or is positive or contain something then prepend the words &quot;Do more&quot; to the element</dd>
+</dl>
+
+<h2>Step 3 - Test it out</h2>
+
+<p class="wb-helloworld">Example 1</p>
+
+<p>Example 2 (<span class="wb-helloworld">inside a span</span>)</p>
+
+<p class="wb-helloworld" data-wb-helloworld='{ "domore": true }'>Example 3 with configuration</p>
+
+<pre><code>&lt;p class=&quot;wb-helloworld&quot;&gt;Example 1&lt;/p&gt;
+
+&lt;p&gt;Example 2 (&lt;span class=&quot;wb-helloworld&quot;&gt;inside a span&lt;/span&gt;)&lt;/p&gt;
+
+&lt;p class=&quot;wb-helloworld&quot; data-wb-helloworld='{ &quot;domore&quot;: true }'&gt;Example 3 with configuration&lt;/p&gt;</code></pre>
+
+<p>Please note to have your plugin working with WET you will needs to add your script after WET (wet-boew.js) in the HTML.</p>
+
+<h2>Going beyond</h2>
+
+<p>The non-documented WET core includes a lot of utilities function re-used by several plugins.</p>
+
+<p>Such as the function <code>wb.getId()</code> from which we can get an unique id that are not conflicting with any other elements. Or the array defined at <code>wb.drawColours</code> that is about a color sequence to use in order to maintain a good contrast, as used by the chart and graph and the geomap. Take a look at the <a href="https://github.com/wet-boew/wet-boew/tree/master/src/core">WET core source code</a> to find others useful function.</p>
+
+<p>The loading of third party plugin is done by using Modernizer. You can explorer other plugin that implement is like the <a href="https://github.com/wet-boew/wet-boew/blob/master/src/plugins/tables/tables.js#L80">tables plugins</a>.</p>
+
+
+<h2>Question or need help?</h2>
+
+<p><a href="https://github.com/wet-boew/wet-boew/issues/new">Submit an issue on Github</a></p>
+
+		<dl id="wb-dtmd">
+	<dt>Date modified:&#32;</dt>
+	<dd><time property="dateModified">2016-12-06</time></dd>
+</dl>
+
+
+	</main>
+
+
+
+	<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+	<div class="container">
+		<nav role="navigation" class="row">
+			<h2>About this site</h2>
+			<section class="col-sm-3">
+	<h3>Contact us</h3>
+	<ul class="list-unstyled">
+		<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+	</ul>
+</section>
+<section class="col-sm-3">
+	<h3>About</h3>
+	<ul class="list-unstyled">
+		<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+		<li><a rel="external" href="http://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+	</ul>
+</section>
+<section class="col-sm-3">
+	<h3>News</h3>
+	<ul class="list-unstyled">
+		<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+		<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+	</ul>
+</section>
+<section class="col-sm-3">
+	<h3>Stay connected</h3>
+	<ul class="list-unstyled">
+		<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+	</ul>
+</section>
+		</nav>
+	</div>
+</footer>
+
+
+
+		<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="../../../wet-boew/js/wet-boew.js"></script>
+<!--<![endif]-->
+<script src="demo/helloworld.js"></script>
+
+<!--[if lt IE 9]>
+<script src="../../../wet-boew/js/ie8-wet-boew2.js"></script>
+
+<![endif]-->
+
+
+	</body>
+</html>
