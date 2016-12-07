@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.24-development - 2016-11-28
+ * v4.0.24-development - 2016-12-07
  *
  */
 @charset "UTF-8";
@@ -5683,11 +5683,21 @@ fieldset {
   border-top: 1px solid #e5e5e5;
   padding-top: 10px;
   /*
+	 *  Allows fieldSet/legend to have a bottom border under legend title
+	 *	https://github.com/wet-boew/wet-boew/issues/7766
+	 */
+  /*
 	 *	Fieldset/legend as a label for a group of checkboxes or radio buttons
 	 *	https://github.com/wet-boew/wet-boew/issues/5797
 	 */ }
   fieldset:first-child {
     border-top: 0; }
+  fieldset.legend-brdr-bttm {
+    border-top: 0; }
+    fieldset.legend-brdr-bttm legend {
+      border-bottom: 1px solid #e5e5e5;
+      float: none;
+      margin-bottom: 10px; }
   fieldset.chkbxrdio-grp {
     border-top: 0;
     padding-top: 0; }
