@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.24-development - 2017-01-13
+ * v4.0.24-development - 2017-01-16
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7035,7 +7035,7 @@ wb.add( selector );
 
 /**
  * @title WET-BOEW Multimedia PLayer
- * @overview An accessible multimedia player for <audio> and <video> tags, including a Flash fallback
+ * @overview An accessible multimedia player for <audio> and <video> tags
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author WET Community
  */
@@ -7383,7 +7383,7 @@ var componentName = "wb-mltmd",
 
 	/**
 	 * @method playerApi
-	 * @description Normalizes the calls to the HTML5 media API and Flash Fallback
+	 * @description Normalizes the calls to the HTML5 media API
 	 * @param {String} fn The function to call
 	 * @param {object} args The arguments to send to the function call
 	 */
