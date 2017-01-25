@@ -7666,7 +7666,7 @@ img.mfp-img {
 
 .wb-mltmd video, .wb-mltmd object,
 .wb-mltmd iframe {
-  margin-bottom: -7px;
+  display: block;
   width: 100%; }
 
 .wb-mm-cc {
