@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.24-development - 2017-01-26
+ * v4.0.24-development - 2017-02-08
  *
  */
 @charset "UTF-8";
@@ -5826,7 +5826,7 @@ caption {
 .wb-menu .sm.open li, .wb-disable .wb-tabs > details, .wb-disable .wb-tabs > .tabpanels > details {
   display: block; }
 
-.wb-disable .mfp-hide, .wb-disable #wb-srch, .wb-disable #wb-sm, .wb-disable #wb-sec, .wb-disable #wb-info, .wb-disable .wb-overlay, .wb-disable .wb-tabs > details[open] > summary, .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
+.wb-disable .mfp-hide, .wb-disable #wb-srch, .wb-disable #wb-sm, .wb-disable #wb-sec, .wb-disable #wb-info, .wb-disable .wb-overlay {
   display: block !important; }
 
 .wb-menu .menu > li a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .active > a {
@@ -8341,6 +8341,12 @@ table.dataTable {
   position: static;
   width: auto; }
 
+.wb-disable .wb-tabs > details[open] > summary {
+  display: list-item !important; }
+
+.wb-disable .wb-tabs > .tabpanels > details[open] > summary {
+  display: list-item !important; }
+
 .wb-disable .wb-tabs [role="tablist"] {
   display: none; }
 
@@ -8668,6 +8674,8 @@ datalist {
  */
 summary {
   display: list-item !important;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
   visibility: visible !important; }
 
 details:not([open]) details summary, details .out details summary {
@@ -8692,6 +8700,7 @@ details {
       border-bottom: 1px solid #ddd;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+      list-style-type: disclosure-open;
       margin-bottom: .25em; }
   details:not([open]) {
     visibility: hidden; }
@@ -8706,7 +8715,7 @@ details {
 
 .wb-disable details {
   visibility: visible !important; }
-  .wb-disable details > * {
+  .wb-disable details > *:not(summary) {
     display: block !important; }
 
 /*
@@ -9230,7 +9239,7 @@ details {
     .wb-tabs [role="tabpanel"] figcaption {
       position: static; }
     .wb-tabs [role="tabpanel"] summary {
-      display: block !important; } }
+      display: list-item !important; } }
 
 /*! WET-BOEW Core and Plugins */
 /*
