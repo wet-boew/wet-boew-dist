@@ -7464,11 +7464,20 @@ img.mfp-img {
   outline: 1px dotted #fff;
   outline-offset: -2px; }
 
+body.wb-modal > #wb-tphp,
+body.wb-modal > header,
+body.wb-modal > main,
+body.wb-modal > footer, body.wb-modal summary {
+  visibility: hidden !important; }
+
 .lbx-hide-gal li {
   display: none;
   list-style-type: none; }
   .lbx-hide-gal li:first-child {
     display: block; }
+
+body.wb-modal .modal-dialog summary {
+  visibility: visible !important; }
 
 .modal-dialog {
   left: auto;
