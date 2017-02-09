@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.24-development - 2017-02-08
+ * v4.0.24-development - 2017-02-09
  *
  */
 @charset "UTF-8";
@@ -912,7 +912,7 @@ body {
   font-size: 16px;
   line-height: 1.4375;
   color: #333333;
-  background-color: #fff; }
+  background-color: #f9f9f9; }
 
 input,
 button,
@@ -950,7 +950,7 @@ img {
 .img-thumbnail {
   padding: 4px;
   line-height: 1.4375;
-  background-color: #fff;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
@@ -1897,7 +1897,7 @@ th {
   .table > tbody + tbody {
     border-top: 2px solid #ddd; }
   .table .table {
-    background-color: #fff; }
+    background-color: #f9f9f9; }
 
 .table-condensed > thead > tr > th,
 .table-condensed > thead > tr > td,
@@ -3247,7 +3247,7 @@ tbody.collapse.in {
         border-color: #eeeeee #eeeeee #ddd; }
     .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
       color: #555555;
-      background-color: #fff;
+      background-color: #f9f9f9;
       border: 1px solid #ddd;
       border-bottom-color: transparent;
       cursor: default; }
@@ -3301,7 +3301,7 @@ tbody.collapse.in {
     .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
     .nav-tabs-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:hover,
     .nav-tabs-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:focus {
-      border-bottom-color: #fff; } }
+      border-bottom-color: #f9f9f9; } }
 
 .tab-content > .tab-pane {
   display: none;
@@ -3974,7 +3974,7 @@ a.badge:hover, a.badge:focus {
   padding: 4px;
   margin-bottom: 23px;
   line-height: 1.4375;
-  background-color: #fff;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: border 0.2s ease-in-out; }
@@ -8740,6 +8740,8 @@ details {
   .mathml body > div > math,
   .no-mathml body > div > math, .nojs-show, .wb-disable .nojs-hide {
     display: none !important; }
+  main {
+    background-color: #fff; }
   /* Hide MathML check */
   #wb-dtmd {
     margin: 2em 0 0; }
@@ -9474,7 +9476,6 @@ details {
  Main Element
  */
 main {
-  background: #fff;
   padding-bottom: 2em; }
 
 #wb-cont {
@@ -9653,9 +9654,7 @@ main {
   /*
   WET-BOEW
   @title: All screen views
- */
-  body {
-    background: #f9f9f9; } }
+ */ }
 
 /* Extra-small view and under */
 @media screen and (max-width: 767px) {
