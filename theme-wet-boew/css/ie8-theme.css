@@ -9154,6 +9154,8 @@ details {
     page-break-after: always; }
   a[href]:after {
     content: none; }
+  #wb-tphp {
+    display: none; }
   /*
   WET-BOEW
   @title: Breadcrumb print CSS overrides
