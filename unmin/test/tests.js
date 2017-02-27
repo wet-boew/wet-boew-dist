@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.24 - 2017-02-22
+ * v4.0.25-development - 2017-02-27
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -4699,6 +4699,35 @@ runTest( "Input type=\"date\" polyfill (date picker)", function() {
 
 		it( "should not have triggered the change event on the form field", function() {
 			expect( spy.calledWith( "change" ) ).to.equal( false );
+		} );
+	} );
+
+	describe( "updating the min and max date of the field after the creation of the element", function() {
+		before( function( done ) {
+			callback = function() {
+				$elm.next().find( "a" ).click().click();
+				$elm.attr( "min", "2014-03-12" );
+				$elm.attr( "max", "2014-03-17" );
+				$elm.next().find( "a" ).click();
+				done();
+			};
+			beforeFactory( "<input type=\"date\" id=\"appointment\" min=\"2014-03-08\" max=\"2014-03-22\"/>" )();
+		} );
+		after( function() {
+			$elm.next().find( "a" ).click();
+			defaultAfter();
+		} );
+
+		it( "should have update the field's state", function() {
+			var field = $elm.get( 0 ),
+				state = field.state;
+
+			expect( state.minDate.toString() ).to.equal( new Date( 2014, 2, 12 ).toString() );
+			expect( state.maxDate.toString() ).to.equal( new Date( 2014, 2, 17 ).toString() );
+		} );
+
+		it( "should have update the min and max date of the date picker", function() {
+			expect( $( calendarSelector ).find( ".cal-days a" ).length ).to.equal( 6 );
 		} );
 	} );
 } );
