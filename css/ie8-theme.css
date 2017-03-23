@@ -6640,15 +6640,15 @@ details.alert, details.alert[open] {
     color: #d3080c;
     content: "\e101"; }
 
-.no-details details.alert > summary, .no-details details.alert[open] > summary {
+.wb-enable.no-details details.alert > summary {
   margin-left: 1.4em; }
-  .no-details details.alert > summary:before, .no-details details.alert[open] > summary:before {
+  .wb-enable.no-details details.alert > summary:before {
     content: "\25BA\a0"; }
 
-.no-details details.alert[open] > summary:before, .no-details details.alert[open][open] > summary:before {
+.wb-enable.no-details details.alert[open] > summary:before {
   content: "\25BC\a0"; }
 
-.no-details[dir="rtl"] details.alert > summary {
+.wb-enable.no-details[dir="rtl"] details.alert > summary {
   margin-right: 1.4em; }
 
 /*
