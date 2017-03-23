@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.25-development - 2017-03-15
+ * v4.0.25-development - 2017-03-23
  *
  */
 @charset "UTF-8";
@@ -6035,11 +6035,11 @@ q:before, q:after {
 * http://jquery.org/license
 *
 */
-.pop.in, .fade.in {
+.pop.in, .fade.in, .fade.reverse.out {
   opacity: 1;
   visibility: visible; }
 
-.pop.out, .fade.out {
+.pop.out, .fade.out, .fade.reverse.in {
   opacity: 0;
   visibility: hidden; }
 
@@ -6144,6 +6144,12 @@ q:before, q:after {
       -webkit-animation-name: fadeoutnoheight;
               animation-name: fadeoutnoheight;
       max-height: 0; }
+  .fade.reverse.in {
+    -webkit-animation-name: fadeout;
+            animation-name: fadeout; }
+  .fade.reverse.out {
+    -webkit-animation-name: fadein;
+            animation-name: fadein; }
 
 @-webkit-keyframes fadein {
   0% {
