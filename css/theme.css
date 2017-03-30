@@ -8628,10 +8628,6 @@ table.dataTable {
           cursor: default; }
   .wb-tabs.carousel-s2 {
     background: #eee; }
-    .wb-tabs.carousel-s2.wb-init {
-      padding-bottom: 4.375em; }
-    .wb-tabs.carousel-s2.exclude-controls {
-      padding-bottom: 0; }
     .wb-tabs.carousel-s2 [role="tablist"] {
       bottom: 0;
       position: absolute;
@@ -8655,9 +8651,12 @@ table.dataTable {
       .wb-tabs.carousel-s2 [role="tablist"] a:focus {
         outline-offset: 0; }
 
-.wb-disable .csstransitions .wb-tabs [role="tabpanel"].out {
+.wb-disable.csstransitions .wb-tabs [role="tabpanel"].out {
   position: static;
   width: auto; }
+
+.wb-disable .wb-tabs.carousel-s2 {
+  background: transparent; }
 
 .wb-disable .wb-tabs > details[open] > summary {
   display: list-item !important; }
@@ -8665,12 +8664,21 @@ table.dataTable {
 .wb-disable .wb-tabs > .tabpanels > details[open] > summary {
   display: list-item !important; }
 
+.wb-disable .wb-tabs .out {
+  visibility: visible; }
+
 .wb-disable .wb-tabs [role="tablist"] {
   display: none; }
 
 .wb-disable .wb-tabs [role="tabpanel"] {
+  -webkit-animation: none;
+          animation: none;
   display: block;
-  opacity: 1; }
+  margin-bottom: .5em;
+  opacity: 1;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -9336,6 +9344,10 @@ details {
         display: none !important; }
   .wb-tabs {
     /* Only for backwards compatibility. Should be removed in v4.1. */ }
+    .wb-tabs.carousel-s2.wb-init {
+      padding-bottom: 4.375em; }
+    .wb-tabs.carousel-s2.exclude-controls {
+      padding-bottom: 0; }
     .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.active a {
       border-color: #666;
       border-style: solid;
@@ -9595,11 +9607,20 @@ details {
  */
   .wb-tabs [role="tablist"], .wb-tabs.print-active > .tabpanels > div.out, .wb-tabs.print-active > .tabpanels > details.out .tgl-panel, .wb-tabs.print-active > .tabpanels > details > summary[aria-expanded="false"] + .tgl-panel {
     display: none !important; }
+  .wb-tabs.carousel-s1 [role="tabpanel"], .wb-tabs.carousel-s2 [role="tabpanel"] {
+    margin-bottom: .5em; }
+  .wb-tabs.carousel-s1 figure, .wb-tabs.carousel-s2 figure {
+    page-break-inside: avoid; }
+  .wb-tabs.carousel-s1 figcaption, .wb-tabs.carousel-s2 figcaption {
+    border: 1px solid #000; }
   .wb-tabs [role="tabpanel"] {
     display: block !important;
     opacity: 1 !important;
     overflow: visible !important;
     position: static !important;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
     visibility: visible !important; }
     .wb-tabs [role="tabpanel"] figcaption {
       position: static; }
