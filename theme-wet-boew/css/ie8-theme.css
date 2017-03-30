@@ -9252,12 +9252,17 @@ details {
   .wb-tabs [role="tabpanel"] {
     display: block !important;
     opacity: 1 !important;
+    overflow: visible !important;
     position: static !important;
     visibility: visible !important; }
     .wb-tabs [role="tabpanel"] figcaption {
       position: static; }
     .wb-tabs [role="tabpanel"] summary {
-      display: list-item !important; } }
+      display: list-item !important; }
+    .wb-tabs [role="tabpanel"].noheight {
+      max-height: none; }
+  .wb-tabs > .tabpanels {
+    overflow: visible !important; } }
 
 /*! WET-BOEW Core and Plugins */
 /*
