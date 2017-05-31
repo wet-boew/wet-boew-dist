@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.26-development - 2017-05-29
+ * v4.0.26-development - 2017-05-31
  *
  */
 @charset "UTF-8";
@@ -8812,7 +8812,18 @@ details {
   /* a variable name */
   /* a function name */
   .fun {
-    color: #f00; } }
+    color: #f00; }
+  /*
+ * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+ * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ */
+  /**
+ * Screen-only styles
+ */
+  .wb-tabs.carousel-s2.wb-init {
+    padding-bottom: 4.375em; }
+  .wb-tabs.carousel-s2.exclude-controls {
+    padding-bottom: 0; } }
 
 /* Extra-small view and under */
 @media screen and (max-width: 767px) {
@@ -9013,10 +9024,6 @@ details {
         display: none !important; }
   .wb-tabs {
     /* Only for backwards compatibility. Should be removed in v4.1. */ }
-    .wb-tabs.carousel-s2.wb-init {
-      padding-bottom: 4.375em; }
-    .wb-tabs.carousel-s2.exclude-controls {
-      padding-bottom: 0; }
     .wb-tabs.carousel-s2.show-thumbs [role="tablist"] li.active a {
       border-color: #666;
       border-style: solid;
