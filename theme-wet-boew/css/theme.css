@@ -5627,28 +5627,6 @@ input[type="reset"], input[type="button"], input[type="submit"] {
   input[type="reset"].btn-xs, .btn-group-xs > input[type="reset"].btn, input[type="button"].btn-xs, .btn-group-xs > input[type="button"].btn, input[type="submit"].btn-xs, .btn-group-xs > input[type="submit"].btn {
     height: 25px; }
 
-/**
- *	Disable pull-right/left on grid columns that do not match the current
- *	breakpoint
- */
-@media (max-width: 767px) {
-  .pull-left[class*=col-sm], .pull-left[class*=col-md], .pull-left[class*=col-lg],
-  .pull-right[class*=col-sm],
-  .pull-right[class*=col-md],
-  .pull-right[class*=col-lg] {
-    float: none !important; } }
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .pull-left[class*=col-md], .pull-left[class*=col-lg],
-  .pull-right[class*=col-md],
-  .pull-right[class*=col-lg] {
-    float: none !important; } }
-
-@media (min-width: 992px) and (max-width: 1199px) {
-  .pull-left[class*=col-lg],
-  .pull-right[class*=col-lg] {
-    float: none !important; } }
-
 /*
  *	Blockquote font size
  */
@@ -9099,6 +9077,11 @@ details {
     white-space: nowrap; }
   .wb-disable .nojs-show {
     display: block !important; }
+  .col-xs-auto, .col-sm-auto, .col-md-auto, .col-lg-auto {
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: auto; }
   /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -9225,12 +9208,6 @@ details {
   WET-BOEW
   @title: Extra-small view and over (screen only)
  */
-  .col-xs-auto {
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    width: auto; }
   /*
   WET-BOEW
   @title: Proximity CSS - Extra-small view and over
@@ -9269,12 +9246,6 @@ details {
   WET-BOEW
   @title: Small view and over (screen only)
  */
-  .col-sm-auto {
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    width: auto; }
   /*
   WET-BOEW
   @title: Proximity CSS - Small view and over
@@ -9318,12 +9289,6 @@ details {
     left: auto; }
   [dir=rtl] #wb-sec.col-md-pull-9 {
     right: auto; }
-  .col-md-auto {
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    width: auto; }
   /*
   WET-BOEW
   @title: Proximity CSS - Medium view and over
@@ -9415,12 +9380,6 @@ details {
     clear: left; }
   .clr-rght-lg {
     clear: right; }
-  .col-lg-auto {
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    width: auto; }
   /*
   WET-BOEW
   @title: Proximity CSS - Medium view and over
