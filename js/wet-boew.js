@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.26-development - 2017-06-22
+ * v4.0.26-development - 2017-07-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -4931,7 +4931,10 @@ var componentName = "wb-eqht",
 
 		for ( i = $elms.length - 1; i !== -1; i -= 1 ) {
 			$elm = $elms.eq( i );
-			$children = $elm.children();
+			$children = $elm.find( ".eqht-trgt" );
+			if ( !$children.length ) {
+				$children = $elm.children();
+			}
 
 			// Reinitialize the row at the beginning of each section of equal height
 			row = [];
