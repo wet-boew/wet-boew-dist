@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.26-development - 2017-07-04
+ * v4.0.26-development - 2017-07-06
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6224,7 +6224,7 @@ var componentName = "wb-menu",
 			menuitem = " role='menuitem'",
 			sectionHtml = "<li><details>" + "<summary class='mb-item" +
 				( $section.hasClass( "wb-navcurr" ) || $section.children( ".wb-navcurr" ).length !== 0 ? " wb-navcurr'" : "'" ) +
-				" aria-haspopup='true'> <span" + menuitem + ">" +
+				" aria-haspopup='true'><span" + menuitem + ">" +
 				$section.text() + "</span></summary>" +
 				"<ul class='list-unstyled mb-sm' role='menu' aria-expanded='false' aria-hidden='true'>";
 
