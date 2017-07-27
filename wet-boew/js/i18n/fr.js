@@ -196,9 +196,9 @@ wb.i18nDict = {
 	"geo-allyttl": "Instructions : comment naviguer dans la carte",
 	"geo-tgllyr": "Basculer l'affichage de la couche",
 	"geo-hdnlyr": "Cette couche est présentement cachée.",
-	"geo-bmapurl": "//geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+	"geo-bmapurl": "@geo-bmapurl@",
 	"geo-bmapttl": "BaseMaps_CBCT3978",
-	"geo-bmapurltxt": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBCT_TXT_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+	"geo-bmapurltxt": "@geo-bmapurltxt@",
 	"geo-attrlnk": "//geogratis.gc.ca/geogratis/CBM_CBC?lang=fr",
 	"geo-attrttl": "GéoGratis - Carte de base du Canada",
 	"geo-sel": "Sélectionnez",
@@ -228,7 +228,11 @@ wb.i18nDict = {
 	"dismiss": "Écarter",
 
 	/* Template */
-	"tmpl-signin": "Ouvrir une session"
+	"tmpl-signin": "Ouvrir une session",
+
+	/* Filter */
+	"fltr-lbl": "Filtrer<span class=\"wb-inv\"> le contenu: Les résultats s'afficherons au moment même de la saisie.</span>",
+	"fltr-info": "Affiche _NBITEM_ de _TOTAL_ éléments filtrés."
 };
 
 } )( wb );

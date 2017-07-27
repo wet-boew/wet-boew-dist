@@ -196,9 +196,9 @@ wb.i18nDict = {
 	"geo-allyttl": "Talimatlar: Harita navigasyon",
 	"geo-tgllyr": "Katmanı ekran değişikliği",
 	"geo-hdnlyr": "Bu katman şu anda gizli olduğu.",
-	"geo-bmapurl": "//geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+	"geo-bmapurl": "@geo-bmapurl@",
 	"geo-bmapttl": "BaseMaps_CBMT3978",
-	"geo-bmapurltxt": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_TXT_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+	"geo-bmapurltxt": "@geo-bmapurltxt@",
 	"geo-attrlnk": "//geogratis.gc.ca/geogratis/CBM_CBC?lang=en",
 	"geo-attrttl": "GeoGratis - Kanada temel harita (İngilizce veya Fransızca sadece)",
 	"geo-sel": "Seçmek",
@@ -228,7 +228,11 @@ wb.i18nDict = {
 	"dismiss": "Dismiss",
 
 	/* Template */
-	"tmpl-signin": "Giriş Yapın"
+	"tmpl-signin": "Giriş Yapın",
+
+	/* Filter */
+	"fltr-lbl": "Filter<span class=\"wb-inv\"> content: results appear below as you type.</span>",
+	"fltr-info": "Showing _NBITEM_ filtered from _TOTAL_ total entries"
 };
 
 } )( wb );

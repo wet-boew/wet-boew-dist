@@ -196,9 +196,9 @@ wb.i18nDict = {
 	"geo-allyttl": "地図ナビゲーションの使い方",
 	"geo-tgllyr": "レイヤーの表示・非表示の切り替え",
 	"geo-hdnlyr": "このレイヤーは表示されていません。",
-	"geo-bmapurl": "//geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_CBCT_GEOM_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+	"geo-bmapurl": "@geo-bmapurl@",
 	"geo-bmapttl": "BaseMaps_CBMT3978",
-	"geo-bmapurltxt": "http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/CBMT_TXT_3978/MapServer/WMTS/tile/1.0.0/BaseMaps_CBMT3978/{Style}/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+	"geo-bmapurltxt": "@geo-bmapurltxt@",
 	"geo-attrlnk": "//geogratis.gc.ca/geogratis/CBM_CBC?lang=en",
 	"geo-attrttl": "GeoGratis-カナダベースマップ（英語またはフランス語のみ",
 	"geo-sel": "選択",
@@ -228,7 +228,11 @@ wb.i18nDict = {
 	"dismiss": "Dismiss",
 
 	/* Template */
-	"tmpl-signin": "サインイン"
+	"tmpl-signin": "サインイン",
+
+	/* Filter */
+	"fltr-lbl": "Filter<span class=\"wb-inv\"> content: results appear below as you type.</span>",
+	"fltr-info": "Showing _NBITEM_ filtered from _TOTAL_ total entries"
 };
 
 } )( wb );
