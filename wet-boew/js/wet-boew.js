@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.26-development - 2017-08-10
+ * v4.0.26-development - 2017-08-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -34,7 +34,7 @@ var getUrlParts = function( url ) {
 			host: a.host,
 			hostname: a.hostname,
 			port: a.port,
-			pathname: a.pathname,
+			pathname: a.pathname.replace( /^([^\/])/, "/$1" ), // Prefix pathname with a slash in browsers that don't natively do it (i.e. all versions of IE and possibly early versions of Edge). See pull request #8110.
 			protocol: a.protocol,
 			hash: a.hash,
 			search: a.search,
