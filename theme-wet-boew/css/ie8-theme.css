@@ -9605,6 +9605,9 @@ main {
   #mb-pnl .modal-body > :first-child {
     padding-top: 20px; }
 
+#mb-pnl .modal-footer {
+  background: #193451; }
+
 #mb-pnl summary:hover, #mb-pnl summary:focus {
   background: transparent;
   color: #fff; }
