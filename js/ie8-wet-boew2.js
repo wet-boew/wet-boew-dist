@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.27-development - 2017-09-11
+ * v4.0.27-development - 2017-10-06
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -8483,13 +8483,13 @@ $document.on( "click vclick", "." + closeClass, function( event ) {
 } );
 
 // Handler for clicking on a source link for the overlay
-$document.on( "click vclick", "." + linkClass, function( event ) {
+$document.on( "click vclick keydown", "." + linkClass, function( event ) {
 	var which = event.which,
 		sourceLink = event.currentTarget,
 		overlayId = sourceLink.hash.substring( 1 );
 
 	// Ignore if not initialized and middle/right mouse buttons
-	if ( initialized && ( !which || which === 1 ) ) {
+	if ( initialized && ( !which || which === 1 || which === 32 ) ) {
 		event.preventDefault();
 
 		// Introduce a delay to prevent outside activity detection
