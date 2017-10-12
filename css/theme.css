@@ -8448,7 +8448,7 @@ table.dataTable {
     .wb-tabs.carousel-s1 [role="tabpanel"] a figure::before, .wb-tabs.carousel-s2 [role="tabpanel"] a figure::before {
       height: calc(100% - 4px);
       margin: 2px;
-      outline-color: #FFF;
+      outline-color: #fff;
       width: calc(100% - 4px); }
     .wb-tabs.carousel-s1 [role="tabpanel"] a figure::after, .wb-tabs.carousel-s2 [role="tabpanel"] a figure::after {
       height: calc(100% - 2px);
@@ -8461,6 +8461,10 @@ table.dataTable {
 
 .wb-tabs.carousel-s1 [role="tabpanel"] figure a, .wb-tabs.carousel-s2 [role="tabpanel"] figure a {
   color: #fff; }
+
+.wb-tabs.carousel-s1 .display:focus-within, .wb-tabs.carousel-s2 .display:focus-within {
+  outline: 1px dotted #fff;
+  outline-offset: -2px; }
 
 .wb-tabs.carousel-s1 video:focus, .wb-tabs.carousel-s2 video:focus {
   outline-offset: -1px; }
