@@ -86,7 +86,7 @@ $.validator.addMethod( "accept", function( value, element, param ) {
 }, $.validator.format( "Please enter a value with a valid mimetype." ) );
 
 $.validator.addMethod( "alphanumeric", function( value, element ) {
-	return this.optional( element ) || /^\w+$/i.test( value );
+	return this.optional( element ) || /^[\wÀ-Ÿ]+$/i.test( value );
 }, "Letters, numbers, and underscores only please" );
 
 /*
@@ -628,11 +628,11 @@ $.validator.addMethod( "ipv6", function( value, element ) {
 }, "Please enter a valid IP v6 address." );
 
 $.validator.addMethod( "lettersonly", function( value, element ) {
-	return this.optional( element ) || /^[a-z]+$/i.test( value );
+	return this.optional( element ) || /^[a-zÀ-Ÿ]+$/i.test( value );
 }, "Letters only please" );
 
 $.validator.addMethod( "letterswithbasicpunc", function( value, element ) {
-	return this.optional( element ) || /^[a-z\-.,()'"\s]+$/i.test( value );
+	return this.optional( element ) || /^[a-zÀ-Ÿ\-.,()'"\s]+$/i.test( value );
 }, "Letters or punctuation only please" );
 
 $.validator.addMethod( "mobileNL", function( value, element ) {
