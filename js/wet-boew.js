@@ -10308,7 +10308,7 @@ var componentName = "wb-tables",
 							return wb.normalizeDiacritics( a );
 						},
 						"string-pre": function( a ) {
-							return wb.normalizeDiacritics( a );
+							return wb.normalizeDiacritics( a ).toLowerCase();
 						},
 
 						// Formatted number sorting
