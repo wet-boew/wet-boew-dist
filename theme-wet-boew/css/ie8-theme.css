@@ -7523,15 +7523,26 @@ body.wb-modal .modal-dialog summary {
     height: 2.5em;
     padding: 0;
     width: 7em; }
+    .wb-mm-ctrls input[type=range]:focus {
+      /* Prevent Webkit/Blink browsers from defaulting to a -2px outline offset. */
+      outline-offset: 0; }
     .wb-mm-ctrls input[type=range]::-webkit-slider-runnable-track {
       background: #aaa;
       height: 4px; }
     .wb-mm-ctrls input[type=range]::-webkit-slider-thumb {
-      margin-top: -8px; }
+      -webkit-appearance: none;
+      background: #fff;
+      border: 1px solid #707070;
+      box-sizing: content-box;
+      height: 1.3em;
+      margin-top: -9px;
+      width: 10px; }
     .wb-mm-ctrls input[type=range]::-moz-range-track {
       background: #aaa;
       border: 0; }
     .wb-mm-ctrls input[type=range]::-moz-range-thumb {
+      background: #fff;
+      border: 1px solid #707070;
       border-radius: 0;
       height: 1.3em;
       width: 10px; }
@@ -7545,8 +7556,9 @@ body.wb-modal .modal-dialog summary {
       background: #aaa; }
     .wb-mm-ctrls input[type=range]::-ms-thumb {
       background: #fff;
-      border: 1px outset #fff;
-      height: 1.3em; }
+      border: 1px solid #707070;
+      height: 1.3em;
+      width: 10px; }
   .wb-mm-ctrls .fd-slider {
     display: inline-block;
     height: 100%;
@@ -7554,7 +7566,8 @@ body.wb-modal .modal-dialog summary {
     width: 7em; }
   .wb-mm-ctrls .fd-slider-handle {
     background: #fff;
-    border: 1px outset #fff;
+    border: 1px solid #707070;
+    box-sizing: content-box;
     width: 10px; }
 
 .xxsmallview .wb-mm-ctrls .wb-mm-txtonly {
