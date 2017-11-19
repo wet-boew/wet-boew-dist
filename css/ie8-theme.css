@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.27-development - 2017-11-15
+ * v4.0.27-development - 2017-11-19
  *
  */
 @charset "UTF-8";
@@ -12,6 +12,48 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
  */
+/*Banner*/
+/*Dark Cerulean*/
+/*Lochmara, Dark Cerulean*/
+/*Charcoal*/
+/*White*/
+/*White*/
+/*Gray*/
+/*White*/
+/*Charcoal*/
+/*White*/
+/*Night Rider*/
+/*Language-bar*/
+/*Very Light Grey*/
+/*Main Element*/
+/*Whisper*/
+/*Site menu*/
+/*Blue Whale*/
+/*White*/
+/*Very Light Grey*/
+/*Very Light Grey*/
+/*Black*/
+/*Dim Gray*/
+/*Nobel*/
+/*Nobel*/
+/*Very Light Grey*/
+/*Catalina Blue*/
+/*Charcoal*/
+/*Silver*/
+/*Dim Gray*/
+/*Black Pearl*/
+/*White*/
+/*Link Water*/
+/*Venice Blue*/
+/*Tangaroa*/
+/*Secondary menu*/
+/*Gainsboro*/
+/*Dim Gray*/
+/*Night Rider*/
+/*Skip-links*/
+/*Black*/
+/*White*/
+/*White*/
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -9533,6 +9575,9 @@ details {
 #wb-info li {
   margin-bottom: .75em; }
 
+/*
+language-bar
+*/
 #wb-lng .btn-group {
   float: right;
   margin: 5px 0;
@@ -9712,6 +9757,7 @@ main {
   padding-left: 15px;
   padding-right: 1.8em; }
 
+/*skip-links*/
 .wb-sl {
   background-color: #000;
   color: #fff;
