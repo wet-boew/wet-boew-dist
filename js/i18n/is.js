@@ -238,16 +238,6 @@ wb.i18nDict = {
 } )( wb );
 
 wb.doc.one( "formLanguages.wb", function() {
-(function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
-		define( ["jquery", "../jquery.validate"], factory );
-	} else if (typeof module === "object" && module.exports) {
-		module.exports = factory( require( "jquery" ) );
-	} else {
-		factory( jQuery );
-	}
-}(function( $ ) {
-
 /*
  * Translated default messages for the jQuery validation plugin.
  * Locale: IS (Icelandic; íslenska)
@@ -270,6 +260,5 @@ $.extend( $.validator.messages, {
 	creditcard: "Sláðu inn gilt greiðslukortanúmer."
 } );
 
-}));
 
 });
