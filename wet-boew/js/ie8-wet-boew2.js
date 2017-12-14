@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.27-development - 2017-12-13
+ * v4.0.27-development - 2017-12-14
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -6360,6 +6360,8 @@ var componentName = "wb-menu",
 			$subMenu = $elm.siblings( "ul" );
 
 			$elm.attr( {
+				"aria-posinset": ( i + 1 ),
+				"aria-setsize": length,
 				role: "menuitem"
 			} );
 
@@ -6388,11 +6390,12 @@ var componentName = "wb-menu",
 		// Use details/summary for the collapsible mechanism
 		var k, $elm, elm, $item, $subItems, subItemsLength,
 			$section = $( section ),
-			menuitem = " role='menuitem'",
+			posinset = "' aria-posinset='",
+			menuitem = " role='menuitem' aria-setsize='",
 			sectionHtml = "<li><details>" + "<summary class='mb-item" +
 				( $section.hasClass( "wb-navcurr" ) || $section.children( ".wb-navcurr" ).length !== 0 ? " wb-navcurr'" : "'" ) +
-				" aria-haspopup='true'><span" + menuitem + ">" +
-				$section.text() + "</span></summary>" +
+				menuitem + sectionsLength + posinset + ( sectionIndex + 1 ) +
+				"' aria-haspopup='true'>" + $section.text() + "</summary>" +
 				"<ul class='list-unstyled mb-sm' role='menu' aria-expanded='false' aria-hidden='true'>";
 
 		// Convert each of the list items into WAI-ARIA menuitems
@@ -6406,8 +6409,9 @@ var componentName = "wb-menu",
 			if ( elm && subItemsLength === 0 && elm.nodeName.toLowerCase() === "a" ) {
 				sectionHtml += "<li>" + $item[ 0 ].innerHTML.replace(
 						/(<a\s)/,
-						"$1" + menuitem +
-							" tabindex='-1' "
+						"$1" + menuitem + itemsLength +
+							posinset + ( k + 1 ) +
+							"' tabindex='-1' "
 					) + "</li>";
 			} else {
 				sectionHtml += createCollapsibleSection( elm, k, itemsLength, $subItems, $subItems.length );
@@ -6460,8 +6464,9 @@ var componentName = "wb-menu",
 					sectionHtml += "<li class='no-sect'>" +
 						linkHtml.replace(
 							/(<a\s)/,
-							"$1 class='mb-item' " + "role='menuitem'" +
-								" tabindex='-1' "
+							"$1 class='mb-item' " + "role='menuitem' aria-setsize='" +
+								sectionsLength + "' aria-posinset='" + ( j + 1 ) +
+								"' tabindex='-1' "
 						) + "</li>";
 				}
 			}
@@ -6577,11 +6582,11 @@ var componentName = "wb-menu",
 				}
 
 				// Let's now populate the DOM since we have done all the work in a documentFragment
-				panelDOM.innerHTML = "<div class='modal-header'><div class='modal-title'>" +
+				panelDOM.innerHTML = "<header class='modal-header'><div class='modal-title'>" +
 						document.getElementById( "wb-glb-mn" )
 							.getElementsByTagName( "h2" )[ 0 ]
 								.innerHTML +
-						"</div></div><div class='modal-body'>" + panel + "</div>";
+						"</div></header><div class='modal-body'>" + panel + "</div>";
 				panelDOM.className += " wb-overlay modal-content overlay-def wb-panel-r";
 				$panel
 					.trigger( "wb-init.wb-overlay" )
