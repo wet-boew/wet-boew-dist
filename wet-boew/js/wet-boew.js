@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.28-development - 2018-01-19
+ * v4.0.28-development - 2018-01-23
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -4096,49 +4096,45 @@ var componentName = "wb-collapsible",
 // Bind the init event of the plugin
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
-$document.on( "timerpoke.wb", function() {
+// Do not bind events if details polyfill is active
+if ( Modernizr.details ) {
 
-	// Do not bind events if details polyfill is active
-	if ( Modernizr.details ) {
+	// Bind the the event handlers of the plugin
+	$document.on( "click keydown toggle." + componentName, selector + " summary", function( event ) {
+		var which = event.which,
+			currentTarget = event.currentTarget,
+			isClosed;
 
-		// Bind the the event handlers of the plugin
-		$document.on( "click keydown toggle." + componentName, selector + " summary", function( event ) {
-			var which = event.which,
-				currentTarget = event.currentTarget,
-				isClosed;
+		// Ignore middle/right mouse buttons and wb-toggle enhanced summary elements (except for toggle)
+		if ( ( !which || which === 1 ) &&
+			( currentTarget.className.indexOf( "wb-toggle" ) === -1 ||
+			( event.type === "toggle" && event.namespace === componentName ) ) ) {
 
-			// Ignore middle/right mouse buttons and wb-toggle enhanced summary elements (except for toggle)
-			if ( ( !which || which === 1 ) &&
-				( currentTarget.className.indexOf( "wb-toggle" ) === -1 ||
-				( event.type === "toggle" && event.namespace === componentName ) ) ) {
+			details = currentTarget.parentNode;
+			isClosed = details.getAttribute( "open" ) === null;
+			key = "alert-collapsible-state-" + details.getAttribute( "id" );
 
-				details = currentTarget.parentNode;
-				isClosed = details.getAttribute( "open" ) === null;
-				key = "alert-collapsible-state-" + details.getAttribute( "id" );
-
-				if ( isClosed ) {
-					try {
-						localStorage.setItem( key, "open" );
-					} catch ( e ) {}
-				} else {
-					try {
-						localStorage.setItem( key, "closed" );
-					} catch ( e ) {}
-				}
-			} else if ( which === 13 || which === 32 ) {
-				event.preventDefault();
-				$( currentTarget ).trigger( "click" );
+			if ( isClosed ) {
+				try {
+					localStorage.setItem( key, "open" );
+				} catch ( e ) {}
+			} else {
+				try {
+					localStorage.setItem( key, "closed" );
+				} catch ( e ) {}
 			}
+		} else if ( which === 13 || which === 32 ) {
+			event.preventDefault();
+			$( currentTarget ).trigger( "click" );
+		}
 
-			/*
-			 * Since we are working with events we want to ensure that we are being passive about our control,
-			 * so returning true allows for events to always continue
-			 */
-			return true;
-		} );
-	}
-
-} );
+		/*
+		 * Since we are working with events we want to ensure that we are being passive about our control,
+		 * so returning true allows for events to always continue
+		 */
+		return true;
+	} );
+}
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
