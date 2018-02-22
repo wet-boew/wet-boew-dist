@@ -9491,6 +9491,7 @@ details {
 /*
  Banner
  */
+.wb-sppe img,
 .wb-sppe object {
   width: 100%; }
 
@@ -9944,6 +9945,8 @@ main {
   /*
  Banner (print view)
  */
+  .wb-sppe header img, #wb-sttl img {
+    filter: brightness(0); }
   [dir=rtl] #wb-sttl object,
   [dir=rtl] #wb-sttl img {
     float: right; }

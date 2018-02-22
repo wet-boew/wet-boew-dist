@@ -6767,6 +6767,9 @@ var componentName = "wb-lbx",
 		// Load Magnific Popup dependency and bind the init event handler
 		Modernizr.load( {
 			load: "site!deps/jquery.magnific-popup" + wb.getMode() + ".js",
+			testReady: function() {
+				return $.magnificPopup;
+			},
 			complete: function() {
 
 				// Set the dependency i18nText only once
@@ -6795,7 +6798,7 @@ var componentName = "wb-lbx",
 				}
 				spanTextFtr = spanTextFtr.replace( "'", "&#39;" );
 
-				overlayCloseFtr = "<button type='button' id='ftrClose' class='btn btn-sm btn-primary pull-left " + closeClassFtr +
+				overlayCloseFtr = "<button type='button' class='btn btn-sm btn-primary pull-left " + closeClassFtr +
 					"' title='" + closeTextFtr + " " + spanTextFtr + "'>" +
 					closeTextFtr +
 					"<span class='wb-inv'>" + spanTextFtr + "</span></button>";
@@ -8421,7 +8424,7 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 		if ( data.shareUrl !== undef ) {
 			$( "<div class='wb-share' data-wb-share=\'{\"type\": \"" +
 				( type === "audio" ? type : "video" ) + "\", \"title\": \"" +
-				data.title.replace( "'", "&apos;" ) + "\", \"url\": \"" + data.shareUrl +
+				data.title.replace( /'/g, "&apos;" ) + "\", \"url\": \"" + data.shareUrl +
 				"\", \"pnlId\": \"" + data.id + "-shr\"}\'></div>" )
 				.insertBefore( $media.parent() )
 				.trigger( "wb-init.wb-share" );
@@ -8944,7 +8947,7 @@ var componentName = "wb-overlay",
 					footer.style.border = "0";
 				}
 
-				overlayCloseFtr = "<button type='button' id='ftrClose' class='btn btn-sm btn-primary " + closeClassFtr +
+				overlayCloseFtr = "<button type='button' class='btn btn-sm btn-primary " + closeClassFtr +
 					"' style='" + buttonStyle +
 					"' title='" + closeTextFtr + " " + spanTextFtr + "'>" +
 					closeTextFtr +
@@ -8965,7 +8968,7 @@ var componentName = "wb-overlay",
 				closeText = i18nText.closeOverlay;
 			}
 			closeText = closeText.replace( "'", "&#39;" );
-			overlayClose = "<button type='button' id='hdrClose' class='mfp-close " + closeClass +
+			overlayClose = "<button type='button' class='mfp-close " + closeClass +
 				"' title='" + closeText + "'>&#xd7;<span class='wb-inv'> " +
 				closeText + "</span></button>";
 
