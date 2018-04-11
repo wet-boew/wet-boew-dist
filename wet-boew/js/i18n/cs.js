@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tabulka",
 	"tbl-dtls": "Graf. Podrobnosti v následující tabulce.",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Vaše relace vyprší automaticky #min# min #sec# sec.",

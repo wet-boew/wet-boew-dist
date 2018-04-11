@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "表",
 	"tbl-dtls": "チャート図。詳細については次の表を参照。",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "セッションは、 #min# 分 #sec# 秒で自動的に期限切れになります。",

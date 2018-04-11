@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "ᑭᐳ",
 	"tbl-dtls": "ᓴᓇᒐᖅ. ᑭᐳᒥ ᓇᓗᓇᐃᖅᑕᐅᓯᒪᔪᑦ.",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "ᐱᓕᕆᐊᑦ ᐃᒻᒥᓂ ᓄᖅᖃᕐᓂᐊᖅᑐᖅ ᐃᒪᓐᓇᑎᒋ #ᒥᓂᑦᓯᓂ# ᒥᓂᑦᓯᓂ #ᑎᑦᑕᓂ# ᑎᑦᑕᓂ.",

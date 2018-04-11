@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Bảng",
 	"tbl-dtls": "Chart. Thông tin chi tiết trong bảng dưới đây.",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Phiên của bạn sẽ tự động hết hạn trong  #min# phút #sec# giây.",

@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "표",
 	"tbl-dtls": "차트. 다음 테이블의 세부 사항.",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "세션이 #min# 분 #sec# 초에 자동으로 만료됩니다.",

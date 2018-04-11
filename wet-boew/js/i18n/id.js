@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tabel",
 	"tbl-dtls": "Infografis. Detail pada tabel berikut.",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Sesi Anda akan berakhir secara otomatis dalam #min# menit #sec# detik.",

@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tabula",
 	"tbl-dtls": "Grafiks. Detaļas tabulā.",
-	"chrt-cmbslc": "Combined slice",
+	"chrt-cmbslc": "@chrt-cmbslc@",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Jūsu sesija beigsies automātiski #min# min sekundē #sec#.",
