@@ -156,6 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tablo",
 	"tbl-dtls": "Grafik. Detaylar takip eden tablodadır.",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Oturumunuz #min# dk #sec# sn otomatik olarak sona erecek.",

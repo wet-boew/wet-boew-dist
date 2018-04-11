@@ -156,6 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "表格",
 	"tbl-dtls": "圖表，詳細內容在表格中。",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "#min#＃分#sec#秒，您的會話將自動失效。",

@@ -156,6 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tafla",
 	"tbl-dtls": "Töfluna. Upplýsingar í eftirfarandi töflu.",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Fundur mun renna sjálfkrafa í #min# mín #sec# sek.",

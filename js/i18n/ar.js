@@ -156,6 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "جدول",
 	"tbl-dtls": "الرسم البياني. التفاصيل في الجدول التالي.",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "سوف تنتهي جلسة العمل الخاصة بك تلقائيا في على  #min# دقيقة #sec# ثانية.",
