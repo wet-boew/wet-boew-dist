@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Սեղան",
 	"tbl-dtls": "Աղյուսակում. Մանրամասներ է հետեւյալ աղյուսակում.",
-	"chrt-cmbslc": "@chrt-cmbslc@",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Ձեր սեսիան կսպառվի ինքնաբերաբար ին #min# րոպե #sec# վրկ",

@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "तालिका",
 	"tbl-dtls": "चार्ट. निम्न तालिका में विवरण.",
-	"chrt-cmbslc": "@chrt-cmbslc@",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "आपका सत्र #min# मिनट #sec# सेकंड में स्वत: ही समाप्त हो जाएगी.",

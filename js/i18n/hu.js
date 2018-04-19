@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Táblázat",
 	"tbl-dtls": "Részletek a következő táblázatban.",
-	"chrt-cmbslc": "@chrt-cmbslc@",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "A munkamenet lejár automatikusan #min# perc #sec# másodperc.",

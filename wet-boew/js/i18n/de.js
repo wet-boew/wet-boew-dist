@@ -156,7 +156,7 @@ wb.i18nDict = {
 	/* Charts widget */
 	"tbl-txt": "Tabelle",
 	"tbl-dtls": "Grafik. Angaben in der folgenden Tabelle.",
-	"chrt-cmbslc": "@chrt-cmbslc@",
+	"chrt-cmbslc": "Combined slice",
 
 	/* Session timeout */
 	"st-to-msg-bgn": "Ihre Sitzung endet automatisch in #min# min #sec# sec.",
