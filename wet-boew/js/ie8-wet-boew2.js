@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.28-development - 2018-04-19
+ * v4.0.28-development - 2018-04-22
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5588,6 +5588,9 @@ var componentName = "wb-frmvld",
 					"site!deps/jquery.validate" + modeJS,
 					"site!deps/additional-methods" + modeJS
 				],
+				testReady: function() {
+					return ( window.fromValid && window.fromValid.additional );
+				},
 				complete: function() {
 					var $elm = $( "#" + elmId ),
 						$form = $elm.find( "form" ),
