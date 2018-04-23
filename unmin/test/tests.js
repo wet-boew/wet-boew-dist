@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.28-development - 2018-04-22
+ * v4.0.28-development - 2018-04-23
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -1743,7 +1743,7 @@ describe( "Country Content test suite", function() {
 
 			for ( ; i !== len && !isLookup; i += 1 ) {
 				if ( args[ i ] instanceof Array ) {
-					isLookup = args[ i ].length && args[ i ][ 0 ].url === "http://freegeoip.net/json/";
+					isLookup = args[ i ].length && args[ i ][ 0 ].url === "https://freegeoip.net/json/";
 				}
 			}
 			expect( isLookup ).to.equal( true );
