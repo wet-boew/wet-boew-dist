@@ -5589,7 +5589,7 @@ var componentName = "wb-frmvld",
 					"site!deps/additional-methods" + modeJS
 				],
 				testReady: function() {
-					return ( window.fromValid && window.fromValid.additional );
+					return ( $.validator && $.validator.methods.bic );
 				},
 				complete: function() {
 					var $elm = $( "#" + elmId ),
