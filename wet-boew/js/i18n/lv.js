@@ -272,7 +272,7 @@ $.extend( $.validator.messages, {
 	max: $.validator.format( "Lūdzu, ievadiet skaitli, kurš ir mazāks vai vienāds ar {0}." ),
 	min: $.validator.format( "Lūdzu, ievadiet skaitli, kurš ir lielāks vai vienāds ar {0}." )
 } );
-
+return $;
 }));
 
 });

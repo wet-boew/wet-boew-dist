@@ -270,7 +270,7 @@ $.extend( $.validator.messages, {
 	min: $.validator.format( "Sláðu inn gildi sem er stærra en eða jafnt og {0}." ),
 	creditcard: "Sláðu inn gilt greiðslukortanúmer."
 } );
-
+return $;
 }));
 
 });

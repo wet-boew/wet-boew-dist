@@ -269,7 +269,7 @@ $.extend( $.validator.messages, {
 	min: $.validator.format( "Geben Sie bitte einen Wert größer oder gleich {0} ein." ),
 	creditcard: "Geben Sie bitte eine gültige Kreditkarten-Nummer ein."
 } );
-
+return $;
 }));
 (function( factory ) {
 	if ( typeof define === "function" && define.amd ) {
@@ -293,6 +293,6 @@ $.extend( $.validator.methods, {
 		return this.optional( element ) || /^-?(?:\d+|\d{1,3}(?:\.\d{3})+)(?:,\d+)?$/.test( value );
 	}
 } );
-
+return $;
 }));
 });

@@ -272,7 +272,7 @@ $.extend( $.validator.messages, {
 	max: $.validator.format( "Prašau įvesti reikšmę mažesnę arba lygią {0}." ),
 	min: $.validator.format( "Prašau įvesti reikšmę didesnę arba lygią {0}." )
 } );
-
+return $;
 }));
 
 });

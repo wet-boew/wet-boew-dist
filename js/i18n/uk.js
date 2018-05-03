@@ -272,7 +272,7 @@ $.extend( $.validator.messages, {
 	max: $.validator.format( "Будь ласка, введіть число, менше або рівно {0}." ),
 	min: $.validator.format( "Будь ласка, введіть число, більше або рівно {0}." )
 } );
-
+return $;
 }));
 
 });

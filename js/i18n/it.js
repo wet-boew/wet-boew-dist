@@ -276,7 +276,7 @@ $.extend( $.validator.messages, {
 	cifES: "Inserisci un CIF valido",
 	currency: "Inserisci una valuta valida"
 } );
-
+return $;
 }));
 
 });
