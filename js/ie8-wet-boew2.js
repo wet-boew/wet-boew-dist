@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.29-development - 2018-05-17
+ * v4.0.29-development - 2018-05-23
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -7055,7 +7055,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 
 				// If the parent menu is a menubar
 				if ( $parentMenu.attr( "role" ) === "menubar" ) {
-					$menuLink = $parent.children( "[href=#" + $menu.attr( "id" ) + "]" );
+					$menuLink = $menu.siblings( "a" );
 
 					// Escape key = Close menu and return to menu bar item
 					if ( which === 27 ) {
