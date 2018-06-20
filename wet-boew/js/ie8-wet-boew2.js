@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.29-development - 2018-06-14
+ * v4.0.29-development - 2018-06-20
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -10237,8 +10237,6 @@ var componentName = "wb-tabs",
 			listCounter = listItems.length - 1,
 			isDetails = $panels[ 0 ].nodeName.toLowerCase() === "details",
 			isActive, item, link, panelId, activeFound;
-
-		$panels.attr( "tabindex", "-1" );
 
 		for ( ; tabCounter !== -1; tabCounter -= 1 ) {
 			item = panels[ tabCounter ];
