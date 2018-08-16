@@ -188,7 +188,7 @@
 <p>The following shows a completed example for button elements that toggle open details elements:</p>
 <pre class="linenums"><code>&lt;button type="button" class="wb-toggle" data-toggle='{"selector": "#toggle1", "group": ".grouped", "type": "on"}'&gt;Example 1&lt;/button&gt;
 	&lt;button type="button" class="wb-toggle" data-toggle='{"selector": "#toggle2", "group": ".grouped", "type": "on"}'&gt;Example 2&lt;/button&gt;
-	
+
 	&lt;details id="toggle1" class="grouped"&gt;
 		&lt;!-- content --&gt;
 	&lt;/details&gt;
@@ -211,7 +211,7 @@
 </ol>
 <p>If details elements are used for the accordion sections, the HTML should look like the following once finished:</p>
 <pre class="linenums"><code>&lt;div class="accordion"&gt;
-	
+
 		&lt;!-- Accordion section 1 --&gt;
 		&lt;details class="acc-group"&gt;
 			&lt;summary class="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": ".acc-group"}'&gt;Section 1's heading&lt;/summary&gt;
@@ -219,7 +219,7 @@
 				&lt;!-- Section 1's content --&gt;
 			&lt;/div&gt;
 		&lt;/details&gt;
-	
+
 		&lt;!-- Accordion section 2 --&gt;
 		&lt;details class="acc-group"&gt;
 			&lt;summary class="wb-toggle tgl-tab" data-toggle='{"parent": ".accordion", "group": ".acc-group"}'&gt;Section 2's heading&lt;/summary&gt;
@@ -227,7 +227,7 @@
 				&lt;!-- Section 2's content --&gt;
 			&lt;/div&gt;
 		&lt;/details&gt;
-	
+
 	&lt;/div&gt;</code></pre>
 </section>
 </section>
@@ -431,8 +431,8 @@ Specify a CSS class name without the leading "."
 Causes a toggle element to change the toggle state of the elements it controls. Normally triggered by clicking on the toggle element. When triggering this event manually, the data-toggle attribute must be passed as the second argument:
 <pre><code>// Get a reference to the toggle element and its settings
 	var $toggler = $( ".wb-toggle" );
-		 settings = $toggler.data( "toggle" );
-	
+		settings = $toggler.data( "toggle" );
+
 	// Trigger the toggle event
 	$toggler.trigger( "toggle.wb-toggle", settings );</code></pre>
 </td>
@@ -487,7 +487,8 @@ Causes a toggle element to change the toggle state of the elements it controls. 
 <ul class="list-unstyled">
 <li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
 </ul>
-</section> </nav>
+</section>
+</nav>
 </div>
 </footer>
 <!--[if gte IE 9 | !IE ]><!-->

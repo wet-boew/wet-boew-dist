@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.29-development - 2018-08-15
+ * v4.0.29-development - 2018-08-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -5420,9 +5420,9 @@ var componentName = "wb-feeds",
 
 			// due to CORS we cannot default to simple ajax pulls of the image. We have to inline the content box
 			return "<li><a class='feed-flickr' href='javascript:;' data-flickr='" +
-                wb.escapeAttribute( JSON.stringify( flickrData ) ) + "'><img src='" + flickrData.thumbnail + "' alt='" +
-                wb.escapeAttribute( flickrData.title ) + "' title='" + wb.escapeAttribute( flickrData.title ) +
-                "' class='img-responsive'/></a></li>";
+				wb.escapeAttribute( JSON.stringify( flickrData ) ) + "'><img src='" + flickrData.thumbnail + "' alt='" +
+				wb.escapeAttribute( flickrData.title ) + "' title='" + wb.escapeAttribute( flickrData.title ) +
+				"' class='img-responsive'/></a></li>";
 		},
 
 		/**
@@ -5438,10 +5438,10 @@ var componentName = "wb-feeds",
 
 			// Due to CORS we cannot default to simple ajax pulls of the image. We have to inline the content box
 			return "<li class='col-md-4 col-sm-6 feed-youtube' data-youtube='" +
-                wb.escapeAttribute( JSON.stringify( youtubeDate ) ) + "'><a href='javascript:;'><img src='" +
-                wb.pageUrlParts.protocol + "//img.youtube.com/vi/" + youtubeDate.videoId + "/mqdefault.jpg' alt='" +
-                wb.escapeAttribute( youtubeDate.title ) + "' title='" + wb.escapeAttribute( youtubeDate.title ) +
-                "' class='img-responsive' /></a></li>";
+				wb.escapeAttribute( JSON.stringify( youtubeDate ) ) + "'><a href='javascript:;'><img src='" +
+				wb.pageUrlParts.protocol + "//img.youtube.com/vi/" + youtubeDate.videoId + "/mqdefault.jpg' alt='" +
+				wb.escapeAttribute( youtubeDate.title ) + "' title='" + wb.escapeAttribute( youtubeDate.title ) +
+				"' class='img-responsive' /></a></li>";
 		},
 
 		/**
@@ -5451,7 +5451,7 @@ var componentName = "wb-feeds",
 		 */
 		pinterest: function( data ) {
 			var content = fromCharCode( data.description ).replace( /<a href="\/pin[^"]*"><img ([^>]*)><\/a>([^<]*)(<a .*)?/, "<a href='" +
-                data.link + "'><img alt='' class='center-block' $1><br/>$2</a>$3" );
+				data.link + "'><img alt='' class='center-block' $1><br/>$2</a>$3" );
 			return "<li class='media'>" + content +
 			( data.publishedDate !== "" ? " <small class='small feeds-date'><time>" +
 			wb.date.toDateISO( data.publishedDate, true ) + "</time></small>" : "" ) + "</li>";
@@ -6778,8 +6778,8 @@ var componentName = "wb-lbx",
 					}
 
 					$wrap.append( "<span tabindex='0' class='lbx-end wb-inv'></span>" )
-                        .find( ".activate-open" )
-                        .trigger( "wb-activate" );
+						.find( ".activate-open" )
+						.trigger( "wb-activate" );
 
 					this.contentContainer.attr( "data-pgtitle", document.getElementsByTagName( "H1" )[ 0 ].textContent );
 				},
@@ -10358,7 +10358,7 @@ wb.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @jeresiv
  */
- /*jshint scripturl:true*/
+/*jshint scripturl:true*/
 ( function( $, window, wb ) {
 "use strict";
 
@@ -10536,7 +10536,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 	// Lets reset the search;
 	$datatable.search( "" ).columns().search( "" );
 
-    // Lets loop throug all options
+	// Lets loop throug all options
 	$form.find( "[name]" ).each( function() {
 		var $elm = $( this ),
 			$value = ( $elm.is( "select" ) ) ? $elm.find( "option:selected" ).val() : $elm.val();

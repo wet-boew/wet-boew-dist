@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.29-development - 2018-08-15
+ * v4.0.29-development - 2018-08-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*global mocha */
@@ -4420,9 +4420,9 @@ describe( "Toggle test suite", function() {
 
 describe( "Twitter test suite", function() {
 
-  /*
-   * Test the initialization and default behaviour of the plugin
-   */
+	/*
+	 * Test the initialization and default behaviour of the plugin
+	 */
 	var $elm,
 		$document = wb.doc,
 		$body = $document.find( "body" );

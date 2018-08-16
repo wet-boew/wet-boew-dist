@@ -37,6 +37,7 @@
 		<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
 	</li>
 </ul>
+
 <header role="banner">
 	<div id="wb-bnr">
 		<div id="wb-bar">
@@ -118,7 +119,6 @@
 	<main role="main" property="mainContentOfPage" class="container">
 		<h1 id="wb-cont" property="name">Session Timeout</h1>
 		
-		
 		<ul class="list-inline">
 			<li><a class="btn btn-primary" href="../../docs/ref/session-timeout/session-timeout-en.html">Documentation</a></li>
 			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Session%20Timeout:%20">Questions or comments?</a></li>
@@ -132,7 +132,7 @@
 	<p>This plugin helps web page owners by providing session timeout and inactivity timeout functionality. When a user requests a page with this plugin implemented their session will begin. After the specified session period, they will be notified that their session is about to timeout. At this point, they will have the option to remain logged in by clicking "Continue session", or signing out by clicking "End session now".</p>
 	<p>At any time during the session, if the user remains idle for a specified amount of time, they will be notified that they're session is about to timeout. In either case, if the user does not respond to the timeout notification within a specified amount of time, once they click either "Continue session" or "End session now" they will be automatically redirected to the sign out page.</p>
 	<p>The plugin is setup using the following HTML:</p>
-	
+
 	<pre><code>&lt;span class="wb-sessto" data-wb-sessto='{"inactivity": 1200000, "reactionTime": 30000, "sessionalive": 1200000, "logouturl": "./", "refreshCallbackUrl": "./"}'&gt;&lt;/span&gt;</code></pre>
 
 	<p>This allows you to configure the plugin:</p>
@@ -201,7 +201,8 @@
 					<ul class="list-unstyled">
 						<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
 					</ul>
-				</section>		</nav>
+				</section>
+			</nav>
 		</div>
 	</footer>
 
