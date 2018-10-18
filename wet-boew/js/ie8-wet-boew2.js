@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.30-development - 2018-10-10
+ * v4.0.30-development - 2018-10-18
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9943,6 +9943,7 @@ $document.on( "click", ".wb-tables-filter [type='reset']", function( event ) {
 	$datatable.search( "" ).columns().search( "" ).draw();
 
 	$form.find( "select" ).prop( "selectedIndex", 0 );
+	$form.find( "input[type=date]" ).val( "" );
 
 	return false;
 } );
