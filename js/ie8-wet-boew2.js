@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.30-development - 2019-01-10
+ * v4.0.29.1 - 2019-01-11
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4919,11 +4919,10 @@ var componentName = "wb-feeds",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			fetch, url, $content, limit, feeds, fType, last, i, callback, fElem, fIcon, youtubeData, $elm;
+			fetch, url, $content, limit, feeds, fType, last, i, callback, fElem, fIcon, youtubeData;
 
 		if ( elm ) {
-			$elm = $( elm );
-			$content = $elm.find( ".feeds-cont" );
+			$content = $( elm ).find( ".feeds-cont" );
 			limit = getLimit( elm );
 			feeds = $content.find( feedLinkSelector );
 			last = feeds.length - 1;
@@ -4975,14 +4974,7 @@ var componentName = "wb-feeds",
 					}
 
 				} else {
-
-					// Detect if CORS request
-					if ( $elm.data( "cors" ) === true ) {
-						url = fElem.attr( "href" );
-						fetch.dataType = "xml";
-					} else {
-						url = jsonRequest( fElem.attr( "href" ), limit );
-					}
+					url = jsonRequest( fElem.attr( "href" ), limit );
 					fetch.url = url;
 
 					// Let's bind the template to the Entries
@@ -5010,78 +5002,10 @@ var componentName = "wb-feeds",
 	},
 
 	/**
-	 * Process Feed/JSON Entries for CORS Enabled
-	 * @method corsEntry
-	 */
-	corsEntry = function( xmlDoc, limit ) {
-		var arr_entry = [],
-			corsObj = {},
-			limit = limit,
-			jsonString = JSON.stringify( xmlToJson( xmlDoc ) ),
-			jsonObj = JSON.parse( jsonString ),
-			i, iCache;
-		for ( i = 0; i < limit; i++ ) {
-			iCache = jsonObj.feed.entry[ i ];
-			corsObj = {
-				title: iCache.title[ "#text" ],
-				link: iCache.id[ "#text" ],
-				updated: iCache.updated[ "#text" ]
-			};
-			arr_entry.push( corsObj );
-		}
-		return arr_entry;
-	},
-
-	/**
-	 * Process XML to JSON
-	 * @method xmlToJson
-	 * @param  {xml}
-	 */
-	xmlToJson = function( xml ) {
-
-		var obj = {},
-			i, iCache, nodeName, old,
-			xmlAttributes, xmlChildNodes,
-			xmlNodeType = xml.nodeType;
-
-		if ( xmlNodeType === 1 ) {
-			xmlAttributes = xml.attributes;
-			if ( xmlAttributes.length ) {
-				obj[ "@attributes" ] = {};
-				for ( i = 0; i < xmlAttributes.length; i++ ) {
-					iCache = xmlAttributes.item( i );
-					obj[ "@attributes" ][ iCache.nodeName ] = iCache.nodeValue;
-				}
-			}
-		} else if ( xmlNodeType === 3 ) {
-			obj = xml.nodeValue;
-		}
-
-		if ( xml.hasChildNodes() ) {
-			xmlChildNodes = xml.childNodes;
-			for ( i = 0; i < xmlChildNodes.length; i++ ) {
-				iCache = xmlChildNodes.item( i );
-				nodeName = iCache.nodeName;
-				if ( typeof( obj[ nodeName ] ) === "undefined" ) {
-					obj[ nodeName ] = xmlToJson( iCache );
-				} else {
-					if ( typeof( obj[ nodeName ].push ) === "undefined" ) {
-						old = obj[ nodeName ];
-						obj[ nodeName ] = [];
-						obj[ nodeName ].push( old );
-					}
-					obj[ nodeName ].push( xmlToJson( iCache ) );
-				}
-			}
-		}
-		return obj;
-	},
-
-	/**
 	 * Process Feed/JSON Entries
 	 * @method processEntries
 	 * @param  {data} JSON formatted data to process
-	 * @return {string} of HTML output
+	 * @return {string}	of HTML output
 	 */
 	processEntries = function( data ) {
 		var items = data,
@@ -5224,36 +5148,30 @@ var componentName = "wb-feeds",
 
 $document.on( "ajax-fetched.wb data-ready.wb-feeds", selector + " " + feedLinkSelector, function( event, context ) {
 	var eventTarget = event.target,
-		data, response, $emlRss, limit, results;
+		data, response;
 
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === eventTarget ) {
-		$emlRss = $( eventTarget ).parentsUntil( selector ).parent();
 		switch ( event.type ) {
 		case "ajax-fetched":
 			response = event.fetch.response;
 
-			// if CORS -> transform the xml response into a JSON
-			if ( $emlRss.data( "cors" ) === true ) {
-				limit = $emlRss.attr( "class" ).match( /\blimit-\d+/ );
-				limit = Number( limit[ 0 ].replace( /limit-/i, "" ) );
-				data = corsEntry( response, limit );
+			if ( response.query ) {
+				var results = response.query.results;
 
-			} else {
-				if ( response.query ) {
-					results = response.query.results;
-					if ( results ) {
-						data = results.entry ? results.entry : results.item;
-						if ( !Array.isArray( data ) ) {
-							data = [ data ];
-						}
-					} else {
-						data = [];
+				if ( results ) {
+					data = results.entry ? results.entry : results.item;
+
+					if ( !Array.isArray( data ) ) {
+						data = [ data ];
 					}
 				} else {
-					data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry;
+					data = [];
 				}
+			} else {
+				data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry;
 			}
+
 			break;
 		default:
 			data = event.feedsData;
@@ -6387,19 +6305,23 @@ $document.on( "click vclick", ".mfp-wrap a[href^='#']", function( event ) {
 		$lightbox = $( eventTarget ).closest( ".mfp-wrap" );
 		linkTarget = document.getElementById( eventTarget.getAttribute( "href" ).substring( 1 ) );
 
-		// Ignore same page links to within the overlay
+		// Ignore same page links to within the overlay and modal popups
 		if ( linkTarget && !$.contains( $lightbox[ 0 ], linkTarget ) ) {
+			if ( $lightbox.find( ".popup-modal-dismiss" ).length === 0 ) {
 
-			// Stop propagation of the click event
-			if ( event.stopPropagation ) {
-				event.stopImmediatePropagation();
+				// Stop propagation of the click event
+				if ( event.stopPropagation ) {
+					event.stopImmediatePropagation();
+				} else {
+					event.cancelBubble = true;
+				}
+
+				// Close the overlay and set focus to the same page link
+				$.magnificPopup.close();
+				$( linkTarget ).trigger( setFocusEvent );
 			} else {
-				event.cancelBubble = true;
+				return false;
 			}
-
-			// Close the overlay and set focus to the same page link
-			$.magnificPopup.close();
-			$( linkTarget ).trigger( setFocusEvent );
 		}
 	}
 } );
@@ -6629,11 +6551,7 @@ var componentName = "wb-menu",
 					if ( parent.nodeName.toLowerCase() === "li" ) {
 						linkHtml = parent.innerHTML;
 
-					// Non-list menu items without a section and that contain their own link
-					} else if ( parent.getElementsByTagName( "a" )[ 0 ] === section.getElementsByTagName( "a" )[ 0 ] ) {
-						linkHtml = section.innerHTML;
-
-					// Non-list menu item without a section and whose siblings contain a link
+					// Non-list menu item without a section
 					} else {
 						linkHtml = "<a href='" +
 							parent.getElementsByTagName( "a" )[ 0 ].href + "'>" +
@@ -10026,7 +9944,6 @@ $document.on( "click", ".wb-tables-filter [type='reset']", function( event ) {
 	$datatable.search( "" ).columns().search( "" ).draw();
 
 	$form.find( "select" ).prop( "selectedIndex", 0 );
-	$form.find( "input[type=date]" ).val( "" );
 
 	return false;
 } );
