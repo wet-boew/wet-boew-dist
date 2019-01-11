@@ -118,9 +118,8 @@
 
 	<main role="main" property="mainContentOfPage" class="container">
 		<h1 id="wb-cont" property="name">Fils de syndication</h1>
-		
 		<ul class="list-inline">
-			<li><a class="btn btn-primary" href="../../docs/ref/feeds/feeds-fr.html">Documentation</a></li>
+				<li><a class="btn btn-primary" href="../../docs/ref/feeds/feeds-fr.html">Documentation</a></li>
 			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Fils%20de%20syndication:%20">Questions ou commentaires?</a></li>
 		</ul>
 		
@@ -270,6 +269,28 @@
 		</section>
 	</section>
 
+	<section class="wb-feeds limit-3" data-cors="true">
+		<h3>Affichage du fils de syndication via CORS - Centre des nouvelles du Canada - Manitoba</h3>
+		<p>Cette méthode télécharge le fil de syndication ATOM directement sans dépendre d’un service tierce.</p>
+		<ul class="feeds-cont list-unstyled lst-spcd">
+		<li><a href="demo/manitoba-fr.atom.xml">Nouvelles du Gouvernement du Canada</a></li>
+		</ul>
+		<section>
+			<h4>Code</h4>
+			<details>
+			<summary>View code</summary>
+				<pre><code>&lt;section class="wb-feeds limit-3 data-cors="true"&gt;
+				&lt;h3&gt;Centre des nouvelles du Canada - Manitoba&lt;/h3&gt;
+				&lt;ul class="feeds-cont list-unstyled lst-spcd"&gt;
+				&lt;li&gt;
+					&lt;a href="demo/manitoba-fr.atom.xml"&gt;Nouvelles du Gouvernement du Canada&lt;/a&gt;
+				&lt;/li&gt;
+				&lt;/ul&gt;
+				&lt;/section&gt;</code></pre>
+			</details>
+		</section>
+	</section>
+
 	<section class="wb-feeds limit-3">
 		<h3>Fils de syndication en format JSON</h3>
 		<p>L'utilisation de l'attribut <code>data-ajax</code> permet une lecture du fil de syndication dans un <a href="../../docs/ref/feeds/feeds-en.html#json-atom-like-feed" hreflang="en">format JSON similaire à ATOM XML</a> (en anglais).</p>
@@ -330,7 +351,7 @@
 		</dl>
 	</main>
 
-	<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+	<footer role="contentinfo" id="wb-info"  class="visible-sm visible-md visible-lg wb-navcurr">
 		<div class="container">
 			<nav role="navigation" class="row">
 				<h2>À propos de ce site</h2>
