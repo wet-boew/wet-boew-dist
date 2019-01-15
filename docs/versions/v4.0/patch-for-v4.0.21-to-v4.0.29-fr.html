@@ -1,0 +1,297 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Appliquer le correctif du fil de syndication pour wet-boew et ses thèmes reliés - Historique des versions - Boîte à outils de l'expérience Web
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Ce correctif met à jour le plugiciel du fil de syndication de la BOEW afin de lire un flux JSON avec une structure similaire à ATOM">
+<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.min.css">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+		<link href="../../../theme-wet-boew/assets/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="../../../theme-wet-boew/css/ie8-theme.min.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="../../../wet-boew/js/ie8-wet-boew.min.js"></script>
+		<![endif]-->
+<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.min.css" /></noscript>
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Sélection de la langue</h2>
+<ul class="text-right">
+<li class="curr">Français&#32;<span>(actuel)</span></li>
+<li><a lang="en" hreflang="en" href="patch-for-v4.0.21-to-v4.0.29-en.html">English</a></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Recherche et menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../../index-fr.html">
+<img src="../../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Recherche</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Recherchez le site Web</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Menu des sujets</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../../index-fr.html">Projet de la BOEW</a></li>
+<li><a href="../../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+<li><a href="../../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Vous êtes ici :</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb">
+<li>
+<a href="../../../index-fr.html">Accueil</a>
+</li>
+<li>
+<a href="../../../docs/versions/index-fr.html">Historique des versions</a>
+</li>
+<li>Appliquer le correctif du fil de syndication pour wet-boew et ses thèmes reliés</li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+<h1 id="wb-cont" property="name">Appliquer le correctif du fil de syndication pour wet-boew et ses thèmes reliés</h1>
+<p>Ce correctif met à jour le plugiciel du fil de syndication de la BOEW afin de lire un flux JSON avec une structure similaire à ATOM.</p>
+<p><a href="#instruction">Allez directement au instruction pour appliquer ce correctif.</a></p>
+<p>Après que ce correctif soit appliqué selon les instructions ci-dessous, il est possible que cela brise les implémentation existante avec jsonp car le format par défaut sera changé à JSON. Nous avons estimé qu'il y avait très peu ou d'implémentation inexistante de ce type de flux/fil de syndication. Par ailleur, cette méthode était seulement documenté en fesant de l'ingénierie inverse du code javascript du plugificiel du fil de syndication de la BOEW</p>
+<p>Ceci s'applique à toute les implémentations de WET-BOEW, incluant ses thèmes, entre la version 4.0.21 et 4.0.29. <a href="#wet-boew-version">Consulter la liste complète.</a></p>
+<h2>Ce correctif officialise les versions suivantes:</h2>
+<ul>
+<li>v4.0.29.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.29.1 - Canada.ca (GCWeb)</li>
+<li>v4.0.28.2 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.28.2 - Canada.ca (GCWeb)</li>
+<li>v4.0.27.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.27.1 - Base</li>
+<li>v4.0.27.1 - Canada.ca</li>
+<li>v4.0.27.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.27.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.27.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.26.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.26.1 - Base</li>
+<li>v4.0.26.1 - Canada.ca</li>
+<li>v4.0.26.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.26.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.26.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.25.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.25.1 - Base</li>
+<li>v4.0.25.1 - Canada.ca</li>
+<li>v4.0.25.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.25.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.25.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.24.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.24.1 - Base</li>
+<li>v4.0.24.1 - Canada.ca</li>
+<li>v4.0.24.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.24.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.24.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.23.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.23.1 - Base</li>
+<li>v4.0.23.1 - Canada.ca</li>
+<li>v4.0.23.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.23.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.23.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.22.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.22.1 - Base</li>
+<li>v4.0.22.1 - Canada.ca</li>
+<li>v4.0.22.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.22.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.22.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.21.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.21.1 - Base</li>
+<li>v4.0.21.1 - Canada.ca</li>
+<li>v4.0.21.1 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.21.1 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.21.1 - Plate-forme de gouvernement ouvert (PGO)</li>
+</ul>
+<h2 id="instruction">Instruction du correctif</h2>
+<p>Pour appliquer ce correctif, vous devez mettre à jour les fichiers suivants:</p>
+<ul>
+<li>wet-boew/js/wet-boew.js</li>
+<li>wet-boew/js/wet-boew.min.js</li>
+<li>js/wet-boew.js</li>
+<li>js/wet-boew.min.js</li>
+</ul>
+<p>Notez: Dépendant de votre implémentation, vous aurez peut-être seulement à modifier deux fichier. Pour des raison historique, la compilation de wet-boew est doublé dans deux dossier différent.</p>
+<h3>Étape</h3>
+<ol>
+<li>Télécharger le fichier zip avec les versions de wet-boew corrigé</li>
+<li>Extraire le contenu du zip</li>
+<li>Choisissez la version wet-boew applicable à votre implémentation</li>
+<li>Remplacer les fichiers <code>wet-boew.js</code> et <code>wet-boew.min.js</code></li>
+<li>Modifier votre balisage afin d'utiliser le fil de syndication JSON similaire à ATOM</li>
+</ol>
+<h3>Changement de balisage</h3>
+<p>Afin d'utiliser le fil de syndication JSON similaire à ATOM, vous devriez spécifier un lien (URL) vers la version JSON de ce fil de syndication.</p>
+<ol>
+<li>Ajouter l'attribut= <code>data-ajax</code> au lien de votre fil de syndication</li>
+<li>Définiser la valeur de ce dernier par un lien (URL) où que vous puissier obtenir la version JSON du fil de syndication en format similar à ATOM</li>
+<li>Metter à l'essaie votre page</li>
+</ol>
+<p>Le flux/fil de syndication JSON spécifié par l'attribut <code>data-ajax</code> sera utilisé à la place de l'URL définie par l'attribut <code>href</code>.</p>
+<h4>Le code avant</h4>
+<pre><code>&lt;li&gt;
+	&lt;a href="demo/manitoba-fr.atom.xml"&gt;Centre des nouvelles du Canada - Manitoba&lt;/a&gt;
+&lt;/li&gt;</code></pre>
+<h4>Le code après</h4>
+<pre><code>&lt;li&gt;
+	&lt;a <strong>data-ajax="demo/manitoba-fr.atom.json"</strong> href="demo/manitoba-fr.atom.xml"&gt;Centre des nouvelles du Canada - Manitoba&lt;/a&gt;
+&lt;/li&gt;</code></pre>
+<h3>Comment appliquer le correctif manuellement</h3>
+<ol>
+<li>Modifier le fichier <code>wet-boew.js</code></li>
+<li>Appliquer les changements tel que décris pour le fichier <code>feed.js</code> dans ce <a href="https://github.com/wet-boew/wet-boew/commit/8eb8c25d02cbdfeedb753ed0ce0008802f7bb5f5">commit 8eb8c25d</a></li>
+<li>Compresser le fichier <code>wet-boew.js</code> et remplacer le fichier <code>wet-boew.min.js</code>
+</li><li>Changer le balisage dans vos page pour utiliser une flux JSON structuré similaire à ATOM</li>
+</ol>
+<h2 id="wet-boew-version">Correctif applicable pour les version suivantes:</h2>
+<ul>
+<li>v4.0.29 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.29 - Canada.ca (GCWeb)</li>
+<li>v4.0.28.1 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.28.1 - Canada.ca (GCWeb)</li>
+<li>v4.0.27 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.27 - Base</li>
+<li>v4.0.27 - Canada.ca</li>
+<li>v4.0.27 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.27 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.27 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.26 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.26 - Base</li>
+<li>v4.0.26 - Canada.ca</li>
+<li>v4.0.26 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.26 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.26 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.25 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.25 - Base</li>
+<li>v4.0.25 - Canada.ca</li>
+<li>v4.0.25 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.25 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.25 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.24 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.24 - Base</li>
+<li>v4.0.24 - Canada.ca</li>
+<li>v4.0.24 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.24 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.24 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.23 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.23 - Base</li>
+<li>v4.0.23 - Canada.ca</li>
+<li>v4.0.23 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.23 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.23 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.22 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.22 - Base</li>
+<li>v4.0.22 - Canada.ca</li>
+<li>v4.0.22 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.22 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.22 - Plate-forme de gouvernement ouvert (PGO)</li>
+<li>v4.0.21 - Boîte à outils de l'expérience Web (BOEW)</li>
+<li>v4.0.21 - Base</li>
+<li>v4.0.21 - Canada.ca</li>
+<li>v4.0.21 - Facilité d’emploi Web du gouvernement du Canada</li>
+<li>v4.0.21 - Gouvernement du Canada pour les sites intranet</li>
+<li>v4.0.21 - Plate-forme de gouvernement ouvert (PGO)</li>
+</ul>
+<dl id="wb-dtmd">
+<dt>Date de modification&#160;:&#32;</dt>
+<dd><time property="dateModified">2019-01-15</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>À propos de ce site</h2>
+<section class="col-sm-3">
+<h3>Contactez-nous</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>À propos</h3>
+<ul class="list-unstyled">
+<li><a href="../../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+<li><a rel="external" href="http://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Nouvelles</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Restez branchés</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../../wet-boew/js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+		<script src="../../../wet-boew/js/ie8-wet-boew2.min.js"></script>
+		
+		<![endif]-->
+</body>
+</html>
