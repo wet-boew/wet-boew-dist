@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.30-development - 2019-01-16
+ * v4.0.30-development - 2019-01-18
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -7389,17 +7389,13 @@ var componentName = "wb-menu",
 				panelDOM.className += " wb-overlay modal-content overlay-def wb-panel-r";
 
 				// fix #8241
-				$( document ).ajaxStop( function() {
-					$panel
-					.trigger( "wb-init.wb-overlay" )
-					.find( "summary" )
-						.attr( "tabindex", "-1" )
-						.trigger( detailsInitEvent );
-					$panel
-					.find( ".mb-menu > li:first-child" )
-					.find( ".mb-item" )
-						.attr( "tabindex", "0" );
-				} );
+				if ( $.active > 0 ) {
+					$( document ).ajaxStop( function() {
+						initOverlay( $panel );
+					} );
+				} else {
+					initOverlay( $panel );
+				}
 
 				/*
 				 * Build the regular mega menu
@@ -7467,6 +7463,23 @@ var componentName = "wb-menu",
 				}
 			} );
 		}
+	},
+
+	// fix #8517
+	/**
+	 * @method initOverlay
+	 * @param {jQuery object} $panel Current panel
+	 */
+	initOverlay = function( $panel ) {
+		$panel
+			.trigger( "wb-init.wb-overlay" )
+			.find( "summary" )
+			.attr( "tabindex", "-1" )
+			.trigger( detailsInitEvent );
+		$panel
+			.find( ".mb-menu > li:first-child" )
+			.find( ".mb-item" )
+			.attr( "tabindex", "0" );
 	},
 
 	/**
