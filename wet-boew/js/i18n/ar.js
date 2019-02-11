@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "لا يمكن أن تقدم على شكل ل ",
 	"errs-fnd": " تم العثور على أخطاء.",
 	"err-fnd": " تم العثور على خطأ.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "إخفاء التقويم",

@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "O formulário não pode ser submetido porque ",
 	"errs-fnd": " erros encontrados.",
 	"err-fnd": " erro encontrado.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Ocultar o calendário",

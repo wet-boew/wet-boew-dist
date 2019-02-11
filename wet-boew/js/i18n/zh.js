@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "本表格不能傳送因為",
 	"errs-fnd": "內有錯誤。",
 	"err-fnd": "出現錯誤。",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "隱藏行事曆",

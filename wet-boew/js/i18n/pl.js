@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Nie można było wysłać formularza, ponieważ ",
 	"errs-fnd": " znaleziono błędy",
 	"err-fnd": " znaleziono błąd",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Ukryj kalendarz",

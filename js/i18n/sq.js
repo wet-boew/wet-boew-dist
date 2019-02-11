@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Formulari nuk mund të paraqitet për shkak ",
 	"errs-fnd": " gabime u gjetën.",
 	"err-fnd": " gabim u gjet.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Hide kalendar",

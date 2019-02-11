@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "フォームを送信できませんでした。原因：",
 	"errs-fnd": "複数のエラーが見つかりました。",
 	"err-fnd": "エラーが見つかりました。",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "カレンダーを非表示",

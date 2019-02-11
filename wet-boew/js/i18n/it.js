@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Non è stato possibile inviare il modulo in quanto ",
 	"errs-fnd": " errori sono stati trovati.",
 	"err-fnd": " errore è stato trovato.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Nascondi calendario",

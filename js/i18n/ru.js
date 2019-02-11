@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Формы не могут быть представлены, потому что ",
 	"errs-fnd": " были обнаружены ошибки.",
 	"err-fnd": " была обнаружена ошибка.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Скрыть календарь",

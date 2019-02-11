@@ -26,7 +26,7 @@ wb.i18nDict = {
 	hide: "Che",
 	err: "Lôi",
 	colon: ":",
-	hyphen: " -",
+	hyphen: " - ",
 	"full-stop": ".",
 	"comma-space": ", ",
 	space: "&#32;",
@@ -100,14 +100,14 @@ wb.i18nDict = {
 	"shr-pg": " sẻ trang này",
 	"shr-vid": " sẻ video này",
 	"shr-aud": " tập tin âm thanh này",
-	"shr-hnt": " với {s}",
+	"shr-hnt": " với {s} ",
 	"shr-disc": "Không có chứng thực của bất kỳ sản phẩm hoặc dịch vụ được thể hiện hay ngụ ý.",
 
 	/* Form validation */
-	"frm-nosubmit": "Dạng không thể được nộp bởi vì",
+	"frm-nosubmit": "Dạng không thể được nộp bởi vì ",
 	"errs-fnd": " lỗi đã được tìm thấy.",
 	"err-fnd": " lỗi đã được tìm thấy.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Ẩn lịch",
@@ -146,8 +146,8 @@ wb.i18nDict = {
 	"cal-goToMnth": "Tháng:",
 	"cal-goToYr": "Năm:",
 	"cal-goToBtn": "Đi",
-	prvMnth: "Tháng trước:",
-	nxtMnth: "Tháng sau:",
+	prvMnth: "Tháng trước: ",
+	nxtMnth: "Tháng sau: ",
 
 	/* Lightbox */
 	"lb-curr": "Khoản %curr% của %total%",

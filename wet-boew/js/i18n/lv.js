@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Formu nav iespējams iesniegt, jo ",
 	"errs-fnd": " tika atrastas kļūdas.",
 	"err-fnd": " tika atrasta kļūda.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Slēpt kalendāru",

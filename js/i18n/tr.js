@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Form gönderilemiyor, çünkü ",
 	"errs-fnd": " hatalar bulundu.",
 	"err-fnd": " hata bulundu.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Takvimi gizle",

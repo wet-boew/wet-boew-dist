@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Formulář nelze předloženy, protože ",
 	"errs-fnd": " chyby byly nalezeny.",
 	"err-fnd": " chyba byla nalezena.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Skrýt kalendář",

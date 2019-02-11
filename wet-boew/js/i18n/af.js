@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Die vorm kon nie voorgel꡷ord nie, want ",
 	"errs-fnd": " foute is gevind nie.",
 	"err-fnd": " fout gevind word.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Steek kalender",

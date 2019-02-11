@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Az adatokat nem lehet elküldeni mert ",
 	"errs-fnd": " hibák léptek fel.",
 	"err-fnd": " hiba lépett fel.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "A naptár elrejtése",

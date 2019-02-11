@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "ᑖᓐᓇ ᑎᑎᖅᑲᖅ ᐅᑎᖅᑎᒐᒃᓴᐅᙱᑦᑐᖅ ᐅᓇ ᐱᔾᔪᑕᐅᓪᓗᓂ",
 	"errs-fnd": "ᑕᒻᒪᖅᓯᒪᔪᓂᑦ ᖃᐅᔨᔪᖅ",
 	"err-fnd": "ᑕᒻᒪᖅᓯᒪᔪᒥᑦ ᖃᐅᔨᔪᖅ",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "ᐅᓪᓗᖅᓯᐅᑎ ᓴᖅᑭᔮᕈᓐᓂᖅᑎᓪᓕ",

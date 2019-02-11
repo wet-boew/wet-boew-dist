@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "รูปแบบไม่สามารถส่งเพราะ ",
 	"errs-fnd": " พบข้อผิดพลาด.",
 	"err-fnd": " ข้อผิดพลาดที่พบ.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "ซ่อนปฏิทิน",

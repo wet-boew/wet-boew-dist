@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Форма не подається через те, що",
 	"errs-fnd": "знайдено помилки.",
 	"err-fnd": "знайдено помилку.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Сховати календар",

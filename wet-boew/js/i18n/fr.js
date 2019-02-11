@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Le formulaire n'a pu être soumis car ",
 	"errs-fnd": " erreurs ont été trouvées.",
 	"err-fnd": " erreur a été trouvée.",
-	"err-correct": "(Corriger et resoumettre) ",
+	"err-correct": "(Corriger et resoumettre)",
 
 	/* Date picker */
 	"date-hide": "Masquer le calendrier",

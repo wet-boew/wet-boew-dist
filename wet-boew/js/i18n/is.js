@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Eyðublaðið var ekki hægt að skila því ",
 	"errs-fnd": " villur fundust.",
 	"err-fnd": " villa fannst.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Fela dagatal",

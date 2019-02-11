@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Форма не могат да се подават, тъй като ",
 	"errs-fnd": " бяха открити грешки.",
 	"err-fnd": " грешка е намерен.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Скриване на календара",

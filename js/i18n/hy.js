@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Ձեւը չի կարող ներկայացվել, քանի որ ",
 	"errs-fnd": " սխալներ չեն հայտնաբերվել.",
 	"err-fnd": " սխալ է գտնվել.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Թաքցնել Օրացույց",

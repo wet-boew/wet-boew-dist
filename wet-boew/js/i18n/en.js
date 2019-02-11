@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "The form could not be submitted because ",
 	"errs-fnd": " errors were found.",
 	"err-fnd": " error was found.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Hide calendar",

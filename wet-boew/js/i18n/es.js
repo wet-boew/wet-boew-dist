@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "El formulario no pudo ser enviado debido a ",
 	"errs-fnd": " errores encontrados.",
 	"err-fnd": " error encontrado.",
-	"err-correct": "(corregir y reenviar) ",
+	"err-correct": "(corregir y reenviar)",
 
 	/* Date picker */
 	"date-hide": "Ocultar calendario",

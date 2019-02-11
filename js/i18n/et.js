@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Ankeeti ei saa esitada, kuna",
 	"errs-fnd": "on leitud vigu.",
 	"err-fnd": "on leitud viga.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Peida kalender",

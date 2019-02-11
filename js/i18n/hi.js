@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "फार्म प्रस्तुत नहीं किया जा सका क्योंकि ",
 	"errs-fnd": " त्रुटियों पाया गया.",
 	"err-fnd": " त्रुटि पाया गया था.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "कैलेंडर छिपाएँ",

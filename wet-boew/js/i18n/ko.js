@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "양식을 제출 할 수 없습니다 때문에 ",
 	"errs-fnd": " 오류가 발견되었습니다.",
 	"err-fnd": " 오류가 발견되었습니다.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "캘린더 숨기기",

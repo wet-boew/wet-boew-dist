@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Formos pateikti negalima, nes ",
 	"errs-fnd": " rastos klaidos.",
 	"err-fnd": " rasta klaida.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Slėpti kalendorių",

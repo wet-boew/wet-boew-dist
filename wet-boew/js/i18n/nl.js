@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Het formulier kon niet worden verwerkt omdat ",
 	"errs-fnd": " er zijn fouten opgetreden.",
 	"err-fnd": " er is een fout opgetreden.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Kalender verbergen",

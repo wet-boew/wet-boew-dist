@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Das Formular konnte nicht vorgelegt werden, da ",
 	"errs-fnd": " Fehler gefunden wurden.",
 	"err-fnd": " Fehler festgestellt wurde.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Ausblenden Kalender",

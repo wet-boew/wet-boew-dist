@@ -107,7 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Il modulo non poteva essere presentata in quanto ",
 	"errs-fnd": " error ditemukan.",
 	"err-fnd": " error ditemukan.",
-	"err-correct": "(Correct and resubmit) ",
+	"err-correct": "(Correct and resubmit)",
 
 	/* Date picker */
 	"date-hide": "Sembunyikan kalender",
