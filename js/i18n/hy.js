@@ -1,10 +1,10 @@
 /*
- * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
+* Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
+* wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+*/
 /*
 ----- Armenian dictionary (il8n) ---
- */
+*/
 ( function( wb ) {
 "use strict";
 
@@ -107,6 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "Ձեւը չի կարող ներկայացվել, քանի որ ",
 	"errs-fnd": " սխալներ չեն հայտնաբերվել.",
 	"err-fnd": " սխալ է գտնվել.",
+	"err-correct": "(Correct and resubmit) ",
 
 	/* Date picker */
 	"date-hide": "Թաքցնել Օրացույց",

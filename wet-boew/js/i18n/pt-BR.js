@@ -1,10 +1,10 @@
 /*
- * Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- */
+* Web Experience Toolkit (WET) / Boîte à outils de l"expérience Web (BOEW)
+* wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+*/
 /*
 ----- Portuguese (Brazilian) dictionary (il8n) ---
- */
+*/
 ( function( wb ) {
 "use strict";
 
@@ -107,6 +107,7 @@ wb.i18nDict = {
 	"frm-nosubmit": "O formulário não pode ser submetido porque ",
 	"errs-fnd": " foram encontrados erros.",
 	"err-fnd": " foi encontrado um erro.",
+	"err-correct": "(Correct and resubmit) ",
 
 	/* Date picker */
 	"date-hide": "Ocultar o calendário",

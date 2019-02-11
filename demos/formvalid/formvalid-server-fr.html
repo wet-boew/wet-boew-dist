@@ -1,0 +1,254 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Fusion des erreurs Serveur-Client - Exemples pratiques - Boîte à outils de l'expérience Web
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Ce composant fusionne les erreurs de type serveur et client ensemble.">
+<!--[if gte IE 9 | !IE ]><!-->
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<!--<![endif]-->
+<!--[if lt IE 9]>
+		<link href="../../theme-wet-boew/assets/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="../../theme-wet-boew/css/ie8-theme.min.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="../../wet-boew/js/ie8-wet-boew.min.js"></script>
+		<![endif]-->
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css" /></noscript>
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Sélection de la langue</h2>
+<ul class="text-right">
+<li class="curr">Français&#32;<span>(actuel)</span></li>
+<li><a lang="en" hreflang="en" href="formvalid-server-en.html">English</a></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Recherche et menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-fr.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Recherche</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Recherchez le site Web</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Menu des sujets</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-fr.html">Projet de la BOEW</a></li>
+<li><a href="../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+<li><a href="../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Vous êtes ici :</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb">
+<li>
+<a href="../../index-fr.html">Accueil</a>
+</li>
+<li>
+<a href="../../demos/index-fr.html">Exemples pratiques</a>
+</li>
+<li>Fusion des erreurs Serveur-Client</li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" class="container">
+<h1 id="wb-cont" property="name">Fusion des erreurs Serveur-Client</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/formvalid/formvalid-fr.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Fusion%20des%20erreurs%20Serveur-Client:%20">Questions ou commentaires?</a></li>
+</ul>
+<ul>
+<li><a href="formvalid-fr.html">Validation de formulaires</a></li>
+<li><a href="formvalid-server-fr.html">Fusion des erreurs Serveur-Client</a></li>
+</ul>
+<hr>
+<section>
+<h2>But</h2>
+<p>Ce composant fusionne les erreurs de type serveur et client ensemble.</p>
+</section>
+<section>
+<h2>Exemple</h2>
+<p>Après avoir soumis votre page, le serveur retoune 4 erreurs serveur. Maintenant si vous essayez de resoumettre votre formulaire avec des erreurs clients, ce composant ajoutera ces erreurs aux erreurs serveur déjà existantes.</p>
+<p>Pour tester le composant: Essayez d'effacer un champ ou d'entrer 201 comme âge du bénéficiaire ou de décocher toutes les cases à cocher .</p>
+<h2>
+<span id="lblTitle" property="name">Démo Formulaire Asp.Net Web</span>
+</h2>
+<div class="wb-frmvld">
+<form id="frmMain" action="#" method="get">
+<section tabindex="-1" class="alert alert-danger" id="errors-frmMain">
+<h2>Le formulaire n'a pu être soumis car 4 erreurs ont été trouvées.</h2>
+<ul>
+<li><a href="#MainContent_BeneficiaryName"><span class="prefix">Erreur&nbsp;1&nbsp;: </span>Nom du bénéficiaire - Le nom doit commencer par "Super" - (Corriger et resoumettre) </a></li>
+<li><a href="#MainContent_BeneficiaryAge"><span class="prefix">Erreur&nbsp;2&nbsp;: </span>Âge du bénéficiaire - L'âge doit être entre 64 et 200 pour recevoir des prestations de retraite - (Corriger et resoumettre) </a></li>
+<li><a href="#MainContent_wbCheckBoxList0_checkBoxList0_0"><span class="prefix">Erreur&nbsp;3&nbsp;: </span>Informations de contact - Vous ne pouvez sélectionner plus de 2 cases à cocher - (Corriger et resoumettre) </a></li>
+<li><a href="#MainContent_wbCheckBoxList1_checkBoxList1_2"><span class="prefix">Erreur&nbsp;4&nbsp;: </span>Je suis en accord avec les directives - Ce champs est obligatoire - (Corriger et resoumettre) </a></li>
+</ul>
+</section>
+<section class="panel panel-info">
+<header class="panel-heading">
+<h2 class="panel-title">
+Section 1
+</h2>
+</header>
+<div class="panel-body">
+<div class="form-group">
+<label class="required" for="MainContent_TypeOfPrestation">
+<span class="field-name">Type de prestation</span>
+<strong class="required">(Champ requis)</strong>
+</label>
+<div>
+<select name="ctl00$MainContent$TypeOfPrestation" id="MainContent_TypeOfPrestation" required="required">
+<option value="">Sélectionner une prestation</option>
+<option value="ChildrenHelp">Aide à l'enfance (Âge 1-18) </option>
+<option value="Invalidity">Invalidité (Âge 1-64)</option>
+<option selected="selected" value="Retirement">Retraite (Âge 65-200)</option>
+</select>
+</div>
+</div>
+<fieldset>
+<legend>Bénéficiaire</legend>
+<div class="form-group">
+<label class="required" for="MainContent_BeneficiaryName">
+<span class="field-name">Nom du bénéficiaire</span>
+<strong class="required">(Champ requis)</strong>
+<span class="label label-danger wb-server-error" id="MainContent_BeneficiaryNameCv"><strong><span class="prefix">Erreur&nbsp;1&nbsp;:
+</span>Le nom doit commencer par "Super"</strong></span> </label><input name="ctl00$MainContent$BeneficiaryName" class="form-control valid" id="MainContent_BeneficiaryName" aria-invalid="false" required="required" type="text" maxlength="16" value="Moi">
+</div>
+<div class="form-group">
+<label class="required">
+<span class="field-name">Âge du bénéficiaire</span>
+<strong class="required">(Champ requis)</strong>
+<span class="label label-danger wb-server-error" id="MainContent_BeneficiaryAgeCv"><strong><span class="prefix">Erreur&nbsp;2&nbsp;:
+</span>L'âge doit être entre 64 et 200 pour recevoir des prestations de retraite</strong></span><input name="ctl00$MainContent$BeneficiaryAge" class="form-control css-implicite-input valid" id="MainContent_BeneficiaryAge" aria-invalid="false" required="required" type="number" min="1" max="200" step="1" value="52">
+</label>
+</div>
+</fieldset>
+<fieldset class="legend-brdr-bttm">
+<legend class="required"><span class="field-name">Statut de citoyen</span> <strong class="required">(Champ requis)</strong></legend>
+<div class="radio required"><label for="MainContent_wbRadioButtonList0_radioButtonList0_0"><input name="radioButtonList0" id="MainContent_wbRadioButtonList0_radioButtonList0_0" required="required" type="radio" checked="checked" value="radioButtonList0_0v"><span>&nbsp;&nbsp;Citoyen canadien</span> </label></div>
+<div class="radio"><label for="MainContent_wbRadioButtonList0_radioButtonList0_1"><input name="radioButtonList0" id="MainContent_wbRadioButtonList0_radioButtonList0_1" type="radio" value="radioButtonList0_1v"><span>&nbsp;&nbsp;Résident permanent</span> </label></div>
+<div class="radio"><label for="MainContent_wbRadioButtonList0_radioButtonList0_2"><input name="radioButtonList0" id="MainContent_wbRadioButtonList0_radioButtonList0_2" type="radio" value="radioButtonList0_2v"><span>&nbsp;&nbsp;Permis de travail</span> </label></div>
+</fieldset>
+<fieldset class="legend-brdr-bttm">
+<legend class="required"><span class="field-name">Informations de contact</span> <strong class="required">(Champ requis)</strong>
+<span class="label label-danger wb-server-error" id="MainContent_wbCheckBoxList0Cv"><strong><span class="prefix">Erreur&nbsp;3&nbsp;:
+</span>Vous ne pouvez sélectionner plus de 2 cases à cocher</strong></span>
+</legend>
+<div class="checkbox"><label for="MainContent_wbCheckBoxList0_checkBoxList0_0"><input name="checkBoxList0" class="required_js valid" id="MainContent_wbCheckBoxList0_checkBoxList0_0" aria-invalid="false" required="required" type="checkbox" checked="checked" value="checkBoxList0_0v"><span>&nbsp;&nbsp;<span class="field-name">Contactez-moi par courrier électronique</span></span> </label></div>
+<div class="checkbox"><label for="MainContent_wbCheckBoxList0_checkBoxList0_1"><input name="checkBoxList0" id="MainContent_wbCheckBoxList0_checkBoxList0_1" type="checkbox" checked="checked" value="checkBoxList0_1v"><span>&nbsp;&nbsp;<span class="field-name">Contactez-moi par téléphone</span></span> </label></div>
+<div class="checkbox"><label for="MainContent_wbCheckBoxList0_checkBoxList0_2"><input name="checkBoxList0" id="MainContent_wbCheckBoxList0_checkBoxList0_2" type="checkbox" checked="checked" value="checkBoxList0_2v"><span>&nbsp;&nbsp;<span class="field-name">Contactez-moi par message texte</span></span> </label></div>
+</fieldset>
+<fieldset class="legend-brdr-bttm">
+<legend class="required"><span class="field-name">Signature</span> <strong class="required">(Champ requis)</strong></legend>
+<div class="checkbox"><label for="MainContent_wbCheckBoxList1_checkBoxList1_0"><input name="checkBoxList1" class="required_js valid" id="MainContent_wbCheckBoxList1_checkBoxList1_0" required="required" type="checkbox" checked="checked" value="checkBoxList1_0v"><span>&nbsp;&nbsp;<span class="field-name">Imprimer cette page</span></span> </label></div>
+<div class="checkbox"><label for="MainContent_wbCheckBoxList1_checkBoxList1_1"><input name="checkBoxList1" id="MainContent_wbCheckBoxList1_checkBoxList1_1" type="checkbox" value="checkBoxList1_1v"><span>&nbsp;&nbsp;<span class="field-name">Veuillez m'envoyer de l'information complémentaire</span></span> </label></div>
+<div class="checkbox required"><label for="MainContent_wbCheckBoxList1_checkBoxList1_2"><input name="checkBoxList1" id="MainContent_wbCheckBoxList1_checkBoxList1_2" aria-invalid="false" required="required" type="checkbox" value="checkBoxList1_2v"><span>&nbsp;&nbsp;<span class="field-name">Je suis en accord avec les directives</span><strong class="required"> (Champ requis)</strong></span><span class="label label-danger wb-server-error" id="MainContent_wbCheckBoxList1_checkBoxList1_2Cv"><strong><span class="prefix">Erreur&nbsp;4&nbsp;: </span>Ce champs est obligatoire</strong></span> </label></div>
+</fieldset>
+<ul class="list-inline">
+<li><input name="ctl00$MainContent$btnSubmit" class="btn btn-primary" id="MainContent_btnSubmit" onclick='WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$MainContent$btnSubmit", "", true, "", "", false, false))' type="submit" value="Soumettre"></li>
+</ul>
+</div>
+</section>
+</form>
+</div>
+</section>
+<dl id="wb-dtmd">
+<dt>Date de modification&#160;:&#32;</dt>
+<dd><time property="dateModified">2018-06-28</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>À propos de ce site</h2>
+<section class="col-sm-3">
+<h3>Contactez-nous</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>À propos</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+<li><a rel="external" href="http://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Nouvelles</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Restez branchés</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<!--[if gte IE 9 | !IE ]><!-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+		<script src="../../wet-boew/js/ie8-wet-boew2.min.js"></script>
+		
+		<![endif]-->
+</body>
+</html>

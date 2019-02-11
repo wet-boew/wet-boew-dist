@@ -7503,6 +7503,16 @@ details.alert, details.alert[open] {
   font-size: 100%;
   white-space: normal; }
 
+.wb-server-error {
+  display: block !important;
+  font-size: 100% !important;
+  text-align: left !important;
+  white-space: normal !important; }
+
+.css-implicite-input {
+  font-weight: 400;
+  margin-top: 5px; }
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
