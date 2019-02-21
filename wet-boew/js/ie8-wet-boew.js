@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.31-development - 2019-02-11
+ * v4.0.31-development - 2019-02-21
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -57,8 +57,6 @@ if (!document.createElement('canvas').getContext) {
   // this is used for sub pixel precision
   var Z = 10;
   var Z2 = Z / 2;
-
-  var IE_VERSION = +navigator.userAgent.match(/MSIE ([\d.]+)?/)[1];
 
   /**
    * This funtion is assigned to the <canvas> elements as element.getContext().
