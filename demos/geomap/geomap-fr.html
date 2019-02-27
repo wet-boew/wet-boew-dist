@@ -112,31 +112,43 @@
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=G%C3%A9ocarte:%20">Questions ou commentaires?</a></li>
 </ul>
 <span class="wb-prettify all-pre hide"></span>
-<section>
-<h2>But</h2>
+<div class="row">
+<div class="col-md-6 pull-right col-xs-12">
+<aside class="alert alert-info">
+<h2 class="h3">Avis de mise à jour</h2>
+<p>Depuis BOEW 4.0.31 nous avons mise à jour la géocarte afin d'utiliser OpenLayer 3 donc les flux RSS et ATOM ne sont plus supporté. La configuration pour certaines cartes statiques on été changé et une configuration revisé est utilisé pour supporté les cartes de base XYZ. <a href="geomap-v4.0.30-fr.html">Accéder au example pratique antérieur à v4.0.30</a>.</p>
+</aside>
+</div>
+<div class="col-md-auto">
 <p>Affiche une carte dynamique sur laquelle des informations de sources supplémentaires peuvent être superposées.</p>
-</section>
+<ul>
+<li><a href="#dynamique">Carte dynamique - Exemple</a></li>
+<li><a href="#statique">Carte statique - Exemple</a></li>
+<li><a href="#carte-wms">Carte WMS - Exemple WMS</a></li>
+<li><a href="#esri-rest">Exemple de carte ESRI REST</a></li>
+<li><a href="#osm">Exemple de carte de base OSM</a></li>
+<li><a href="#carte-xyz">Exemple de carte de base XYZ</a></li>
+</ul>
+</div>
+</div>
 <section>
-<h2>Carte dynamique - Exemple</h2>
+<h2 id="dynamique">Carte dynamique - Exemple</h2>
+<p>Depuis BOEW 4.0.31 nous avons mise à jour la géocarte afin d'utiliser OpenLayer 3 donc les flux RSS et ATOM ne sont plus supporté. Plusieurs des services qui ont été utilisé pour cet example n'existe plus et ils ont été enlevé. Veuillez mettre à jour le fichier <code>config-fr.js</code> tel qu'illustré dans l'<a href="./demo/config-fr.min.js">example</a>.</p>
 <!-- GeomapStart -->
-<div id="sample_map" class="wb-geomap position scaleline tab geocoder aoi geolocation" data-wb-geomap='{
+<div id="sample_map" class="wb-geomap position scaleline geocoder aoi aoi-open geolocation" data-wb-geomap='{
 			"layersFile": "demo/config-fr.min.js",
 			"tables": [{
 				"id": "bbox",
-				"tab": false,
 				"zoom": true,
 				"popups": true,
 				"visible": false
 			},{
 				"id": "cities",
 				"zoom": true,
-				"tab": false,
+				"tooltips": true,
+				"tooltipText": "Population de 2011",
 				"popups": true,
 				"popupsInfo": {
-					"id": "citiesPopup",
-					"height": 200,
-					"width": 300,
-					"close": true,
 					"content": "<div style=\"white-space:nowrap;\"><p><strong>Subdivision de recensement: </strong>_Subdivision de recensement<div><a href=\"#\" class=\"button\" role=\"button\" title=\"Zoom à la ville\" aria-label=\"Zoom à la ville\" onclick=\"wb.doc.zoomFeature()\">Zoom à la ville</a></div></div>"
 				},
 				"style": {
@@ -147,11 +159,11 @@
 						"value": [3],
 						"filter": "GREATER_THAN",
 						"init": {
-							"strokeColor": "#0083f5",
-							"fillColor": "#57a8f0",
-							"pointRadius": "6",
-							"fillOpacity": 0.80,
-							"strokeWidth": 1.0
+							"fillColor": "#e74c3c",
+							"pointRadius": 2.6,
+							"fillOpacity": 1.0,
+							"strokeWidth": 8,
+							"strokeColor": [ 231, 76, 60, 0.5 ]
 						}
 					},
 					{
@@ -159,11 +171,11 @@
 						"value": [2, 3],
 						"filter": "BETWEEN",
 						"init": {
-							"strokeColor": "#F90",
-							"fillColor": "#F90",
-							"pointRadius": "8",
-							"fillOpacity": 0.80,
-							"strokeWidth": 1.0
+							"fillColor": "#e74c3c",
+							"pointRadius": 4,
+							"fillOpacity": 1.0,
+							"strokeWidth": 12,
+							"strokeColor": [ 231, 76, 60, 0.5 ]
 						}
 					},
 					{
@@ -171,42 +183,46 @@
 						"value": [1],
 						"filter": "EQUAL_TO",
 						"init": {
-							"strokeColor": "#F00",
-							"fillColor": "#F00",
-							"pointRadius": "10",
-							"fillOpacity": 0.80,
-							"strokeWidth": 1.0
+							"fillColor": "#e74c3c",
+							"pointRadius": 5.3,
+							"fillOpacity": 1.0,
+							"strokeWidth": 16,
+							"strokeColor": [ 231, 76, 60, 0.5 ]
 						}
 					}
 				]}
 			}]
 		}'>
 <div class="row">
-<div class="col-md-9">
+<div class="col-md-9 form-group">
 <!-- Insert Map Start (mandatory) -->
 <div class="wb-geomap-map"></div>
 <!-- Insert Map End -->
 </div>
 <!-- Insert Legend Start (optional) -->
-<section class="wb-geomap-legend col-md-3">
-<h3>Légende</h3>
+<section class="col-md-3 form-group">
+<div class="panel panel-default">
+<header class="panel-heading">
+<h3 class="panel-title">Légende</h3>
+</header>
+<div class="panel-body">
+<div class="wb-geomap-legend"></div>
+</div>
+</div>
 </section>
 <!-- Insert Legend End -->
 </div>
 <!-- Insert Layer Data Start (mandatory) -->
 <div class="row">
-<section class="col-md-12">
-<h3>Exemple - Données extérieure &amp; provenant de fichiers</h3>
-<p>Les données sont créées à partir de fichiers, fils ou d'API web.</p>
-</section>
-</div>
-<div class="row">
 <section>
 <div class="wb-geomap-layers col-md-12">
 <h3>Exemple - Données dans le fichier HTML</h3>
 <p>Les données est créées à partir des tables suivantes. Un attribut <code>data-geometry</code> contient la géometry et un attribut <code>data-type</code> contient le type (wkt ou bbox) ont été ajoutés à chaque ligne.</p>
-<section>
-<h4>Points</h4>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">Points</div>
+</div>
+<div class="panel-body">
 <table id="cities" aria-label="Points" class="table wb-tables">
 <caption>Tableau de géométrie point</caption>
 <thead>
@@ -217,62 +233,65 @@
 </tr>
 </thead>
 <tbody>
-<tr data-geometry="POINT (-79.3847, 43.6476)" data-type="wkt">
+<tr data-geometry="POINT (-79.3847 43.6476)" data-type="wkt">
 <td>1</td>
 <td><a href="http://www.wikipedia.org/wiki/Toronto" title="Toronto">Toronto</a></td>
 <td>2&#160;615&#160;060</td>
 </tr>
-<tr data-geometry="POINT (-73.56123, 45.52927)" data-type="wkt">
+<tr data-geometry="POINT (-73.56123 45.52927)" data-type="wkt">
 <td>2</td>
 <td><a href="http://www.wikipedia.org/wiki/Montreal" title="Montreal">Montreal</a></td>
 <td>1&#160;649&#160;519</td>
 </tr>
-<tr data-geometry="POINT (-114.05879, 51.04668)" data-type="wkt">
+<tr data-geometry="POINT (-114.05879 51.04668)" data-type="wkt">
 <td>3</td>
 <td><a href="http://www.wikipedia.org/wiki/Calgary" title="Calgary">Calgary</a></td>
 <td>1&#160;096&#160;833</td>
 </tr>
-<tr data-geometry="POINT (-75.68937, 45.41072)" data-type="wkt">
+<tr data-geometry="POINT (-75.68937 45.41072)" data-type="wkt">
 <td>4</td>
 <td class="select"><a href="http://www.wikipedia.org/wiki/Ottawa" title="Ottawa">Ottawa</a></td>
 <td>883&#160;391</td>
 </tr>
-<tr data-geometry="POINT (-113.49590, 53.53398)" data-type="wkt">
+<tr data-geometry="POINT (-113.49590 53.53398)" data-type="wkt">
 <td>5</td>
 <td><a href="http://www.wikipedia.org/wiki/Edmonton" title="Edmonton">Edmonton</a></td>
 <td>812&#160;201</td>
 </tr>
-<tr data-geometry="POINT (-79.65, 43.60)" data-type="wkt">
+<tr data-geometry="POINT (-79.65 43.60)" data-type="wkt">
 <td>6</td>
 <td><a href="http://www.wikipedia.org/wiki/Mississauga" title="Mississauga">Mississauga</a></td>
 <td>713&#160;443</td>
 </tr>
-<tr data-geometry="POINT (-97.14352, 49.89375)" data-type="wkt">
+<tr data-geometry="POINT (-97.14352 49.89375)" data-type="wkt">
 <td>7</td>
 <td><a href="http://www.wikipedia.org/wiki/Winnipeg" title="Winnipeg">Winnipeg</a></td>
 <td>663&#160;617</td>
 </tr>
-<tr data-geometry="POINT (-123.10091, 49.26428)" data-type="wkt">
+<tr data-geometry="POINT (-123.10091 49.26428)" data-type="wkt">
 <td>8</td>
 <td><a href="http://www.wikipedia.org/wiki/Vancouver" title="Vancouver">Vancouver</a></td>
 <td>603&#160;502</td>
 </tr>
-<tr data-geometry="POINT (-79.76181, 43.68686)" data-type="wkt">
+<tr data-geometry="POINT (-79.76181 43.68686)" data-type="wkt">
 <td>9</td>
 <td><a href="http://www.wikipedia.org/wiki/Brampton" title="Brampton">Brampton</a></td>
 <td>523&#160;911</td>
 </tr>
-<tr data-geometry="POINT (-79.86788, 43.25717)" data-type="wkt">
+<tr data-geometry="POINT (-79.86788 43.25717)" data-type="wkt">
 <td>10</td>
 <td><a href="http://www.wikipedia.org/wiki/Hamilton,_Ontario" title="Hamilton, Ontario">Hamilton</a></td>
 <td>519&#160;949</td>
 </tr>
 </tbody>
 </table>
-</section>
 </div>
-<section class="col-md-12">
-<h4>Boîtes des délimitations</h4>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">Boîtes des délimitations</div>
+</div>
+<div class="panel-body">
 <table id="bbox" aria-label="Boîtes des délimitations" class="table table-condensed">
 <caption>Tableau des boîtes de délimitations</caption>
 <thead>
@@ -292,7 +311,15 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="row">
+<section class="col-md-12">
+<h3>Exemple - Données extérieure &amp; provenant de fichiers</h3>
+<p>Les données sont créées à partir de fichiers, fils ou d'API web.</p>
 </section>
+</div>
+</div>
 </section>
 </div>
 <!-- Insert Layer Data End-->
@@ -304,7 +331,7 @@
 <summary>Visualiser le code</summary>
 <pre><code>&lt;!-- GeomapStart --&gt;
 &lt;div id=&quot;sample_map&quot;
-	class=&quot;wb-geomap position scaleline tab geocoder aoi geolocation&quot;
+	class=&quot;wb-geomap position scaleline geocoder aoi aoi-open geolocation&quot;
 	data-wb-geomap='{
 		&quot;layersFile&quot;: &quot;demo/config-fr.js&quot;,
 		&quot;tables&quot;: [{
@@ -407,52 +434,52 @@
 							&lt;/tr&gt;
 						&lt;/thead&gt;
 						&lt;tbody&gt;
-							&lt;tr data-geometry=&quot;POINT (-79.3847, 43.6476)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-79.3847 43.6476)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;1&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Toronto&quot; title=&quot;Toronto&quot;&gt;Toronto&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;2615060&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-73.56123, 45.52927)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-73.56123 45.52927)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;2&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Montreal&quot; title=&quot;Montreal&quot;&gt;Montreal&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;1649519&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-114.05879, 51.04668)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-114.05879 51.04668)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;3&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Calgary&quot; title=&quot;Calgary&quot;&gt;Calgary&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;1096833&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-75.68937, 45.41072)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-75.68937 45.41072)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;4&lt;/td&gt;
 								&lt;td class=&quot;select&quot;&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Ottawa&quot; title=&quot;Ottawa&quot;&gt;Ottawa&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;883391&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-113.49590, 53.53398)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-113.49590 53.53398)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;5&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Edmonton&quot; title=&quot;Edmonton&quot;&gt;Edmonton&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;812201&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-79.65, 43.60)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-79.65 43.60)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;6&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Mississauga&quot; title=&quot;Mississauga&quot;&gt;Mississauga&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;713443&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-97.14352, 49.89375)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-97.14352 49.89375)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;7&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Winnipeg&quot; title=&quot;Winnipeg&quot;&gt;Winnipeg&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;663617&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-123.10091, 49.26428)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-123.10091 49.26428)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;8&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Vancouver&quot; title=&quot;Vancouver&quot;&gt;Vancouver&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;603502&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-79.76181, 43.68686)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-79.76181 43.68686)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;9&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Brampton&quot; title=&quot;Brampton&quot;&gt;Brampton&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;523911&lt;/td&gt;
 							&lt;/tr&gt;
-							&lt;tr data-geometry=&quot;POINT (-79.86788, 43.25717)&quot; data-type=&quot;wkt&quot;&gt;
+							&lt;tr data-geometry=&quot;POINT (-79.86788 43.25717)&quot; data-type=&quot;wkt&quot;&gt;
 								&lt;td&gt;10&lt;/td&gt;
 								&lt;td&gt;&lt;a href=&quot;http://www.wikipedia.org/wiki/Hamilton,_Ontario&quot; title=&quot;Hamilton, Ontario&quot;&gt;Hamilton&lt;/a&gt;&lt;/td&gt;
 								&lt;td&gt;519949&lt;/td&gt;
@@ -493,8 +520,9 @@
 </section>
 </section>
 <section>
-<h2>Carte statique - Exemple</h2>
+<h2 id="statique">Carte statique - Exemple</h2>
 <p>Geomap peux être configuré pour créer une carte statique afin de situer un endroit comme un bureau ou une étendue à l'aide d'une "bbox".</p>
+<p>Depuis BOEW 4.0.31 nous avons mise à jour la géocarte afin d'utiliser OpenLayer 3 et le code dans <code>client_functions.js</code> a changé. Veuillez mettre à jour <code>client_functions.js</code> tel qu'illustré dans l'<a href="./demo/client_functions.min.js">example</a>. Les cartes statique qui utilise une configuration très similaire tel que configuré et démontré depuis la version 4.0.30, qui est désuet, devrait continuer de fonctionner. Nous vous recommendons de mettre à jour votre code tel qu'illustré dans l'example suivant.</p>
 <!-- GeomapStart -->
 <div id="location_map" class="wb-geomap static" data-wb-geomap='{
 			"tables": [{
@@ -527,7 +555,7 @@
 </tr>
 </thead>
 <tbody>
-<tr data-geometry="POINT (-75.70535, 45.3995)" data-type="wkt">
+<tr data-geometry="POINT (-75.70535 45.3995)" data-type="wkt">
 <td>615 rue Booth,<br>Ottawa (ON),<br>Canada,<br>K1A 0E8</td>
 </tr>
 </tbody>
@@ -575,7 +603,7 @@
 					&lt;/tr&gt;
 				&lt;/thead&gt;
 				&lt;tbody&gt;
-					&lt;tr data-geometry=&quot;POINT (-75.70535, 45.3995)&quot; data-type=&quot;wkt&quot;&gt;
+					&lt;tr data-geometry=&quot;POINT (-75.70535 45.3995)&quot; data-type=&quot;wkt&quot;&gt;
 						&lt;td&gt;615 rue Booth,&lt;br /&gt;Ottawa (ON),&lt;br /&gt;Canada,&lt;br /&gt;K1A 0E8&lt;/td&gt;
 					&lt;/tr&gt;
 				&lt;/tbody&gt;
@@ -589,7 +617,7 @@
 </section>
 </section>
 <section>
-<h2>Carte WMS - Exemple WMS</h2>
+<h2 id="carte-wms">Carte WMS - Exemple WMS</h2>
 <p>Geomap peut être configuré pour utiliser une carte de base de type WMS. L'item basemap dans le fichier de configuration permet de définir le WMS à utiliser.</p>
 <!-- GeomapStart -->
 <div id="wms_map" class="wb-geomap" data-wb-geomap='{
@@ -633,33 +661,33 @@
 <details class="mrgn-tp-lg">
 <summary>Visualiser le fichier de configuration</summary>
 <pre><code>
-			var wet_boew_geomap = {
-				// OPTIONNEL: Géomap va fournir une carte de base par défaut si aucune carte de base n"est spécifié ici.
-				basemap : {
-					title: &quot;WMS-Toporama&quot;,
-					type: &quot;wms&quot;,
-					url: &quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,
-					version: &quot;1.1.1&quot;,
-					format: &quot;image/jpeg&quot;,
-					layers: &quot;WMS-Toporama&quot;,
-					mapOptions: {
-						maxExtent: &quot;-141, 41, -52, 84&quot;,
-						restrictedExtent: &quot;-141, 41, -52, 84&quot;,
-						maxResolution: &quot;auto&quot;,
-						projection: &quot;EPSG:4269&quot;,
-						units: &quot;m&quot;,
-						displayProjection: &quot;EPSG:4269&quot;,
-						aspectRatio: 0.8
-					}
-				},
-				overlays: []
-			};
+var wet_boew_geomap = {
+	// OPTIONAL: note that Geomap will provide a default basemap if not specified here.
+	basemap : {
+		title: &quot;WMS-Toporama&quot;,
+		type: &quot;wms&quot;,
+		url: &quot;http://wms.ess-ws.nrcan.gc.ca/wms/toporama_en&quot;,
+		version: &quot;1.1.1&quot;,
+		format: &quot;image/jpeg&quot;,
+		layers: &quot;WMS-Toporama&quot;,
+		mapOptions: {
+			maxExtent: &quot;-141, 41, -52, 84&quot;,
+			restrictedExtent: &quot;-141, 41, -52, 84&quot;,
+			maxResolution: &quot;auto&quot;,
+			projection: &quot;EPSG:4269&quot;,
+			units: &quot;m&quot;,
+			displayProjection: &quot;EPSG:4269&quot;,
+			aspectRatio: 0.8
+		}
+	},
+	overlays: []
+};
 		</code></pre>
 </details>
 </section>
 </section>
 <section>
-<h2>Exemple de carte ESRI REST</h2>
+<h2 id="esri-rest">Exemple de carte ESRI REST</h2>
 <p>Geomap peut être configuré pour utiliser une carte de base de type ESRI REST. L'item basemap dans le fichier de configuration permet de définir le service à utiliser.</p>
 <!-- GeomapStart -->
 <div id="esri_map" class="wb-geomap" data-wb-geomap='{
@@ -703,34 +731,33 @@
 <details class="mrgn-tp-lg">
 <summary>Visualiser le fichier de configuration</summary>
 <pre><code>
-			var wet_boew_geomap = {
-				basemap : {
-					title: &quot;Basic Map&quot;,
-					type: &quot;esri&quot;,
-					url: &quot;http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/provinces1c/MapServer/export&quot;,
-					options: { singleTile: false, ratio: 1.0, projection: &quot;EPSG:3978&quot;, fractionalZoom: true },
-					mapOptions: {
-						maxExtent: &quot;-3000000.0, -800000.0, 4000000.0, 3900000.0&quot;,
-						maxResolution: &quot;auto&quot;,
-						projection: &quot;EPSG:3978&quot;,
-						restrictedExtent: &quot;-3000000.0, -800000.0, 4000000.0, 3900000.0&quot;,
-						units: &quot;m&quot;,
-						displayProjection: &quot;EPSG:4269&quot;,
-						numZoomLevels: 2
-					}
-				}
-			};
+var wet_boew_geomap = {
+	basemap : {
+		title: &quot;Basic Map&quot;,
+		type: &quot;esri&quot;,
+		url: &quot;http://geoappext.nrcan.gc.ca/arcgis/rest/services/BaseMaps/provinces1c/MapServer/export&quot;,
+		options: { singleTile: false, ratio: 1.0, projection: &quot;EPSG:3978&quot;, fractionalZoom: true },
+		mapOptions: {
+			maxExtent: &quot;-3000000.0, -800000.0, 4000000.0, 3900000.0&quot;,
+			maxResolution: &quot;auto&quot;,
+			projection: &quot;EPSG:3978&quot;,
+			restrictedExtent: &quot;-3000000.0, -800000.0, 4000000.0, 3900000.0&quot;,
+			units: &quot;m&quot;,
+			displayProjection: &quot;EPSG:4269&quot;,
+			numZoomLevels: 2
+		}
+	}
+};
 		</code></pre>
 </details>
 </section>
 </section>
 <section>
-<h2>Exemple de carte de base OSM</h2>
-<p>Geomap peut être configuré pour utiliser un service de tuiles OSM (ex : MapQuest) comme carte de base. La configuration peut être effectuée dans le paramètre <code>basemap</code> du fichier config.</p>
+<h2 id="osm">Exemple de carte de base OSM</h2>
+<p>Geomap peut être configuré pour utiliser un service de OSM comme carte de base. La configuration peut être effectuée dans le paramètre <code>basemap</code> du fichier config.</p>
 <!-- GeomapStart -->
 <div id="osm_map" class="wb-geomap" data-wb-geomap='{
-			"layersFile": "demo/config-osm-en.min.js",
-			"attribution": { "text":"Les tuiles sont une courtoisies de &lt;a href=\"http://www.mapquest.com/\" target=\"_blank\"&gt;MapQuest&lt;/a&gt;", "href":"" }
+			"layersFile": "demo/config-osm-fr.min.js"
 		}'>
 <div class="row">
 <div class="col-md-4">
@@ -770,21 +797,80 @@
 <details class="mrgn-tp-lg">
 <summary>Visualiser le fichier de configuration</summary>
 <pre><code>
-			var wet_boew_geomap = {
-				title:"MapQuest OSM Map",
-				type:"xyz",
-				url:[
-					"http://otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
-					"http://otile2.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
-					"http://otile3.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
-					"http://otile4.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png"
-				],
-				mapOptions: {
-					projection: "EPSG:900913",
-					center: [ -123,49 ],
-					zoomLevel: 5
-				}
-			};
+var wet_boew_geomap = {
+	title: "OSM Map",
+	type: "osm",
+	mapOptions: {
+		center: [ -52.7222765, 47.5410882 ],
+		zoomLevel: 11
+	}
+};
+		</code></pre>
+</details>
+</section>
+</section>
+<section>
+<h2 id="carte-xyz">Exemple de carte de base XYZ</h2>
+<p>Geomap peut être configuré pour utiliser un service de tuiles XYZ (ex : MapQuest) comme carte de base. La configuration peut être effectuée dans le paramètre <code>basemap</code> du fichier config.</p>
+<p>Avant la BOEW 4.0.31 le service utilisé pour créer cet example n'est plus supporté. Veuillez consulter la configuration revisé ci-dessous.</p>
+<!-- GeomapStart -->
+<div id="xyz_map" class="wb-geomap" data-wb-geomap='{
+			"layersFile": "demo/config-xyz-fr.min.js",
+			"attribution": { "text":"Les tuiles sont une courtoisies de &lt;a href=\"http://www.mapquest.com/\" target=\"_blank\"&gt;MapQuest&lt;/a&gt;", "href":"" }
+		}'>
+<div class="row">
+<div class="col-md-4">
+<!-- Insert Map Start (mandatory) -->
+<div class="wb-geomap-map"></div>
+<!-- Insert Map End -->
+</div>
+<!-- Insert Layer Data Start (mandatory) -->
+<div class="wb-geomap-layers col-md-4"></div>
+<!-- Insert Layer Data End -->
+</div>
+</div>
+<!-- GeomapEnd -->
+<section>
+<h3>Code</h3>
+<details class="mrgn-tp-lg">
+<summary>Visualiser le code</summary>
+<pre><code>&lt;!-- GeomapStart --&gt;
+&lt;div id=&quot;xyz_map&quot;
+	class=&quot;wb-geomap&quot;
+	data-wb-geomap='{
+		&quot;layersFile&quot;: &quot;demo/config-xyz-fr.js&quot;
+	}'&gt;
+	&lt;div class=&quot;row&quot;&gt;
+		&lt;div class=&quot;col-md-4&quot;&gt;
+			&lt;!-- Insert Map Start (mandatory) --&gt;
+			&lt;div class=&quot;wb-geomap-map&quot;&gt;&lt;/div&gt;
+			&lt;!-- Insert Map End --&gt;
+		&lt;/div&gt;
+		&lt;!-- Insert Layer Data Start (mandatory) --&gt;
+		&lt;div class=&quot;wb-geomap-layers col-md-4&quot;&gt;&lt;/div&gt;
+		&lt;!-- Insert Layer Data End --&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- GeomapEnd --&gt;</code></pre>
+</details>
+<details class="mrgn-tp-lg">
+<summary>Visualiser le fichier de configuration</summary>
+<pre><code>
+var wet_boew_geomap = {
+	title: "Tile (XYZ) Source Map",
+	type: "osm",
+	url: [
+		"//otile1.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+		"//otile2.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+		"//otile3.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png",
+		"//otile4.mqcdn.com/tiles/1.0.0/map/${z}/${x}/${y}.png"
+	],
+	mapOptions: {
+		projection: "EPSG:900913",
+		center: [ -123, 49 ],
+		zoomLevel: 5
+	}
+};
 		</code></pre>
 </details>
 </section>
