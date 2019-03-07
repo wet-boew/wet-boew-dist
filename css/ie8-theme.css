@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.31-development - 2019-02-27
+ * v4.0.31-development - 2019-03-07
  *
  */
 @charset "UTF-8";
@@ -8247,6 +8247,9 @@ body.wb-modal .modal-dialog summary {
 
 .mfp-bg {
   opacity: .97; }
+
+.wb-overlay-dlg .overlay-bg {
+  box-shadow: 0 0 1000px 1000px black; }
 
 /*
  *	Overlay parts

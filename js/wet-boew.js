@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.31-development - 2019-02-27
+ * v4.0.31-development - 2019-03-07
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -9268,6 +9268,8 @@ var componentName = "wb-overlay",
 				sourceLinks[ overlayId ] = null;
 			}, 1 );
 		}
+
+		$overlay.trigger( "opened" + selector );
 	},
 
 	closeOverlay = function( overlayId, noFocus, userClosed ) {
@@ -9294,6 +9296,8 @@ var componentName = "wb-overlay",
 
 		// Delete the source link reference
 		delete sourceLinks[ overlayId ];
+
+		$overlay.trigger( "closed" + selector );
 	};
 
 $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
