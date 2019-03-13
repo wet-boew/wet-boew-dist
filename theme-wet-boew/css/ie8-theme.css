@@ -8343,7 +8343,7 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.shr-pg .bitly:before, .shr-pg .blogger:before, .shr-pg .delicious:before, .shr-pg .digg:before, .shr-pg .diigo:before, .shr-pg .facebook:before, .shr-pg .feed:before, .shr-pg .gmail:before, .shr-pg .googleplus:before, .shr-pg .linkedin:before, .shr-pg .myspace:before, .shr-pg .pinterest:before, .shr-pg .reddit:before, .shr-pg .stumbleupon:before, .shr-pg .tumblr:before, .shr-pg .twitter:before, .shr-pg .yahoomail:before {
+.shr-pg .bitly:before, .shr-pg .blogger:before, .shr-pg .digg:before, .shr-pg .diigo:before, .shr-pg .facebook:before, .shr-pg .feed:before, .shr-pg .gmail:before, .shr-pg .linkedin:before, .shr-pg .myspace:before, .shr-pg .pinterest:before, .shr-pg .reddit:before, .shr-pg .tumblr:before, .shr-pg .twitter:before, .shr-pg .yahoomail:before {
   background: url("../../wet-boew/assets/sprites_share.png") no-repeat; }
 
 .shr-pg .bitly:before {
@@ -8352,50 +8352,41 @@ ol.linenums {
 .shr-pg .blogger:before {
   background-position: 0 -32px; }
 
-.shr-pg .delicious:before {
+.shr-pg .digg:before {
   background-position: 0 -64px; }
 
-.shr-pg .digg:before {
+.shr-pg .diigo:before {
   background-position: 0 -96px; }
 
-.shr-pg .diigo:before {
+.shr-pg .facebook:before {
   background-position: 0 -128px; }
 
-.shr-pg .facebook:before {
+.shr-pg .feed:before {
   background-position: 0 -160px; }
 
-.shr-pg .feed:before {
+.shr-pg .gmail:before {
   background-position: 0 -192px; }
 
-.shr-pg .gmail:before {
+.shr-pg .linkedin:before {
   background-position: 0 -224px; }
 
-.shr-pg .googleplus:before {
+.shr-pg .myspace:before {
   background-position: 0 -256px; }
 
-.shr-pg .linkedin:before {
+.shr-pg .pinterest:before {
   background-position: 0 -288px; }
 
-.shr-pg .myspace:before {
+.shr-pg .reddit:before {
   background-position: 0 -320px; }
 
-.shr-pg .pinterest:before {
+.shr-pg .tumblr:before {
   background-position: 0 -352px; }
 
-.shr-pg .reddit:before {
+.shr-pg .twitter:before {
   background-position: 0 -384px; }
 
-.shr-pg .stumbleupon:before {
-  background-position: 0 -416px; }
-
-.shr-pg .tumblr:before {
-  background-position: 0 -448px; }
-
-.shr-pg .twitter:before {
-  background-position: 0 -480px; }
-
 .shr-pg .yahoomail:before {
-  background-position: 0 -512px; }
+  background-position: 0 -416px; }
 
 .shr-opn span {
   padding-right: .2em; }
