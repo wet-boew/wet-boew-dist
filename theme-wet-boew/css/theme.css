@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.31-development - 2019-04-11
+ * v4.0.31-development - 2019-05-08
  *
  */
 @charset "UTF-8";
@@ -8492,51 +8492,6 @@ ol.linenums {
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
-.shr-pg .bitly:before, .shr-pg .blogger:before, .shr-pg .digg:before, .shr-pg .diigo:before, .shr-pg .facebook:before, .shr-pg .feed:before, .shr-pg .gmail:before, .shr-pg .linkedin:before, .shr-pg .myspace:before, .shr-pg .pinterest:before, .shr-pg .reddit:before, .shr-pg .tumblr:before, .shr-pg .twitter:before, .shr-pg .yahoomail:before {
-  background: url("../../wet-boew/assets/sprites_share.png") no-repeat; }
-
-.shr-pg .bitly:before {
-  background-position: 0 0; }
-
-.shr-pg .blogger:before {
-  background-position: 0 -32px; }
-
-.shr-pg .digg:before {
-  background-position: 0 -64px; }
-
-.shr-pg .diigo:before {
-  background-position: 0 -96px; }
-
-.shr-pg .facebook:before {
-  background-position: 0 -128px; }
-
-.shr-pg .feed:before {
-  background-position: 0 -160px; }
-
-.shr-pg .gmail:before {
-  background-position: 0 -192px; }
-
-.shr-pg .linkedin:before {
-  background-position: 0 -224px; }
-
-.shr-pg .myspace:before {
-  background-position: 0 -256px; }
-
-.shr-pg .pinterest:before {
-  background-position: 0 -288px; }
-
-.shr-pg .reddit:before {
-  background-position: 0 -320px; }
-
-.shr-pg .tumblr:before {
-  background-position: 0 -352px; }
-
-.shr-pg .twitter:before {
-  background-position: 0 -384px; }
-
-.shr-pg .yahoomail:before {
-  background-position: 0 -416px; }
-
 .shr-opn span {
   padding-right: .2em; }
 
@@ -8555,6 +8510,90 @@ ol.linenums {
     margin-right: .6em;
     vertical-align: middle;
     width: 32px; }
+
+.shr-pg .bitly:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -32px 0px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .blogger:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -32px -64px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .digg:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: 0px -32px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .diigo:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -32px -32px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .facebook:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -64px 0px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .feed:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -64px -32px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .gmail:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: 0px -64px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .linkedin:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: 0px 0px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .myspace:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -64px -64px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .pinterest:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -96px 0px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .reddit:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -96px -32px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .tumblr:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -96px -64px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .twitter:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: 0px -96px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .yahoomail:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -32px -96px;
+  width: 32px;
+  height: 32px; }
 
 .shr-pg .shr-dscl {
   padding-bottom: 0; }
