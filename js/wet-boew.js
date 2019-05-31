@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.31-development - 2019-05-30
+ * v4.0.31-development - 2019-05-31
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -10469,7 +10469,7 @@ var componentName = "wb-share",
 			},
 			twitter: {
 				name: "Twitter",
-				url: "http://twitter.com/home?status={t}%20{u}"
+				url: "https://twitter.com/intent/tweet?text={t}&url={u}"
 			},
 			yahoomail: {
 				name: "Yahoo! Mail",
