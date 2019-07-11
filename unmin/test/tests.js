@@ -289,8 +289,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2003-03-11" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2004-11-05" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2003-03-11" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2004-11-05" ] }
 			] );
 		} );
 
@@ -320,8 +320,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2003-03-11" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2004-11-05", "2006-09-08" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2003-03-11" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2004-11-05", "2006-09-08" ] }
 			] );
 		} );
 
@@ -343,8 +343,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2203-03-11" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2204-11-05" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2203-03-11" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2204-11-05" ] }
 			] );
 		} );
 
@@ -367,8 +367,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2203-03-11", "2203-04-25" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2204-11-05" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2203-03-11", "2203-04-25" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2204-11-05" ] }
 			] );
 		} );
 
@@ -390,8 +390,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2010-01-30" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2075-07-16" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2010-01-30" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2075-07-16" ] }
 			] );
 		} );
 
@@ -413,8 +413,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2010-01-30", "2040-01-30" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2005-04-16", "2075-07-16" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2010-01-30", "2040-01-30" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2005-04-16", "2075-07-16" ] }
 			] );
 		} );
 
@@ -436,7 +436,7 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ thisYear + "-" + ( thisMonth + 1 ) + "-15" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ thisYear + "-" + ( thisMonth + 1 ) + "-15" ] }
 			] );
 		} );
 
@@ -458,8 +458,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ thisYear + "-" + ( thisMonth + 1 ) + "-15" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2120-09-15" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ thisYear + "-" + ( thisMonth + 1 ) + "-15" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2120-09-15" ] }
 			] );
 		} );
 
@@ -481,8 +481,8 @@ describe( "event calendar test suite", function() {
 
 		before( function( ) {
 			$elm = createEvtCalendar( [
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ thisYear + "-" + ( thisMonth + 1 ) + "-15" ] },
-				{ lnk: "http://www.canada.ca", txt: "Day event", dates: [ "2000-09-15" ] }
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ thisYear + "-" + ( thisMonth + 1 ) + "-15" ] },
+				{ lnk: "https://www.canada.ca", txt: "Day event", dates: [ "2000-09-15" ] }
 			] );
 		} );
 
@@ -1711,7 +1711,7 @@ describe( "Country Content test suite", function() {
 
 			// Stub the $.ajax method to return data.country_code = "CA" on success.
 			// This must be used instead of Sinon's fakeServer because the plugin uses
-			// JSON-P for the request: http://sinonjs.org/docs/#json-p
+			// JSON-P for the request: https://sinonjs.org/docs/#json-p
 			stubs.ajax = sandbox.stub( $, "ajax" ).yieldsTo( "success", { country_code: "CA" } );
 			stubs.load = sandbox.stub( $.prototype, "load" );
 
@@ -3159,7 +3159,7 @@ describe( "Feeds test suite", function() {
 
 			// Create the feed element
 			$elm = $( "<div class='wb-feeds'><ul class='feeds-cont'>" +
-				"<li><a href='http://foobar.com/'></a></li>" +
+				"<li><a href='https://foobar.com/'></a></li>" +
 				"</ul></div>" )
 				.appendTo( $document.find( "body" ) )
 				.trigger( "wb-init.wb-feeds" );
@@ -3193,7 +3193,7 @@ describe( "Feeds test suite", function() {
 
 			// Create the feed element
 			$elm = $( "<div class='wb-feeds limit-2'><ul class='feeds-cont'>" +
-				"<li><a href='http://foobar.com/'></a></li>" +
+				"<li><a href='https://foobar.com/'></a></li>" +
 				"</ul></div>" )
 				.appendTo( $document.find( "body" ) )
 				.trigger( "wb-init.wb-feeds" );
@@ -3220,7 +3220,7 @@ describe( "Feeds test suite", function() {
 
 			// Create the feed element
 			$elm = $( "<div class='wb-feeds'><ul class='feeds-cont'>" +
-				"<li><a href='http://foobar.com/'></a></li>" +
+				"<li><a href='https://foobar.com/'></a></li>" +
 				"<li><a href='http://bazbam.com/'></a></li>" +
 				"</ul></div>" )
 				.appendTo( $document.find( "body" ) )
