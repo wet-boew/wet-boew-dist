@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Předchozí (klávesy šipka vpravo)",
 	first: "První",
 	last: "Poslední",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Vyhledávání a nabídky",
 	email: "Emailová",
 	"menu-close": "Zavřete menu",

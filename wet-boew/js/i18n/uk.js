@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Попередній (клавішею ліва стрілка)",
 	first: "Перший",
 	last: "Oстанній",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Пошук і меню",
 	email: "Електронна пошта",
 	"menu-close": "Закрийте меню",

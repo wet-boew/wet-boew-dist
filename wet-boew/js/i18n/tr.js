@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Bir önceki (sol ok tuşu)",
 	first: "İlk",
 	last: "Son",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Arama ve menüler",
 	email: "E-posta",
 	"menu-close": "Menüyü kapatmak",

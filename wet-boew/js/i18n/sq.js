@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "I mëparshëm (kyç majtë arrow)",
 	first: "I parë",
 	last: "I fundit",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Kërko dhe menutë",
 	email: "Email",
 	"menu-close": "Mbylle menu",

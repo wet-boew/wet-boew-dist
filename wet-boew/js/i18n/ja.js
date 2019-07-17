@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "前へ（左矢印キー）",
 	first: "最初",
 	last: "最後",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "検索とメニュー",
 	email: "メール",
 	"menu-close": "メニューを閉じる",

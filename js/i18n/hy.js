@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Նախորդ (ձախ սլաքների բանալին)",
 	first: "Առաջին",
 	last: "Անցյալ",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Որոնել եւ Ընտրացանկերը",
 	email: "Էլեկտրոնային փոստ",
 	"menu-close": "Փակել մենյուն",

@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Προηγούμενος (αριστερό πλήκτρο βέλους)",
 	first: "Πρώτα",
 	last: "Τελευταίος",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Αναζήτηση και μενού",
 	email: "E-mail",
 	"menu-close": "Κλείστε το μενού",

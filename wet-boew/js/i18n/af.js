@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Vorige (links pyltjie sleutel)",
 	first: "Eerste",
 	last: "Laaste",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Soek en spyskaarte",
 	email: "Stuur 'n e-pos aan",
 	"menu-close": "Maak die menu",

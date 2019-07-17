@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "مفتاح السهم الأيسر - سابق",
 	first: "الأول",
 	last: "آخر",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "البحث والقوائم",
 	email: "البريد الإلكتروني",
 	"menu-close": "إغلاق القائمة",

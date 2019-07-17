@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Lepriekšējais (pa kreisi bulta taustiņu)",
 	first: "Pirmā",
 	last: "Pēdējā",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Meklēšanas un ēdienkartes",
 	email: "e-pasts",
 	"menu-close": "Aizveriet izvēlni",

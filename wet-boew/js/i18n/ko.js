@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "이전 (왼쪽 화살표 키)",
 	first: "처음으로",
 	last: "마지막",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "검색 및 메뉴",
 	email: "이메일",
 	"menu-close": "메뉴를 닫습니다",

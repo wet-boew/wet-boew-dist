@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "上一筆（左箭頭鍵）",
 	first: "第一筆",
 	last: "最後一筆",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "搜索和菜單",
 	email: "電子郵件",
 	"menu-close": "關閉菜單",

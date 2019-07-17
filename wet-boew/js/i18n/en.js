@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Previous (left arrow key)",
 	first: "First",
 	last: "Last",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Search and menus",
 	email: "Email",
 	"menu-close": "Close menu",

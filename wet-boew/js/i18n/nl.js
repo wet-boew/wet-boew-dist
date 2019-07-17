@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Vorige (linkse pijlen-toets)",
 	first: "Eerste",
 	last: "Laatste",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Zoeken en menu's",
 	email: "E-mail",
 	"menu-close": "Sluit het menu",

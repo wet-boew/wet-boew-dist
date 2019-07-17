@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Eelmine (vasakut nooleklahvi)",
 	first: "Esimene",
 	last: "Viimane",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Otsi ja menüüd",
 	email: "E-post",
 	"menu-close": "Sulge menüü",

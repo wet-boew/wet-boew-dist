@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "ก่อน (คีย์ลูกศรซ้าย)",
 	first: "แรก",
 	last: "ล่าสุด",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "ค้นหาและเมนู",
 	email: "อีเมล์",
 	"menu-close": "ปิดเมนู",

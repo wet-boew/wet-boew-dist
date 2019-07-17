@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Sebelumnya (tombol panah kiri)",
 	first: "Pertama",
 	last: "Terakhir",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Cari dari menu",
 	email: "Email",
 	"menu-close": "Tutup menu",

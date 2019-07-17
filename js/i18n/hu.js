@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "Előző (bal nyíl gomb)",
 	first: "Első",
 	last: "Utolsó",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "Keresés és menük",
 	email: "Email",
 	"menu-close": "Zárja be a menüt",

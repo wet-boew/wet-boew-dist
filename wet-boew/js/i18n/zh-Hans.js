@@ -54,7 +54,7 @@ wb.i18nDict = {
 	"prv-l": "上一个（左箭头键）",
 	first: "开始",
 	last: "末",
-	page: "Page",
+	page: "Jump to: Page",
 	"srch-menus": "搜索和菜单",
 	email: "电子邮件",
 	"menu-close": "关闭菜单",
