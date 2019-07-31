@@ -226,7 +226,7 @@ wb.i18nDict = {
 	"wb-disable": "Passer à la version HTML simplifiée",
 	"wb-enable": "Passer à la version standard",
 	"disable-notice-h": "Avis : Version HTML simplifiée",
-	"disable-notice": "Vous naviguez présentement sur la version HTML simplifiée de cette page. Certaines fonctionnalités peuvent être déactivées.",
+	"disable-notice": "Vous naviguez présentement sur la version HTML simplifiée de cette page. Certaines fonctionnalités peuvent être désactivées.",
 
 	/* Dismissable content */
 	"dismiss": "Écarter",
