@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.32-development - 2019-10-18
+ * v4.0.32-development - 2019-10-23
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -4679,9 +4679,7 @@ var componentName = "wb-inview",
 						} );
 					} else {
 						if ( !$dataInView.attr( "data-hasPlayed" ) ) {
-							$dataInView
-								.attr( "aria-hidden", show )
-								.toggleClass( "in", !show );
+							$dataInView.toggleClass( "in", !show );
 							if ( !$dataInView.hasClass( "in-only" ) ) {
 								$dataInView.toggleClass( "out", show );
 							}
