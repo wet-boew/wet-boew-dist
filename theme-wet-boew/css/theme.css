@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.32-development - 2019-11-06
+ * v4.0.32-development - 2019-11-13
  *
  */
 /*
@@ -6291,15 +6291,38 @@ caption {
   font-weight: bold;
   text-align: center; }
 
+/*
+  WET-BOEW
+  @title: Bootstrap 4 suplemental style for WET-BOEW
+ */
+/* Padding */
 .p-0 {
   padding: 0 !important; }
 
 .pl-2 .px-2 {
-  padding-left: .5rem !important; }
+  padding-left: 5px !important; }
+
+.px-2 {
+  padding-right: 5px !important; }
 
 .pt-4,
 .py-4 {
-  padding-top: 1.5rem !important; }
+  padding-top: 30px !important; }
+
+.py-4 {
+  padding-bottom: 30px !important; }
+
+/* Stretched link */
+.stretched-link:after {
+  background-color: rgba(0, 0, 0, 0);
+  bottom: 0;
+  content: "";
+  left: 0;
+  pointer-events: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1; }
 
 /* WET Core */
 /*
@@ -10114,6 +10137,19 @@ details {
  */
   .col-sm-auto {
     width: auto; }
+  /*
+  WET-BOEW
+  @title: Bootstrap 4 suplemental style for WET-BOEW - Small view and over (screen only)
+ */
+  /* Margin */
+  .mb-sm-5 {
+    margin-bottom: 50px !important; }
+  /* Padding */
+  .p-sm-3 {
+    padding: 15px !important; }
+  .px-sm-3 {
+    padding-left: 15px !important;
+    padding-right: 15px !important; }
   /*
   WET-BOEW
   @title: Proximity CSS - Small view and over
