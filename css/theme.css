@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.32 - 2019-11-14
+ * v4.0.33 - 2019-12-05
  *
  */
 /*
@@ -6117,6 +6117,20 @@ input[type=button], input[type=reset], input[type=submit] {
   width: auto; }
 
 /*
+ * Explicit labels for checkbox and radio button inputs
+ *
+ * Allow the use of horizontal explicit labels instead of the default implicit
+ * labelling pattern for checkbox and radio button inputs provided by Bootstrap.
+ */
+.form-inline .label-inline {
+  position: relative;
+  vertical-align: middle; }
+  .form-inline .label-inline label {
+    font-weight: 400;
+    margin-bottom: 0px;
+    padding-left: 2px; }
+
+/*
  *	Fieldset/legend border position
  *
  *	Bootstrap puts the border below the legend which creates a visual
@@ -10137,6 +10151,11 @@ details {
  */
   .col-sm-auto {
     width: auto; }
+  .form-inline .label-inline {
+    display: inline-block;
+    padding-right: 10px; }
+    .form-inline .label-inline:last-child {
+      padding-right: 0; }
   /*
   WET-BOEW
   @title: Bootstrap 4 suplemental style for WET-BOEW - Small view and over (screen only)
