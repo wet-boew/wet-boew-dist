@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.33 - 2019-12-05
+ * v4.0.33 - 2019-12-12
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9812,10 +9812,6 @@ var componentName = "wb-share",
 			blogger: {
 				name: "Blogger",
 				url: "https://www.blogger.com/blog_this.pyra?t=&amp;u={u}&amp;n={t}"
-			},
-			digg: {
-				name: "Digg",
-				url: "http://digg.com/submit?phase=2&amp;url={u}&amp;title={t}"
 			},
 			diigo: {
 				name: "Diigo",
