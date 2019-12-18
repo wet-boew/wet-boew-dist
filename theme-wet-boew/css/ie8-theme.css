@@ -8413,7 +8413,7 @@ ol.linenums {
 
 .shr-pg .blogger:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px -64px;
+  background-position: -64px -64px;
   width: 32px;
   height: 32px; }
 
@@ -8449,13 +8449,13 @@ ol.linenums {
 
 .shr-pg .linkedin:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: 0px 0px;
+  background-position: -32px -64px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .myspace:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -64px -64px;
+  background-position: 0px 0px;
   width: 32px;
   height: 32px; }
 
@@ -8489,9 +8489,15 @@ ol.linenums {
   width: 32px;
   height: 32px; }
 
-.shr-pg .yahoomail:before {
+.shr-pg .whatsapp:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
   background-position: -64px -96px;
+  width: 32px;
+  height: 32px; }
+
+.shr-pg .yahoomail:before {
+  background-image: url(../../wet-boew/assets/sprites_share.png);
+  background-position: -96px -96px;
   width: 32px;
   height: 32px; }
 
