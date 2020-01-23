@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.33 - 2020-01-09
+ * v4.0.33 - 2020-01-23
  *
  */
 /*
@@ -8567,43 +8567,37 @@ ol.linenums {
 
 .shr-pg .blogger:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -64px -64px;
-  width: 32px;
-  height: 32px; }
-
-.shr-pg .digg:before {
-  background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: 0px -32px;
+  background-position: -32px -64px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .diigo:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px -32px;
+  background-position: 0px -32px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .facebook:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -64px 0px;
+  background-position: -32px -32px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .feed:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -64px -32px;
+  background-position: -64px 0px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .gmail:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: 0px -64px;
+  background-position: -64px -32px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .linkedin:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px -64px;
+  background-position: 0px -64px;
   width: 32px;
   height: 32px; }
 
@@ -8615,43 +8609,43 @@ ol.linenums {
 
 .shr-pg .pinterest:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -96px 0px;
+  background-position: -64px -64px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .reddit:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -96px -32px;
+  background-position: -96px 0px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .tinyurl:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -96px -64px;
+  background-position: -96px -32px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .tumblr:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: 0px -96px;
+  background-position: -96px -64px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .twitter:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px -96px;
+  background-position: 0px -96px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .whatsapp:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -64px -96px;
+  background-position: -32px -96px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .yahoomail:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -96px -96px;
+  background-position: -64px -96px;
   width: 32px;
   height: 32px; }
 
@@ -10861,6 +10855,10 @@ main {
   .wb-sl:focus {
     color: #fff;
     text-decoration: none; }
+
+/* Provisional Features */
+.provisional.bg-cover, .provisional .bg-cover {
+  background-size: cover; }
 
 /*
  Views
