@@ -7289,6 +7289,9 @@ details.alert, details.alert[open] {
 .wb-fltr-out {
   display: none !important; }
 
+.wb-filter .input-group {
+  max-width: 100%; }
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -10023,7 +10026,9 @@ details {
   .pstn-bttm-sm {
     position: absolute;
     bottom: 0;
-    top: auto; } }
+    top: auto; }
+  .wb-filter .input-group {
+    max-width: 80%; } }
 
 /* Medium view and over */
 @media screen and (min-width: 992px) {
@@ -10149,7 +10154,9 @@ details {
   .pstn-bttm-lg {
     position: absolute;
     bottom: 0;
-    top: auto; } }
+    top: auto; }
+  .wb-filter .input-group {
+    max-width: 60%; } }
 
 /* Extra-extra-small view */
 @media screen and (max-width: 479px) {
