@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.33 - 2020-02-20
+ * v4.0.33 - 2020-03-06
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -5776,7 +5776,7 @@ var componentName = "wb-fnote",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			$elm, footnoteDd, footnoteDt, i, len, dd, dt, dtId;
+			$elm, footnoteDd, footnoteDt, i, len, dd, dt;
 
 		if ( elm ) {
 			$elm = $( elm );
@@ -5788,10 +5788,8 @@ var componentName = "wb-fnote",
 			for ( i = 0; i !== len; i += 1 ) {
 				dd = footnoteDd[ i ];
 				dt = footnoteDt[ i ];
-				dtId = dd.id + "-dt";
 				dd.setAttribute( "tabindex", "-1" );
-				dd.setAttribute( "aria-labelledby", dtId );
-				dt.id = dtId;
+				dt.id = dd.id + "-dt";
 			}
 
 			// Remove "first/premier/etc"-style text from certain footnote return links (via the child spans that hold those bits of text)
