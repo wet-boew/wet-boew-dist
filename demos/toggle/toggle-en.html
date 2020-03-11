@@ -112,6 +112,7 @@
 <li><a class="btn btn-primary" href="../../docs/ref/toggle/toggle-en.html">Documentation</a></li>
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Toggle:%20">Questions or comments?</a></li>
 </ul>
+<span class="wb-prettify all-pre linenums"></span>
 <section>
 <h2>Purpose</h2>
 <p>Create an element that toggles elements between on and off states.</p>
@@ -202,9 +203,9 @@ Sets the initial state of a toggle element. Supports the following values:
 </tbody>
 </table>
 <p>For example, the following element will always toggle on elements with the <code>.foo</code> CSS class that are contained in a parent with the <code>.bar</code> CSS class. In addition, the elements it controls will be toggled on when the page is printed.</p>
-<pre class="lang-css"><code>&lt;button type="button" class="wb-toggle" data-toggle='{"type": "on", "selector": ".foo", "parent": ".bar", "print": "on"}'&gt;Turn on&lt;/button&gt;</code></pre>
+<pre><code>&lt;button type="button" class="wb-toggle" data-toggle='{"type": "on", "selector": ".foo", "parent": ".bar", "print": "on"}'&gt;Turn on&lt;/button&gt;</code></pre>
 </section>
-<section class="wb-prettify all-pre linenums">
+<section>
 <h2 id="simple">Simple Example</h2>
 <p>This simple example shows:</p>
 <ul>
@@ -533,7 +534,7 @@ Sets the initial state of a toggle element. Supports the following values:
 </li>
 </ul>
 <p>If you're using details elements for the accordion sections, the HTML should look like the following once you're finished:</p>
-<pre class="lang-html"><code>&lt;div class="accordion"&gt;
+<pre><code>&lt;div class="accordion"&gt;
 
 	&lt;!-- Accordion section 1 --&gt;
 	&lt;details class="acc-group"&gt;
@@ -590,7 +591,7 @@ Sets the initial state of a toggle element. Supports the following values:
 </div>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2015-04-22</time></dd>
+<dd><time property="dateModified">2020-03-10</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
