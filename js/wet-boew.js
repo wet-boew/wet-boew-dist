@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.33 - 2020-03-06
+ * v4.0.33 - 2020-03-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -7264,7 +7264,10 @@ $document.on( "click vclick", ".mfp-wrap a[href^='#']", function( event ) {
 
 // Event handler for closing a modal popup
 $( document ).on( "click", ".popup-modal-dismiss", function( event ) {
-	event.preventDefault();
+	if ( !this.hasAttribute( "target" ) ) {
+		event.preventDefault();
+	}
+
 	$.magnificPopup.close();
 } );
 
