@@ -77,6 +77,62 @@ wb.download = function( blob, filename, title ) {
 
 };
 
+/* ---------------------------------
+@extension: shuffleDOM
+@returns: [list] shuffles a list of items randomly
+-------------------------------- */
+wb.shuffleDOM = function( $elm ) {
+	var allElems = $elm.get(),
+		shuffled = $.map( allElems, function() {
+			var random = Math.floor( Math.random() * allElems.length ),
+				randEl = $( allElems[ random ] ).clone( true )[ 0 ];
+			allElems.splice( random, 1 );
+			return randEl;
+		} ),
+		elm_len = $elm.length,
+		i;
+
+	for ( i = 0; i < elm_len; i++ ) {
+		$( $elm[ i ] ).replaceWith( $( shuffled[ i ] ) );
+	}
+
+	return $( shuffled );
+};
+
+/* ---------------------------------
+@extension: pickElements
+@returns: [collection] of randoms elements
+-------------------------------- */
+wb.pickElements = function( $elm, numOfElm ) {
+	var nbElm = $elm.size(),
+		elmCopies,
+		i, swap;
+
+	numOfElm = numOfElm || 1;
+
+	// Special cases
+	if ( numOfElm > nbElm ) {
+		return $elm.pushStack( $elm );
+	} else if ( numOfElm === 1 ) {
+		return $elm.filter( ":eq(" + Math.floor( Math.random() * nbElm ) + ")" );
+	}
+
+	// Create a randomized copy of the set of elements,
+	// using Fisher-Yates sorting
+	elmCopies = $elm.get();
+
+	for ( i = 0; i < nbElm - 1; i++ ) {
+		swap = Math.floor( Math.random() * ( nbElm - i ) ) + i;
+		elmCopies[ swap ] = elmCopies.splice( i, 1, elmCopies[ swap ] )[ 0 ];
+	}
+	elmCopies = elmCopies.slice( 0, numOfElm );
+
+	// Finally, filter jQuery stack
+	return $elm.filter( function( idx ) {
+		return $.inArray( $elm.get( idx ), elmCopies ) > -1;
+	} );
+};
+
 } )( jQuery, wb );
 
 ( function( wb ) {
@@ -12501,6 +12557,62 @@ $document.on( clickEvents, linkSelector, function( event ) {
 } );
 
 } )( jQuery, wb );
+
+/**
+ * @title WET-BOEW Randomize
+ * @overview This plugin randomly picks one of the child component to be shown on the browser.
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @masterbee @namjohn920
+ */
+( function( $, window, wb ) {
+"use strict";
+
+var $document = wb.doc,
+	componentName = "wb-randomize",
+	selector = ".provisional[data-wb-randomize]",
+	initEvent = "wb-init" + selector,
+	defaults = {},
+
+	init = function( event ) {
+		var elm = wb.init( event, componentName, selector ),
+			$elm, settings, $selectedElm;
+
+		if ( elm ) {
+			$elm = $( elm );
+			settings = $.extend(
+				true,
+				{},
+				defaults,
+				window[ componentName ],
+				wb.getData( $elm, componentName )
+			);
+
+			$selectedElm = settings.selector ? $( settings.selector, $elm ) : $elm.children();
+
+			if ( !$selectedElm.length ) {
+				throw componentName + " selector setting is invalid or no children";
+			}
+
+			if ( settings.shuffle ) {
+				$selectedElm = wb.shuffleDOM( $selectedElm );
+			}
+
+			if ( settings.toggle ) {
+				$selectedElm = wb.pickElements( $selectedElm, settings.number );
+				$selectedElm.toggleClass( settings.toggle );
+			}
+
+			wb.ready( $elm, componentName );
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb " + initEvent, selector, init );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( jQuery, window, wb );
 
 /**
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
