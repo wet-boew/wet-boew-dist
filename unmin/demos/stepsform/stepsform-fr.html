@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="fr" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Formulaire à étapes
+		 - Exemples pratiques
+ - Boîte à outils de l'expérience Web
+</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="description" content="Converti automatiquement un formulaire en étapes." />
+		<!--[if gte IE 9 | !IE ]><!-->
+		<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
+		<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.css" />
+		<!--<![endif]-->
+		
+		<!--[if lt IE 9]>
+		<link href="../../../theme-wet-boew/assets/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="../../../theme-wet-boew/css/ie8-theme.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+		<script src="../../../wet-boew/js/ie8-wet-boew.js"></script>
+		<![endif]-->
+		
+		<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.css" /></noscript>
+	</head>
+	<body vocab="http://schema.org/" typeof="WebPage">
+		
+<nav>
+	<ul id="wb-tphp">
+		<li class="wb-slc">
+			<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+		</li>
+		<li class="wb-slc visible-sm visible-md visible-lg">
+			<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+		</li>
+	</ul>
+</nav>
+
+<header role="banner">
+	<div id="wb-bnr">
+		<div id="wb-bar">
+			<div class="container">
+				<div class="row">
+						<section id="wb-lng" class="visible-md visible-lg">
+							<h2>Sélection de la langue</h2>
+							<ul class="text-right">
+								<li class="curr">Français&#32;<span>(actuel)</span></li>
+								<li><a lang="en" hreflang="en" href="stepsform-en.html">English</a></li>
+							</ul>
+						</section>
+	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+		<h2>Recherche et menus</h2>
+		<ul class="pnl-btn list-inline text-right">
+			<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+		</ul>
+		<div id="mb-pnl"></div>
+	</section>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div id="wb-sttl" class="col-md-8">
+					<a href="../../index-fr.html">
+						<img src="../../../theme-wet-boew/assets/logo.svg" alt="" />
+						<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+					</a>
+				</div>
+	<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+		<h2>Recherche</h2>
+		<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+	
+			<div class="form-group">
+				<label for="wb-srch-q">Recherchez le site Web</label>
+				<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+				<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+			</div>
+	
+			<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+	
+		</form>
+	</section>
+			</div>
+		</div>
+	</div>
+	<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+		<div class="container nvbar">
+			<h2>Menu des sujets</h2>
+			<div class="row">
+				<ul class="list-inline menu">
+						<li><a href="../../index-fr.html">Projet de la BOEW</a></li>
+						<li><a href="../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+						<li><a href="../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<nav role="navigation" id="wb-bc" property="breadcrumb">
+		<h2>Vous êtes ici :</h2>
+		<div class="container">
+			<div class="row">
+				<ol class="breadcrumb">
+					<li>
+						<a href="../../index-fr.html">Accueil</a>
+					</li>
+					<li>
+						<a href="../../demos/index-fr.html">Exemples pratiques</a>
+					</li>
+					<li>Formulaire à étapes</li>
+				</ol>
+			</div>
+		</div>
+	</nav>
+</header>
+
+	<main role="main" property="mainContentOfPage" class="container">
+		<h1 id="wb-cont" property="name">Formulaire à étapes</h1>
+		<ul class="list-inline">
+				<li><a class="btn btn-primary" href="../../docs/ref/stepsform/stepsform-fr.html">Documentation</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Formulaire%20%C3%A0%20%C3%A9tapes:%20">Questions ou commentaires?</a></li>
+		</ul>
+		
+
+<div lang="en" class="alert alert-warning">
+	<h2>Unstable feature</h2>
+	<p>To be used at <strong>your own risk</strong>. This feature described below can be removed in any subsequent minor/major release</p>
+	<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html">Learn more about the design decision around provisional features.</a></small></p>
+	<p><small><a href="/docs/ref/provisional-fr.html">Check other provisional features available.</a></small></p>
+</div>
+
+<section>
+	<h2>But</h2>
+	<p>Offre la possibilité de diviser un formulaire en différentes étapes (sans ou avec validation de formulaire).</p>
+</section>
+
+<section>
+	<h2>Exemple pratique</h2>
+
+	<div class="wb-frmvld provisional wb-steps">
+		<form action="#" method="get" id="steps-example">
+			<fieldset id="client">
+				<legend>Informations du client</legend>
+				<div>
+					<div class="form-group">
+						<label for="firstname" class="required"><span class="field-name">Prénom</span></label>
+						<input class="form-control" id="firstname" name="firstname" type="text" data-rule-minlength="2" required="required" />
+					</div>
+					<div class="form-group">
+						<label for="lastname" class="required"><span class="field-name">Nom de famille</span></label>
+						<input class="form-control" id="lastname" name="lastname" type="text" data-rule-minlength="2" required="required" />
+					</div>
+					<div class="form-group">
+						<label for="dateOfBirth" class="required"><span class="field-name">Date de naissance</span></label>
+						<input class="form-control" id="dateOfBirth" name="dateOfBirth" type="date" required="required" />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset id="contact">
+				<legend>Informations de contact</legend>
+				<div>
+					<div class="form-group">
+						<label for="preferredNumber" class="required">Principal&nbsp;: <span class="field-name">Numéro de téléphone</span></label>
+						<input class="form-control" id="preferredNumber" name="preferredNumber" type="tel" data-rule-phoneUS="true" required="required" />
+					</div>
+					<div class="form-group">
+						<label for="secondaryNumber">Secondaire&nbsp;: <span class="field-name">Numéro de téléphone</span></label>
+						<input class="form-control" id="secondaryNumber" name="secondaryNumber" type="tel" data-rule-phoneUS="true" />
+					</div>
+					<div class="form-group">
+						<label for="email"><span class="field-name">Adresse courriel</span> (test@domaine)</label>
+						<input class="form-control" id="email" name="email" type="email" />
+					</div>
+				</div>
+			</fieldset>
+			<fieldset id="questionaire">
+				<legend>Questionnaire éthique</legend>
+				<div>
+					<small>Pour chacun des exemples suivants, indiquez si vous sentez qu'il s'agit d'un cas de problème éthique ou pas.</small>
+					<fieldset class="subfields">
+						<legend><span class="field-name">Exemple 1</span>: Vous payez 10,00&nbsp;$ pour un achat, mais vous recevez de la monnaie comme s'il s'agissait de 20,00&nbsp;$. Garderiez vous la monnaie en surplus?</legend>
+						<div class="radio">
+							<label for="defNot-1"><input type="radio" name="ethics1" value="defNot-1" id="defNot-1"/>&#160;Absolument pas</label>&#160;
+							<label for="probNot-1"><input type="radio" name="ethics1" value="probNot-1" id="probNot-1"/>&#160;Probablement pas</label>&#160;
+							<label for="maybe-1"><input type="radio" name="ethics1" value="maybe-1" id="maybe-1"/>&#160;Peut-être (Incertain)</label>&#160;
+							<label for="probably-1"><input type="radio" name="ethics1" value="probably-1" id="probably-1"/>&#160;Probablement</label>&#160;
+							<label for="definitely-1"><input type="radio" name="ethics1" value="definitely-1" id="definitely-1"/>&#160;Définitivement</label>
+						</div>
+					</fieldset>
+					<fieldset class="subfields">
+						<legend><span class="field-name">Exemple 2</span>: Vous avez besoin d'un logiciel, mais vous ne pouvez pas attendre que la gestion prenne cette décision. Le téléchargeriez-vous sans avoir de licence?</legend>
+						<div class="radio">
+							<label for="defNot-2"><input type="radio" name="ethics2" value="defNot-2" id="defNot-2"/>&#160;Absolument pas</label>&#160;
+							<label for="probNot-2"><input type="radio" name="ethics2" value="probNot-2" id="probNot-2"/>&#160;Probablement pas</label>&#160;
+							<label for="maybe-2"><input type="radio" name="ethics2" value="maybe-2" id="maybe-2"/>&#160;Peut-être (Incertain)</label>&#160;
+							<label for="probably-2"><input type="radio" name="ethics2" value="probably-2" id="probably-2"/>&#160;Probablement</label>&#160;
+							<label for="definitely-2"><input type="radio" name="ethics2" value="definitely-2" id="definitely-2"/>&#160;Définitivement</label>
+						</div>
+					</fieldset>
+				</div>
+			</fieldset>
+			<input type="submit" name="submit" value="Soumettre" class="btn btn-primary" />
+		</form>
+	</div>
+
+	<details class="mrgn-tp-md mrgn-bttm-md">
+		<summary>Visualiser le code</summary>
+		<ol>
+			<li>Créer un élément <code>&lt;div&gt;</code> avec la classe <code>wb-steps</code> (vous pouvez aussi ajouter la classe <code>wb-frmvld</code> pour intégrer la validation).
+				<pre><code>&lt;div class=&quot;wb-frmvld wb-steps&quot;&gt;&lt;/div&gt;</code></pre>
+			</li>
+			<li>À l'intérieur de cet élément <code>&lt;div&gt;</code>, ajouter un élément <code>&lt;form&gt;</code>.
+				<pre><code>&lt;form action="#" method="get" id="steps-example"&gt;&lt;/form&gt;</code></pre>
+			</li>
+			<li>À l'intérieur de cet élément <code>&lt;form&gt;</code>, ajouter un élément <code>&lt;fieldset&gt;</code> qui aura besoin d'une légende <code>&lt;legend&gt;</code> et d'un conteneur <code>&lt;div&gt;</code>.
+				<small>Ces éléments <code>&lt;fieldset&gt;</code> deviendront les étapes du formulaire</small>
+				<pre><code>&lt;fieldset&gt;<br/>&lt;legend&gt;Informations du client&lt;/legend&gt;<br/>&lt;div&gt;(Tout contenu situé à l'intérieur du div sera caché.)&lt;/div&gt;<br/>&lt;/fieldset&gt;</code></pre>
+			</li>
+		</ol>
+	</details>
+
+	<noscript>
+		<p>Les formulaires à étapes ne devraient pas être utilisés sans JavaScript. Dans ce cas, les formulaires seront convertis en formulaires statiques et seront dépendant de la validation côté client et serveur (qui ne font pas parties de la WET-BOEW).</p>
+	</noscript>
+</section>
+
+		<dl id="wb-dtmd">
+			<dt>Date de modification&#160;:&#32;</dt>
+			<dd><time property="dateModified">2019-04-04</time></dd>
+		</dl>
+	</main>
+
+	<footer role="contentinfo" id="wb-info"  class="visible-sm visible-md visible-lg wb-navcurr">
+		<div class="container">
+			<nav role="navigation" class="row">
+				<h2>À propos de ce site</h2>
+				<section class="col-sm-3">
+					<h3>Contactez-nous</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>À propos</h3>
+					<ul class="list-unstyled">
+						<li><a href="../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+						<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>Nouvelles</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+						<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>Restez branchés</h3>
+					<ul class="list-unstyled">
+						<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</footer>
+
+		<!--[if gte IE 9 | !IE ]><!-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+		<script src="../../../wet-boew/js/wet-boew.js"></script>
+		<!--<![endif]-->
+		
+		<!--[if lt IE 9]>
+		<script src="../../../wet-boew/js/ie8-wet-boew2.js"></script>
+		
+		<![endif]-->
+	</body>
+</html>
