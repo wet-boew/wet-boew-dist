@@ -7,13 +7,12 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Formulaire à étapes
-					 - Plugiciels
-				 - Documentation
+		<title>v4.0.35 - Notes de version
+					 - Historique des versions
  - Boîte à outils de l'expérience Web
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Converti automatiquement un formulaire en étapes." />
+		<meta name="description" content="v4.0.35 - Notes de version - Historique des versions - Boîte à outils de l&#x27;expérience Web (BOEW)" />
 		<!--[if gte IE 9 | !IE ]><!-->
 		<link href="../../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
 		<link rel="stylesheet" href="../../../../theme-wet-boew/css/theme.css" />
@@ -50,7 +49,7 @@
 							<h2>Sélection de la langue</h2>
 							<ul class="text-right">
 								<li class="curr">Français&#32;<span>(actuel)</span></li>
-								<li><a lang="en" hreflang="en" href="stepsform-en.html">English</a></li>
+								<li><a lang="en" hreflang="en" href="v4.0.35-en.html">English</a></li>
 							</ul>
 						</section>
 	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
@@ -109,13 +108,10 @@
 					<li>
 						<a href="../../../index-fr.html">Accueil</a>
 					</li>
-							<li>
-								<a href="../../../docs/index-fr.html">Documentation</a>
-							</li>
-							<li>
-								<a href="../../../docs/ref/plugins-fr.html">Plugiciels</a>
-							</li>
-					<li>Formulaire à étapes</li>
+						<li>
+							<a href="../../../docs/versions/index-fr.html">Historique des versions</a>
+						</li>
+					<li>v4.0.35 - Notes de version</li>
 				</ol>
 			</div>
 		</div>
@@ -123,102 +119,104 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" class="container">
-		<h1 id="wb-cont" property="name">Formulaire à étapes</h1>
-		<p>
-			<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Formulaire%20%C3%A0%20%C3%A9tapes:%20">Questions ou commentaires?</a>
-		</p>
+		<h1 id="wb-cont" property="name">v4.0.35 - Notes de version</h1>
 		
-<div lang="en">
-<span class="wb-prettify all-pre hide"></span>
-<p><strong>Needs translation</strong></p>
-<div class="alert alert-warning">
-	<h2>Unstable feature</h2>
-	<p>To be used at <strong>your own risk</strong>. This feature described below can be removed in any subsequent minor/major release</p>
-	<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html">Learn more about the design decision around provisional features.</a></small></p>
-	<p><small><a href="../provisional-fr.html">Check other provisional features available.</a></small></p>
-</div>
-
+<p>Version 4.0.35 (DCT)</p>
+<ul>
+	<li><strong>Date de lancement&#160;:</strong>
+		<time>2020-04-16</time>
+	</li>
+	<li><a href="../dwnld-fr.html#v40341">Téléchargements</a></li>
+</ul>
+<div class="wb-prettify all-pre"></div>
 <section>
-	<h2>But</h2>
-	<p>Offre la possibilité de diviser un formulaire en différentes étapes (sans ou avec validation de formulaire).</p>
-</section>
-
-<section>
-	<h2>Utiliser lorsque</h2>
+	<h2>Quoi de neuf?</h2>
 	<ul>
-		<li>Les formulaires sont longs ou contiennent un substantiel d'information.</li>
+		<li>Coeur
+			<ul>
+				<li>Mineur - Ajout d'une fonction d'assistance pour mélanger des éléments (<code>wb.shuffleDOM</code>)</li>
+				<li>Mineur - Ajout d'une fonction d'assistance pour sélection un ou des éléments (<code>wb.pickElements</code>)</li>
+			</ul>
+		</li>
+		<li><a href="https://wet-boew.github.io/wet-boew/docs/ref/provisional-fr.html">Provisoire</a>
+			<ul>
+				<li>Ajout - Plugiciel de formulaire à étapes (<code>wb-steps</code>)</li>
+				<li>Ajout - Plugiciel d'aléatoire (<code>wb-randomize</code>)</li>
+				<li>Ajout - Plugiciel de formulaire soumis sur la même page (<code>wb-postback</code>)</li>
+			</ul>
+		</li>
 	</ul>
+	<section>
+		<h3 id="implementation">Fichiers modifiés pour implémentation</h3>
+		<ul>
+			<li>JavaScript principal&nbsp;:
+				<ul>
+					<li>wet-boew/js/wet-boew.js</li>
+					<li>wet-boew/js/wet-boew.min.js</li>
+				</ul>
+			</li>
+			<li>CSS principal&nbsp;:
+				<ul>
+					<li>theme-wet-boew/css/theme.css</li>
+					<li>theme-wet-boew/css/theme.min.css</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+	<section>
+		<h3>Fureteurs supportés</h3>
+		<p>Tel que défini par la <a href="https://wet-boew.github.io/wet-boew-documentation/decision/2-fr.html">Décision de conception 2&nbsp;: Fureteur supporté</a> (en anglais)</p>
+		<ul>
+			<li>Chrome 80</li>
+			<li>Chrome 79</li>
+			<li>Safari 13.0.5</li>
+			<li>Firefox 72.0.2</li>
+			<li>Firefox 71.0</li>
+			<li>Firefox ESR - 68.6.0</li>
+			<li>IE 11</li>
+			<li>Edge 80.0.361.66</li>
+		</ul>
+	</section>
 </section>
-
 <section>
-	<h2>Exemple pratique</h2>
+	<h2>Détails</h2>
+	<p><strong>Nombre de contributions&nbsp;:</strong> 8</p>
 	<ul>
-		<li><a hreflang="en" href="../../../demos/stepsform/stepsform-en.html">Exemple en anglais</a></li>
-		<li><a href="../../../demos/stepsform/stepsform-fr.html">Exemple en français</a></li>
+		<li><a href="https://github.com/namjohn920">John Nam (@namjohn920)</a>:3 contributions</li>
+		<li><a href="https://github.com/GormFrank">Francis Gorman (@GormFrank)</a>: 3 contributions</li>
+		<li><a href="https://github.com/duboisp">Pierre Dubois (@duboisp)</a>: 1 contribution</li>
+		<li><a href="https://github.com/thekodester">Kody (@thekodester)</a>:1 contribution</li>
 	</ul>
+	<section>
+		<h3>Liste des contributions</h3>
+		<ul>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/9b51beff64ecc1bca1ad512f6848781b10e87e96">Plugin stepsform (wb-steps) - Initial commit</a> - TheKodester, 2017-02-02</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/0568c08b09ea50c6b97a122313ee9dd5d13b7764">Steps form: Automatically converts a form into steps</a> - GormFrank, 2019-04-05</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/c372cf7f4131e4391e95ed8b05ae3fd4fe69024a">Steps Form French Translations</a> - GormFrank, 2019-04-05</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/22f2cb50afe4528e24483c6b2d6a28fc4211a6a5">Steps Form - Fixing requested changes</a> - namjohn920, 2020-01-20</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/df384a6648e53d18d2f97204d2c0d012f8a32c8c">Randomize plugin - Initial commit</a> - namjohn920, 2020-02-05</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/a828913b9c0aeae774d089c25c32429227e8ec63">Randomize plugin - Polishing code and example</a> - duboisp, 2020-04-16</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/3c8becc57a8d8f8c56711fc0a9899811da252fb0">Form Postback - Initial commit</a> - namjohn920, 2020-02-21</li>
+			<li><a href="https://github.com/wet-boew/wet-boew/commit/246b174cabc8e467522ddfb5f6940b2d7495e6ab">Form Postback - Polishing code and example</a> - GormFrank, 2020-04-16</li>
+		</ul>
+	</section>
 </section>
-
 <section>
-	<h2>Comment implémenter le plucigiel</h2>
-	<ol>
-		<li>Créez un élément <code>&lt;div&gt;</code> avec la classe <code>wb-steps</code> (vous pouvez aussi ajouter la classe <code>wb-frmvld</code> pour intégrer la validation).
-			<pre><code>&lt;div class=&quot;wb-frmvld wb-steps&quot;&gt;&lt;/div&gt;</code></pre>
-		</li>
-		<li>À l'intérieur de cet élément <code>&lt;div&gt;</code>, ajoutez un élément <code>&lt;form&gt;</code>.
-			<pre><code>&lt;form action="#" method="get" id="steps-example"&gt;&lt;/form&gt;</code></pre>
-		</li>
-		<li>À l'intérieur de cet élément <code>&lt;form&gt;</code>, ajoutez un élément <code>&lt;fieldset&gt;</code> qui aura besoin d'une légende <code>&lt;legend&gt;</code> et d'un conteneur <code>&lt;div&gt;</code>.
-			<small>Ces éléments <code>&lt;fieldset&gt;</code> deviendront les étapes de votre formulaire</small>
-			<pre><code>&lt;fieldset&gt;<br/>&lt;legend&gt;Informations du client&lt;/legend&gt;<br/>&lt;div&gt;(Tout contenu situé à l'intérieur du div sera caché.)&lt;/div&gt;<br/>&lt;/fieldset&gt;</code></pre>
-		</li>
-	</ol>
+	<h2 id="sri">Intégrité des sous-ressource (SRI)</h2>
+	<p>Le <a href="https://www.w3.org/TR/SRI/">SRI</a> (en anglais) est une méthode qui permet de protéger le transfère des resources d'un site web. Ci-dessous vous avez les condensés numériques pour les ressource clef de la BOEW et de GCWeb.</p>
+	<section>
+		<h3>v4.0.35</h3>
+		<dl>
+			<dt><code>wet-boew/js/wet-boew.min.js</code></dt>
+			<dd>(À venir...)</dd>
+		</dl>
+		<p>Obtenez tous les condensés numériques (en format JSON)&nbsp;:</p>
+		<ul>
+			<li><a href="https://github.com/wet-boew/wet-boew-dist/blob/v4.0.35/wet-boew/payload.json">WET-BOEW</a></li>
+			<li><a href="https://github.com/wet-boew/wet-boew-dist/blob/v4.0.35/theme-wet-boew/payload.json">WET-BOEW theme</a></li>
+		</ul>
+	</section>
 </section>
-
-<section>
-	<h2 id="config">Paramètres de configuration</h2>
-	<p>Aucun paramètre de configuration.</p>
-</section>
-
-<section>
-	<h2>Événements</h2>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Événement</th>
-				<th>Déclencheur</th>
-				<th>Effet déclenché</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><code>wb-init.wb-steps</code></td>
-				<td>Déclenché manuellement (ex.&nbsp;: <code>$( ".wb-steps" ).trigger( "wb-init.wb-steps" );</code>).</td>
-				<td>Utilisé pour initialisé manuellement le formulaire à étapes. <strong>Note&nbsp;:</strong> La validation de formulaire devra être initialisée au préalable avant d'initialiser wb-steps (vous pouvez ajouter <code>wb-frmvld</code> au <code>&lt;div&gt;</code> conteneur et ainsi déclencher l'événement sur cet élément).</td>
-			</tr>
-			<tr>
-				<td><code>wb-ready.wb-steps</code> (v4.0.24+)</td>
-				<td>Déclenché automatiquement après l'initialisation du formulaire à étapes.</td>
-				<td>Utilisé afin d'identifié l'élément sur lequel le formulaire à étapes a été initialisé (la cible de l'événement)
-					<pre><code>$( document ).on( "wb-ready.wb-steps", ".wb-steps", function( event ) {});</code></pre>
-					<pre><code>$( ".wb-steps" ).on( "wb-ready.wb-steps", function( event ) {});</code></pre>
-				</td>
-			</tr>
-			<tr>
-				<td><code>wb-ready.wb</code> (v4.0.24+)</td>
-				<td>Déclenché automatiquement lorsque la WET-BOEW a terminé son chargement et son exécution.</td>
-				<td>Utilisé pour identifié le moment lorsque tous les plugiciels et tous les polyfills de la WET-BOEW ont terminés de charger et de s'exécuter.
-					<pre><code>$( document ).on( "wb-ready.wb", function( event ) {});</code></pre>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</section>
-
-<section>
-	<h2>Code source</h2>
-	<p><a href="https://github.com/wet-boew/wet-boew/tree/master/src/plugins/stepsform">Code source du plugiciel de formulaire à étapes sur GitHub</a></p>
-</section>
-</div>
 
 		<dl id="wb-dtmd">
 			<dt>Date de modification&#160;:&#32;</dt>

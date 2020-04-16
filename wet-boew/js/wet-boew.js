@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.34 - 2020-04-16
+ * v4.0.35 - 2020-04-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -10812,7 +10812,7 @@ wb.add( selector );
 } )( jQuery, window, document, wb );
 
 /**
- * @title WET-BOEW Form validation
+ * @title WET-BOEW step form
  * @overview Provide ability for a form to be broken into steps.
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @kodecount
