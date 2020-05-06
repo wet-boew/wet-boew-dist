@@ -12621,7 +12621,7 @@ var $document = wb.doc,
 
 				$.ajax( {
 					type: this.method,
-					url: this.attr,
+					url: this.action,
 					data: $.param( data )
 				} )
 				.done( function() {
