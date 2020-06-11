@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.35 - 2020-06-03
+ * v4.0.35 - 2020-06-11
  *
  */
 /*
@@ -9717,18 +9717,11 @@ ol-geolocate button {
   background-color: white;
   height: auto;
   margin: 10px;
-  padding: 0;
   right: 0;
   top: 0;
   width: auto; }
-
-.geomap-help-dialog {
-  background-color: white;
-  height: auto;
-  margin: 10px;
-  right: 0;
-  top: 0;
-  width: auto; }
+  .geomap-help-dialog header {
+    position: static; }
   .geomap-help-dialog a.btn {
     color: #333;
     font-family: Arial, Baskerville, monospace;
