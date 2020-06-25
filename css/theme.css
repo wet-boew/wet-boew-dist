@@ -8524,6 +8524,13 @@ pre.prettyprint {
   pre.prettyprint.linenums {
     -webkit-box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eee inset;
             box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eee inset; }
+  pre.prettyprint code {
+    -moz-tab-size: 20px;
+      -o-tab-size: 20px;
+         tab-size: 20px; }
+    pre.prettyprint code ins {
+      font-weight: bold;
+      text-decoration: none; }
 
 ol.linenums {
   margin: 0 !important; }

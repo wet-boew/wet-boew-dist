@@ -8371,6 +8371,11 @@ pre.prettyprint {
   /* Specify class=linenums on a pre to get line numbering */ }
   pre.prettyprint.linenums {
     box-shadow: 40px 0 0 #fbfbfc inset, 41px 0 0 #eee inset; }
+  pre.prettyprint code {
+    tab-size: 20px; }
+    pre.prettyprint code ins {
+      font-weight: bold;
+      text-decoration: none; }
 
 ol.linenums {
   margin: 0 !important; }
