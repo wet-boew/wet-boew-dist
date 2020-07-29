@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.37 - 2020-07-24
+ * v4.0.37 - 2020-07-29
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -10619,7 +10619,7 @@ $document.on( "draw.dt", selector, function( event, settings ) {
 		// Should be pushed upstream to DataTables
 		$elm.next( ".bottom" ).find( ".paginate_button" )
 			.attr( {
-				"href": "#" + $elm.context.id
+				"href": "#" + $elm.get( 0 ).id
 			} )
 
 			// This is required to override the datatable.js (v1.10.13) behavior to cancel the event propagation on anchor element.
