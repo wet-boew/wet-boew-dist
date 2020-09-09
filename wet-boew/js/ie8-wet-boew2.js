@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.37 - 2020-09-03
+ * v4.0.37 - 2020-09-09
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -12609,25 +12609,17 @@ var $document = wb.doc,
 					defaults,
 					wb.getData( $elm, componentName )
 				),
-				attrClick = "data-wb-clicked",
+				attrEngaged = "data-wb-engaged",
 				$buttons = $( "[type=submit]", $elm ),
+				multiple = typeof $elm.data( componentName + "-multiple" ) !== "undefined",
 				classToggle = settings.toggle || "hide",
-				selectorContent = settings.content,
 				selectorSuccess = settings.success,
-				selectorFailure;
-
-			// Success selector is strict minimum
-			if ( !selectorContent ) {
-				throw componentName + " success setting is mandatory";
-			}
-
-			// Use success selector if no failure selector is provided
-			selectorFailure = settings.failure || selectorSuccess;
+				selectorFailure = settings.failure || selectorSuccess;
 
 			// Set "clicked" attribute on element that initiated the form submit
 			$buttons.on( "click", function() {
-				$buttons.removeAttr( attrClick );
-				$( this ).attr( attrClick, "" );
+				$buttons.removeAttr( attrEngaged );
+				$( this ).attr( attrEngaged, "" );
 			} );
 
 			elm.addEventListener( "submit", function( e ) {
@@ -12635,33 +12627,42 @@ var $document = wb.doc,
 				// Prevent regular form submit
 				e.preventDefault();
 
-				var data = $elm.serializeArray(),
-					$btn = $( "[type=submit][" + attrClick + "]", $elm ),
-					$selectorSuccess = $( selectorSuccess ),
-					$selectorFailure = $( selectorFailure );
+				if ( !$( this ).attr( attrEngaged ) ) {
+					var data = $elm.serializeArray(),
+						$btn = $( "[type=submit][" + attrEngaged + "]", $elm ),
+						$selectorSuccess = $( selectorSuccess ),
+						$selectorFailure = $( selectorFailure );
 
-				if ( $btn ) {
-					data.push( { name: $btn.attr( "name" ), value: $btn.val() } );
-				}
-
-				$.ajax( {
-					type: this.method,
-					url: this.action,
-					data: $.param( data )
-				} )
-				.done( function() {
-					$selectorFailure.addClass( classToggle );
-					$selectorSuccess.removeClass( classToggle );
-				} )
-				.fail( function() {
-					$selectorSuccess.addClass( classToggle );
-					$selectorFailure.removeClass( classToggle );
-				} )
-				.always( function() {
-					if ( selectorContent ) {
-						$( selectorContent ).addClass( classToggle );
+					if ( $btn ) {
+						data.push( { name: $btn.attr( "name" ), value: $btn.val() } );
 					}
-				} );
+					$( this ).attr( attrEngaged, true );
+
+					// Hide feedback messages
+					$selectorFailure.addClass( classToggle );
+					$selectorSuccess.addClass( classToggle );
+
+					$.ajax( {
+						type: this.method,
+						url: this.action,
+						data: $.param( data )
+					} )
+					.done( function() {
+						$selectorSuccess.removeClass( classToggle );
+					} )
+					.fail( function() {
+						$selectorFailure.removeClass( classToggle );
+					} )
+					.always( function() {
+
+						// Make the form submittable again if multiple submits are allowed or hide
+						if ( multiple ) {
+							$elm.removeAttr( attrEngaged );
+						} else {
+							$elm.addClass( classToggle );
+						}
+					} );
+				}
 			} );
 
 			wb.ready( $( elm ), componentName );
