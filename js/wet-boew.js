@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.38 - 2020-09-23
+ * v4.0.38 - 2020-10-08
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -7308,7 +7308,7 @@ $document.on( "timerpoke.wb " + initEvent, selector, init );
 // Handler for clicking on a same page link within the overlay to outside the overlay
 $document.on( "click vclick", ".mfp-wrap a[href^='#']", function( event ) {
 	var which = event.which,
-		eventTarget = event.target,
+		eventTarget = event.currentTarget,
 		$lightbox, linkTarget;
 
 	// Ignore middle/right mouse buttons
