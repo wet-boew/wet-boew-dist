@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.38 - 2020-10-08
+ * v4.0.38 - 2020-10-13
  *
  */
 /*
@@ -8241,6 +8241,8 @@ body.wb-modal .modal-dialog summary {
     display: block;
     margin-left: -2px;
     width: 1.2em; }
+  .wb-mltmd.youtube.video:not(.playing):not(.waiting) .display:before {
+    background: #3e3e3e; }
   .wb-mltmd.skn-lt {
     border-bottom: 1px solid #ddd;
     color: #000; }
