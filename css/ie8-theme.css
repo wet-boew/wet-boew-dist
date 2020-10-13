@@ -10338,7 +10338,7 @@ details {
   Multimedia Player Code (print view)
  */
   .wb-mm-ctrls,
-  .wb-mm-ovrly {
+  .wb-mm-ovrly, .wb-mltmd.cc_on .wb-mm-cc {
     display: none; }
   /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
