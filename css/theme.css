@@ -8220,8 +8220,6 @@ body.wb-modal .modal-dialog summary {
     font-family: "Glyphicons Halflings";
     font-size: 65px;
     text-align: center; }
-  .wb-mltmd.video.playing .errmsg {
-    display: none; }
   .wb-mltmd.video.waiting .display {
     position: relative; }
     .wb-mltmd.video.waiting .display:before, .wb-mltmd.video.waiting .display:after {
@@ -8235,7 +8233,7 @@ body.wb-modal .modal-dialog summary {
     display: table;
     height: 4em;
     padding: .5em; }
-  .wb-mltmd.cc_on .cc:after {
+  .wb-mltmd.cc_on:not(.errmsg) .cc:after {
     border-bottom: 3px solid #4aafff;
     content: " ";
     display: block;
@@ -8253,6 +8251,8 @@ body.wb-modal .modal-dialog summary {
         background: #fff;
         border: 0;
         color: #000; }
+        .wb-mltmd.skn-lt .wb-mm-ctrls .btn[disabled]:active:hover {
+          color: #000; }
   .wb-mltmd .wb-share {
     text-align: right; }
 
@@ -8286,6 +8286,10 @@ body.wb-modal .modal-dialog summary {
     border-top-right-radius: 0 !important;
     color: #fff;
     font-size: 130%; }
+    .wb-mm-ctrls .btn[disabled]:active:hover {
+      color: #fff; }
+    .wb-mm-ctrls .btn[disabled]:hover {
+      background-color: transparent; }
   .wb-mm-ctrls .frstpnl {
     text-align: center;
     width: 13em; }
