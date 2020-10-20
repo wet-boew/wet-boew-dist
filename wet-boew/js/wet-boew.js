@@ -8599,12 +8599,20 @@ var componentName = "wb-mltmd",
 				return data.replace( /<img|object [^>]*>/g, "" );
 			},
 			success: function( data ) {
-				elm.trigger( {
-					type: captionsLoadedEvent,
-					captions: data.indexOf( "<html" ) !== -1 ?
-						parseHtml( $( data ) ) :
-						parseXml( $( data ) )
-				} );
+				var captionItems = data.indexOf( "<html" ) !== -1 ?
+					parseHtml( $( data ) ) :
+					parseXml( $( data ) );
+
+				if ( captionItems.length ) {
+					elm.trigger( {
+						type: captionsLoadedEvent,
+						captions: captionItems
+					} );
+				} else {
+					elm.trigger( {
+						type: captionsLoadFailedEvent
+					} );
+				}
 			},
 			error: function( response, textStatus, errorThrown ) {
 				elm.trigger( {
@@ -8623,10 +8631,18 @@ var componentName = "wb-mltmd",
 	 * @fires ccloaded.wb-mltmd
 	 */
 	loadCaptionsInternal = function( elm, obj ) {
-		elm.trigger( {
-			type: captionsLoadedEvent,
-			captions: parseHtml( obj )
-		} );
+		var captionItems = parseHtml( obj );
+
+		if ( captionItems.length ) {
+			elm.trigger( {
+				type: captionsLoadedEvent,
+				captions: captionItems
+			} );
+		} else {
+			elm.trigger( {
+				type: captionsLoadFailedEvent
+			} );
+		}
 	},
 
 	/**
