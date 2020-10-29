@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.38 - 2020-10-20
+ * v4.0.38 - 2020-10-29
  *
  */
 /*
@@ -7865,6 +7865,17 @@ body.wb-modal .modal-dialog summary {
   /* Should fix upstream in Magnific Popup rather than overriding in WET */ }
 
 /* Should fix upstream in Magnific Popup rather than overriding in WET */
+.mfp-arrow {
+  opacity: 1; }
+
+.mfp-arrow-left:before,
+.mfp-arrow-left .mfp-b {
+  border-right: 27px solid #000000; }
+
+.mfp-arrow-right:before,
+.mfp-arrow-right .mfp-b {
+  border-left: 27px solid #000000; }
+
 /* Should fix upstream in Magnific Popup rather than overriding in WET */
 .mfp-bottom-bar .mfp-title {
   padding-right: 5px;
