@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.39 - 2020-11-04
+ * v4.0.39 - 2020-11-22
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -12717,7 +12717,7 @@ var componentName = "wb-toggle",
 					}
 
 					//Details and summary don't support aria roles and some aria attribute that is why they are wrapped in a div
-					if ( elm.nodeName.toLowerCase() === "details" ) {
+					if ( elm.nodeName.toLowerCase() === "details" && elm.parentNode.className.toLowerCase().indexOf( "accordion" ) > -1 ) {
 						wrapper = document.createElement( "div" );
 						wrapper.classList.add( "tgl-tab" );
 						wrapper.setAttribute( "role", "tab" );
