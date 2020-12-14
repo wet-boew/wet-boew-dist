@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Image d'arrière plan - Exemples pratiques - Boîte à outils de l'expérience Web
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Défini une image d&#x27;arrière plan pour l&#x27;URL passé en paramètre ou tel que spécifier par l&#x27;information du group d&#x27;image.">
+<link rel="alternate" hreflang="en" href="bgimg-en.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css" /></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Sélection de la langue</h2>
+<ul class="text-right">
+<li class="curr">Français&#32;<span>(actuel)</span></li>
+<li><a lang="en" hreflang="en" href="bgimg-en.html">English</a></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Recherche et menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-fr.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Recherche</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Recherchez le site Web</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Menu des sujets</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-fr.html">Projet de la BOEW</a></li>
+<li><a href="../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+<li><a href="../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Vous êtes ici :</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb">
+<li>
+<a href="../../index-fr.html">Accueil</a>
+</li>
+<li>
+<a href="../../demos/index-fr.html">Exemples pratiques</a>
+</li>
+<li>Image d&#x27;arrière plan</li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Image d&#x27;arrière plan</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/bgimg/bgimg-fr.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Image%20d&#x27;arri%C3%A8re%20plan:%20">Questions ou commentaires?</a></li>
+</ul>
+<div class="wb-prettify all-pre hide"></div>
+<p>Défini une image d'arrière plan pour l'URL passé en paramètre ou tel que spécifier par l'information du group d'image (<code>srcset</code>).</p>
+<p>Noter: Les exemples ci-dessous utilise de nouveau CSS introduit récemment dans la wet-boew. Tel que: <code>bg-center</code>, <code>bg-cover</code> et <code>bg-norepeat</code></p>
+<h2>Definir une image d'arrière plan - <code>[data-bgimg]</code></h2>
+<div class="bg-cover bg-center well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg">
+<div class="well mrgn-tp-md mrgn-bttm-md">
+<h4 class="mrgn-tp-md">Titre</h4>
+<p>Paragraphe</p>
+</div>
+</div>
+<details>
+<summary>Source code</summary>
+<pre><code>&lt;div class="bg-cover bg-center well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg"&gt;
+		&lt;div class="well mrgn-tp-md mrgn-bttm-md"&gt;
+			&lt;h4 class="mrgn-tp-md"&gt;Titre&lt;/h4&gt;
+			&lt;p&gt;Paragraphe&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+</details>
+<p>Noter: Éventuellement le code javascript associé à cette fonctionalité pourra être remplacé par un sélecteur CSS 4.</p>
+<h2>Définir une image d'arrière plan adaptable - <code>[data-bgimg-srcset]</code></h2>
+<p>Cet fonctionalité est très similaire à l'attribut de l'image <code><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Img#attr-srcset">srcset</a></code>.</p>
+<pre><code>data-bgimg-srcset="image1_link 600w, image2_link 960w, image3_link 1280w"</code></pre>
+<p>Chaque configuration sont séparé par une virgule et consiste en un lien suivi de la largeur d'écran en pixel (1000w = 1000px). L'image sera affiché selon que la largeur définiera la valeur maximal permis pour utiliser l'image. Par conséquence, si la grandeur de l'écran de l'utilisateur va au delà des grandeurs spécifié, l'image qui a la plus grande largeur sera sélectionné. Make sure to leave only one space between the link and the size.</p>
+<div class="bg-cover well" data-bgimg-srcset="../../demos/tabs/img/investinourfuture.jpg 600w, ../../demos/tabs/img/flytheskies.jpg 960w, ../../demos/tabs/img/protect-environment.jpg 1280w">
+<div class="well mrgn-tp-md mrgn-bttm-md">
+<h4 class="mrgn-tp-md">Titre</h4>
+<p>Paragraphe</p>
+</div>
+</div>
+<details>
+<summary>Source code</summary>
+<pre><code>&lt;div class="bg-cover well"
+		data-bgimg-srcset="../../demos/tabs/img/investinourfuture.jpg 600w,
+				../../demos/tabs/img/flytheskies.jpg 960w,
+				../../demos/tabs/img/protect-environment.jpg 1280w"&gt;
+		&lt;div class="well mrgn-tp-md mrgn-bttm-md"&gt;
+			&lt;h4 class="mrgn-tp-md"&gt;Titre&lt;/h4&gt;
+			&lt;p&gt;Paragraphe&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code></pre>
+</details>
+<dl id="wb-dtmd">
+<dt>Date de modification&#160;:&#32;</dt>
+<dd><time property="dateModified">2020-12-08</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>À propos de ce site</h2>
+<section class="col-sm-3">
+<h3>Contactez-nous</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>À propos</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Nouvelles</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Restez branchés</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>

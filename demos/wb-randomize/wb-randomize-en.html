@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Randomize - Working examples - Web Experience Toolkit
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Randomly picks one of the child elements.">
+<link rel="alternate" hreflang="fr" href="wb-randomize-fr.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css" /></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Language selection</h2>
+<ul class="text-right">
+<li><a lang="fr" hreflang="fr" href="wb-randomize-fr.html">Français</a></li>
+<li class="curr">English&#32;<span>(current)</span></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Search</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Search website</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>You are here:</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb">
+<li>
+<a href="../../index-en.html">Home</a>
+</li>
+<li>
+<a href="../../demos/index-en.html">Working examples</a>
+</li>
+<li>Randomize</li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Randomize</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/wb-randomize/wb-randomize-en.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Randomize:%20">Questions or comments?</a></li>
+</ul>
+<div class="wb-prettify all-pre hide"></div>
+<p>Randomly picks one of the child elements.</p>
+<h2>Configuration</h2>
+<dl>
+<dt><code>selector</code> (jQuery selector)</dt>
+<dd>Default undefined. When undefined it selects all the children. This attribute specifies the child elements to be displayed.</dd>
+<dt><code>shuffle</code> (boolean)</dt>
+<dd>If true, it will shuffle the order of child components.</dd>
+<dt><code>toggle</code> (CSS class)</dt>
+<dd>Class name that will be toggled in child components and it will toggle the specified class of child components to reveal.</dd>
+<dt><code>number</code> (number)</dt>
+<dd>Optional and use with toggle. Number of child components to be displayed when toggled. Default is set to <code>1</code>.</dd>
+</dl>
+<h2>Show one random image</h2>
+<p>Below example shows one image out of three images randomly. Probability of 33% that a different image will be display on the next page refresh. The name of class that will be toggled is 'hide' in the following three <code>img</code>s.</p>
+<div class="mrgn-bttm-md" data-wb-randomize='{ "shuffle": true, "selector": "img", "toggle": "hide" }'>
+<img class="full-width hide" src="../../demos/tabs/img/investinourfuture.jpg" alt="Invest in our Future">
+<img class="full-width hide" src="../../demos/tabs/img/flytheskies.jpg" alt="Fly the Skies">
+<img class="full-width hide" src="../../demos/tabs/img/protect-environment.jpg" alt="Protect Environment">
+</div>
+<details>
+<summary>Source code</summary>
+<pre><code>&lt;div class="mrgn-bttm-md"" <strong>data-wb-randomize='{ "shuffle": true, "selector": "img", "toggle": "hide" }'</strong>&gt;
+	&lt;img class="full-width hide"
+		src="../../demos/tabs/img/investinourfuture.jpg" alt="Invest in our Future" /&gt;
+	&lt;img class="full-width hide"
+		src="../../demos/tabs/img/flytheskies.jpg" alt="Fly the Skies" /&gt;
+	&lt;img class="full-width hide"
+		src="../../demos/tabs/img/protect-environment.jpg" alt="Protect Environment" /&gt;
+&lt;/div&gt;</code></pre>
+</details>
+<h4>Randomize tables rows</h4>
+<p>All five (5) table rows get shuffled on page load.</p>
+<table class="table table-bordered">
+<caption>Data sample</caption>
+<thead>
+<tr>
+<th>Column A</th>
+<th>Column B</th>
+</tr>
+</thead>
+<tbody data-wb-randomize='{ "shuffle": true }'>
+<tr>
+<td>Row 1, column A</td>
+<td>Row 1, column B</td>
+</tr>
+<tr>
+<td>Row 2, column A</td>
+<td>Row 2, column B</td>
+</tr>
+<tr>
+<td>Row 3, column A</td>
+<td>Row 3, column B</td>
+</tr>
+<tr>
+<td>Row 4, column A</td>
+<td>Row 4, column B</td>
+</tr>
+<tr>
+<td>Row 5, column A</td>
+<td>Row 5, column B</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Source code</summary>
+<pre><code>&lt;table class=&quot;table table-bordered&quot;&gt;
+	&lt;caption&gt;Data sample&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Column A&lt;/th&gt;
+			&lt;th&gt;Column B&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody <strong>data-wb-randomize='{ "shuffle": true }'</strong>&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 1, column A&lt;/td&gt;
+			&lt;td&gt;Row 1, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 2, column A&lt;/td&gt;
+			&lt;td&gt;Row 2, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 3, column A&lt;/td&gt;
+			&lt;td&gt;Row 3, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 4, column A&lt;/td&gt;
+			&lt;td&gt;Row 4, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 5, column A&lt;/td&gt;
+			&lt;td&gt;Row 5, column B&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</details>
+<h4>Randomize tables rows and toggle 2 rows</h4>
+<p>All five (5) table rows get shuffled on page load and 2 of them get the CSS class <code>warning</code>.</p>
+<table class="table table-bordered">
+<caption>Data sample</caption>
+<thead>
+<tr>
+<th>Column A</th>
+<th>Column B</th>
+</tr>
+</thead>
+<tbody data-wb-randomize='{ "shuffle": true, "toggle": "warning", "number": 2 }'>
+<tr>
+<td>Row 1, column A</td>
+<td>Row 1, column B</td>
+</tr>
+<tr>
+<td>Row 2, column A</td>
+<td>Row 2, column B</td>
+</tr>
+<tr>
+<td>Row 3, column A</td>
+<td>Row 3, column B</td>
+</tr>
+<tr>
+<td>Row 4, column A</td>
+<td>Row 4, column B</td>
+</tr>
+<tr>
+<td>Row 5, column A</td>
+<td>Row 5, column B</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>Source code</summary>
+<pre><code>&lt;table class=&quot;table table-bordered&quot;&gt;
+	&lt;caption&gt;Data sample&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Column A&lt;/th&gt;
+			&lt;th&gt;Column B&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody <strong>data-wb-randomize='{ "shuffle": true, "toggle": "warning", "number": 2 }'</strong>&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 1, column A&lt;/td&gt;
+			&lt;td&gt;Row 1, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 2, column A&lt;/td&gt;
+			&lt;td&gt;Row 2, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 3, column A&lt;/td&gt;
+			&lt;td&gt;Row 3, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 4, column A&lt;/td&gt;
+			&lt;td&gt;Row 4, column B&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row 5, column A&lt;/td&gt;
+			&lt;td&gt;Row 5, column B&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</details>
+<dl id="wb-dtmd">
+<dt>Date modified:&#32;</dt>
+<dd><time property="dateModified">2020-12-09</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>About this site</h2>
+<section class="col-sm-3">
+<h3>Contact us</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>About</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>News</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Stay connected</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>

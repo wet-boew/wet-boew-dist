@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.39.1 - 2020-12-11
+ * v4.0.39.1 - 2020-12-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -2066,10 +2066,10 @@ $document.on( "ajax-fetch.wb", function( event ) {
 } )( jQuery, wb );
 
 /**
- * @title WET-BOEW Set background image sourceset
- * @overview Detects the change in screen width and replace the background image accordingly
+ * @title WET-BOEW Set background image
+ * @overview Apply a background image or detects the change in screen width and replace the background image accordingly
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * @author @namjohn920
+ * @author @namjohn920, @duboisp
  */
 ( function( $, wb ) {
 "use strict";
@@ -2082,13 +2082,17 @@ $document.on( "ajax-fetch.wb", function( event ) {
  */
 var $document = wb.doc,
 	$window = wb.win,
-	componentName = "wb-bgimg-srcset",
-	selector = ".provisional[data-bgimg-srcset]",
-	inputs = {},
-	elm,
+	componentName = "wb-bgimg",
+	selector = "[data-bgimg-srcset], [data-bgimg]",
+	bgViews = {},
 	ids = [],
 
 	init = function( event ) {
+
+		var elm, elmId,
+			bgImg, bgimgSrcset, bgRawViews,
+			i, i_len, i_views,
+			imgSrc, imgSize;
 
 		// Start initialization
 		// returns DOM object = proceed with init
@@ -2096,31 +2100,50 @@ var $document = wb.doc,
 		elm = wb.init( event, componentName, selector );
 
 		if ( elm ) {
-			ids.push( elm.id );
-			var userInputs;
-			if ( elm.dataset.bgimgSrcset ) {
-				userInputs = elm.dataset.bgimgSrcset.split( "," );
-			};
 
-			var i_len = userInputs.length;
-			inputs[ elm.id ] = [];
+			// Ensure the feature have an ID.
+			if ( !elm.id ) {
+				elm.id = wb.getId();
+			}
+			elmId = elm.id;
 
-			for ( var i = 0; i < i_len; i++ ) {
-				userInputs[ i ] = userInputs[ i ].trim();
-				userInputs[ i ] = userInputs[ i ].split( " " );
-				userInputs[ i ][ 1 ] = parseInt( userInputs[ i ][ 1 ].substring( 0, userInputs[ i ][ 1 ].length - 1 ) );
-				inputs[ elm.id ].push( userInputs[ i ] );
+			// Apply default background image
+			bgImg = elm.dataset.bgimg;
+			if ( bgImg ) {
+				elm.style.backgroundImage = "url(" + bgImg + ")";
 			}
 
-			inputs[ elm.id ].sort(
-				function( a, b ) {
-					return a[ 1 ] > b[ 1 ] ? 1 : -1;
+			// Apply background image set if defined
+			bgimgSrcset = elm.dataset.bgimgSrcset;
+			if ( bgimgSrcset ) {
+				ids.push( elm.id );
+				bgRawViews = elm.dataset.bgimgSrcset.split( "," );
+				i_len = bgRawViews.length;
+				bgViews[ elmId ] = [];
+
+				for ( i = 0; i < i_len; i++ ) {
+					i_views = bgRawViews[ i ].trim().split( " " );
+
+					imgSrc = i_views[ 0 ];
+					imgSize =  i_views[ i_views.length - 1 ];
+
+					imgSize = parseInt( imgSize.substring( 0, imgSize.length - 1 ) );
+					bgViews[ elmId ].push( [ imgSrc, imgSize ] );
 				}
-			);
 
-			selectImage();
+				bgViews[ elmId ].sort(
+					function( a, b ) {
+						return a[ 1 ] > b[ 1 ] ? 1 : -1;
+					}
+				);
 
-				// Identify that initialization has completed
+				selectImage();
+
+				// Add the resize listener
+				$window.on( "resize", selectImage );
+			}
+
+			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );
 		}
 	},
@@ -2128,15 +2151,18 @@ var $document = wb.doc,
 	selectImage = function() {
 		var screenWidth = window.innerWidth,
 			optimizedLink = {},
-			i_len = ids.length;
+			i, i_len = ids.length, j,
+			optimizedSize, currentId, currentId_len,
+			currentInput,
+			link, elm;
 
-		for ( var i = 0; i < i_len; i++ ) {
-			var optimizedSize = Infinity,
-				currentId = inputs[ ids[ i ] ],
-				currentId_len = inputs[ ids[ i ] ].length;
+		for ( i = 0; i < i_len; i++ ) {
+			optimizedSize = Infinity;
+			currentId = bgViews[ ids[ i ] ];
+			currentId_len = currentId.length;
 
-			for ( var j = 0; j < currentId_len; j++ ) {
-				var currentInput = currentId[ j ];
+			for ( j = 0; j < currentId_len; j++ ) {
+				currentInput = currentId[ j ];
 				if ( currentInput[ 1 ] >= screenWidth ) {
 					if ( optimizedSize > currentInput[ 1 ] ) {
 						optimizedSize = currentInput[ 1 ];
@@ -2149,55 +2175,9 @@ var $document = wb.doc,
 			}
 		}
 
-		for ( var link in optimizedLink ) {
-			var elm = document.getElementById( link );
+		for ( link in optimizedLink ) {
+			elm = document.getElementById( link );
 			elm.style.backgroundImage = "url(" + optimizedLink[ link ] + ")";
-		}
-	};
-
-$window.on( "resize", selectImage );
-
-	// Bind the init event of the plugin
-$document.on( "timerpoke.wb wb-init." + componentName, selector, init );
-
-	// Add the timer poke to initialize the plugin
-wb.add( selector );
-
-} )( jQuery, wb );
-
-/**
- * @title WET-BOEW Set background image
- * @overview to be replaced by CSS 4: background-image:attr(data-bgimg, url)
- * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * @author @duboisp
- */
-( function( $, wb ) {
-"use strict";
-
-/*
- * Variable and function definitions.
- * These are global to the plugin - meaning that they will be initialized once per page,
- * not once per instance of plugin on the page. So, this is a good place to define
- * variables that are common to all instances of the plugin on a page.
- */
-var $document = wb.doc,
-	componentName = "wb-bgimg",
-	selector = ".provisional[data-bgimg], .provisional [data-bgimg], [data-bgimg]",
-
-	init = function( event ) {
-
-		// Start initialization
-		// returns DOM object = proceed with init
-		// returns undefined = do not proceed with init (e.g., already initialized)
-		var elm = wb.init( event, componentName, selector );
-
-		if ( elm ) {
-
-			//to be replaced by CSS 4: background-image:attr(data-bgimg, url)
-			elm.style.backgroundImage = "url(" + elm.dataset.bgimg + ")";
-
-			// Identify that initialization has completed
-			wb.ready( $( elm ), componentName );
 		}
 	};
 
@@ -13440,7 +13420,7 @@ $document.on( clickEvents, linkSelector, function( event ) {
 
 var $document = wb.doc,
 	componentName = "wb-postback",
-	selector = ".provisional." + componentName,
+	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
 	defaults = {},
 
@@ -13534,7 +13514,7 @@ wb.add( selector );
 
 var $document = wb.doc,
 	componentName = "wb-randomize",
-	selector = ".provisional[data-wb-randomize]",
+	selector = "[data-wb-randomize]",
 	initEvent = "wb-init" + selector,
 	defaults = {},
 
