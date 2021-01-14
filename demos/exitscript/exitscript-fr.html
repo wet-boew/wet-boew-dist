@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Exitscript - Exemples pratiques - Boîte à outils de l'expérience Web
+<title>Sortie de navigation avisé - Exemples pratiques - Boîte à outils de l'expérience Web
 </title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
-<meta name="description" content="Redirects users to non secure sites.">
+<meta name="description" content="Aviser l&#x27;utilisateur d&#x27;une redirection vers un autre site.">
 <link rel="alternate" hreflang="en" href="exitscript-en.html">
 <link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
@@ -91,20 +91,20 @@
 <li>
 <a href="../../demos/index-fr.html">Exemples pratiques</a>
 </li>
-<li>Exitscript</li>
+<li>Sortie de navigation avisé</li>
 </ol>
 </div>
 </div>
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-<h1 id="wb-cont" property="name">Exitscript</h1>
+<h1 id="wb-cont" property="name">Sortie de navigation avisé</h1>
 <ul class="list-inline">
 <li><a class="btn btn-primary" href="../../docs/ref/exitscript/exitscript-fr.html">Documentation</a></li>
-<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Exitscript:%20">Questions ou commentaires?</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Sortie%20de%20navigation%20avis%C3%A9:%20">Questions ou commentaires?</a></li>
 </ul>
-<p lang="en">The script redirects users to non secure site.</p>
-<p lang="en">Plugin default settings:</p>
+<p>Aviser l'utilisateur d'une redirection vers un autre site.</p>
+<p>Configuration par defaut:</p>
 <dl>
 <dt>"i18n": { "msgboxHeader": }: </dt>
 <dd>"Avertissement"</dd>
@@ -136,20 +136,20 @@
 	&lt;a href="http://csszengarden.com/219" class="wb-exitscript" target="_blank"&gt;http://csszengarden.com/219&lt;/a&gt;
 	</code></pre>
 </details>
-<p>Scenario – 3: <a href="http://csszengarden.com/219" class="wb-exitscript" data-wb-exitscript='{"url": "exiturl-en.html"}'>http://csszengarden.com/219</a></p>
+<p>Scenario – 3: <a href="http://csszengarden.com/219" class="wb-exitscript" data-wb-exitscript='{"url": "../../docs/ref/exitscript/exiturl-fr.html"}'>http://csszengarden.com/219</a></p>
 <p>In this scenario a middle page opens in the same window with a link to the non-secure site.</p>
 <details class="mrgn-bttm-md">
 <summary>View code</summary>
 <pre><code>
-	&lt;a href="http://csszengarden.com/219" class="wb-exitscript" data-wb-exitscript='{"url": "exiturl-en.html"}'&gt;http://csszengarden.com/219&lt;/a&gt;
+	&lt;a href="http://csszengarden.com/219" class="wb-exitscript" data-wb-exitscript='{"url": "../../docs/ref/exitscript/exiturl-fr.html"}'&gt;http://csszengarden.com/219&lt;/a&gt;
 	</code></pre>
 </details>
-<p>Scenario – 4: <a href="http://csszengarden.com/219" class="wb-exitscript" target="_blank" data-wb-exitscript='{"url": "exiturl-en.html"}'>http://csszengarden.com/219</a>. The link will open in a new browser window.</p>
+<p>Scenario – 4: <a href="http://csszengarden.com/219" class="wb-exitscript" target="_blank" data-wb-exitscript='{"url": "../../docs/ref/exitscript/exiturl-fr.html"}'>http://csszengarden.com/219</a>. The link will open in a new browser window.</p>
 <p>In this scenario a middle page opens in a new window with a link to the non-secure site.</p>
 <details class="mrgn-bttm-md">
 <summary>View code</summary>
 <pre><code>
-	&lt;a href="http://csszengarden.com/219" class="wb-exitscript" target="_blank" data-wb-exitscript='{"url": "exiturl-en.html"}'&gt;http://csszengarden.com/219&lt;/a&gt;
+	&lt;a href="http://csszengarden.com/219" class="wb-exitscript" target="_blank" data-wb-exitscript='{"url": "../../docs/ref/exitscript/exiturl-fr.html"}'&gt;http://csszengarden.com/219&lt;/a&gt;
 	</code></pre>
 </details>This example shows a custom message
 <p><a href="http://csszengarden.com/219" class="wb-exitscript" data-wb-exitscript='{"i18n": { "exitMsg": "This is a custom message.", "cancelBtn": "Nope", "yesBtn": "Sure" }}'>http://csszengarden.com/219</a></p>

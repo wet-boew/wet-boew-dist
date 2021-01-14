@@ -4,13 +4,13 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Exit script
+		<title>Sortie de navigation avisé
 					 - Plugiciels
 				 - Documentation
  - Boîte à outils de l'expérience Web
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Redirects users to non secure sites." />
+		<meta name="description" content="Aviser l&#x27;utilisateur d&#x27;une redirection vers un autre site." />
 		
 		
 		
@@ -111,7 +111,7 @@
 							<li>
 								<a href="../../../docs/ref/plugins-fr.html">Plugiciels</a>
 							</li>
-					<li>Exit script</li>
+					<li>Sortie de navigation avisé</li>
 				</ol>
 			</div>
 		</div>
@@ -119,22 +119,21 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-		<h1 id="wb-cont" property="name">Exit script</h1>
+		<h1 id="wb-cont" property="name">Sortie de navigation avisé</h1>
 		<p>
-			<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Exit%20script:%20">Questions ou commentaires?</a>
+			<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Sortie%20de%20navigation%20avis%C3%A9:%20">Questions ou commentaires?</a>
 		</p>
 		
-<span class="wb-prettify all-pre hide"></span>
 
 <section>
 	<h2>But</h2>
-	<p lang="en">Redirects users to non secure sites.</p>
+	<p>Aviser l'utilisateur d'une redirection vers un autre site.</p>
 </section>
 
 <section>
 	<h2>Exemples</h2>
 	<ul>
-		<li><a href="../../../demos/exitscript/exitscript-en.html">Exemple anglais</a></li>
+		<li><a href="../../../demos/exitscript/exitscript-en.html" hreflang="en">Exemple anglais</a></li>
 		<li><a href="../../../demos/exitscript/exitscript-fr.html">Exemple français</a></li>
 	</ul>
 </section>
@@ -168,6 +167,12 @@
 				<td><code>exitMsg</code></td>
 				<td>Show custom message</td>
 				<td>Add <code>"i18n":{ "exitMsg": "This is a custom message."}</code> attribute.</td>
+				<td>Your custom message</td>
+			</tr>
+			<tr>
+				<td><code>targetWarning</code></td>
+				<td>Show custom message</td>
+				<td>Add <code>"i18n":{ "targetWarning": "This is a custom message."}</code> attribute.</td>
 				<td>Your custom message</td>
 			</tr>
 			<tr>
