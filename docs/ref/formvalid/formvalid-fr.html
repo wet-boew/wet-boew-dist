@@ -149,7 +149,7 @@
 <li>Add <code>required="required"</code> to each mandatory form field
 <pre><code>&lt;input id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" /&gt;</code></pre>
 </li>
-<li><p><strong>Optional: </strong>For input fields, add one of these <a href="#SpecializedValidation">options</a> for specialized validation.</p></li>
+<li><p><strong>Optional: </strong>For input fields, add one of these <a href="#SpecializedValidation">options</a> for specialized validation, or else you can use a <a href="#pattern">custom pattern validation</a> only if your pattern is very specific and is not part of the options for specialized validation.</p></li>
 <li><strong>Optional: </strong>For ASP validators add the following attributes to enable the <a href="#MergeSCE">Merge Server-Client errors functionality</a>
 <p><code>Display="Dynamic" EnableClientScript="false" CssClass="label label-danger wb-server-error"</code></p>
 </li>
@@ -358,6 +358,17 @@
 </section>
 </section>
 <section>
+<h3 id="pattern">Custom pattern validation</h3>
+<p>Use the <code>pattern</code> attribute <strong>jointly</strong> with the <code>data-msg</code> attribute in order to achieve a custom pattern validation with a custom error message.</p>
+<dl>
+<dt><code>pattern</code></dt>
+<dd>Defines a pattern that the value of an input has to respect in order to be valid.</dd>
+<dt><code>data-msg</code></dt>
+<dd>Overwrites the default generic message that comes with the use of the pattern attribute by the one given through this attribute.</dd>
+</dl>
+<p>See <a href="https://html.spec.whatwg.org/#the-pattern-attribute" rel="external">WHATWG HTML Living Standards</a> for more details about the pattern attribute.</p>
+</section>
+<section>
 <h3 id="MergeSCE">Merge Server-Client errors functionality</h3>
 <p>If you want to concatenate the server errors with the client errors, add the following attributes to each ASP validator:</p>
 <p><code>Display="Dynamic" EnableClientScript="false" CssClass="label label-danger wb-server-error"</code></p>
@@ -427,7 +438,7 @@
 </div>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2019-07-29</time></dd>
+<dd><time property="dateModified">2020-12-23</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

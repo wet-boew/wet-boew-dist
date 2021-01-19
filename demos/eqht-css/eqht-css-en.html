@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Equal height (pure CSS) - Working examples - Web Experience Toolkit
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="A plugin for equal height grids.">
+<link rel="alternate" hreflang="fr" href="eqht-css-fr.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<link rel="stylesheet" href="demo/eqht-css.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css" /></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Language selection</h2>
+<ul class="text-right">
+<li><a lang="fr" hreflang="fr" href="eqht-css-fr.html">Français</a></li>
+<li class="curr">English&#32;<span>(current)</span></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Search</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Search website</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>You are here:</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb">
+<li>
+<a href="../../index-en.html">Home</a>
+</li>
+<li>
+<a href="../../demos/index-en.html">Working examples</a>
+</li>
+<li>Equal height (pure CSS)</li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Equal height (pure CSS)</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/eqht-css/eqht-css-en.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Equal%20height%20(pure%20CSS):%20">Questions or comments?</a></li>
+</ul>
+<section>
+<h2>Purpose</h2>
+<p>Equalize the height of elements on the same baseline.</p>
+</section>
+<section id="simple">
+<h2>Example</h2>
+<p><strong>Note:</strong> The last row will always didive your columns proportionately in order to fill the full-width, as seen in the example below.</p>
+<div class="row wb-eqht-grd">
+<div class="col-sm-6 col-md-4">
+<section>
+<h3>Short container</h3>
+<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+</section>
+</div>
+<div class="col-sm-6 col-md-4">
+<section>
+<h3>Medium container</h3>
+<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
+</section>
+</div>
+<div class="col-sm-6 col-md-4">
+<section>
+<h3>Long container</h3>
+<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
+<p>Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text. Other example text.</p>
+</section>
+</div>
+<div class="col-sm-6 col-md-4">
+<section>
+<h3>Short container</h3>
+<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+</section>
+</div>
+<div class="col-sm-6 col-md-4">
+<section>
+<h3>Medium container</h3>
+<p>Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text. Example text.</p>
+<p>Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text. Different example text.</p>
+</section>
+</div>
+</div>
+<section>
+<h3>Code</h3>
+<section>
+<h4>HTML</h4>
+<pre><code>&lt;section id="simple"&gt;
+	&lt;h2&gt;Example&lt;/h2&gt;
+
+	&lt;div class=&quot;row wb-eqht-grd&quot;&gt;
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;section&gt;
+				&lt;h3&gt;Short container&lt;/h3&gt;
+				...
+			&lt;/section&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;section&gt;
+				&lt;h3&gt;Medium container&lt;/h3&gt;
+				...
+			&lt;/section&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;section&gt;
+				&lt;h3&gt;Long container&lt;/h3&gt;
+				...
+			&lt;/section&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;section&gt;
+				&lt;h3&gt;Short container&lt;/h3&gt;
+				...
+			&lt;/section&gt;
+		&lt;/div&gt;
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;section&gt;
+				&lt;h3&gt;Medium container&lt;/h3&gt;
+				...
+			&lt;/section&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</section>
+<section>
+<h4>CSS</h4>
+<pre><code>#simple .wb-eqht-grd section {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	padding: 15px;
+}
+</code></pre>
+</section>
+</section>
+</section>
+<section>
+<h2>Nested Example</h2>
+<div class="row wb-eqht-grd">
+<div class="col-sm-6 col-md-3">
+<div class="parent-example hght-inhrt">
+<section class="panel panel-default hght-inhrt">
+<div class="panel-heading">
+<h3 class="panel-title">Column 1</h3>
+</div>
+<div class="panel-body">
+<p>Column 1</p>
+<ul>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+<div class="col-sm-6 col-md-3">
+<div class="parent-example hght-inhrt">
+<section class="panel panel-default hght-inhrt">
+<div class="panel-heading">
+<h3 class="panel-title">Column 2</h3>
+</div>
+<div class="panel-body">
+<p>Column 2</p>
+<ul>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+<div class="col-sm-6 col-md-3">
+<div class="parent-example hght-inhrt">
+<section class="panel panel-default hght-inhrt">
+<div class="panel-heading">
+<h3 class="panel-title">Column 3</h3>
+</div>
+<div class="panel-body">
+<p>Column 3</p>
+<ul>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+<div class="col-sm-6 col-md-3">
+<div class="parent-example hght-inhrt">
+<section class="panel panel-default hght-inhrt">
+<div class="panel-heading">
+<h3 class="panel-title">Column 4</h3>
+</div>
+<div class="panel-body">
+<p>Column 4</p>
+<ul>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+</section>
+</div>
+</div>
+</div>
+<section>
+<h3>Code</h3>
+<pre><code>&lt;section&gt;
+	&lt;h2&gt;Nested Example&lt;/h2&gt;
+
+	&lt;div class="row wb-eqht-grd"&gt;
+		&lt;div class="col-sm-6 col-md-3"&gt;
+			&lt;div class="parent-example hght-inhrt"&gt;
+				&lt;section class="panel panel-default hght-inhrt"&gt;
+					&lt;div class="panel-heading"&gt;
+						&lt;h3 class="panel-title"&gt;Column 1&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class="panel-body"&gt;
+						&lt;p&gt;Column 1&lt;/p&gt;
+						...
+					&lt;/div&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="col-sm-6 col-md-3"&gt;
+			&lt;div class="parent-example hght-inhrt"&gt;
+				&lt;section class="panel panel-default hght-inhrt"&gt;
+					&lt;div class="panel-heading"&gt;
+						&lt;h3 class="panel-title"&gt;Column 2&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class="panel-body"&gt;
+						&lt;p&gt;Column 2&lt;/p&gt;
+						...
+					&lt;/div&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="col-sm-6 col-md-3"&gt;
+			&lt;div class="parent-example hght-inhrt"&gt;
+				&lt;section class="panel panel-default hght-inhrt"&gt;
+					&lt;div class="panel-heading"&gt;
+						&lt;h3 class="panel-title"&gt;Column 3&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class="panel-body"&gt;
+						&lt;p&gt;Column 3&lt;/p&gt;
+						...
+					&lt;/div&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="col-sm-6 col-md-3"&gt;
+			&lt;div class="parent-example hght-inhrt"&gt;
+				&lt;section class="panel panel-default hght-inhrt"&gt;
+					&lt;div class="panel-heading"&gt;
+						&lt;h3 class="panel-title"&gt;Column 4&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class="panel-body"&gt;
+						&lt;p&gt;Column 4&lt;/p&gt;
+						...
+					&lt;/div&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</section>
+</section>
+<section>
+<h2>Targeting a deeper nested elements</h2>
+<p>The following example do the same as if the <code>hght-inhrt</code> class was applied on the element to be equalize as well as all the parents (up to the child of wb-eqht-grd) whereas <code>eqht-trgt</code> is only applied to the element to equalize (nothing needs to be done about the parents). This version uses Javascript.</p>
+<div class="row wb-eqht-grd">
+<div class="col-sm-6 col-md-4">
+<div class="well well-lg">
+<section class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Column 1</h3>
+</div>
+<div class="panel-body eqht-trgt">
+<p>Column 1</p>
+<ul>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+<footer class="panel-footer">
+<p class="mrgn-tp-sm mrgn-bttm-sm">Panel footer</p>
+</footer>
+</section>
+</div>
+</div>
+<div class="col-sm-6 col-md-4">
+<div class="well well-lg">
+<section class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Column 2</h3>
+</div>
+<div class="panel-body eqht-trgt">
+<p>Column 2</p>
+<ul>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+<footer class="panel-footer">
+<p class="mrgn-tp-sm mrgn-bttm-sm">Panel footer</p>
+</footer>
+</section>
+</div>
+</div>
+<div class="col-sm-12 col-md-4">
+<div class="well well-lg">
+<section class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Column 3</h3>
+</div>
+<div class="panel-body eqht-trgt">
+<p>Column 3</p>
+<ul>
+<li>test</li>
+<li>test</li>
+</ul>
+</div>
+<footer class="panel-footer">
+<p class="mrgn-tp-sm mrgn-bttm-sm">Panel footer</p>
+</footer>
+</section>
+</div>
+</div>
+</div>
+<section>
+<h3>Code</h3>
+<pre><code>&lt;section&gt;
+	&lt;h2&gt;Targeting a deeper nested elements&lt;/h2&gt;
+
+	&lt;div class=&quot;row wb-eqht-grd&quot;&gt;
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;div class=&quot;well well-lg&quot;&gt;
+				&lt;section class=&quot;panel panel-default&quot;&gt;
+					&lt;div class=&quot;panel-heading&quot;&gt;
+						&lt;h3 class=&quot;panel-title&quot;&gt;Column 1&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;panel-body eqht-trgt&quot;&gt;
+						&lt;p&gt;Column 1&lt;/p&gt;
+						...
+					&lt;/div&gt;
+					&lt;footer class="panel-footer"&gt;
+						&lt;p class="mrgn-tp-sm mrgn-bttm-sm"&gt;Panel footer&lt;/p&gt;
+					&lt;/footer&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;col-sm-6 col-md-4&quot;&gt;
+			&lt;div class=&quot;well well-lg&quot;&gt;
+				&lt;section class=&quot;panel panel-default&quot;&gt;
+					&lt;div class=&quot;panel-heading&quot;&gt;
+						&lt;h3 class=&quot;panel-title&quot;&gt;Column 2&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;panel-body eqht-trgt&quot;&gt;
+						&lt;p&gt;Column 2&lt;/p&gt;
+						...
+					&lt;/div&gt;
+					&lt;footer class="panel-footer"&gt;
+						&lt;p class="mrgn-tp-sm mrgn-bttm-sm"&gt;Panel footer&lt;/p&gt;
+					&lt;/footer&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class=&quot;col-sm-12 col-md-4&quot;&gt;
+			&lt;div class=&quot;well well-lg&quot;&gt;
+				&lt;section class=&quot;panel panel-default&quot;&gt;
+					&lt;div class=&quot;panel-heading&quot;&gt;
+						&lt;h3 class=&quot;panel-title&quot;&gt;Column 3&lt;/h3&gt;
+					&lt;/div&gt;
+					&lt;div class=&quot;panel-body eqht-trgt&quot;&gt;
+						&lt;p&gt;Column 3&lt;/p&gt;
+						...
+					&lt;/div&gt;
+					&lt;footer class="panel-footer"&gt;
+						&lt;p class="mrgn-tp-sm mrgn-bttm-sm"&gt;Panel footer&lt;/p&gt;
+					&lt;/footer&gt;
+				&lt;/section&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;</code></pre>
+</section>
+</section>
+<dl id="wb-dtmd">
+<dt>Date modified:&#32;</dt>
+<dd><time property="dateModified">2021-01-18</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>About this site</h2>
+<section class="col-sm-3">
+<h3>Contact us</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>About</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>News</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Stay connected</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>
