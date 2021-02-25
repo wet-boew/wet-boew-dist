@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.41 - 2021-01-19
+ * v4.0.41 - 2021-02-25
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3335,7 +3335,7 @@ var getUrlParts = function( url ) {
 			host: a.host,
 			hostname: a.hostname,
 			port: a.port,
-			pathname: a.pathname.replace( /^([^\/])/, "/$1" ), // Prefix pathname with a slash in browsers that don't natively do it (i.e. all versions of IE and possibly early versions of Edge). See pull request #8110.
+			pathname: a.pathname.replace( /^([^/])/, "/$1" ), // Prefix pathname with a slash in browsers that don't natively do it (i.e. all versions of IE and possibly early versions of Edge). See pull request #8110.
 			protocol: a.protocol,
 			hash: a.hash,
 			search: a.search,
@@ -3381,9 +3381,9 @@ var getUrlParts = function( url ) {
 		var paths = {};
 
 		paths.home = ele.prop( "src" )
-				.split( "?" )[ 0 ].split( "/" )
-				.slice( 0, -1 )
-				.join( "/" );
+			.split( "?" )[ 0 ].split( "/" )
+			.slice( 0, -1 )
+			.join( "/" );
 		paths.asset = paths.home + "/../assets";
 		paths.template = paths.home + "/assets/templates";
 		paths.dep = paths.home + "/deps";
@@ -3419,7 +3419,7 @@ var getUrlParts = function( url ) {
 		while ( (
 			div.innerHTML = "<!--[if gt IE " + ( v += 1 ) + "]><i></i><![endif]-->",
 			all[ 0 ]
-		) ) {};
+		) ) { /* empty */ }
 
 		return v > 4 ? v : undef;
 	}() ),
@@ -3440,7 +3440,10 @@ var getUrlParts = function( url ) {
 
 		try {
 			disabledSaved = localStorage.getItem( "wbdisable" ) || disabledSaved;
-		} catch ( e ) {}
+		} catch ( e ) {
+
+			/* swallow error */
+		}
 
 		disabled = currentpage.params.wbdisable || disabledSaved;
 		return ( typeof disabled === "string" ) ? ( disabled.toLowerCase() === "true" ) : Boolean( disabled );
@@ -3469,7 +3472,7 @@ var getUrlParts = function( url ) {
 		initQueue: 0,
 
 		getPath: function( property ) {
-			return this.hasOwnProperty( property ) ? this[ property ] : undef;
+			return Object.prototype.hasOwnProperty.call( this, property ) ? this[ property ] : undef;
 		},
 
 		getMode: function() {
@@ -3514,9 +3517,9 @@ var getUrlParts = function( url ) {
 				// Trigger any nested elements (excluding nested within nested)
 				$elm
 					.find( wb.allSelectors )
-						.addClass( "wb-init" )
-						.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
-							.trigger( "timerpoke.wb" );
+					.addClass( "wb-init" )
+					.filter( ":not(#" + $elm.attr( "id" ) + " .wb-init .wb-init)" )
+					.trigger( "timerpoke.wb" );
 
 				// Identify that the component is ready
 				$elm.trigger( "wb-ready." + componentName, context );
@@ -3882,7 +3885,7 @@ Modernizr.load( [
 					// Load the MathML dependency. Since the polyfill is only loaded
 					// when !Modernizr.mathml, we can skip the test here.
 					Modernizr.load( [ {
-						load: "timeout=500!https://cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=Accessible",
+						load: "timeout=500!https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=Accessible",
 						complete: function() {
 							Modernizr.load( [ {
 								test: window.MathJax === undefined,

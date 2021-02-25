@@ -11,7 +11,7 @@
 <link rel="alternate" hreflang="fr" href="charts-fr.html">
 <link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="../../../theme-wet-boew/css/theme.min.css">
-<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.min.css" /></noscript>
+<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.min.css"></noscript>
 </head>
 <body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
 <nav>
@@ -348,7 +348,8 @@ window[ "wb-charts" ] = {
 &lt;/script&gt;</code></pre>
 <p>The key for the <code>fn</code> object is similar to the JSON pointer defined in <a href="http://tools.ietf.org/html/rfc6901">RFC 6901</a>. The key identifies what should be overwritten with the function.</p>
 <p>You can rename "custom" by anything you want, just keep in mind of that placeholder name will be the same name for your CSS custom option.</p>
-<script>window[ "wb-charts" ] = {
+<script>
+window[ "wb-charts" ] = {
 			charts: {
 				custom: {
 					fn: {
@@ -359,7 +360,8 @@ window[ "wb-charts" ] = {
 					}
 				}
 			}
-		};</script>
+		};
+</script>
 <p><code>&lt;table class=&quot;wb-charts wb-charts-custom table&quot;&gt;</code></p>
 <table class="wb-charts wb-charts-custom table">
 <caption>Contributions to WET from May 5, 2012 to May 4, 2013</caption>
@@ -779,7 +781,7 @@ window[ "wb-charts" ] = {
 </tr>
 <tr>
 <td>passiveparse.wb-tableparser</td>
-<td>When the charts need the table parser to parse the table. When this event is triggered, the Flot library is loaded. You can also take advantage of this event to load your own Flot plugin. </td>
+<td>When the charts need the table parser to parse the table. When this event is triggered, the Flot library is loaded. You can also take advantage of this event to load your own Flot plugin.</td>
 <td>It will parse the data table and attach the information to a data attribute named tblparser on every element that is related to the table.</td>
 </tr>
 <tr>

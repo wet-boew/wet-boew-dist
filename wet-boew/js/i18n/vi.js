@@ -227,6 +227,7 @@ wb.i18nDict = {
 	"wb-enable": "Switch to standard version",
 	"disable-notice-h": "Notice: Basic HTML",
 	"disable-notice": "You are viewing Basic HTML view. Some features may be disabled.",
+	"skip-prefix": "Skip to:",
 
 	/* Dismissable content */
 	"dismiss": "Dismiss",
@@ -273,7 +274,7 @@ $.extend( $.validator.messages, {
 	rangelength: $.validator.format( "Hãy nhập từ {0} đến {1} kí tự." ),
 	range: $.validator.format( "Hãy nhập từ {0} đến {1}." ),
 	max: $.validator.format( "Hãy nhập từ {0} trở xuống." ),
-	min: $.validator.format( "Hãy nhập từ {1} trở lên." )
+	min: $.validator.format( "Hãy nhập từ {0} trở lên." )
 } );
 return $;
 }));

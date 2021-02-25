@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.41 - 2021-01-19
+ * v4.0.41 - 2021-02-25
  *
  */
 /*
@@ -5954,7 +5954,8 @@ abbr[title] {
     border-bottom: 0;
     -webkit-text-decoration: underline dotted;
             text-decoration: underline dotted;
-    text-decoration-skip-ink: none; } }
+    -webkit-text-decoration-skip-ink: none;
+            text-decoration-skip-ink: none; } }
 
 /*
  *	Override the design of alerts and labels
@@ -7156,14 +7157,17 @@ q:before, q:after {
 
 .colcount-xxs-2 {
   -webkit-column-count: 2;
+     -moz-column-count: 2;
           column-count: 2; }
 
 .colcount-xxs-3 {
   -webkit-column-count: 3;
+     -moz-column-count: 3;
           column-count: 3; }
 
 .colcount-xxs-4 {
   -webkit-column-count: 4;
+     -moz-column-count: 4;
           column-count: 4; }
 
 .full-width {
@@ -7495,21 +7499,22 @@ details.alert, details.alert[open] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
-            flex-direction: column;
+            flex-direction: column; }
+    .wb-eqht-grd > [class*="col-"] > section, .wb-eqht-grd > [class*="col-"] .hght-inhrt {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+              flex: 1 1 auto;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column; }
+  .wb-eqht-grd.grow > [class*="col-"] {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1; }
-  .wb-eqht-grd > [class*="col-"] > section, .wb-eqht-grd .hght-inhrt {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 auto;
-            flex: 1 1 auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -8671,13 +8676,13 @@ ol.linenums {
 
 .shr-pg .blogger:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px 0px;
+  background-position: 0px 0px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .diigo:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px -64px;
+  background-position: -32px 0px;
   width: 32px;
   height: 32px; }
 
@@ -8713,7 +8718,7 @@ ol.linenums {
 
 .shr-pg .pinterest:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: 0px 0px;
+  background-position: -32px -64px;
   width: 32px;
   height: 32px; }
 
@@ -10237,12 +10242,15 @@ details {
  */
   .colcount-xs-2 {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; }
   .colcount-xs-3 {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3; }
   .colcount-xs-4 {
     -webkit-column-count: 4;
+       -moz-column-count: 4;
             column-count: 4; }
   /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -10292,12 +10300,15 @@ details {
  */
   .colcount-sm-2 {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; }
   .colcount-sm-3 {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3; }
   .colcount-sm-4 {
     -webkit-column-count: 4;
+       -moz-column-count: 4;
             column-count: 4; }
   .pstn-lft-sm {
     position: absolute;
@@ -10336,12 +10347,15 @@ details {
  */
   .colcount-md-2 {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; }
   .colcount-md-3 {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3; }
   .colcount-md-4 {
     -webkit-column-count: 4;
+       -moz-column-count: 4;
             column-count: 4; }
   .pstn-lft-md {
     position: absolute;
@@ -10426,12 +10440,15 @@ details {
  */
   .colcount-lg-2 {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; }
   .colcount-lg-3 {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3; }
   .colcount-lg-4 {
     -webkit-column-count: 4;
+       -moz-column-count: 4;
             column-count: 4; }
   .pstn-lft-lg {
     position: absolute;
@@ -10540,12 +10557,15 @@ details {
  */
   .colcount-xl-2 {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2; }
   .colcount-xl-3 {
     -webkit-column-count: 3;
+       -moz-column-count: 3;
             column-count: 3; }
   .colcount-xl-4 {
     -webkit-column-count: 4;
+       -moz-column-count: 4;
             column-count: 4; } }
 
 /* Print view */

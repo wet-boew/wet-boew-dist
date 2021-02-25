@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.41 - 2021-01-19
+ * v4.0.41 - 2021-02-25
  *
  */
 /*
@@ -7336,12 +7336,13 @@ details.alert, details.alert[open] {
   height: 100%; }
   .wb-eqht-grd > [class*="col-"] {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1; }
-  .wb-eqht-grd > [class*="col-"] > section, .wb-eqht-grd .hght-inhrt {
-    display: flex;
-    flex: 1 1 auto;
     flex-direction: column; }
+    .wb-eqht-grd > [class*="col-"] > section, .wb-eqht-grd > [class*="col-"] .hght-inhrt {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column; }
+  .wb-eqht-grd.grow > [class*="col-"] {
+    flex-grow: 1; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -8497,13 +8498,13 @@ ol.linenums {
 
 .shr-pg .blogger:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px 0px;
+  background-position: 0px 0px;
   width: 32px;
   height: 32px; }
 
 .shr-pg .diigo:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: -32px -64px;
+  background-position: -32px 0px;
   width: 32px;
   height: 32px; }
 
@@ -8539,7 +8540,7 @@ ol.linenums {
 
 .shr-pg .pinterest:before {
   background-image: url(../../wet-boew/assets/sprites_share.png);
-  background-position: 0px 0px;
+  background-position: -32px -64px;
   width: 32px;
   height: 32px; }
 

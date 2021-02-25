@@ -1,8 +1,1 @@
-@charset "utf-8";
-/*!
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.41 - 2021-01-19
- *
- */
-#simple .wb-eqht-grd section{border:1px solid #ddd;border-radius:4px;margin-bottom:23px;padding:15px}
+#grow .wb-eqht-grd section,#simple .wb-eqht-grd section{border:1px solid #ddd;border-radius:4px;margin-bottom:23px;padding:15px}

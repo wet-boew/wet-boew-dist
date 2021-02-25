@@ -1,8 +1,1 @@
-@charset "utf-8";
-/*!
- * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
- * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.41 - 2021-01-19
- *
- */
-@charset "UTF-8";.wb-fade-in-test,.wb-fade-out-test:focus,.wb-fade-out-test:hover{opacity:0}.wb-fade-in-test:focus,.wb-fade-in-test:hover,.wb-fade-out-test{opacity:1}.wb-slide-left-test:focus,.wb-slide-left-test:hover{transform:translate(-25%,0)}.wb-slide-right-test:focus,.wb-slide-right-test:hover{transform:translate(25%,0)}.wb-fade-in-test,.wb-slide-left-test{transition:all 300ms}.wb-fade-out-test,.wb-slide-right-test{transition:all 500ms}
+@charset "UTF-8";.wb-fade-in-test,.wb-fade-out-test:focus,.wb-fade-out-test:hover{opacity:0}.wb-fade-in-test:focus,.wb-fade-in-test:hover,.wb-fade-out-test{opacity:1}.wb-slide-left-test:focus,.wb-slide-left-test:hover{transform:translate(-25%,0)}.wb-slide-right-test:focus,.wb-slide-right-test:hover{transform:translate(25%,0)}.wb-fade-in-test,.wb-slide-left-test{transition:all .3s}.wb-fade-out-test,.wb-slide-right-test{transition:all .5s}
