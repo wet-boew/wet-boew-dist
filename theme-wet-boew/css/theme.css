@@ -8285,7 +8285,7 @@ body.wb-modal .modal-dialog summary {
 
 .wb-mm-cc:before, .wb-mm-cc div {
   display: table-cell;
-  height: 3em;
+  height: 2.875em;
   vertical-align: middle; }
 
 .wb-mltmd {
@@ -8316,8 +8316,8 @@ body.wb-modal .modal-dialog summary {
     width: 100%; }
   .wb-mltmd.cc_on .wb-mm-cc {
     display: table;
-    height: 4em;
-    padding: .5em; }
+    height: calc(2.875em + 1em);
+    padding: 0.5em; }
   .wb-mltmd.cc_on:not(.errmsg) .cc:after {
     border-bottom: 3px solid #4aafff;
     content: " ";
