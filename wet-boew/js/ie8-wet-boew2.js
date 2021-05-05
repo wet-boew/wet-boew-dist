@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.42.1 - 2021-04-15
+ * v4.0.42.1 - 2021-05-05
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -10556,6 +10556,7 @@ var componentName = "wb-steps",
 			 */
 			if ( form && hasStepsInitialized ) {
 				$( form ).children( "input" ).hide();
+				wb.ready( $( elm ), componentName );
 			}
 		}
 	},
