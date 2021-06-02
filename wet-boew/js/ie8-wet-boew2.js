@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.42.2 - 2021-05-27
+ * v4.0.42.2 - 2021-06-02
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -177,7 +177,8 @@ wb.addSkipLink = function( text, attr, isBtn, isLast ) {
 // Escapes the characters in a string for use in a jQuery selector
 // Based on https://totaldev.com/content/escaping-characters-get-valid-jquery-id
 wb.jqEscape = function( selector ) {
-	return selector.replace( /([;&,.+*~':"\\!^/#$%@[]()=>\|])/g, "\\$1" );
+	// eslint-disable-next-line no-useless-escape
+	return selector.replace( /([;&,\.\+\*\~':"\\\!\^\/#$%@\[\]\(\)=>\|])/g, "\\$1" );
 };
 
 // RegEx used by formattedNumCompare
