@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.43 - 2021-06-15
+ * v4.0.43 - 2021-06-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -13743,11 +13743,11 @@ var $document = wb.doc,
 
 				if ( !$( this ).attr( attrEngaged ) ) {
 					var data = $elm.serializeArray(),
-						$btn = $( "[type=submit][" + attrEngaged + "]", $elm ),
+						$btn = $( "[type=submit][name][" + attrEngaged + "]", $elm ),
 						$selectorSuccess = $( selectorSuccess ),
 						$selectorFailure = $( selectorFailure );
 
-					if ( $btn ) {
+					if ( $btn.length ) {
 						data.push( { name: $btn.attr( "name" ), value: $btn.val() } );
 					}
 					$( this ).attr( attrEngaged, true );
