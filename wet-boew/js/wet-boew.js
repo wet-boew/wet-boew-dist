@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.43.1 - 2021-07-28
+ * v4.0.43.1 - 2021-08-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -13538,7 +13538,7 @@ var componentName = "wb-disable",
 			// Rebuild the query string
 			for ( param in pageUrl.params ) {
 				if ( param && Object.prototype.hasOwnProperty.call( pageUrl.params, param ) && param !== "wbdisable" ) {
-					nQuery += param + "=" + pageUrl.params[ param ] + "&#38;";
+					nQuery += param + "=" + pageUrl.params[ param ] + "&";
 				}
 			}
 
