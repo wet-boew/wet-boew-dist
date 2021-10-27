@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.43.2 - 2021-09-15
+ * v4.0.43.2 - 2021-10-27
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /* Modernizr (Custom Build) | MIT & BSD
@@ -3875,6 +3875,7 @@ Modernizr.load( [
 
 			// Defer loading the polyfill till an element is detected due to the size
 			if ( !Modernizr.mathml ) {
+				let isTrident = new Boolean( window.navigator.msSaveOrOpenBlob );
 
 				// Bind the init event of the plugin
 				$document.one( "timerpoke.wb wb-init." + componentName, selector, function() {
@@ -3882,18 +3883,67 @@ Modernizr.load( [
 					// Start initialization
 					wb.init( document, componentName, selector );
 
+					// Disable MathJax's context menu to more closely mimic native MathML implementations
+					window.MathJax = {
+						options: {
+							enableMenu: false
+						}
+					};
+
+					// Extra tasks for IE11
+					if ( isTrident ) {
+
+						// Load an ES6 polyfill
+						Modernizr.load( "timeout=500!https://polyfill.io/v3/polyfill.min.js?features=es6" );
+
+						// Specify the CDN's font URL
+						// Note: IE11 is unable to resolve this on its own
+						window.MathJax.chtml = {
+							fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2"
+						};
+					}
+
 					// Load the MathML dependency. Since the polyfill is only loaded
 					// when !Modernizr.mathml, we can skip the test here.
 					Modernizr.load( [ {
-						load: "timeout=500!https://cdn.jsdelivr.net/npm/mathjax@2.7.4/MathJax.js?config=Accessible",
-						complete: function() {
-							Modernizr.load( [ {
-								test: window.MathJax === undefined,
-								yep: "mthjx!MathJax.js?config=Accessible"
-							} ] );
 
-							// Identify that initialization has completed
-							wb.ready( $document, componentName );
+						// Load latest version of MathJax 3 from a CDN
+						// Also load a CSS workaround for a MathJax 3.2.0 bug (refer to CSS file for details)
+						load: [
+							"timeout=500!https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js",
+							"plyfll!mathml.min.css"
+						],
+						complete: function() {
+
+							// Wait a moment to reduce the risk of a race condition
+							setTimeout( function() {
+
+								// Specify a font URL for a local copy of MathJax 3 for IE11
+								// Note: Useful if IE11 has internet access but fails to reach the CDN
+								if ( isTrident && !window.MathJax.startup ) {
+									window.MathJax.chtml.fontURL = paths.js + "/MathJax/output/chtml/fonts/woff-v2";
+								}
+
+								// Fall back on a local copy of MathJax 3 if the CDN is unreachable
+								// Note: Won't work with IE11 in isolated networks (ES6 polyfill has no local fallback)
+								Modernizr.load( [ {
+									test: window.MathJax.startup,
+									nope: "mthjx!mml-chtml.js",
+									complete: function() {
+
+										// Try loading a local copy of MathJax 2 as a last dith effort
+										Modernizr.load( [ {
+											test: window.MathJax.startup,
+											nope: "mthjx!MathJax.js?config=Accessible",
+											complete: function() {
+
+												// Identify that initialization has completed
+												wb.ready( $document, componentName );
+											}
+										} ] );
+									}
+								} ] );
+							}, 100 );
 						}
 					} ] );
 				} );
