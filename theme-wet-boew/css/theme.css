@@ -7250,6 +7250,10 @@ details {
     margin-right: -1.1em; }
   details[open] {
     padding-bottom: 1em; }
+  details.max-content {
+    max-width: -webkit-max-content;
+    max-width: -moz-max-content;
+    max-width: max-content; }
 
 /*
  *
