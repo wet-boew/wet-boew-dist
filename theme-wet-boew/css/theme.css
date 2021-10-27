@@ -6461,9 +6461,6 @@ mark {
   padding: 5px;
   z-index: 501; }
 
-.wb-disable #wb-tphp {
-  background: #fff; }
-
 .wb-disable .wb-slc {
   position: static; }
   .wb-disable .wb-slc .wb-sl {
@@ -6476,6 +6473,16 @@ mark {
 
 .wb-disable #wb-dtmd {
   float: none !important; }
+
+.wb-disable #wb-tphp + section h2 {
+  margin-left: 1.3em; }
+  .wb-disable #wb-tphp + section h2::before {
+    color: #f90;
+    content: "\e107";
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    margin-left: -1.3em;
+    position: absolute; }
 
 q:before, q:after {
   content: ""; }
