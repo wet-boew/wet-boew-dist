@@ -101,17 +101,21 @@
 		<h2>คุณอยู่ที่นี่</h2>
 		<div class="container">
 			<div class="row">
-				<ol class="breadcrumb">
-					<li>
-						<a href="../index-en.html">บ้าน</a>
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../index-en.html"><span property="name">บ้าน</span></a>
+						<meta property="position" content="1">
 					</li>
-					<li>
-						<a href="../demos/index-en.html">ตัวอย่างการใช้งาน</a>
-					</li>
-						<li>
-							<a href="../theme/index-en.html">WET theme</a>
-						</li>
-					<li>Content page - Signed On</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a property="item" typeof="WebPage" href="../demos/index-en.html"><span property="name">ตัวอย่างการใช้งาน</span></a>
+								<meta property="position" content="2">
+							</li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Content page - Signed On</span><meta property="position" content="3"></li>
+									<li property="itemListElement" typeof="ListItem">
+										<a property="item" typeof="WebPage" href="../theme/index-en.html"><span property="name">WET theme</span></a>
+										<meta property="position" content="2">
+									</li>
+									<li property="itemListElement" typeof="ListItem"><span property="name">Content page - Signed On</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>

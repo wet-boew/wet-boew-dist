@@ -79,17 +79,21 @@
 		<h2>Ви тут</h2>
 		<div class="container">
 			<div class="row">
-				<ol class="breadcrumb">
-					<li>
-						<a href="../index-en.html">Головна сторінка</a>
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../index-en.html"><span property="name">Головна сторінка</span></a>
+						<meta property="position" content="1">
 					</li>
-					<li>
-						<a href="../demos/index-en.html">Робочі приклади</a>
-					</li>
-						<li>
-							<a href="../theme/index-en.html">WET theme</a>
-						</li>
-					<li>Content page - No search or language selection link</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a property="item" typeof="WebPage" href="../demos/index-en.html"><span property="name">Робочі приклади</span></a>
+								<meta property="position" content="2">
+							</li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Content page - No search or language selection link</span><meta property="position" content="3"></li>
+									<li property="itemListElement" typeof="ListItem">
+										<a property="item" typeof="WebPage" href="../theme/index-en.html"><span property="name">WET theme</span></a>
+										<meta property="position" content="2">
+									</li>
+									<li property="itemListElement" typeof="ListItem"><span property="name">Content page - No search or language selection link</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>

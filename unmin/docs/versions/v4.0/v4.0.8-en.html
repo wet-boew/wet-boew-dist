@@ -99,14 +99,16 @@
 		<h2>Breadcrumb Navigation</h2>
 		<div class="container">
 			<div class="row">
-				<ol class="breadcrumb">
-					<li>
-						<a href="../../../index-en.html">Home</a>
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../../../index-en.html"><span property="name">Home</span></a>
+						<meta property="position" content="1">
 					</li>
-						<li>
-							<a href="../../../docs/versions/index-en.html">Version history</a>
-						</li>
-					<li>v4.0.8 release notes</li>
+									<li property="itemListElement" typeof="ListItem">
+										<a property="item" typeof="WebPage" href="../../../docs/versions/index-en.html"><span property="name">Version history</span></a>
+										<meta property="position" content="2">
+									</li>
+									<li property="itemListElement" typeof="ListItem"><span property="name">v4.0.8 release notes</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>

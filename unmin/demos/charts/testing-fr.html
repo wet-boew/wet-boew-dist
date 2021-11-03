@@ -100,14 +100,16 @@
 		<h2>Piste de navigation</h2>
 		<div class="container">
 			<div class="row">
-				<ol class="breadcrumb">
-					<li>
-						<a href="../../index-fr.html">Accueil</a>
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../../index-fr.html"><span property="name">Accueil</span></a>
+						<meta property="position" content="1">
 					</li>
-					<li>
-						<a href="../../demos/index-fr.html">Exemples pratiques</a>
-					</li>
-					<li>Graphiques - Scénarios d&#x27;essai spécifiques</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a property="item" typeof="WebPage" href="../../demos/index-fr.html"><span property="name">Exemples pratiques</span></a>
+								<meta property="position" content="2">
+							</li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Graphiques - Scénarios d&#x27;essai spécifiques</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>

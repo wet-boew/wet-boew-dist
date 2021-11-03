@@ -79,17 +79,21 @@
 		<h2>Դուք այստեղ եք `</h2>
 		<div class="container">
 			<div class="row">
-				<ol class="breadcrumb">
-					<li>
-						<a href="../index-en.html">Տուն</a>
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../index-en.html"><span property="name">Տուն</span></a>
+						<meta property="position" content="1">
 					</li>
-					<li>
-						<a href="../demos/index-en.html">Աշխատանքային օրինակներ</a>
-					</li>
-						<li>
-							<a href="../theme/index-en.html">WET theme</a>
-						</li>
-					<li>Content page - No search or language selection link</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a property="item" typeof="WebPage" href="../demos/index-en.html"><span property="name">Աշխատանքային օրինակներ</span></a>
+								<meta property="position" content="2">
+							</li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Content page - No search or language selection link</span><meta property="position" content="3"></li>
+									<li property="itemListElement" typeof="ListItem">
+										<a property="item" typeof="WebPage" href="../theme/index-en.html"><span property="name">WET theme</span></a>
+										<meta property="position" content="2">
+									</li>
+									<li property="itemListElement" typeof="ListItem"><span property="name">Content page - No search or language selection link</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>
