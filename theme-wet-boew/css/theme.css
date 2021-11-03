@@ -10122,6 +10122,16 @@ ol-geolocate button {
 .position-relative {
   position: relative !important; }
 
+/* Vertical alignment */
+.align-top {
+  vertical-align: top !important; }
+
+.align-middle {
+  vertical-align: middle !important; }
+
+.align-bottom {
+  vertical-align: bottom !important; }
+
 /*
  *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)

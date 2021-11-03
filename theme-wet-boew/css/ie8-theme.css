@@ -6423,6 +6423,16 @@ fieldset {
 .position-relative {
   position: relative !important; }
 
+/* Vertical alignment */
+.align-top {
+  vertical-align: top !important; }
+
+.align-middle {
+  vertical-align: middle !important; }
+
+.align-bottom {
+  vertical-align: bottom !important; }
+
 /*
   WET-BOEW
   @title: Bootstrap IE8-specific overrides for WET-BOEW
@@ -16273,6 +16283,16 @@ ol-geolocate button {
 /* Position relative */
 .position-relative {
   position: relative !important; }
+
+/* Vertical alignment */
+.align-top {
+  vertical-align: top !important; }
+
+.align-middle {
+  vertical-align: middle !important; }
+
+.align-bottom {
+  vertical-align: bottom !important; }
 
 /*
  *
