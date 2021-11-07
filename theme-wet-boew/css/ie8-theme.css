@@ -14764,14 +14764,15 @@ table.dataTable.display tbody tr.even > .sorting_3, table.dataTable.order-column
 table.dataTable, table.dataTable th, table.dataTable td {
   box-sizing: content-box; }
 
-table.dataTable thead .sorting_asc .sorting-icons:before, table.dataTable thead .sorting_desc .sorting-icons:after {
-  background: #ccc;
-  border: 1px solid #111; }
-
 table.dataTable thead .sorting .sorting-icons:before, table.dataTable thead .sorting .sorting-icons:after, table.dataTable thead .sorting_asc .sorting-icons:after, table.dataTable thead .sorting_desc .sorting-icons:before {
   background: #fff;
   border: 1px solid #aaa;
   color: #757575; }
+
+table.dataTable thead .sorting_asc .sorting-icons:before, table.dataTable thead .sorting_desc .sorting-icons:after {
+  background: #ccc;
+  border: 1px solid #111;
+  color: #000; }
 
 table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc {
   cursor: pointer; }
