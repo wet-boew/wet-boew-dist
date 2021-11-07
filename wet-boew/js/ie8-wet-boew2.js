@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.43.2 - 2021-11-03
+ * v4.0.43.2 - 2021-11-07
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1611,12 +1611,21 @@ $document.on( "ajax-fetch.wb", function( event ) {
 		}
 		callerId = caller.id;
 
+		// Ensure we don't allow jsonp load
+		if ( fetchOpts.dataType && fetchOpts.dataType === "jsonp" ) {
+			fetchOpts.dataType = "json";
+		}
+		if ( fetchOpts.jsonp ) {
+			fetchOpts.jsonp = false;
+		}
+
 		$.ajax( fetchOpts )
 			.done( function( response, status, xhr ) {
 				var responseType = typeof response;
 
+				response = $( response );
 				if ( selector ) {
-					response = $( "<div>" + response + "</div>" ).find( selector );
+					response = response.wrapAll( "<div></div>" ).find( selector );
 				}
 
 				fetchData = {
@@ -2103,10 +2112,11 @@ var componentName = "wb-calevt",
 
 						//Determine the focus based on the day before
 						if ( dayIndex && $days[ dayIndex - 1 ].parentNode.nodeName === "A" ) {
-							$day.wrap( "<a href='javascript:;' class='cal-evt' tabindex='-1'></a>" );
+							$day.wrap( "<a class='cal-evt' tabindex='-1'></a>" );
 						} else {
-							$day.wrap( "<a href='javascript:;' class='cal-evt'></a>" );
+							$day.wrap( "<a class='cal-evt'></a>" );
 						}
+						$day.parent().attr( "href", "javascript:;" );
 					}
 
 					//Add the event to the list
@@ -2214,7 +2224,7 @@ wb.add( selector );
 
 } )( jQuery, window, wb );
 
-( function( $, window, document, wb, undef ) {
+( function( $, DOMPurify, window, document, wb, undef ) {
 
 var i18nText,
 	$document = wb.doc,
@@ -2356,13 +2366,14 @@ var i18nText,
 
 	createDays = function( calendar, year, month ) {
 		var $container = $( calendar ).find( ".cal-days" ),
+			daysContainer = $container.get( 0 ),
 			dayCount = 1,
 			textCurrentDay = i18nText.currDay,
 			lib = calendar.lib,
 			minDate = lib.minDate,
 			maxDate = lib.maxDate,
 			callback = lib.daysCallback,
-			cells = "",
+			row, cell,
 			date, firstDay, lastDay, currYear, currMonth, currDay, week, day, className, isCurrentDate, isoDate, printDate, breakAtEnd, days, inRange;
 
 		date = new Date( year, month, 1 );
@@ -2377,14 +2388,21 @@ var i18nText,
 		currMonth = date.getMonth();
 		currDay = date.getDate();
 
+		// Clean all existing rows
+		$container.empty();
+
 		for ( week = 1; week < 7; week += 1 ) {
-			cells += "<tr>";
+			row = daysContainer.insertRow();
+
 			for ( day = 0; day < 7; day += 1 ) {
 
 				if ( ( week === 1 && day < firstDay ) || ( dayCount > lastDay ) ) {
 
 					// Creates empty cells | Cree les cellules vides
-					cells += "<td class='cal-empty'>&#160;</td>";
+					cell = row.insertCell();
+					cell.classList.add( "cal-empty" );
+					cell.textContent = " ";
+
 				} else {
 
 					// Creates date cells | Cree les cellules de date
@@ -2395,7 +2413,9 @@ var i18nText,
 					isoDate = date.toLocalISOString().substr( 0, 10 );
 					printDate = displayDate( date ) + ( isCurrentDate ? "<span class='wb-inv'>" + textCurrentDay + "</span>" : "" );
 
-					cells += "<td class='" + className + "'><time datetime='" + isoDate  + "'>" + printDate + "</time></td>";
+					cell = row.insertCell();
+					cell.setAttribute( "class", className );
+					cell.innerHTML = DOMPurify.sanitize( "<time datetime='" + isoDate  + "'>" + printDate + "</time>" );
 
 					if ( dayCount >= lastDay ) {
 						breakAtEnd = true;
@@ -2404,13 +2424,10 @@ var i18nText,
 					dayCount += 1;
 				}
 			}
-			cells += "</tr>";
 			if ( breakAtEnd ) {
 				break;
 			}
 		}
-
-		$container.empty().append( cells );
 
 		if ( callback ) {
 			days = $container.find( "time" );
@@ -2682,7 +2699,7 @@ $document.on( "keydown", selector, function( event ) {
 	}
 }() );
 
-} )( jQuery, window, document, wb );
+} )( jQuery, DOMPurify, window, document, wb );
 
 /**
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -3427,7 +3444,7 @@ var componentName = "wb-charts",
 
 			$summary = $( "<summary>" + captionHtml + i18nText.tableMention + "</summary>" );
 			$elm
-				.wrap( "<details/>" )
+				.wrap( "<details></details>" )
 				.before( $summary );
 
 			$summary.trigger( "wb-init.wb-details" );
@@ -4049,9 +4066,8 @@ var componentName = "wb-ctrycnt",
 			// From https://github.com/aFarkas/webshim/blob/master/src/shims/geolocation.js#L89-L127
 			$.ajax( {
 				url: "https://freegeoip.app/json/",
-				dataType: "jsonp",
+				dataType: "json",
 				cache: true,
-				jsonp: "callback",
 				success: function( data ) {
 					if ( data ) {
 						countryCode = data.country_code;
@@ -5258,7 +5274,7 @@ wb.add( selector );
  *
  *     <link href="favion.ico" rel='icon' data-rel="apple-touch-icon-precomposed" data-filename="my-mobile-favicon.ico"/>
  */
-( function( $, window, wb ) {
+( function( $, document, wb ) {
 "use strict";
 
 /*
@@ -5327,7 +5343,14 @@ var componentName = "wb-favicon",
 
 		// Create the mobile favicon if it doesn't exist
 		if ( !isFaviconMobile ) {
-			faviconMobile = $( "<link rel='" + data.rel + "' sizes='" + data.sizes + "' class='" + componentName + "'/>" );
+			var lnk = document.createElement( "link" );
+			lnk.setAttribute( "rel", data.rel  );
+			lnk.setAttribute( "sizes", data.sizes );
+			lnk.setAttribute( "class", componentName );
+
+			document.head.appendChild( lnk );
+
+			faviconMobile = $( lnk );
 		}
 
 		// Only add/update a mobile favicon that was created by the plugin
@@ -5397,7 +5420,7 @@ $document.on( mobileEvent + " " + iconEvent, selector, function( event, data ) {
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
-} )( jQuery, window, wb );
+} )( jQuery, document, wb );
 
 /**
  * @title WET-BOEW Feeds
@@ -5903,7 +5926,7 @@ $document.on( "click", selector + " .feed-youtube", function( event ) {
 		youtubeData = wb.getData( event.currentTarget, "youtube" ),
 		videoUrl = wb.pageUrlParts.protocol + "//www.youtube.com/watch?v=" + youtubeData.videoId,
 		videoSource = "<figure class='wb-mltmd'><video title='" + youtubeData.title + "'>" +
-			"<source type='video/youtube' src='" + videoUrl + "' />" +
+			"<source type='video/youtube' src='" + videoUrl + "'></source>" +
 			"</video><figcaption><p>" +  youtubeData.title + "</p>" +
 			"</figcaption></figure>";
 
@@ -6737,7 +6760,7 @@ wb.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @pjackson28
  */
-( function( $, window, document, wb, undef ) {
+( function( $, DOMPurify, window, document, wb, undef ) {
 "use strict";
 
 /*
@@ -6960,6 +6983,9 @@ var componentName = "wb-lbx",
 						selector = filter || ( urlHash ? "#" + urlHash : false ),
 						$response;
 
+					// Sanitize the response
+					mfpResponse = DOMPurify.sanitize( mfpResponse );
+
 					// Provide the ability to filter the AJAX response HTML
 					// by the URL hash or a selector
 					// TODO: Should be dealt with upstream by Magnific Popup
@@ -7123,7 +7149,7 @@ $( document ).on( "open" + selector, function( event, items, modal, title, ajax 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
-} )( jQuery, window, document, wb );
+} )( jQuery, DOMPurify, window, document, wb );
 
 /**
  * @title WET-BOEW Menu plugin
@@ -8014,7 +8040,7 @@ wb.add( selector );
  * @author WET Community
  */
 /* globals YT */
-( function( $, window, wb, undef ) {
+( function( $, DOMPurify, window, wb, undef ) {
 "use strict";
 
 /* Local scoped variables*/
@@ -8305,22 +8331,22 @@ var componentName = "wb-mltmd",
 	parseXml = function( content ) {
 		var captions = [],
 			captionSelector = "[begin]",
-			captionElements = content.find( captionSelector ),
+			parser = new DOMParser(),
+			doc = parser.parseFromString( content, "application/xml" ),
+			captionElements = doc.querySelectorAll( captionSelector ),
 			len = captionElements.length,
 			i, captionElement, begin, end;
 
 		for ( i = 0; i !== len; i += 1 ) {
-			captionElement = $( captionElements[ i ] );
-			begin = parseTime( captionElement.attr( "begin" ) );
-			end = captionElement.attr( "end" ) !== undef ?
-				parseTime( captionElement.attr( "end" ) ) :
-				parseTime( captionElement.attr( "dur" ) ) + begin;
+			captionElement = captionElements[ i ];
 
-			captionElement = captionElement.clone();
-			captionElement.find( captionSelector ).detach();
+			begin = parseTime( captionElement.getAttribute( "begin" ) + "" );
+			end = captionElement.hasAttribute( "end" ) ?
+				parseTime( captionElement.getAttribute( "end" ) + "" ) :
+				parseTime( captionElement.getAttribute( "dur" ) + "" ) + begin;
 
 			captions[ captions.length ] = {
-				text: captionElement.html(),
+				text: DOMPurify.sanitize( captionElement.textContent ),
 				begin: begin,
 				end: end
 			};
@@ -8346,9 +8372,18 @@ var componentName = "wb-mltmd",
 				return data.replace( /<img|object [^>]*>/g, "" );
 			},
 			success: function( data ) {
-				var captionItems = data.indexOf( "<html" ) !== -1 ?
-					parseHtml( $( data ) ) :
-					parseXml( $( data ) );
+
+				var captionItems;
+
+				if ( data.indexOf( "<html" ) !== -1 ) {
+
+					// Sanitize the response
+					captionItems = parseHtml( $( DOMPurify.sanitize( data, { WHOLE_DOCUMENT: true } ) ) );
+				} else {
+
+					// Response is sanitized in the XML parser function
+					captionItems = parseXml( data );
+				}
 
 				if ( captionItems.length ) {
 					elm.trigger( {
@@ -9110,7 +9145,7 @@ window.youTube = {
 
 wb.add( selector );
 
-} )( jQuery, window, wb );
+} )( jQuery, DOMPurify, window, wb );
 
 /**
  * @title WET-BOEW NavCurrent
@@ -9909,7 +9944,7 @@ wb.add( selector );
  * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  * @author @patheard
  */
-( function( $, window, document, wb ) {
+( function( $, DOMPurify, window, document, wb ) {
 "use strict";
 
 /*
@@ -10107,6 +10142,9 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 				dataType: "text",
 				method: settings.method,
 				success: function( response ) {
+
+					// Sanitize the response
+					response = DOMPurify.sanitize( response );
 
 					// Session is valid
 					if ( response && settings.refreshCallback( response ) ) {
@@ -10353,7 +10391,7 @@ $document.on( "click", "." + confirmClass, confirm );
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
-} )( jQuery, window, document, wb );
+} )( jQuery, DOMPurify, window, document, wb );
 
 /**
  * @title WET-BOEW Share widget
@@ -11292,7 +11330,7 @@ var componentName = "wb-tabs",
 
 			// For backwards compatibility. Should be removed in WET v4.1
 			if ( $elm.children( ".tabpanels" ).length === 0 ) {
-				$elm.children( "[role=tabpanel], details" ).wrapAll( "<div class='tabpanels'/>" );
+				$elm.children( "[role=tabpanel], details" ).wrapAll( "<div class='tabpanels'></div>" );
 			}
 
 			$panels = $elm.find( "> .tabpanels > [role=tabpanel], > .tabpanels > details" );
@@ -13140,6 +13178,7 @@ var $document = wb.doc,
 					$selectorFailure.addClass( classToggle );
 					$selectorSuccess.addClass( classToggle );
 
+					// Send the form through ajax and ignore the response body.
 					$.ajax( {
 						type: this.method,
 						url: this.action,
