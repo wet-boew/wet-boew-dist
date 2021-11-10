@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.44 - 2021-11-08
+ * v4.0.44 - 2021-11-10
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.3.3 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.3.3/LICENSE */
@@ -3938,9 +3938,10 @@ $document.on( "ajax-fetch.wb", function( event ) {
 			.done( function( response, status, xhr ) {
 				var responseType = typeof response;
 
-				response = $( response );
 				if ( selector ) {
-					response = response.wrapAll( "<div></div>" ).find( selector );
+					response = $( "<div>" + response + "</div>" ).find( selector );
+				} else {
+					response = $( response );
 				}
 
 				fetchData = {
