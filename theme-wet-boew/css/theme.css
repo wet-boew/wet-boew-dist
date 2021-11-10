@@ -9656,6 +9656,10 @@ ol-geolocate button {
 .feeds-cont .feeds-date:after {
   content: "]"; }
 
+.feeds-cont button[data-youtube] {
+  border: none;
+  padding: 0; }
+
 /*! Core - Utilities */
 .clearfix:before, .clearfix:after {
   display: table;
