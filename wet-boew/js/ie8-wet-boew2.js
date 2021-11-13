@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.44.2 - 2021-11-10
+ * v4.0.44.2 - 2021-11-13
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1576,7 +1576,8 @@ $document.on( "ajax-fetch.wb", function( event ) {
 		urlSubParts = url.split( "#" ),
 		urlHash = urlSubParts[ 1 ],
 		selector = urlParts[ 1 ] || ( urlHash ? "#" + urlHash : false ),
-		fetchData, callerId, fetchNoCacheURL, urlSub,
+		fetchData = {},
+		callerId, fetchNoCacheURL, urlSub,
 		fetchNoCache = fetchOpts.nocache,
 		fetchNoCacheKey = fetchOpts.nocachekey || wb.cacheBustKey || "wbCacheBust";
 
@@ -1625,18 +1626,18 @@ $document.on( "ajax-fetch.wb", function( event ) {
 
 				if ( selector ) {
 					response = $( "<div>" + response + "</div>" ).find( selector );
-				} else {
-					response = $( response );
 				}
+
+				fetchData.pointer = $( "<div id='" + wb.getId() + "' data-type='" + responseType + "'></div>" )
+					.append( responseType === "string" ? response : "" );
+
+				response = $( response );
 
 				fetchData = {
 					response: response,
 					status: status,
 					xhr: xhr
 				};
-
-				fetchData.pointer = $( "<div id='" + wb.getId() + "' data-type='" + responseType + "'></div>" )
-					.append( responseType === "string" ? response : "" );
 
 				$( "#" + callerId ).trigger( {
 					type: "ajax-fetched.wb",
