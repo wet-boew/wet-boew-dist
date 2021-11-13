@@ -202,8 +202,7 @@ a:hover {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; }
+  text-decoration: underline dotted; }
 
 b,
 strong {
@@ -1716,13 +1715,11 @@ abbr[title] {
   border-bottom: 1px dotted;
   text-decoration: none; }
 
-@supports ((-webkit-text-decoration: underline dotted) or (text-decoration: underline dotted)) {
+@supports (text-decoration: underline dotted) {
   abbr[title] {
     border-bottom: 0;
-    -webkit-text-decoration: underline dotted;
-            text-decoration: underline dotted;
-    -webkit-text-decoration-skip-ink: none;
-            text-decoration-skip-ink: none; } }
+    text-decoration: underline dotted;
+    text-decoration-skip-ink: none; } }
 
 /*
  * Code
