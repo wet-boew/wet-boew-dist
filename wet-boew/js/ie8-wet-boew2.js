@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.44.3 - 2021-11-13
+ * v4.0.44.3 - 2021-11-16
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1633,11 +1633,9 @@ $document.on( "ajax-fetch.wb", function( event ) {
 
 				response = $( response );
 
-				fetchData = {
-					response: response,
-					status: status,
-					xhr: xhr
-				};
+				fetchData.response = response;
+				fetchData.status = status;
+				fetchData.xhr = xhr;
 
 				$( "#" + callerId ).trigger( {
 					type: "ajax-fetched.wb",

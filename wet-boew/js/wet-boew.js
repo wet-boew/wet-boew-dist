@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.44.3 - 2021-11-13
+ * v4.0.44.3 - 2021-11-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.3.3 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.3.3/LICENSE */
@@ -1467,7 +1467,7 @@ Test: jQuery.extend
 
 */
 
-( function( jQuery, DOMPurify ) {
+( function( jQuery, DOMPurify, window ) {
 "use strict";
 
 /**
@@ -1568,14 +1568,28 @@ jQuery.htmlPrefilter = function( html ) {
  * This implementation leverage DOMPurify for filtering every string prior DOM manipulation by jQuery
  *
  */
-var sanitize = DOMPurify.sanitize,
-	localParseHTML = jQuery.parseHTML,
+var localParseHTML = jQuery.parseHTML,
 	append = jQuery.fn.append,
 	prepend = jQuery.fn.prepend,
 	before = jQuery.fn.before,
 	after = jQuery.fn.after,
 	replaceWith = jQuery.fn.replaceWith,
-	jqInit = jQuery.fn.init;
+	jqInit = jQuery.fn.init,
+	dataTableAllowedTag = [
+		"<tbody/>",
+		"<tr/>",
+		"<td />",
+		"<td/>"
+	],
+	sanitize = function( html ) {
+
+		// Add an exception for DataTable plugin
+		if ( window.DataTable && dataTableAllowedTag.indexOf( html ) !== -1 ) {
+			return html;
+		}
+
+		return DOMPurify.sanitize( html );
+	};
 
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	return localParseHTML( sanitize( data ), context, keepScripts );
@@ -1635,16 +1649,16 @@ jQuery.replaceWith = jQuery.fn.replaceWith = function() {
 
 jQuery.fn.init = function( selector, context, root ) {
 	if ( typeof selector === "string" ) {
-		selector = DOMPurify.sanitize( selector );
+		selector = sanitize( selector );
 	}
 	return new jqInit( selector, context, root );
 };
 
 jQuery.html = function( value ) {
-	return jQuery.html( DOMPurify.sanitize( value ) );
+	return jQuery.html( sanitize( value ) );
 };
 
-} )( jQuery, DOMPurify );
+} )( jQuery, DOMPurify, window );
 
 /* Modernizr (Custom Build) | MIT & BSD
  * Build: https://modernizr.com/download/#-elem_details-elem_progress_meter-mathml-cors-load-mq-css3-input-inputtypes-svg-cssclasses-csstransitions-fontface-backgroundsize-borderimage-teststyles-testprops-testallprops-hasevents-prefixes-domprefixes
@@ -3948,11 +3962,9 @@ $document.on( "ajax-fetch.wb", function( event ) {
 
 				response = $( response );
 
-				fetchData = {
-					response: response,
-					status: status,
-					xhr: xhr
-				};
+				fetchData.response = response;
+				fetchData.status = status;
+				fetchData.xhr = xhr;
 
 				$( "#" + callerId ).trigger( {
 					type: "ajax-fetched.wb",
