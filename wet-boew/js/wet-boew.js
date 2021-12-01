@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.44.5 - 2021-11-18
+ * v4.0.44.5 - 2021-12-01
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.3.3 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.3.3/LICENSE */
@@ -13426,6 +13426,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 	var $prevCol = -1, $cachedVal = "";
 	$form.find( "[name]" ).each( function() {
 		var $elm = $( this ),
+			$val = $elm.val(),
 			$value = "",
 			$regex = "",
 			$column = parseInt( $elm.attr( "data-column" ), 10 ),
@@ -13450,7 +13451,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 		if ( $elm.is( "select" ) ) {
 			$value = $elm.find( "option:selected" ).val();
 		} else if ( $elm.is( "input[type='number']" ) ) {
-			var $val = $elm.val(), $minNum, $maxNum;
+			var $minNum, $maxNum;
 
 			// Retain minimum number (always the first number input)
 			if ( $cachedVal === "" ) {
@@ -13462,6 +13463,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 			// Maximum number is always the current selected number
 			$maxNum = parseFloat( $val );
 
+			//Number filtering logic needs to be reviewed in order to remove the "-0" value (issue #9235)
 			// Generates a list of numbers (within the min and max number)
 			if ( !isNaN( $minNum ) && !isNaN( $maxNum ) ) {
 				$fData = $datatable.column( $column ).data().filter( function( obj ) {
@@ -13490,19 +13492,19 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 				$value = ( $fData ) ? $fData : "-0";
 				$regex = "(" + $value.replace( /&nbsp;|\s/g, "\\s" ).replace( /\$/g, "\\$" ) + ")";
 			}
-		} else if ( $elm.is( "input[type='date']" ) && $elm.val() ) {
+		} else if ( $elm.is( "input[type='date']" ) && $val ) {
 			var $minDate, $maxDate;
 
 			// Retain minimum date (always the first date input)
 			if ( $cachedVal === "" ) {
-				$cachedVal = new Date( $elm.val() );
+				$cachedVal = new Date( $val );
 				$cachedVal.setDate( $cachedVal.getDate() + 1 );
 				$cachedVal.setHours( 0, 0, 0, 0 );
 			}
 			$minDate = $cachedVal;
 
 			// Maximum date is always the current selected date
-			$maxDate = new Date( $elm.val() );
+			$maxDate = new Date( $val );
 			$maxDate.setDate( $maxDate.getDate() + 1 );
 			$maxDate.setHours( 23, 59, 59, 999 );
 
@@ -13525,17 +13527,17 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 			} );
 			$fData = $fData.join( "|" );
 
-			// If no dates match set as -1, so no results return
-			$value = ( $fData ) ? $fData : "-1";
+			// If no dates match set as element value, so no results return
+			$value = ( $fData ? $fData : $val );
 		} else if ( $elm.is( ":checkbox" ) ) {
 
 			// Verifies if checkbox is checked before setting value
 			if ( $elm.is( ":checked" ) ) {
 				if ( $aoType === "both" ) {
-					$cachedVal += "(?=.*\\b" + $elm.val() + "\\b)";
+					$cachedVal += "(?=.*\\b" + $val + "\\b)";
 				} else {
 					$cachedVal += ( $cachedVal.length > 0 ) ? "|" : "";
-					$cachedVal += $elm.val();
+					$cachedVal += $val;
 				}
 
 				$value = $cachedVal;
@@ -13559,7 +13561,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 				}
 			}
 		} else {
-			$value = $elm.val();
+			$value = $val;
 		}
 
 		if ( $value ) {
