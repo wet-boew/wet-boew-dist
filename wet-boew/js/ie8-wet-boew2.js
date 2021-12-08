@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.45 - 2021-12-02
+ * v4.0.45 - 2021-12-08
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -9352,7 +9352,7 @@ var componentName = "wb-overlay",
 				footer = $elm.find( ".modal-footer" )[ 0 ];
 
 				var hasFooter = ( footer && footer.length !== 0 ) ? true : false,
-					hasButton = hasFooter && $( footer ).find( closeClass ).length !== 0,
+					hasButton = hasFooter && $( footer ).find( "." + closeClass ).length !== 0,
 					closeClassFtr = ( $elm.hasClass( "wb-panel-l" ) ? "pull-right " : "pull-left " )  + closeClass,
 					closeTextFtr = i18nText.close,
 					spanTextFtr = i18nText.closeOverlay,
