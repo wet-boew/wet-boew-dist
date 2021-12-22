@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Provisional features - Documentation - Web Experience Toolkit
+<title>Details closed on small views - Working examples - Web Experience Toolkit
 </title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
-<meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities">
-<link rel="alternate" hreflang="fr" href="provisional-fr.html">
+<meta name="description" content="Keep selected details elements closed on small view and down.">
+<link rel="alternate" hreflang="fr" href="details-close-fr.html">
 <link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
 <noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css"></noscript>
@@ -32,7 +32,7 @@
 <section id="wb-lng" class="visible-md visible-lg">
 <h2>Language selection</h2>
 <ul class="text-right">
-<li><a lang="fr" hreflang="fr" href="provisional-fr.html">Français</a></li>
+<li><a lang="fr" hreflang="fr" href="details-close-fr.html">Français</a></li>
 <li class="curr">English&#32;<span>(current)</span></li>
 </ul>
 </section>
@@ -90,114 +90,53 @@
 <meta property="position" content="1">
 </li>
 <li property="itemListElement" typeof="ListItem">
-<a property="item" typeof="WebPage" href="../../docs/index-en.html"><span property="name">Documentation</span></a>
+<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
 <meta property="position" content="2">
 </li>
-<li property="itemListElement" typeof="ListItem"><span property="name">Provisional features</span><meta property="position" content="3"></li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Details closed on small views</span><meta property="position" content="3"></li>
 </ol>
 </div>
 </div>
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-<h1 id="wb-cont" property="name">Provisional features</h1>
+<h1 id="wb-cont" property="name">Details closed on small views</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/details-close/details-close-en.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Details%20closed%20on%20small%20views:%20">Questions or comments?</a></li>
+</ul>
 <div class="alert alert-warning">
 <h2>Unstable feature</h2>
-<p>To be used at <strong>your own risk</strong>. All functionalities described below can be removed in any subsequent minor/major release</p>
+<p>To be used at <strong>your own risk</strong>. This feature described below can be removed in any subsequent minor/major release</p>
 <p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html">Learn more about the design decision around provisional features.</a></small></p>
-<p>The documentation and/or working examples for those features could be incomplete or not available.</p>
+<p><small><a href="../../docs/ref/provisional-en.html">Check other provisional features available.</a></small></p>
 </div>
-<h2>Feature availability</h2>
-<p>The following table describes until which version of WET-BOEW each provisional feature will be available. The features' availability will be re-evaluated at every release. A withdrawn provisional feature would be notified one version in advance.</p>
-<details>
-<summary>Status description</summary>
-<dl class="dl-horizontal">
-<dt>&lt;not specified&gt;</dt>
-<dd>provisional</dd>
-<dt>Withdrawn</dt>
-<dd>The feature are not available</dd>
-<dt>Supported</dt>
-<dd>The feature are included and supported by the WET-BOEW public API.</dd>
-<dt>Withdrawn after v.Major.Minor</dt>
-<dd>The v.Major.Minor represent the last version where that feature is available. Authors must consider an alternative or remove that feature.</dd>
-</dl>
+<h2>Other example</h2>
+<ul>
+<li><a href="details-close-md-en.html">Medium viewport example</a></li>
+</ul>
+<h2>Example of <code>details</code> element kept closed on small viewport and down (sm, xs and xxs)</h2>
+<p>Resize your browser to view the plugin at play.</p>
+<div class="row">
+<div class="col-md-6">
+<details class="provisional wb-details-close" open>
+<summary>I am closed on mobile (uses plugin)</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rhoncus, neque accumsan faucibus ultricies, libero massa mollis neque, et mollis libero enim a ligula. Ut dictum tempor luctus. Ut convallis vehicula sapien a facilisis. Morbi eget lectus efficitur, finibus metus eu, feugiat felis. Praesent sodales elit sed finibus pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent quis sem lacinia, accumsan sem et, lacinia turpis.</p>
 </details>
-<table class="table table-bordered">
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th class="nowrap">Available in</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>CSS <code>.bg-cover</code></th>
-<td>Background size cover</td>
-<td>v4.0.34</td>
-<td>Stable since v4.0.40</td>
-</tr>
-<tr>
-<th>Plugin <code>[data-bgimg]</code></th>
-<td>Take the URL value and set it as the background image. To be replaced by CSS4 selector.</td>
-<td>v4.0.34</td>
-<td>Stable since v4.0.40</td>
-</tr>
-<tr>
-<th>Plugin <code>[data-bgimg-srcset]</code></th>
-<td>Detects the change in screen width and replace the background image accordingly</td>
-<td>v4.0.34</td>
-<td>Stable since v4.0.40</td>
-</tr>
-<tr>
-<th>Plugin <code>.wb-steps</code></th>
-<td>Provides the ability to split a form into steps</td>
-<td>v4.0.35</td>
-<td><a href="../../docs/ref/stepsform/stepsform-en.html">Detailed documentation</a></td>
-</tr>
-<tr>
-<th>Plugin <code>[data-wb-randomize]</code></th>
-<td>This plugin randomly picks one of the child component to be shown on the browser</td>
-<td>v4.0.35</td>
-<td>Stable since v4.0.40</td>
-</tr>
-<tr>
-<th>Plugin <code>.wb-postback</code></th>
-<td>This plugin makes an AJAX request when a form is submitted to stay on page. <a href="../../docs/ref/wb-postback/wb-postback-en.html">Detailed documentation</a></td>
-<td>v4.0.35</td>
-<td>Stable since v4.0.40</td>
-</tr>
-<tr>
-<th>CSS <code>.bg-center</code></th>
-<td>Background position center</td>
-<td>v4.0.36</td>
-<td>Stable since v4.0.40</td>
-</tr>
-<tr>
-<th>CSS <code>.position-relative</code></th>
-<td>Puts an element in a relative position.</td>
-<td>Supported after v4.0.37 (STR)</td>
-<td>Stable since v4.0.37</td>
-</tr>
-<tr>
-<th>Plugin <code>.wb-addcal</code></th>
-<td>This plugin add an event to a calendar (google, Apple, Android, Outlook and others).</td>
-<td>v4.0.42.3</td>
-<td><a href="../../docs/ref/add-cal/add-cal-en.html">Detailed documentation</a></td>
-</tr>
-<tr>
-<th>Plugin <code>.wb-details-close</code></th>
-<td>This plugin keeps selected details elements closed on defined viewport, default is small.</td>
-<td>After v4.0.44.5 (STR)</td>
-<td><a href="../../docs/ref/details-close/details-close-en.html">Detailed documentation</a></td>
-</tr>
-</tbody>
-</table>
-<p>Canada.ca provisional feature are listed on the <a href="https://wet-boew.github.io/GCWeb/home.html">GCWeb home page</a> with the status "Provisional".</p>
-<h2>Provisional feature documentation</h2>
-<p>CSS provisional features must be accompanied by the class <code>.provisional</code> within his context of use.</p>
-<!-- <h2>Provisional working examples</h2> -->
+</div>
+<div class="col-md-6">
+<details open>
+<summary>I am opened on mobile (regular)</summary>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rhoncus, neque accumsan faucibus ultricies, libero massa mollis neque, et mollis libero enim a ligula. Ut dictum tempor luctus. Ut convallis vehicula sapien a facilisis. Morbi eget lectus efficitur, finibus metus eu, feugiat felis. Praesent sodales elit sed finibus pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent quis sem lacinia, accumsan sem et, lacinia turpis.</p>
+</details>
+</div>
+</div>
+<h3>Source code</h3>
+<pre><code>&lt;details class="provisional wb-details-close" open&gt;
+	&lt;summary&gt;I am closed on mobile (uses plugin)&lt;/summary&gt;
+	&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rhoncus, neque accumsan faucibus ultricies, libero massa mollis neque, et mollis libero enim a ligula. Ut dictum tempor luctus. Ut convallis vehicula sapien a facilisis. Morbi eget lectus efficitur, finibus metus eu, feugiat felis. Praesent sodales elit sed finibus pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent quis sem lacinia, accumsan sem et, lacinia turpis.&lt;/p&gt;
+&lt;/details&gt;
+</code></pre>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
 <dd><time property="dateModified">2021-11-29</time></dd>
