@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.45.1 - 2021-12-15
+ * v4.0.45.1 - 2021-12-22
  *
  */
 /*
@@ -8597,6 +8597,13 @@ table.dataTable {
   margin: 0 auto;
   width: 100% !important; }
   table.dataTable thead .sorting-cnt {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: transparent;
+    border: 0;
+    font-family: inherit;
+    padding: 0;
     white-space: nowrap; }
     table.dataTable thead .sorting-cnt:before {
       content: " "; }
