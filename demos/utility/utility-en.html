@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Uility - Working examples - Web Experience Toolkit
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Utilities page including working examples.">
+<link rel="alternate" hreflang="fr" href="utility-fr.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css"></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Language selection</h2>
+<ul class="text-right">
+<li><a lang="fr" hreflang="fr" href="utility-fr.html">Français</a></li>
+<li class="curr">English&#32;<span>(current)</span></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Search</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Search website</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Breadcrumb Navigation</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb" typeof="BreadcrumbList">
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../index-en.html"><span property="name">Home</span></a>
+<meta property="position" content="1">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
+<meta property="position" content="2">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Uility</span><meta property="position" content="3"></li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Uility</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/utility/utility-en.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Uility:%20">Questions or comments?</a></li>
+</ul>
+<p>This page showcases wet-boew utility features including some integration from Bootstrap 4 such as: <code>p-0</code>, <code>pl-2</code>, <code>text-white</code> and others.</p>
+<h2>On this page:</h2>
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#colors">Color schemes</a></li>
+<li><a href="#spacing">Spacing</a></li>
+<li><a href="#positioning">Positioning</a></li>
+<li><a href="#miscellaneous">Miscellaneous</a></li>
+</ul>
+<h2 id="background">Background</h2>
+<h3><code>bg-cover</code></h3>
+<p>Set background image to fully cover the box size.</p>
+<h4>working example:</h4>
+<div class="bg-cover well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg">
+<div class="well mrgn-tp-md mrgn-bttm-md">
+<h4 class="mrgn-tp-md">Heading</h4>
+<p>Paragraph</p>
+</div>
+</div>
+<h4>Code sample:</h4>
+<pre><code>&lt;div class="<strong>bg-cover</strong> well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="well mrgn-tp-md mrgn-bttm-md"&gt;
+		&lt;h4 class="mrgn-tp-md"&gt;Heading&lt;/h4&gt;
+		&lt;p&gt;Paragraph&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3><code>bg-center</code></h3>
+<p>Set background image in the center of the container.</p>
+<h4>working example:</h4>
+<div class="bg-center well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg">
+<div class="well mrgn-tp-md mrgn-bttm-md">
+<h4 class="mrgn-tp-md">Heading</h4>
+<p>Paragraph</p>
+</div>
+</div>
+<h4>Code sample:</h4>
+<pre><code>&lt;div class="<strong>bg-center</strong> well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="well mrgn-tp-md mrgn-bttm-md"&gt;
+		&lt;h4 class="mrgn-tp-md"&gt;Heading&lt;/h4&gt;
+		&lt;p&gt;Paragraph&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3><code>bg-norepeat</code></h3>
+<p>Prevent background image to be repeated in the container.</p>
+<h4>working example:</h4>
+<div class="bg-norepeat well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg">
+<div class="well mrgn-tp-md mrgn-bttm-md">
+<h4 class="mrgn-tp-md">Heading</h4>
+<p>Paragraph</p>
+</div>
+</div>
+<h4>Code sample:</h4>
+<pre><code>&lt;div class="<strong>bg-norepeat</strong> well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="well mrgn-tp-md mrgn-bttm-md"&gt;
+		&lt;h4 class="mrgn-tp-md"&gt;Heading&lt;/h4&gt;
+		&lt;p&gt;Paragraph&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h3><code>bg-darker</code></h3>
+<p>Set a black background to an element.</p>
+<h4>working example:</h4>
+<div class="bg-cover well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg">
+<div class="well mrgn-tp-md mrgn-bttm-md bg-darker text-white">
+<h4 class="mrgn-tp-md">Heading</h4>
+<p>Paragraph</p>
+</div>
+</div>
+<h4>Code sample:</h4>
+<pre><code>&lt;div class="bg-cover well" data-bgimg="../../demos/tabs/img/investinourfuture.jpg"&gt;
+	&lt;div class="well mrgn-tp-md mrgn-bttm-md <strong>bg-darker</strong> text-white"&gt;
+		&lt;h4 class="mrgn-tp-md"&gt;Heading&lt;/h4&gt;
+		&lt;p&gt;Paragraph&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<h2 id="colors">Color Schemes</h2>
+<h3><code>text-white</code></h3>
+<p>Set text in white. Works jointly with darker backgrounds.</p>
+<h4>working example:</h4>
+<p class="bg-darker text-white">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="bg-darker <strong>text-white</strong>"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h2 id="spacing">Spacing</h2>
+<h3><code>p-0</code></h3>
+<p>Set a padding of 0px.</p>
+<h4>working example:</h4>
+<p class="p-0 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>p-0</strong> primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h3><code>pl-2</code></h3>
+<p>Set a left padding of 5px.</p>
+<h4>working example:</h4>
+<p class="pl-2 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>pl-2</strong> bg-primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h3><code>px-2</code></h3>
+<p>Set a left and right padding of 5px.</p>
+<h4>working example:</h4>
+<p class="px-2 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>px-2</strong> bg-primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h3><code>pr-2</code></h3>
+<p>Set a right padding of 5px.</p>
+<h4>working example:</h4>
+<p class="pr-2 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>pr-2</strong> bg-primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h3><code>pt-4</code></h3>
+<p>Set a top padding of 30px.</p>
+<h4>working example:</h4>
+<p class="pt-4 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>pt-4</strong> bg-primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h3><code>py-4</code></h3>
+<p>Set a top and bottom padding of 30px.</p>
+<h4>working example:</h4>
+<p class="py-4 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>py-4</strong> bg-primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h3><code>pb-4</code></h3>
+<p>Set a bottom padding of 30px.</p>
+<h4>working example:</h4>
+<p class="pb-4 bg-primary max-content">Suspendisse faucibus nisl at consectetur.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>pb-4</strong> bg-primary max-content"&gt;Suspendisse faucibus nisl at consectetur.&lt;/p&gt;</code></pre>
+<h2 id="positioning">Positioning</h2>
+<h3><code>position-relative</code></h3>
+<p>Set an element in a relative position. This was created in support of the <code>stretched-link</code> utility. For a better visualisation effect, refer to the <a href="#sl">streched-link utility section</a> below.</p>
+<h4>working example:</h4>
+<p class="position-relative">This is is a pragraph relatively positioned.</p>
+<h4>Code sample:</h4>
+<pre><code>&lt;p class="<strong>position-relative</strong>"&gt;This is is a pragraph relatively positioned.&lt;/p&gt;</code></pre>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<h3><code>max-content</code></h3>
+<p>Limits the width of an element to the width of its largest content inside.</p>
+<h4>working example:</h4>
+<details class="max-content">
+<summary>List items</summary>
+<ul class="list-unstyled mrgn-bttm-0 mrgn-tp-sm">
+<li><a href="#">Lorem ipsum</a></li>
+<li><a href="#">Proin porta vehicula</a></li>
+<li><a href="#">consectetur adipiscing elitDuis porttitor fermentum semper</a></li>
+<li><a href="#">consectetur adipiscing elit</a></li>
+</ul>
+</details>
+<h4>Code sample:</h4>
+<pre><code>&lt;details class="<strong>max-content</strong>"&gt;
+	&lt;summary&gt;List items&lt;/summary&gt;
+	&lt;ul class="list-unstyled mrgn-bttm-0 mrgn-tp-sm"&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Lorem ipsum&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Proin porta vehicula&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;consectetur adipiscing elitDuis porttitor fermentum semper&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;consectetur adipiscing elit&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/details&gt;</code></pre>
+<h3 id="sl"><code>stretched-link</code></h3>
+<p>Expands the clickable area of an hyperlink to its nearest parent element.</p>
+<h4>working example:</h4>
+<div class="row">
+<div class="col-md-4">
+<img src="https://via.placeholder.com/360x203/000000/FFFFFF.png" alt="" class="img-responsive thumbnail mrgn-bttm-sm">
+<h3 class="h5"><a href="#" class="stretched-link">[Hyperlink text]</a></h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+</div>
+</div>
+<h4>Code sample:</h4>
+<pre><code>&lt;div class="row"&gt;
+	&lt;div class="col-md-4"&gt;
+		&lt;img src="https://via.placeholder.com/360x203/000000/FFFFFF.png" alt="" class="img-responsive thumbnail mrgn-bttm-sm"&gt;
+		&lt;h3 class="h5"&gt;&lt;a href="#" class="<strong>stretched-link</strong>"&gt;[Hyperlink text]&lt;/a&gt;&lt;/h3&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<dl id="wb-dtmd">
+<dt>Date modified:&#32;</dt>
+<dd><time property="dateModified">2022-01-12</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>About this site</h2>
+<section class="col-sm-3">
+<h3>Contact us</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>About</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>News</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Stay connected</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>

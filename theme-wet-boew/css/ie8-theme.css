@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.45.1 - 2021-12-22
+ * v4.0.45.1 - 2022-01-12
  *
  */
 /*
@@ -6433,6 +6433,13 @@ fieldset {
 .align-bottom {
   vertical-align: bottom !important; }
 
+/* Color scheme */
+.text-white, a.text-white:visited {
+  color: #fff; }
+
+a.text-white:hover, a.text-white:focus {
+  color: #b3ffff; }
+
 /*
   WET-BOEW
   @title: Bootstrap IE8-specific overrides for WET-BOEW
@@ -8180,8 +8187,6 @@ details {
     margin-right: -1.1em; }
   details[open] {
     padding-bottom: 1em; }
-  details.max-content {
-    max-width: max-content; }
 
 code,
 kbd,
@@ -16304,6 +16309,13 @@ ol-geolocate button {
 .align-bottom {
   vertical-align: bottom !important; }
 
+/* Color scheme */
+.text-white, a.text-white:visited {
+  color: #fff; }
+
+a.text-white:hover, a.text-white:focus {
+  color: #b3ffff; }
+
 /*
  *
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
@@ -16328,6 +16340,18 @@ ol-geolocate button {
  */
 .bg-darker {
   background-color: #000; }
+
+.bg-dark {
+  background-color: #343a40; }
+
+button.bg-dark:hover, button.bg-dark:focus {
+  background-color: #1d2124; }
+
+/*
+Miscellaneous Utiliy CSS
+ */
+.max-content {
+  max-width: max-content; }
 
 /*
  Views
