@@ -3238,12 +3238,19 @@ label.required:before,
 legend.required:before,
 .checkbox.required:before {
   content: "* ";
-  margin-left: -0.665em; }
+  margin-left: -0.67em;
+  vertical-align: top; }
+
+.form-group.has-error .checkbox {
+  color: #333333; }
+
+.form-group .checkbox.checkbox-standalone label {
+  font-weight: 700; }
 
 [dir=rtl] label.required:before,
 [dir=rtl] legend.required:before {
   margin-left: auto;
-  margin-right: -0.665em; }
+  margin-right: -0.67em; }
 
 .btn {
   display: inline-block;
