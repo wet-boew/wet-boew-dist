@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.47 - 2022-01-31
+ * v4.0.47 - 2022-02-02
  *
  */
 /*
@@ -10146,6 +10146,9 @@ ol-geolocate button {
   color: #fff; }
 
 a.text-white:hover, a.text-white:focus {
+  color: #b3ffff; }
+
+.btn.text-white:hover, .btn.text-white:focus {
   color: #b3ffff; }
 
 /*
