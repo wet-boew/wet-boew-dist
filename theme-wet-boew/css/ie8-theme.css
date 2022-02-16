@@ -15333,11 +15333,11 @@ table.dataTable {
   display: inline; }
 
 .geomap-lgnd-layer {
-  margin-bottom: 10px !important;
+  margin-bottom: 10px;
   margin-top: 0px !important; }
 
 .geomap-lgnd > :last-child {
-  margin-bottom: 0px !important; }
+  margin-bottom: 0px; }
 
 .geomap-geoloc {
   background: transparent;
@@ -16568,13 +16568,13 @@ Miscellaneous Utiliy CSS
  */
   /* Margin */
   .mb-sm-5 {
-    margin-bottom: 50px !important; }
+    margin-bottom: 50px; }
   /* Padding */
   .p-sm-3 {
-    padding: 15px !important; }
+    padding: 15px; }
   .px-sm-3 {
-    padding-left: 15px !important;
-    padding-right: 15px !important; }
+    padding-left: 15px;
+    padding-right: 15px; }
   /*
   WET-BOEW
   @title: Proximity CSS - Small view and over
