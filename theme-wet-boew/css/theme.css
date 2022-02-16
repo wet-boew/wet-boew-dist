@@ -8596,7 +8596,7 @@ table.dataTable {
   border-spacing: 0;
   margin: 0 auto;
   width: 100% !important; }
-  table.dataTable thead .sorting-cnt {
+  table.dataTable thead button {
     -webkit-appearance: none;
        -moz-appearance: none;
             appearance: none;
@@ -8604,6 +8604,8 @@ table.dataTable {
     border: 0;
     font-family: inherit;
     padding: 0;
+    text-align: left; }
+  table.dataTable thead .sorting-cnt {
     white-space: nowrap; }
     table.dataTable thead .sorting-cnt:before {
       content: " "; }
