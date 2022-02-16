@@ -7021,6 +7021,8 @@ var componentName = "wb-lbx",
 					var $item = this.currItem,
 						$content = this.contentContainer,
 						$wrap = this.wrap,
+						$container = $wrap.find( ".mfp-container" ),
+						$containerParent = $container.parent(),
 						$modal = $wrap.find( ".modal-dialog" ),
 						$buttons = $wrap.find( ".mfp-close, .mfp-arrow" ),
 						len = $buttons.length,
@@ -7044,10 +7046,18 @@ var componentName = "wb-lbx",
 					this.contentContainer.attr( "data-pgtitle", document.getElementsByTagName( "H1" )[ 0 ].textContent );
 
 					trapTabbing( $wrap );
+
+					if ( !$containerParent.is( "dialog" ) ) {
+						$container.wrap( "<dialog class='mfp-container' open='open'></dialog>" );
+					} else {
+						$containerParent.attr( "open", "open" );
+					}
 				},
 				close: function() {
 					$document.find( "body" ).removeClass( "wb-modal" );
 					$document.find( modalHideSelector ).removeAttr( "aria-hidden" );
+					this.wrap.find( "dialog" ).removeAttr( "open" );
+
 				},
 				change: function() {
 					var $item = this.currItem,
@@ -9524,6 +9534,7 @@ var componentName = "wb-overlay",
 
 		$overlay
 			.addClass( "open" )
+			.attr( "role", "dialog" )
 			.attr( "aria-hidden", "false" );
 
 		if ( $overlay.hasClass( "wb-popup-full" ) || $overlay.hasClass( "wb-popup-mid" ) ) {
@@ -9554,6 +9565,7 @@ var componentName = "wb-overlay",
 
 		$overlay
 			.removeClass( "open" )
+			.removeAttr( "role" )
 			.attr( "aria-hidden", "true" );
 
 		if ( $overlay.hasClass( "wb-popup-full" ) || $overlay.hasClass( "wb-popup-mid" ) ) {

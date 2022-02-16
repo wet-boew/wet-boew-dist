@@ -7750,6 +7750,10 @@ body.wb-modal .modal-dialog summary {
   text-align: right;
   width: 25%; }
 
+.wb-modal dialog {
+  background-color: transparent;
+  border: none; }
+
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
