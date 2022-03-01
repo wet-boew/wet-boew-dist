@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Data Scrub
+					 - Plugiciels
+				 - Documentation
+ - Boîte à outils de l'expérience Web
+</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="description" content="Supprimer les informations personnelles identifiables (IPI) avant de soumettre le formulaire" />
+		
+		
+		
+		
+		
+		<link rel="alternate" hreflang="en" href="wb-data-scrub-en.html" />
+		
+		<link href="../../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
+		<link rel="stylesheet" href="../../../../theme-wet-boew/css/theme.css" />
+		
+		
+		<noscript><link rel="stylesheet" href="../../../../wet-boew/css/noscript.css" /></noscript>
+	</head>
+	<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+		
+<nav>
+	<ul id="wb-tphp">
+		<li class="wb-slc">
+			<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+		</li>
+		<li class="wb-slc visible-sm visible-md visible-lg">
+			<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+		</li>
+	</ul>
+</nav>
+
+<header role="banner">
+	<div id="wb-bnr">
+		<div id="wb-bar">
+			<div class="container">
+				<div class="row">
+						<section id="wb-lng" class="visible-md visible-lg">
+							<h2>Sélection de la langue</h2>
+							<ul class="text-right">
+								<li class="curr">Français&#32;<span>(actuel)</span></li>
+								<li><a lang="en" hreflang="en" href="wb-data-scrub-en.html">English</a></li>
+							</ul>
+						</section>
+	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+		<h2>Recherche et menus</h2>
+		<ul class="pnl-btn list-inline text-right">
+			<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+		</ul>
+		<div id="mb-pnl"></div>
+	</section>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div id="wb-sttl" class="col-md-8">
+					<a href="../../../index-fr.html">
+						<img src="../../../../theme-wet-boew/assets/logo.svg" alt="" />
+						<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+					</a>
+				</div>
+	<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+		<h2>Recherche</h2>
+		<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+	
+			<div class="form-group">
+				<label for="wb-srch-q">Recherchez le site Web</label>
+				<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+				<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+			</div>
+	
+			<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+	
+		</form>
+	</section>
+			</div>
+		</div>
+	</div>
+	<nav role="navigation" id="wb-sm" data-ajax-replace="../../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+		<div class="container nvbar">
+			<h2>Menu des sujets</h2>
+			<div class="row">
+				<ul class="list-inline menu">
+						<li><a href="../../../index-fr.html">Projet de la BOEW</a></li>
+						<li><a href="../../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+						<li><a href="../../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<nav role="navigation" id="wb-bc" property="breadcrumb">
+		<h2>Piste de navigation</h2>
+		<div class="container">
+			<div class="row">
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../../../index-fr.html"><span property="name">Accueil</span></a>
+						<meta property="position" content="1">
+					</li>
+									<li property="itemListElement" typeof="ListItem">
+										<a property="item" typeof="WebPage" href="../../../docs/index-fr.html"><span property="name">Documentation</span></a>
+										<meta property="position" content="2">
+									</li>
+										<li property="itemListElement" typeof="ListItem">
+											<a property="item" typeof="WebPage" href="../../../docs/ref/plugins-fr.html"><span property="name">Plugiciels</span></a>
+											<meta property="position" content="3">
+										</li>
+										<li property="itemListElement" typeof="ListItem"><span property="name">Data Scrub</span><meta property="position" content="4"></li>
+				</ol>
+			</div>
+		</div>
+	</nav>
+</header>
+
+	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+		<h1 id="wb-cont" property="name">Data Scrub</h1>
+		<p>
+			<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Data%20Scrub:%20">Questions ou commentaires?</a>
+		</p>
+		
+<span class="wb-prettify all-pre hide"></span>
+
+<section>
+	<h2>But</h2>
+	<p>Ce composant offre la possibilité de supprimer les informations personnelles identifiables (PII) dans les champs d'un formulaire avant de le soumettre.</p>
+	<p>Voici la liste des IPI que le plugiciel recherchera et supprimera:</p>
+	<ul>
+		<li>Toutes les combinaisons de 8 chiffres et plus</li>
+		<li>Numéro de série du passeport canadien</li>
+		<li>E-mail</li>
+		<li>Code postal canadien</li>
+		<li>Toute valeur de nom d'utilisateur potentielle ajoutée dans ce format username=theUserValue, username:theUserValue, user=theUserValue, user:theUserValue</li>
+		<li>Toute valeur de mot de passe potentielle ajoutée dans ce format password=thePassValue, mot de passe:thePassValue pass=thePassValue, pass:thePassValue</li>
+	</ul>
+	<p>Pour plus de détails sur le comportement de nettoyage des PII, veuillez consulter l'assistant de base wet-boew:<code>wb.findPotentialPII</code></p>
+</section>
+
+<section>
+	<h2>Utiliser lorsque</h2>
+	<ul>
+		<li>les formulaires peuvent contenir des informations personnelles identifiables (PII), ce plugiciel identifiera et supprimera ces informations avant la soumission du formulaire.</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Ne pas utiliser lorsque</h2>
+	<ul>
+		<li>un formulaire utilise le plugiciel Validation de formulaires</li>
+		<li>un formulaire utilise le plugiciel Envoie via Ajax</li>
+	</ul>
+</section>
+
+<section>
+	<h2>Exemple pratique</h2>
+	<ul>
+		<li><a href="../../../demos/wb-data-scrub/wb-data-scrub-en.html">Exemple anglais</a></li>
+		<li><a hreflang="fr" href="../../../demos/wb-data-scrub/wb-data-scrub-fr.html">Exemple français</a></li>
+	</ul>
+</section>
+
+<section>
+	<h2>Comment implémenter le plugiciel</h2>
+	<ol>
+		<li>Ajoutez l'attribut de données suivant <code>data-rule-wbscrub</code> pour chaque élément du formulaire susceptible de contenir des informations personnelles.
+			<pre><code>&lt;input id="email" name="email" type="email" <strong>data-rule-wbscrub</strong> /&gt;</code></pre>
+		</li>
+		<li>
+			Optionnellement, si vous souhaitez que le formulaire soumette un paramètre chaque fois qu'un PII est trouvé et supprimé, créer un champs de type  masquée avec  <code>data-wbscrub-flag</code> avec une valeur et un nom de votre choix
+			<pre><code>&lt;input name="scrub" value="1" data-wbscrub-flag /&gt;</code></pre>
+		</li>
+	</ol>
+</section>
+
+<section>
+	<h2>Événements</h2>
+	<p>Documentez les événements publics qui peuvent être utilisés par les implémenteurs ou les développeurs.</p>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Événement</th>
+				<th>Déclencheur</th>
+				<th>Effet déclenché</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code>wb-init.wb-data-scrub</code></td>
+				<td>Déclenché manuellement (e.g., <code>$( ".wb-data-scrub" ).trigger( "wb-init.wb-data-scrub" );</code>).</td>
+				<td>Utilisé pour initialisé manuellement le plugiciel Supprime-IPI.</td>
+			</tr>
+			<tr>
+				<td><code>wb-ready.wb-data-scrub</code> (v4.0.24+)</td>
+				<td>Déclenché automatiquement après l'initialisation du plugiciel Supprime-IPI.</td>
+				<td>Utilisé afin d'identifié l'élément sur lequel le plugiciel Supprime-IPI a été initialisé (la cible de l'événement)
+					<pre><code>$( document ).on( "wb-ready.wb-data-scrub", ".wb-data-scrub", function( event ) {});</code></pre>
+					<pre><code>$( ".wb-data-scrub" ).on( "wb-ready.wb-data-scrub", function( event ) {});</code></pre>
+				</td>
+			</tr>
+			<tr>
+				<td><code>wb-ready.wb</code> (v4.0.24+)</td>
+				<td>Déclenché automatiquement lorsque la WET-BOEW a terminé son chargement et son exécution.</td>
+				<td>Utilisé pour identifié le moment lorsque tous les plugiciels et tous les polyfills de la WET-BOEW ont terminés de charger et de s'exécuter.
+					<pre><code>$( document ).on( "wb-ready.wb", function( event ) {});</code></pre>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+
+<section>
+	<h2>Code source</h2>
+	<p><a href="https://github.com/wet-boew/wet-boew/tree/master/src/plugins/wb-data-scrub">Code source du plugiciel Data Scrub sur GitHub</a></p>
+</section>
+
+		<dl id="wb-dtmd">
+			<dt>Date de modification&#160;:&#32;</dt>
+			<dd><time property="dateModified">2022-02-24</time></dd>
+		</dl>
+	</main>
+
+	<footer role="contentinfo" id="wb-info"  class="visible-sm visible-md visible-lg wb-navcurr">
+		<div class="container">
+			<nav role="navigation" class="row">
+				<h2>À propos de ce site</h2>
+				<section class="col-sm-3">
+					<h3>Contactez-nous</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>À propos</h3>
+					<ul class="list-unstyled">
+						<li><a href="../../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+						<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>Nouvelles</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+						<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>Restez branchés</h3>
+					<ul class="list-unstyled">
+						<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+		<script src="../../../../wet-boew/js/wet-boew.js"></script>
+		
+		
+		
+	</body>
+</html>
