@@ -10278,7 +10278,9 @@ Miscellaneous Utiliy CSS
   /*
   WET-BOEW
   @title: Extra-small view and under (screen only)
- */ }
+ */
+  .wb-eqht-grd > [class*="col-"] {
+    width: 100%; } }
 
 /* Small view and under */
 @media screen and (max-width: 991px) {
