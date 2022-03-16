@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.49 - 2022-03-10
+ * v4.0.49 - 2022-03-16
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.3.5 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.3.5/LICENSE */
@@ -3649,7 +3649,7 @@ wb.findPotentialPII = function( str, toClean ) {
 	}
 	var regEx = [
 			/\d(?:[\s\-\\.\\/]?\d){7,}(?!\d)/ig, //8digits or more pattern
-			/\b\w{2}[\s\\.-]*?\d{6}\b/ig, //canadian nr passport pattern
+			/\b[A-Za-z]{2}[\s\\.-]*?\d{6}\b/ig, //canadian nr passport pattern
 			/\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig, //email pattern
 			/\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig, //postal code pattern
 			/\b(?:(username|user)[:=][a-zA-Z0-9_\-\\.]+)\b/ig,
@@ -3795,6 +3795,26 @@ $.extend( $.expr[ ":" ], {
 } );
 
 } )( jQuery );
+
+/**
+ * String.prototype.replaceAll() polyfill
+ * https://gomakethings.com/how-to-replace-a-section-of-a-string-with-another-one-with-vanilla-js/
+ * @author Chris Ferdinandi
+ * @license MIT
+ */
+if ( !String.prototype.replaceAll ) {
+	String.prototype.replaceAll = function( str, newStr ) {
+
+		// If a regex pattern
+		if ( Object.prototype.toString.call( str ).toLowerCase() === "[object regexp]" ) {
+			return this.replace( str, newStr );
+		}
+
+		// If a string
+		return this.replace( new RegExp( str, "g" ), newStr );
+
+	};
+}
 
 /**
  * @title WET-BOEW Add to calendar
