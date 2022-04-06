@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.49 - 2022-03-23
+ * v4.0.49.1 - 2022-04-06
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
