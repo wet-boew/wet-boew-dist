@@ -14212,8 +14212,10 @@ body.wb-modal .modal-dialog summary {
 .mfp-bg {
   opacity: .97; }
 
-.wb-overlay-dlg .overlay-bg {
-  box-shadow: 0 0 1000px 1000px black; }
+.wb-overlay-dlg {
+  overflow: hidden; }
+  .wb-overlay-dlg .overlay-bg {
+    box-shadow: 0 0 1000px 1000px black; }
 
 /*
  *	Overlay parts
