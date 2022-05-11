@@ -116,6 +116,9 @@
 </section>
 <section>
 <h2>Example</h2>
+<div class="alert alert-info">
+<p>Consider adding an <code>aria-hidden="true"</code> attribute to <code>&lt;strong class="required"&gt;</code> (i.e. <code>&lt;strong class="required" aria-hidden="true"&gt;</code>) in required field labels. Hardcoding it will prevent screen readers from announcing "required" twice in the noscript and basic HTML versions of the page. The form validation plugin automatically adds the attribute to the JavaScript version. Don't use the attribute in required <code>&lt;legend&gt;</code> elements.</p>
+</div>
 <p>After submitting your page, the server returned 4 server errors. Now if you try to resubmit your form with some client errors, the component will add these errors to the existing server errors.</p>
 <p>To test: Try clearing a field or enter 201 as the Beneficiary's age or uncheck all checkboxes.</p>
 <h2>
@@ -205,7 +208,7 @@ Section 1
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2021-11-03</time></dd>
+<dd><time property="dateModified">2022-04-13</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

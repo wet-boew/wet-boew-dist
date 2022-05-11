@@ -106,6 +106,9 @@
 <li><a class="btn btn-primary" href="../../docs/ref/feedback/feedback-en.html">Documentation</a></li>
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Feedback%20form:%20">Questions or comments?</a></li>
 </ul>
+<div class="alert alert-info">
+<p>Consider adding an <code>aria-hidden="true"</code> attribute to <code>&lt;strong class="required"&gt;</code> (i.e. <code>&lt;strong class="required" aria-hidden="true"&gt;</code>) in required field labels. Hardcoding it will prevent screen readers from announcing "required" twice in the noscript and basic HTML versions of the page. The form validation plugin automatically adds the attribute to the JavaScript version. Don't use the attribute in required <code>&lt;legend&gt;</code> elements.</p>
+</div>
 <div class="wb-frmvld wb-fdbck nojs-hide">
 <p>If you have difficulty with the following form, you can use any of our <a href="#osc-avs">other service channels</a> to contact us.</p>
 <form action="#" method="get" id="fdbck-frm">
@@ -308,7 +311,7 @@
 </div>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2015-03-06</time></dd>
+<dd><time property="dateModified">2022-04-13</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

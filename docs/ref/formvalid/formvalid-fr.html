@@ -374,6 +374,10 @@
 </dl>
 <p>See <a href="https://html.spec.whatwg.org/#the-pattern-attribute" rel="external">WHATWG HTML Living Standards</a> for more details about the pattern attribute.</p>
 </section>
+<section lang="fr">
+<h3 id="required">Préviens les lecteurs d’écran d’annoncer «&#160;obligatoire&#160;» deux fois</h3>
+<p>Considérez ajouter un attribut <code lang="en">aria-hidden="true"</code> à <code lang="en">&lt;strong class="required"&gt;</code> (c.-à-d. <code lang="en">&lt;strong class="required" aria-hidden="true"&gt;</code>) dans les libellés des champs obligatoires. Le code ajouté de façon statique préviendra les lecteurs d’écran d’annoncer «&#160;obligatoire&#160;» deux fois dans les versions sans script et HTML simplifiée de la page. Le plugiciel de validation de formulaires ajoute l’attribut automatiquement à la version JavaScript. N’utilisez pas l’attribut dans les éléments <code lang="en">&lt;legend&gt;</code> obligatoires.</p>
+</section>
 <section>
 <h3 id="MergeSCE">Merge Server-Client errors functionality</h3>
 <p>If you want to concatenate the server errors with the client errors, add the following attributes to each ASP validator:</p>
@@ -444,7 +448,7 @@
 </div>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2022-01-25</time></dd>
+<dd><time property="dateModified">2022-04-13</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

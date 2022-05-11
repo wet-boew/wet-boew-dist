@@ -106,6 +106,9 @@
 <li><a class="btn btn-primary" href="../../docs/ref/feedback/feedback-fr.html">Documentation</a></li>
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Formulaire%20de%20r%C3%A9troaction:%20">Questions ou commentaires?</a></li>
 </ul>
+<div class="alert alert-info">
+<p>Considérez ajouter un attribut <code lang="en">aria-hidden="true"</code> à <code lang="en">&lt;strong class="required"&gt;</code> (c.-à-d. <code lang="en">&lt;strong class="required" aria-hidden="true"&gt;</code>) dans les libellés des champs obligatoires. Le code ajouté de façon statique préviendra les lecteurs d’écran d’annoncer «&#160;obligatoire&#160;» deux fois dans les versions sans script et HTML simplifiée de la page. Le plugiciel de validation de formulaires ajoute l’attribut automatiquement à la version JavaScript. N’utilisez pas l’attribut dans les éléments <code lang="en">&lt;legend&gt;</code> obligatoires.</p>
+</div>
 <div class="wb-frmvld wb-fdbck nojs-hide">
 <p>Si vous avez des problèmes avec le formulaire suivant, vous pouvez utiliser une des <a href="#osc-avs">autres voies de service</a> pour communiquer avec nous.</p>
 <form action="#" method="get" id="fdbck-frm">
@@ -308,7 +311,7 @@
 </div>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2014-02-28</time></dd>
+<dd><time property="dateModified">2022-04-13</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
