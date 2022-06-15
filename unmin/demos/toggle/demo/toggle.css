@@ -4,16 +4,16 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 main .box {
-  background-color: #d9edf7;
-  border-radius: 4px;
-  display: inline-block;
-  height: 30px;
-  margin-right: 15px;
-  transition: background-color .5s;
-  width: 30px; }
-  main .box.on {
-    background-color: #428bca; }
+	background-color: #d9edf7;
+	border-radius: 4px;
+	display: inline-block;
+	height: 30px;
+	margin-right: 15px;
+	transition: background-color .5s;
+	width: 30px; }
+	main .box.on {
+		background-color: #428bca; }
 
 main details,
 main .btn-group {
-  margin: 10px 0; }
+	margin: 10px 0; }

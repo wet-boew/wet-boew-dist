@@ -6,18 +6,18 @@
 .wb-bar-t header,
 .wb-bar-b header, .wb-bar-t ul,
 .wb-bar-b ul {
-  display: inline-block; }
+	display: inline-block; }
 
 .wb-panel-l ul li,
 .wb-panel-r ul li {
-  margin-bottom: 10px; }
+	margin-bottom: 10px; }
 
 .wb-bar-t ul,
 .wb-bar-b ul {
-  margin-bottom: 0; }
-  .wb-bar-t ul li,
-  .wb-bar-b ul li {
-    margin-bottom: 5px; }
-  .wb-bar-t ul > li:first-child,
-  .wb-bar-b ul > li:first-child {
-    padding-left: 5px; }
+	margin-bottom: 0; }
+	.wb-bar-t ul li,
+	.wb-bar-b ul li {
+		margin-bottom: 5px; }
+	.wb-bar-t ul > li:first-child,
+	.wb-bar-b ul > li:first-child {
+		padding-left: 5px; }

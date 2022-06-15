@@ -7,15 +7,15 @@
 /* variables for events page */
 /* Adds padding to the calendar on the events page so that it has enough white space below it. */
 .evt-cal-pdng {
-  padding-bottom: 15px; }
+	padding-bottom: 15px; }
 
 .past-evt {
-  background-color: #bdccd4; }
+	background-color: #bdccd4; }
 
 .past-evt-bdr > section {
-  border-bottom: 1px solid #135684; }
+	border-bottom: 1px solid #135684; }
 
 /* Removes the list styling from the calendar plugin for this page */
 .upcoming-evt-ol {
-  list-style: none;
-  padding: 0; }
+	list-style: none;
+	padding: 0; }

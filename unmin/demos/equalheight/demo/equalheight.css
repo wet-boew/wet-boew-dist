@@ -1,17 +1,17 @@
 #simple .wb-eqht section {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-  display: inline-block;
-  margin-bottom: 15px;
-  padding: 15px;
-  width: 100%; }
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	box-sizing: border-box;
+	display: inline-block;
+	margin-bottom: 15px;
+	padding: 15px;
+	width: 100%; }
 
 .smallview #simple .wb-eqht section,
 .mediumview #simple .wb-eqht section {
-  width: 49%; }
+	width: 49%; }
 
 .largeview #simple .wb-eqht section,
 .xlargeview #simple .wb-eqht section {
-  width: 33%; }
+	width: 33%; }
