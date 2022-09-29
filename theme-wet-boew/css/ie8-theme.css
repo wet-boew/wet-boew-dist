@@ -6326,9 +6326,16 @@ fieldset {
 	top: 0;
 	z-index: 1; }
 
-/* Position relative */
+/* Positioning */
 .position-relative {
 	position: relative !important; }
+
+/* Flexbox */
+.d-flex {
+	display: flex !important; }
+
+.align-self-center {
+	align-self: center !important; }
 
 /* Vertical alignment */
 .align-top {
@@ -16095,9 +16102,16 @@ ol-geolocate button {
 	top: 0;
 	z-index: 1; }
 
-/* Position relative */
+/* Positioning */
 .position-relative {
 	position: relative !important; }
+
+/* Flexbox */
+.d-flex {
+	display: flex !important; }
+
+.align-self-center {
+	align-self: center !important; }
 
 /* Vertical alignment */
 .align-top {

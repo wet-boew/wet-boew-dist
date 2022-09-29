@@ -10135,9 +10135,19 @@ ol-geolocate button {
 	top: 0;
 	z-index: 1; }
 
-/* Position relative */
+/* Positioning */
 .position-relative {
 	position: relative !important; }
+
+/* Flexbox */
+.d-flex {
+	display: -webkit-box !important;
+	display: -ms-flexbox !important;
+	display: flex !important; }
+
+.align-self-center {
+	-ms-flex-item-align: center !important;
+	    align-self: center !important; }
 
 /* Vertical alignment */
 .align-top {
