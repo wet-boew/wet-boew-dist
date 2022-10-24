@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.53 - 2022-10-19
+ * v4.0.53 - 2022-10-24
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -1903,6 +1903,8 @@ wb.add( selector );
  */
 var componentName = "wb-calevt",
 	selector = "." + componentName,
+	componentEventName = componentName + "-cal",
+	selectorEvent = "." + componentEventName,
 	initEvent = "wb-init" + selector,
 	evDetails = "ev-details",
 	setFocusEvent = "focus",
@@ -1976,7 +1978,7 @@ var componentName = "wb-calevt",
 
 		events = getEvents( $elm );
 		containerId = $elm.data( "calevtSrc" );
-		$container = $( "#" + containerId ).addClass( componentName + "-cal" );
+		$container = $( "#" + containerId ).addClass( componentEventName );
 
 		year = settings.year;
 		month = settings.month;
@@ -2056,15 +2058,16 @@ var componentName = "wb-calevt",
 					}
 				]
 			},
-			objEventsList = obj.find( "ol > li, ul > li" ),
-			iLen = objEventsList.length,
+			objEventsList = obj.find( "ul, ol" ).first(),
+			objEventsListItems = objEventsList.find( "> li:not(.wb-fltr-out)" ),
+			iLen = objEventsListItems.length,
 			dateTimeRegExp = /datetime\s+\{date:\s*(\d+-\d+-\d+)\}/,
 			i, $event, event, $objTitle, title, link, href, target,
 			linkId, date, tCollection, tCollectionTemp,	strDate1,
 			strDate2, z, zLen, className, dateClass;
 
 		for ( i = 0; i !== iLen; i += 1 ) {
-			$event = objEventsList.eq( i );
+			$event = objEventsListItems.eq( i );
 			event = $event[ 0 ];
 			$objTitle = $event.find( "*:header:first" );
 			className = $objTitle.attr( "class" );
@@ -2260,9 +2263,27 @@ var componentName = "wb-calevt",
 	};
 
 // Bind the init event of the plugin
-$document.on( "timerpoke.wb " + initEvent, selector, init );
+$document.on( "timerpoke.wb " + initEvent + " wb-redraw" + selector, selector, function( event ) {
 
-$document.on( "wb-navigate.wb-clndr", ".wb-calevt-cal", function( event ) {
+	var eventType = event.type,
+		$elm = $( "#" + event.target.id ),
+		calendarId = event.currentTarget.dataset.calevtSrc;
+
+	switch ( eventType ) {
+	case "timerpoke":
+	case "wb-init":
+		init( event );
+		break;
+
+	case "wb-redraw":
+		$( "#" + calendarId + " .wb-clndr" ).remove();
+		processEvents( $elm );
+		$elm.trigger( "wb-updated" + selector );
+		break;
+	}
+} );
+
+$document.on( "wb-navigate.wb-clndr", selectorEvent, function( event ) {
 	var lib = event.target.lib,
 		$calEvent;
 
@@ -2278,7 +2299,7 @@ $document.on( "wb-navigate.wb-clndr", ".wb-calevt-cal", function( event ) {
 	}
 } );
 
-$document.on( "focusin focusout keydown", ".wb-calevt-cal .cal-days td > a", function( event ) {
+$document.on( "focusin focusout keydown", selectorEvent + " .cal-evt", function( event ) {
 	var eventType = event.type,
 		$link;
 
@@ -2298,7 +2319,7 @@ $document.on( "focusin focusout keydown", ".wb-calevt-cal .cal-days td > a", fun
 	}
 } );
 
-$document.on( "keydown", ".wb-calevt-cal .cal-days td > ul li", function( event ) {
+$document.on( "keydown", selectorEvent + " td > ul li", function( event ) {
 	var $item = $( event.currentTarget ),
 		$toFocus, $itemParent;
 
@@ -2322,6 +2343,10 @@ $document.on( "keydown", ".wb-calevt-cal .cal-days td > ul li", function( event 
 		$itemParent.trigger( setFocusEvent );
 		break;
 	}
+} );
+
+$document.on( "focusout", selectorEvent + " td > ul", function( event ) {
+	hideEvents.call( event.target );
 } );
 
 // Add the timer poke to initialize the plugin
