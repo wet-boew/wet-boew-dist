@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.53 - 2022-10-24
+ * v4.0.53 - 2022-10-25
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.0 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.0/LICENSE */
@@ -4559,7 +4559,7 @@ var componentName = "wb-calevt",
 	setFocusEvent = "focus",
 	dataAttr = componentName,
 	$document = wb.doc,
-	i18n, i18nText,
+	hiddenClass = "hidden",
 
 	/**
 	 * @method init
@@ -4575,14 +4575,6 @@ var componentName = "wb-calevt",
 
 		if ( elm ) {
 			$elm = $( elm );
-
-			// Only initialize the i18nText once
-			if ( !i18nText ) {
-				i18n = wb.i18n;
-				i18nText = {
-					calendar: i18n( "cal" )
-				};
-			}
 
 			// Load ajax content
 			$.when.apply( $, $.map( $elm.find( "[data-calevt]" ), getAjax ) )
@@ -4662,8 +4654,6 @@ var componentName = "wb-calevt",
 			events: events.list,
 			$events: $elm
 		} );
-
-		$container.attr( "aria-label", i18nText.calendar );
 	},
 
 	daysBetween = function( dateLow, dateHigh ) {
@@ -4885,10 +4875,10 @@ var componentName = "wb-calevt",
 
 	filterEvents = function( year, month ) {
 		this.find( "li.cal-disp-onshow" )
-			.addClass( "wb-inv" )
+			.addClass( hiddenClass )
 			.has( ":header[class*=filter-" + year + "-" +
 				wb.string.pad( parseInt( month, 10 ) + 1, 2 ) + "]" )
-			.removeClass( "wb-inv" );
+			.removeClass( hiddenClass );
 	},
 
 	showEvents = function() {
@@ -5033,25 +5023,27 @@ var i18nText,
 			goToMonth: i18n( "cal-goToMnth" ),
 			dayNames: i18n( "days" ),
 			currDay: i18n( "currDay" ),
-			format: i18n( "cal-format" )
+			format: i18n( "cal-format" ),
+			calendar: i18n( "cal" )
 		};
 
 		textWeekDayNames = i18nText.dayNames;
 		textMonthNames = i18nText.monthNames;
 
-		$calBase = $( "<div class='wb-clndr' role='application'>" +
+		$calBase = $( "<div class='wb-clndr' role='application' aria-label='" + i18nText.calendar + "'>" +
 			"<div class='cal-nav'>" +
+				"<span class='wb-inv current-month' aria-live='polite'></span>" + // Added for screen-readers
 				"<button type='button' class='btn pull-left cal-month-prev'>" +
-					"<span class='glyphicon glyphicon-arrow-left'></span>" +
+					"<span class='glyphicon glyphicon-arrow-left' aria-hidden='true'></span>" +
 					"<span class='wb-inv'>" + i18nText.prevMonth + "<span></span></span>" +
 				"</button>" +
 				"<button type='button' class='btn pull-right cal-month-next'>" +
-					"<span class='glyphicon glyphicon-arrow-right'></span>" +
+					"<span class='glyphicon glyphicon-arrow-right' aria-hidden='true'></span>" +
 					"<span class='wb-inv'>" + i18nText.nextMonth + "<span></span></span>" +
 				"</button>" +
 				"<div class='form-group'>" +
-					"<select title='" + i18nText.goToYear + "' class='cal-year'></select>\n" +
-					"<select title='" + i18nText.goToMonth + "' class='cal-month'>" +
+					"<label><span class='wb-inv'>" + i18nText.goToYear + "</span><select class='cal-year'></select></label>\n" +
+					"<label><span class='wb-inv'>" + i18nText.goToMonth + "</span><select class='cal-month'>" +
 						( function() {
 							var months = "",
 								m;
@@ -5062,18 +5054,18 @@ var i18nText,
 
 							return months;
 						} )() +
-					"</select>" +
+					"</select></label>" +
 				"</div>" +
 			"</div>" +
 			"<table>" +
-				"<thead role='presentation'>" +
+				"<thead>" +
 					"<tr>" +
 						( function() {
 							var days = "",
 								d;
 
 							for ( d = 0; d < 7; d += 1 ) {
-								days += "<th role='columnheader'><abbr title='" + textWeekDayNames[ d ] + "'>" + textWeekDayNames[ d ].substr( 0, 1 ) + "</abbr></th>";
+								days += "<th><abbr title='" + textWeekDayNames[ d ] + "'>" + textWeekDayNames[ d ].substr( 0, 1 ) + "</abbr></th>";
 							}
 
 							return days;
@@ -5139,7 +5131,8 @@ var i18nText,
 			.trigger( {
 				type: navigateEvent,
 				year: this.year,
-				month: this.month
+				month: this.month,
+				initEvent: true
 			} );
 	},
 
@@ -5297,6 +5290,11 @@ $document.on( navigateEvent, selector, function( event ) {
 	}
 
 	createDays( event.currentTarget, event.year, event.month );
+
+	// Added declaration of current month in aria-live="polite" for screen-readers
+	if ( !event.initEvent ) {
+		$calendar.find( ".current-month" ).text( i18nText.monthNames[ month ] + " " + year );
+	}
 } );
 
 $document.on( "change", selector, function( event ) {
