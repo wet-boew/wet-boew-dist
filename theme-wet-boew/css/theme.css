@@ -10103,7 +10103,7 @@ ol-geolocate button {
   WET-BOEW
   @title: Bootstrap 4 suplemental style for WET-BOEW
  */
-/* Padding */
+/* Spacing */
 .p-0 {
 	padding: 0 !important; }
 
@@ -10123,6 +10123,9 @@ ol-geolocate button {
 .py-4 {
 	padding-bottom: 30px !important; }
 
+.mt-auto {
+	margin-top: auto !important; }
+
 /* Stretched link */
 .stretched-link:after {
 	background-color: rgba(0, 0, 0, 0);
@@ -10135,6 +10138,10 @@ ol-geolocate button {
 	top: 0;
 	z-index: 1; }
 
+/* Sizing */
+.h-100 {
+	height: 100% !important; }
+
 /* Positioning */
 .position-relative {
 	position: relative !important; }
@@ -10144,6 +10151,12 @@ ol-geolocate button {
 	display: -webkit-box !important;
 	display: -ms-flexbox !important;
 	display: flex !important; }
+
+.flex-column {
+	-webkit-box-orient: vertical !important;
+	-webkit-box-direction: normal !important;
+	    -ms-flex-direction: column !important;
+	        flex-direction: column !important; }
 
 .align-self-center {
 	-ms-flex-item-align: center !important;
