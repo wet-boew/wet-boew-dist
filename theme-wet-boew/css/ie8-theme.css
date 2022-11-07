@@ -16414,6 +16414,8 @@ Miscellaneous Utiliy CSS
 	.px-sm-3 {
 		padding-left: 15px;
 		padding-right: 15px; }
+	.pr-sm-3 {
+		padding-right: 15px !important; }
 	/*
   WET-BOEW
   @title: Proximity CSS - Small view and over
