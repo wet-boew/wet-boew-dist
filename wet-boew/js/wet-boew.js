@@ -14351,7 +14351,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 		};
 
 	// Lets reset the search
-	$datatable.search( "" ).columns().search( "" ).draw();
+	$datatable.search( "" ).columns().search( "" );
 
 	// Lets loop throug all options
 	var $prevCol = -1, $cachedVal = "";
@@ -14503,10 +14503,10 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 				$regex = "(" + $value + ")";
 			}
 
-			$datatable.column( $column ).search( $regex, true ).draw();
+			$datatable.column( $column ).search( $regex, true );
 		}
 	} );
-
+	$datatable.draw();
 	return false;
 } );
 
