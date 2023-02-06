@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.56.6 - 2023-01-17
+ * v4.0.56.6 - 2023-02-06
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -14779,9 +14779,9 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		}
 
 		if ( isArrayResponse ) {
-			JSONresponse = $.extend( [], JSONresponse );
+			JSONresponse = $.extend( true, [], JSONresponse );
 		} else {
-			JSONresponse = $.extend( {}, JSONresponse );
+			JSONresponse = $.extend( true, {}, JSONresponse );
 		}
 
 		// Apply a filtering
