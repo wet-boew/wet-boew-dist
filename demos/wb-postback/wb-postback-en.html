@@ -108,7 +108,7 @@
 <div class="wb-prettify all-pre hide"></div>
 <p>Submit web form through AJAX call.</p>
 <p>To see this example in action, check the network tab of browser console to see AJAX request sent.</p>
-<form action="wb-postback-en.html" class="wb-postback" data-wb-postback='{"success":".success-message","failure":".failure-message","content":".form-content"}'>
+<form action="wb-postback-en.html" class="wb-postback" data-wb-postback='{"success":".success-message","failure":".failure-message"}'>
 <div class="form-content">
 <div class="form-group">
 <label for="firstname1"><span class="field-name">First Name</span></label>
@@ -133,7 +133,7 @@
 <p class="failure-message hide">Something went wrong. Please submit your information via an alternative method.</p>
 <details class="mrgn-tp-md mrgn-bttm-md">
 <summary>View code</summary>
-<pre><code>&lt;form action="wb-postback-en.html" class="wb-postback" data-wb-postback="{&amp;quot;success&amp;quot;:&amp;quot;success-message&amp;quot;,&amp;quot;failure&amp;quot;:&amp;quot;failure-message&amp;quot;}"&gt;
+<pre><code>&lt;form action="wb-postback-en.html" class="wb-postback" data-wb-postback='{"success":".success-message","failure":".failure-message"}'&gt;
 	&lt;div class="form-content"&gt;
 		&lt;div class="form-group"&gt;
 			&lt;label for="firstname1"&gt;&lt;span class="field-name"&gt;First Name&lt;/span&gt;&lt;/label&gt;
@@ -160,10 +160,10 @@
 <p>Submit web form through AJAX call using also the <a href="https://wet-boew.github.io/wet-boew/demos/formvalid/formvalid-en.html">Form Validation</a> plugin.</p>
 <p>To see this example in action, check the network tab of browser console to see AJAX request sent.</p>
 <div class="wb-frmvld">
-<form action="wb-postback-en.html" class="wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2","content":".form-content"}'>
+<form action="wb-postback-en.html" class="wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'>
 <div class="form-content">
 <div class="form-group">
-<label for="firstname2" class="required"><span class="field-name">First name</span> <strong class="required">(required)</strong></label>
+<label for="firstname2" class="required"><span class="field-name">First Name</span> <strong class="required">(required)</strong></label>
 <input class="form-control" id="firstname2" name="firstname" type="text" data-rule-minlength="2" required="required">
 </div>
 <div class="form-group">
@@ -189,37 +189,35 @@
 <div class="alert alert-info">
 <p>Consider adding an <code>aria-hidden="true"</code> attribute to <code>&lt;strong class="required"&gt;</code> (i.e. <code>&lt;strong class="required" aria-hidden="true"&gt;</code>) in required field labels. Hardcoding it will prevent screen readers from announcing "required" twice in the noscript and basic HTML versions of the page. The form validation plugin automatically adds the attribute to the JavaScript version. Don't use the attribute in required <code>&lt;legend&gt;</code> elements.</p>
 </div>
-<pre><code>
-		&lt;div class="wb-frmvld"&gt;
-		&lt;form action="wb-postback-en.html" class="wb-postback" data-wb-postback="{&amp;quot;success&amp;quot;:&amp;quot;success-message-2&amp;quot;,&amp;quot;failure&amp;quot;:&amp;quot;failure-message-2&amp;quot;}"&gt;
-	&lt;div class="form-content"&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="firstname2" class="required"&gt;&lt;span class="field-name"&gt;First Name&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/label&gt;
-			&lt;input class="form-control" id="firstname2" name="firstname" type="text" data-rule-minlength="2" required="required" /&gt;
+<pre><code>&lt;div class="wb-frmvld"&gt;
+	&lt;form action="wb-postback-en.html" class="wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'&gt;
+		&lt;div class="form-content"&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="firstname2" class="required"&gt;&lt;span class="field-name"&gt;First Name&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class="form-control" id="firstname2" name="firstname" type="text" data-rule-minlength="2" required="required" /&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="lastname2" class="required"&gt;&lt;span class="field-name"&gt;Last Name&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class="form-control" id="lastname2" name="lastname" type="text" data-rule-minlength="2" required="required" /&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="preferredNumber2"&gt;Preferred: &lt;span class="field-name"&gt;Phone Number&lt;/span&gt;&lt;/label&gt;
+				&lt;input class="form-control" id="preferredNumber2" name="preferredNumber" type="tel" data-rule-phoneUS="true" /&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="email2"&gt;&lt;span class="field-name"&gt;Email Address&lt;/span&gt; (test@domaine)&lt;/label&gt;
+				&lt;input class="form-control" id="email2" name="email" type="email" /&gt;
+			&lt;/div&gt;
+			&lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
 		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="lastname2" class="required"&gt;&lt;span class="field-name"&gt;Last Name&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/label&gt;
-			&lt;input class="form-control" id="lastname2" name="lastname" type="text" data-rule-minlength="2" required="required" /&gt;
-		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="preferredNumber2"&gt;Preferred: &lt;span class="field-name"&gt;Phone Number&lt;/span&gt;&lt;/label&gt;
-			&lt;input class="form-control" id="preferredNumber2" name="preferredNumber" type="tel" data-rule-phoneUS="true" /&gt;
-		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="email2"&gt;&lt;span class="field-name"&gt;Email Address&lt;/span&gt; (test@domaine)&lt;/label&gt;
-			&lt;input class="form-control" id="email2" name="email" type="email" /&gt;
-		&lt;/div&gt;
-		&lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/form&gt;
-&lt;p class="success-message-2 hide"&gt;Thank you!&lt;/p&gt;
-&lt;p class="failure-message-2 hide"&gt;Something went wrong. Please submit your information via an alternative method.&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
+	&lt;/form&gt;
+	&lt;p class="success-message-2 hide"&gt;Thank you!&lt;/p&gt;
+	&lt;p class="failure-message-2 hide"&gt;Something went wrong. Please submit your information via an alternative method.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
 </details>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2022-03-13</time></dd>
+<dd><time property="dateModified">2023-02-01</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

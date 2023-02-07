@@ -105,6 +105,7 @@
 <li><a class="btn btn-primary" href="../../docs/ref/wb-postback/wb-postback-fr.html">Documentation</a></li>
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Envoie%20via%20Ajax:%20">Questions ou commentaires?</a></li>
 </ul>
+<div class="wb-prettify all-pre hide"></div>
 <p>Soumission de formulaire via une requête Ajax.</p>
 <p>Pour voir cet example en action, vérifier l'onglet réseaux de la console du fureteur afin de voir la requête Ajax envoyé.</p>
 <form action="wb-postback-fr.html" class="wb-postback" data-wb-postback='{"success":".success-message","failure":".failure-message"}'>
@@ -132,7 +133,7 @@
 <p class="failure-message hide">Nous somme désolé, un problème est survenu lors de la soumission de votre formulaire. Veuillez nous envoyer l'information via une méthode alternative.</p>
 <details class="mrgn-tp-md mrgn-bttm-md">
 <summary>View code</summary>
-<pre><code>&lt;form action="wb-postback-fr.html" class="wb-postback" data-wb-postback="{&amp;quot;success&amp;quot;:&amp;quot;success-message&amp;quot;,&amp;quot;failure&amp;quot;:&amp;quot;failure-message&amp;quot;}"&gt;
+<pre><code>&lt;form action="wb-postback-fr.html" class="wb-postback" data-wb-postback='{"success":".success-message","failure":".failure-message"}'&gt;
 	&lt;div class="form-content"&gt;
 		&lt;div class="form-group"&gt;
 			&lt;label for="firstname1"&gt;&lt;span class="field-name"&gt;Prénom&lt;/span&gt;&lt;/label&gt;
@@ -188,37 +189,35 @@
 <div class="alert alert-info">
 <p>Considérez ajouter un attribut <code lang="en">aria-hidden="true"</code> à <code lang="en">&lt;strong class="required"&gt;</code> (c.-à-d. <code lang="en">&lt;strong class="required" aria-hidden="true"&gt;</code>) dans les libellés des champs obligatoires. Le code ajouté de façon statique préviendra les lecteurs d’écran d’annoncer «&#160;obligatoire&#160;» deux fois dans les versions sans script et HTML simplifiée de la page. Le plugiciel de validation de formulaires ajoute l’attribut automatiquement à la version JavaScript. N’utilisez pas l’attribut dans les éléments <code lang="en">&lt;legend&gt;</code> obligatoires.</p>
 </div>
-<pre><code>
-		&lt;div class="wb-frmvld"&gt;
-		&lt;form action="wb-postback-fr.html" class="wb-postback" data-wb-postback="{&amp;quot;success&amp;quot;:&amp;quot;success-message-2&amp;quot;,&amp;quot;failure&amp;quot;:&amp;quot;failure-message-2&amp;quot;}"&gt;
-	&lt;div class="form-content"&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="firstname2" class="required"&gt;&lt;span class="field-name"&gt;Prénom&lt;/span&gt; &lt;strong class="required"&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
-			&lt;input class="form-control" id="firstname2" name="firstname" type="text" data-rule-minlength="2" required="required" /&gt;
+<pre><code>&lt;div class="wb-frmvld"&gt;
+	&lt;form action="wb-postback-fr.html" class="wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'&gt;
+		&lt;div class="form-content"&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="firstname2" class="required"&gt;&lt;span class="field-name"&gt;Prénom&lt;/span&gt; &lt;strong class="required"&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class="form-control" id="firstname2" name="firstname" type="text" data-rule-minlength="2" required="required" /&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="lastname2" class="required"&gt;&lt;span class="field-name"&gt;Nom de famille&lt;/span&gt; &lt;strong class="required"&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
+				&lt;input class="form-control" id="lastname2" name="lastname" type="text" data-rule-minlength="2" required="required" /&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="preferredNumber2"&gt;&lt;span class="field-name"&gt;Numéro de téléphone&lt;/span&gt;&lt;/label&gt;
+				&lt;input class="form-control" id="preferredNumber2" name="preferredNumber" type="tel" data-rule-phoneUS="true" /&gt;
+			&lt;/div&gt;
+			&lt;div class="form-group"&gt;
+				&lt;label for="email2"&gt;&lt;span class="field-name"&gt;Addresse courriel&lt;/span&gt; (test@domaine)&lt;/label&gt;
+				&lt;input class="form-control" id="email2" name="email" type="email" /&gt;
+			&lt;/div&gt;
+			&lt;button type="submit" class="btn btn-primary"&gt;Soumettre&lt;/button&gt;
 		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="lastname2" class="required"&gt;&lt;span class="field-name"&gt;Nom de famille&lt;/span&gt; &lt;strong class="required"&gt;(obligatoire)&lt;/strong&gt;&lt;/label&gt;
-			&lt;input class="form-control" id="lastname2" name="lastname" type="text" data-rule-minlength="2" required="required" /&gt;
-		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="preferredNumber2"&gt;&lt;span class="field-name"&gt;Numéro de téléphone&lt;/span&gt;&lt;/label&gt;
-			&lt;input class="form-control" id="preferredNumber2" name="preferredNumber" type="tel" data-rule-phoneUS="true" /&gt;
-		&lt;/div&gt;
-		&lt;div class="form-group"&gt;
-			&lt;label for="email2"&gt;&lt;span class="field-name"&gt;Addresse courriel&lt;/span&gt; (test@domaine)&lt;/label&gt;
-			&lt;input class="form-control" id="email2" name="email" type="email" /&gt;
-		&lt;/div&gt;
-		&lt;button type="submit" class="btn btn-primary"&gt;Soumettre&lt;/button&gt;
-	&lt;/div&gt;
-&lt;/form&gt;
-&lt;p class="success-message-2 hide"&gt;Merci!&lt;/p&gt;
-&lt;p class="failure-message-2 hide"&gt;Nous somme désolé, un problème est survenu lors de la soumission de votre formulaire. Veuillez nous envoyer l'information via une méthode alternative.&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
+	&lt;/form&gt;
+	&lt;p class="success-message-2 hide"&gt;Merci!&lt;/p&gt;
+	&lt;p class="failure-message-2 hide"&gt;Nous somme désolé, un problème est survenu lors de la soumission de votre formulaire. Veuillez nous envoyer l'information via une méthode alternative.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
 </details>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2022-04-13</time></dd>
+<dd><time property="dateModified">2023-02-01</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
