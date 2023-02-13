@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.57 - 2023-02-08
+ * v4.0.57 - 2023-02-13
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -14511,7 +14511,10 @@ var componentName = "wb-jsonmanager",
 			Modernizr.load( {
 
 				// For loading multiple dependencies
-				load: "site!deps/json-patch" + wb.getMode() + ".js",
+				load: [
+					"site!deps/json-patch" + wb.getMode() + ".js",
+					"site!deps/jsonpointer" + wb.getMode() + ".js"
+				],
 				testReady: function() {
 					return window.jsonpatch && window.jsonpointer;
 				},
@@ -14703,9 +14706,11 @@ var componentName = "wb-jsonmanager",
 					$.extend( jsonSource[ selectedTag.path ], arrMap );
 				}
 
-				targetTag = selectedTag.attr && targetTag [ 0 ].getAttributeNode( selectedTag.attr ) ?
-					targetTag [ 0 ].getAttributeNode( selectedTag.attr ).textContent :
-					targetTag [ 0 ].textContent;
+				if ( targetTag.length ) {
+					targetTag = selectedTag.attr && targetTag [ 0 ].getAttributeNode( selectedTag.attr ) ?
+						targetTag [ 0 ].getAttributeNode( selectedTag.attr ).textContent :
+						targetTag [ 0 ].textContent;
+				}
 
 			} else {
 
