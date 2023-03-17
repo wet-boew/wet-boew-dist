@@ -9,7 +9,7 @@
  - Web Experience Toolkit
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Partial. Evaluation of new Success Criteria at Level A and Level AA of WCAG 2.1 and WCAG 2.2" />
+		<meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities" />
 		
 		
 		
@@ -128,8 +128,25 @@
 			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Accessibility%20assessment%20%231%20-%20Add%20to%20Calendar:%20">Questions or comments?</a></li>
 		</ul>
 		
+
+
+
+
+
+<nav>
+	<h2>On this page</h2>
+	<ul>
+		<li><a href="#summary">Summary</a></li>
+		<li><a href="#revision">Revision</a></li>
+		<li><a href="#workitem">Work items</a></li>
+		<li><a href="#acr">Assessement details</a></li>
+	</ul>
+</nav>
+
 <div id="ds-a11y" data-wb-jsonmanager='{ "url": "a11y-1.json", "name": "a11y" }'></div>
 
+<h2 id="summary">Summary</h2>
+<p>(<a href="a11y-1.json" type="application/ld+json" rel="alternate">Consult the report in its native JSON-LD format</a>)</p>
 <dl class="dl-horizontal">
 	<dt>Evaluation Report Identifier</dt>
 	<dd data-json-replace="#[a11y]/id">Not Available</dd>
@@ -161,50 +178,119 @@
 	<dd data-json-replace="#[a11y]/score">Not Calculated</dd>
 </dl>
 
-<details>
-	<summary>Revision</summary>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Date</th>
-				<th>Outcome</th>
-				<th>Comments</th>
-				<th>Reviewer</th>
-			</tr>
-		</thead>
-		<tbody data-wb-json='{
-			"url": "#[a11y]/review",
-			"tobeclone": "tr",
-			"source": "#tmpl-reviews",
-			"mapping": [
-				{ "selector": ":nth-child(1)", "value": "/date" },
-				{ "selector": ":nth-child(2)", "value": "/outcome" },
-				{ "selector": ":nth-child(3)", "value": "/notes" },
-				{ "selector": ":nth-child(4)", "value": "/name" }
-			]
-		}'>
-		</tbody>
-	</table>
-
-	<template id="tmpl-reviews">
-		<table>
-			<tr>
-				<th></th>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+<section class="panel panel-primary">
+	<header class="panel-heading">
+		<h2 class="panel-title" id="revision">Revision</h2>
+	</header>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Outcome</th>
+					<th>Comment</th>
+					<th>Reviewer</th>
+				</tr>
+			</thead>
+			<tbody data-wb-json='{
+				"url": "#[a11y]/review",
+				"tobeclone": "tr",
+				"source": "#tmpl-reviews",
+				"mapping": [
+					{ "selector": ":nth-child(1)", "value": "/date" },
+					{ "selector": ":nth-child(2)", "value": "/outcome" },
+					{ "selector": "[data-notes]", "value": "/notes" },
+					{ "selector": "[data-mode]", "value": "/earl:mode" },
+					{
+						"selector": ":nth-child(3) > dl",
+						"value": "/results",
+						"mapping": [
+							{ "selector": "span", "value": "/label" },
+							{ "selector": "em", "value": "/outcome" },
+							{ "selector": "dd > p", "value": "/notes" },
+							{
+								"selector": "[data-techniques]",
+								"value": "/techniques",
+								"mapping": { "selector": "code", "value": "@value" }
+							}
+						]
+					},
+					{ "selector": "[data-reviewer]", "value": "/name" }
+				]
+			}'>
+			</tbody>
 		</table>
-	</template>
-</details>
 
-<h2>Assessment details</h2>
+		<template id="tmpl-reviews">
+			<table>
+				<tr>
+					<th></th>
+					<td></td>
+					<td>
+						<p>Tested mode: <code><strong data-mode></strong></code></p>
+						<p data-notes></p>
+						<dl>
+							<template>
+								<dt><em></em> - <span></span></dt>
+								<dd>
+									<p></p>
+									<ul data-techniques>
+										<template>
+											<li><code></code></li>
+										</template>
+									</ul>
+								</dd>
+							</template>
+						</dl>
+					</td>
+					<td data-reviewer></td>
+				</tr>
+			</table>
+		</template>
+	</div>
+</section>
+
+<h2 id="workitem">Work items</h2>
+
+<dl data-wb-json='{
+		"url": "#[a11y]/workitems",
+		"mapping": [
+			{ "selector": ":nth-child(1) > a", "value": "/title" },
+			{ "selector": ":nth-child(1) > a", "value": "/issue", "attr": "href" },
+			{ "selector": ":nth-child(2) > p", "value": "/description" },
+			{ "selector": "[data-severity]", "value": "/wb-acr:severity" },
+			{ "selector": "[data-relevancy]", "value": "/wb-acr:relevancy" },
+			{
+				"selector": ":nth-child(2) > ul",
+				"value": "/techniques",
+				"mapping": { "selector": "code", "value": "@value" }
+			}
+		]
+	}'>
+	<template>
+		<dt><a href></a></dt>
+		<dd>
+			<ul class="list-inline">
+				<li>Severity: <code data-severity></code></li>
+				<li>Relevance: <code data-relevancy></code></li>
+			</ul>
+			<p></p>
+			<ul>
+				<template>
+					<li><code></code></li>
+				</template>
+			</ul>
+		</dd>
+	</template>
+</dl>
+
+<h2 id="acr">Assessment details</h2>
 <table class="table">
 	<thead>
 		<tr>
 			<th>Success Criteria</th>
 			<th>Result</th>
-			<th>Comments</th>
+			<th>Comment</th>
 		</tr>
 	</thead>
 	<tbody data-wb-json='{
@@ -212,9 +298,26 @@
 		"tobeclone": "tr",
 		"source": "#tmpl-result",
 		"mapping": [
-			{ "selector": ":nth-child(1)", "value": "/label" },
-			{ "selector": ":nth-child(2)", "value": "/outcome" },
-			{ "selector": ":nth-child(3)", "value": "/notes" }
+			{ "selector": "[data-label]", "value": "/label" },
+			{ "selector": "[data-outcome]", "value": "/outcome" },
+			{ "selector": "[data-notes]", "value": "/notes" },
+			{ "selector": "[data-mode]", "value": "/earl:mode" },
+			{ "selector": "[data-severity]", "value": "/wb-acr:severity" },
+			{ "selector": "[data-relevancy]", "value": "/wb-acr:relevancy" },
+			{
+				"selector": "[data-specific-results]",
+				"value": "/results",
+				"mapping": [
+					{ "selector": "span", "value": "/label" },
+					{ "selector": "em", "value": "/outcome" },
+					{ "selector": "dd", "value": "/notes" }
+				]
+			},
+			{
+				"selector": "[data-techniques]",
+				"value": "/techniques",
+				"mapping": { "selector": "code", "value": "@value" }
+			}
 		]
 	}'>
 	</tbody>
@@ -223,9 +326,27 @@
 <template id="tmpl-result">
 	<table>
 		<tr>
-			<th></th>
-			<td></td>
-			<td></td>
+			<th data-label></th>
+			<td><span data-outcome></span></td>
+			<td>
+				<ul class="list-inline clearfix">
+					<li>Test mode: <code><strong data-mode></strong></code></li>
+					<li class="pull-right clr-rght-md clr-rght-lg">Severity: <code data-severity></code></li>
+					<li class="pull-right clr-rght-md clr-rght-lg">Relevance: <code data-relevancy></code></li>
+				</ul>
+				<p data-notes></p>
+				<dl data-specific-results>
+					<template>
+						<dt><em></em> - <span></span></dt>
+						<dd></dd>
+					</template>
+				</dl>
+				<ul data-techniques>
+					<template>
+						<li><code></code></li>
+					</template>
+				</ul>
+			</td>
 		</tr>
 	</table>
 </template>
