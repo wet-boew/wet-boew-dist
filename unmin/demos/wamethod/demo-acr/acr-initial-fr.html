@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Évaluation d'accessibilité #[id] - Sujet
+		<title>Évaluation de conformance d'accessibilité #[id] - Sujet
 		 - Exemples pratiques
  - Boîte à outils de l'expérience Web
 </title>
@@ -16,7 +16,7 @@
 		
 		
 		
-		<link rel="alternate" hreflang="en" href="a11y-1-en.html" />
+		<link rel="alternate" hreflang="en" href="acr-initial-en.html" />
 		
 		<link href="../../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
 		<link rel="stylesheet" href="../../../../theme-wet-boew/css/theme.css" />
@@ -46,7 +46,7 @@
 							<h2>Sélection de la langue</h2>
 							<ul class="text-right">
 								<li class="curr">Français&#32;<span>(actuel)</span></li>
-								<li><a lang="en" hreflang="en" href="a11y-1-en.html">English</a></li>
+								<li><a lang="en" hreflang="en" href="acr-initial-en.html">English</a></li>
 							</ul>
 						</section>
 	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
@@ -110,12 +110,12 @@
 								<a property="item" typeof="WebPage" href="../../../demos/index-fr.html"><span property="name">Exemples pratiques</span></a>
 								<meta property="position" content="2">
 							</li>
-							<li property="itemListElement" typeof="ListItem"><span property="name">Évaluation d&#x27;accessibilité #[id] - Sujet</span><meta property="position" content="3"></li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Évaluation de conformance d&#x27;accessibilité #[id] - Sujet</span><meta property="position" content="3"></li>
 								<li property="itemListElement" typeof="ListItem">
 									<a property="item" typeof="WebPage" href="../../../demos/wamethod/wamethod-AA-fr.html"><span property="name">Méthodologie d’évaluation sur l’accessibilité des sites Web (niveau AA)</span></a>
 									<meta property="position" content="3">
 								</li>
-								<li property="itemListElement" typeof="ListItem"><span property="name">Évaluation d&#x27;accessibilité #[id] - Sujet</span><meta property="position" content="4"></li>
+								<li property="itemListElement" typeof="ListItem"><span property="name">Évaluation de conformance d&#x27;accessibilité #[id] - Sujet</span><meta property="position" content="4"></li>
 				</ol>
 			</div>
 		</div>
@@ -123,10 +123,10 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-		<h1 id="wb-cont" property="name">Évaluation d&#x27;accessibilité #[id] - Sujet</h1>
+		<h1 id="wb-cont" property="name">Évaluation de conformance d&#x27;accessibilité #[id] - Sujet</h1>
 		<ul class="list-inline">
 				<li><a class="btn btn-primary" href="../../../docs/ref/wamethod/wamethod-fr.html">Documentation</a></li>
-			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=%C3%89valuation%20d&#x27;accessibilit%C3%A9%20%23%5Bid%5D%20-%20Sujet:%20">Questions ou commentaires?</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=%C3%89valuation%20de%20conformance%20d&#x27;accessibilit%C3%A9%20%23%5Bid%5D%20-%20Sujet:%20">Questions ou commentaires?</a></li>
 		</ul>
 		
 
@@ -134,8 +134,8 @@
 
 
 <section class="alert alert-info">
-	<h2>Page d'exemple</h2>
-	<p>Cette page est un exemple de rapport complet ACR (Rapport de Conformance d'Accessibilité) afin d'illustrer toutes les situations possibles et toutes les diverses variantes afin de présenter un rapport enrichi.</p>
+	<h2>Page d'exemple - Gabarit de référence initial</h2>
+	<p>Cette page est un gabarit de référence afin d'initier une évaluation et de procéder avec la production d'un rapport ACR (Rapport de Conformance d'Accessibilité) illustrant la conformité du sujet web évalué. Ce gabarit est pré-configuré afin d'évaluer une conformance complète pour chaque critère de mérite du WCAG 2.1 Niveau AA.</p>
 </section>
 
 
@@ -149,13 +149,13 @@
 	</ul>
 </nav>
 
-<div id="ds-a11y" data-wb-jsonmanager='{ "url": "a11y-1.json", "name": "a11y" }'></div>
+<div id="ds-a11y" data-wb-jsonmanager='{ "url": "acr-initial.json", "name": "a11y" }'></div>
 
 <h2 id="sommaire">Sommaire</h2>
-<p>(<a href="a11y-1.json" type="application/ld+json" rel="alternate">Consulter le rapport dans son état d'origine en JSON-LD</a>)</p>
+<p>(<a href="acr-initial.json" type="application/ld+json" rel="alternate">Consulter le rapport dans son état d'origine en JSON-LD</a>)</p>
 <dl class="dl-horizontal">
 	<dt>Identifiant du rapport d'évaluation</dt>
-	<dd data-json-replace="#[a11y]/id" lang="en"><span lang="fr">Non disponible</span></dd>
+	<dd data-json-replace="#[a11y]/reportId" lang="en"><span lang="fr">Non disponible</span></dd>
 	<dt>Type</dt>
 	<dd>Évaluation de l'accessibilité</dd>
 	<dt>Évalué par:</dt>
@@ -176,12 +176,12 @@
 			}
 
 		]' href="#" lang="en"><span lang="fr">Non Définie</span></a></dd>
-	<dt>Sujet</dt>
-	<dd data-json-replace="#[a11y]/assessment" lang="en"><span lang="fr">Non Définie</span></dd>
-	<dt>Notes:</dt>
-	<dd data-json-replace="#[a11y]/notes" lang="en"><span lang="fr">Aucune note</span></dd>
+	<dt>Porté</dt>
+	<dd data-json-replace="#[a11y]/scope" lang="en"><span lang="fr">Non Définie</span></dd>
+	<dt>Somaire:</dt>
+	<dd data-json-replace="#[a11y]/summary" lang="en"><span lang="fr">Aucune note</span></dd>
 	<dt>Résultat</dt>
-	<dd data-json-replace="#[a11y]/score" lang="en"><span lang="fr">Non calculé</span></dd>
+	<dd data-json-replace="#[a11y]/aggregatedScore" lang="en"><span lang="fr">Non calculé</span></dd>
 </dl>
 
 <section class="panel panel-primary">
