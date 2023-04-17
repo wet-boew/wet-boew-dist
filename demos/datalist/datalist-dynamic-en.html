@@ -160,59 +160,59 @@
 </section>
 <section>
 <h3>JavaScript</h3>
-<pre><code>(function( $, wb ) {
+<pre><code>( function( $, wb ) {
 &quot;use strict&quot;;
 
-var $document = wb.doc,
-	pluginSelector = &quot;#plugin&quot;,
-	issueInput = $( &quot;#issue&quot; );
+var $document &#x3D; wb.doc,
+	pluginSelector &#x3D; &quot;#plugin&quot;,
+	issueInput &#x3D; $( &quot;#issue&quot; );
 
 $document.on( &quot;change&quot;, pluginSelector, function( event ) {
-	var pluginName = event.target.value;
+	var componentName &#x3D; event.target.value;
 
-	$( this ).trigger({
+	$( this ).trigger( {
 		type: &quot;ajax-fetch.wb&quot;,
 		fetch: {
-			url: encodeURI( &quot;https://api.github.com/repos/wet-boew/wet-boew/issues?labels=Feature: &quot; + pluginName ),
-			dataType: wb.ielt10 ? &quot;jsonp&quot; : &quot;json&quot;,
-			jsonp: wb.ielt10 ? &quot;callback&quot; : null
+			url: encodeURI( &quot;https://api.github.com/repos/wet-boew/wet-boew/issues?labels&#x3D;Feature: &quot; + componentName ),
+			dataType: &quot;json&quot;
 		}
-	});
+	} );
 
-	issueInput.get( 0 ).value = &quot;&quot;;
-});
+	issueInput.get( 0 ).value &#x3D; &quot;&quot;;
+} );
 
 $document.on( &quot;ajax-fetched.wb&quot;, pluginSelector, function( event ) {
-	var dataList = $( &quot;#&quot; + issueInput.attr( &quot;list&quot; ) ),
-		issues = wb.ielt10 ? event.fetch.response.data : event.fetch.response,
-		lenIssues = issues.length,
-		options = &quot;&quot;,
+	var dataList &#x3D; $( &quot;#&quot; + issueInput.attr( &quot;list&quot; ) ),
+		issues &#x3D; wb.ielt10 ? event.fetch.response.data : event.fetch.response,
+		lenIssues &#x3D; issues.length,
+		options &#x3D; &quot;&quot;,
 		indIssue, issue;
 
 	dataList.empty();
 
-	for ( indIssue = 0; indIssue !== lenIssues; indIssue += 1 ) {
-		issue = issues[ indIssue ];
+	for ( indIssue &#x3D; 0; indIssue !&#x3D;&#x3D; lenIssues; indIssue +&#x3D; 1 ) {
+		issue &#x3D; issues[ indIssue ];
 
-		options += &quot;&lt;option label=\&quot;&quot; + issue.title + &quot;\&quot; value=\&quot;&quot; + issue.title + &quot;\&quot;&gt;&lt;/option&gt;&quot;;
+		options +&#x3D; &quot;&lt;option label&#x3D;\&quot;&quot; + issue.title + &quot;\&quot; value&#x3D;\&quot;&quot; + issue.title + &quot;\&quot;&gt;&lt;/option&gt;&quot;;
 	}
 
 	if ( wb.ielt10 ) {
-		options = &quot;&lt;select&gt;&quot; + options + &quot;&lt;/select&gt;&quot;;
+		options &#x3D; &quot;&lt;select&gt;&quot; + options + &quot;&lt;/select&gt;&quot;;
 	}
 
 	dataList.append( options );
 
 	issueInput.trigger( &quot;wb-update.wb-datalist&quot; );
-});
+} );
 
-})( jQuery, wb );</code></pre>
+} )( jQuery, wb );
+</code></pre>
 </section>
 </details>
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2014-07-20</time></dd>
+<dd><time property="dateModified">2023-04-14</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
