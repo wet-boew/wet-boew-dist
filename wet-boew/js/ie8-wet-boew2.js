@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.61 - 2023-04-17
+ * v4.0.61 - 2023-05-01
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -11629,7 +11629,12 @@ var componentName = "wb-tables",
 				complete: function() {
 					var $elm = $( "#" + elmId ),
 						dataTableExt = $.fn.dataTableExt,
-						settings = wb.getData( $elm, componentName );
+						settings = wb.getData( $elm, componentName ) || {};
+
+					// Explicitly deactivate the paging for the filterEmphasis provisional feature/styling when not configured
+					if ( $elm.hasClass( "provisional" ) && $elm.hasClass( "filterEmphasis" ) ) {
+						settings.paging = settings.paging ? settings.paging : false;
+					}
 
 					/*
 					 * Extend sorting support
@@ -11771,6 +11776,12 @@ $document.on( "init.dt", function( event ) {
 		} );
 		$elm.attr( "aria-label", i18nText.tblFilterInstruction );
 	}
+
+	// Apply the filter emphasis style
+	if ( $elm.hasClass( "provisional" ) && $elm.hasClass( "filterEmphasis" ) ) {
+		$elm.parent().addClass( "provisional filterEmphasis" );
+	}
+
 	wb.ready( $( event.target ), componentName );
 } );
 
