@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.61.1 - 2023-05-02
+ * v4.0.61.1 - 2023-05-15
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -13900,7 +13900,7 @@ var componentName = "wb-share",
 				// Add an email mailto option
 				defaults.sites.email = {
 					name: i18nText.email,
-					url: "mailto:?to=&subject={t}&body={u}%0A{d}",
+					url: "mailto:?subject={t}&body={u}%0A{d}",
 					isMailto: true
 				};
 			}
