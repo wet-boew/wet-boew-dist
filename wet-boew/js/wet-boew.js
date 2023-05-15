@@ -2709,6 +2709,7 @@ wb.getData = function( element, dataName ) {
 			dataObj = JSON.parse( dataAttr );
 			$.data( elm, dataName, dataObj );
 		} catch ( error ) {
+			console.info( elm );
 			$.error( "Bad JSON array in data-" + dataName + " attribute" );
 		}
 	}
@@ -16958,6 +16959,11 @@ var componentName = "wb-data-json",
 						cached_value = jsonpointer.get( content, basePntr + j_cache.value );
 					}
 
+					// Go to the next mapping if the value of JSON node don't exist to ensure we keep the default text set in the template, but move ahead if empty or null
+					if ( cached_value === undefined ) {
+						continue;
+					}
+
 					// Placeholder text replacement if any
 					if ( j_cache.placeholder ) {
 						cached_textContent = cached_node.textContent || "";
@@ -17111,7 +17117,8 @@ var componentName = "wb-data-json",
 		loadJSON( elm, wbJsonConfig.url, refId );
 	};
 
-$document.on( "json-failed.wb", selector, function( ) {
+$document.on( "json-failed.wb", selector, function( event ) {
+	console.info( event.currentTarget );
 	throw "Bad JSON Fetched from url in " + componentName;
 } );
 
