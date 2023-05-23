@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.62 - 2023-05-17
+ * v4.0.62 - 2023-05-23
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -11767,7 +11767,7 @@ $document.on( "init.dt", function( event ) {
 	// Handle sorting/ordering
 	var ordering = ( settings && settings.ordering === false ) ? false : true;
 	if ( ordering ) {
-		$elm.find( "th" ).each( function() {
+		$elm.find( "thead th" ).each( function() {
 			var $th = $( this ),
 				label = ( $th.attr( "aria-sort" ) === "ascending" ) ? i18nText.aria.sortDescending : i18nText.aria.sortAscending;
 			if ( $th.attr( "data-orderable" ) !== "false" ) {
