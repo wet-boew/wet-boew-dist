@@ -6431,7 +6431,7 @@ var componentName = "wb-charts",
 
 				} else {
 
-					header = currentRowGroup.row[ rIndex ].header;
+					header = !reverseTblParsing ? dataCell.row.header : dataCell.col.header;
 
 					figurehtml = "<figure><figcaption>" +
 						header[ header.length - 1 ].elem.innerHTML +
