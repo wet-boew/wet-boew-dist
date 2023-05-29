@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.62.1 - 2023-05-23
+ * v4.0.62.1 - 2023-05-29
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -11770,7 +11770,7 @@ $document.on( "init.dt", function( event ) {
 		$elm.find( "thead th" ).each( function() {
 			var $th = $( this ),
 				label = ( $th.attr( "aria-sort" ) === "ascending" ) ? i18nText.aria.sortDescending : i18nText.aria.sortAscending;
-			if ( $th.attr( "data-orderable" ) !== "false" ) {
+			if ( ( $th.attr( "data-orderable" ) !== "false" ) && !( $th.hasClass( "sorting_disabled" ) ) ) {
 				$th.html( "<button type='button' aria-controls='" + $th.attr( "aria-controls" ) +  "' title='" + $th.text().replace( /'/g, "&#39;" ) + label + "'>" + $th.html() + "<span class='sorting-cnt'><span class='sorting-icons' aria-hidden='true'></span></span></button>" );
 				$th.removeAttr( "aria-label tabindex aria-controls" );
 			}
