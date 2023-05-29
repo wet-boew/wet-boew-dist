@@ -5806,9 +5806,11 @@ a {
 		border: 0 !important; }
 	.dl-horizontal dt {
 		border-top: 1px solid #ccc;
+		hyphens: auto;
 		padding: 10px 10px 10px 0;
 		text-align: left;
-		white-space: normal; }
+		white-space: normal;
+		word-break: break-word; }
 	.dl-horizontal dd {
 		border-top: 1px solid #ccc;
 		margin-bottom: 3px;
@@ -8030,9 +8032,11 @@ a {
 		border: 0 !important; }
 	.dl-horizontal dt {
 		border-top: 1px solid #ccc;
+		hyphens: auto;
 		padding: 10px 10px 10px 0;
 		text-align: left;
-		white-space: normal; }
+		white-space: normal;
+		word-break: break-word; }
 	.dl-horizontal dd {
 		border-top: 1px solid #ccc;
 		margin-bottom: 3px;
