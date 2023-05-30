@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.62.1 - 2023-05-29
+ * v4.0.62.1 - 2023-05-30
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -9863,17 +9863,23 @@ var $document = wb.doc,
 	fetchEvent = component + ".wb",
 	jsonCache = { },
 	jsonCacheBacklog = { },
-	completeJsonFetch = function( callerId, refId, response, status, xhr, selector ) {
+	completeJsonFetch = function( callerId, refId, response, status, xhr, selector, fetchedOpts ) {
 		if ( !window.jsonpointer ) {
 
 			// JSON pointer library is loaded but not executed in memory yet, we need to wait a tick before to continue
 			setTimeout( function() {
-				completeJsonFetch( callerId, refId, response, status, xhr, selector );
+				completeJsonFetch( callerId, refId, response, status, xhr, selector, fetchedOpts );
 			}, 100 );
 			return false;
 		}
 		if ( selector ) {
-			response = jsonpointer.get( response, selector );
+			try {
+				response = jsonpointer.get( response, selector );
+			} catch ( ex ) {
+				console.error( "JSON fetch - Bad JSON selector: " + selector );
+				console.error( response );
+				console.error( $( "#" + callerId ).get( 0 ) );
+			}
 		}
 		$( "#" + callerId ).trigger( {
 			type: "json-fetched.wb",
@@ -9881,7 +9887,8 @@ var $document = wb.doc,
 				response: response,
 				status: status,
 				xhr: xhr,
-				refId: refId
+				refId: refId,
+				fetchedOpts: fetchedOpts
 			}
 		}, this );
 	};
@@ -9964,7 +9971,7 @@ $document.on( fetchEvent, function( event ) {
 					cachedResponse = jsonCache[ url ];
 
 					if ( cachedResponse ) {
-						completeJsonFetch( callerId, refId, cachedResponse, "success", undefined, selector );
+						completeJsonFetch( callerId, refId, cachedResponse, "success", undefined, selector, fetchOpts );
 						return;
 					} else {
 						if ( !jsonCacheBacklog[ url ] ) {
@@ -10011,7 +10018,7 @@ $document.on( fetchEvent, function( event ) {
 							}
 						}
 
-						completeJsonFetch( callerId, refId, response, status, xhr, selector );
+						completeJsonFetch( callerId, refId, response, status, xhr, selector, fetchOpts );
 
 						if ( jsonCacheBacklog[ url ] ) {
 							backlog = jsonCacheBacklog[ url ];
@@ -10020,7 +10027,7 @@ $document.on( fetchEvent, function( event ) {
 
 							for ( i = 0; i !== i_len; i += 1 ) {
 								i_cache = backlog[ i ];
-								completeJsonFetch( i_cache.callerId, i_cache.refId, response, status, xhr, i_cache.selector );
+								completeJsonFetch( i_cache.callerId, i_cache.refId, response, status, xhr, i_cache.selector, fetchOpts );
 							}
 						}
 
@@ -10032,7 +10039,8 @@ $document.on( fetchEvent, function( event ) {
 								xhr: xhr,
 								status: status,
 								error: error,
-								refId: refId
+								refId: refId,
+								fetchOpts: fetchOpts
 							}
 						}, this );
 					}, this );
@@ -17669,7 +17677,8 @@ var componentName = "wb-jsonmanager",
 			jsSettings = window[ componentName ] || { },
 			ops, opsArray, opsRoot,
 			i, i_len, i_cache,
-			url, dsName;
+			url, urlActual, dsName,
+			fetchOpts = { };
 
 		if ( elm ) {
 			$elm = $( elm );
@@ -17732,21 +17741,33 @@ var componentName = "wb-jsonmanager",
 
 						for ( i = 0; i !== i_len; i++ ) {
 
+							urlActual = url[ i ];
+
+							// Fetch default configuration
+							fetchOpts = {
+								nocache: elmData.nocache,
+								nocachekey: elmData.nocachekey,
+								data: elmData.data,
+								contentType: elmData.contenttype,
+								method: elmData.method
+							};
+
+							// When the "url" is an extended configuration
+							if ( urlActual.url ) {
+								fetchOpts.savingPath = urlActual.path || "";
+								fetchOpts.url = urlActual.url;
+							} else {
+								fetchOpts.url = urlActual;
+							}
+
 							// Fetch the JSON
 							$elm.trigger( {
 								type: "json-fetch.wb",
-								fetch: {
-									url: url[ i ],
-									nocache: elmData.nocache,
-									nocachekey: elmData.nocachekey,
-									data: elmData.data,
-									contentType: elmData.contenttype,
-									method: elmData.method
-								}
+								fetch: fetchOpts
 							} );
 
 							// If the URL is a dataset, make it ready
-							if ( url[ i ].charCodeAt( 0 ) === 35 && url[ i ].charCodeAt( 1 ) === 91 ) {
+							if ( fetchOpts.url.charCodeAt( 0 ) === 35 && fetchOpts.url.charCodeAt( 1 ) === 91 ) {
 								wb.ready( $elm, componentName );
 							}
 						}
@@ -18083,15 +18104,35 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 	var elm = event.target,
 		$elm = $( elm ),
 		settings,
+		fetchedOpts = event.fetch.fetchedOpts,
+		isReloading = elm.hasAttribute( reloadFlag ),
 		dsName,
 		JSONresponse = event.fetch.response,
-		isArrayResponse = Array.isArray( JSONresponse ),
+		isArrayResponse,
 		resultSet,
 		i, i_len, i_cache, backlog, selector,
+		objIterator, savingPathSplit,
 		patches, filterTrueness, filterFaslseness, filterPath, extractor;
 
 	if ( elm === event.currentTarget ) {
 		settings = wb.getData( $elm, componentName );
+
+		// Is the fetched JSON need to be wrap in another plain object
+		if ( fetchedOpts && fetchedOpts.savingPath ) {
+			savingPathSplit = fetchedOpts.savingPath.split( "/" );
+
+			for ( i = savingPathSplit.length - 1; i > 0; i-- ) {
+				if ( !savingPathSplit[ i ] ) {
+					continue;
+				}
+				objIterator = {};
+				objIterator[ savingPathSplit[ i ] ] = JSONresponse;
+				JSONresponse = objIterator;
+			}
+		}
+
+		// Determine if the response is an array
+		isArrayResponse = Array.isArray( JSONresponse );
 
 		// Ensure the response is an independant clone
 		if ( isArrayResponse ) {
@@ -18119,7 +18160,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		}
 
 		// Quit and wait for the next fetch
-		if ( dsFetching[ dsName ] ) {
+		if ( !isReloading && dsFetching[ dsName ] ) {
 			return;
 		}
 
@@ -18172,7 +18213,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		}
 		datasetCacheSettings[ dsName ] = settings;
 
-		if ( elm.hasAttribute( reloadFlag ) ) {
+		if ( isReloading ) {
 			elm.removeAttribute( reloadFlag );
 			i_cache = dsPostponePatches[ dsName ];
 			if ( i_cache ) {
