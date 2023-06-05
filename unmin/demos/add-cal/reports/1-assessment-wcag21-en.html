@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Accessibility assessment #1 - Add to Calendar
+		<title>Accessibility assessment #1 - Add to calendar
 		 - Working examples
  - Web Experience Toolkit
 </title>
@@ -15,7 +15,7 @@
 		
 		
 		
-		<link rel="alternate" hreflang="fr" href="acr-1-fr.html" />
+		<link rel="alternate" hreflang="fr" href="1-assessment-wcag21-fr.html" />
 		
 		<link href="../../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
 		<link rel="stylesheet" href="../../../../theme-wet-boew/css/theme.css" />
@@ -44,7 +44,7 @@
 						<section id="wb-lng" class="visible-md visible-lg">
 							<h2>Language selection</h2>
 							<ul class="text-right">
-								<li><a lang="fr" hreflang="fr" href="acr-1-fr.html">Français</a></li>
+								<li><a lang="fr" hreflang="fr" href="1-assessment-wcag21-fr.html">Français</a></li>
 								<li class="curr">English&#32;<span>(current)</span></li>
 							</ul>
 						</section>
@@ -109,12 +109,12 @@
 								<a property="item" typeof="WebPage" href="../../../demos/index-en.html"><span property="name">Working examples</span></a>
 								<meta property="position" content="2">
 							</li>
-							<li property="itemListElement" typeof="ListItem"><span property="name">Accessibility assessment #1 - Add to Calendar</span><meta property="position" content="3"></li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Accessibility assessment #1 - Add to calendar</span><meta property="position" content="3"></li>
 								<li property="itemListElement" typeof="ListItem">
 									<a property="item" typeof="WebPage" href="../../../demos/add-cal/add-cal-en.html"><span property="name">Add to calendar</span></a>
 									<meta property="position" content="3">
 								</li>
-								<li property="itemListElement" typeof="ListItem"><span property="name">Accessibility assessment #1 - Add to Calendar</span><meta property="position" content="4"></li>
+								<li property="itemListElement" typeof="ListItem"><span property="name">Accessibility assessment #1 - Add to calendar</span><meta property="position" content="4"></li>
 				</ol>
 			</div>
 		</div>
@@ -122,10 +122,10 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-		<h1 id="wb-cont" property="name">Accessibility assessment #1 - Add to Calendar</h1>
+		<h1 id="wb-cont" property="name">Accessibility assessment #1 - Add to calendar</h1>
 		<ul class="list-inline">
 				<li><a class="btn btn-primary" href="../../../docs/ref/add-cal/add-cal-en.html">Documentation</a></li>
-			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Accessibility%20assessment%20%231%20-%20Add%20to%20Calendar:%20">Questions or comments?</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Accessibility%20assessment%20%231%20-%20Add%20to%20calendar:%20">Questions or comments?</a></li>
 		</ul>
 		
 
@@ -137,186 +137,162 @@
 	<h2>On this page</h2>
 	<ul>
 		<li><a href="#summary">Summary</a></li>
-		<li><a href="#revision">Revision</a></li>
-		<li><a href="#workitem">Work items</a></li>
 		<li><a href="#acr">Assessement details</a></li>
 	</ul>
 </nav>
 
-<div id="ds-a11y" data-wb-jsonmanager='{ "url": "acr-1.json", "name": "a11y" }'></div>
+<div id="ds-a11y" data-wb-jsonmanager='{
+	"url": [
+		"../../acr/demo-wcag21/labels.json",
+		"1-assessment-wcag21.json"
+	],
+	"name": "a11y",
+	"patches": [
+		{ "op": "wb-swap", "path": "/acr:standard", "ref": "/labels/acr:ConformanceStandard/en" },
+		{ "op": "wb-swap", "path": "/acr:conformanceOption", "ref": "/labels/acr:ConformanceOption/en" },
+		{ "op": "wb-swap", "path": "/acr:involvesExpertise", "ref": "/labels/acr:Topic/en" },
+		{
+			"op": "patches", "path": "/earl:result", "patches": [
+				{ "op": "wb-swap", "path": "/earl:test", "ref": "/labels/earl:TestCriterion/en" },
+				{ "op": "wb-swap", "path": "/earl:outcome", "ref": "/labels/earl:OutcomeValue/en" },
+				{ "op": "wb-swap", "path": "/earl:mode", "ref": "/labels/earl:TestMode/en" },
+				{ "op": "wb-swap", "path": "/acr:relevancy", "ref": "/labels/acr:RelevancyValue/en" },
+				{ "op": "wb-swap", "path": "/acr:severity", "ref": "/labels/acr:SeverityValue/en" },
+				{
+					"op": "patches", "path": "/earl:result", "patches": [
+						{ "op": "wb-swap", "path": "/earl:test", "ref": "/labels/earl:TestCriterion/en" },
+						{ "op": "wb-swap", "path": "/earl:outcome", "ref": "/labels/earl:OutcomeValue/en" },
+						{ "op": "wb-swap", "path": "/acr:relevancy", "ref": "/labels/acr:RelevancyValue/en" },
+						{ "op": "wb-swap", "path": "/acr:severity", "ref": "/labels/acr:SeverityValue/en" }
+					]
+				}
+			]
+		}
+	]
+}'></div>
 
 <h2 id="summary">Summary</h2>
-<p>(<a href="acr-1.json" type="application/ld+json" rel="alternate">Consult the report in its native JSON-LD format</a>)</p>
+<p>This is an informal assessment based on an accessibility testing rule set. It cannot be seen as an accessibility conformance report. The latter is published separately from the assessment and only indicates if the requirements are satisfied, not satisfied, or if further testing is needed as specified by establishing the conformity described in WCAG 2.1. This assessment can contain false positives, false negatives, or be accurate. The assessment interpretation, via the accessibility conformance report, can consider other independent assessments in order to establish the conformance.</p>
+
+<p>(<a href="1-assessment-wcag21.json" type="application/ld+json" rel="alternate">Consult the report in its native JSON-LD format</a>)</p>
 <dl class="dl-horizontal">
-	<dt>Evaluation Report Identifier</dt>
-	<dd data-json-replace="#[a11y]/reportId">Not Available</dd>
 	<dt>Type</dt>
 	<dd>Accessibility assessment</dd>
 	<dt>Asserted by:</dt>
-	<dd><span data-json-replace="#[a11y]/assertedBy/producedBy/name">Unknown</span> on behalf of <span data-json-replace="#[a11y]/assertedBy/name">Not Available</span></dd>
-	<dt>Date:</dt>
-	<dd data-json-replace="#[a11y]/date">Not Available</dd>
-	<dt>Page:</dt>
 	<dd><a data-wb-json='[
 
-			{
-				"url": "#[a11y]/subjectUrl",
-				"type": "attr",
-				"attr": "href"
-			},
-			{
-				"url": "#[a11y]/subjectUrl",
-				"type": "replace"
-			}
-
-		]' href="#">Not Defined</a></dd>
-	<dt>Scope</dt>
-	<dd data-json-replace="#[a11y]/scope">Not Defined</dd>
-	<dt>Summary:</dt>
-	<dd data-json-replace="#[a11y]/summary">No notes</dd>
-	<dt>Scores</dt>
-	<dd data-json-replace="#[a11y]/aggregatedScore">Not Calculated</dd>
-</dl>
-
-<section class="panel panel-primary">
-	<header class="panel-heading">
-		<h2 class="panel-title" id="revision">Revision</h2>
-	</header>
-	<div class="panel-body">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Date</th>
-					<th>Outcome</th>
-					<th>Comment</th>
-					<th>Reviewer</th>
-				</tr>
-			</thead>
-			<tbody data-wb-json='{
-				"url": "#[a11y]/review",
-				"tobeclone": "tr",
-				"source": "#tmpl-reviews",
-				"mapping": [
-					{ "selector": ":nth-child(1)", "value": "/date" },
-					{ "selector": ":nth-child(2)", "value": "/outcome" },
-					{ "selector": "[data-notes]", "value": "/notes" },
-					{ "selector": "[data-mode]", "value": "/earl:mode" },
 					{
-						"selector": ":nth-child(3) > dl",
-						"value": "/results",
-						"mapping": [
-							{ "selector": "span", "value": "/label" },
-							{ "selector": "em", "value": "/outcome" },
-							{ "selector": "dd > p", "value": "/notes" },
-							{
-								"selector": "[data-techniques]",
-								"value": "/techniques",
-								"mapping": { "selector": "code", "value": "@value" }
-							}
-						]
+						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:homepage",
+						"type": "attr",
+						"attr": "href"
 					},
-					{ "selector": "[data-reviewer]", "value": "/name" }
-				]
-			}'>
-			</tbody>
-		</table>
+					{
+						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:name",
+						"type": "replace"
+					}
 
-		<template id="tmpl-reviews">
-			<table>
-				<tr>
-					<th></th>
-					<td></td>
-					<td>
-						<p>Tested mode: <code><strong data-mode></strong></code></p>
-						<p data-notes></p>
-						<dl>
-							<template>
-								<dt><em></em> - <span></span></dt>
-								<dd>
-									<p></p>
-									<ul data-techniques>
-										<template>
-											<li><code></code></li>
-										</template>
-									</ul>
-								</dd>
-							</template>
-						</dl>
-					</td>
-					<td data-reviewer></td>
-				</tr>
-			</table>
-		</template>
-	</div>
-</section>
+				]' href="#">Unknown</a> on behalf of <a data-wb-json='[
 
-<h2 id="workitem">Work items</h2>
+					{
+						"url": "#[a11y]/earl:assertedBy/foaf:homepage",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:assertedBy/foaf:name",
+						"type": "replace"
+					}
 
-<dl data-wb-json='{
-		"url": "#[a11y]/workitems",
-		"mapping": [
-			{ "selector": ":nth-child(1) > a", "value": "/title" },
-			{ "selector": ":nth-child(1) > a", "value": "/issue", "attr": "href" },
-			{ "selector": ":nth-child(2) > p", "value": "/description" },
-			{ "selector": "[data-severity]", "value": "/wb-acr:severity" },
-			{ "selector": "[data-relevancy]", "value": "/wb-acr:relevancy" },
-			{
-				"selector": ":nth-child(2) > ul",
-				"value": "/techniques",
-				"mapping": { "selector": "code", "value": "@value" }
-			}
-		]
-	}'>
-	<template>
-		<dt><a href></a></dt>
-		<dd>
-			<ul class="list-inline">
-				<li>Severity: <code data-severity></code></li>
-				<li>Relevance: <code data-relevancy></code></li>
-			</ul>
-			<p></p>
-			<ul>
+				]' href="#" data-json-replace="#[a11y]/earl:assertedBy/foaf:name">Not Available</a></dd>
+	<dt>Date:</dt>
+	<dd data-json-replace="#[a11y]/dct:date">Not Available</dd>
+	<dt>Subject:</dt>
+	<dd>
+		<ul class="list-unstyled">
+			<li><strong>About</strong>:
+				<span><a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:subject/dct:references",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:subject/dct:references",
+						"type": "replace"
+					}
+
+				]' href="#">Not Defined</a></span>
+			</li>
+			<li><strong>Applicability</strong>:
+				<span data-json-replace="#[a11y]/earl:subject/dct:description">Not defined</span>
+			</li>
+			<li><strong>CSS selector</strong>:
+				<code data-json-replace="#[a11y]/earl:subject/earl:pointer/@value">Not applicable</code>
+			</li>
+		</ul>
+		<details>
+			<summary>Subpart of the subject and expertise field involvment</summary>
+			<p>List of subparts that might be assessed independently of the main identified subject. For example: a menu, an image, a video... Note: the following list may be empty if not applicable.</p>
+			<ul data-wb-json='{
+					"url": "#[a11y]/earl:subject/dct:hasPart",
+					"mapping": [
+						{ "selector": "[data-about]", "value": "/dct:description" },
+						{ "selector": "[data-css]", "value": "/earl:pointer/@value" }
+					]
+				}'>
 				<template>
-					<li><code></code></li>
+					<li><span data-about></span> (CSS selector: <code data-css>Not applicable</code>)</li>
 				</template>
 			</ul>
-		</dd>
-	</template>
+			<p>Suggested list of expertise topics that might need to be involved in the subject assessment in order to produce a complete accessibility conformance report. Note: the following list may be empty if not applicable.</p>
+			<ul data-wb-json='{
+					"url": "#[a11y]/acr:involvesExpertise",
+					"mapping": { "selector": "[data-expertise]" }
+				}'>
+				<template>
+					<li><span data-expertise></span></li>
+				</template>
+			</ul>
+		</details>
+	</dd>
+	<dt>Toward a conformity at:</dt>
+	<dd><span data-json-replace="#[a11y]/acr:standard">Not specified</span> (Option: <span data-json-replace="#[a11y]/acr:conformanceOption">Not specified</span>)</dd>
+	<dt>Summary:</dt>
+	<dd data-json-replace="#[a11y]/dct:description">No note</dd>
 </dl>
 
 <h2 id="acr">Assessment details</h2>
 <table class="table">
 	<thead>
 		<tr>
-			<th>Success Criteria</th>
-			<th>Result</th>
+			<th class="col-md-3">Success Criteria</th>
+			<th class="col-md-2">Result</th>
 			<th>Comment</th>
 		</tr>
 	</thead>
 	<tbody data-wb-json='{
-		"url": "#[a11y]/results",
+		"url": "#[a11y]/earl:result",
 		"tobeclone": "tr",
 		"source": "#tmpl-result",
 		"mapping": [
-			{ "selector": "[data-label]", "value": "/label" },
-			{ "selector": "[data-outcome]", "value": "/outcome" },
-			{ "selector": "[data-notes]", "value": "/notes" },
+			{ "selector": "[data-label]", "value": "/earl:test" },
+			{ "selector": "[data-outcome]", "value": "/earl:outcome" },
+			{ "selector": "[data-applicability]", "value": "/earl:subject/dct:description" },
+			{ "selector": "[data-notes]", "value": "/dct:description" },
 			{ "selector": "[data-mode]", "value": "/earl:mode" },
-			{ "selector": "[data-severity]", "value": "/wb-acr:severity" },
-			{ "selector": "[data-relevancy]", "value": "/wb-acr:relevancy" },
+			{ "selector": "[data-severity]", "value": "/acr:severity" },
+			{ "selector": "[data-relevancy]", "value": "/acr:relevancy" },
 			{
 				"selector": "[data-specific-results]",
-				"value": "/results",
+				"value": "/earl:result",
 				"mapping": [
-					{ "selector": "span", "value": "/label" },
-					{ "selector": "em", "value": "/outcome" },
-					{ "selector": "dd", "value": "/notes" }
+					{ "selector": "[data-result-label]", "value": "/earl:test" },
+					{ "selector": "[data-result-outcome]", "value": "/earl:outcome" },
+					{ "selector": "[data-result-severity]", "value": "/acr:severity" },
+					{ "selector": "[data-result-relevancy]", "value": "/acr:relevancy" },
+					{ "selector": "[data-result-notes", "value": "/dct:description" }
 				]
-			},
-			{
-				"selector": "[data-techniques]",
-				"value": "/techniques",
-				"mapping": { "selector": "code", "value": "@value" }
 			}
 		]
 	}'>
@@ -329,31 +305,28 @@
 			<th data-label></th>
 			<td><span data-outcome></span></td>
 			<td>
+				<p><strong>Applicability</strong>: <span data-applicability>As defined</span></p>
 				<ul class="list-inline clearfix">
-					<li>Test mode: <code><strong data-mode></strong></code></li>
-					<li class="pull-right clr-rght-md clr-rght-lg">Severity: <code data-severity></code></li>
-					<li class="pull-right clr-rght-md clr-rght-lg">Relevance: <code data-relevancy></code></li>
+					<li>Test mode: <span data-mode>Unknown</span></li>
+					<li class="pull-right clr-rght-md clr-rght-lg">Severity: <span data-severity>Not specified</span></li>
+					<li class="pull-right clr-rght-md clr-rght-lg">Relevance: <span data-relevancy>Not specified</span></li>
 				</ul>
 				<p data-notes></p>
 				<dl data-specific-results>
 					<template>
-						<dt><em></em> - <span></span></dt>
-						<dd></dd>
+						<dt data-result-label></dt>
+						<dd>( <em data-result-outcome></em> <span data-result-severity></span> <span data-result-relevancy></span> ) <span data-result-notes></span></dd>
 					</template>
 				</dl>
-				<ul data-techniques>
-					<template>
-						<li><code></code></li>
-					</template>
-				</ul>
 			</td>
 		</tr>
 	</table>
 </template>
+<p>Note: Based on the following ruleset: <code data-json-replace="#[a11y]/dct:source">Not available</code></p>
 
 		<dl id="wb-dtmd">
 			<dt>Date modified:&#32;</dt>
-			<dd><time property="dateModified">2022-06-22</time></dd>
+			<dd><time property="dateModified">2023-05-24</time></dd>
 		</dl>
 	</main>
 
