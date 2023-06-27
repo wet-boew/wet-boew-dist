@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.63 - 2023-06-06
+ * v4.0.63 - 2023-06-27
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -4481,7 +4481,7 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 
 // Re-run WET for elements that have just been loaded if WET is already done initializing
 $document.on( contentUpdatedEvent, function( event ) {
-	if ( wb.isReady && !wb.isDisabled ) {
+	if ( !wb.isDisabled ) {
 		let updtElm = event.currentTarget;
 
 		$( updtElm )
