@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Paginer - Plugiciels - Documentation - Boîte à outils de l'expérience Web
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Ajoute une pagination à la fin d&#x27;une liste d&#x27;items.">
+<link rel="alternate" hreflang="en" href="paginate-en.html">
+<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.min.css"></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Sélection de la langue</h2>
+<ul class="text-right">
+<li class="curr">Français&#32;<span>(actuel)</span></li>
+<li><a lang="en" hreflang="en" href="paginate-en.html">English</a></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Recherche et menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../../index-fr.html">
+<img src="../../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Recherche</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Recherchez le site Web</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Menu des sujets</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../../index-fr.html">Projet de la BOEW</a></li>
+<li><a href="../../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+<li><a href="../../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Piste de navigation</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb" typeof="BreadcrumbList">
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../../index-fr.html"><span property="name">Accueil</span></a>
+<meta property="position" content="1">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../../docs/index-fr.html"><span property="name">Documentation</span></a>
+<meta property="position" content="2">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../../docs/ref/plugins-fr.html"><span property="name">Plugiciels</span></a>
+<meta property="position" content="3">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Paginer</span><meta property="position" content="4"></li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Paginer</h1>
+<p>
+<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Paginer:%20">Questions ou commentaires?</a>
+</p>
+<div class="alert alert-warning">
+<h2>Fonctionnalité instable</h2>
+<p>À utiliser <strong>à vos risques et périls</strong>. Cette fonctionnalité décrite ci-dessous peut être supprimée dans toute version mineure/majeure ultérieure</p>
+<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/10.html">Apprenez-en plus sur la décision de conception concernant les fonctionnalités provisoires (anglais seulement).</a></small></p>
+<p><small><a href="../../../docs/ref/provisional-fr.html">Jetez un coup d'oeil aux autres fonctionnalités provisoires disponibles.</a></small></p>
+</div>
+<span class="wb-prettify all-pre"></span>
+<section>
+<h2>Objectif</h2>
+<p property="description">Ajoute une pagination au bas d'une liste d'éléments.</p>
+</section>
+<section>
+<h2>Utiliser quand</h2>
+<p>Vous souhaitez diviser en plusieurs pages une longue liste d'éléments.</p>
+</section>
+<section>
+<h2>Exemple fonctionnel</h2>
+<p><a href="../../../demos/paginate/paginate-fr.html">Exemple français</a></p>
+<p><a href="../../../demos/paginate/paginate-en.html">Exemple en anglais</a></p>
+</section>
+<section>
+<h2>Comment mettre en œuvre</h2>
+<ol>
+<li>
+<p>Ajoutez les classes CSS <code>wb-paginate</code> et <code>provisional</code> à un élément ou un groupe d'éléments à paginer.</p>
+<dl>
+<dt>Si défini sur un <code>&lt;table&gt;</code></dt>
+<dd>À moins d'être spécifié autrement, il sélectionnera toutes les lignes (<code>&lt;tr></code>).</dd>
+<dt>Si défini sur un <code>&lt;ul&gt;</code></dt>
+<dd>À moins d'être spécifié autrement, il sélectionnera tous les <code>&lt;li></code></dd>
+<dt>Si défini sur tout autre élément, tel que <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> ou <code>&lt;div&gt;</code></dt>
+<dd>À moins d'être spécifié autrement, il sélectionnera tous les enfants directs de l'élément.</dd>
+</dl>
+</li>
+<li>Pour éviter un scintillement au chargement de la page, vous pouvez ajouter la classe CSS <code>wb-pgfltr-out</code> à tous vos éléments.</li>
+<li>Testez la fonctionnalité pour voir si elle est correctement configurée et affiche correctement la pagination.</li>
+<li>Si vous avez une structure HTML complexe ou si vous avez besoin d'un résultat différent, consultez les options de configuration ci-dessous et faites vos propres ajustements.</li>
+</ol>
+</section>
+<section>
+<h2>Options de configuration</h2>
+<p>Toutes les options de configuration du plugiciel sont contrôlées par l'attribut <code>data-wb-paginate</code>. Ajoutez simplement un objet JSON comme valeur, par exemple&nbsp;:</p>
+<pre><code>&lt;div class="wb-paginate provisional" data-wb-paginate='{
+	"appendUI": false,
+	"itemsPerPage": 12
+}'></code></pre>
+<table class="table">
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Type</th>
+<th>Valeur par défaut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>appendUI</code></td>
+<td>Définit le sélecteur de l'élément qui contiendra la pagination. Si elle n'est pas définie, l'IU sera insérée après la <code>section</code> (si elle est définie) ou après l'élément. Dans le cas d'un <code>&lt;table></code> ou d'un <code>&lt;ul></code>, le code sera inséré après l'élément même si la propriété <code>section</code> est définie.</td>
+<td>Booléen</td>
+<td>
+<dl>
+<dt>Pour un élément <code>&lt;table></code> ou <code>&lt;ul></code></dt>
+<dd><code>false</code></dd>
+</dl>
+<dl>
+<dt>Pour tout autre élément</dt>
+<dd><code>true</code></dd>
+</dl>
+</td>
+</tr>
+<tr>
+<td><code>itemsPerPage</code></td>
+<td>Définit le nombre d'éléments visibles par page.</td>
+<td>Nombre</td>
+<td><code>25</code></td>
+</tr>
+<tr>
+<td><code>section</code></td>
+<td>Définit le sélecteur de l'élément qui regroupera les items.</td>
+<td>Chaîne de caractère (sélecteur CSS)</td>
+<td>
+<dl>
+<dt>Pour un élément <code>&lt;table></code></dt>
+<dd><code>tbody</code></dd>
+</dl>
+<dl>
+<dt>Pour tout autre élément</dt>
+<dd>non-défini</dd>
+</dl>
+</td>
+</tr>
+<tr>
+<td><code>selector</code></td>
+<td>Définit le sélecteur des éléments qui seront masqués ou affichés en fonction de la page.</td>
+<td>Chaîne de caractère (sélecteur CSS)</td>
+<td>
+<dl>
+<dt>Pour un élément <code>&lt;table></code></dt>
+<dd><code>tr</code></dd>
+</dl>
+<dl>
+<dt>Pour un élément <code>&lt;ul></code></dt>
+<dd><code>li</code></dd>
+</dl>
+<dl>
+<dt>Pour tout autre élément</dt>
+<dd><code>> *</code></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section>
+<h2>Événements</h2>
+<p>Les événements suivants peuvent être utilisés pour interagir avec le plugiciel.</p>
+<table class="table">
+<thead>
+<tr>
+<th>Événement</th>
+<th>Déclencheur</th>
+<th>Ce qu'il fait</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>wb-init.wb-paginate</code></td>
+<td>Déclenché manuellement (par exemple&nbsp;: <code>$( ".wb-paginate" ).trigger( "wb-init.wb-paginate" );</code>).</td>
+<td>Initialise le plugiciel de pagination et crée l'interface utilisateur (IU). Remarque&nbsp;: le plugiciel de pagination sera initialisé automatiquement à moins que l'élément <code>.wb-paginate</code> ne soit ajouté après le chargement de la page.</td>
+</tr>
+<tr>
+<td><code>wb-ready.wb-paginate</code></td>
+<td>Déclenché automatiquement après l'initialisation du plugiciel de pagination.</td>
+<td>Utilisé pour identifier quand et où le plugiciel de pagination s'initialise (cible de l'événement).
+<pre><code>$( document ).on( "wb-ready.wb-filter", ".wb-filter", function( event ) {
+});</code></pre>
+<pre><code>$elm.on( "wb-ready.wb-filter", function( event ) {
+});</code></pre>
+</td>
+</tr>
+<tr>
+<td><code>wb-ready.wb</code></td>
+<td>Déclenché automatiquement lorsque BOEW a terminé le chargement et l'exécution.</td>
+<td>Utilisé pour identifier quand tous les plugiciels et polyfills BOEW ont fini de se charger et de s'exécuter.
+<pre><code>$( document ).on( "wb-ready.wb", function( event ) {
+});</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<dl id="wb-dtmd">
+<dt>Date de modification&#160;:&#32;</dt>
+<dd><time property="dateModified">2023-05-15</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>À propos de ce site</h2>
+<section class="col-sm-3">
+<h3>Contactez-nous</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>À propos</h3>
+<ul class="list-unstyled">
+<li><a href="../../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Nouvelles</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Restez branchés</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>
