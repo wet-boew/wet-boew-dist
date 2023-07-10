@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Tag filter edge cases - Working examples - Web Experience Toolkit
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="List of Tagfilter edge cases">
+<link rel="alternate" hreflang="fr" href="tagfilter-edge-cases-fr.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css"></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Language selection</h2>
+<ul class="text-right">
+<li><a lang="fr" hreflang="fr" href="tagfilter-edge-cases-fr.html">Français</a></li>
+<li class="curr">English&#32;<span>(current)</span></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Search</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Search website</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Breadcrumb Navigation</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb" typeof="BreadcrumbList">
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../index-en.html"><span property="name">Home</span></a>
+<meta property="position" content="1">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
+<meta property="position" content="2">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Tag filter edge cases</span><meta property="position" content="3"></li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Tag filter edge cases</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/tagfilter/tagfilter-en.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Tag%20filter%20edge%20cases:%20">Questions or comments?</a></li>
+</ul>
+<span class="wb-prettify all-pre"></span>
+<h2>On this page:</h2>
+<ul>
+<li><a href="#filteredEventsList">Example 1 - Events list with pagination and data-json</a></li>
+</ul>
+<section id="filteredEventsList" class="wb-tagfilter wb-paginate provisional" data-wb-paginate='{
+	"itemsPerPage": 5,
+	"section": ".events-list",
+	"selector": "li",
+	"uiTarget": "#filteredEventsListPagination"
+}'>
+<h2>Example 1 - Events list</h2>
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-lg-3">
+<details open>
+<summary>
+<h3>Filter options</h3>
+</summary>
+<div class="form-group mrgn-bttm-0">
+<fieldset>
+<legend class="h5 mrgn-tp-0"><span class="field-name">Language</span></legend>
+<ul class="list-unstyled">
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="" checked=checked> All
+</label>
+</li>
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__french"> French
+</label>
+</li>
+<li class="radio">
+<label>
+<input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__english"> English
+</label>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="form-group mrgn-bttm-0">
+<fieldset>
+<legend class="h5 mrgn-tp-0"><span class="field-name">Event location</span></legend>
+<ul class="list-unstyled">
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__montreal"> Montreal
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__online"> Online
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__ottawa"> Ottawa
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__toronto"> Toronto
+</label>
+</li>
+<li class="checkbox">
+<label>
+<input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__vancouver"> Vancouver
+</label>
+</li>
+</ul>
+</fieldset>
+</div>
+<div class="form-group mrgn-bttm-0">
+<label for="dayList">Day of the week</label>
+<select id="dayList" name="dayOTW" class="form-control full-width wb-tagfilter-ctrl">
+<option value="">All</option>
+<option value="dayOTW_monday">Monday</option>
+<option value="dayOTW_tuesday">Tuesday</option>
+<option value="dayOTW_wednesday">Wednedsday</option>
+<option value="dayOTW_thursday">Thursday</option>
+<option value="dayOTW_friday">Friday</option>
+<option value="dayOTW_saturday">Saturday</option>
+<option value="dayOTW_sunday">Sunday</option>
+</select>
+</div>
+</details>
+</div>
+<div class="col-xs-12 col-sm-8 col-lg-9">
+<ul class="list-unstyled events-list wb-tagfilter-items" data-wb-json='{
+				"url": "data_en.json#/events",
+				"mapping": [
+					{ "selector": "li", "attr": "data-wb-tags", "value": "/tags" },
+					{ "selector": "h3", "value": "/title" },
+					{ "selector": ".event-date", "value": "/date" },
+					{ "selector": ".event-time", "value": "/time" },
+					{ "selector": ".event-location", "value": "/location" },
+					{ "selector": ".event-language", "value": "/language" }
+				]
+			}'>
+<template>
+<li data-wb-tags="">
+<h3></h3>
+<p><span class="event-date"></span> | <span class="event-time"></span></p>
+<p><strong>Location:</strong> <span class="event-location"></span>, <strong>Language</strong>: <span class="event-language"></span></p>
+</li>
+</template>
+</ul>
+<div class="wb-tagfilter-noresult">
+<p>No item match this combination of filters.</p>
+</div>
+<div id="filteredEventsListPagination"></div>
+</div>
+</div>
+</section>
+<details>
+<summary>Source code</summary>
+<pre><code>&lt;section id="filteredEventsList" class="wb-tagfilter wb-paginate provisional" data-wb-paginate='{
+	"itemsPerPage": 5,
+	"section": ".events-list",
+	"selector": "li",
+	"uiTarget": "#filteredEventsListPagination"
+}'>
+	&lt;h2>Example 1 - Events list&lt;/h2>
+	&lt;div class="row">
+		&lt;div class="col-xs-12 col-sm-4 col-lg-3">
+			&lt;details open>
+				&lt;summary>
+					&lt;h3>Filter options&lt;/h3>
+				&lt;/summary>
+				&lt;div class="form-group mrgn-bttm-0">
+					&lt;fieldset>
+						&lt;legend class="h5 mrgn-tp-0">&lt;span class="field-name">Language&lt;/span>&lt;/legend>
+						&lt;ul class="list-unstyled">
+							&lt;li class="radio">
+								&lt;label>
+									&lt;input type="radio" name="language" class="wb-tagfilter-ctrl" value="" checked> All
+								&lt;/label>
+							&lt;/li>
+							&lt;li class="radio">
+								&lt;label>
+									&lt;input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__french"> French
+								&lt;/label>
+							&lt;/li>
+							&lt;li class="radio">
+								&lt;label>
+									&lt;input type="radio" name="language" class="wb-tagfilter-ctrl" value="language__english"> English
+								&lt;/label>
+							&lt;/li>
+						&lt;/ul>
+					&lt;/fieldset>
+				&lt;/div>
+				&lt;div class="form-group mrgn-bttm-0">
+					&lt;fieldset>
+						&lt;legend class="h5 mrgn-tp-0">&lt;span class="field-name">Event location&lt;/span>&lt;/legend>
+						&lt;ul class="list-unstyled">
+							&lt;li class="checkbox">
+								&lt;label>
+									&lt;input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__montreal"> Montreal
+								&lt;/label>
+							&lt;/li>
+							&lt;li class="checkbox">
+								&lt;label>
+									&lt;input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__online"> Online
+								&lt;/label>
+							&lt;/li>
+							&lt;li class="checkbox">
+								&lt;label>
+									&lt;input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__ottawa"> Ottawa
+								&lt;/label>
+							&lt;/li>
+							&lt;li class="checkbox">
+								&lt;label>
+									&lt;input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__toronto"> Toronto
+								&lt;/label>
+							&lt;/li>
+							&lt;li class="checkbox">
+								&lt;label>
+									&lt;input type="checkbox" name="location" class="wb-tagfilter-ctrl" value="location__vancouver"> Vancouver
+								&lt;/label>
+							&lt;/li>
+						&lt;/ul>
+					&lt;/fieldset>
+				&lt;/div>
+				&lt;div class="form-group mrgn-bttm-0">
+					&lt;label for="dayList">Day of the week&lt;/label>
+					&lt;select id="dayList" name="dayOTW" class="form-control full-width wb-tagfilter-ctrl">
+						&lt;option value="">All&lt;/option>
+						&lt;option value="dayOTW_monday">Monday&lt;/option>
+						&lt;option value="dayOTW_tuesday">Tuesday&lt;/option>
+						&lt;option value="dayOTW_wednesday">Wednedsday&lt;/option>
+						&lt;option value="dayOTW_thursday">Thursday&lt;/option>
+						&lt;option value="dayOTW_friday">Friday&lt;/option>
+						&lt;option value="dayOTW_saturday">Saturday&lt;/option>
+						&lt;option value="dayOTW_sunday">Sunday&lt;/option>
+					&lt;/select>
+				&lt;/div>
+			&lt;/details>
+		&lt;/div>
+		&lt;div class="col-xs-12 col-sm-8 col-lg-9">
+			&lt;ul class="list-unstyled events-list wb-tagfilter-items" data-wb-json='{
+				"url": "data_en.json#/events",
+				"mapping": [
+					{ "selector": "li", "attr": "data-wb-tags", "value": "/tags" },
+					{ "selector": "h3", "value": "/title" },
+					{ "selector": ".event-date", "value": "/date" },
+					{ "selector": ".event-time", "value": "/time" },
+					{ "selector": ".event-location", "value": "/location" },
+					{ "selector": ".event-language", "value": "/language" }
+				]
+			}'>
+				&lt;template>
+					&lt;li data-wb-tags="">
+						&lt;h3>&lt;/h3>
+						&lt;p>&lt;span class="event-date">&lt;/span> | &lt;span class="event-time">&lt;/span>&lt;/p>
+						&lt;p>&lt;strong>Location:&lt;/strong> &lt;span class="event-location">&lt;/span>, &lt;strong>Language&lt;/strong>: &lt;span class="event-language">&lt;/span>&lt;/p>
+					&lt;/li>
+				&lt;/template>
+			&lt;/ul>
+			&lt;div class="wb-tagfilter-noresult">
+				&lt;p>No item match this combination of filters.&lt;/p>
+			&lt;/div>
+			&lt;div id="filteredEventsListPagination">&lt;/div>
+		&lt;/div>
+	&lt;/div>
+&lt;/section></code></pre>
+</details>
+<dl id="wb-dtmd">
+<dt>Date modified:&#32;</dt>
+<dd><time property="dateModified">2023-07-10</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>About this site</h2>
+<section class="col-sm-3">
+<h3>Contact us</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>About</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>News</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Stay connected</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>

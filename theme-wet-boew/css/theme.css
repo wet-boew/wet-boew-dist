@@ -1,14 +1,14 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.64 - 2023-07-06
+ * v4.0.64 - 2023-07-10
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 @charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.64 - 2023-07-06
+ * v4.0.64 - 2023-07-10
  *
  */
 /*
@@ -9042,6 +9042,9 @@ table.dataTable {
 
 .wb-tagfilter-items:has(+ .wb-tagfilter-noresult):not(:has([data-wb-tags]:not(.wb-tgfltr-out):not(.wb-fltr-out))) {
 	display: none; }
+
+html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfilter-noresult {
+	display: none !important; }
 
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
