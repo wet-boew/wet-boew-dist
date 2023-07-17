@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.64.1 - 2023-07-12
+ * v4.0.64.1 - 2023-07-17
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -17790,7 +17790,7 @@ var componentName = "wb-data-json",
 		var value = getRawValue( source, pointer );
 
 		// for JSON-LD @value support
-		if ( typeof value === "object" && value[ "@value" ] ) {
+		if ( typeof value === "object" && value !== null && value[ "@value" ] ) {
 			value = value[ "@value" ];
 		}
 

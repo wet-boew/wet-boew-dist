@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.64.1 - 2023-07-12
+ * v4.0.64.1 - 2023-07-17
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -15103,7 +15103,7 @@ var componentName = "wb-data-json",
 		var value = getRawValue( source, pointer );
 
 		// for JSON-LD @value support
-		if ( typeof value === "object" && value[ "@value" ] ) {
+		if ( typeof value === "object" && value !== null && value[ "@value" ] ) {
 			value = value[ "@value" ];
 		}
 
