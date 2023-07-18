@@ -207,25 +207,44 @@
 &lt;/section&gt;</code></pre>
 </section>
 <section>
-<h4>CSS</h4>
-<pre><code>#simple .wb-eqht section {
-	display: inline-block;
-	margin-bottom: 15px;
-	padding: 15px;
-	width: 100%;
-}
-
-@media (min-width: 768px) {
-	#simple .wb-eqht section {
-		width: 49%;
+<h4>SCSS</h4>
+<pre><code>#simple {
+	.wb-eqht {
+		section {
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+			box-sizing: border-box;
+			display: inline-block;
+			margin-bottom: 15px;
+			padding: 15px;
+			width: 100%;
+		}
 	}
 }
 
-@media (min-width: 1200px) {
-	#simple .wb-eqht section {
-		width: 33%;
+.smallview,
+.mediumview {
+	#simple {
+		.wb-eqht {
+			section {
+				width: 49%;
+			}
+		}
 	}
-}</code></pre>
+}
+
+.largeview,
+.xlargeview {
+	#simple {
+		.wb-eqht {
+			section {
+				width: 33%;
+			}
+		}
+	}
+}
+</code></pre>
 </section>
 </section>
 </section>
@@ -470,7 +489,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2023-06-19</time></dd>
+<dd><time property="dateModified">2023-07-17</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

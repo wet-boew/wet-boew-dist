@@ -233,17 +233,22 @@
 			<pre class="wb-prettify"><code>&lt;div class="wb-share" data-wb-share='{"pnlId": "pnl7", "sites": "demosite": {"name": "Demo site", "url": "https://www.example.org/?to=&amp;subject={t}&amp;body={u}%0A{d}"}}'&gt;&lt;/div&gt;</code></pre>
 		</section>
 		<section>
-			<h3>CSS</h3>
-			<pre class="wb-prettify"><code>.wb-share .demosite:before {
-	background: url("demosite.png") no-repeat;
-}</code></pre>
+			<h3>SCSS</h3>
+			<pre><code>.wb-share {
+	.demosite {
+		&amp;:before {
+			background: url(&quot;demosite.png&quot;) no-repeat;
+		}
+	}
+}
+</code></pre>
 		</section>
 	</details>
 </section>
 
 		<dl id="wb-dtmd">
 			<dt>Date modified:&#32;</dt>
-			<dd><time property="dateModified">2015-05-27</time></dd>
+			<dd><time property="dateModified">2023-07-17</time></dd>
 		</dl>
 	</main>
 
