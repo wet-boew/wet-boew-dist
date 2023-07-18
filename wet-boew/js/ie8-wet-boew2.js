@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.64.1 - 2023-07-17
+ * v4.0.64.1 - 2023-07-18
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -14461,7 +14461,7 @@ var componentName = "wb-data-json",
 				applyTemplate( elm, itmSettings, content );
 
 				// Trigger wet
-				if ( itmSettings.trigger ) {
+				if ( itmSettings.trigger && !wb.isDisabled ) {
 					$elm
 						.find( wb.allSelectors )
 						.addClass( "wb-init" )
@@ -15335,6 +15335,40 @@ for ( s = 0; s !== selectorsLength; s += 1 ) {
 var componentName = "wb-disable",
 	selector = "#wb-tphp",
 	$document = wb.doc,
+	allowOnDisableClass = "wb-disable-allow",
+	allowedPlugins = [
+		{
+			selectors: "[data-wb-jsonmanager]",
+			initEvent: "wb-jsonmanager"
+		},
+		{
+			selectors: "[data-wb-postback]",
+			initEvent: "wb-postback"
+		},
+		{
+			selectors: [
+				"[data-ajax-after]",
+				"[data-ajax-append]",
+				"[data-ajax-before]",
+				"[data-ajax-prepend]",
+				"[data-ajax-replace]",
+				"[data-wb-ajax]"
+			],
+			initEvent: "wb-data-ajax"
+		},
+		{
+			selectors: [
+				"[data-json-after]",
+				"[data-json-append]",
+				"[data-json-before]",
+				"[data-json-prepend]",
+				"[data-json-replace]",
+				"[data-json-replacewith]",
+				"[data-wb-json]"
+			],
+			initEvent: "wb-data-json"
+		}
+	],
 
 	/**
 	 * @method init
@@ -15379,6 +15413,9 @@ var componentName = "wb-disable",
 
 						/* swallow error */
 					}
+
+					// Trigger initialization of plugins that are needed in basic mode
+					runAllowedPlugins();
 
 					// Add canonical link if not already present
 					if ( !document.querySelector( "link[rel=canonical]" ) ) {
@@ -15434,10 +15471,29 @@ var componentName = "wb-disable",
 			// Identify that initialization has completed
 			wb.ready( $document, componentName );
 		}
+	},
+
+	// Trigger initialization of plugins that are needed in basic mode
+	// TODO: Remove once basic initialization is implemented at the core level
+	runAllowedPlugins = function() {
+		allowedPlugins.forEach( allowedPlugin => {
+			if ( typeof( allowedPlugin.selectors ) === "object" ) {
+				allowedPlugin.selectors = allowedPlugin.selectors.join( "." + allowOnDisableClass + "," );
+			}
+
+			allowedPlugin.selectors = allowedPlugin.selectors + "." + allowOnDisableClass;
+
+			$( allowedPlugin.selectors ).trigger( "wb-init." + allowedPlugin.initEvent );
+		} );
 	};
 
 // Bind the events
 $document.on( "timerpoke.wb", selector, init );
+
+// Go through allowed plugins once again when content has been added dynamically
+$document.on( "wb-contentupdated", function() {
+	runAllowedPlugins();
+} );
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
