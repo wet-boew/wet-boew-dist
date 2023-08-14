@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.65 - 2023-08-11
+ * v4.0.65 - 2023-08-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -16245,7 +16245,7 @@ $document.on( "wb-contentupdated", selector, function( event, data )  {
 	if ( supportsHas === "false" ) {
 		let noResultItem = this.querySelector( "." + noResultWrapperClass );
 
-		if ( noResultItem ) {
+		if ( noResultItem && this.items.length > 0 ) {
 			let visibleItems = this.querySelectorAll( "." + itemsWrapperClass + " " + "[data-wb-tags]:not(." + tgFilterOutClass + ", ." + filterOutClass + ")" );
 
 			if ( visibleItems.length < 1 ) {
