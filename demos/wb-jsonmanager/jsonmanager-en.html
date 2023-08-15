@@ -213,7 +213,7 @@
 		{ "op": "patches", "path": "/items", "patches": [
 			{ "op": "wb-swap", "path": "/eventLanguage", "ref": "/reference/language/en" },
 			{ "op": "wb-swap", "path": "/province", "ref": "/reference/province/en" },
-			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus/en" },
+			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus" },
 			{ "op": "wb-toDateISO", "path": "/startDate" },
 			{ "op": "wb-toDateISO", "path": "/endDate" },
 			{ "op": "patches", "path": "/registeredPeople", "patches": [
@@ -231,7 +231,7 @@
 			{ "selector": ".event-start", "value": "/startDate" },
 			{ "selector": ".event-end", "value": "/endDate" },
 			{ "selector": ".event-location", "value": "/city" },
-			{ "selector": ".event-status", "value": "/registrationStatus" },
+			{ "selector": ".event-status", "value": "/registrationStatus/en" },
 			{ "selector": ".event-provinces", "value": "/province", "queryall": "li" },
 			{ "selector": ".event-registered", "value": "/registeredPeople",
 				"mapping": [
