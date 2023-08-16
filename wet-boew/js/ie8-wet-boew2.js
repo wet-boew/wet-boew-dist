@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.66 - 2023-08-15
+ * v4.0.66 - 2023-08-16
  *
  *//**
  * @title WET-BOEW JQuery Helper Methods
@@ -15064,7 +15064,7 @@ var componentName = "wb-data-json",
 			}
 
 			// Do the cache value contain special @type
-			if ( cached_value[ "@value" ] && cached_value[ "@type" ] ) {
+			if ( cached_value && cached_value[ "@value" ] && cached_value[ "@type" ] ) {
 				if ( !$.isArray( cached_value[ "@type" ] ) ) {
 					cached_value[ "@type" ] = [ cached_value[ "@type" ] ];
 				}
@@ -15817,7 +15817,7 @@ var componentName = "wb-jsonmanager",
 				fn: function( obj, key, tree ) {
 					var val = obj[ key ],
 						ref = this.ref,
-						mainTree = this.mainTree,
+						mainTree = this.mainTree || obj,
 						path = this.path,
 						newVal,
 						refObject, refIsArray, valWasArray,
