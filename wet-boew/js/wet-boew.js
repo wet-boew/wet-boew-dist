@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.66.1 - 2023-08-16
+ * v4.0.66.1 - 2023-08-21
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -13723,6 +13723,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	 * @param {Object} settings Key-value object
 	 */
 	initEventTimeout = function( $elm, eventName, time, settings ) {
+		var duration = parseTime( time );
 
 		// Clear any existing timeout for the event
 		clearTimeout( $elm.data( eventName ) );
@@ -13730,7 +13731,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 		// Create the new timeout that will trigger the event
 		$elm.data( eventName, setTimeout( function() {
 			$elm.trigger( eventName, settings );
-		}, parseTime( time ) ) );
+		}, duration ) );
 	},
 
 	/**
@@ -13852,6 +13853,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	inactivity = function( event, settings ) {
 		var $buttonContinue, $buttonEnd,
 			time = getTime( settings.reactionTime ),
+			startTime = getCurrentTime(),
 			timeoutBegin = i18nText.timeoutBegin
 				.replace( "#min#", "<span class='min'>" + time.minutes + "</span>" )
 				.replace( "#sec#", "<span class='sec'>" + time.seconds + "</span>" ),
@@ -13859,12 +13861,12 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 			buttonEnd = "</button>";
 
 		// Clear the keepalive timeout to avoid double firing of requests
-		clearTimeout( $( event.target ).data( keepaliveEvent ) );
+		clearInterval( $( event.target ).data( keepaliveEvent ) );
 
 		$buttonContinue = $( buttonStart + confirmClass +
 			" btn btn-primary popup-modal-dismiss'>" + i18nText.buttonContinue + buttonEnd )
 			.data( settings )
-			.data( "start", getCurrentTime() );
+			.data( "start", startTime );
 		$buttonEnd = $( buttonStart + confirmClass + " btn btn-default'>" +
 			i18nText.buttonEnd + buttonEnd )
 			.data( "logouturl", settings.logouturl );
@@ -13874,9 +13876,11 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 			buttons: [ $buttonContinue, $buttonEnd ],
 			open: function() {
 				var $minutes = $modal.find( ".min" ),
-					$seconds = $modal.find( ".sec" );
+					$seconds = $modal.find( ".sec" ),
+					endDuration = settings.reactionTime;
+
 				countdownInterval = setInterval( function() {
-					if ( countdown( $minutes, $seconds ) ) {
+					if ( countdown( $minutes, $seconds, startTime, endDuration ) ) {
 						clearInterval( countdownInterval );
 
 						// Let the user know their session has timed out
@@ -13884,7 +13888,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 						$buttonContinue.text( i18nText.buttonSignin );
 						$buttonEnd.hide();
 					}
-				}, 1000 );
+				}, 500 );
 			}
 		} );
 	},
@@ -14013,25 +14017,18 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 	 * @function countdown
 	 * @param {jQuery DOM Element} $minutes Element that contains the minute value
 	 * @param {jQuery DOM Element} $seconds Element that contains the second value
+	 * @param { integer } startTime The time value of when the countdown started in milliseconds
+	 * @param { integer } endDuration The time value of the duration of the countdown in milliseconds
 	 * @returns {boolean} Is the countdown finished?
 	 */
-	countdown = function( $minutes, $seconds ) {
-		var minutes = parseInt( $minutes.text(), 10 ),
-			seconds = parseInt( $seconds.text(), 10 );
-
-		// Decrement seconds and minutes
-		if ( seconds > 0 ) {
-			seconds -= 1;
-		} else if ( minutes > 0 ) {
-			minutes -= 1;
-			seconds = 59;
-		}
+	countdown = function( $minutes, $seconds, startTime, endDuration ) {
+		var newTime = getTime( endDuration - ( getCurrentTime() - startTime ) );
 
 		// Update the DOM elements
-		$minutes.text( minutes );
-		$seconds.text( seconds );
+		$minutes.text( newTime.minutes );
+		$seconds.text( newTime.seconds );
 
-		return minutes === 0 && seconds === 0;
+		return newTime.minutes <= 0 && newTime.seconds <= 0;
 	};
 
 // Bind the plugin events
