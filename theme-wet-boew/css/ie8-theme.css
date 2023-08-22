@@ -2,7 +2,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.66.1 - 2023-08-21
+ * v4.0.66.1 - 2023-08-22
  *
  */
 /*
@@ -16276,6 +16276,12 @@ a.text-white:hover, a.text-white:focus {
 
 button.bg-dark:hover, button.bg-dark:focus {
 	background-color: #1d2124; }
+
+/*
+Panels
+ */
+.panel:not(:has(.panel, .well)):has(.stretched-link):hover, .panel:not(:has(.panel, .well)):has(.stretched-link:focus), .well:not(:has(.panel, .well)):has(.stretched-link):hover, .well:not(:has(.panel, .well)):has(.stretched-link:focus) {
+	box-shadow: 1px 5px 7px rgba(0, 0, 0, 0.15); }
 
 /*
 Miscellaneous Utiliy CSS
