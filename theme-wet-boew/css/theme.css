@@ -1703,6 +1703,7 @@ a {
 		padding: 10px 10px 10px 0;
 		text-align: left;
 		white-space: normal;
+		width: 20ch;
 		word-break: break-word; }
 	.dl-horizontal dd {
 		border-top: 1px solid #ccc;
@@ -1710,7 +1711,20 @@ a {
 		margin-left: 160px;
 		padding: 10px 10px 10px 0; }
 	.dl-horizontal dt + dd {
-		padding-bottom: 0; } }
+		padding-bottom: 0; }
+	.dl-horizontal.dt-max {
+		display: grid;
+		grid-template-columns: minmax(-webkit-min-content, -webkit-min-content) auto;
+		grid-template-columns: minmax(min-content, min-content) auto; }
+		.dl-horizontal.dt-max dt {
+			-ms-hyphens: none;
+			hyphens: none;
+			min-width: 20ch;
+			white-space: normal;
+			width: auto;
+			word-break: initial; }
+		.dl-horizontal.dt-max dd {
+			margin-left: 0; } }
 
 .dl-inline dt, .dl-inline dd {
 	display: inline; }
