@@ -14586,7 +14586,7 @@ var componentName = "wb-data-json",
 				content = [ content ];
 			} else {
 				content = $.map( content, function( val, index ) {
-					if ( typeof val === "object" && !$.isArray( val ) ) {
+					if ( val && typeof val === "object" && !$.isArray( val ) ) {
 						if ( !val[ "@id" ] ) {
 							val[ "@id" ] = index;
 						}
@@ -15150,7 +15150,7 @@ var componentName = "wb-data-json",
 		var value = getRawValue( source, pointer );
 
 		// for JSON-LD @value support
-		if ( typeof value === "object" && value !== null && value[ "@value" ] ) {
+		if ( typeof value === "object" && value !== null && Object.prototype.hasOwnProperty.call( value, "@value" ) ) {
 			value = value[ "@value" ];
 		}
 
