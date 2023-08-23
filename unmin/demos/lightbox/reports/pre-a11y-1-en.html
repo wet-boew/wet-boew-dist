@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Pre accessibility assessment #1 - Lightbox
+		 - Working examples
+ - Web Experience Toolkit
+</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="description" content="Evaluation of the lightbox plugin, which displays images and other content using the Magnific Popup plugin." />
+		
+		
+		
+		
+		
+		<link rel="alternate" hreflang="fr" href="pre-a11y-1-fr.html" />
+		
+		<link href="../../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
+		<link rel="stylesheet" href="../../../../theme-wet-boew/css/theme.css" />
+		
+		
+		<noscript><link rel="stylesheet" href="../../../../wet-boew/css/noscript.css" /></noscript>
+	</head>
+	<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+		
+<nav>
+	<ul id="wb-tphp">
+		<li class="wb-slc">
+			<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+		</li>
+		<li class="wb-slc visible-sm visible-md visible-lg">
+			<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+		</li>
+	</ul>
+</nav>
+
+<header role="banner">
+	<div id="wb-bnr">
+		<div id="wb-bar">
+			<div class="container">
+				<div class="row">
+						<section id="wb-lng" class="visible-md visible-lg">
+							<h2>Language selection</h2>
+							<ul class="text-right">
+								<li><a lang="fr" hreflang="fr" href="pre-a11y-1-fr.html">Français</a></li>
+								<li class="curr">English&#32;<span>(current)</span></li>
+							</ul>
+						</section>
+	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+		<h2>Search and menus</h2>
+		<ul class="pnl-btn list-inline text-right">
+			<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+		</ul>
+		<div id="mb-pnl"></div>
+	</section>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div id="wb-sttl" class="col-md-8">
+					<a href="../../../index-en.html">
+						<img src="../../../../theme-wet-boew/assets/logo.svg" alt="" />
+						<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+					</a>
+				</div>
+	<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+		<h2>Search</h2>
+		<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+	
+			<div class="form-group">
+				<label for="wb-srch-q">Search website</label>
+				<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+				<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+			</div>
+	
+			<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+	
+		</form>
+	</section>
+			</div>
+		</div>
+	</div>
+	<nav role="navigation" id="wb-sm" data-ajax-replace="../../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+		<div class="container nvbar">
+			<h2>Topics menu</h2>
+			<div class="row">
+				<ul class="list-inline menu">
+						<li><a href="../../../index-en.html">WET project</a></li>
+						<li><a href="../../../docs/start-en.html#implement">Implement WET</a></li>
+						<li><a href="../../../docs/start-en.html">Contribute to WET</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<nav role="navigation" id="wb-bc" property="breadcrumb">
+		<h2>Breadcrumb Navigation</h2>
+		<div class="container">
+			<div class="row">
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../../../index-en.html"><span property="name">Home</span></a>
+						<meta property="position" content="1">
+					</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a property="item" typeof="WebPage" href="../../../demos/index-en.html"><span property="name">Working examples</span></a>
+								<meta property="position" content="2">
+							</li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Pre accessibility assessment #1 - Lightbox</span><meta property="position" content="3"></li>
+								<li property="itemListElement" typeof="ListItem">
+									<a property="item" typeof="WebPage" href="../../../demos/lightbox/lightbox-en.html"><span property="name">Lightbox</span></a>
+									<meta property="position" content="3">
+								</li>
+								<li property="itemListElement" typeof="ListItem"><span property="name">Pre accessibility assessment #1 - Lightbox</span><meta property="position" content="4"></li>
+				</ol>
+			</div>
+		</div>
+	</nav>
+</header>
+
+	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+		<h1 id="wb-cont" property="name">Pre accessibility assessment #1 - Lightbox</h1>
+		<ul class="list-inline">
+				<li><a class="btn btn-primary" href="../../../docs/ref/lightbox/lightbox-en.html">Documentation</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Pre%20accessibility%20assessment%20%231%20-%20Lightbox:%20">Questions or comments?</a></li>
+		</ul>
+		
+
+	<p property="description">Evaluation of the lightbox plugin, which displays images and other content using the Magnific Popup plugin.</p>
+
+
+
+
+<nav>
+	<h2>On this page</h2>
+	<ul>
+		<li><a href="#summary">Summary</a></li>
+		<li><a href="#acr">Assessement details</a></li>
+	</ul>
+</nav>
+
+<div id="ds-a11y" data-wb-jsonmanager='{
+	"url": [
+		"../../acr/demo-wcag21/labels.json",
+		"pre-a11y-1.json"
+	],
+	"name": "a11y",
+	"patches": [
+		{ "op": "wb-swap", "path": "/acr:standard", "ref": "/labels/acr:ConformanceStandard/en" },
+		{ "op": "wb-swap", "path": "/acr:conformanceOption", "ref": "/labels/acr:ConformanceOption/en" },
+		{ "op": "wb-swap", "path": "/acr:involvesExpertise", "ref": "/labels/acr:Topic/en" },
+		{
+			"op": "patches", "path": "/earl:result", "patches": [
+				{ "op": "wb-swap", "path": "/earl:test", "ref": "/labels/earl:TestCriterion/en" },
+				{ "op": "wb-swap", "path": "/earl:outcome", "ref": "/labels/earl:OutcomeValue/en" },
+				{ "op": "wb-swap", "path": "/earl:mode", "ref": "/labels/earl:TestMode/en" },
+				{ "op": "wb-swap", "path": "/acr:relevancy", "ref": "/labels/acr:RelevancyValue/en" },
+				{ "op": "wb-swap", "path": "/acr:severity", "ref": "/labels/acr:SeverityValue/en" },
+				{
+					"op": "patches", "path": "/earl:result", "patches": [
+						{ "op": "wb-swap", "path": "/earl:test", "ref": "/labels/earl:TestCriterion/en" },
+						{ "op": "wb-swap", "path": "/earl:outcome", "ref": "/labels/earl:OutcomeValue/en" },
+						{ "op": "wb-swap", "path": "/acr:relevancy", "ref": "/labels/acr:RelevancyValue/en" },
+						{ "op": "wb-swap", "path": "/acr:severity", "ref": "/labels/acr:SeverityValue/en" }
+					]
+				}
+			]
+		}
+	]
+}'></div>
+
+<h2 id="summary">Summary</h2>
+<p>This is an informal assessment based on an accessibility testing rule set. It cannot be seen as an accessibility conformance report. The latter is published separately from the assessment and only indicates if the requirements are satisfied, not satisfied, or if further testing is needed as specified by establishing the conformity described in WCAG 2.1. This assessment can contain false positives, false negatives, or be accurate. The assessment interpretation, via the accessibility conformance report, can consider other independent assessments in order to establish the conformance.</p>
+
+<p>(<a href="pre-a11y-1.json" type="application/ld+json" rel="alternate">Consult the report in its native JSON-LD format</a>)</p>
+<dl class="dl-horizontal">
+	<dt>Type</dt>
+	<dd>Accessibility assessment</dd>
+	<dt>Asserted by:</dt>
+	<dd><a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:homepage",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:name",
+						"type": "replace"
+					}
+
+				]' href="#">Unknown</a> on behalf of <a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:assertedBy/foaf:homepage",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:assertedBy/foaf:name",
+						"type": "replace"
+					}
+
+				]' href="#" data-json-replace="#[a11y]/earl:assertedBy/foaf:name">Not Available</a></dd>
+	<dt>Date:</dt>
+	<dd data-json-replace="#[a11y]/dct:date">Not Available</dd>
+	<dt>Subject:</dt>
+	<dd>
+		<ul class="list-unstyled">
+			<li><strong>About</strong>:
+				<span><a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:subject/dct:references",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:subject/dct:references",
+						"type": "replace"
+					}
+
+				]' href="#">Not Defined</a></span>
+			</li>
+			<li><strong>Applicability</strong>:
+				<span data-json-replace="#[a11y]/earl:subject/dct:description">Not defined</span>
+			</li>
+			<li><strong>CSS selector</strong>:
+				<code data-json-replace="#[a11y]/earl:subject/earl:pointer/@value">Not applicable</code>
+			</li>
+		</ul>
+		<details>
+			<summary>Subpart of the subject and expertise field involvment</summary>
+			<p>List of subparts that might be assessed independently of the main identified subject. For example: a menu, an image, a video... Note: the following list may be empty if not applicable.</p>
+			<ul data-wb-json='{
+					"url": "#[a11y]/earl:subject/dct:hasPart",
+					"mapping": [
+						{ "selector": "[data-about]", "value": "/dct:description" },
+						{ "selector": "[data-css]", "value": "/earl:pointer/@value" }
+					]
+				}'>
+				<template>
+					<li><span data-about></span> (CSS selector: <code data-css>Not applicable</code>)</li>
+				</template>
+			</ul>
+			<p>Suggested list of expertise topics that might need to be involved in the subject assessment in order to produce a complete accessibility conformance report. Note: the following list may be empty if not applicable.</p>
+			<ul data-wb-json='{
+					"url": "#[a11y]/acr:involvesExpertise",
+					"mapping": { "selector": "[data-expertise]" }
+				}'>
+				<template>
+					<li><span data-expertise></span></li>
+				</template>
+			</ul>
+		</details>
+	</dd>
+	<dt>Toward a conformity at:</dt>
+	<dd><span data-json-replace="#[a11y]/acr:standard">Not specified</span> (Option: <span data-json-replace="#[a11y]/acr:conformanceOption">Not specified</span>)</dd>
+	<dt>Summary:</dt>
+	<dd data-json-replace="#[a11y]/dct:description">No note</dd>
+</dl>
+
+<h2 id="acr">Assessment details</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th class="col-md-3">Success Criteria</th>
+			<th class="col-md-2">Result</th>
+			<th>Comment</th>
+		</tr>
+	</thead>
+	<tbody data-wb-json='{
+		"url": "#[a11y]/earl:result",
+		"tobeclone": "tr",
+		"source": "#tmpl-result",
+		"mapping": [
+			{ "selector": "[data-label]", "value": "/earl:test" },
+			{ "selector": "[data-outcome]", "value": "/earl:outcome" },
+			{ "selector": "[data-applicability]", "value": "/earl:subject/dct:description" },
+			{ "selector": "[data-notes]", "value": "/dct:description" },
+			{ "selector": "[data-mode]", "value": "/earl:mode" },
+			{ "selector": "[data-severity]", "value": "/acr:severity" },
+			{ "selector": "[data-relevancy]", "value": "/acr:relevancy" },
+			{
+				"selector": "[data-specific-results]",
+				"value": "/earl:result",
+				"mapping": [
+					{ "selector": "[data-result-label]", "value": "/earl:test" },
+					{ "selector": "[data-result-outcome]", "value": "/earl:outcome" },
+					{ "selector": "[data-result-severity]", "value": "/acr:severity" },
+					{ "selector": "[data-result-relevancy]", "value": "/acr:relevancy" },
+					{ "selector": "[data-result-notes", "value": "/dct:description" }
+				]
+			},
+			{
+				"@type": "rdf:Alt",
+				"mapping": [
+					{
+						"test": "fn:isLiteral",
+						"assess": "/acr:asset",
+						"mapping": [
+							{
+								"@type": "rdf:Alt",
+								"mapping": [
+									{
+										"template": "[data-asset-literal]",
+										"test": "fn:guessType",
+										"value": "/acr:asset",
+										"expect": "xsd:anyURI",
+										"mapping": [
+											{ "selector": "a", "value": "/acr:asset", "attr": "href" }
+										]
+									},
+									{
+										"template": "[data-asset-code]",
+										"test": "fn:guessType",
+										"value": "/acr:asset",
+										"expect": "xsd:string",
+										"mapping": [
+											{ "selector": "code", "value": "/acr:asset" }
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"template": "[data-asset-image]",
+						"test": "fn:guessType",
+						"assess": "/acr:asset",
+						"expect": "acr:AttachmentImage",
+						"mapping": [
+							{ "selector": "img", "value": "/acr:asset/acr:content/@value", "attr": "src" },
+							{ "selector": "a", "value": "/acr:asset/acr:content/@value", "attr": "href" },
+							{ "selector": "img", "value": "/acr:asset/dct:title", "attr": "alt" }
+
+						]
+					},
+					{
+						"template": "[data-asset-literal]",
+						"test": "fn:guessType",
+						"value": "/acr:asset",
+						"expect": "xsd:anyURI",
+						"mapping": [
+							{ "selector": "a", "value": "/acr:asset", "attr": "href" }
+						]
+					},
+					{
+						"template": "[data-asset-code]",
+						"test": "fn:guessType",
+						"value": "/acr:asset",
+						"expect": "xsd:string",
+						"mapping": [
+							{ "selector": "code", "value": "/acr:asset" }
+						]
+					},
+					{
+						"about": "When the value is an array of items",
+						"template": "[data-asset-array]",
+						"test": "fn:isArray",
+						"value": "/acr:asset",
+						"mapping": [
+								{
+									"template": "[data-download-link]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "xsd:anyURI",
+									"append": true,
+									"mapping": [
+										{ "selector": "a", "value": "/@value", "attr": "href" }
+									]
+								},
+								{
+									"template": "[data-source-code]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "xsd:string",
+									"append": true,
+									"mapping": [
+										{ "selector": "code", "value": "/@value" }
+									]
+								},
+								{
+									"template": "[data-asset-image]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "acr:AttachmentImage",
+									"append": true,
+									"mapping": [
+										{ "selector": "img", "value": "/acr:content/@value", "attr": "src" },
+										{ "selector": "a", "value": "/acr:content/@value", "attr": "href" },
+										{ "selector": "img", "value": "/dct:title", "attr": "alt" }
+
+									]
+								}
+						]
+					}
+				]
+			}
+		]
+	}'>
+	</tbody>
+</table>
+
+<template id="tmpl-result">
+	<table>
+		<tr>
+			<th data-label></th>
+			<td><span data-outcome></span></td>
+			<td>
+				<p><strong>Applicability</strong>: <span data-applicability>As defined</span></p>
+				<ul class="list-inline clearfix">
+					<li>Test mode: <span data-mode>Unknown</span></li>
+					<li class="pull-right clr-rght-md clr-rght-lg">Severity: <span data-severity>Not specified</span></li>
+					<li class="pull-right clr-rght-md clr-rght-lg">Relevance: <span data-relevancy>Not specified</span></li>
+				</ul>
+				<p data-notes></p>
+				<template data-asset-literal>
+					<p><a href download>Download attachment</a></p>
+				</template>
+				<template data-asset-code>
+					<pre><code></code></pre>
+				</template>
+				<template data-asset-image data-proofer-ignore>
+					<p>Image (<a href download>Download</a>):</p>
+					<img class="img-responsive" src="" alt lang="en">
+				</template>
+				<template data-asset-array>
+					<p>Attachments:</p>
+					<ul>
+						<template data-download-link>
+							<li><a href download>Download attachment</a></li>
+						</template>
+						<template data-source-code>
+							<li><pre><code></code></pre></li>
+						</template>
+						<template data-asset-image data-proofer-ignore>
+							<li>
+								<p>Image (<a href download>Download</a>):</p>
+								<img class="img-responsive" src="" alt lang="en">
+							</li>
+						</template>
+					</ul>
+				</template>
+				<dl data-specific-results>
+					<template>
+						<dt data-result-label></dt>
+						<dd>( <em data-result-outcome></em> <span data-result-severity></span> <span data-result-relevancy></span> ) <span data-result-notes></span></dd>
+					</template>
+				</dl>
+			</td>
+		</tr>
+	</table>
+</template>
+<p>Note: Based on the following ruleset: <code data-json-replace="#[a11y]/dct:source">Not available</code></p>
+
+		<dl id="wb-dtmd">
+			<dt>Date modified:&#32;</dt>
+			<dd><time property="dateModified">2023-08-02</time></dd>
+		</dl>
+	</main>
+
+	<footer role="contentinfo" id="wb-info"  class="visible-sm visible-md visible-lg wb-navcurr">
+		<div class="container">
+			<nav role="navigation" class="row">
+				<h2>About this site</h2>
+				<section class="col-sm-3">
+					<h3>Contact us</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>About</h3>
+					<ul class="list-unstyled">
+						<li><a href="../../../index-en.html#about">About the Web Experience Toolkit</a></li>
+						<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>News</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+						<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>Stay connected</h3>
+					<ul class="list-unstyled">
+						<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+		<script src="../../../../wet-boew/js/wet-boew.js"></script>
+		
+		
+		
+	</body>
+</html>
