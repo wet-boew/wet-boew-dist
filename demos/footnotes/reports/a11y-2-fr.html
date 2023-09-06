@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Assessment de l'accessibilité #1 - Notes de bas de page - Exemples pratiques - Boîte à outils de l'expérience Web
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Évaluation des critères de succès aux niveaux A et AA de WCAG 2.1">
+<link rel="alternate" hreflang="en" href="a11y-2-en.html">
+<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.min.css"></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Sélection de la langue</h2>
+<ul class="text-right">
+<li class="curr">Français&#32;<span>(actuel)</span></li>
+<li><a lang="en" hreflang="en" href="a11y-2-en.html">English</a></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Recherche et menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../../index-fr.html">
+<img src="../../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Recherche</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Recherchez le site Web</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Menu des sujets</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../../index-fr.html">Projet de la BOEW</a></li>
+<li><a href="../../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+<li><a href="../../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Piste de navigation</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb" typeof="BreadcrumbList">
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../../index-fr.html"><span property="name">Accueil</span></a>
+<meta property="position" content="1">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../../demos/index-fr.html"><span property="name">Exemples pratiques</span></a>
+<meta property="position" content="2">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Assessment de l&#x27;accessibilité #1 - Notes de bas de page</span><meta property="position" content="3"></li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../../demos/footnotes/footnotes-fr.html"><span property="name">Notes de bas de page</span></a>
+<meta property="position" content="3">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Assessment de l&#x27;accessibilité #1 - Notes de bas de page</span><meta property="position" content="4"></li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Assessment de l&#x27;accessibilité #1 - Notes de bas de page</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../../docs/ref/footnotes/footnotes-fr.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Assessment%20de%20l&#x27;accessibilit%C3%A9%20%231%20-%20Notes%20de%20bas%20de%20page:%20">Questions ou commentaires?</a></li>
+</ul>
+<p property="description">Évaluation des critères de succès aux niveaux A et AA de WCAG 2.1</p>
+<nav>
+<h2>Sur cette page</h2>
+<ul>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#acr">Détails de l'évaluation</a></li>
+</ul>
+</nav>
+<div id="ds-a11y" data-wb-jsonmanager='{
+	"url": [
+		"../../acr/demo-wcag21/labels.json",
+		"pre-a11y-2.json"
+	],
+	"name": "a11y",
+	"patches": [
+		{ "op": "wb-swap", "path": "/acr:standard", "ref": "/labels/acr:ConformanceStandard/en" },
+		{ "op": "wb-swap", "path": "/acr:conformanceOption", "ref": "/labels/acr:ConformanceOption/en" },
+		{ "op": "wb-swap", "path": "/acr:involvesExpertise", "ref": "/labels/acr:Topic/fr" },
+		{
+			"op": "patches", "path": "/earl:result", "patches": [
+				{ "op": "wb-swap", "path": "/earl:test", "ref": "/labels/earl:TestCriterion/fr" },
+				{ "op": "wb-swap", "path": "/earl:outcome", "ref": "/labels/earl:OutcomeValue/fr" },
+				{ "op": "wb-swap", "path": "/earl:mode", "ref": "/labels/earl:TestMode/fr" },
+				{ "op": "wb-swap", "path": "/acr:relevancy", "ref": "/labels/acr:RelevancyValue/fr" },
+				{ "op": "wb-swap", "path": "/acr:severity", "ref": "/labels/acr:SeverityValue/fr" },
+				{
+					"op": "patches", "path": "/earl:result", "patches": [
+						{ "op": "wb-swap", "path": "/earl:test", "ref": "/labels/earl:TestCriterion/fr" },
+						{ "op": "wb-swap", "path": "/earl:outcome", "ref": "/labels/earl:OutcomeValue/fr" },
+						{ "op": "wb-swap", "path": "/acr:relevancy", "ref": "/labels/acr:RelevancyValue/fr" },
+						{ "op": "wb-swap", "path": "/acr:severity", "ref": "/labels/acr:SeverityValue/fr" }
+					]
+				}
+			]
+		}
+	]
+}'></div>
+<h2 id="sommaire">Sommaire</h2>
+<p>Ce document est une évaluation informelle basée sur un ensemble de règles de mise à l'essai de l'accessibilité. Ceci ne doit pas être interprété comme un rapport de conformité à l'accessibilité. Ce dernier est publié séparément de l'évaluation et indiquera seulement si les exigences sont satisfaites, non satisfaites ou si des tests supplémentaires sont nécessaires, tel que décrit dans l'établissement de la conformité du WCAG 2.1. Cette évaluation pourrait contenir des faux positifs, des faux négatifs ou être adéquat. L'interprétation de l'évaluation, via le rapport de conformité à l'accessibilité, pourrait prendre en compte d'autres évaluations indépendantes afin d'établir la conformité s'il y a lieu.</p>
+<p>(<a href="pre-a11y-2.json" type="application/ld+json" rel="alternate">Consulter le rapport dans son état d'origine en JSON-LD</a>)</p>
+<dl class="dl-horizontal">
+<dt>Type</dt>
+<dd>Évaluation de l'accessibilité</dd>
+<dt>Évalué par:</dt>
+<dd><a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:homepage",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:assertedBy/earl:mainAssertor/foaf:name",
+						"type": "replace"
+					}
+
+				]' href="#">Inconnu</a> sous <a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:assertedBy/foaf:homepage",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:assertedBy/foaf:name",
+						"type": "replace"
+					}
+
+				]' href="#" data-json-replace="#[a11y]/earl:assertedBy/foaf:name">Non disponible</a></dd>
+<dt>Date:</dt>
+<dd data-json-replace="#[a11y]/dct:date">Non disponible</dd>
+<dt>Sujet:</dt>
+<dd>
+<ul class="list-unstyled">
+<li><strong>À propos</strong>:
+<span><a data-wb-json='[
+
+					{
+						"url": "#[a11y]/earl:subject/dct:references",
+						"type": "attr",
+						"attr": "href"
+					},
+					{
+						"url": "#[a11y]/earl:subject/dct:references",
+						"type": "replace"
+					}
+
+				]' href="#">Non spécifié</a></span>
+</li>
+<li><strong>Portée</strong>:
+<span data-json-replace="#[a11y]/earl:subject/dct:description" lang="en"><span lang="fr">Non Définie</span></span>
+</li>
+<li><strong>Sélecteur CSS</strong>:
+<code data-json-replace="#[a11y]/earl:subject/earl:pointer/@value">Pas applicable</code>
+</li>
+</ul>
+<details>
+<summary>Partie du sujet et implication des champs d'expertise</summary>
+<p>Liste des parties du sujet qui pourraient être évaluées indépendamment du sujet principal identifié. Par exemple, un menu, une image, une vidéo... Note: la liste suivante pourrait être vide si ce n'est pas applicable.</p>
+<ul data-wb-json='{
+					"url": "#[a11y]/earl:subject/dct:hasPart",
+					"mapping": [
+						{ "selector": "[data-about]", "value": "/dct:description" },
+						{ "selector": "[data-css]", "value": "/earl:pointer/@value" }
+					]
+				}'>
+<template>
+<li><span data-about lang="en"></span> (Sélecteur CSS: <code data-css>Pas applicable</code>)</li>
+</template>
+</ul>
+<p>Liste suggérée de sujets d'expertise qui pourraient nécessiter une implication dans l'évaluation du sujet afin de produire un rapport complet de conformité à l'accessibilité. Note: la liste suivante pourrait être vide si ce n'est pas applicable.</p>
+<ul data-wb-json='{
+					"url": "#[a11y]/acr:involvesExpertise",
+					"mapping": { "selector": "[data-expertise]" }
+				}'>
+<template>
+<li><span data-expertise></span></li>
+</template>
+</ul>
+</details>
+</dd>
+<dt>Vers une conformité à:</dt>
+<dd><span data-json-replace="#[a11y]/acr:standard">Pas spécifié</span> (Option: <span data-json-replace="#[a11y]/acr:conformanceOption">Pas spécifié</span>)</dd>
+<dt>Sommaire:</dt>
+<dd data-json-replace="#[a11y]/dct:description" lang="en"><span lang="fr">Aucune note</span></dd>
+</dl>
+<h2 id="acr">Détails de l'évaluation</h2>
+<table class="table">
+<thead>
+<tr>
+<th class="col-md-3">Critères de succès</th>
+<th class="col-md-2">Résultat</th>
+<th>Commentaire</th>
+</tr>
+</thead>
+<tbody data-wb-json='{
+		"url": "#[a11y]/earl:result",
+		"tobeclone": "tr",
+		"source": "#tmpl-result",
+		"mapping": [
+			{ "selector": "[data-label]", "value": "/earl:test" },
+			{ "selector": "[data-outcome]", "value": "/earl:outcome" },
+			{ "selector": "[data-applicability]", "value": "/earl:subject/dct:description" },
+			{ "selector": "[data-notes]", "value": "/dct:description" },
+			{ "selector": "[data-mode]", "value": "/earl:mode" },
+			{ "selector": "[data-severity]", "value": "/acr:severity" },
+			{ "selector": "[data-relevancy]", "value": "/acr:relevancy" },
+			{
+				"selector": "[data-specific-results]",
+				"value": "/earl:result",
+				"mapping": [
+					{ "selector": "[data-result-label]", "value": "/earl:test" },
+					{ "selector": "[data-result-outcome]", "value": "/earl:outcome" },
+					{ "selector": "[data-result-severity]", "value": "/acr:severity" },
+					{ "selector": "[data-result-relevancy]", "value": "/acr:relevancy" },
+					{ "selector": "[data-result-notes", "value": "/dct:description" }
+				]
+			},
+			{
+				"@type": "rdf:Alt",
+				"mapping": [
+					{
+						"test": "fn:isLiteral",
+						"assess": "/acr:asset",
+						"mapping": [
+							{
+								"@type": "rdf:Alt",
+								"mapping": [
+									{
+										"template": "[data-asset-literal]",
+										"test": "fn:guessType",
+										"value": "/acr:asset",
+										"expect": "xsd:anyURI",
+										"mapping": [
+											{ "selector": "a", "value": "/acr:asset", "attr": "href" }
+										]
+									},
+									{
+										"template": "[data-asset-code]",
+										"test": "fn:guessType",
+										"value": "/acr:asset",
+										"expect": "xsd:string",
+										"mapping": [
+											{ "selector": "code", "value": "/acr:asset" }
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"template": "[data-asset-image]",
+						"test": "fn:guessType",
+						"assess": "/acr:asset",
+						"expect": "acr:AttachmentImage",
+						"mapping": [
+							{ "selector": "img", "value": "/acr:asset/acr:content/@value", "attr": "src" },
+							{ "selector": "a", "value": "/acr:asset/acr:content/@value", "attr": "href" },
+							{ "selector": "img", "value": "/acr:asset/dct:title", "attr": "alt" }
+
+						]
+					},
+					{
+						"template": "[data-asset-literal]",
+						"test": "fn:guessType",
+						"value": "/acr:asset",
+						"expect": "xsd:anyURI",
+						"mapping": [
+							{ "selector": "a", "value": "/acr:asset", "attr": "href" }
+						]
+					},
+					{
+						"template": "[data-asset-code]",
+						"test": "fn:guessType",
+						"value": "/acr:asset",
+						"expect": "xsd:string",
+						"mapping": [
+							{ "selector": "code", "value": "/acr:asset" }
+						]
+					},
+					{
+						"about": "When the value is an array of items",
+						"template": "[data-asset-array]",
+						"test": "fn:isArray",
+						"value": "/acr:asset",
+						"mapping": [
+								{
+									"template": "[data-download-link]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "xsd:anyURI",
+									"append": true,
+									"mapping": [
+										{ "selector": "a", "value": "/@value", "attr": "href" }
+									]
+								},
+								{
+									"template": "[data-source-code]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "xsd:string",
+									"append": true,
+									"mapping": [
+										{ "selector": "code", "value": "/@value" }
+									]
+								},
+								{
+									"template": "[data-asset-image]",
+									"test": "fn:guessType",
+									"value": "/",
+									"expect": "acr:AttachmentImage",
+									"append": true,
+									"mapping": [
+										{ "selector": "img", "value": "/acr:content/@value", "attr": "src" },
+										{ "selector": "a", "value": "/acr:content/@value", "attr": "href" },
+										{ "selector": "img", "value": "/dct:title", "attr": "alt" }
+
+									]
+								}
+						]
+					}
+				]
+			}
+		]
+	}'>
+</tbody>
+</table>
+<template id="tmpl-result">
+<table>
+<tr>
+<th data-label lang="en"></th>
+<td><span data-outcome lang="en"></span></td>
+<td>
+<p><strong>Portée</strong>: <span data-applicability lang="en"><span lang="fr">Telle que définie</span></span></p>
+<ul class="list-inline clearfix">
+<li>Mode de vérification: <span data-mode>Inconnu</span></li>
+<li class="pull-right clr-rght-md clr-rght-lg">Importance: <span data-severity>Non précisé</span></li>
+<li class="pull-right clr-rght-md clr-rght-lg">Pertinence: <span data-relevancy>Non précisé</span></li>
+</ul>
+<p data-notes lang="en"></p>
+<template data-asset-literal>
+<p><a href download>Télécharger la pièce jointe</a></p>
+</template>
+<template data-asset-code>
+<pre><code lang="en"></code></pre>
+</template>
+<template data-asset-image data-proofer-ignore>
+<p>Image (<a href download>Télécharger</a>):</p>
+<img class="img-responsive" src="" alt lang="en">
+</template>
+<template data-asset-array>
+<p>Pièces jointes:</p>
+<ul>
+<template data-download-link>
+<li><a href download>Télécharger la pièce jointe</a></li>
+</template>
+<template data-source-code>
+<li><pre><code lang="en"></code></pre></li>
+</template>
+<template data-asset-image data-proofer-ignore>
+<li>
+<p>Image (<a href download>Télécharger</a>):</p>
+<img class="img-responsive" src="" alt lang="en">
+</li>
+</template>
+</ul>
+</template>
+<dl data-specific-results lang="en">
+<template>
+<dt data-result-label></dt>
+<dd>( <em data-result-outcome></em> <span data-result-severity></span> <span data-result-relevancy></span> ) <span data-result-notes></span></dd>
+</template>
+</dl>
+<ul data-techniques>
+<template>
+<li><code></code></li>
+</template>
+</ul>
+</td>
+</tr>
+</table>
+</template>
+<p>Note: basé sur l'ensemble de règles suivant: <code data-json-replace="#[a11y]/dct:source">Non disponible</code></p>
+<dl id="wb-dtmd">
+<dt>Date de modification&#160;:&#32;</dt>
+<dd><time property="dateModified">2023-08-25</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>À propos de ce site</h2>
+<section class="col-sm-3">
+<h3>Contactez-nous</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>À propos</h3>
+<ul class="list-unstyled">
+<li><a href="../../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Nouvelles</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Restez branchés</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>
