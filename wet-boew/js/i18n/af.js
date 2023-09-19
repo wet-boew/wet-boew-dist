@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Wys Gesluit byskrifte"
 	},
 	"cc-err": "Fout tydens die laai gesluit onderskrifte",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Aktiveer klank beskrywing",
 		off: "Deaktiveer audio-beskrywing"

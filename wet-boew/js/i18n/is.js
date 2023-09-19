@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Sýna lokuðum skýringartextum"
 	},
 	"cc-err": "Villa við að hlaða Skjátextar",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Virkja hljóð lýsingu",
 		off: "Gera hljóð lýsingu"

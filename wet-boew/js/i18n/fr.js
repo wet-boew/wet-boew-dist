@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Afficher le sous-titrage"
 	},
 	"cc-err": "Erreur dans le chargement des sous-titres",
+	fs: "Ouvrir plein écran",
 	adesc: {
 		on: "Activer l'audiodescription",
 		off: "Désactiver l'audiodescription"

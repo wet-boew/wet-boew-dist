@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Rādīt subtitrus"
 	},
 	"cc-err": "Kļūda lejuplādējot subtitrus",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Ieslēgt audio aprakstu",
 		off: "Izslēgt audio aprakstu"

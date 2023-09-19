@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Tampilkan subtitel"
 	},
 	"cc-err": "Galat saat memuat subtitel",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Aktifkan deskripsi audio",
 		off: "Deskripsi audio diaktifkan"

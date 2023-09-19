@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Kapalı eklentileri göster"
 	},
 	"cc-err": "Kapalı eklenti yükleme hatası",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Sesli açıklama açık",
 		off: "Sesli açıklama kapalı"

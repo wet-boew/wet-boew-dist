@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Hiện Đóng cửa phụ đề"
 	},
 	"cc-err": "Lỗi khi đang nạp chú thích đóng",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Kích hoạt tính năng mô tả âm thanh",
 		off: "Vô hiệu hoá mô tả âm thanh"

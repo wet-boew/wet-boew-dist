@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Mostrar subtítulos"
 	},
 	"cc-err": "Error al cargar subtítulos",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Habilitar audio descripción ",
 		off: "Deshabilitar audio descripción"

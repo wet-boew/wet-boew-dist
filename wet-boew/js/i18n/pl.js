@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Pokaż podpisy"
 	},
 	"cc-err": "Błąd w ładowaniu podpisów",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Włącz informację audio",
 		off: "Wyłącz informację audio"

@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Zobraziť Skryté titulky"
 	},
 	"cc-err": "Chyba pri načítaní uzavreté titulkami",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Povoliť zvukový opis",
 		off: "Zakázať zvukový opis"

@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Rodyti didžiųjų raidžių įjungimą"
 	},
 	"cc-err": "Klaida kraunant didžiųjų raidžių įjungimą",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Aktyvuoti audio aprašą",
 		off: "Išjungti audio aprašą"

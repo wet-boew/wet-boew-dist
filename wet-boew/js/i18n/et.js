@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Näita subtiitreid"
 	},
 	"cc-err": "Viga subtiitrite avamisel",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Luba audio kirjeldus",
 		off: "Sulge audio kirjeldus"

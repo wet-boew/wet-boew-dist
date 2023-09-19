@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Trego Mbyllur captioning"
 	},
 	"cc-err": "Captions Gabim gjatë ngarkimit të mbyllura",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Aktivizo përshkrimin audio",
 		off: "Disable përshkrimin audio"

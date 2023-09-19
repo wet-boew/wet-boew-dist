@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Bijschrift tonen"
 	},
 	"cc-err": "Fout bij het tonen van de bijschriften",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Audiobeschrijving activeren",
 		off: "Audiobeschrijving opheffen"

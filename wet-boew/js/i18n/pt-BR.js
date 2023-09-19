@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Mostrar a legenda"
 	},
 	"cc-err": "Ocorreu um erro no carregamento da legenda",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Ativar a descrição de áudio",
 		off: "Desativar a descrição de áudio"

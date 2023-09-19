@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Show closed captioning"
 	},
 	"cc-err": "Error loading closed captions",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Enable audio description",
 		off: "Disable audio description"

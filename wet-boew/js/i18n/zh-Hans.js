@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "打开字幕"
 	},
 	"cc-err": "加载字母错误",
+	fs: "Enter full screen",
 	adesc: {
 		on: "使用音频描述",
 		off: "停止音频描述"

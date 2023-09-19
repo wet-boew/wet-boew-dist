@@ -88,6 +88,7 @@ wb.i18nDict = {
 		on: "Zeige Untertitelung"
 	},
 	"cc-err": "Fehler beim Laden Untertiteln",
+	fs: "Enter full screen",
 	adesc: {
 		on: "Aktivieren Sie Audio-Beschreibung",
 		off: "Deaktivieren Sie Audio-Beschreibung"

@@ -11482,6 +11482,7 @@ var componentName = "wb-mltmd",
 					cc_on: i18n( "cc", "on" ),
 					cc_off: i18n( "cc", "off" ),
 					cc_error: i18n( "cc-err" ),
+					fs: i18n( "fs" ),
 					mute_on: i18n( "mute", "on" ),
 					mute_off: i18n( "mute", "off" ),
 					duration: i18n( "dur" ),
@@ -11820,6 +11821,15 @@ var componentName = "wb-mltmd",
 			}
 			$this.trigger( captionsVisibleChangeEvent );
 			break;
+		case "fullscreen":
+			if ( this.object.requestFullscreen ) {
+				this.object.requestFullscreen();
+			} else if ( this.object.webkitRequestFullscreen ) { /* Safari */
+				this.object.webkitRequestFullscreen();
+			} else if ( this.object.msRequestFullscreen ) { /* IE11 */
+				this.object.msRequestFullscreen();
+			}
+			break;
 		case "getBuffering":
 			return this.object.buffering || false;
 		case "setBuffering":
@@ -11874,6 +11884,8 @@ var componentName = "wb-mltmd",
 			return this.object.getCurrentTime();
 		case "setCurrentTime":
 			return this.object.seekTo( args, true );
+		case "fullscreen":
+			return this.object.getIframe().requestFullscreen();
 		case "getMuted":
 			if ( !this.object.playedOnce && this.object.wasMutedPlay ) {
 				state = this.object.wasMutedPlay;
@@ -12060,6 +12072,7 @@ $document.on( initializedEvent, selector, function( event ) {
 
 		if ( settings !== undef ) {
 			data.shareUrl = settings.shareUrl;
+			data.fullscreen = settings.fullscreenBtn || false;
 		}
 
 		$this.addClass( type );
@@ -12185,6 +12198,11 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 		data.media = $media;
 		data.ytPlayer = ytPlayer;
 
+		// The fullscreen button is not visible by default because there are no controls when in full screen.
+		if ( data.fullscreen ) {
+			$this.attr( "data-fullscreen-btn", true );
+		}
+
 		// Detect if the YT player reloads, like when magnific Popup show the modal, because it moves the iframe
 		// and then the iframe gets refreshed and reloaded. So the issue is that the iframe stops emitting the event
 		// needed to adjust the multimedia player controler, like the "onStateChange" event.
@@ -12264,6 +12282,11 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 		} else {
 			loadCaptionsInternal( $media, $( "#" + wb.jqEscape( captionsUrl.hash.substring( 1 ) ) ) );
 		}
+
+		// The fullscreen button is not visible by default because there are no controls when in full screen.
+		if ( data.fullscreen ) {
+			$this.attr( "data-fullscreen-btn", true );
+		}
 	}
 } );
 
@@ -12297,6 +12320,8 @@ $document.on( "click", selector, function( event ) {
 		this.player( "setCurrentTime", this.player( "getCurrentTime" ) + this.player( "getDuration" ) * 0.05 );
 	} else if ( className.includes( "cuepoint" ) ) {
 		$( this ).trigger( { type: "cuepoint", cuepoint: $target.data( "cuepoint" ) } );
+	} else if ( /fullscreen|fs/.test( className ) ) {
+		this.player( "fullscreen" );
 	}
 } );
 
@@ -12323,6 +12348,10 @@ $document.on( "keydown", dispCtrls, function( event ) {
 			// Mute/unmute if focused on the mute/unmute button or volume input.
 			if ( $( event.target ).hasClass( "mute" ) || event.target.nodeName === "INPUT" ) {
 				$playerTarget.find( ".mute" ).trigger( "click" );
+			} else if ( $( event.target ).hasClass( "fs" ) ) {
+
+				// Enter full screen if focused on the full screen button
+				$playerTarget.find( ".fs" ).trigger( "click" );
 			} else if ( $( event.target ).hasClass( "cc" ) ) {
 
 				// Show/hide captions if focused on the closed captions button.
