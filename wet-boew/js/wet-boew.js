@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.68 - 2023-09-12
+ * v4.0.68 - 2023-09-19
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -19531,7 +19531,7 @@ var $document = wb.doc,
 
 	init = function( event ) {
 		var elm = wb.init( event, componentName, selector ),
-			$elm, settings, $selectedElm;
+			$elm, settings, $selectedElm, valuesList;
 
 		if ( elm ) {
 			$elm = $( elm );
@@ -19543,22 +19543,39 @@ var $document = wb.doc,
 				wb.getData( $elm, componentName )
 			);
 
-			$selectedElm = settings.selector ? $( settings.selector, $elm ) : $elm.children();
+			if ( settings.attribute ) {
+				if ( settings.values && Array.isArray( settings.values ) ) {
+					valuesList = settings.values;
+					shuffleArray( valuesList );
+					elm.setAttribute( settings.attribute, valuesList[ 0 ] );
+				} else {
+					throw componentName + ": You must define the property \"values\" to an array of strings when \"attribute\" property is defined.";
+				}
+			} else {
+				$selectedElm = settings.selector ? $( settings.selector, $elm ) : $elm.children();
 
-			if ( !$selectedElm.length ) {
-				throw componentName + " selector setting is invalid or no children";
-			}
+				if ( !$selectedElm.length ) {
+					throw componentName + " selector setting is invalid or no children";
+				}
 
-			if ( settings.shuffle ) {
-				$selectedElm = wb.shuffleDOM( $selectedElm );
-			}
+				if ( settings.shuffle ) {
+					$selectedElm = wb.shuffleDOM( $selectedElm );
+				}
 
-			if ( settings.toggle ) {
-				$selectedElm = wb.pickElements( $selectedElm, settings.number );
-				$selectedElm.toggleClass( settings.toggle );
+				if ( settings.toggle ) {
+					$selectedElm = wb.pickElements( $selectedElm, settings.number );
+					$selectedElm.toggleClass( settings.toggle );
+				}
 			}
 
 			wb.ready( $elm, componentName );
+		}
+	},
+
+	shuffleArray = function( array ) {
+		for ( let i = array.length - 1; i > 0; i-- ) {
+			const j = Math.floor( Math.random() * ( i + 1 ) );
+			[ array[ i ], array[ j ] ] = [ array[ j ], array[ i ] ];
 		}
 	};
 
