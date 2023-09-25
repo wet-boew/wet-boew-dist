@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.69 - 2023-09-20
+ * v4.0.69 - 2023-09-25
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -4791,16 +4791,6 @@ var componentName = "wb-calevt",
 			if ( !directLinking ) {
 				linkId = event.id || wb.getId();
 				event.id = linkId;
-
-				/*
-				 * Fixes IE tabbing error:
-				 * http://www.earthchronicle.com/ECv1point8/Accessibility01IEAnchoredKeyboardNavigation.aspx
-				 */
-
-				// TODO: Which versions of IE should this fix be limited to?
-				if ( wb.ie ) {
-					event.tabIndex = "-1";
-				}
 				href = "#" + linkId;
 			}
 
@@ -4886,14 +4876,6 @@ var componentName = "wb-calevt",
 	addEvents = function( year, month, $days ) {
 		var eventsList = this.events,
 			i, eLen, date, dayIndex, $day, $dayEvents, event, eventMonth;
-
-		// Fix required to make up with the IE z-index behaviour mismatch
-		// TODO: Move ot IE CSS? Which versions of IE should this fix be limited to?
-		if ( wb.ie ) {
-			for ( i = 0, eLen = $days.length; i !== eLen; i += 1 ) {
-				$days.eq( i ).css( "z-index", 31 - i );
-			}
-		}
 
 		/*
 		 * Determines for each event, if it occurs in the display month
@@ -7531,13 +7513,6 @@ var imgClass,
 			}
 			img.src = matchedElm.getAttribute( "data-src" );
 			matchedElm.appendChild( img );
-
-			// Fixes bug with IE8 constraining the height of the image
-			// when the .img-responsive class is used.
-			if ( wb.ielt9 ) {
-				img.removeAttribute( "width" );
-				img.removeAttribute( "height" );
-			}
 
 		// No match and an image exists: delete it
 		} else if ( img ) {
@@ -12138,10 +12113,6 @@ $document.on( initializedEvent, selector, function( event ) {
 
 			// Identify that initialization has completed
 			wb.ready( $this, componentName );
-		} else {
-
-			// Do nothing since IE8 support is no longer required
-			return;
 		}
 	}
 } );
@@ -18181,7 +18152,7 @@ var componentName = "wb-disable",
 			}
 
 			try {
-				if ( wb.isDisabled || ( wb.ie && wb.ielt7 ) ) {
+				if ( wb.isDisabled || wb.ie ) {
 					$html.addClass( "wb-disable" );
 
 					try {
@@ -19067,34 +19038,6 @@ var componentName = "wb-jsonmanager",
 		}
 		return JSONsource;
 	};
-
-// IE dedicated patch to support ECMA-402 but limited to English and French number formatting
-if ( wb.ie ) {
-	Number.prototype.toLocaleString = function( locale ) {
-
-		var splitVal = this.toString().split( "." ),
-			integer = splitVal[ 0 ],
-			decimal = splitVal[ 1 ],
-			intLength = integer.length,
-			nbSection = intLength % 3 || 3,
-			strValue = integer.substr( 0, nbSection ),
-			isFrenchLoc = ( locale === "fr" ),
-			thousandSep = ( isFrenchLoc ? " " : "," ),
-			i;
-
-		for ( i = nbSection; i < intLength; i = i + 3 ) {
-			strValue = strValue + thousandSep + integer.substr( i, 3 );
-		}
-		if ( decimal.length ) {
-			if ( isFrenchLoc ) {
-				strValue = strValue + "," + decimal;
-			} else {
-				strValue = strValue + "." + decimal;
-			}
-		}
-		return strValue;
-	};
-}
 
 $document.on( "json-failed.wb", selector, function( event ) {
 	var elm = event.target,
