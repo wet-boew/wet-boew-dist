@@ -96,7 +96,7 @@ wb.i18nDict = {
 	pos: "Position actuelle :",
 	dur: "Temps total :",
 	msgYoutubeNotLoad: "La vidéo a éprouvé des problèmes de chargement",
-	msgYoutubeVdLoad: "Chargement de la vidéo youtube",
+	msgYoutubeVdLoad: "Chargement de la vidéo Youtube",
 
 	/* Share widget */
 	"shr-txt": "Partagez",

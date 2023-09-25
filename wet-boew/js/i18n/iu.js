@@ -96,7 +96,7 @@ wb.i18nDict = {
 	pos: "ᒫᓐᓇᐅᔪᖅ ᖃᓄᐃᓕᖓᓂᖓ:",
 	dur: "ᑕᑭᓂᖓ ᑲᑎᓪᓗᒍ:",
 	msgYoutubeNotLoad: "Video encountered loading issues",
-	msgYoutubeVdLoad: "Loading youtube video",
+	msgYoutubeVdLoad: "Loading Youtube video",
 
 	/* Share widget */
 	"shr-txt": "ᐊᓯᖕᓄᐊᕐᓗᒍ",

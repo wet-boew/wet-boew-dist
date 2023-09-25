@@ -95,8 +95,8 @@ wb.i18nDict = {
 	},
 	pos: "Geçerli pozisyon:",
 	dur: "Toplam zaman:",
-	msgYoutubeNotLoad: "Video encountered loading issues",
-	msgYoutubeVdLoad: "Loading youtube video",
+	msgYoutubeNotLoad: "Video yükleme sorunlarıyla karşılaştı",
+	msgYoutubeVdLoad: "Youtube videosu yükleniyor",
 
 	/* Share widget */
 	"shr-txt": "Paylaş",

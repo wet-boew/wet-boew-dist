@@ -96,7 +96,7 @@ wb.i18nDict = {
 	pos: "Aktuální pozice:",
 	dur: "Celkový čas:",
 	msgYoutubeNotLoad: "Video encountered loading issues",
-	msgYoutubeVdLoad: "Loading youtube video",
+	msgYoutubeVdLoad: "Loading Youtube video",
 
 	/* Share widget */
 	"shr-txt": "Sdílet",

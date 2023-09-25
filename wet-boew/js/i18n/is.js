@@ -96,7 +96,7 @@ wb.i18nDict = {
 	pos: "Núverandi staða:",
 	dur: "Samtals tími:",
 	msgYoutubeNotLoad: "Video encountered loading issues",
-	msgYoutubeVdLoad: "Loading youtube video",
+	msgYoutubeVdLoad: "Loading Youtube video",
 
 	/* Share widget */
 	"shr-txt": "Deila",
