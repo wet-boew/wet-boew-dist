@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+		<title>Failure to load a JSON file with data-json
+		 - Working examples
+ - Web Experience Toolkit
+</title>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="description" content="Example of failing to load a JSON file." />
+		
+		
+		
+		
+		
+		<link rel="alternate" hreflang="fr" href="load-failure-fr.html" />
+		
+		<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
+		<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.css" />
+		
+		
+		<noscript><link rel="stylesheet" href="../../../wet-boew/css/noscript.css" /></noscript>
+	</head>
+	<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+		
+<nav>
+	<ul id="wb-tphp">
+		<li class="wb-slc">
+			<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+		</li>
+		<li class="wb-slc visible-sm visible-md visible-lg">
+			<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+		</li>
+	</ul>
+</nav>
+
+<header role="banner">
+	<div id="wb-bnr">
+		<div id="wb-bar">
+			<div class="container">
+				<div class="row">
+						<section id="wb-lng" class="visible-md visible-lg">
+							<h2>Language selection</h2>
+							<ul class="text-right">
+								<li><a lang="fr" hreflang="fr" href="load-failure-fr.html">Français</a></li>
+								<li class="curr">English&#32;<span>(current)</span></li>
+							</ul>
+						</section>
+	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+		<h2>Search and menus</h2>
+		<ul class="pnl-btn list-inline text-right">
+			<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+		</ul>
+		<div id="mb-pnl"></div>
+	</section>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div id="wb-sttl" class="col-md-8">
+					<a href="../../index-en.html">
+						<img src="../../../theme-wet-boew/assets/logo.svg" alt="" />
+						<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+					</a>
+				</div>
+	<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+		<h2>Search</h2>
+		<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+	
+			<div class="form-group">
+				<label for="wb-srch-q">Search website</label>
+				<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150" />
+				<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+			</div>
+	
+			<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+	
+		</form>
+	</section>
+			</div>
+		</div>
+	</div>
+	<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+		<div class="container nvbar">
+			<h2>Topics menu</h2>
+			<div class="row">
+				<ul class="list-inline menu">
+						<li><a href="../../index-en.html">WET project</a></li>
+						<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+						<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<nav role="navigation" id="wb-bc" property="breadcrumb">
+		<h2>Breadcrumb Navigation</h2>
+		<div class="container">
+			<div class="row">
+				<ol class="breadcrumb" typeof="BreadcrumbList">
+					<li property="itemListElement" typeof="ListItem">
+						<a property="item" typeof="WebPage" href="../../index-en.html"><span property="name">Home</span></a>
+						<meta property="position" content="1">
+					</li>
+							<li property="itemListElement" typeof="ListItem">
+								<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
+								<meta property="position" content="2">
+							</li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Failure to load a JSON file with data-json</span><meta property="position" content="3"></li>
+				</ol>
+			</div>
+		</div>
+	</nav>
+</header>
+
+	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+		<h1 id="wb-cont" property="name">Failure to load a JSON file with data-json</h1>
+		<ul class="list-inline">
+				<li><a class="btn btn-primary" href="../../docs/ref/wb-data-json/wb-data-json-en.html">Documentation</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Failure%20to%20load%20a%20JSON%20file%20with%20data-json:%20">Questions or comments?</a></li>
+		</ul>
+		
+<nav>
+	<ul>
+		<li><a href="data-json-en.html">Data JSON</a></li>
+		<li><a href="template-en.html">HTML 5 template</a></li>
+		<li><a href="conditional-en.html">Conditional template</a></li>
+	</ul>
+</nav>
+
+<p>Example of failing to load a JSON file.</p>
+
+<h2>Failing to load a JSON file</h2>
+
+<p>Show a generic message when fetching a JSON file fails.</p>
+
+<div data-wb-json='{
+	"url": "demo/bad-json-content.json",
+	"fail": {
+		"template": "[data-tmpl-fail]",
+		"mapping": null
+	},
+	"streamline": true,
+	"template": "[data-tmpl-foo]",
+	"mapping": [
+		{ "selector": "[data-p]", "value": "/foo" }
+	]
+}'>
+	<template data-tmpl-fail>
+		<div class="alert alert-danger" role="status">
+			<p>The JSON file specified in the data-json URL is invalid.</p>
+		</div>
+	</template>
+	<template data-tmpl-foo>
+		<p data-p></p>
+	</template>
+</div>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;div data-wb-json='{
+	"url": "demo/bad-json-content.json",
+	"fail": {
+		"template": "[data-tmpl-fail]",
+		"mapping": null
+	},
+	"streamline": true,
+	"template": "[data-tmpl-foo]",
+	"mapping": [
+		{ "selector": "[data-p]", "value": "/foo" }
+	]
+}'>
+	&lt;template data-tmpl-fail>
+		&lt;div class="alert alert-danger" role="status">
+			&lt;p>The JSON file specified in the data-json URL is invalid.&lt;/p>
+		&lt;/div>
+	&lt;/template>
+	&lt;template data-tmpl-foo>
+		&lt;p data-p>&lt;/p>
+	&lt;/template>
+&lt;/div></code></pre>
+</details>
+
+<h2>Show technical details about the failure</h2>
+
+<p>Data object to map when an error occurs.</p>
+<pre><code>{
+	error: "&lt;Details of the error in English>",
+	status: "&lt;Status or category of the error>",
+	url: "&lt;URL of the failed resource>",
+	response: {
+		text: "&lt;Text version of the resource sanitized, if applicable>",
+		status: "&lt;HTTP status number>",
+		statusText: "&lt;HTTP status text in English>"
+	}
+}</code></pre>
+
+<h3>Fetched an invalid JSON file</h3>
+
+<div data-wb-json='{
+	"url": "demo/bad-json-content-2.json",
+	"fail": {
+		"template": "template",
+		"mapping": [
+			{ "selector": "[data-error]", "value": "/error" },
+			{ "selector": "[data-status]", "value": "/status" },
+			{ "selector": "[data-url]", "value": "/url" },
+			{ "selector": "[data-http-status]", "value": "/response/status" },
+			{ "selector": "[data-http-status-text]", "value": "/response/statusText" },
+			{ "selector": "[data-http-response]", "value": "/response/text", "encode": true }
+		]
+	}
+}'>
+	<template>
+		<div class="alert alert-danger" role="status">
+			<p>Failed to read the JSON file.</p>
+			<details>
+				<summary>Technical details</summary>
+				<dl class="dl-horizontal">
+					<dt>Error message:</dt>
+					<dd data-error><dd>
+					<dt>Status:</dt>
+					<dd data-status><dd>
+					<dt>Url:</dt>
+					<dd data-url><dd>
+					<dt>HTTP status:</dt>
+					<dd><span data-http-status></span> <span data-http-status-text></span><dd>
+					<dt>HTTP response</dt>
+					<dd><pre><code data-http-response></code></pre><dd>
+				</dl>
+			</details>
+		</div>
+	</template>
+</div>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;div data-wb-json='{
+	"url": "demo/bad-json-content-2.json",
+	"fail": {
+		"template": "template",
+		"mapping": [
+			{ "selector": "[data-error]", "value": "/error" },
+			{ "selector": "[data-status]", "value": "/status" },
+			{ "selector": "[data-url]", "value": "/url" },
+			{ "selector": "[data-http-status]", "value": "/response/status" },
+			{ "selector": "[data-http-status-text]", "value": "/response/statusText" },
+			{ "selector": "[data-http-response]", "value": "/response/text", "encode": true }
+		]
+	}
+}'>
+	&lt;template>
+		&lt;div class="alert alert-danger" role="status">
+			&lt;p>Failed to read the JSON file.&lt;/p>
+			&lt;details>
+				&lt;summary>Technical details&lt;/summary>
+				&lt;dl class="dl-horizontal">
+					&lt;dt>Error message:&lt;/dt>
+					&lt;dd data-error>&lt;dd>
+					&lt;dt>Status:&lt;/dt>
+					&lt;dd data-status>&lt;dd>
+					&lt;dt>Url:&lt;/dt>
+					&lt;dd data-url>&lt;dd>
+					&lt;dt>HTTP status:&lt;/dt>
+					&lt;dd>&lt;span data-http-status>&lt;/span> &lt;span data-http-status-text>&lt;/span>&lt;dd>
+					&lt;dt>HTTP response&lt;/dt>
+					&lt;dd>&lt;pre>&lt;code data-http-response>&lt;/code>&lt;/pre>&lt;dd>
+				&lt;/dl>
+			&lt;/details>
+		&lt;/div>
+	&lt;/template>
+&lt;/div></code></pre>
+</details>
+
+<h3>Fetched url not found</h3>
+
+<div data-wb-json='{
+	"url": "demo/notfound-json-content.json",
+	"fail": {
+		"template": "template",
+		"mapping": [
+			{ "selector": "[data-error]", "value": "/error" },
+			{ "selector": "[data-status]", "value": "/status" },
+			{ "selector": "[data-url]", "value": "/url" },
+			{ "selector": "[data-http-status]", "value": "/response/status" },
+			{ "selector": "[data-http-status-text]", "value": "/response/statusText" },
+			{ "selector": "[data-http-response]", "value": "/response/text", "encode": true }
+		]
+	}
+}'>
+	<template>
+		<div class="alert alert-danger" role="status">
+			<p>Failed to read the JSON file.</p>
+			<details>
+				<summary>Technical details</summary>
+				<dl class="dl-horizontal">
+					<dt>Error message:</dt>
+					<dd data-error><dd>
+					<dt>Status:</dt>
+					<dd data-status><dd>
+					<dt>Url:</dt>
+					<dd data-url><dd>
+					<dt>HTTP status:</dt>
+					<dd><span data-http-status></span> <span data-http-status-text></span><dd>
+					<dt>HTTP response</dt>
+					<dd><pre><code data-http-response></code></pre><dd>
+				</dl>
+			</details>
+		</div>
+	</template>
+</div>
+
+<details>
+	<summary>Code</summary>
+	<pre><code>&lt;div data-wb-json='{
+	"url": "demo/notfound-json-content.json",
+	"fail": {
+		"template": "template",
+		"mapping": [
+			{ "selector": "[data-error]", "value": "/error" },
+			{ "selector": "[data-status]", "value": "/status" },
+			{ "selector": "[data-url]", "value": "/url" },
+			{ "selector": "[data-http-status]", "value": "/response/status" },
+			{ "selector": "[data-http-status-text]", "value": "/response/statusText" },
+			{ "selector": "[data-http-response]", "value": "/response/text", "encode": true }
+		]
+	}
+}'>
+	&lt;template>
+		&lt;div class="alert alert-danger" role="status">
+			&lt;p>Failed to read the JSON file.&lt;/p>
+			&lt;details>
+				&lt;summary>Technical details&lt;/summary>
+				&lt;dl class="dl-horizontal">
+					&lt;dt>Error message:&lt;/dt>
+					&lt;dd data-error>&lt;dd>
+					&lt;dt>Status:&lt;/dt>
+					&lt;dd data-status>&lt;dd>
+					&lt;dt>Url:&lt;/dt>
+					&lt;dd data-url>&lt;dd>
+					&lt;dt>HTTP status:&lt;/dt>
+					&lt;dd>&lt;span data-http-status>&lt;/span> &lt;span data-http-status-text>&lt;/span>&lt;dd>
+					&lt;dt>HTTP response&lt;/dt>
+					&lt;dd>&lt;pre>&lt;code data-http-response>&lt;/code>&lt;/pre>&lt;dd>
+				&lt;/dl>
+			&lt;/details>
+		&lt;/div>
+	&lt;/template>
+&lt;/div></code></pre>
+</details>
+
+		<dl id="wb-dtmd">
+			<dt>Date modified:&#32;</dt>
+			<dd><time property="dateModified">2023-09-24</time></dd>
+		</dl>
+	</main>
+
+	<footer role="contentinfo" id="wb-info"  class="visible-sm visible-md visible-lg wb-navcurr">
+		<div class="container">
+			<nav role="navigation" class="row">
+				<h2>About this site</h2>
+				<section class="col-sm-3">
+					<h3>Contact us</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>About</h3>
+					<ul class="list-unstyled">
+						<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+						<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>News</h3>
+					<ul class="list-unstyled">
+						<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+						<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+					</ul>
+				</section>
+				<section class="col-sm-3">
+					<h3>Stay connected</h3>
+					<ul class="list-unstyled">
+						<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+					</ul>
+				</section>
+			</nav>
+		</div>
+	</footer>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+		<script src="../../../wet-boew/js/wet-boew.js"></script>
+		
+		
+		
+	</body>
+</html>

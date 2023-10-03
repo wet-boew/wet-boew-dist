@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.69 - 2023-09-25
+ * v4.0.69 - 2023-10-03
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -9856,7 +9856,7 @@ wb.add( selector );
  * @author @duboisp
  */
 /*global jsonpointer */
-( function( $, wb ) {
+( function( $, wb, DOMPurify ) {
 "use strict";
 
 /*
@@ -10040,6 +10040,7 @@ $document.on( fetchEvent, function( event ) {
 
 					} )
 					.fail( function( xhr, status, error ) {
+						xhr.responseText = DOMPurify.sanitize( xhr.responseText );
 						$( "#" + callerId ).trigger( {
 							type: "json-failed.wb",
 							fetch: {
@@ -10056,7 +10057,7 @@ $document.on( fetchEvent, function( event ) {
 	}
 } );
 
-} )( jQuery, wb );
+} )( jQuery, wb, DOMPurify );
 
 /**
  * @title WET-BOEW Lightbox
@@ -18030,8 +18031,35 @@ var componentName = "wb-data-json",
 	};
 
 $document.on( "json-failed.wb", selector, function( event ) {
+
+	var elm = event.currentTarget,
+		$elm = $( elm ),
+		lstCall = $elm.data( dataQueue ),
+		fetchObj = event.fetch,
+		xhrResponse = fetchObj.xhr,
+		itmSettings = lstCall[ fetchObj.refId ],
+		failSettings = itmSettings.fail;
+
+	if ( failSettings ) {
+
+		// Mapping is always streamline because the data structure is a static object not an array
+		failSettings.streamline = true;
+
+		// apply the templaty to display an error message
+		applyTemplate( elm, failSettings, {
+			error: fetchObj.error.message || xhrResponse.statusText,
+			status: fetchObj.status,
+			url: fetchObj.fetchOpts.url,
+			response: {
+				text: xhrResponse.responseText || "",
+				status: xhrResponse.status,
+				statusText: xhrResponse.statusText
+			}
+		} );
+	}
+
 	console.info( event.currentTarget );
-	throw "Bad JSON Fetched from url in " + componentName;
+	console.error( "Error or bad JSON Fetched from url in " + componentName );
 } );
 
 // Load template polyfill
