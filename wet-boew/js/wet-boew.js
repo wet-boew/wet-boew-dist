@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.70 - 2023-10-24
+ * v4.0.70 - 2023-11-08
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -2858,7 +2858,7 @@ wb.addSkipLink = function( text, attr, isBtn, isLast ) {
 
 } )( jQuery, wb );
 
-( function( wb ) {
+( function( wb, window ) {
 
 "use strict";
 
@@ -3832,7 +3832,70 @@ wb.string = {
 			str = "0" + str;
 		}
 		return str;
+	},
+
+	/*
+	 * Convert a base64 string into an ArrayBuffer (Note: this function are not fully UTF-8 supported and may create interoperability issue)
+	 * ref. https://www.isummation.com/blog/convert-arraybuffer-to-base64-string-and-vice-versa/
+	 * @memberof wb.string
+	 * @param {string} Base64 browser encoded
+	 * @return {ArrayBuffer} string converted into ArrayBuffer
+	 */
+	base64ToArrayBuffer: function( base64 ) {
+		var binary_string = window.atob( base64 ),
+			len = binary_string.length,
+			bytes = new Uint8Array( len ),
+			i;
+		for ( i = 0; i < len; i++ ) {
+			bytes[ i ] = binary_string.charCodeAt( i );
+		}
+		return bytes.buffer;
+	},
+
+	/*
+	 * Convert an ArrayBuffer into base64 string (Note: this function are not fully UTF-8 supported and may create interoperability issue)
+	 * ref. https://www.isummation.com/blog/convert-arraybuffer-to-base64-string-and-vice-versa/
+	 * @memberof wb.string
+	 * @param {ArrayBuffer}
+	 * @return {string} ArrayBuffer converted into base64 string
+	 */
+	arrayBufferToBase64: function( buffer ) {
+		var binary = "",
+			bytes = new Uint8Array( buffer ),
+			len = bytes.byteLength,
+			i;
+		for ( i = 0; i < len; i++ ) {
+			binary += String.fromCharCode( bytes[ i ] );
+		}
+		return window.btoa( binary );
+	},
+
+	/*
+	 * Convert an hexadecimal string into an ArrayBuffer
+	 * ref. https://stackoverflow.com/questions/38987784/how-to-convert-a-hexadecimal-string-to-uint8array-and-back-in-javascript/50868276#50868276
+	 * @memberof wb.string
+	 * @param {string} Encoded string in hexadecimal
+	 * @return {Uint8Array} Binary array buffer
+	 */
+	fromHexString: function( hexString ) {
+		return hexString === null ? null : Uint8Array.from( hexString.match( /.{1,2}/g ).map( function( byte ) {
+			return parseInt( byte, 16 );
+		} ) );
+	},
+
+	/*
+	 * Convert an ArrayBuffer into an hexadecimal string
+	 * ref. https://stackoverflow.com/questions/38987784/how-to-convert-a-hexadecimal-string-to-uint8array-and-back-in-javascript/50868276#50868276
+	 * @memberof wb.string
+	 * @param {Uint8Array} Binary array buffer
+	 * @return {string} Encoded string in hexadecimal
+	 */
+	toHexString: function( bytes ) {
+		return bytes.reduce( function( str, byte ) {
+			return str + byte.toString( 16 ).padStart( 2, "0" );
+		}, "" );
 	}
+
 };
 
 /*
@@ -4055,7 +4118,7 @@ wb.findPotentialPII = function( str, scope, opts ) {
 	return toClean && isFound ? str : isFound;
 };
 
-} )( wb );
+} )( wb, window );
 
 ( function( $, undef ) {
 "use strict";
@@ -8037,13 +8100,14 @@ wb.add( selector );
 * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
 * @author @ipaksc
 */
-( function( $, window, wb ) {
+( function( $, window, wb, crypto ) {
 "use strict";
 var componentName = "wb-exitscript",
 	selector = "." + componentName,
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	exiturlparam = componentName + "-urlparam",
+	keyForKeyHolder = componentName + "key",
 	moDalId = componentName + "-modal",
 	i18n,
 	i18nDict = {
@@ -8074,7 +8138,9 @@ var componentName = "wb-exitscript",
 			settings,
 			queryString = window.location.search,
 			urlParams = new URLSearchParams( queryString ),
-			originalURL = urlParams.get( "exturl" ),
+			counterInUrl = wb.string.fromHexString( urlParams.get( "exturl" ) ),
+			encryptedUrl = localStorage.getItem( componentName ),
+			jwt = JSON.parse( localStorage.getItem( keyForKeyHolder ) ),
 			$elm;
 		if ( elm ) {
 			$elm = $( elm );
@@ -8087,16 +8153,90 @@ var componentName = "wb-exitscript",
 
 			$elm.data( componentName, settings );
 
-			if ( settings.url ) {
-				$( this ).attr( "href", settings.url + "?exturl=" +  encodeURIComponent( this.href ) );
+			if ( settings.url && crypto ) {
+
+				crypto.subtle.generateKey(
+					{
+						name: "AES-CTR",
+						length: 256
+					},
+					true,
+					[ "encrypt", "decrypt" ]
+				).then( function( keyToEncryp ) {
+
+					var enc, messageEncoded, counter;
+
+					// Save the key in the anchor
+					crypto.subtle.exportKey( "jwk", keyToEncryp )
+						.then( function( exportedJwtKey ) {
+							elm[ keyForKeyHolder ] = exportedJwtKey;
+						} );
+
+					// Encrypt the URL
+					enc = new TextEncoder();
+					messageEncoded = enc.encode( elm.href );
+					counter = crypto.getRandomValues( new Uint8Array( 16 ) );
+					crypto.subtle.encrypt(
+						{
+							name: "AES-CTR",
+							counter: counter,
+							length: 64
+						},
+						keyToEncryp,
+						messageEncoded
+					).then( function( ciphertext ) {
+						elm[ componentName ] = ciphertext;
+					} );
+
+					// Change the link URL by passing the counter as a key
+					$elm.attr( "href", settings.url + "?exturl=" + wb.string.toHexString( counter ) );
+				} );
+
 			}
 
 			i18n = i18nDict[ wb.lang || "en" ];
 
 			// This conditional statement for a middle static exit page, to retrieve the URL to the non-secure site.
-			if ( $elm.hasClass( exiturlparam ) ) {
-				this.outerHTML = "<a href='" + originalURL + "'>" + originalURL + "</a>";
+			if ( $elm.hasClass( exiturlparam ) && encryptedUrl !== null && jwt !== null ) {
+
+				crypto.subtle.importKey(
+					"jwk",
+					jwt,
+					{
+						name: "AES-CTR",
+						length: 256
+					},
+					true,
+					[ "decrypt" ]
+				).then( function( key ) {
+
+					crypto.subtle.decrypt(
+						{
+							name: "AES-CTR",
+							counter: counterInUrl,
+							length: 64
+						},
+						key,
+						wb.string.base64ToArrayBuffer( encryptedUrl )
+					).then( function( decrypted ) {
+
+						var dec = new TextDecoder(),
+							urlToRedirect = dec.decode( decrypted );
+
+						// Check if the decrypted message is an valid URL and silently fail if the pattern don't match
+						if ( urlToRedirect.match( /^(http|https):\/\//g ) ) {
+							elm.outerHTML = "<a href='" + urlToRedirect + "'>" + urlToRedirect + "</a>";
+						}
+
+					} );
+				} );
+
 			}
+
+			// Remove the plugin data and ensure it is removed from the localstorage
+			localStorage.removeItem( componentName );
+			localStorage.removeItem( keyForKeyHolder );
+
 			wb.ready( $elm, componentName );
 		}
 	};
@@ -8170,6 +8310,11 @@ $document.on( "click", selector, function( event ) {
 
 		] );
 
+	} else if ( crypto && this[ componentName ] ) {
+
+		// Save to localstorage, the plugin init will ensure this data is only used once
+		localStorage.setItem( componentName, wb.string.arrayBufferToBase64( this[ componentName ] ) );
+		localStorage.setItem( keyForKeyHolder, JSON.stringify( this[ keyForKeyHolder ] ) );
 	}
 
 } );
@@ -8180,7 +8325,7 @@ $document.on( "timerpoke.wb " + initEvent, selector, init );
 // Add the timer poke to initialize the plugin
 wb.add( selector );
 
-} )( jQuery, window, wb );
+} )( jQuery, window, wb, crypto );
 
 /**
 * @title WET-BOEW Facebook embedded page
