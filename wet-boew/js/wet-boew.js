@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.70.1 - 2023-11-14
+ * v4.0.70.1 - 2023-11-20
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -9901,12 +9901,16 @@ var componentName = "wb-frmvld",
 					//Trigger validation on wb-server-error
 					$form.find( ".wb-server-error" ).filter( ":not( :hidden )" ).parent().each( function() {
 						if ( this.attributes.for && this.attributes.for.value.length > 0 ) {
-							$( "form" ).validate().element( $( "[id =" + this.attributes.for.value + "]" ) );
+							$form.validate().element( $( "[id =" + this.attributes.for.value + "]" ) );
 						} else if ( $( this ).find( "input" )[ 0 ] ) {
-							$( "form" ).validate().element( $( this ).find( "input" )[ 0 ] );
+							$form.validate().element( $( this ).find( "input" )[ 0 ] );
 						} else if ( $( this ).next( ".radio, .checkbox" ).children( "label" ).children( "input" )[ 0 ] ) {
-							if ( $( this ).find( $( this ).next( ".radio, .checkbox" ).children( "label" ).children( "input " )[ 0 ].id ) ) {
-								$( "form" ).validate().element( $( this ).next( ".radio, .checkbox" ).children( "label" ).children( "input" )[ 0 ] );
+							if ( $( this ).find( $( this ).next( ".radio, .checkbox" ).children( "label" ).children( "input" )[ 0 ].id ) ) {
+								$form.validate().element( $( this ).next( ".radio, .checkbox" ).children( "label" ).children( "input" )[ 0 ] );
+							}
+						} else if ( $( this ).next( ".radio-inline, .checkbox-inline, .label-inline" ).children( "input" )[ 0 ] ) {
+							if ( $( this ).find( $( this ).next( ".radio-inline, .checkbox-inline, .label-inline" ).children( "input" )[ 0 ].id ) ) {
+								$form.validate().element( $( this ).next( ".radio-inline, .checkbox-inline, .label-inline" ).children( "input" )[ 0 ] );
 							}
 						}
 					} );
