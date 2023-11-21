@@ -161,18 +161,18 @@
   },
   "@/js/deps/jquery.dataTables.js": {
     "hashes": {
-      "sha256": "K3zirp0O+jjaoIeloHumMUtrXZ5xX9X0O8bhFvMC5Pk=",
-      "sha512": "U1GSlF9WmXVJYXaTMtWir7B4uonAtyyhMhCAeOgGdFbWziocfexf33WUFYgXXEq+i29ptsFMGF0i1UR50XL7xA=="
+      "sha256": "38kzJaiQSbkhoqXbpsRa/Pcj3Bq5JVqhSTFvmcN8Mf8=",
+      "sha512": "g4e/mud5brYkgJR0+/gdR9N93AeSQQKPHfrQu7sbkmlcNpCNLw+9Zbl3zWRRcI3Pty3exhFUHzCEOJkv+W/NRw=="
     },
-    "integrity": "sha256-K3zirp0O+jjaoIeloHumMUtrXZ5xX9X0O8bhFvMC5Pk= sha512-U1GSlF9WmXVJYXaTMtWir7B4uonAtyyhMhCAeOgGdFbWziocfexf33WUFYgXXEq+i29ptsFMGF0i1UR50XL7xA==",
+    "integrity": "sha256-38kzJaiQSbkhoqXbpsRa/Pcj3Bq5JVqhSTFvmcN8Mf8= sha512-g4e/mud5brYkgJR0+/gdR9N93AeSQQKPHfrQu7sbkmlcNpCNLw+9Zbl3zWRRcI3Pty3exhFUHzCEOJkv+W/NRw==",
     "path": "/js/deps/jquery.dataTables.js"
   },
   "@/js/deps/jquery.dataTables.min.js": {
     "hashes": {
-      "sha256": "iKaYhaZkYX9SSZG9Xmll8xuh/+x9FkL1TNYvkSlCvA8=",
-      "sha512": "pITyPlldS1RaOBcLXe1RjrjuPumMsmCy2ZuX+m7O+ioPfDn7piiWz3sjB8CvkdtXRXtFIJZva/U4ENFAxpZBdw=="
+      "sha256": "wfzC64CoUIUZXaXQ/Zmu9BRkpvZsvBJ0TJxRfIUKQq8=",
+      "sha512": "AKGjKcXYvMms6de0SprCoBE67DmhedLO8BDWqAyDFDwzshW6di30RVRKZ1m/yLhWUpK1fOQMy4y540AV123BOw=="
     },
-    "integrity": "sha256-iKaYhaZkYX9SSZG9Xmll8xuh/+x9FkL1TNYvkSlCvA8= sha512-pITyPlldS1RaOBcLXe1RjrjuPumMsmCy2ZuX+m7O+ioPfDn7piiWz3sjB8CvkdtXRXtFIJZva/U4ENFAxpZBdw==",
+    "integrity": "sha256-wfzC64CoUIUZXaXQ/Zmu9BRkpvZsvBJ0TJxRfIUKQq8= sha512-AKGjKcXYvMms6de0SprCoBE67DmhedLO8BDWqAyDFDwzshW6di30RVRKZ1m/yLhWUpK1fOQMy4y540AV123BOw==",
     "path": "/js/deps/jquery.dataTables.min.js"
   },
   "@/js/deps/jquery.flot.canvas.js": {
