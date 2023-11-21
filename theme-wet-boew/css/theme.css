@@ -3148,6 +3148,19 @@ select[multiple].input-lg,
 
 /*
 	WET-BOEW
+	@title: Bootstrap overrides for WET-BOEW - Core CSS - table
+ */
+caption {
+	color: #333;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: center; }
+
+.table-responsive > .table, th, td {
+	white-space: normal; }
+
+/*
+	WET-BOEW
 	@title: Bootstrap overrides for WET-BOEW - Core CSS - forms
  */
 /*! Placeholders */
