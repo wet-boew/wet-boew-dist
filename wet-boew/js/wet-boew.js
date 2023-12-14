@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.72 - 2023-12-12
+ * v4.0.72 - 2023-12-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -14837,7 +14837,14 @@ var componentName = "wb-tables",
 		var ol = document.createElement( "OL" ),
 			li = document.createElement( "LI" ),
 			paginate_buttons = $pagination.find( ".paginate_button" ),
-			navFocusOnId = setFocusOnId || $pagination.get( 0 ).id;
+			navFocusOnId;
+
+		if ( $pagination.length === 0 ) {
+			return;
+		}
+
+		// Set the element to get the focus upon navigation
+		navFocusOnId = setFocusOnId || $pagination.get( 0 ).id;
 
 		// Update Pagination List
 		for ( var i = 0; i < paginate_buttons.length; i++ ) {
