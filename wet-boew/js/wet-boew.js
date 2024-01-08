@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.72.1 - 2023-12-14
+ * v4.0.72.1 - 2024-01-08
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -4753,8 +4753,20 @@ var componentName = "wb-calevt",
 		year = settings.year;
 		month = settings.month;
 
-		minDate = events.minDate;
-		maxDate = events.maxDate;
+		if ( $elm.data( "calevtMinDate" ) ) {
+			minDate = getLocaleDate( $elm.data( "calevtMinDate" ) );
+		}
+		if ( $elm.data( "calevtMaxDate" ) ) {
+			maxDate = getLocaleDate( $elm.data( "calevtMaxDate" ) );
+		}
+
+		if ( !minDate || ( events.minDate < minDate ) ) {
+			minDate = events.minDate;
+		}
+		if ( !maxDate || ( events.maxDate > maxDate ) ) {
+			maxDate = events.maxDate;
+		}
+
 		minDateTime = minDate.getTime();
 		maxDateTime = maxDate.getTime();
 
@@ -5010,6 +5022,16 @@ var componentName = "wb-calevt",
 					.attr( "tabindex", "-1" );
 			}
 		}, 5 );
+	},
+
+	getLocaleDate = function( dateString ) {
+		var date = new Date(),
+			dateComponents = dateString.split( "-" );
+
+		dateComponents[ 1 ] = dateComponents[ 1 ] - 1;	// Convert to zero-based month
+		date.setFullYear( dateComponents[ 0 ], dateComponents[ 1 ], dateComponents[ 2 ] );
+
+		return date;
 	};
 
 // Bind the init event of the plugin
