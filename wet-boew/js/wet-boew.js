@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.73 - 2024-01-08
+ * v4.0.73 - 2024-01-15
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -9765,7 +9765,7 @@ var componentName = "wb-frmvld",
 										prefixStart = "<span class='prefix'>" + i18nText.error + "&#160;",
 										prefixEnd = i18nText.colon + " </span>",
 										separator = i18nText.hyphen,
-										ariaLive = $form.parent().find( ".arialive" )[ 0 ],
+										ariaLive = $form.closest( ".wb-frmvld" ).find( ".arialive" )[ 0 ],
 										$summaryContainer, summary, key, i, len, $error, prefix, $fieldName, $fieldset, label, labelString;
 
 									// Correct the colouring of fields that are no longer invalid
@@ -9913,7 +9913,7 @@ var componentName = "wb-frmvld",
 									validator.resetForm();
 									$( "#" + errorFormId ).detach();
 
-									ariaLive = $form.parent().find( ".arialive" )[ 0 ];
+									ariaLive = $form.closest( ".wb-frmvld" ).find( ".arialive" )[ 0 ];
 									if ( ariaLive.innerHTML.length !== 0 ) {
 										ariaLive.innerHTML = "";
 									}
