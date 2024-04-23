@@ -4,17 +4,17 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Twitter embedded timeline
+		<title>Twitter embedded timeline - Extra examples
 		 - Working examples
  - Web Experience Toolkit
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Helps with implementing Twitter embedded timelines." />
+		<meta name="description" content="Extra Twitter embedded timeline examples." />
 		
 		
 		
 		
-		<link rel="alternate" hreflang="fr" href="twitter-fr.html" />
+		<link rel="alternate" hreflang="fr" href="twitter-extra-fr.html" />
 		
 		<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
 		<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.css" />
@@ -43,7 +43,7 @@
 						<section id="wb-lng" class="visible-md visible-lg">
 							<h2>Language selection</h2>
 							<ul class="text-right">
-								<li><a lang="fr" hreflang="fr" href="twitter-fr.html">Français</a></li>
+								<li><a lang="fr" hreflang="fr" href="twitter-extra-fr.html">Français</a></li>
 								<li class="curr">English&#32;<span>(current)</span></li>
 							</ul>
 						</section>
@@ -108,7 +108,7 @@
 								<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
 								<meta property="position" content="2">
 							</li>
-							<li property="itemListElement" typeof="ListItem"><span property="name">Twitter embedded timeline</span><meta property="position" content="3"></li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Twitter embedded timeline - Extra examples</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>
@@ -116,10 +116,10 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-		<h1 id="wb-cont" property="name">Twitter embedded timeline</h1>
+		<h1 id="wb-cont" property="name">Twitter embedded timeline - Extra examples</h1>
 		<ul class="list-inline">
 				<li><a class="btn btn-primary" href="../../docs/ref/twitter/twitter-en.html">Documentation</a></li>
-			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Twitter%20embedded%20timeline:%20">Questions or comments?</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Twitter%20embedded%20timeline%20-%20Extra%20examples:%20">Questions or comments?</a></li>
 		</ul>
 		
 <span class="wb-prettify all-pre hide"></span>
@@ -130,49 +130,48 @@
 </ul>
 
 <section>
-	<h2>Purpose</h2>
-	<p>Helps with implementing Twitter embedded timelines.</p>
-</section>
-
-<section>
 	<h2>Examples: Profile timeline</h2>
 
 	<div class="row">
 		<section class="col-md-6">
-			<h3>Standard account</h3>
-			<div class="wb-twitter">
-				<a class="twitter-timeline" href="https://twitter.com/WebExpToolkit" data-tweet-limit="3">Tweets by @WebExpToolkit</a>
+			<h3>"Verified" account (<code>lang="zh-Hans"</code>, in context)</h3>
+			<div class="wb-twitter" lang="zh-Hans">
+				<a class="twitter-timeline" href="https://twitter.com/Canada" data-height="fb-page">Tweets by @Canada</a>
 			</div>
 			<section>
 				<h4>Code</h4>
-				<pre><code>&lt;div class=&quot;wb-twitter&quot;&gt;
-&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/WebExpToolkit&quot; data-tweet-limit=&quot;3&quot; &gt;Tweets by @WebExpToolkit&lt;/a&gt;
+				<pre><code>&lt;div class=&quot;wb-twitter&quot; lang=&quot;zh-Hans&quot;&gt;
+	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/Canada&quot; data-height=&quot;fb-page&quot;&gt;Tweets by @Canada&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 			</section>
 		</section>
 
 		<section class="col-md-6">
-			<h3>"Verified" account</h3>
+			<h3>"Verified" account (<code>data-dnt="false"</code>)</h3>
 			<div class="wb-twitter">
-				<a class="twitter-timeline" href="https://twitter.com/Canada" data-height="fb-page">Tweets by @Canada</a>
+				<a class="twitter-timeline" href="https://twitter.com/XDevelopers" data-height="fb-page" data-dnt="false">Tweets by @XDevelopers</a>
 			</div>
 			<section>
 				<h4>Code</h4>
 				<pre><code>&lt;div class=&quot;wb-twitter&quot;&gt;
-	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/Canada&quot; data-height=&quot;fb-page&quot;&gt;Tweets by @Canada&lt;/a&gt;
+	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/XDevelopers&quot; data-height=&quot;fb-page&quot; data-dnt=&quot;false&quot;&gt;Tweets by @XDevelopers&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 			</section>
 		</section>
 	</div>
-</section>
 
-<section>
-	<h2>Twitter developer documentation</h2>
-	<ul>
-		<li><a rel="external" href="https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview">Timelines overview</a></li>
-		<li><a rel="external" href="https://developer.twitter.com/en/docs/twitter-for-websites/supported-languages">Supported languages and browsers</a></li>
-		<li><a rel="external" href="https://developer.twitter.com/en/docs/twitter-for-websites/webpage-properties">Webpage properties</a></li>
-	</ul>
+	<section>
+		<h3>Standard account (<code>data-height="270"</code>)</h3>
+		<div class="wb-twitter">
+			<a class="twitter-timeline" href="https://twitter.com/WebExpToolkit" data-height="270">Tweets by @WebExpToolkit</a>
+		</div>
+		<section>
+			<h4>Code</h4>
+			<pre><code>&lt;div class=&quot;wb-twitter&quot;&gt;
+	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/WebExpToolkit&quot; data-height=&quot;270&quot;&gt;Tweets by @WebExpToolkit&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+		</section>
+	</section>
 </section>
 
 		<dl id="wb-dtmd">

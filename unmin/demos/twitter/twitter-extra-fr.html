@@ -4,18 +4,18 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Chronologie intégrée Twitter
+		<title>Chronologie intégrée Twitter - Exemples d’extra
 		 - Exemples pratiques
  - Boîte à outils de l'expérience Web
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Aide avec l’implémentation des chronologies intégrées Twitter." />
+		<meta name="description" content="Exemples d’extra des chronologies intégrées Twitter." />
 		
 		
 		
 		
 		
-		<link rel="alternate" hreflang="en" href="twitter-en.html" />
+		<link rel="alternate" hreflang="en" href="twitter-extra-en.html" />
 		
 		<link href="../../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon" />
 		<link rel="stylesheet" href="../../../theme-wet-boew/css/theme.css" />
@@ -45,7 +45,7 @@
 							<h2>Sélection de la langue</h2>
 							<ul class="text-right">
 								<li class="curr">Français&#32;<span>(actuel)</span></li>
-								<li><a lang="en" hreflang="en" href="twitter-en.html">English</a></li>
+								<li><a lang="en" hreflang="en" href="twitter-extra-en.html">English</a></li>
 							</ul>
 						</section>
 	<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
@@ -109,7 +109,7 @@
 								<a property="item" typeof="WebPage" href="../../demos/index-fr.html"><span property="name">Exemples pratiques</span></a>
 								<meta property="position" content="2">
 							</li>
-							<li property="itemListElement" typeof="ListItem"><span property="name">Chronologie intégrée Twitter</span><meta property="position" content="3"></li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Chronologie intégrée Twitter - Exemples d’extra</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>
@@ -117,10 +117,10 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-		<h1 id="wb-cont" property="name">Chronologie intégrée Twitter</h1>
+		<h1 id="wb-cont" property="name">Chronologie intégrée Twitter - Exemples d’extra</h1>
 		<ul class="list-inline">
 				<li><a class="btn btn-primary" href="../../docs/ref/twitter/twitter-fr.html">Documentation</a></li>
-			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Chronologie%20int%C3%A9gr%C3%A9e%20Twitter:%20">Questions ou commentaires?</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Chronologie%20int%C3%A9gr%C3%A9e%20Twitter%20-%20Exemples%20d%E2%80%99extra:%20">Questions ou commentaires?</a></li>
 		</ul>
 		
 <span class="wb-prettify all-pre hide"></span>
@@ -131,49 +131,48 @@
 </ul>
 
 <section>
-	<h2>But</h2>
-	<p>Ce plugiciel aide à afficher des chronologies intégrées Twitter.</p>
-</section>
-
-<section>
 	<h2>Exemples&nbsp;: Chronologie de profil</h2>
 
 	<div class="row">
 		<section class="col-md-6">
-			<h3>Compte standard</h3>
-			<div class="wb-twitter">
-				<a class="twitter-timeline" href="https://twitter.com/WebExpToolkit" data-tweet-limit="3">Tweets de @WebExpToolkit</a>
+			<h3>Compte «&nbsp;certifié&nbsp;» (<code>lang="zh-Hans"</code>, en contexte)</h3>
+			<div class="wb-twitter" lang="zh-Hans">
+				<a class="twitter-timeline" href="https://twitter.com/Canada" data-height="fb-page">Tweets de @Canada</a>
 			</div>
 			<section>
 				<h4>Code</h4>
-				<pre><code>&lt;div class=&quot;wb-twitter&quot;&gt;
-&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/WebExpToolkit&quot; data-tweet-limit=&quot;3&quot; &gt;Tweets de @WebExpToolkit&lt;/a&gt;
+				<pre><code>&lt;div class=&quot;wb-twitter&quot; lang=&quot;zh-Hans&quot;&gt;
+	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/Canada&quot; data-height=&quot;fb-page&quot;&gt;Tweets de @Canada&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 			</section>
 		</section>
 
 		<section class="col-md-6">
-			<h3>Compte «&nbsp;certifié&nbsp;»</h3>
+			<h3>Compte «&nbsp;certifié&nbsp;» (<code>data-dnt="false"</code>)</h3>
 			<div class="wb-twitter">
-				<a class="twitter-timeline" href="https://twitter.com/Canada" data-height="fb-page">Tweets de @Canada</a>
+				<a class="twitter-timeline" href="https://twitter.com/XDevelopers" data-height="fb-page" data-dnt="false">Tweets de @XDevelopers</a>
 			</div>
 			<section>
 				<h4>Code</h4>
 				<pre><code>&lt;div class=&quot;wb-twitter&quot;&gt;
-	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/Canada&quot; data-height=&quot;fb-page&quot;&gt;Tweets de @Canada&lt;/a&gt;
+	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/XDevelopers&quot; data-height=&quot;fb-page&quot; data-dnt=&quot;false&quot;&gt;Tweets de @XDevelopers&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 			</section>
 		</section>
 	</div>
-</section>
 
-<section>
-	<h2>Documentation destinée aux développeurs Twitter</h2>
-	<ul>
-		<li><a rel="external" href="https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview">Aperçu des chronologies (anglais seulement)</a></li>
-		<li><a rel="external" href="https://developer.twitter.com/en/docs/twitter-for-websites/supported-languages">Langues et navigateurs compatibles (anglais seulement)</a></li>
-		<li><a rel="external" href="https://developer.twitter.com/en/docs/twitter-for-websites/webpage-properties">Propriétés de page Web (anglais seulement)</a></li>
-	</ul>
+	<section>
+		<h3>Compte standard (<code>data-height="270"</code>)</h3>
+		<div class="wb-twitter">
+			<a class="twitter-timeline" href="https://twitter.com/WebExpToolkit" data-height="270">Tweets de @WebExpToolkit</a>
+		</div>
+		<section>
+			<h4>Code</h4>
+			<pre><code>&lt;div class=&quot;wb-twitter&quot;&gt;
+	&lt;a class=&quot;twitter-timeline&quot; href=&quot;https://twitter.com/WebExpToolkit&quot; data-height=&quot;270&quot;&gt;Tweets de @WebExpToolkit&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+		</section>
+	</section>
 </section>
 
 		<dl id="wb-dtmd">
