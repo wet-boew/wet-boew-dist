@@ -1,14 +1,14 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.78 - 2024-04-23
+ * v4.0.78 - 2024-04-30
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 @charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.78 - 2024-04-23
+ * v4.0.78 - 2024-04-30
  *
  */
 /*
@@ -9301,6 +9301,15 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 /**
  * GeoMap
  */
+.wb-geomap.legend-label-only .geomap-lgnd-layer:has(> div > ul > li:only-child) {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex; }
+	.wb-geomap.legend-label-only .geomap-lgnd-layer:has(> div > ul > li:only-child) label {
+		margin-right: 5px; }
+	.wb-geomap.legend-label-only .geomap-lgnd-layer:has(> div > ul > li:only-child) .geomap-legend-symbol-text {
+		display: none; }
+
 .wb-geomap-map {
 	outline: 1px solid #ccc;
 	overflow: hidden;
