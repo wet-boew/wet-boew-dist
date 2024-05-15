@@ -8472,9 +8472,15 @@ ol.linenums {
 	width: 32px;
 	height: 32px; }
 
-.shr-pg .yahoomail:before {
+.shr-pg .x:before {
 	background-image: url(../../wet-boew/assets/sprites_share.png);
 	background-position: -32px -96px;
+	width: 32px;
+	height: 32px; }
+
+.shr-pg .yahoomail:before {
+	background-image: url(../../wet-boew/assets/sprites_share.png);
+	background-position: -64px -96px;
 	width: 32px;
 	height: 32px; }
 
