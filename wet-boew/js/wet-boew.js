@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.79 - 2024-04-30
+ * v4.0.79 - 2024-05-15
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -13373,16 +13373,28 @@ const componentName = "wb-paginate",
 			paginationUI = "<ol class=\"pagination\">";
 
 			// Add Previous page button
-			paginationUI += "<li" + ( i === currPage ? " class=\"disabled\"" : "" ) + "><a class=\"paginate-prev\" aria-controls=\"" + elm.id + "\" href=\"#" + elm.id + "\">" + i18nText.prv + "</a></li>";
+			var prevLI = "";
+			prevLI += "<li" + ( i === currPage ? " class=\"disabled\"" : "" ) + ">";
+			prevLI += "<button type=\"button\" class=\"paginate-prev\" aria-controls=\"" + elm.id + "\"><span class=\"wb-inv\">Page </span>" + i18nText.prv + "</button>";
+			prevLI += "</li>";
+
+			paginationUI += prevLI;
 
 			// Add pages buttons
 			for ( i; i <= pagesCount; i++ ) {
-				paginationUI += "<li class=\"" + returnItemClass( currPage, pagesCount, i ) + "\"" + ( i === currPage ? " aria-current=\"page\"" : "" ) + "><a href=\"#" + elm.id + "\" " + pageData + "=\"" + i + "\" aria-controls=\"" + elm.id + "\"><span class=\"wb-inv\">Page </span>" + i + "</a></li>";
+				var pageButtonLI = "";
+				pageButtonLI += "<li class=\"" + returnItemClass( currPage, pagesCount, i ) + "\"" + ">";
+				pageButtonLI += "<button type=\"button\" " + pageData + "=\"" + i + "\" aria-controls=\"" + elm.id + "\"" + ( i === currPage ? " aria-current=\"true\"" : "" ) + "><span class=\"wb-inv\">Page </span>" + i + "</button>";
+				pageButtonLI += "</li>";
+				paginationUI += pageButtonLI;
 			}
 
 			// Add Next page button
-			paginationUI += "<li" + ( i === currPage ? " class=\"disabled\"" : "" ) + "><a class=\"paginate-next\" aria-controls=\"" + elm.id + "\" href=\"#" + elm.id + "\">" + i18nText.nxt + "</a></li>";
-
+			var nextLI = "";
+			nextLI += "<li" + ( i === currPage ? " class=\"disabled\"" : "" ) + ">";
+			nextLI += "<button type=\"button\" class=\"paginate-next\" aria-controls=\"" + elm.id + "\"><span class=\"wb-inv\">Page </span>" + i18nText.nxt + "</button>";
+			nextLI += "</li>";
+			paginationUI += nextLI;
 			paginationUI += "</ol>";
 		}
 
@@ -13417,7 +13429,7 @@ const componentName = "wb-paginate",
 			pagesCount = elm.pgSettings.pagesCount;
 
 		pageItems.forEach( function( pageItem, i ) {
-			pageLink = pageItem.querySelector( "a" );
+			pageLink = pageItem.querySelector( "button" );
 
 			if ( pageLink.classList.contains( "paginate-prev" ) ) {
 				if ( currPage > 1 ) {
@@ -13433,12 +13445,12 @@ const componentName = "wb-paginate",
 				}
 			} else {
 				pageItem.className = "";
-				pageItem.removeAttribute( "aria-current" );
+				pageItem.children[ 0 ].removeAttribute( "aria-current" );
 
 				itemClass = returnItemClass( currPage, pagesCount, i );
 
 				if ( i === currPage ) {
-					pageItem.setAttribute( "aria-current", "page" );
+					pageItem.children[ 0 ].setAttribute( "aria-current", "true" );
 				}
 
 				pageItem.className = itemClass;
@@ -13491,8 +13503,8 @@ const componentName = "wb-paginate",
 		return itemClass;
 	};
 
-// When a filter is updated
-$document.on( "click", "." + pagerClass + " a", function()  {
+// When a page button is clicked
+$document.on( "click", "." + pagerClass + " button", function()  {
 	let elm = document.querySelector( "#" + this.getAttribute( "aria-controls" ) ),
 		pageDest = ( ( this.getAttribute( pageData ) ) * 1 ) || elm.pgSettings.currPage;
 
@@ -13507,7 +13519,14 @@ $document.on( "click", "." + pagerClass + " a", function()  {
 
 		updateItems( elm );
 		goToPage( elm );
+
+		$( elm ).trigger( "setfocus.wb" );
+		if ( elm.getBoundingClientRect().top < 0 ) {
+			elm.scrollIntoView( { behavior: "smooth" }, true );
+		}
 	}
+
+
 } );
 
 // Resets items and pagination
