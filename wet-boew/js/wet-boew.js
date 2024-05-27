@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.80 - 2024-05-21
+ * v4.0.80 - 2024-05-27
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -17278,7 +17278,7 @@ var componentName = "wb-twitter",
 							const mutationTarget = mutation.target;
 
 							// Override the timeline iframe's title right after Twitter's widget script adds it
-							// Note: The timeline's iframe title is English-only and written in title case ("Twitter Timeline")... This replaces it with an i18n version written in sentence case.
+							// Note: The timeline's iframe title is English-only, uses "Twitter" and is written in title case ("Twitter Timeline")... This replaces it with an i18n version that uses "X" and is written in sentence case.
 							if ( mutationTarget.nodeName === "IFRAME" && mutationTarget.title !== i18nText.timelineTitle ) {
 								mutationTarget.title = i18nText.timelineTitle;
 							}
