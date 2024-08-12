@@ -2440,22 +2440,22 @@ var getUrlParts = function( url ) {
 					( typeof mixin === "string" && mixin !== "" ) << 2;
 
 			switch ( truthiness ) {
-			case 1:
+				case 1:
 
-				// only key was provided
-				return dictionary[ key ];
+					// only key was provided
+					return dictionary[ key ];
 
-			case 3:
+				case 3:
 
-				// key and state were provided
-				return dictionary[ key ][ state ];
+					// key and state were provided
+					return dictionary[ key ][ state ];
 
-			case 7:
+				case 7:
 
-				// key, state, and mixin were provided
-				return dictionary[ key ][ state ].replace( "[MIXIN]", mixin );
-			default:
-				return "";
+					// key, state, and mixin were provided
+					return dictionary[ key ][ state ].replace( "[MIXIN]", mixin );
+				default:
+					return "";
 			}
 		},
 
@@ -3973,15 +3973,15 @@ wb.date = {
 		var dateConstructor = dateValue.constructor;
 
 		switch ( dateConstructor ) {
-		case Date:
-			return dateConstructor;
-		case Array:
-			return new Date( dateValue[ 0 ], dateValue[ 1 ], dateValue[ 2 ] );
-		case Number:
-		case String:
-			return new Date( dateValue );
-		default:
-			return typeof dateValue === "object" ? new Date( dateValue.year, dateValue.month, dateValue.date ) : NaN;
+			case Date:
+				return dateConstructor;
+			case Array:
+				return new Date( dateValue[ 0 ], dateValue[ 1 ], dateValue[ 2 ] );
+			case Number:
+			case String:
+				return new Date( dateValue );
+			default:
+				return typeof dateValue === "object" ? new Date( dateValue.year, dateValue.month, dateValue.date ) : NaN;
 		}
 	},
 
@@ -4369,50 +4369,50 @@ var componentName = "wb-addcal",
 			for ( i = 0; i < i_len; i++ ) {
 				prop_cache = properties[ i ];
 				switch ( prop_cache.getAttribute( "property" ) ) {
-				case "name":
+					case "name":
 
-					// If the property=name is inside an element with typeof=Place defined
-					if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[typeof=Place]" ).length ) {
-						event_details.placeName = prop_cache.textContent;
-					} else {
-						event_details.name = prop_cache.textContent;
-					}
-					break;
-				case "description":
-					event_details.description = prop_cache.textContent.replace( /(\r\n|\n|\r)/gm, " " );
-					break;
-				case "startDate":
-					event_details.sDate = dtToISOString( $( "time[property='startDate']", $elm ) );
-					break;
-				case "endDate":
-					event_details.eDate = dtToISOString( $( "time[property='endDate']", $elm ) );
-					break;
-				case "location":
+						// If the property=name is inside an element with typeof=Place defined
+						if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[typeof=Place]" ).length ) {
+							event_details.placeName = prop_cache.textContent;
+						} else {
+							event_details.name = prop_cache.textContent;
+						}
+						break;
+					case "description":
+						event_details.description = prop_cache.textContent.replace( /(\r\n|\n|\r)/gm, " " );
+						break;
+					case "startDate":
+						event_details.sDate = dtToISOString( $( "time[property='startDate']", $elm ) );
+						break;
+					case "endDate":
+						event_details.eDate = dtToISOString( $( "time[property='endDate']", $elm ) );
+						break;
+					case "location":
 
-					// If the location doesn't have typeof defined OR has typeof=VirtualLocation without URL inside.
-					if ( !prop_cache.getAttribute( "typeof" ) || ( prop_cache.getAttribute( "typeof" ) === "VirtualLocation" && !$( prop_cache ).find( "[property=url]" ).length ) ) {
-						event_details.placeName = prop_cache.textContent;
-					}
-					break;
-				case "streetAddress":
-					event_details.placeAddress = prop_cache.textContent;
-					break;
-				case "addressLocality":
-					event_details.placeLocality = prop_cache.textContent;
-					break;
-				case "addressRegion":
-					event_details.placeRegion = prop_cache.textContent;
-					break;
-				case "postalCode":
-					event_details.placePostalCode = prop_cache.textContent;
-					break;
-				case "url":
+						// If the location doesn't have typeof defined OR has typeof=VirtualLocation without URL inside.
+						if ( !prop_cache.getAttribute( "typeof" ) || ( prop_cache.getAttribute( "typeof" ) === "VirtualLocation" && !$( prop_cache ).find( "[property=url]" ).length ) ) {
+							event_details.placeName = prop_cache.textContent;
+						}
+						break;
+					case "streetAddress":
+						event_details.placeAddress = prop_cache.textContent;
+						break;
+					case "addressLocality":
+						event_details.placeLocality = prop_cache.textContent;
+						break;
+					case "addressRegion":
+						event_details.placeRegion = prop_cache.textContent;
+						break;
+					case "postalCode":
+						event_details.placePostalCode = prop_cache.textContent;
+						break;
+					case "url":
 
-					// If the property=url is inside a property=location
-					if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[property=location]" ).length ) {
-						event_details.placeName = prop_cache.textContent;
-					}
-					break;
+						// If the property=url is inside a property=location
+						if ( $( prop_cache ).parentsUntil( ( "." + componentName ), "[property=location]" ).length ) {
+							event_details.placeName = prop_cache.textContent;
+						}
+						break;
 				}
 			}
 
@@ -5103,16 +5103,16 @@ $document.on( "timerpoke.wb " + initEvent + " wb-redraw" + selector, selector, f
 		calendarId = event.currentTarget.dataset.calevtSrc;
 
 	switch ( eventType ) {
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	case "wb-redraw":
-		$( "#" + calendarId + " .wb-clndr" ).remove();
-		processEvents( $elm );
-		$elm.trigger( "wb-updated" + selector );
-		break;
+		case "wb-redraw":
+			$( "#" + calendarId + " .wb-clndr" ).remove();
+			processEvents( $elm );
+			$elm.trigger( "wb-updated" + selector );
+			break;
 	}
 } );
 
@@ -5137,18 +5137,18 @@ $document.on( "focusin focusout keydown", selectorEvent + " .cal-evt", function(
 		$link;
 
 	switch ( eventType ) {
-	case "focusin":
-		showEvents.call( event.target );
-		break;
-	case "focusout":
-		hideEvents.call( event.target );
-		break;
-	case "keydown":
-		$link = $( event.target );
-		if ( ( event.which === 13 || event.which === 32 ) && $link.hasClass( "cal-evt" ) ) {
-			$( event.target ).next().find( "a:first" ).trigger( setFocusEvent );
-		}
-		break;
+		case "focusin":
+			showEvents.call( event.target );
+			break;
+		case "focusout":
+			hideEvents.call( event.target );
+			break;
+		case "keydown":
+			$link = $( event.target );
+			if ( ( event.which === 13 || event.which === 32 ) && $link.hasClass( "cal-evt" ) ) {
+				$( event.target ).next().find( "a:first" ).trigger( setFocusEvent );
+			}
+			break;
 	}
 } );
 
@@ -5157,24 +5157,24 @@ $document.on( "keydown", selectorEvent + " td > ul li", function( event ) {
 		$toFocus, $itemParent;
 
 	switch ( event.which ) {
-	case 38:
-		$toFocus = $item.prev().find( "a" );
-		if ( $toFocus.length === 0 ) {
-			$toFocus = $item.siblings( ":last" ).find( "a" );
-		}
-		$toFocus.trigger( setFocusEvent );
-		break;
-	case 40:
-		$toFocus = $item.next().find( "a" );
-		if ( $toFocus.length === 0 ) {
-			$toFocus = $item.siblings( ":first" ).find( "a" );
-		}
-		$toFocus.trigger( setFocusEvent );
-		break;
-	case 27:
-		$itemParent = $item.closest( "td" ).children( "a" );
-		$itemParent.trigger( setFocusEvent );
-		break;
+		case 38:
+			$toFocus = $item.prev().find( "a" );
+			if ( $toFocus.length === 0 ) {
+				$toFocus = $item.siblings( ":last" ).find( "a" );
+			}
+			$toFocus.trigger( setFocusEvent );
+			break;
+		case 40:
+			$toFocus = $item.next().find( "a" );
+			if ( $toFocus.length === 0 ) {
+				$toFocus = $item.siblings( ":first" ).find( "a" );
+			}
+			$toFocus.trigger( setFocusEvent );
+			break;
+		case 27:
+			$itemParent = $item.closest( "td" ).children( "a" );
+			$itemParent.trigger( setFocusEvent );
+			break;
 	}
 } );
 
@@ -5417,14 +5417,14 @@ var i18nText,
 
 		return i18nText.format.replace( /\{ddd\}|\{d\}|\{M\}|\{Y\}/g, function( match ) {
 			switch ( match ) {
-			case "{ddd}":
-				return textWeekDayNames[ parseInt( date.getDay(), 10 ) ];
-			case "{d}":
-				return parseInt( date.getDate(), 10 );
-			case "{M}":
-				return textMonthNames[ parseInt( date.getMonth(), 10 ) ];
-			case "{Y}":
-				return date.getFullYear();
+				case "{ddd}":
+					return textWeekDayNames[ parseInt( date.getDay(), 10 ) ];
+				case "{d}":
+					return parseInt( date.getDate(), 10 );
+				case "{M}":
+					return textMonthNames[ parseInt( date.getMonth(), 10 ) ];
+				case "{Y}":
+					return date.getFullYear();
 			}
 		} );
 	};
@@ -5497,14 +5497,14 @@ $document.on( "change", selector, function( event ) {
 		year, month;
 
 	switch ( target.className ) {
-	case "cal-year":
-		year = parseInt( target.value, 10 );
-		month = calendar.lib.month;
-		break;
-	case "cal-month":
-		year = calendar.lib.year;
-		month = parseInt( target.value, 10 );
-		break;
+		case "cal-year":
+			year = parseInt( target.value, 10 );
+			month = calendar.lib.month;
+			break;
+		case "cal-month":
+			year = calendar.lib.year;
+			month = parseInt( target.value, 10 );
+			break;
 	}
 
 	$( calendar ).trigger( {
@@ -5552,21 +5552,21 @@ $document.on( "keydown", selector, function( event ) {
 		//Key binding for the entire calendar
 		switch ( which ) {
 
-		//page up
-		case 33:
-			date.setDate( minDate.getDate() );
+			//page up
+			case 33:
+				date.setDate( minDate.getDate() );
 
-			//page down
-			/* falls through */
-		case 34:
-			modifier = ( which === 33 ? -1 : 1 );
+				//page down
+				/* falls through */
+			case 34:
+				modifier = ( which === 33 ? -1 : 1 );
 
-			if ( event.ctrlKey || event.shiftKey || event.altKey ) {
-				date.setYear( date.getFullYear() + modifier );
-			} else {
-				date.setMonth( date.getMonth() + modifier );
-			}
-			break;
+				if ( event.ctrlKey || event.shiftKey || event.altKey ) {
+					date.setYear( date.getFullYear() + modifier );
+				} else {
+					date.setMonth( date.getMonth() + modifier );
+				}
+				break;
 		}
 
 		//Key binding for navigating calendar days
@@ -5578,27 +5578,27 @@ $document.on( "keydown", selector, function( event ) {
 
 			switch ( which ) {
 
-			// end / home
-			case 35:
-				date.setDate( lastDay );
-				break;
-			case 36:
-				date.setDate( 1 );
-				break;
+				// end / home
+				case 35:
+					date.setDate( lastDay );
+					break;
+				case 36:
+					date.setDate( 1 );
+					break;
 
-			// left / up / right / down arrows
-			case 37:
-				date.setDate( day - 1 );
-				break;
-			case 38:
-				date.setDate( day - 7 );
-				break;
-			case 39:
-				date.setDate( day + 1 );
-				break;
-			case 40:
-				date.setDate( day + 7 );
-				break;
+				// left / up / right / down arrows
+				case 37:
+					date.setDate( day - 1 );
+					break;
+				case 38:
+					date.setDate( day - 7 );
+					break;
+				case 39:
+					date.setDate( day + 1 );
+					break;
+				case 40:
+					date.setDate( day + 7 );
+					break;
 			}
 		}
 
@@ -6821,22 +6821,22 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 
 	switch ( eventType ) {
 
-	/*
-	 * Init
-	 */
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		/*
+		 * Init
+		 */
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	/*
-	 * Data table parsed
-	 */
-	case "parsecomplete":
-		if ( event.currentTarget === elm ) {
-			createCharts( $( elm ) );
-		}
-		break;
+		/*
+		 * Data table parsed
+		 */
+		case "parsecomplete":
+			if ( event.currentTarget === elm ) {
+				createCharts( $( elm ) );
+			}
+			break;
 	}
 
 	/*
@@ -7301,19 +7301,19 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " ajax-fetched.w
 
 	switch ( event.type ) {
 
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
-	case "wb-update":
-		ajax( event );
-		break;
-	default:
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
+		case "wb-update":
+			ajax( event );
+			break;
+		default:
 
-		// Filter out any events triggered by descendants
-		if ( event.currentTarget === eventTarget ) {
-			ajxFetched( eventTarget, event.fetch );
-		}
+			// Filter out any events triggered by descendants
+			if ( event.currentTarget === eventTarget ) {
+				ajxFetched( eventTarget, event.fetch );
+			}
 	}
 
 	/*
@@ -7552,18 +7552,18 @@ $document.on( "timerpoke.wb " + initEvent + " " + scrollEvent, selector, functio
 		eventType = event.type;
 
 	switch ( eventType ) {
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	case "scroll":
+		case "scroll":
 
-		// Filter out any events triggered by descendants
-		if ( event.currentTarget === eventTarget ) {
-			onInView( $( eventTarget ) );
-		}
-		break;
+			// Filter out any events triggered by descendants
+			if ( event.currentTarget === eventTarget ) {
+				onInView( $( eventTarget ) );
+			}
+			break;
 	}
 
 	/*
@@ -7686,18 +7686,18 @@ $document.on( "timerpoke.wb " + initEvent + " " + picturefillEvent, selector, fu
 		eventType = event.type;
 
 	switch ( eventType ) {
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	case "picfill":
+		case "picfill":
 
-		// Filter out any events triggered by descendants
-		if ( event.currentTarget === eventTarget ) {
-			picturefill( eventTarget );
-		}
-		break;
+			// Filter out any events triggered by descendants
+			if ( event.currentTarget === eventTarget ) {
+				picturefill( eventTarget );
+			}
+			break;
 	}
 } );
 
@@ -8163,15 +8163,15 @@ var componentName = "wb-eqht",
 			anchorRel = $elm.data( "anchorRel" );
 
 		switch ( anchorRel ) {
-		case "prev":
-			$anchor.after( $elm );
-			break;
-		case "next":
-			$anchor.before( $elm );
-			break;
-		case "parent":
-			$anchor.append( $elm );
-			break;
+			case "prev":
+				$anchor.after( $elm );
+				break;
+			case "next":
+				$anchor.before( $elm );
+				break;
+			case "parent":
+				$anchor.append( $elm );
+				break;
 		}
 
 		return $elm;
@@ -8626,13 +8626,13 @@ $document.on( mobileEvent + " " + iconEvent, selector, function( event, data ) {
 	// Filter out any events triggered by descendants
 	if ( event.currentTarget === eventTarget ) {
 		switch ( event.type ) {
-		case "mobile":
-			mobile( eventTarget, event, data );
-			break;
+			case "mobile":
+				mobile( eventTarget, event, data );
+				break;
 
-		case "icon":
-			icon( eventTarget, event, data );
-			break;
+			case "icon":
+				icon( eventTarget, event, data );
+				break;
 		}
 	}
 
@@ -9120,32 +9120,32 @@ $document.on( "ajax-fetched.wb data-ready.wb-feeds", selector + " " + feedLinkSe
 	if ( event.currentTarget === eventTarget ) {
 		$emlRss = $( eventTarget ).parentsUntil( selector ).parent();
 		switch ( event.type ) {
-		case "ajax-fetched":
-			responseRaw = event.fetch.response;
-			if ( typeof responseRaw === "string" ) {
-				response = JSON.parse( responseRaw ); // Assuming we have fetch a JSON document, try to parse it.
-			} else {
-				response = responseRaw.get( 0 ); // fetched an HTML or XML document which has been parsed by jQuery and sanitized by DomPurify
-			}
-			if ( response.documentElement ) {
-				limit = getLimit( $emlRss[ Object.keys( $emlRss )[ 0 ] ] );
-				data = corsEntry( response, limit );
-			} else if ( response.query ) {
-				results = response.query.results;
-				if ( !results ) {
-					data = results.item; // Flicker feeds
-					if ( !Array.isArray( data ) ) {
-						data = [ data ];
+			case "ajax-fetched":
+				responseRaw = event.fetch.response;
+				if ( typeof responseRaw === "string" ) {
+					response = JSON.parse( responseRaw ); // Assuming we have fetch a JSON document, try to parse it.
+				} else {
+					response = responseRaw.get( 0 ); // fetched an HTML or XML document which has been parsed by jQuery and sanitized by DomPurify
+				}
+				if ( response.documentElement ) {
+					limit = getLimit( $emlRss[ Object.keys( $emlRss )[ 0 ] ] );
+					data = corsEntry( response, limit );
+				} else if ( response.query ) {
+					results = response.query.results;
+					if ( !results ) {
+						data = results.item; // Flicker feeds
+						if ( !Array.isArray( data ) ) {
+							data = [ data ];
+						}
+					} else {
+						data = [];
 					}
 				} else {
-					data = [];
+					data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry;
 				}
-			} else {
-				data = ( response.responseData ) ? response.responseData.feed.entries : response.items || response.feed.entry;
-			}
-			break;
-		default:
-			data = event.feedsData;
+				break;
+			default:
+				data = event.feedsData;
 		}
 
 		// Identify that initialization has completed
@@ -9402,26 +9402,26 @@ var componentName = "wb-filter",
 
 		switch ( filterType ) {
 
-		case "and":
-			words = filterQueryParser( filter );
-			if ( words ) {
-				wordRegExFilter = ".*";
-				i_len = words.length;
-				for ( i = 0; i < i_len; i++ ) {
-					wordRegExFilter = wordRegExFilter + ( "(?=.*" + words[ i ] + ")" );
+			case "and":
+				words = filterQueryParser( filter );
+				if ( words ) {
+					wordRegExFilter = ".*";
+					i_len = words.length;
+					for ( i = 0; i < i_len; i++ ) {
+						wordRegExFilter = wordRegExFilter + ( "(?=.*" + words[ i ] + ")" );
+					}
 				}
-			}
-			break;
+				break;
 
-		case "or": // If one word fall back on default
-			words = filterQueryParser( filter );
-			if ( words ) {
-				wordRegExFilter =  words.join( "|" );
-			}
-			break;
+			case "or": // If one word fall back on default
+				words = filterQueryParser( filter );
+				if ( words ) {
+					wordRegExFilter =  words.join( "|" );
+				}
+				break;
 
-		default:
-			break;
+			default:
+				break;
 
 		}
 
@@ -11241,26 +11241,26 @@ $document.on( "timerpoke.wb " + initEvent + " ajax-fetched.wb ajax-failed.wb", s
 		elm, $elm;
 
 	switch ( eventType ) {
-	case "ajax-fetched":
-	case "ajax-failed":
-		elm = event.target;
+		case "ajax-fetched":
+		case "ajax-failed":
+			elm = event.target;
 
-		// Filter out any events triggered by descendants
-		if ( event.currentTarget === elm ) {
-			$elm = $( elm );
+			// Filter out any events triggered by descendants
+			if ( event.currentTarget === elm ) {
+				$elm = $( elm );
 
-			// Only replace the menu if there isn't an error
-			onAjaxLoaded(
-				$elm,
-				eventType === "ajax-fetched" ? event.fetch.pointer : $elm
-			);
-		}
-		return false;
+				// Only replace the menu if there isn't an error
+				onAjaxLoaded(
+					$elm,
+					eventType === "ajax-fetched" ? event.fetch.pointer : $elm
+				);
+			}
+			return false;
 
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 	}
 
 	/*
@@ -12031,62 +12031,62 @@ var componentName = "wb-mltmd",
 		var $this, method;
 
 		switch ( fn ) {
-		case "play":
-			try {
-				this.object.play();
-			} catch ( ex ) {
-				this.object.doPlay();
-			}
-			break;
-		case "pause":
-			try {
-				this.object.pause();
-			} catch ( ex ) {
-				this.object.doPause();
-			}
-			break;
-		case "getCaptionsVisible":
-			return $( this ).hasClass( captionClass );
-		case "setCaptionsVisible":
-			$this = $( this );
-			if ( args ) {
-				$this.addClass( captionClass );
-			} else {
-				$this.removeClass( captionClass );
-			}
-			$this.trigger( captionsVisibleChangeEvent );
-			break;
-		case "fullscreen":
-			if ( this.object.requestFullscreen ) {
-				this.object.requestFullscreen();
-			} else if ( this.object.webkitRequestFullscreen ) { /* Safari */
-				this.object.webkitRequestFullscreen();
-			} else if ( this.object.msRequestFullscreen ) { /* IE11 */
-				this.object.msRequestFullscreen();
-			}
-			break;
-		case "getBuffering":
-			return this.object.buffering || false;
-		case "setBuffering":
-			this.object.buffering = args;
-			break;
-		case "getPreviousTime":
-			return this.object.previousTime;
-		case "setPreviousTime":
-			this.object.previousTime = args;
-			break;
-		default:
-			method = fn.charAt( 3 ).toLowerCase() + fn.substr( 4 );
-			switch ( fn.substr( 0, 3 ) ) {
-			case "get":
-				return typeof this.object[ method ] !== "function" ?
-					this.object[ method ] :
-					this.object[ method ]();
-			case "set":
-				typeof this.object[ method ] !== "function" ?
-					this.object[ method ] = args :
-					this.object[ fn ]( args );
-			}
+			case "play":
+				try {
+					this.object.play();
+				} catch ( ex ) {
+					this.object.doPlay();
+				}
+				break;
+			case "pause":
+				try {
+					this.object.pause();
+				} catch ( ex ) {
+					this.object.doPause();
+				}
+				break;
+			case "getCaptionsVisible":
+				return $( this ).hasClass( captionClass );
+			case "setCaptionsVisible":
+				$this = $( this );
+				if ( args ) {
+					$this.addClass( captionClass );
+				} else {
+					$this.removeClass( captionClass );
+				}
+				$this.trigger( captionsVisibleChangeEvent );
+				break;
+			case "fullscreen":
+				if ( this.object.requestFullscreen ) {
+					this.object.requestFullscreen();
+				} else if ( this.object.webkitRequestFullscreen ) { /* Safari */
+					this.object.webkitRequestFullscreen();
+				} else if ( this.object.msRequestFullscreen ) { /* IE11 */
+					this.object.msRequestFullscreen();
+				}
+				break;
+			case "getBuffering":
+				return this.object.buffering || false;
+			case "setBuffering":
+				this.object.buffering = args;
+				break;
+			case "getPreviousTime":
+				return this.object.previousTime;
+			case "setPreviousTime":
+				this.object.previousTime = args;
+				break;
+			default:
+				method = fn.charAt( 3 ).toLowerCase() + fn.substr( 4 );
+				switch ( fn.substr( 0, 3 ) ) {
+					case "get":
+						return typeof this.object[ method ] !== "function" ?
+							this.object[ method ] :
+							this.object[ method ]();
+					case "set":
+						typeof this.object[ method ] !== "function" ?
+							this.object[ method ] = args :
+							this.object[ fn ]( args );
+				}
 		}
 	},
 
@@ -12101,70 +12101,70 @@ var componentName = "wb-mltmd",
 			state;
 
 		switch ( fn ) {
-		case "play":
-			this.object.wasMutedPlay = this.object.isMuted();
-			return this.object.playVideo();
-		case "pause":
-			return this.object.pauseVideo();
-		case "getPaused":
-			state = this.object.getPlayerState();
-			return state === -1 || state === 0 || state === 2 || state === 5;
-		case "getPlayed":
-			return this.object.getPlayerState() > -1;
-		case "getEnded":
-			return this.object.getPlayerState() === 0;
-		case "getDuration":
-			return this.object.getDuration();
-		case "getCurrentTime":
-			return this.object.getCurrentTime();
-		case "setCurrentTime":
-			return this.object.seekTo( args, true );
-		case "fullscreen":
-			return this.object.getIframe().requestFullscreen();
-		case "getMuted":
-			if ( !this.object.playedOnce && this.object.wasMutedPlay ) {
-				state = this.object.wasMutedPlay;
-				this.object.playedOnce = true;
-				return state;
-			} else {
-				return this.object.isMuted();
-			}
-		case "setMuted":
-			if ( args ) {
-				this.object.mute();
-			} else {
-				this.object.unMute();
-			}
-			setTimeout( function() {
-				$media.trigger( "volumechange" );
-			}, ( wb.isReady ? 50 : 500 ) );
-			break;
-		case "getVolume":
-			return this.object.getVolume() / 100;
-		case "setVolume":
-			this.object.setVolume( args * 100 );
-			setTimeout( function() {
-				$media.trigger( "volumechange" );
-			}, 50 );
-			break;
-		case "getCaptionsVisible":
-			return $( this ).hasClass( captionClass );
-		case "setCaptionsVisible":
-			if ( args ) {
-				$( this ).addClass( captionClass );
-				try {
-					this.object.loadModule( "cc" );
-					this.object.setOption( "cc", "track", { languageCode: this.object.getOption( "cc", "tracklist" )[ 0 ].languageCode } );
-				} catch ( e ) {
-					this.object.loadModule( "captions" );
-					this.object.setOption( "captions", "track", { languageCode: this.object.getOption( "captions", "tracklist" )[ 0 ].languageCode } );
+			case "play":
+				this.object.wasMutedPlay = this.object.isMuted();
+				return this.object.playVideo();
+			case "pause":
+				return this.object.pauseVideo();
+			case "getPaused":
+				state = this.object.getPlayerState();
+				return state === -1 || state === 0 || state === 2 || state === 5;
+			case "getPlayed":
+				return this.object.getPlayerState() > -1;
+			case "getEnded":
+				return this.object.getPlayerState() === 0;
+			case "getDuration":
+				return this.object.getDuration();
+			case "getCurrentTime":
+				return this.object.getCurrentTime();
+			case "setCurrentTime":
+				return this.object.seekTo( args, true );
+			case "fullscreen":
+				return this.object.getIframe().requestFullscreen();
+			case "getMuted":
+				if ( !this.object.playedOnce && this.object.wasMutedPlay ) {
+					state = this.object.wasMutedPlay;
+					this.object.playedOnce = true;
+					return state;
+				} else {
+					return this.object.isMuted();
 				}
-			} else {
-				$( this ).removeClass( captionClass );
-				this.object.unloadModule( "cc" );
-				this.object.unloadModule( "captions" );
-			}
-			$media.trigger( "ccvischange" );
+			case "setMuted":
+				if ( args ) {
+					this.object.mute();
+				} else {
+					this.object.unMute();
+				}
+				setTimeout( function() {
+					$media.trigger( "volumechange" );
+				}, ( wb.isReady ? 50 : 500 ) );
+				break;
+			case "getVolume":
+				return this.object.getVolume() / 100;
+			case "setVolume":
+				this.object.setVolume( args * 100 );
+				setTimeout( function() {
+					$media.trigger( "volumechange" );
+				}, 50 );
+				break;
+			case "getCaptionsVisible":
+				return $( this ).hasClass( captionClass );
+			case "setCaptionsVisible":
+				if ( args ) {
+					$( this ).addClass( captionClass );
+					try {
+						this.object.loadModule( "cc" );
+						this.object.setOption( "cc", "track", { languageCode: this.object.getOption( "cc", "tracklist" )[ 0 ].languageCode } );
+					} catch ( e ) {
+						this.object.loadModule( "captions" );
+						this.object.setOption( "captions", "track", { languageCode: this.object.getOption( "captions", "tracklist" )[ 0 ].languageCode } );
+					}
+				} else {
+					$( this ).removeClass( captionClass );
+					this.object.unloadModule( "cc" );
+					this.object.unloadModule( "captions" );
+				}
+				$media.trigger( "ccvischange" );
 		}
 	},
 
@@ -12184,62 +12184,62 @@ var componentName = "wb-mltmd",
 			isMuted;
 
 		switch ( event.data ) {
-		case null: // init
-			$media
-				.trigger( "canplay" )
-				.trigger( "durationchange" );
+			case null: // init
+				$media
+					.trigger( "canplay" )
+					.trigger( "durationchange" );
 
-			// Put video on mute if the video is muted on init, run once
-			$mltmPlayerElm = $media.parentsUntil( selector ).parent();
+				// Put video on mute if the video is muted on init, run once
+				$mltmPlayerElm = $media.parentsUntil( selector ).parent();
 
-			// Mute the player, GUI
-			if ( $mltmPlayerElm.data( "putMutedOnInit" ) ) {
-				youTubeApi.call( $mltmPlayerElm.get( 0 ), "setMuted", true );
-				$mltmPlayerElm.data( "putMutedOnInit", false );
-			}
-			break;
-		case -1:
-			event.target.unMute();
-			$media.trigger( "durationchange" );
-			break;
-		case 0:
-			$media.trigger( "ended" );
-			media.timeline = clearInterval( media.timeline );
-			break;
-		case 1: // play
+				// Mute the player, GUI
+				if ( $mltmPlayerElm.data( "putMutedOnInit" ) ) {
+					youTubeApi.call( $mltmPlayerElm.get( 0 ), "setMuted", true );
+					$mltmPlayerElm.data( "putMutedOnInit", false );
+				}
+				break;
+			case -1:
+				event.target.unMute();
+				$media.trigger( "durationchange" );
+				break;
+			case 0:
+				$media.trigger( "ended" );
+				media.timeline = clearInterval( media.timeline );
+				break;
+			case 1: // play
 
-			// Get the media player
-			$mltmPlayerElm = $media.parentsUntil( selector ).parent();
-			mltmPlayerElm = $mltmPlayerElm.get( 0 );
+				// Get the media player
+				$mltmPlayerElm = $media.parentsUntil( selector ).parent();
+				mltmPlayerElm = $mltmPlayerElm.get( 0 );
 
-			// Need to be muted here
-			isMuted = mltmPlayerElm.player( "getMuted" );
+				// Need to be muted here
+				isMuted = mltmPlayerElm.player( "getMuted" );
 
-			// Reset the close caption state when iframe was reloaded
-			if ( media.dataset.L2 ) {
-				youTubeApi.call( mltmPlayerElm, "setCaptionsVisible", $mltmPlayerElm.hasClass( captionClass ) );
-			}
+				// Reset the close caption state when iframe was reloaded
+				if ( media.dataset.L2 ) {
+					youTubeApi.call( mltmPlayerElm, "setCaptionsVisible", $mltmPlayerElm.hasClass( captionClass ) );
+				}
 
-			// Play
-			$media
-				.trigger( "canplay" )
-				.trigger( "play" )
-				.trigger( "playing" );
+				// Play
+				$media
+					.trigger( "canplay" )
+					.trigger( "play" )
+					.trigger( "playing" );
 
-			// Reset muted as needed because youtube onMute by default when playing
-			if ( isMuted ) {
-				youTubeApi.call( mltmPlayerElm, "setMuted", true );
-			}
+				// Reset muted as needed because youtube onMute by default when playing
+				if ( isMuted ) {
+					youTubeApi.call( mltmPlayerElm, "setMuted", true );
+				}
 
-			media.timeline = setInterval( timeline, 250 );
-			break;
-		case 2:
-			$media.trigger( "pause" );
-			media.timeline = clearInterval( media.timeline );
-			break;
-		case 3:
-			media.timeline = clearInterval( media.timeline );
-			break;
+				media.timeline = setInterval( timeline, 250 );
+				break;
+			case 2:
+				$media.trigger( "pause" );
+				media.timeline = clearInterval( media.timeline );
+				break;
+			case 3:
+				media.timeline = clearInterval( media.timeline );
+				break;
 		}
 	},
 
@@ -12574,46 +12574,46 @@ $document.on( "keydown", dispCtrls, function( event ) {
 
 	if ( !( event.ctrlKey || event.altKey || event.metaKey ) ) {
 		switch ( which ) {
-		case 32:
+			case 32:
 
-			// Mute/unmute if focused on the mute/unmute button or volume input.
-			if ( $( event.target ).hasClass( "mute" ) || event.target.nodeName === "INPUT" ) {
-				$playerTarget.find( ".mute" ).trigger( "click" );
-			} else if ( $( event.target ).hasClass( "fs" ) ) {
+				// Mute/unmute if focused on the mute/unmute button or volume input.
+				if ( $( event.target ).hasClass( "mute" ) || event.target.nodeName === "INPUT" ) {
+					$playerTarget.find( ".mute" ).trigger( "click" );
+				} else if ( $( event.target ).hasClass( "fs" ) ) {
 
-				// Enter full screen if focused on the full screen button
-				$playerTarget.find( ".fs" ).trigger( "click" );
-			} else if ( $( event.target ).hasClass( "cc" ) ) {
+					// Enter full screen if focused on the full screen button
+					$playerTarget.find( ".fs" ).trigger( "click" );
+				} else if ( $( event.target ).hasClass( "cc" ) ) {
 
-				// Show/hide captions if focused on the closed captions button.
-				$playerTarget.find( ".cc" ).trigger( "click" );
-			} else {
+					// Show/hide captions if focused on the closed captions button.
+					$playerTarget.find( ".cc" ).trigger( "click" );
+				} else {
 
-				// Play/pause if focused on anything else (i.e. the video itself, play/pause button or progress bar).
-				$playerTarget.find( ".playpause" ).trigger( "click" );
-			}
-			break;
+					// Play/pause if focused on anything else (i.e. the video itself, play/pause button or progress bar).
+					$playerTarget.find( ".playpause" ).trigger( "click" );
+				}
+				break;
 
-		case 37:
-			playerTarget.player( "setCurrentTime", this.parentNode.player( "getCurrentTime" ) - this.parentNode.player( "getDuration" ) * 0.05 );
-			break;
+			case 37:
+				playerTarget.player( "setCurrentTime", this.parentNode.player( "getCurrentTime" ) - this.parentNode.player( "getDuration" ) * 0.05 );
+				break;
 
-		case 39:
-			playerTarget.player( "setCurrentTime", this.parentNode.player( "getCurrentTime" ) + this.parentNode.player( "getDuration" ) * 0.05 );
-			break;
+			case 39:
+				playerTarget.player( "setCurrentTime", this.parentNode.player( "getCurrentTime" ) + this.parentNode.player( "getDuration" ) * 0.05 );
+				break;
 
-		case 38:
-			volume = Math.round( playerTarget.player( "getVolume" ) * 100 ) / 100 + step;
-			playerTarget.player( "setVolume", volume < 1 ? volume : 1 );
-			break;
+			case 38:
+				volume = Math.round( playerTarget.player( "getVolume" ) * 100 ) / 100 + step;
+				playerTarget.player( "setVolume", volume < 1 ? volume : 1 );
+				break;
 
-		case 40:
-			volume = Math.round( playerTarget.player( "getVolume" ) * 100 ) / 100 - step;
-			playerTarget.player( "setVolume", volume > 0 ? volume : 0 );
-			break;
+			case 40:
+				volume = Math.round( playerTarget.player( "getVolume" ) * 100 ) / 100 - step;
+				playerTarget.player( "setVolume", volume > 0 ? volume : 0 );
+				break;
 
-		default:
-			return true;
+			default:
+				return true;
 		}
 		return false;
 	}
@@ -12647,129 +12647,129 @@ $document.on( multimediaEvents, selector, function( event, simulated ) {
 		invEnd = "</span>",
 		currentTime, $button, $slider, buttonData, isPlay, isMuted, isCCVisible, skipTo, volume;
 	switch ( eventType ) {
-	case "playing":
-	case "pause":
-	case "ended":
-		isPlay = eventType === "playing";
-		$button = $this.find( ".playpause" );
-		buttonData = $button.data( "state-" + ( isPlay ? "off" : "on" ) );
-		if ( isPlay ) {
-			$this.addClass( "playing" );
-			$this.find( ".progress" ).addClass( "active" );
-		} else {
-			if ( eventType === "ended" ) {
-				this.loading = clearTimeout( this.loading );
+		case "playing":
+		case "pause":
+		case "ended":
+			isPlay = eventType === "playing";
+			$button = $this.find( ".playpause" );
+			buttonData = $button.data( "state-" + ( isPlay ? "off" : "on" ) );
+			if ( isPlay ) {
+				$this.addClass( "playing" );
+				$this.find( ".progress" ).addClass( "active" );
+			} else {
+				if ( eventType === "ended" ) {
+					this.loading = clearTimeout( this.loading );
+				}
+				$this.removeClass( "playing" );
 			}
-			$this.removeClass( "playing" );
-		}
-		$button
-			.attr( "title", buttonData )
-			.children( "span" )
-			.toggleClass( "glyphicon-play", !isPlay )
-			.toggleClass( "glyphicon-pause", isPlay )
-			.html( invStart + buttonData + invEnd );
-		break;
+			$button
+				.attr( "title", buttonData )
+				.children( "span" )
+				.toggleClass( "glyphicon-play", !isPlay )
+				.toggleClass( "glyphicon-pause", isPlay )
+				.html( invStart + buttonData + invEnd );
+			break;
 
-	case "volumechange":
-		isMuted = eventTarget.player( "getMuted" );
-		$button = $this.find( ".mute" );
-		buttonData = $button.data( "state-" + ( isMuted ? "off" : "on" ) );
-		volume = eventTarget.player( "getVolume" ) * 100;
-		$button
-			.attr( {
-				title: buttonData,
-				"aria-pressed": isMuted
-			} )
-			.children( "span" )
-			.toggleClass( "glyphicon-volume-up", !isMuted )
-			.toggleClass( "glyphicon-volume-off", isMuted )
-			.html( invStart + buttonData + invEnd );
-		$slider = $this.find( "input[type='range']" );
-		$slider[ 0 ].value = isMuted ? 0 : volume;
-		$slider.trigger( "wb-update.wb-slider" );
-		break;
+		case "volumechange":
+			isMuted = eventTarget.player( "getMuted" );
+			$button = $this.find( ".mute" );
+			buttonData = $button.data( "state-" + ( isMuted ? "off" : "on" ) );
+			volume = eventTarget.player( "getVolume" ) * 100;
+			$button
+				.attr( {
+					title: buttonData,
+					"aria-pressed": isMuted
+				} )
+				.children( "span" )
+				.toggleClass( "glyphicon-volume-up", !isMuted )
+				.toggleClass( "glyphicon-volume-off", isMuted )
+				.html( invStart + buttonData + invEnd );
+			$slider = $this.find( "input[type='range']" );
+			$slider[ 0 ].value = isMuted ? 0 : volume;
+			$slider.trigger( "wb-update.wb-slider" );
+			break;
 
-	case "timeupdate":
-		currentTime = eventTarget.player( "getCurrentTime" );
-		$this.find( "progress" )
-			.attr(
-				"value",
-				Math.round( currentTime / eventTarget.player( "getDuration" ) * 1000 ) / 10
-			).trigger( "wb-update.wb-progress" );
+		case "timeupdate":
+			currentTime = eventTarget.player( "getCurrentTime" );
+			$this.find( "progress" )
+				.attr(
+					"value",
+					Math.round( currentTime / eventTarget.player( "getDuration" ) * 1000 ) / 10
+				).trigger( "wb-update.wb-progress" );
 
-		$this.find( ".wb-mm-tmln-crrnt span:nth-child(2)" )
-			.text( formatTime( currentTime ) );
+			$this.find( ".wb-mm-tmln-crrnt span:nth-child(2)" )
+				.text( formatTime( currentTime ) );
 
-		if ( $this.hasClass( captionClass ) && $.data( eventTarget, "captions" ) !== undef ) {
-			updateCaptions(
-				$this.find( ".wb-mm-cc" ),
-				currentTime,
-				$.data( eventTarget, "captions" )
-			);
-		}
-		break;
-
-	case "durationchange":
-		$this.find( ".wb-mm-tmln-ttl span:nth-child(2)" )
-			.text( formatTime( eventTarget.player( "getDuration" ) ) );
-
-		// Skip to pointer from the querystring
-		skipTo = wb.pageUrlParts.params[ event.target.id ];
-		if ( skipTo ) {
-			skipTo = parseTime( skipTo );
-			eventTarget.player( "setCurrentTime", skipTo );
-		}
-		break;
-
-	case "ccloaded":
-		if ( eventNamespace === componentName ) {
-			$.data( eventTarget, "captions", event.captions );
-		}
-		break;
-
-	case "ccloadfail":
-		if ( eventNamespace === componentName ) {
-			if ( !$this.hasClass( "errmsg" ) ) {
-				$this.addClass( "cc_on errmsg" )
-					.find( ".wb-mm-cc" )
-					.append( "<div>" + i18nText.cc_error + "</div>" )
-					.end()
-					.find( ".cc" )
-					.attr( "disabled", "" )
-					.removeAttr( "aria-pressed" );
+			if ( $this.hasClass( captionClass ) && $.data( eventTarget, "captions" ) !== undef ) {
+				updateCaptions(
+					$this.find( ".wb-mm-cc" ),
+					currentTime,
+					$.data( eventTarget, "captions" )
+				);
 			}
-		}
-		break;
+			break;
 
-	case "ccvischange":
-		if ( eventNamespace === componentName ) {
-			isCCVisible = eventTarget.player( "getCaptionsVisible" );
-			$button = $this.find( ".cc" );
-			buttonData = $button.data( "state-" + ( isCCVisible ? "off" : "on" ) );
-			$button.attr( {
-				title: buttonData,
-				"aria-pressed": isCCVisible
-			} ).children( "span" ).html( invStart + buttonData + invEnd );
-		}
-		break;
+		case "durationchange":
+			$this.find( ".wb-mm-tmln-ttl span:nth-child(2)" )
+				.text( formatTime( eventTarget.player( "getDuration" ) ) );
 
-	case "waiting":
-		if ( !simulated ) {
-			$document.off( "progress", selector );
-		}
-		this.loading = setTimeout( function() {
-			$this.addClass( "waiting" );
-		}, 500 );
-		break;
+			// Skip to pointer from the querystring
+			skipTo = wb.pageUrlParts.params[ event.target.id ];
+			if ( skipTo ) {
+				skipTo = parseTime( skipTo );
+				eventTarget.player( "setCurrentTime", skipTo );
+			}
+			break;
 
-	case "canplay":
-	case "seeked":
-		this.loading = clearTimeout( this.loading );
-		$this.removeClass( "waiting" );
-		break;
-	case "cuepoint":
-		eventTarget.player( "setCurrentTime", parseTime( event.cuepoint ) );
-		break;
+		case "ccloaded":
+			if ( eventNamespace === componentName ) {
+				$.data( eventTarget, "captions", event.captions );
+			}
+			break;
+
+		case "ccloadfail":
+			if ( eventNamespace === componentName ) {
+				if ( !$this.hasClass( "errmsg" ) ) {
+					$this.addClass( "cc_on errmsg" )
+						.find( ".wb-mm-cc" )
+						.append( "<div>" + i18nText.cc_error + "</div>" )
+						.end()
+						.find( ".cc" )
+						.attr( "disabled", "" )
+						.removeAttr( "aria-pressed" );
+				}
+			}
+			break;
+
+		case "ccvischange":
+			if ( eventNamespace === componentName ) {
+				isCCVisible = eventTarget.player( "getCaptionsVisible" );
+				$button = $this.find( ".cc" );
+				buttonData = $button.data( "state-" + ( isCCVisible ? "off" : "on" ) );
+				$button.attr( {
+					title: buttonData,
+					"aria-pressed": isCCVisible
+				} ).children( "span" ).html( invStart + buttonData + invEnd );
+			}
+			break;
+
+		case "waiting":
+			if ( !simulated ) {
+				$document.off( "progress", selector );
+			}
+			this.loading = setTimeout( function() {
+				$this.addClass( "waiting" );
+			}, 500 );
+			break;
+
+		case "canplay":
+		case "seeked":
+			this.loading = clearTimeout( this.loading );
+			$this.removeClass( "waiting" );
+			break;
+		case "cuepoint":
+			eventTarget.player( "setCurrentTime", parseTime( event.cuepoint ) );
+			break;
 	}
 } );
 
@@ -13145,52 +13145,52 @@ $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
 		overlay, $focusable, index, length;
 
 	switch ( eventType ) {
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	case "open":
-		if ( eventTurrentTarget === eventTarget ) {
-			openOverlay( overlayId, event.noFocus );
-		}
-		break;
-
-	case "close":
-		if ( eventTurrentTarget === eventTarget ) {
-			closeOverlay( overlayId, event.noFocus );
-		}
-		break;
-
-	default:
-		overlay = document.getElementById( overlayId );
-
-		switch ( which ) {
-
-		// Tab key
-		case 9:
-
-			// No special tab handling when ignoring outside activity
-			if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
-				$focusable = $( overlay ).find( ":focusable:not([tabindex='-1'])" );
-				length = $focusable.length;
-				index = $focusable.index( event.target ) + ( event.shiftKey ? -1 : 1 );
-
-				if ( index === -1 || index === length ) {
-					event.preventDefault();
-					$focusable.eq( index === -1 ? length - 1 : 0 )
-						.trigger( setFocusEvent );
-				}
+		case "open":
+			if ( eventTurrentTarget === eventTarget ) {
+				openOverlay( overlayId, event.noFocus );
 			}
 			break;
 
-		// Escape key
-		case 27:
-			if ( !event.isDefaultPrevented() ) {
-				closeOverlay( overlayId, false, true );
+		case "close":
+			if ( eventTurrentTarget === eventTarget ) {
+				closeOverlay( overlayId, event.noFocus );
 			}
 			break;
-		}
+
+		default:
+			overlay = document.getElementById( overlayId );
+
+			switch ( which ) {
+
+				// Tab key
+				case 9:
+
+					// No special tab handling when ignoring outside activity
+					if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
+						$focusable = $( overlay ).find( ":focusable:not([tabindex='-1'])" );
+						length = $focusable.length;
+						index = $focusable.index( event.target ) + ( event.shiftKey ? -1 : 1 );
+
+						if ( index === -1 || index === length ) {
+							event.preventDefault();
+							$focusable.eq( index === -1 ? length - 1 : 0 )
+								.trigger( setFocusEvent );
+						}
+					}
+					break;
+
+				// Escape key
+				case 27:
+					if ( !event.isDefaultPrevented() ) {
+						closeOverlay( overlayId, false, true );
+					}
+					break;
+			}
 	}
 } );
 
@@ -13389,15 +13389,15 @@ const componentName = "wb-paginate",
 
 			// Setup configurations
 			switch ( elmTagName ) {
-			case "UL":
-				setDefault = defaults.lst;
-				break;
-			case "TABLE":
-				setDefault = defaults.tbl;
-				break;
-			default:
-				setDefault = defaults.grp;
-				break;
+				case "UL":
+					setDefault = defaults.lst;
+					break;
+				case "TABLE":
+					setDefault = defaults.tbl;
+					break;
+				default:
+					setDefault = defaults.grp;
+					break;
 			}
 
 			elm.id = elm.id || wb.getId();
@@ -14331,22 +14331,22 @@ inactivityEvent + " " + resetEvent, selector, function( event, settings ) {
 	var eventType = event.type;
 
 	switch ( eventType ) {
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	case "keepalive":
-		keepalive( event, settings );
-		break;
+		case "keepalive":
+			keepalive( event, settings );
+			break;
 
-	case "inactivity":
-		inactivity( event, settings );
-		break;
+		case "inactivity":
+			inactivity( event, settings );
+			break;
 
-	case "reset":
-		reset( event, settings );
-		break;
+		case "reset":
+			reset( event, settings );
+			break;
 	}
 } );
 
@@ -15252,19 +15252,19 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 
 				// Adjust regex based on advanced options
 				switch ( $aoType ) {
-				case "both":
-					$regex = "(" + $value + ").*";
-					break;
-				case "either":
-					$regex = "^(" + $value + ")$";
-					break;
-				case "and":
-					$regex = ( $value.indexOf( "|" ) > -1 ) ? "^(" + $value + "|[,\\s])(" + $value + "|[,\\s])+$" : "(" + $value + ")";
-					break;
-				case "any":
-				default:
-					$regex = "(" + $value + ")";
-					break;
+					case "both":
+						$regex = "(" + $value + ").*";
+						break;
+					case "either":
+						$regex = "^(" + $value + ")$";
+						break;
+					case "and":
+						$regex = ( $value.indexOf( "|" ) > -1 ) ? "^(" + $value + "|[,\\s])(" + $value + "|[,\\s])+$" : "(" + $value + ")";
+						break;
+					case "any":
+					default:
+						$regex = "(" + $value + ")";
+						break;
 				}
 			}
 		} else {
@@ -16051,35 +16051,35 @@ $document.on( "timerpoke.wb " + initEvent + " " + shiftEvent + " " + selectEvent
 	// Filter out any events triggered by descendants
 	if ( eventCurrentTarget === eventTarget ) {
 		switch ( event.type ) {
-		case "timerpoke":
-			$elm = $( eventTarget );
-			if ( !$elm.hasClass( componentName + "-inited" ) ) {
+			case "timerpoke":
+				$elm = $( eventTarget );
+				if ( !$elm.hasClass( componentName + "-inited" ) ) {
+					init( event );
+				} else if ( $elm.hasClass( "playing" ) ) {
+					onTimerPoke( $elm );
+				}
+				break;
+
+			/*
+			 * Init
+			 */
+			case "wb-init":
 				init( event );
-			} else if ( $elm.hasClass( "playing" ) ) {
-				onTimerPoke( $elm );
-			}
-			break;
+				break;
 
-		/*
-		 * Init
-		 */
-		case "wb-init":
-			init( event );
-			break;
+			/*
+			 * Change tab panels by a delta
+			 */
+			case "wb-shift":
+				onShift( event, $( eventTarget ) );
+				break;
 
-		/*
-		 * Change tab panels by a delta
-		 */
-		case "wb-shift":
-			onShift( event, $( eventTarget ) );
-			break;
-
-		/*
-		 * Select a specific tab panel
-		 */
-		case "wb-select":
-			onSelect( event.id );
-			break;
+			/*
+			 * Select a specific tab panel
+			 */
+			case "wb-select":
+				onSelect( event.id );
+				break;
 		}
 	}
 
@@ -16396,25 +16396,25 @@ const componentName = "wb-tagfilter",
 			}
 
 			switch ( control.type ) {
-			case "checkbox":
-			case "radio":
-				if ( !( control.name in filtersObj ) ) {
-					filtersObj[ control.name ] = [ ];
-				}
+				case "checkbox":
+				case "radio":
+					if ( !( control.name in filtersObj ) ) {
+						filtersObj[ control.name ] = [ ];
+					}
 
-				filtersObj[ control.name ].push( {
-					isChecked: control.checked,
-					type: control.type,
-					value: control.value
-				} );
+					filtersObj[ control.name ].push( {
+						isChecked: control.checked,
+						type: control.type,
+						value: control.value
+					} );
 
-				break;
-			case "select-one":
-				filtersObj[ control.name ] = [ {
-					type: control.type,
-					value: control.value
-				} ];
-				break;
+					break;
+				case "select-one":
+					filtersObj[ control.name ] = [ {
+						type: control.type,
+						value: control.value
+					} ];
+					break;
 			}
 		} );
 
@@ -16433,36 +16433,36 @@ const componentName = "wb-tagfilter",
 				filterGroupActiveFilters = [ ];
 
 			switch ( filterGroup[ 0 ].type ) {
-			case "checkbox":
-				if ( filterGroupChkCnt > 0 ) {
-					filterGroup.forEach( function( filterItem ) {
-						if ( filterItem.isChecked ) {
-							filterGroupActiveFilters.push( filterItem.value );
-						}
-					} );
-				}
-				break;
-
-			case "radio":
-				if ( filterGroupChkCnt > 0 ) {
-					for ( let filterItem of filterGroup ) {
-						if ( filterItem.isChecked === true ) {
-							if ( filterItem.value !== "" ) {
+				case "checkbox":
+					if ( filterGroupChkCnt > 0 ) {
+						filterGroup.forEach( function( filterItem ) {
+							if ( filterItem.isChecked ) {
 								filterGroupActiveFilters.push( filterItem.value );
 							}
-							break;
-						}
+						} );
 					}
-				} else {
-					console.warn( componentName + ": Radio button groups must have a default selected value. If you want to display all items, add an option called \"All\" with an empty value." );
-				}
-				break;
+					break;
 
-			case "select-one":
-				if ( filterGroup[ 0 ].value !== "" ) {
-					filterGroupActiveFilters.push( filterGroup[ 0 ].value );
-				}
-				break;
+				case "radio":
+					if ( filterGroupChkCnt > 0 ) {
+						for ( let filterItem of filterGroup ) {
+							if ( filterItem.isChecked === true ) {
+								if ( filterItem.value !== "" ) {
+									filterGroupActiveFilters.push( filterItem.value );
+								}
+								break;
+							}
+						}
+					} else {
+						console.warn( componentName + ": Radio button groups must have a default selected value. If you want to display all items, add an option called \"All\" with an empty value." );
+					}
+					break;
+
+				case "select-one":
+					if ( filterGroup[ 0 ].value !== "" ) {
+						filterGroupActiveFilters.push( filterGroup[ 0 ].value );
+					}
+					break;
 			}
 
 			instance.activeFilters.push( filterGroupActiveFilters );
@@ -16533,32 +16533,32 @@ $document.on( "change", selectorCtrl, function( event )  {
 		filterGroup = elm.filters[ filterName ];
 
 	switch ( filterType ) {
-	case "checkbox":
+		case "checkbox":
 
-		// Update virtual filter to the new state
-		filterGroup.find( function( filter ) {
-			return filter.value === filterValue;
-		} ).isChecked = !!control.checked;
-		break;
+			// Update virtual filter to the new state
+			filterGroup.find( function( filter ) {
+				return filter.value === filterValue;
+			} ).isChecked = !!control.checked;
+			break;
 
-	case "radio":
+		case "radio":
 
-		// Set all virtual radio items to unchecked
-		filterGroup.forEach( function( filterItem ) {
-			filterItem.isChecked = false;
-		} );
+			// Set all virtual radio items to unchecked
+			filterGroup.forEach( function( filterItem ) {
+				filterItem.isChecked = false;
+			} );
 
-		// Set selected radio button's associated virtual filter to checked
-		filterGroup.find( function( filter ) {
-			return filter.value === filterValue;
-		} ).isChecked = true;
-		break;
+			// Set selected radio button's associated virtual filter to checked
+			filterGroup.find( function( filter ) {
+				return filter.value === filterValue;
+			} ).isChecked = true;
+			break;
 
-	case "select-one":
+		case "select-one":
 
-		// Update virtual filter to the new value
-		filterGroup[ 0 ].value = filterValue;
-		break;
+			// Update virtual filter to the new value
+			filterGroup[ 0 ].value = filterValue;
+			break;
 	}
 
 	// Update list of visible items
@@ -17129,18 +17129,18 @@ $document.on( "timerpoke.wb " + initEvent + " " + toggleEvent +
 	var eventType = event.type;
 
 	switch ( eventType ) {
-	case "click":
-		click( event );
-		break;
+		case "click":
+			click( event );
+			break;
 
-	case "toggle":
-		toggle( event, data );
-		break;
+		case "toggle":
+			toggle( event, data );
+			break;
 
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 	}
 } );
 
@@ -17161,35 +17161,35 @@ $document.on( "keydown", selectorTab, function( event ) {
 
 		switch ( which ) {
 
-		// End
-		case 35:
-			$newPanel = $group.last();
-			break;
-
-		// Home
-		case 36:
-			$newPanel = $group.first();
-			break;
-
-		// Left / up arrow
-		case 37:
-		case 38:
-			if ( index === 0 ) {
+			// End
+			case 35:
 				$newPanel = $group.last();
-			} else {
-				$newPanel = $group.eq( index - 1 );
-			}
-			break;
+				break;
 
-		// Right / down arrow
-		case 39:
-		case 40:
-			if ( index === $group.length - 1 ) {
+			// Home
+			case 36:
 				$newPanel = $group.first();
-			} else {
-				$newPanel = $group.eq( index + 1 );
-			}
-			break;
+				break;
+
+			// Left / up arrow
+			case 37:
+			case 38:
+				if ( index === 0 ) {
+					$newPanel = $group.last();
+				} else {
+					$newPanel = $group.eq( index - 1 );
+				}
+				break;
+
+			// Right / down arrow
+			case 39:
+			case 40:
+				if ( index === $group.length - 1 ) {
+					$newPanel = $group.first();
+				} else {
+					$newPanel = $group.eq( index + 1 );
+				}
+				break;
 		}
 
 		$newPanel
@@ -17314,40 +17314,40 @@ var componentName = "wb-twitter",
 					mutations.forEach( function( mutation ) {
 						switch ( mutation.type ) {
 
-						// Check for attribute changes
-						case "attributes": {
-							const mutationTarget = mutation.target;
+							// Check for attribute changes
+							case "attributes": {
+								const mutationTarget = mutation.target;
 
-							// Override the timeline iframe's title right after Twitter's widget script adds it
-							// Notes:
-							// -The timeline's iframe title is English-only, uses "Twitter" and is written in title case ("Twitter Timeline")... This replaces it with an i18n version that uses "X" and is written in sentence case.
-							// -Only proceed if the i18n variable is a string... otherwise this'll trigger an infinite loop of attribute mutations
-							if ( mutationTarget.nodeName === "IFRAME" && mutationTarget.title !== i18nText.timelineTitle && typeof i18nText.timelineTitle === "string" ) {
-								mutationTarget.title = i18nText.timelineTitle;
-							}
-							break;
-						}
-
-						// Check for node removals
-						case "childList": {
-							mutation.removedNodes.forEach( function( removedNode ) {
-
-								// If the removed node was a Twitter link, remove its adjacent loading icon, add skip links and stop observing
-								// Note: Twitter's widget script removes "a.twitter-timeline" upon displaying the timeline iframe's content... at which point the loading icon is no longer useful
-								if ( removedNode === twitterLink && mutation.nextSibling === loadingDiv ) {
-									const iframeContainer = loadingDiv.previousElementSibling;
-
-									loadingDiv.remove();
-									addSkipLinks( iframeContainer );
-
-									// The following 2 lines were added as a workaround in Safari where the iFrame is not displayed
-									eventTarget.style.opacity = 1;
-									eventTarget.style.opacity = "";
-
-									observer.disconnect();
+								// Override the timeline iframe's title right after Twitter's widget script adds it
+								// Notes:
+								// -The timeline's iframe title is English-only, uses "Twitter" and is written in title case ("Twitter Timeline")... This replaces it with an i18n version that uses "X" and is written in sentence case.
+								// -Only proceed if the i18n variable is a string... otherwise this'll trigger an infinite loop of attribute mutations
+								if ( mutationTarget.nodeName === "IFRAME" && mutationTarget.title !== i18nText.timelineTitle && typeof i18nText.timelineTitle === "string" ) {
+									mutationTarget.title = i18nText.timelineTitle;
 								}
-							} );
-						}
+								break;
+							}
+
+							// Check for node removals
+							case "childList": {
+								mutation.removedNodes.forEach( function( removedNode ) {
+
+									// If the removed node was a Twitter link, remove its adjacent loading icon, add skip links and stop observing
+									// Note: Twitter's widget script removes "a.twitter-timeline" upon displaying the timeline iframe's content... at which point the loading icon is no longer useful
+									if ( removedNode === twitterLink && mutation.nextSibling === loadingDiv ) {
+										const iframeContainer = loadingDiv.previousElementSibling;
+
+										loadingDiv.remove();
+										addSkipLinks( iframeContainer );
+
+										// The following 2 lines were added as a workaround in Safari where the iFrame is not displayed
+										eventTarget.style.opacity = 1;
+										eventTarget.style.opacity = "";
+
+										observer.disconnect();
+									}
+								} );
+							}
 						}
 					} );
 				} );
@@ -18430,41 +18430,41 @@ var componentName = "wb-data-json",
 	//
 	_equalsJSON = function( a, b ) {
 		switch ( typeof a ) {
-		case "undefined":
-			return false;
-		case "boolean":
-		case "string":
-		case "number":
-			return a === b;
-		case "object":
-			if ( a === null ) {
-				return b === null;
-			}
-			var i, l;
-			if ( $.isArray( a ) ) {
-				if (  !$.isArray( b ) || a.length !== b.length ) {
+			case "undefined":
+				return false;
+			case "boolean":
+			case "string":
+			case "number":
+				return a === b;
+			case "object":
+				if ( a === null ) {
+					return b === null;
+				}
+				var i, l;
+				if ( $.isArray( a ) ) {
+					if (  !$.isArray( b ) || a.length !== b.length ) {
+						return false;
+					}
+					for ( i = 0, l = a.length; i < l; i++ ) {
+						if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+							return false;
+						}
+					}
+					return true;
+				}
+				var bKeys = _objectKeys( b ),
+					bLength = bKeys.length;
+				if ( _objectKeys( a ).length !== bLength ) {
 					return false;
 				}
-				for ( i = 0, l = a.length; i < l; i++ ) {
+				for ( i in a ) {
 					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
 						return false;
 					}
 				}
 				return true;
-			}
-			var bKeys = _objectKeys( b ),
-				bLength = bKeys.length;
-			if ( _objectKeys( a ).length !== bLength ) {
+			default:
 				return false;
-			}
-			for ( i in a ) {
-				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
-					return false;
-				}
-			}
-			return true;
-		default:
-			return false;
 		}
 	},
 	_objectKeys = function( obj ) {
@@ -18549,16 +18549,16 @@ $document.on( "timerpoke.wb " + initEvent + " " + updateEvent + " json-fetched.w
 	if ( event.currentTarget === event.target ) {
 		switch ( event.type ) {
 
-		case "timerpoke":
-		case "wb-init":
-			init( event );
-			break;
-		case "wb-update":
-			jsonUpdate( event );
-			break;
-		default:
-			jsonFetched( event );
-			break;
+			case "timerpoke":
+			case "wb-init":
+				init( event );
+				break;
+			case "wb-update":
+				jsonUpdate( event );
+				break;
+			default:
+				jsonFetched( event );
+				break;
 		}
 	}
 
@@ -19454,41 +19454,41 @@ var componentName = "wb-jsonmanager",
 	// Utility function to compare two JSON value
 	_equalsJSON = function( a, b ) {
 		switch ( typeof a ) {
-		case "undefined":
-			return false;
-		case "boolean":
-		case "string":
-		case "number":
-			return a === b;
-		case "object":
-			if ( a === null ) {
-				return b === null;
-			}
-			var i, l;
-			if ( Array.isArray( a ) ) {
-				if (  Array.isArray( b ) || a.length !== b.length ) {
+			case "undefined":
+				return false;
+			case "boolean":
+			case "string":
+			case "number":
+				return a === b;
+			case "object":
+				if ( a === null ) {
+					return b === null;
+				}
+				var i, l;
+				if ( Array.isArray( a ) ) {
+					if (  Array.isArray( b ) || a.length !== b.length ) {
+						return false;
+					}
+					for ( i = 0, l = a.length; i < l; i++ ) {
+						if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
+							return false;
+						}
+					}
+					return true;
+				}
+				var bKeys = _objectKeys( b ),
+					bLength = bKeys.length;
+				if ( _objectKeys( a ).length !== bLength ) {
 					return false;
 				}
-				for ( i = 0, l = a.length; i < l; i++ ) {
+				for ( i = 0; i < bLength; i++ ) {
 					if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
 						return false;
 					}
 				}
 				return true;
-			}
-			var bKeys = _objectKeys( b ),
-				bLength = bKeys.length;
-			if ( _objectKeys( a ).length !== bLength ) {
+			default:
 				return false;
-			}
-			for ( i = 0; i < bLength; i++ ) {
-				if ( !_equalsJSON( a[ i ], b[ i ] ) ) {
-					return false;
-				}
-			}
-			return true;
-		default:
-			return false;
 		}
 	},
 	_objectKeys = function( obj ) {
@@ -20215,22 +20215,22 @@ $document.on( "timerpoke.wb " + initEvent + " " + tableParsingCompleteEvent, sel
 
 	switch ( event.type ) {
 
-	/*
-	 * Init
-	 */
-	case "timerpoke":
-	case "wb-init":
-		init( event );
-		break;
+		/*
+		 * Init
+		 */
+		case "timerpoke":
+		case "wb-init":
+			init( event );
+			break;
 
-	/*
-	 * Data table parsed
-	 */
-	case "parsecomplete":
-		if ( event.currentTarget === eventTarget ) {
-			zebraTable( $( eventTarget ) );
-		}
-		break;
+		/*
+		 * Data table parsed
+		 */
+		case "parsecomplete":
+			if ( event.currentTarget === eventTarget ) {
+				zebraTable( $( eventTarget ) );
+			}
+			break;
 	}
 
 	/*
