@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.81.1 - 2024-08-12
+ * v4.0.81.1 - 2024-08-19
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -18784,7 +18784,8 @@ var $document = wb.doc,
 // Bind the setfocus event
 $document.on( setFocusEvent, function( event ) {
 	if ( event.namespace === "wb" ) {
-		var $elm = $( event.target ),
+		var elm = event.target,
+			$elm = $( elm ),
 			$closedParents = $elm.not( "summary" ).parents( "details, [role='tabpanel']" ),
 			$closedPanels, $closedPanel, len, i;
 
@@ -18804,20 +18805,41 @@ $document.on( setFocusEvent, function( event ) {
 			}
 		}
 
-		// Set the tabindex to -1 (as needed) to ensure the element is focusable
-		$elm
-			.filter( ":not([tabindex], a[href], button, input, textarea, select)" )
-			.attr( "tabindex", "-1" );
-
 		// Assigns focus to an element (delay allows for revealing of hidden content)
 		setTimeout( function() {
+			let addedTabIndexAttr = false;
+
 			$elm.trigger( "focus" );
 
-			var $topBar = $( ".wb-bar-t[aria-hidden=false]" );
+			// If the element hasn't gained focus, retry with a tabindex attribute...
+			if ( elm !== document.activeElement && elm.getAttribute( "tabindex" ) === null ) {
 
-			// Ensure the top bar overlay does not conceal the focus target
-			if ( $topBar.length !== 0 ) {
-				document.documentElement.scrollTop -= $topBar.outerHeight();
+				// Add a tabindex="-1" attribute and keep track of it for later
+				elm.setAttribute( "tabindex", "-1" );
+				addedTabIndexAttr = true;
+
+				// Try re-focusing
+				$elm.trigger( "focus" );
+			}
+
+			// If the element has gained focus...
+			if ( elm === document.activeElement ) {
+				const $topBar = $( ".wb-bar-t[aria-hidden=false]" );
+
+				// Ensure the top bar overlay does not conceal the focus target
+				if ( $topBar.length !== 0 ) {
+					document.documentElement.scrollTop -= $topBar.outerHeight();
+				}
+			} else {
+
+				// Remove the element's tabindex attribute (no point in keeping it if it didn't help)
+				if ( addedTabIndexAttr ) {
+					elm.removeAttribute( "tabindex" );
+				}
+
+				// Show a console error
+				console.error( setFocusEvent + ": Unable to focus onto the destination element... maybe it's hidden?" );
+				console.error( elm );
 			}
 
 			return $elm;
