@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.81.1 - 2024-08-19
+ * v4.0.81.2 - 2024-08-21
  *
  *//*
  * Web Experience Toolkit (WET) / Bo�te � outils de l'exp�rience Web (BOEW)
