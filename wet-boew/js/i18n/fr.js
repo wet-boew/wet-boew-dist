@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"srch-menus": "Recherche et menus",
 	email: "Courriel",
 	"menu-close": "Fermer le menu",
-	"overlay-close": "Fermer la fenêtre superposée",
+	"overlay-close": "la fenêtre superposée",
 	"esc-key": "(touche d'échappement)",
 	show: "Afficher",
 

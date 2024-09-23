@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"srch-menus": "Search and menus",
 	email: "Email",
 	"menu-close": "Close menu",
-	"overlay-close": "Close overlay",
+	"overlay-close": "overlay",
 	"esc-key": "(escape key)",
 	show: "Show",
 

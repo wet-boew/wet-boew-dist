@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.81.4 - 2024-09-10
+ * v4.0.81.4 - 2024-09-23
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -10341,6 +10341,11 @@ var componentName = "wb-lbx",
 	modalHideSelector = "#wb-tphp, body > header, body > main, body > footer",
 	$document = wb.doc,
 	callbacks, i18n, i18nText,
+	defaults = {
+
+		// exclude 'times' from screen reader with aria-hidden span
+		closeMarkup: "<button type='button' class='mfp-close'><span class='mfp-close' aria-hidden='true'>&times;</span><span class='wb-inv'>%title%</span></button>"
+	},
 
 	/**
 	 * @method init
@@ -10442,7 +10447,7 @@ var componentName = "wb-lbx",
 			i18nText = {
 				close: i18n( "close" ),
 				oClose: i18n( "overlay-close" ),
-				tClose: i18n( "overlay-close" ) + i18n( "space" ) + i18n( "esc-key" ),
+				tClose: i18n( "close" ) + i18n( "space" ) + i18n( "overlay-close" ) + i18n( "space" ) + i18n( "esc-key" ),
 				tLoading: i18n( "load" ),
 				gallery: {
 					tPrev: i18n( "prv-l" ),
@@ -10467,7 +10472,7 @@ var componentName = "wb-lbx",
 						$container = $wrap.find( ".mfp-container" ),
 						$containerParent = $container.parent(),
 						$modal = $wrap.find( ".modal-dialog" ),
-						$buttons = $wrap.find( ".mfp-close, .mfp-arrow" ),
+						$buttons = $wrap.find( ".mfp-arrow" ),
 						len = $buttons.length,
 						i, button;
 
@@ -10592,7 +10597,7 @@ var componentName = "wb-lbx",
 			complete: function() {
 
 				// Set the dependency i18nText only once
-				$.extend( true, $.magnificPopup.defaults, i18nText );
+				$.extend( true, $.magnificPopup.defaults, i18nText, defaults );
 
 				$document.trigger( dependenciesLoadedEvent );
 			}
@@ -10615,7 +10620,7 @@ var componentName = "wb-lbx",
 				}
 
 				overlayCloseFtr = "<button type='button' class='btn btn-sm btn-primary pull-left " + closeClassFtr +
-					"' title='" + spanTextFtr + "'>" +
+					"'>" +
 					closeTextFtr +
 					"<span class='wb-inv'>" + spanTextFtr + "</span></button>";
 
