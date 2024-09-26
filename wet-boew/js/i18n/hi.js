@@ -190,11 +190,11 @@ wb.i18nDict = {
 	tbFilterInst: "This table provides a sorting feature via the buttons across the column header row with only one instance visible at a time.",
 
 	/* Twitter embedded timeline */
-	"twitter-start-notice": "@twitter-start-notice@",
-	"twitter-end-notice": "@twitter-end-notice@",
-	"twitter-skip-end": "@twitter-skip-end@",
-	"twitter-skip-start": "@twitter-skip-start@",
-	"twitter-timeline-title": "@twitter-timeline-title@",
+	"twitter-start-notice": "Start of @%username%’s X timeline",
+	"twitter-end-notice": "End of @%username%’s X timeline",
+	"twitter-skip-end": "Skip to end of @%username%’s X timeline",
+	"twitter-skip-start": "Skip to start of @%username%’s X timeline",
+	"twitter-timeline-title": "X timeline",
 
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",

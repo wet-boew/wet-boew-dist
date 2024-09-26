@@ -58,7 +58,7 @@ wb.i18nDict = {
 	"srch-menus": "Recherche et menus",
 	email: "Courriel",
 	"menu-close": "Fermer le menu",
-	"overlay-close": "Fermer la fenêtre superposée",
+	"overlay-close": "la fenêtre superposée",
 	"esc-key": "(touche d'échappement)",
 	show: "Afficher",
 
@@ -190,11 +190,11 @@ wb.i18nDict = {
 	tbFilterInst: "Ce tableau offre une fonctionnalité de triage via les boutons situés dans la ligne d'entêtes de colonnes avec seulement une instance visible à la fois.",
 
 	/* Twitter embedded timeline */
-	"twitter-start-notice": "@twitter-start-notice@",
-	"twitter-end-notice": "@twitter-end-notice@",
-	"twitter-skip-end": "@twitter-skip-end@",
-	"twitter-skip-start": "@twitter-skip-start@",
-	"twitter-timeline-title": "@twitter-timeline-title@",
+	"twitter-start-notice": "Commencement du fil X de @%username%",
+	"twitter-end-notice": "Fin du fil X de @%username%",
+	"twitter-skip-end": "Passer à la fin du fil X de @%username%",
+	"twitter-skip-start": "Passer au commencement du fil X de @%username%",
+	"twitter-timeline-title": "Fil X",
 
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",
