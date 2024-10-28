@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.81.6 - 2024-09-26
+ * v4.0.81.6 - 2024-10-28
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -9736,7 +9736,7 @@ var componentName = "wb-frmvld",
 							// Add space to the end of the labels (so separation between label and error when CSS turned off)
 							len = labels.length;
 							for ( i = 0; i !== len; i += 1 ) {
-								labels[ i ].innerHTML += " ";
+								labels[ i ].insertAdjacentHTML( "beforeend", " " );
 							}
 
 							// Hide "required" label text in older forms from screen readers
