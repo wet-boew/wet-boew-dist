@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.81.6 - 2024-10-28
+ * v4.0.81.6 - 2024-11-12
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -13946,7 +13946,8 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 		reactionTime: 180000,		/* default confirmation period of 3 minutes */
 		sessionalive: 1200000,		/* default keepalive period of 20 minutes */
 		refreshCallbackUrl: null,	/* refresh callback if using AJAX keepalive (no default) */
-		logouturl: "./",			/* logout URL once the session has expired */
+		logouturl: "./",			/* logout URL to end the session */
+		signInUrl: null,			/* sign-in URL once the session has expired */
 		refreshOnClick: true,		/* refresh session if user clicks on the page */
 		refreshLimit: 120000,		/* default period of 2 minutes (ajax calls happen only once during this period) */
 		method: "POST",				/* the request method to use */
@@ -14228,7 +14229,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 
 		// Negative confirmation or the user took too long; logout
 		} else {
-			window.location.href = settings.logouturl;
+			window.location.href = settings.signInUrl ? settings.signInUrl : settings.logouturl;
 		}
 	},
 
