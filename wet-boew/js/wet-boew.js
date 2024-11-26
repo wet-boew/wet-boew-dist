@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.82 - 2024-11-12
+ * v4.0.82 - 2024-11-26
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -14421,6 +14421,10 @@ var componentName = "wb-share",
 			blogger: {
 				name: "Blogger",
 				url: "https://www.blogger.com/blog_this.pyra?t=&amp;u={u}&amp;n={t}"
+			},
+			bluesky: {
+				name: "Bluesky",
+				url: "https://bsky.app/intent/compose?text={t}+{u}"
 			},
 			diigo: {
 				name: "Diigo",
