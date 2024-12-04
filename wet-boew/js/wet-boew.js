@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.82 - 2024-12-02
+ * v4.0.82 - 2024-12-04
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -1781,12 +1781,8 @@ Test: jQuery.extend
  *
  * This is almost verbatim copied from jQuery 3.4.0.
  *
- * Only two minor changes have been made:
- * - The call to isFunction() is changed to jQuery.isFunction().
- * - The two calls to Array.isArray() is changed to jQuery.isArray().
+ * Now compatible with jQuery 4.
  *
- * The above two changes ensure compatibility with all older jQuery versions
- * (1.4.4 - 3.3.1) and older browser versions (e.g., IE8).
  */
 jQuery.extend = jQuery.fn.extend = function() {
 	var options, name, src, copy, copyIsArray, clone,
@@ -1805,7 +1801,7 @@ jQuery.extend = jQuery.fn.extend = function() {
 	}
 
 	// Handle case when target is a string or something (possible in deep copy)
-	if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
+	if ( typeof target !== "object" && typeof target !== "function" ) {
 		target = {};
 	}
 
@@ -1833,11 +1829,11 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
-					( copyIsArray = jQuery.isArray( copy ) ) ) ) {
+					( copyIsArray = Array.isArray( copy ) ) ) ) {
 					src = target[ name ];
 
 					// Ensure proper type for the source value
-					if ( copyIsArray && !jQuery.isArray( src ) ) {
+					if ( copyIsArray && !Array.isArray( src ) ) {
 						clone = [];
 					} else if ( !copyIsArray && !jQuery.isPlainObject( src ) ) {
 						clone = {};
@@ -2212,6 +2208,12 @@ var getUrlParts = function( url ) {
 		ignoreHashChange: false,
 		initQueue: 0,
 
+		// Checks if the element <details> is supported natively.
+		// Vérifier si l'élément <details> est supporté nativement.
+		supportsDetails: function() {
+			return "open" in document.createElement( "details" );
+		},
+
 		getPath: function( property ) {
 			return Object.prototype.hasOwnProperty.call( this, property ) ? this[ property ] : undef;
 		},
@@ -2569,7 +2571,7 @@ wb.modernizrLoad = Modernizr.load;
 Modernizr.load = function( options ) {
 	var i, i_len, i_cache,
 		testReady, complete;
-	if ( !$.isArray( options ) ) {
+	if ( !Array.isArray( options ) ) {
 		options = [ options ];
 	}
 	i_len = options.length;
@@ -7154,7 +7156,7 @@ var componentName = "wb-data-ajax",
 			nocachekey: ajxInfo.nocachekey
 		};
 
-		// Detect CORS requests
+		// Detect CORS requests.
 		if ( settings && ( url.substr( 0, 4 ) === "http" || url.substr( 0, 2 ) === "//" ) ) {
 			urlParts = wb.getUrlParts( url );
 			if ( ( wb.pageUrlParts.protocol !== urlParts.protocol || wb.pageUrlParts.host !== urlParts.host ) && ( !Modernizr.cors || settings.forceCorsFallback ) ) {
@@ -7222,7 +7224,7 @@ var componentName = "wb-data-ajax",
 			i, i_len;
 
 		if ( referer ) {
-			if ( !$.isArray( referer ) ) {
+			if ( !Array.isArray( referer ) ) {
 				refers = [];
 				refers.push( referer );
 			} else {
@@ -7234,7 +7236,7 @@ var componentName = "wb-data-ajax",
 			for ( i = 0; i !== i_len; i += 1 ) {
 				regHttpRef = new RegExp( refers[ i ] );
 				if ( regHttpRef.test( httpRef ) ) {
-					if ( $.isArray( url ) && url.length === i_len ) {
+					if ( Array.isArray( url ) && url.length === i_len ) {
 						return url[ i ];
 					} else {
 						return url;
@@ -7655,7 +7657,10 @@ var imgClass,
 		// Loop over the data-media elements and find matching media queries
 		for ( i = 0, len = sources.length; i !== len; i += 1 ) {
 			media = sources[ i ].getAttribute( "data-media" );
-			if ( !media || Modernizr.mq( media ) ) {
+
+			// Check if the media query matches or if no media query is defined.
+			// Vérifie si le media query correspond ou si aucun media query n'est défini.
+			if ( !media || window.matchMedia( media ).matches ) {
 				matches.push( sources[ i ] );
 			}
 		}
@@ -15536,7 +15541,7 @@ var componentName = "wb-tabs",
 					isOpen = !!$panel.attr( open );
 
 					if ( isSmallView ) {
-						if ( !Modernizr.details ) {
+						if ( !wb.supportsDetails ) {
 							$panel.toggleClass( "open", isOpen );
 						}
 					} else {
@@ -15544,8 +15549,7 @@ var componentName = "wb-tabs",
 							role: "tabpanel",
 							open: open
 						} );
-						$panel.addClass( ( Modernizr.details ? "" :  open + " " ) +
-							"fade " + ( isOpen ? "in" : "noheight out wb-inv" ) );
+						$panel.addClass( ( wb.supportsDetails ? "" : open + " " ) + "fade " + ( isOpen ? "in" : "noheight out wb-inv" ) );
 					}
 
 					tablist += "<li" + ( isOpen ? " class='active'" : "" ) +
@@ -16661,7 +16665,7 @@ var componentName = "wb-txthl",
 
 		if ( elm ) {
 			if ( event.txthl ) {
-				searchCriteria = $.isArray( event.txthl ) ? event.txthl.join( "|" ) : event.txthl;
+				searchCriteria = Array.isArray( event.txthl ) ? event.txthl.join( "|" ) : event.txthl;
 			} else if ( params && params.txthl ) {
 				searchCriteria = decodeURIComponent(
 					wb.pageUrlParts.params.txthl
@@ -17606,7 +17610,7 @@ var componentName = "wb-data-json",
 
 			if ( jsondata && jsondata.url ) {
 				lstCall.push( jsondata );
-			} else if ( jsondata && $.isArray( jsondata ) ) {
+			} else if ( jsondata && Array.isArray( jsondata ) ) {
 				i_len = jsondata.length;
 				for ( i = 0; i !== i_len; i += 1 ) {
 					lstCall.push( jsondata[ i ] );
@@ -17782,12 +17786,12 @@ var componentName = "wb-data-json",
 
 
 		// if content is object, transform into array @id and @value
-		if ( !$.isArray( content ) ) {
+		if ( !Array.isArray( content ) ) {
 			if ( typeof content !== "object" ) {
 				content = [ content ];
 			} else {
 				content = $.map( content, function( val, index ) {
-					if ( val && typeof val === "object" && !$.isArray( val ) ) {
+					if ( val && typeof val === "object" && !Array.isArray( val ) ) {
 						if ( !val[ "@id" ] ) {
 							val[ "@id" ] = index;
 						}
@@ -17956,7 +17960,7 @@ var componentName = "wb-data-json",
 	functionForTest = {
 
 		"fn:isArray": function( value ) {
-			return $.isArray( value );
+			return Array.isArray( value );
 		},
 
 		"fn:isLiteral": function( value ) {
@@ -17979,7 +17983,7 @@ var componentName = "wb-data-json",
 
 			if ( tp === "@json" ) {
 				return "rdf:JSON";
-			} else if ( $.isArray( tp ) && tp.indexOf( "@json" ) !== -1 ) {
+			} else if ( Array.isArray( tp ) && tp.indexOf( "@json" ) !== -1 ) {
 				tp[ tp.indexOf( "@json" ) ] = "rdf:JSON";
 			}
 
@@ -18017,7 +18021,7 @@ var componentName = "wb-data-json",
 			if ( guessType && guessType !== "undefined" ) {
 				if ( guessType === "@json" ) {
 					guessType = "rdf:JSON";
-				} else if ( $.isArray( guessType ) && guessType.indexOf( "@json" ) !== -1 ) {
+				} else if ( Array.isArray( guessType ) && guessType.indexOf( "@json" ) !== -1 ) {
 					guessType[ guessType.indexOf( "@json" ) ] = "rdf:JSON";
 				}
 			}
@@ -18033,7 +18037,7 @@ var componentName = "wb-data-json",
 					guessType = [ "xsd:double", "rdfs:Literal" ];
 				} else if ( typeof value === "undefined" ) {
 					guessType = "undefined";
-				} else if ( $.isArray( value ) ) {
+				} else if ( Array.isArray( value ) ) {
 					guessType = "rdfs:Container";
 				} else {
 
@@ -18053,9 +18057,9 @@ var componentName = "wb-data-json",
 		"softEq": function( value, expect ) {
 			var i, i_len;
 
-			if ( $.isArray( value ) && !$.isArray( expect ) && value.indexOf( expect ) !== -1 ) {
+			if ( Array.isArray( value ) && !Array.isArray( expect ) && value.indexOf( expect ) !== -1 ) {
 				return true;
-			} else if ( $.isArray( value ) &&  $.isArray( expect ) ) {
+			} else if ( Array.isArray( value ) &&  Array.isArray( expect ) ) {
 				i_len = expect.length;
 				for ( i = 0; i !== i_len; i++ ) {
 					if ( value.indexOf( expect[ i ] ) ) {
@@ -18099,15 +18103,15 @@ var componentName = "wb-data-json",
 				return false;
 			}
 
-			if ( $.isArray( value ) && !$.isArray( expect ) && value.indexOf( expect ) !== -1 ) {
+			if ( Array.isArray( value ) && !Array.isArray( expect ) && value.indexOf( expect ) !== -1 ) {
 				return true;
-			} else if ( $.isArray( value ) &&  $.isArray( expect ) ) {
+			} else if ( Array.isArray( value ) &&  Array.isArray( expect ) ) {
 				for ( i = 0; i !== expect.length; i++ ) {
 					if ( value.indexOf( expect[ i ] ) ) {
 						return true;
 					}
 				}
-			} else if ( !$.isArray( value ) &&  $.isArray( expect ) && expect.indexOf( value ) !== -1  ) {
+			} else if ( !Array.isArray( value ) &&  Array.isArray( expect ) && expect.indexOf( value ) !== -1  ) {
 				return true;
 			} else if ( value === expect ) {
 				return true;
@@ -18170,7 +18174,7 @@ var componentName = "wb-data-json",
 
 
 		// Is content an array? then iterate the content
-		if ( $.isArray( content ) ) {
+		if ( Array.isArray( content ) ) {
 
 
 			dataIterator( clone, content, mappingConfig, clone );
@@ -18198,7 +18202,7 @@ var componentName = "wb-data-json",
 		if ( !mapping ) {
 			mapping = [ {} ];
 		}
-		if ( !$.isArray( mapping ) ) {
+		if ( !Array.isArray( mapping ) ) {
 			mapping = [ mapping ];
 		}
 		mapping_len = mapping.length;
@@ -18263,7 +18267,7 @@ var componentName = "wb-data-json",
 
 			// Do the cache value contain special @type
 			if ( cached_value && cached_value[ "@value" ] && cached_value[ "@type" ] ) {
-				if ( !$.isArray( cached_value[ "@type" ] ) ) {
+				if ( !Array.isArray( cached_value[ "@type" ] ) ) {
 					cached_value[ "@type" ] = [ cached_value[ "@type" ] ];
 				}
 				cached_value_is_IRI = cached_value[ "@type" ].indexOf( "@id" ) !== -1;
@@ -18272,7 +18276,7 @@ var componentName = "wb-data-json",
 			}
 
 			// Action the value
-			if ( $.isArray( cached_value ) && ( j_cache.mapping || j_cache.queryall ) ) {
+			if ( Array.isArray( cached_value ) && ( j_cache.mapping || j_cache.queryall ) ) {
 
 				// Deep dive into the content if a mapping exist
 				dataIterator( cached_node, cached_value, j_cache );
@@ -18464,8 +18468,8 @@ var componentName = "wb-data-json",
 					return b === null;
 				}
 				var i, l;
-				if ( $.isArray( a ) ) {
-					if (  !$.isArray( b ) || a.length !== b.length ) {
+				if ( Array.isArray( a ) ) {
+					if (  !Array.isArray( b ) || a.length !== b.length ) {
 						return false;
 					}
 					for ( i = 0, l = a.length; i < l; i++ ) {
@@ -18492,7 +18496,7 @@ var componentName = "wb-data-json",
 	},
 	_objectKeys = function( obj ) {
 		var keys;
-		if ( $.isArray( obj ) ) {
+		if ( Array.isArray( obj ) ) {
 			keys = new Array( obj.length );
 			for ( var k = 0; k < keys.length; k++ ) {
 				keys[ k ] = "" + k;
