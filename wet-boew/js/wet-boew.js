@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.82 - 2024-12-04
+ * v4.0.82 - 2024-12-05
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 2.4.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/2.4.4/LICENSE */
@@ -2280,6 +2280,7 @@ var getUrlParts = function( url ) {
 		},
 
 		ready: function( $elm, componentName, context ) {
+
 			if ( $elm ) {
 
 				// Trigger any nested elements (excluding nested within nested)
@@ -2291,6 +2292,7 @@ var getUrlParts = function( url ) {
 
 				// Identify that the component is ready
 				$elm.trigger( "wb-ready." + componentName, context );
+
 				this.initQueue -= 1;
 			} else {
 				this.doc.trigger( "wb-ready." + componentName, context );
@@ -2298,8 +2300,13 @@ var getUrlParts = function( url ) {
 
 			// Identify that global initialization is complete
 			if ( !this.isReady && this.isStarted && this.initQueue < 1 ) {
+
+				// Create DOM event
+				const DOMevent = new Event( "wet-boew-ready" );
+
 				this.isReady = true;
 				this.doc.trigger( "wb-ready.wb" );
+				this.doc[ 0 ].dispatchEvent( DOMevent ); // Trigger native DOM event
 			}
 		},
 
