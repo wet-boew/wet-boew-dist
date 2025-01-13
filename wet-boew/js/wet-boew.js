@@ -3977,11 +3977,65 @@ wb.findPotentialPII = function( str, scope, opts ) {
 		return false;
 	}
 	var oRegEx = {
-			digits: /\d(?:[\s\-\\.\\/]?\d){8,}(?!\d)/ig, //9digits or more pattern
-			passport: /\b[A-Za-z]{2}[\s\\.-]*?\d{6}\b/ig, //canadian nr passport pattern
-			email: /\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40|%2540)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig, //email pattern
-			postalCode: /\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig, //postal code pattern
+
+			/*
+			* Digits:
+			* 9 digits or more
+			*/
+			digits: /\d(?:[\s\-\\.\\/]?\d){8,}(?!\d)/ig,
+
+			/*
+			* Phone:
+			* Any international phone number format
+			*/
+			phone: /\+?(\d{1,3})?[-._\s]?(\(?\d{3}\)?)[-._\s]?(\d{3})[-._\s]?(\d{4})/ig,
+
+			/*
+			* Passport:
+			* 2 letters followed by either a " ", a "/", a ".", or a "-" any amount of times, followed by 6 digits
+			*/
+			passport: /\b[A-Za-z]{2}[\s\\.-]*?\d{6}\b/ig,
+
+			/*
+			* Email:
+			* valid email format
+			*/
+			email: /\b(?:[a-zA-Z0-9_\-\\.]+)(?:@|%40|%2540)(?:[a-zA-Z0-9_\-\\.]+)\.(?:[a-zA-Z]{2,5})\b/ig,
+
+			/*
+			* Loose email:
+			* email address that has one or more whitespaces before the "@" sign and either a "." or "," after the domain name
+			*/
+			looseEmail: /([a-zA-Z0-9_\-.]+)\s*@([\sa-zA-Z0-9_\-.]+)[.,]([a-zA-Z]{1,5})/g,
+
+			/*
+			* Loose email 2:
+			* matches probable email format that the user tried to hide
+			* any amount of letters, numbers, ".", "_", "%", "+", or "-", followed by 0 or 1 whitespace,
+			* followed by "@", followed by 0 or 1 whitespace, followed by "gmail", "outlook", "hotmail", or "yahoo".
+			*/
+			looseEmail2: /([a-zA-Z0-9._%+-]+)\s?@\s?(gmail|outlook|icloud|hotmail|yahoo)(\s?\.?\s?(com|ca))?/ig,
+
+			/*
+			* Postal code:
+			* valid Canadian postal code
+			*/
+			postalCode: /\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig,
+
+			/*
+			* Usename:
+			* "username" or "user",
+			* followed by a colon or an equals sign,
+			* followed by any character that is not a " " or a "&"
+			*/
 			username: /(?:(username|user)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig,
+
+			/*
+			* Password:
+			* "password" or "pass",
+			* ollowed by a ":" or a "=",
+			* followed by any character that is not a " " or a "&"
+			*/
 			password: /(?:(password|pass)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig
 		},
 		isFound = false,
@@ -4114,13 +4168,13 @@ function focusable( element, isTabIndexNotNaN, visibility ) {
 		return !!img && visible( img );
 	}
 	if ( visibility ) {
-		return ( /input|select|textarea|button|object/.test( nodeName ) ? !element.disabled :
+		return ( /input|select|textarea|button|object|summary/.test( nodeName ) ? !element.disabled :
 			nodeName === "a" ?
 				element.href || isTabIndexNotNaN :
 				isTabIndexNotNaN ) &&
 		visible( element ); /* the element and all of its ancestors must be visible */
 	} else {
-		return ( /input|select|textarea|button|object/.test( nodeName ) ? !element.disabled :
+		return ( /input|select|textarea|button|object|summary/.test( nodeName ) ? !element.disabled :
 			nodeName === "a" ?
 				element.href || isTabIndexNotNaN :
 				isTabIndexNotNaN );
@@ -10518,7 +10572,7 @@ var componentName = "wb-lbx",
 
 		$wrap.on( "keydown", function( e ) {
 			if ( e.which === 9 ) {
-				var tabbable = $wrap.find( ".mfp-container :tabbable:visible" ),
+				var tabbable = $wrap.find( ".mfp-container :tabbable" ),
 					firstTabbable = tabbable.first()[ 0 ],
 					lastTabbable = tabbable.last()[ 0 ],
 					currentFocus = $( document.activeElement )[ 0 ];
@@ -13060,7 +13114,7 @@ $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
 
 					// No special tab handling when ignoring outside activity
 					if ( overlay.className.indexOf( ignoreOutsideClass ) === -1 ) {
-						$focusable = $( overlay ).find( ":focusable:not([tabindex='-1'])" );
+						$focusable = $( overlay ).find( ":tabbable" );
 						length = $focusable.length;
 						index = $focusable.index( event.target ) + ( event.shiftKey ? -1 : 1 );
 
@@ -13509,6 +13563,235 @@ $document.on( "timerpoke.wb " + initEvent, selector, init );
 wb.add( selector );
 
 } )( jQuery, window, document, wb );
+
+/**
+ * @title WET-BOEW wb-pii-scrub
+ * @overview This plugin delete Personal Identifiable Information (PII) from the flagged form fields before form submit
+ * @license wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
+ * @author @polmih, @duboisp, @GormFrank
+ **/
+( function( $, wb ) {
+"use strict";
+
+var $document = wb.doc,
+	componentName = "wb-pii-scrub",
+	selector = "." + componentName,
+	initEvent = "wb-init" + selector,
+	attrPIIBlocked = "data-wb-pii-blocked",
+	attrScrubField = "data-scrub-field",
+	attrScrubSubmit = "data-scrub-submit",
+	piiModalID = componentName + "-modal",
+	defaults = {
+		scrubChar: "********"
+	},
+	i18n, i18nText,
+
+	init = function( event ) {
+		var elm = wb.init( event, componentName, selector ),
+			$elm = $( elm );
+
+		if ( elm ) {
+			var settings = elm.getAttribute( "data-" + componentName );
+
+			// Initialize i18n strings
+			if ( !i18nText ) {
+				i18n = wb.i18n;
+				i18nText = {
+					header: i18n( "pii-header" ),
+					intro: i18n( "pii-intro" ),
+					viewMore: i18n( "pii-view-more" ),
+					viewMoreInfo: i18n( "pii-view-more-info" ),
+					confirmBtn: i18n( "pii-yes-btn" ),
+					cancelBtn: i18n( "pii-cancel-btn" ),
+					redacted: i18n( "redacted" )
+				};
+			}
+
+			// Parse settings defined on element
+			if ( settings ) {
+				settings = JSON.parse( settings );
+			}
+
+			// Initialize settings
+			elm.settings = { ...defaults, ...settings };
+
+			// Ensure the form has an ID
+			elm.id = elm.id ? elm.id : wb.getId();
+
+			// Block form submission for Postback forms by default
+			elm.setAttribute( attrPIIBlocked, "true" );
+
+			elm.addEventListener( "submit", function( event ) {
+				event.preventDefault(); // This is needed because of the setTimeout
+
+				// Go through form values
+				checkFormValues( elm );
+
+				// Check if form has validation errors before showing PII popup or submitting
+				setTimeout( function() {
+					let errorElm = elm.querySelector( ".error .label.label-danger" );
+
+					if ( !errorElm ) {
+
+						// Open modal
+						if ( elm.PIIFields.length > 0 ) {
+							generateModal( elm );
+
+							$( "#" + piiModalID ).trigger( "open.wb-lbx", [
+								[ {
+									src: "#" + piiModalID,
+									type: "inline"
+								} ],
+								true
+							] );
+						} else {
+							if ( elm.classList.contains( "wb-postback" ) ) {
+								$( elm ).trigger( "wb-postback.submit", { event } );
+							} else {
+								elm.submit();
+							}
+						}
+					}
+				}, 50 );
+			} );
+
+			wb.ready( $elm, componentName );
+		}
+	},
+
+	/*
+	* Log all PII positive fields inside the form's "PIIFields" property
+	* @param form: a reference to the form containing PII fields
+	*/
+	checkFormValues = function( form ) {
+		let fieldsToScrub = form.querySelectorAll( "[" + attrScrubField + "]" );
+
+		form.PIIFields = [];
+
+		// identify form elements that were assigned to be scrubbed
+		fieldsToScrub.forEach( ( field ) => {
+
+			// If the field contains PII add field to list
+			if ( wb.findPotentialPII( field.value, false ) ) {
+				let fieldLabel = form.querySelector( "[for=" + field.id + "] > span.field-name" ),
+					fieldLabelText = fieldLabel ? fieldLabel.innerText : form.querySelector( "[for=" + field.id + "]" ).innerText,
+					scrubbedFieldValue = wb.findPotentialPII( field.value, true, { replaceWith: form.settings.scrubChar } ),
+					scrubValHTML = wb.findPotentialPII( field.value, true, { replaceWith: "<span role='img' aria-label='" + i18nText.redacted + "'>" + form.settings.scrubChar + "</span>" } ); // Todo add i18n
+
+				form.PIIFields.push( {
+					elm: field,
+					scrubVal: scrubbedFieldValue,
+					scrubValHTML: scrubValHTML,
+					label: fieldLabelText
+				} );
+			}
+		} );
+
+		if ( form.PIIFields.length === 1 ) {
+			document.getElementById( form.PIIFields[ 0 ].elm.id ).focus();
+		}
+
+		// If PII is found, block Postback form submission
+		form.PIIFields.length > 0 ? form.setAttribute( attrPIIBlocked, "true" ) : form.setAttribute( attrPIIBlocked, "false" );
+	},
+
+	/*
+	* Scrub all PII positive fields
+	* @param form: a reference to the form containing PII fields
+	*/
+	scrubFormValues = function( form ) {
+
+		// Scrub the value of each PII positive fields
+		form.PIIFields.forEach( ( field ) => {
+			field.elm.value = field.scrubVal;
+		} );
+
+		// Clear PII fields as their value has been replaced by the scrubbed value
+		form.PIIFields = [];
+	},
+
+	/*
+	* Generate the modal UI
+	* @param form: a reference to the form containing PII fields
+	*/
+	generateModal = function( form ) {
+		let piiModalFields = "",
+			piiModal = document.createElement( "section" ),
+			moreInfoContent = form.settings.moreInfo ? form.settings.moreInfo : i18nText.viewMoreInfo,
+			modalTemplate = form.querySelector( "template" + form.settings.modalTemplate );
+
+		// Destroy modal if present
+		if ( document.getElementById( piiModalID ) ) {
+			document.getElementById( piiModalID ).remove();
+		}
+
+		// Generate PII fields list
+		if ( form.PIIFields.length > 1 ) {
+			piiModalFields += "<dl>";
+			form.PIIFields.forEach( ( field ) => {
+				piiModalFields += "<dt>" + field.label + "</dt><dd class=\"well well-sm\">" + field.scrubValHTML.replace( /\n/g, "<br>" ) + "</dd>";
+			} );
+			piiModalFields += "</dl>";
+		} else {
+			piiModalFields += "<div class=\"well well-sm\">" + form.PIIFields[ 0 ].scrubValHTML.replace( /\n/g, "<br>" ) + "</div>";
+		}
+
+		piiModal.id = piiModalID;
+		piiModal.className = "modal-dialog modal-content overlay-def";
+		piiModal.setAttribute( "data-form", form.id );
+
+		if ( modalTemplate ) {
+			piiModal.appendChild( modalTemplate.content.cloneNode( true ) );
+		} else {
+			piiModal.innerHTML = `<header class="modal-header">
+					<h2 class="modal-title">${ i18nText.header }</h2>
+				</header>
+				<div class="modal-body">
+					<p>${ i18nText.intro }</p>
+					${ piiModalFields }
+					<details class="mrgn-tp-md">
+						<summary>${ i18nText.viewMore }</summary>
+						${ moreInfoContent }
+					</details>
+				</div>
+				<div class="modal-footer">
+					<div class="row">
+						<div class="col-xs-12 col-sm-5 mrgn-tp-sm"><button type="button" class="btn btn-link btn-block popup-modal-dismiss">${ i18nText.cancelBtn }</button></div>
+						<div class="col-xs-12 col-sm-7 mrgn-tp-sm"><button type="button" class="btn btn-primary btn-block popup-modal-dismiss" ${ attrScrubSubmit }>${ i18nText.confirmBtn }</button></div>
+					</div>
+				</div>`;
+		}
+
+		// Using jQuery here to pass the content through DOMpurify
+		$( "body" ).append( piiModal );
+
+		// Add PII fields HTML if using a custom UI template
+		if ( modalTemplate ) {
+			$( "#" + piiModalID + " [data-scrub-modal-fields]" ).html( piiModalFields );
+		}
+	};
+
+// Bind the init event of the plugin
+$document.on( "timerpoke.wb " + initEvent, selector, init );
+
+// Scrub the form fields on click of the "Confirm" button
+$document.on( "click", "#" + piiModalID + " [" + attrScrubSubmit + "]", function( event ) {
+	let modal = document.getElementById( piiModalID ),
+		form = document.getElementById( modal.dataset.form );
+
+	scrubFormValues( form );
+
+	if ( form.classList.contains( "wb-postback" ) ) {
+		$( form ).trigger( "wb-postback.submit", { event } );
+	} else {
+		form.submit();
+	}
+} );
+
+// Add the timer poke to initialize the plugin
+wb.add( selector );
+
+} )( jQuery, wb );
 
 /**
  * @title WET-BOEW Prettify Plugin
@@ -19835,6 +20118,7 @@ var $document = wb.doc,
 				selectorSuccess = settings.success,
 				selectorFailure = settings.failure || selectorSuccess;
 			const attrBlocked = "data-wb-blocked",
+				attrPIIBlocked = "data-wb-pii-blocked",
 				attrSending = "data-wb-sending";
 
 			elm.addEventListener( "submit", function( e ) {
@@ -19854,50 +20138,54 @@ var $document = wb.doc,
 				}
 
 				// Submit the form unless it's blocked or currently being sent
-				if ( !$( this ).attr( attrBlocked ) && !$( this ).attr( attrSending ) ) {
-					var data = $elm.serializeArray(),
-						btn = e.submitter,
-						$selectorSuccess = $( selectorSuccess ),
-						$selectorFailure = $( selectorFailure );
-
-					// Indicate that the form is currently being sent (to prevent multiple submissions in parallel)
-					$( this ).attr( attrSending, true );
-
-					// If the submit button contains a variable, add it to the form's paramaters
-					// Note: Submitting a form via Enter will act as if the FIRST submit button was pressed. Therefore, that button's variable will be added (as opposed to nothing). This is in line with default form submission behaviour.
-					if ( btn && btn.name ) {
-						data.push( { name: btn.name, value: btn.value } );
-					}
-
-					// Hide feedback messages
-					$selectorFailure.addClass( classToggle );
-					$selectorSuccess.addClass( classToggle );
-
-					// Send the form through ajax and ignore the response body.
-					$.ajax( {
-						type: this.method,
-						url: this.action,
-						data: $.param( data )
-					} )
-						.done( function() {
-							$elm.trigger( successEvent );
-							$selectorSuccess.removeClass( classToggle );
-						} )
-						.fail( function( response ) {
-							$elm.trigger( failEvent, response );
-							$selectorFailure.removeClass( classToggle );
-						} )
-						.always( function() {
-
-							// Hide the form unless multiple submits are allowed
-							if ( !multiple ) {
-								$elm.addClass( classToggle );
-							}
-
-							// Remove the sending indicator now that submission is fully complete (i.e. HTTP response code has been received)
-							$elm.removeAttr( attrSending );
-						} );
+				if ( !$( this ).attr( attrBlocked ) && !$( this ).attr( attrSending ) && !$( this ).attr( attrPIIBlocked ) ) {
+					$elm.trigger( componentName + ".submit", { e } );
 				}
+			} );
+
+			$elm.on( componentName + ".submit", function( event, submitEvent ) {
+				var data = $elm.serializeArray(),
+					btn = submitEvent.submitter,
+					$selectorSuccess = $( selectorSuccess ),
+					$selectorFailure = $( selectorFailure );
+
+				// Indicate that the form is currently being sent (to prevent multiple submissions in parallel)
+				$( this ).attr( attrSending, true );
+
+				// If the submit button contains a variable, add it to the form's paramaters
+				// Note: Submitting a form via Enter will act as if the FIRST submit button was pressed. Therefore, that button's variable will be added (as opposed to nothing). This is in line with default form submission behaviour.
+				if ( btn && btn.name ) {
+					data.push( { name: btn.name, value: btn.value } );
+				}
+
+				// Hide feedback messages
+				$selectorFailure.addClass( classToggle );
+				$selectorSuccess.addClass( classToggle );
+
+				// Send the form through ajax and ignore the response body.
+				$.ajax( {
+					type: this.method,
+					url: this.action,
+					data: $.param( data )
+				} )
+					.done( function() {
+						$elm.trigger( successEvent );
+						$selectorSuccess.removeClass( classToggle );
+					} )
+					.fail( function( response ) {
+						$elm.trigger( failEvent, response );
+						$selectorFailure.removeClass( classToggle );
+					} )
+					.always( function() {
+
+						// Hide the form unless multiple submits are allowed
+						if ( !multiple ) {
+							$elm.addClass( classToggle );
+						}
+
+						// Remove the sending indicator now that submission is fully complete (i.e. HTTP response code has been received)
+						$elm.removeAttr( attrSending );
+					} );
 			} );
 
 			wb.ready( $( elm ), componentName );

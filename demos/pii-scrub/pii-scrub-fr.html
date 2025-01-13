@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="no-js" lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Nettoyage d'IPI - Exemples pratiques - Boîte à outils de l'expérience Web
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Remplacez les informations personnelles identifiables (IPI) des champs marqués par des caractères caviardés.">
+<link rel="alternate" hreflang="en" href="pii-scrub-en.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css"></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Passer au contenu principal</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Passer à «&#160;À propos de ce site&#160;»</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Sélection de la langue</h2>
+<ul class="text-right">
+<li class="curr">Français&#32;<span>(actuel)</span></li>
+<li><a lang="en" hreflang="en" href="pii-scrub-en.html">English</a></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Recherche et menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Recherche et menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Recherche et menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-fr.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Boîte à outils de l'expérience Web<span class="wb-inv">, </span><small>Projet à source ouverte collaboratif dirigé par le Gouvernement du Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Recherche</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Recherchez le site Web</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Recherche</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-fr.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Menu des sujets</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-fr.html">Projet de la BOEW</a></li>
+<li><a href="../../docs/start-fr.html#implement">Mise en œuvre de la BOEW</a></li>
+<li><a href="../../docs/start-fr.html">Contribuer à la BOEW</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Piste de navigation</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb" typeof="BreadcrumbList">
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../index-fr.html"><span property="name">Accueil</span></a>
+<meta property="position" content="1">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../demos/index-fr.html"><span property="name">Exemples pratiques</span></a>
+<meta property="position" content="2">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Nettoyage d&#x27;IPI</span><meta property="position" content="3"></li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">Nettoyage d&#x27;IPI</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/pii-scrub/pii-scrub-fr.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Nettoyage%20d&#x27;IPI:%20">Questions ou commentaires?</a></li>
+</ul>
+<div class="wb-prettify all-pre hide"></div>
+<p>Remplacez les informations personnelles identifiables (IPI) des champs marqués par des caractères caviardés.</p>
+<h2>Sur cette page</h2>
+<ul>
+<li><a href="#exempleBase">Exemple de base</a></li>
+<li><a href="#exemplePostback">Exemple avec envoi via Ajax</a></li>
+<li><a href="#exempleValidation">Exemple avec validation de formulaire</a></li>
+<li><a href="#exempleValidationEtPostback">Exemple avec validation de formulaire et avec envoi via Ajax</a></li>
+</ul>
+<h2 id="exempleBase">Exemple de base</h2>
+<p>Vous trouverez ci-dessous un exemple de base de la manière d'implémenter le plugin Nettoyage d'IPI.</p>
+<section class="panel panel-info">
+<header class="panel-heading">
+<h3 class="panel-title">Instructions</h3>
+</header>
+<div class="panel-body">
+<p>Remplissez les champs ci-dessous avec les valeurs suivantes&nbsp;:</p>
+<ul>
+<li>Objet&nbsp;: <code>Mon PRI&nbsp;: 012345678</code></li>
+<li>Message&nbsp;: <code>Visa&nbsp;: 4916 0739.3667-6891, Master&nbsp;: 5428735149026050, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, numéro de permis de conduire&nbsp;: P12345678912345, Compte bancaire&nbsp;: 003-1234567</code></li>
+</ul>
+</div>
+</section>
+<form action="pii-scrub-fr.html" class="wb-pii-scrub">
+<div class="form-content">
+<div class="form-group">
+<label for="subject"><span class="field-name">Objet</span></label>
+<input class="form-control" id="subject" name="subject" type="text" data-scrub-field>
+</div>
+<div class="form-group">
+<label for="message">Message</label>
+<textarea class="form-control" id="message" name="message" data-scrub-field rows="4" cols="50"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">Soumettre</button>
+</div>
+</form>
+<details class="mrgn-tp-md mrgn-bttm-md">
+<summary>Afficher le code</summary>
+<pre><code>&lt;form action="pii-scrub-fr.html" class="wb-pii-scrub">
+	&lt;div class="form-content">
+		&lt;div class="form-group">
+			&lt;label for="subject">&lt;span class="field-name">Objet&lt;/span>&lt;/label>
+			&lt;input class="form-control" id="subject" name="subject" type="text" data-scrub-field />
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="message">Message&lt;/label>
+			&lt;textarea class="form-control" id="message" name="message" data-scrub-field rows="4" cols="50">&lt;/textarea>
+		&lt;/div>
+		&lt;button type="submit" class="btn btn-primary">Soumettre&lt;/button>
+	&lt;/div>
+&lt;/form></code></pre>
+</details>
+<h2 id="exemplePostback">Exemple avec envoi via Ajax et gabarit de fenêtre contextuelle personnalisé</h2>
+<p>Vous trouverez ci-dessous un exemple démontrant l'implémentation du plugiciel Nettoyage d'IPI avec un formulaire soumis avec l'Envoi via Ajax. Cet exemple démontre également l'utilisation des options <code>srubChar</code> et <code>moreInfo</code>.</p>
+<section class="panel panel-info">
+<header class="panel-heading">
+<h3 class="panel-title">Instructions</h3>
+</header>
+<div class="panel-body">
+<p>Seul le champ <strong>Commentaires</strong> possède un attribut data-scrub.</p>
+<p>Remplissez le champ <strong>Commentaires</strong> avec les informations suivantes&nbsp;:<br><code>Visa&nbsp;: 4916 0739.3667-6891, Master&nbsp;: 5428735149026050, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, numéro de permis de conduire&nbsp;: P12345678912345, Compte bancaire&nbsp;: 003-1234567</code></p>
+</div>
+</section>
+<form action="pii-scrub-fr.html" class="wb-postback wb-pii-scrub" data-wb-postback='{"success":".success-message","failure":".failure-message"}' data-wb-pii-scrub='{"scrubChar": "████████", "modalTemplate": "[data-scrub-modal]"}'>
+<template data-scrub-modal>
+<header class="modal-header">
+<h2 class="modal-title">Les informations personnelles contenues dans votre commentaire ont été supprimées</h2>
+</header>
+<div class="modal-body">
+<p>Les commentaires servent uniquement à améliorer notre site. Vous ne recevrez pas de réponse.</p>
+<p><strong>Pour protéger votre vie privée, votre commentaire sera soumis comme suit&nbsp;:</strong></p>
+<div data-scrub-modal-fields></div>
+<details class="mrgn-tp-md">
+<summary>Qu’est-ce qui est considéré comme une information personnelle?</summary>
+<p>Certains types d’informations ne peuvent pas être inclus dans ce formulaire de commentaires, tels que&nbsp;:</p>
+<ul>
+<li>adresse courriel</li>
+<li>numéro de téléphone</li>
+<li>code postal</li>
+<li>numéro de passeport</li>
+<li>numéro d'entreprise</li>
+<li>numéro d'assurance sociale (NAS)</li>
+</ul>
+</details>
+</div>
+<div class="modal-footer">
+<div class="row">
+<div class="col-xs-12 col-sm-6 mrgn-tp-sm"><button type="button" class="btn btn-link btn-block popup-modal-dismiss">Fermer et modifier le commentaire</button></div>
+<div class="col-xs-12 col-sm-6 mrgn-tp-sm"><button type="button" class="btn btn-primary btn-block popup-modal-dismiss" data-scrub-submit>Soumettre le commentaire</button></div>
+</div>
+</div>
+</template>
+<div class="form-content">
+<div class="form-group">
+<label for="firstname1"><span class="field-name">Prénom</span></label>
+<input class="form-control" id="firstname1" name="firstname" type="text">
+</div>
+<div class="form-group">
+<label for="lastname1"><span class="field-name">Nom de famille</span></label>
+<input class="form-control" id="lastname1" name="lastname" type="text">
+</div>
+<div class="form-group">
+<label for="comments">Commentaires</label>
+<textarea class="form-control" id="comments" name="comments" data-scrub-field rows="4" cols="50"></textarea>
+</div>
+<button class="btn btn-primary">Soumettre</button>
+</div>
+</form>
+<p class="success-message hide">Merci !</p>
+<p class="failure-message hide">Une erreur s'est produite. Veuillez soumettre vos informations via une autre méthode.</p>
+<details class="mrgn-tp-md mrgn-bttm-md">
+<summary>Afficher le code</summary>
+<pre><code>&lt;form action="pii-scrub-fr.html" class="wb-postback wb-pii-scrub" data-wb-postback='{"success":".success-message","failure":".failure-message"}' data-wb-pii-scrub='{"scrubChar": "████████", "modalTemplate": "[data-scrub-modal]"}'>
+	&lt;template data-scrub-modal>
+		&lt;header class="modal-header">
+			&lt;h2 class="modal-title">Les informations personnelles contenues dans votre commentaire ont été supprimées&lt;/h2>
+		&lt;/header>
+		&lt;div class="modal-body">
+			&lt;p>Les commentaires servent uniquement à améliorer notre site. Vous ne recevrez pas de réponse.&lt;/p>
+			&lt;p>&lt;strong>Pour protéger votre vie privée, votre commentaire sera soumis comme suit&nbsp;:&lt;/strong>&lt;/p>
+			&lt;div data-scrub-modal-fields>&lt;/div>
+			&lt;details class="mrgn-tp-md">
+				&lt;summary>Qu’est-ce qui est considéré comme une information personnelle?&lt;/summary>
+				&lt;p>Certains types d’informations ne peuvent pas être inclus dans ce formulaire de commentaires, tels que&nbsp;:&lt;/p>
+				&lt;ul>
+					&lt;li>adresse courriel&lt;/li>
+					&lt;li>numéro de téléphone&lt;/li>
+					&lt;li>code postal&lt;/li>
+					&lt;li>numéro de passeport&lt;/li>
+					&lt;li>numéro d'entreprise&lt;/li>
+					&lt;li>numéro d'assurance sociale (NAS)&lt;/li>
+				&lt;/ul>
+			&lt;/details>
+		&lt;/div>
+		&lt;div class="modal-footer">
+			&lt;div class="row">
+				&lt;div class="col-xs-12 col-sm-6 mrgn-tp-sm">&lt;button type="button" class="btn btn-link btn-block popup-modal-dismiss">Fermer et modifier le commentaire&lt;/button>&lt;/div>
+				&lt;div class="col-xs-12 col-sm-6 mrgn-tp-sm">&lt;button type="button" class="btn btn-primary btn-block popup-modal-dismiss" data-scrub-submit>Soumettre le commentaire&lt;/button>&lt;/div>
+			&lt;/div>
+		&lt;/div>
+	&lt;/template>
+	&lt;div class="form-content">
+		&lt;div class="form-group">
+			&lt;label for="firstname1">&lt;span class="field-name">Prénom&lt;/span>&lt;/label>
+			&lt;input class="form-control" id="firstname1" name="firstname" type="text" />
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="lastname1">&lt;span class="field-name">Nom de famille&lt;/span>&lt;/label>
+			&lt;input class="form-control" id="lastname1" name="lastname" type="text" />
+		&lt;/div>
+		&lt;div class="form-group">
+			&lt;label for="comments">Commentaires&lt;/label>
+			&lt;textarea class="form-control" id="comments" name="comments" data-scrub-field rows="4" cols="50">&lt;/textarea>
+		&lt;/div>
+		&lt;button class="btn btn-primary">Soumettre&lt;/button>
+	&lt;/div>
+&lt;/form>
+&lt;p class="success-message hide">Merci !&lt;/p>
+&lt;p class="failure-message hide">Une erreur s'est produite. Veuillez soumettre vos informations via une autre méthode.&lt;/p></code></pre>
+</details>
+<h2 id="exempleValidation">Exemple avec validation de formulaire</h2>
+<p>Vous trouverez ci-dessous un exemple illustrant l'implémentation du plugin Nettoyage d'IPI avec validation de formulaire.</p>
+<section class="panel panel-info">
+<header class="panel-heading">
+<h3 class="panel-title">Instructions</h3>
+</header>
+<div class="panel-body">
+<p>Seul le champ <strong>Commentaires</strong> possède un attribut data-scrub.</p>
+<p>Remplissez le champ <strong>Commentaires</strong> avec les informations suivantes&nbsp;:<br><code>Visa&nbsp;: 4916 0739.3667-6891, Master&nbsp;: 5428735149026050, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, numéro de permis de conduire&nbsp;: P12345678912345, Compte bancaire&nbsp;: 003-1234567</code></p>
+</div>
+</section>
+<div class="wb-frmvld mrgn-bttm-md">
+<form action="pii-scrub-en.html" class="wb-pii-scrub">
+<div class="form-content">
+<div class="form-group">
+<label for="fname1" class="required"><span class="field-name">Prénom</span> <strong class="required">(obligatoire)</strong></label>
+<input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
+</div>
+<div class="form-group">
+<label for="lname1" class="required"><span class="field-name">Nom de famille</span> <strong class="required">(obligatoire)</strong></label>
+<input class="form-control" id="lname1" name="lname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2">
+</div>
+<div class="form-group">
+<label for="preferredNumber1">De préférence&nbsp;: <span class="field-name">Numéro de téléphone</span></label>
+<input class="form-control" id="preferredNumber1" name="preferredNumber" type="tel">
+</div>
+<div class="form-group">
+<label for="comments2">Commentaires</label>
+<textarea class="form-control" id="comments2" name="comments2" data-scrub-field rows="4" cols="50"></textarea>
+</div>
+<button class="btn btn-primary">Soumettre</button>
+</div>
+</form>
+</div>
+<details>
+<summary>Afficher le code</summary>
+<pre><code>&lt;div class="wb-frmvld mrgn-bttm-md">
+	&lt;form action="pii-scrub-en.html" class="wb-pii-scrub">
+		&lt;div class="form-content">
+			&lt;div class="form-group">
+				&lt;label for="fname1" class="required">&lt;span class="field-name">Prénom&lt;/span> &lt;strong class="required">(obligatoire)&lt;/strong>&lt;/label>
+				&lt;input class="form-control" id="fname1" name="fname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2" />
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="lname1" class="required">&lt;span class="field-name">Nom de famille&lt;/span> &lt;strong class="required">(obligatoire)&lt;/strong>&lt;/label>
+				&lt;input class="form-control" id="lname1" name="lname1" type="text" autocomplete="given-name" required="required" data-rule-minlength="2" />
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="preferredNumber1">De préférence&nbsp;: &lt;span class="field-name">Numéro de téléphone&lt;/span>&lt;/label>
+				&lt;input class="form-control" id="preferredNumber1" name="preferredNumber" type="tel" />
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="comments">Commentaires&lt;/label>
+				&lt;textarea class="form-control" id="comments" name="comments" data-scrub-field rows="4" cols="50">&lt;/textarea>
+			&lt;/div>
+			&lt;button class="btn btn-primary">Soumettre&lt;/button>
+		&lt;/div>
+	&lt;/form>
+&lt;/div></code></pre>
+</details>
+<h2 id="exempleValidationEtPostback">Exemple avec validation de formulaire et avec envoi via Ajax</h2>
+<p>Vous trouverez ci-dessous un exemple illustrant l'implémentation du plugin Nettoyage d'IPI avec validation de formulaire et envoi via Ajax.</p>
+<section class="panel panel-info">
+<header class="panel-heading">
+<h3 class="panel-title">Instructions</h3>
+</header>
+<div class="panel-body">
+<p>Seul le champ <strong>Problème</strong> possède un attribut data-scrub.</p>
+<p>Remplissez le champ <strong>Problème</strong> avec les informations suivantes&nbsp;:<br><code>Visa&nbsp;: 4916 0739.3667-6891, Master&nbsp;: 5428735149026050, NAS&nbsp;: 123 123-123, Code postal&nbsp;: K2C 3N2, numéro de permis de conduire&nbsp;: P12345678912345, Compte bancaire&nbsp;: 003-1234567</code></p>
+</div>
+</section>
+<div class="wb-frmvld mrgn-bttm-md">
+<form action="pii-scrub-en.html" class="wb-pii-scrub wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'>
+<div class="form-content">
+<div class="form-group">
+<label for="nomComplet" class="required"><span class="field-name">Nom complet</span> <strong class="required">(required)</strong></label>
+<input class="form-control" id="nomComplet" name="nomComplet" type="text" required="required" data-rule-minlength="2">
+</div>
+<div class="form-group">
+<label for="probleme">Problème</label>
+<textarea class="form-control" id="probleme" name="probleme" data-scrub-field rows="4" cols="50"></textarea>
+</div>
+<button class="btn btn-primary">Submit</button>
+</div>
+</form>
+<p class="success-message-2 hide">Merci !</p>
+<p class="failure-message-2 hide">Une erreur s'est produite. Veuillez soumettre vos informations via une autre méthode.</p>
+</div>
+<details>
+<summary>View code</summary>
+<pre><code>&lt;div class="wb-frmvld mrgn-bttm-md">
+	&lt;form action="pii-scrub-en.html" class="wb-pii-scrub wb-postback" data-wb-postback='{"success":".success-message-2","failure":".failure-message-2"}'>
+		&lt;div class="form-content">
+			&lt;div class="form-group">
+				&lt;label for="nomComplet" class="required">&lt;span class="field-name">Nom complet&lt;/span> &lt;strong class="required">(required)&lt;/strong>&lt;/label>
+				&lt;input class="form-control" id="nomComplet" name="nomComplet" type="text" required="required" data-rule-minlength="2" />
+			&lt;/div>
+			&lt;div class="form-group">
+				&lt;label for="probleme">Problème&lt;/label>
+				&lt;textarea class="form-control" id="probleme" name="probleme" data-scrub-field rows="4" cols="50">&lt;/textarea>
+			&lt;/div>
+			&lt;button class="btn btn-primary">Submit&lt;/button>
+		&lt;/div>
+	&lt;/form>
+	&lt;p class="success-message-2 hide">Merci !&lt;/p>
+	&lt;p class="failure-message-2 hide">Une erreur s'est produite. Veuillez soumettre vos informations via une autre méthode.&lt;/p>
+&lt;/div></code></pre>
+</details>
+<dl id="wb-dtmd">
+<dt>Date de modification&#160;:&#32;</dt>
+<dd><time property="dateModified">2024-11-19</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>À propos de ce site</h2>
+<section class="col-sm-3">
+<h3>Contactez-nous</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions ou commentaires?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>À propos</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-fr.html#apropos">À propos de la Boîte à outils de l’expérience Web</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-fra.asp">À propos des normes Web</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Nouvelles</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Activité du projet récente</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Statistiques du projet</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Restez branchés</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/BoiteExpWeb">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>

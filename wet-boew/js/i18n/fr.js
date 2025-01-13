@@ -248,7 +248,16 @@ wb.i18nDict = {
 
 	/* Filter */
 	"fltr-lbl": "Filtrer<span class=\"wb-inv\"> le contenu: Les résultats s'afficherons au moment même de la saisie.</span>",
-	"fltr-info": "Affiche <span data-nbitem></span> de <span data-total></span> éléments filtrés."
+	"fltr-info": "Affiche <span data-nbitem></span> de <span data-total></span> éléments filtrés.",
+
+	/* Data scrub */
+	"pii-header": "Supprimer les informations personnelles",
+	"pii-intro": "Certaines informations ajoutées dans le formulaire sont identifiées comme des informations personnelles et seront remplacées comme suit&nbsp;:",
+	"pii-view-more": "Qu’est-ce qui est considéré comme une information personnelle?",
+	"pii-view-more-info": "<p>Les types d'informations suivants sont considérés comme des informations personnelles&nbsp;:</p><ul><li>adresse courriel</li><li>numéro de téléphone</li><li>code postal</li><li>numéro de passeport</li><li>numéro d'entreprise</li><li>numéro d'assurance sociale (NAS)</li></ul>",
+	"pii-yes-btn": "Supprimer les informations personnelles et soumettre",
+	"pii-cancel-btn": "Retourner et modifier les champs",
+	"redacted": "caviardé"
 };
 
 } )( wb );
