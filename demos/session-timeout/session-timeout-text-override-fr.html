@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Expiration de la session - Exemples pratiques - Boîte à outils de l'expérience Web
+<title>Expiration de la session avec l'option textOverrides - Exemples pratiques - Boîte à outils de l'expérience Web
 </title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description" content="Ferme la session de l&#x27;utilisateur après un certain délai.">
-<link rel="alternate" hreflang="en" href="session-timeout-en.html">
+<link rel="alternate" hreflang="en" href="session-timeout-text-override-en.html">
 <link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
 <link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
 <noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css"></noscript>
@@ -33,7 +33,7 @@
 <h2>Sélection de la langue</h2>
 <ul class="text-right">
 <li class="curr">Français&#32;<span>(actuel)</span></li>
-<li><a lang="en" hreflang="en" href="session-timeout-en.html">English</a></li>
+<li><a lang="en" hreflang="en" href="session-timeout-text-override-en.html">English</a></li>
 </ul>
 </section>
 <section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
@@ -93,29 +93,29 @@
 <a property="item" typeof="WebPage" href="../../demos/index-fr.html"><span property="name">Exemples pratiques</span></a>
 <meta property="position" content="2">
 </li>
-<li property="itemListElement" typeof="ListItem"><span property="name">Expiration de la session</span><meta property="position" content="3"></li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Expiration de la session avec l&#x27;option textOverrides</span><meta property="position" content="3"></li>
 </ol>
 </div>
 </div>
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-<h1 id="wb-cont" property="name">Expiration de la session</h1>
+<h1 id="wb-cont" property="name">Expiration de la session avec l&#x27;option textOverrides</h1>
 <ul class="list-inline">
 <li><a class="btn btn-primary" href="../../docs/ref/session-timeout/session-timeout-fr.html">Documentation</a></li>
-<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Expiration%20de%20la%20session:%20">Questions ou commentaires?</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Expiration%20de%20la%20session%20avec%20l&#x27;option%20textOverrides:%20">Questions ou commentaires?</a></li>
 </ul>
-<span class="wb-sessto" data-wb-sessto='{"inactivity": 30000, "logouturl": "../index-fr.html"}'></span>
+<span class="wb-sessto" data-wb-sessto='{"inactivity": 30000, "reactionTime": 30000, "logouturl": "../index-fr.html", "textOverrides": {"buttonContinue": "Keep Going", "buttonEnd": "Goodbye", "timeoutAlready": "You took too long.  Bye!", "buttonSignin": "Start Over", "timeoutEnd": "Are you still there?"}}'></span>
 <section><h2 id="how">Configuration</h2>
-<p>Ajoutez les lignes suivantes à la page&#160;:</p>
-<pre><code>&lt;span class="wb-sessto" data-wb-sessto='{"inactivity": 30000, "logouturl": "../index-fr.html"}'&gt;&lt;/span&gt;</code></pre>
+<p>Ajoutez l'option <code>textOverrides</code> à l'élément d'expiration de la session. Voici l'exemple de la page actuelle&nbsp;:</p>
+<pre><code>&lt;span class="wb-sessto" data-wb-sessto='{"inactivity": 30000, "reactionTime": 30000, "logouturl": "../index-fr.html", "textOverrides": {"buttonContinue": "Keep Going", "buttonEnd": "Goodbye", "timeoutAlready": "You took too long.  Bye!", "buttonSignin": "Start Over", "timeoutEnd": "Are you still there?"}}'&gt;&lt;/span&gt;</code></pre>
 </section>
 <section><h2 id="try">Faites un essai</h2>
-<p>Cette page a été configurée pour expirer dans 30 secondes. Après ce délai, vous aurez 3 minutes pour choisir de la garder active ou non. Veuillez svp attendre que la boîte de dialogue apparaisse.</p>
+<p>Cette page a été configurée pour expirer dans 30 secondes. Après ce délai, vous aurez 30 secondes pour choisir de la garder active ou non. Veuillez svp attendre que la boîte de dialogue apparaisse.</p>
 </section>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2024-10-24</time></dd>
+<dd><time property="dateModified">2024-11-06</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

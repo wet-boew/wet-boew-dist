@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.83 - 2025-01-13
+ * v4.0.83 - 2025-01-14
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 3.1.7 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.1.7/LICENSE */
@@ -14117,6 +14117,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 		refreshOnClick: true,		/* refresh session if user clicks on the page */
 		refreshLimit: 120000,		/* default period of 2 minutes (ajax calls happen only once during this period) */
 		method: "POST",				/* the request method to use */
+		textOverrides: null,		/* text overrides (no default) */
 		additionalData: null,		/* additional data to send with the request */
 		refreshCallback: function( response ) {	/* callback function used to check the server response */
 			return response.replace( /\s/g, "" ) === "true";
@@ -14151,15 +14152,28 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 			// Only initialize the i18nText once
 			if ( !i18nText ) {
 				i18n = wb.i18n;
-				i18nText = {
-					buttonContinue: i18n( "st-btn-cont" ),
-					buttonEnd: i18n( "st-btn-end" ),
-					buttonSignin: i18n( "tmpl-signin" ),
-					timeoutBegin: i18n( "st-to-msg-bgn" ),
-					timeoutEnd: i18n( "st-to-msg-end" ),
-					timeoutTitle: i18n( "st-msgbx-ttl" ),
-					timeoutAlready: i18n( "st-alrdy-to-msg" )
-				};
+				const textOverrides = settings.textOverrides;
+				if ( textOverrides ) {
+					i18nText = {
+						buttonContinue: Object.hasOwn( textOverrides, "buttonContinue" ) ? DOMPurify.sanitize( textOverrides.buttonContinue ) : i18n( "st-btn-cont" ),
+						buttonEnd: Object.hasOwn( textOverrides, "buttonEnd" ) ? DOMPurify.sanitize( textOverrides.buttonEnd ) : i18n( "st-btn-end" ),
+						buttonSignin: Object.hasOwn( textOverrides, "buttonSignin" ) ? DOMPurify.sanitize( textOverrides.buttonSignin ) : i18n( "tmpl-signin" ),
+						timeoutBegin: i18n( "st-to-msg-bgn" ),
+						timeoutEnd: Object.hasOwn( textOverrides, "timeoutEnd" ) ? DOMPurify.sanitize( textOverrides.timeoutEnd ) : i18n( "st-to-msg-end" ),
+						timeoutTitle: i18n( "st-msgbx-ttl" ),
+						timeoutAlready: Object.hasOwn( textOverrides, "timeoutAlready" ) ? DOMPurify.sanitize( textOverrides.timeoutAlready ) : i18n( "st-alrdy-to-msg" )
+					};
+				} else {
+					i18nText = {
+						buttonContinue: i18n( "st-btn-cont" ),
+						buttonEnd: i18n( "st-btn-end" ),
+						buttonSignin: i18n( "tmpl-signin" ),
+						timeoutBegin: i18n( "st-to-msg-bgn" ),
+						timeoutEnd: i18n( "st-to-msg-end" ),
+						timeoutTitle: i18n( "st-msgbx-ttl" ),
+						timeoutAlready: i18n( "st-alrdy-to-msg" )
+					};
+				}
 			}
 
 			onReady = function() {
