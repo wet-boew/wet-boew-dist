@@ -4458,11 +4458,6 @@ summary {
 	display: list-item !important;
 	list-style-type: none;
 	list-style-type: disclosure-closed;
-	visibility: visible !important;
-}
-
-details .out details summary, details:not([open]) details summary {
-	display: none !important;
 }
 
 details {
@@ -4494,26 +4489,6 @@ details[open] > summary {
 	border-bottom-right-radius: 0;
 	list-style-type: disclosure-open;
 	margin-bottom: 0.25em;
-}
-details:not([open]) {
-	visibility: hidden;
-}
-details:not([open]) > details,
-details:not([open]) > * {
-	display: none;
-}
-details.alert:not([open]) {
-	visibility: visible;
-}
-.tabpanels > details:not([open]) {
-	visibility: visible;
-}
-
-.wb-disable details {
-	visibility: visible !important;
-}
-.wb-disable details > *:not(summary) {
-	display: block !important;
 }
 
 /*
