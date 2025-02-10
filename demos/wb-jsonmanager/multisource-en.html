@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>JSON Manager - Multiple data source to render a data table. - Working examples - Web Experience Toolkit
+</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta name="description" content="Merge multiple source and render a data table">
+<link rel="alternate" hreflang="fr" href="multisource-fr.html">
+<link href="../../theme-wet-boew/assets/favicon.ico" rel="icon" type="image/x-icon">
+<link rel="stylesheet" href="../../theme-wet-boew/css/theme.min.css">
+<noscript><link rel="stylesheet" href="../../wet-boew/css/noscript.min.css"></noscript>
+</head>
+<body vocab="http://schema.org/" resource="#wb-webpage" typeof="WebPage">
+<nav>
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+</nav>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<section id="wb-lng" class="visible-md visible-lg">
+<h2>Language selection</h2>
+<ul class="text-right">
+<li><a lang="fr" hreflang="fr" href="multisource-fr.html">Français</a></li>
+<li class="curr">English&#32;<span>(current)</span></li>
+</ul>
+</section>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-8">
+<a href="../../index-en.html">
+<img src="../../theme-wet-boew/assets/logo.svg" alt="">
+<span>Web Experience Toolkit<span class="wb-inv">, </span><small>Collaborative open source project led by the Government of Canada</small></span>
+</a>
+</div>
+<section id="wb-srch" class="col-md-4 visible-md visible-lg">
+<h2>Search</h2>
+<form action="https://google.ca/search" method="get" role="search" class="form-inline">
+<div class="form-group">
+<label for="wb-srch-q">Search website</label>
+<input id="wb-srch-q" class="form-control" name="q" type="search" value="" size="27" maxlength="150">
+<input type="hidden" name="q" value="site:wet-boew.github.io OR site:github.com/wet-boew/">
+</div>
+<button type="submit" id="wb-srch-sub" class="btn btn-default">Search</button>
+</form>
+</section>
+</div>
+</div>
+</div>
+<nav role="navigation" id="wb-sm" data-ajax-replace="../../ajax/sitemenu-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
+<div class="container nvbar">
+<h2>Topics menu</h2>
+<div class="row">
+<ul class="list-inline menu">
+<li><a href="../../index-en.html">WET project</a></li>
+<li><a href="../../docs/start-en.html#implement">Implement WET</a></li>
+<li><a href="../../docs/start-en.html">Contribute to WET</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<nav role="navigation" id="wb-bc" property="breadcrumb">
+<h2>Breadcrumb Navigation</h2>
+<div class="container">
+<div class="row">
+<ol class="breadcrumb" typeof="BreadcrumbList">
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../index-en.html"><span property="name">Home</span></a>
+<meta property="position" content="1">
+</li>
+<li property="itemListElement" typeof="ListItem">
+<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
+<meta property="position" content="2">
+</li>
+<li property="itemListElement" typeof="ListItem"><span property="name">JSON Manager - Multiple data source to render a data table.</span><meta property="position" content="3"></li>
+</ol>
+</div>
+</div>
+</nav>
+</header>
+<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
+<h1 id="wb-cont" property="name">JSON Manager - Multiple data source to render a data table.</h1>
+<ul class="list-inline">
+<li><a class="btn btn-primary" href="../../docs/ref/wb-jsonmanager/wb-jsonmanager-en.html">Documentation</a></li>
+<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=JSON%20Manager%20-%20Multiple%20data%20source%20to%20render%20a%20data%20table.:%20">Questions or comments?</a></li>
+</ul>
+<ul>
+<li><a href="jsonmanager-en.html">Main example</a></li>
+<li>Multiple data source to render a data table</li>
+</ul>
+<p>Technical note:</p>
+<ul>
+<li>The data json plugin <code>data-wb-json</code> need to be set on the table element <code>&lt;table></code></li>
+<li>The URLs set in the JSON manager must point to an array, otherwise the content are not going to be merged (concatenated)</li>
+</ul>
+<p>The following example merge twice the same data source. This result do show a duplicate for every entry.</p>
+<div data-wb-jsonmanager='{
+	"url": [
+		"../wb-data-json/demo/data-en.json#/addressList",
+		"../wb-data-json/demo/data-en.json#/addressList"
+	],
+	"name": "merged-source"
+}'></div>
+<!-- data-wb-json need to be set on the "table" element -->
+<table class="table wb-tables" data-wb-json='{
+	"url": "#[merged-source]",
+	"source": "#tbl3",
+	"mapping": [
+		{ "selector": "a", "value": "/name" },
+		{ "selector": "a", "value": "/homeUrl", "attr": "href" },
+		{ "selector": ".streetAdress", "value": "/num", "placeholder": "[[num]]" },
+		{ "selector": ".streetAdress", "value": "/street", "placeholder": "[[street]]" },
+		{ "selector": ".streetAdress", "value": "/city", "placeholder": "[[city]]" },
+		{ "selector": ".streetAdress", "value": "/postalCode", "placeholder": "[[pcode]]" },
+		{ "selector": ".email", "value": "/email", "attr": "href", "placeholder": "emailAddress@example.com" },
+		{ "selector": ".email", "value": "/email" }
+	]
+}'>
+<caption>Binding with the data table plugin <code>wb-tables</code></caption>
+<thead>
+<tr>
+<th>Name</th>
+<th>Street Address</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<template id="tbl3">
+<table>
+<tr>
+<td><a href=""></a></td>
+<td>
+<span class="streetAdress">[[num]] [[street]], [[city]], [[pcode]]</span>
+</td>
+<td><a class="email" href="mailto:emailAddress@example.com">emailAddress</a></td>
+</tr>
+</table>
+</template>
+<details class="mrgn-tp-lg">
+<summary>Source code</summary>
+<pre><code>&lt;div data-wb-jsonmanager='{
+	"url": [
+		"../wb-data-json/demo/data-en.json#/addressList",
+		"../wb-data-json/demo/data-en.json#/addressList"
+	],
+	"name": "merged-source"
+}'>&lt;/div>
+
+&lt;!-- data-wb-json need to be set on the "table" element -->
+&lt;table class="table wb-tables" data-wb-json='{
+	"url": "#[merged-source]",
+	"source": "#tbl3",
+	"mapping": [
+		{ "selector": "a", "value": "/name" },
+		{ "selector": "a", "value": "/homeUrl", "attr": "href" },
+		{ "selector": ".streetAdress", "value": "/num", "placeholder": "[[num]]" },
+		{ "selector": ".streetAdress", "value": "/street", "placeholder": "[[street]]" },
+		{ "selector": ".streetAdress", "value": "/city", "placeholder": "[[city]]" },
+		{ "selector": ".streetAdress", "value": "/postalCode", "placeholder": "[[pcode]]" },
+		{ "selector": ".email", "value": "/email", "attr": "href", "placeholder": "emailAddress@example.com" },
+		{ "selector": ".email", "value": "/email" }
+	]
+}'>
+
+	&lt;caption>Binding with the data table plugin &lt;code>wb-tables&lt;/code>&lt;/caption>
+	&lt;thead>
+		&lt;tr>
+			&lt;th>Name&lt;/th>
+			&lt;th>Street Address&lt;/th>
+			&lt;th>Email&lt;/th>
+		&lt;/tr>
+	&lt;/thead>
+	&lt;tbody>&lt;/tbody>
+&lt;/table>
+
+&lt;template id="tbl3">
+	&lt;table>
+		&lt;tr>
+			&lt;td>&lt;a href="">&lt;/a>&lt;/td>
+			&lt;td>
+				&lt;span class="streetAdress">[[num]] [[street]], [[city]], [[pcode]]&lt;/span>
+			&lt;/td>
+			&lt;td>&lt;a class="email" href="mailto:emailAddress@example.com">emailAddress&lt;/a>&lt;/td>
+		&lt;/tr>
+	&lt;/table>
+&lt;/template></code></pre>
+</details>
+<dl id="wb-dtmd">
+<dt>Date modified:&#32;</dt>
+<dd><time property="dateModified">2024-12-27</time></dd>
+</dl>
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+<div class="container">
+<nav role="navigation" class="row">
+<h2>About this site</h2>
+<section class="col-sm-3">
+<h3>Contact us</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/issues/new">Questions or comments?</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>About</h3>
+<ul class="list-unstyled">
+<li><a href="../../index-en.html#about">About the Web Experience Toolkit</a></li>
+<li><a rel="external" href="https://www.tbs-sct.gc.ca/ws-nw/index-eng.asp">About the Web Standards</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>News</h3>
+<ul class="list-unstyled">
+<li><a href="https://github.com/wet-boew/wet-boew/pulse">Recent project activity</a></li>
+<li><a href="https://github.com/wet-boew/wet-boew/graphs">Project statistics</a></li>
+</ul>
+</section>
+<section class="col-sm-3">
+<h3>Stay connected</h3>
+<ul class="list-unstyled">
+<li><a rel="external" href="https://twitter.com/WebExpToolkit">Twitter</a></li>
+</ul>
+</section>
+</nav>
+</div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="../../wet-boew/js/wet-boew.min.js"></script>
+</body>
+</html>

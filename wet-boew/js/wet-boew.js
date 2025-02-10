@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-04
+ * v4.0.85 - 2025-02-10
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 3.1.7 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.1.7/LICENSE */
@@ -17889,19 +17889,10 @@ var componentName = "wb-data-json",
 		if ( elm.tagName === "TABLE" && elmClass.indexOf( "wb-tables" ) !== -1 ) {
 
 			//  Wait for its initialization before to applyTemplate
-			if ( elmClass.indexOf( "wb-tables-inited" ) === -1 ) {
-				$( elm ).one( "wb-ready.wb-tables,init.dt", function( ) {
+			if ( elmClass.indexOf( "wb-tables-inited" ) === -1 || !$.fn.dataTable || !$.fn.dataTable.isDataTable( elm ) ) {
+				$( elm ).one( "wb-ready.wb-tables", function( ) {
 					applyTemplate( elm, settings, content );
 				} );
-				return;
-			}
-
-			// Edge case, when both plugin are ready at the same time, just wait for the next tick
-			if ( !$.fn.dataTable.isDataTable( elm ) && elmClass.indexOf( componentName + "-dtwait" ) === -1 ) {
-				elm.classList.add( componentName + "-dtwait" );
-				setTimeout( function( ) {
-					applyTemplate( elm, settings, content );
-				}, 50 );
 				return;
 			}
 
