@@ -1,14 +1,14 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-10
+ * v4.0.85 - 2025-02-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 @charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-10
+ * v4.0.85 - 2025-02-11
  *
  */
 /*
@@ -12505,7 +12505,7 @@ dl.colcount-no-break > div, .colcount-no-break > dd,
 
 /*
   WET-BOEW
-  @title: Bootstrap 4 suplemental style for WET-BOEW
+  @title: Bootstrap 4 supplemental style for WET-BOEW
  */
 /* Spacing */
 .p-0 {
@@ -12661,7 +12661,7 @@ Panels
 }
 
 /*
-Miscellaneous Utiliy CSS
+Miscellaneous Utility CSS
  */
 .max-content {
 	max-width: -webkit-max-content;
@@ -12914,7 +12914,7 @@ Miscellaneous Utiliy CSS
 	}
 	/*
 	  WET-BOEW
-	  @title: Bootstrap 4 suplemental style for WET-BOEW - Small view and over (screen only)
+	  @title: Bootstrap 4 supplemental style for WET-BOEW - Small view and over (screen only)
 	 */
 	/* Alignment */
 	.text-sm-left {

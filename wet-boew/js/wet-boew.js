@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-10
+ * v4.0.85 - 2025-02-11
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 3.1.7 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.1.7/LICENSE */
@@ -1572,11 +1572,11 @@
  *
  * Note: The following analysis and/or changes was required also to be applied in our code base:
  *	- Ensure there is no JSONP ajax call
- *	- Ensure to not use self closing tag when a closing tag is usally needed.
+ *	- Ensure to not use self closing tag when a closing tag is usually needed.
  *		ex: `<div />` need to change for `<div></div>`
  *		This is applicable to all tags except the one in this list: area|br|col|embed|hr|img|input|link|meta|param
  *	- Review how `<tr>`, `<td>`, `<script>` and `<link>` are inserted with `$()`.
- *		Their insersion need to be completed differently like the by using the javascript DOM interface.
+ *		Their insertion need to be completed differently like the by using the javascript DOM interface.
  *	- All content that related to jQuery DOM manipulation are sanitized with DOMPurify
  *	- You can't use jQuery for parsing XML document, you can use DOMParser() as an alternative
  *	- Ensure AJAX and fetch are sanitized before they response are used
@@ -2564,7 +2564,7 @@ Modernizr.load( [
 									nope: "mthjx!mml-chtml.js",
 									complete: function() {
 
-										// Try loading a local copy of MathJax 2 as a last dith effort
+										// Try loading a local copy of MathJax 2 as a last ditch effort
 										Modernizr.load( [ {
 											test: window.MathJax.startup,
 											nope: "mthjx!MathJax.js?config=Accessible",
@@ -2673,7 +2673,7 @@ wb.download = function( blob, filename, title ) {
 		document.body.removeChild( anchor );
 	}, 1 );
 
-	// Revoke the ojbect, A setTimeout is used because Blob API don't have a download complete event.
+	// Revoke the object, A setTimeout is used because Blob API don't have a download complete event.
 	setTimeout( function() {
 		if ( typeof objectURL === "string" ) {
 			URL.revokeObjectURL( objectURL );
@@ -2708,7 +2708,7 @@ wb.shuffleDOM = function( $elm ) {
 
 /* ---------------------------------
 @extension: pickElements
-@returns: [collection] of randoms elements
+@returns: [collection] of random elements
 -------------------------------- */
 wb.pickElements = function( $elm, numOfElm ) {
 	var nbElm = $elm.size(),
@@ -3953,8 +3953,8 @@ wb.decodeUTF8Base64 = function( str ) {
 * 	{regex} customCase - this param is a regex. It will search and replace the values corresponding that pattern
 *
 * @param {object} opts (optional) - the 3rd param of the function that can contain the following properties (optional):
-* 	{boolean} isCustomExclusive - if true, it will scrubb only the custom regex if the regex is the only property of the "scope" object
-* 	{bolean} useFullBlock - if true, it will replace the scrubbed characters with the "█" symbol;
+* 	{boolean} isCustomExclusive - if true, it will scrub only the custom regex if the regex is the only property of the "scope" object
+* 	{boolean} useFullBlock - if true, it will replace the scrubbed characters with the "█" symbol;
 * 	{string} replaceWith - this string will replace the scrubbed content
 *
 
@@ -4023,7 +4023,7 @@ wb.findPotentialPII = function( str, scope, opts ) {
 			postalCode: /\b[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d\b/ig,
 
 			/*
-			* Usename:
+			* Username:
 			* "username" or "user",
 			* followed by a colon or an equals sign,
 			* followed by any character that is not a " " or a "&"
@@ -4033,7 +4033,7 @@ wb.findPotentialPII = function( str, scope, opts ) {
 			/*
 			* Password:
 			* "password" or "pass",
-			* ollowed by a ":" or a "=",
+			* followed by a ":" or a "=",
 			* followed by any character that is not a " " or a "&"
 			*/
 			password: /(?:(password|pass)[%20]?([:=]|(%EF%BC%9A))[^\s&]*)/ig
@@ -4362,7 +4362,7 @@ var componentName = "wb-addcal",
 
 	};
 
-// Convert date to ISO string and formating for ICS file
+// Convert date to ISO string and formatting for ICS file
 var dtToISOString = function( date ) {
 	if ( date.is( "[datetime]" ) ) {
 		date = date.attr( "datetime" );
@@ -5851,7 +5851,7 @@ var componentName = "wb-charts",
 		 * Apply preset defined by a set of space-separated tokens from a baseline json object and at the same time extend the result by using the HTML5 data attribute
 		 *
 		 * @method applyPreset
-		 * @param {json object} baseline - Base line json object that includes predefined and userdefined preset
+		 * @param {json object} baseline - Base line json object that includes predefined and user defined preset
 		 * @param {jQuery} $elem - Element on which the class attribute will be taken for a set of space-separated tokens
 		 * @param {string} attribute - Name of the HTML5 data attribute for extending the object at the end
 		 * @return {json object} - Return a new object build from the ```baseline``` or ```baseline.default``` object with the preset applied.
@@ -5893,7 +5893,7 @@ var componentName = "wb-charts",
 					if ( preset ) {
 						if ( preset.base ) {
 
-							// Like setting herited from a parent config
+							// Like setting inherited from a parent config
 							config = $.extend( true, config, baseline[ preset.base ] );
 							fn = $.extend( true, fn, baseline[ preset.base ].fn || { } );
 						}
@@ -6048,7 +6048,7 @@ var componentName = "wb-charts",
 		 *
 		 * @method setInnerStepValues
 		 * @param {object} vectorHead - Group Header Object from the table parser
-		 * @param {number} headerLevel - Hiearchical Level of heading
+		 * @param {number} headerLevel - Hierarchical Level of heading
 		 * @param {number} stepsValue - Step Value for the reference value vector
 		 * @param {number} referenceValue - Reference Value Vector ID
 		 * @param {number} dataColgroupStart - Column position where the column data group start
@@ -6101,7 +6101,7 @@ var componentName = "wb-charts",
 		 *
 		 * @method setInnerStepValuesChildRecursive
 		 * @param {object} headerCell - Header cell object from the table parser
-		 * @param {number} headerLevel - Hiearchical Level of heading
+		 * @param {number} headerLevel - Hierarchical Level of heading
 		 * @param {number} stepsValue - Specific Step Value applied for current headerCell
 		 * @param {number} referenceValue - Reference Value Vector ID
 		 */
@@ -6694,7 +6694,7 @@ var componentName = "wb-charts",
 				"site!deps/tableparser" + modeJS
 			];
 
-			//TODO: Revist this in the new plugin structure
+			//TODO: Revisit this in the new plugin structure
 			if ( settings && settings.plugins ) {
 				deps = deps.concat( settings.plugins );
 			}
@@ -6944,7 +6944,7 @@ var componentName = "wb-ctrycnt",
 		var dfd = $.Deferred(),
 			countryCode = localStorage.getItem( "countryCode" );
 
-		// Couldn"t find a value in the session
+		// Couldn't find a value in the session
 		if ( countryCode === null ) {
 
 			// From https://github.com/aFarkas/webshim/blob/master/src/shims/geolocation.js#L89-L127
@@ -7965,7 +7965,7 @@ var componentName = "wb-eqht",
 				currentChild = $children[ j ];
 				childCSS = currentChild.style.cssText.toLowerCase();
 
-				//Ensure the CSS string ends by a seperator
+				//Ensure the CSS string ends by a separator
 				if ( childCSS.length > 0 && childCSS.substr( childCSS.length - 1 ) !== cssPropertySeparator ) {
 					childCSS += cssPropertySeparator;
 				}
@@ -8036,7 +8036,7 @@ var componentName = "wb-eqht",
 	/**
 	* @method equalize
 	* @param {array} row the array of items to be equalized
-	* @param {int} tallestHeight the talest height to use to equalize
+	* @param {int} tallestHeight the tallest height to use to equalize
 	*/
 	equalize = function( row, tallestHeight ) {
 		for ( var i = 0; i < row.length; i++ ) {
@@ -8412,9 +8412,9 @@ wb.add( selector );
  * -**data-rel:** rel attribute of the mobile favicon (defaults to "apple-touch-icon").
  * -**data-sizes:** sizes attribute of the mobile favicon (defaults to "57x57 72x72 114x114 144x144 150x150").
  *
- * For example, the following overides the rel and file name attributes of the mobile favicon:
+ * For example, the following overrides the rel and file name attributes of the mobile favicon:
  *
- *     <link href="favion.ico" rel='icon' data-rel="apple-touch-icon-precomposed" data-filename="my-mobile-favicon.ico"/>
+ *     <link href="favicon.ico" rel='icon' data-rel="apple-touch-icon-precomposed" data-filename="my-mobile-favicon.ico"/>
  */
 ( function( $, document, wb ) {
 "use strict";
@@ -8590,12 +8590,12 @@ var componentName = "wb-feeds",
 	 * @object Templates
 	 * @properties {function}
 	 * @param {object} requires a entry object of various ATOM based properties
-	 * @returns {string} modified string with appropiate markup/format for a entry object
+	 * @returns {string} modified string with appropriate markup/format for a entry object
 	 */
 	Templates = {
 
 		/**
-		 * [fickr template]
+		 * [flickr template]
 		 * @param  {entry object} data
 		 * @return {string}	HTML string for creating a photowall effect
 		 */
@@ -8616,7 +8616,7 @@ var componentName = "wb-feeds",
 		},
 
 		/**
-		 * [Youtube template]
+		 * [YouTube template]
 		 * @param  {entry object} data
 		 * @return {string}	HTML string for creating a photowall effect
 		 */
@@ -8669,7 +8669,7 @@ var componentName = "wb-feeds",
 	},
 
 	/**
-	 * Helper function that returns the string representaion of a unicode character
+	 * Helper function that returns the string representation of a unicode character
 	 * @method decode
 	 * @param  {regex} match  unicode pattern
 	 * @param  {string} code  string where unicode is needed to be converted
@@ -9293,7 +9293,7 @@ var componentName = "wb-filter",
 	 */
 	filterQueryParser = function( filter ) {
 
-		// Pattern to seperate the filter text into "words"
+		// Pattern to separate the filter text into "words"
 		var pattern = /[^\s"]+|"([^"]*)"/gi;
 
 		// Make strings safe again for regex
@@ -10711,7 +10711,7 @@ var componentName = "wb-menu",
 			menuCount += 1;
 
 			// Lets test to see if we have any menus to fetch
-			// This is required for backwards compatibility. In previous versions, the menu was not integrated witht he data ajax plugin.
+			// This is required for backwards compatibility. In previous versions, the menu was not integrated with the data ajax plugin.
 			ajaxFetch = $elm.data( "ajax-fetch" );
 			if ( ajaxFetch ) {
 				$elm.trigger( {
@@ -11743,7 +11743,7 @@ var componentName = "wb-mltmd",
 	},
 
 	/*
-	 * Peformant micro templater
+	 * Performant micro templater
 	 * @credit: https://github.com/premasagar/tim/blob/master/tinytim.js
 	 * @todo: caching
 	 */
@@ -11911,7 +11911,7 @@ var componentName = "wb-mltmd",
 
 	/**
 	 * @method loadCaptionsInternal
-	 * @description Loads same page captions emebed in HTML
+	 * @description Loads same page captions embedded in HTML
 	 * @param {Object} elm The jQuery object for the multimedia player loading the captions
 	 * @param {Object} obj The jQUery object containing the captions
 	 * @fires ccloaded.wb-mltmd
@@ -12104,7 +12104,7 @@ var componentName = "wb-mltmd",
 
 	/**
 	 * @method youTubeEvents
-	 * @description Youtube API event manager
+	 * @description YouTube API event manager
 	 * @param {object} event The event object fior the triggered event
 	 */
 	youTubeEvents = function( event ) {
@@ -12272,7 +12272,7 @@ $document.on( initializedEvent, selector, function( event ) {
 				//possible solution for multimedia and doaction conflict in corporate network
 				complete: function() {
 
-					// Ensure that Youtube API is loading the iframe and if it fails, ensure that it will show a message, like accessing the web via our GC network.
+					// Ensure that YouTube API is loading the iframe and if it fails, ensure that it will show a message, like accessing the web via our GC network.
 					setTimeout( function() {
 						var resources, arrIframesYt, $notifText;
 
@@ -12312,7 +12312,7 @@ $document.on( initializedEvent, selector, function( event ) {
 } );
 
 /*
- *  Youtube Video mode Event
+ *  YouTube Video mode Event
  */
 $document.on( youtubeEvent, selector, function( event, data ) {
 	if ( event.namespace === componentName ) {
@@ -12351,7 +12351,7 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 					t.player( "setCaptionsVisible", t.player( "getCaptionsVisible" ) );
 				},
 				onError: function() {
-					console.warn( "There is an issue loading the Youtube player" );
+					console.warn( "There is an issue loading the YouTube player" );
 				}
 			}
 		} );
@@ -12370,7 +12370,7 @@ $document.on( youtubeEvent, selector, function( event, data ) {
 
 		// Detect if the YT player reloads, like when magnific Popup show the modal, because it moves the iframe
 		// and then the iframe gets refreshed and reloaded. So the issue is that the iframe stops emitting the event
-		// needed to adjust the multimedia player controler, like the "onStateChange" event.
+		// needed to adjust the multimedia player controller, like the "onStateChange" event.
 		$media.on( "load", function( evt ) {
 
 			var elm = evt.currentTarget,
@@ -13881,7 +13881,7 @@ var componentName = "wb-prettify",
 				}
 			}
 
-			// CSS class overides of settings
+			// CSS class overrides of settings
 			settings.allpre = settings.allpre || $elm.hasClass( "all-pre" );
 			settings.linenums = settings.linenums || $elm.hasClass( "linenums" );
 
@@ -14659,7 +14659,7 @@ var componentName = "wb-share",
 				url: "https://compose.mail.yahoo.com/?to=&subject={t}&body={u}%0A{d}"
 			},
 			whatsapp: {
-				name: "Whatsapp",
+				name: "WhatsApp",
 				url: "https://api.whatsapp.com/send?text={t}%0A{d}%0A{u}"
 			}
 		}
@@ -15317,7 +15317,7 @@ $document.on( "submit", ".wb-tables-filter", function( event ) {
 	// Lets reset the search
 	$datatable.search( "" ).columns().search( "" );
 
-	// Lets loop throug all options
+	// Lets loop through all options
 	var $prevCol = -1, $cachedVal = "";
 	$form.find( "[name]" ).each( function() {
 		var $elm = $( this ),
@@ -18705,7 +18705,7 @@ $document.on( "json-failed.wb", selector, function( event ) {
 		// Mapping is always streamline because the data structure is a static object not an array
 		failSettings.streamline = true;
 
-		// apply the templaty to display an error message
+		// apply the template to display an error message
 		applyTemplate( elm, failSettings, {
 			error: fetchObj.error.message || xhrResponse.statusText,
 			status: fetchObj.status,
@@ -19796,7 +19796,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		// Determine if the response is an array
 		isArrayResponse = Array.isArray( JSONresponse );
 
-		// Ensure the response is an independant clone
+		// Ensure the response is an independent clone
 		if ( isArrayResponse ) {
 			JSONresponse = $.extend( true, [], JSONresponse );
 		} else {
@@ -20160,7 +20160,7 @@ var $document = wb.doc,
 				// Indicate that the form is currently being sent (to prevent multiple submissions in parallel)
 				$( this ).attr( attrSending, true );
 
-				// If the submit button contains a variable, add it to the form's paramaters
+				// If the submit button contains a variable, add it to the form's parameters
 				// Note: Submitting a form via Enter will act as if the FIRST submit button was pressed. Therefore, that button's variable will be added (as opposed to nothing). This is in line with default form submission behaviour.
 				if ( submitter && submitter.name ) {
 					data.push( { name: submitter.name, value: submitter.value } );
