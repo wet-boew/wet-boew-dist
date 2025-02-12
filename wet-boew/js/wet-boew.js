@@ -8172,12 +8172,12 @@ var componentName = "wb-exitscript",
 					},
 					true,
 					[ "encrypt", "decrypt" ]
-				).then( function( keyToEncryp ) {
+				).then( function( keyToEncrypt ) {
 
 					var enc, messageEncoded, counter;
 
 					// Save the key in the anchor
-					crypto.subtle.exportKey( "jwk", keyToEncryp )
+					crypto.subtle.exportKey( "jwk", keyToEncrypt )
 						.then( function( exportedJwtKey ) {
 							elm[ keyForKeyHolder ] = exportedJwtKey;
 						} );
@@ -8192,7 +8192,7 @@ var componentName = "wb-exitscript",
 							counter: counter,
 							length: 64
 						},
-						keyToEncryp,
+						keyToEncrypt,
 						messageEncoded
 					).then( function( ciphertext ) {
 						elm[ componentName ] = ciphertext;
