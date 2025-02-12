@@ -113,18 +113,18 @@
   },
   "@/css/polyfills/slider.css": {
     "hashes": {
-      "sha256": "FeIfjo17crOp9ECTlaokWRMnLGAGcsh+5ARMYFI6uyQ=",
-      "sha512": "JR30aNrYdkJHzc0x6xv18TCzh0TUBA8HBBSZNcDeu9bbR9h+1mLIXtV4c6ao/0vFpS8Xebry6QLpdutXL4Qd/g=="
+      "sha256": "hj1uDHrL9PJmx4QOU4uiOf2h7UiYOcChoE2SlVdrJ1U=",
+      "sha512": "kM91I2XGZVsSKBASj7p0lwoUaO5QXn80jXX8KiqH8dVWAdSSTi1PYcAuxvYRiHsvOELpxq90iiS0FxcS74IL3Q=="
     },
-    "integrity": "sha256-FeIfjo17crOp9ECTlaokWRMnLGAGcsh+5ARMYFI6uyQ= sha512-JR30aNrYdkJHzc0x6xv18TCzh0TUBA8HBBSZNcDeu9bbR9h+1mLIXtV4c6ao/0vFpS8Xebry6QLpdutXL4Qd/g==",
+    "integrity": "sha256-hj1uDHrL9PJmx4QOU4uiOf2h7UiYOcChoE2SlVdrJ1U= sha512-kM91I2XGZVsSKBASj7p0lwoUaO5QXn80jXX8KiqH8dVWAdSSTi1PYcAuxvYRiHsvOELpxq90iiS0FxcS74IL3Q==",
     "path": "/css/polyfills/slider.css"
   },
   "@/css/polyfills/slider.min.css": {
     "hashes": {
-      "sha256": "NE1azSEbtU3OQyB62Q2DBV7NITfibiBx4AplLunIY5A=",
-      "sha512": "A+/CMu+Pq3QhLBZbEM5JTePbXpvpspSnAszAHBVjvJj92OtSZz6O0xMeQcv8WgCwX9xHWCEpq+fhdvlg9ouRQQ=="
+      "sha256": "JBtpgfKD9934oG0bwotIlXYZwxnfy349oWjjky2Q0uI=",
+      "sha512": "O1njYsZO5hhDCUnCeWA9iacXu275xv+1gbRASwTznYOQTeHQxg8Hrp8m5s/1+dAd8XRrLzdhqbOF3EMPZFtJ9A=="
     },
-    "integrity": "sha256-NE1azSEbtU3OQyB62Q2DBV7NITfibiBx4AplLunIY5A= sha512-A+/CMu+Pq3QhLBZbEM5JTePbXpvpspSnAszAHBVjvJj92OtSZz6O0xMeQcv8WgCwX9xHWCEpq+fhdvlg9ouRQQ==",
+    "integrity": "sha256-JBtpgfKD9934oG0bwotIlXYZwxnfy349oWjjky2Q0uI= sha512-O1njYsZO5hhDCUnCeWA9iacXu275xv+1gbRASwTznYOQTeHQxg8Hrp8m5s/1+dAd8XRrLzdhqbOF3EMPZFtJ9A==",
     "path": "/css/polyfills/slider.min.css"
   },
   "@/js/deps/additional-methods.js": {
