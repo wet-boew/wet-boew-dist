@@ -19726,22 +19726,22 @@ var componentName = "wb-jsonmanager",
 	},
 
 	// Create series of patches for filtering
-	getPatchesToFilter = function( JSONsource, filterPath, filterTrueness, filterFaslseness ) {
+	getPatchesToFilter = function( JSONsource, filterPath, filterTrueness, filterFalseness ) {
 		var filterObj,
 			i, i_len;
 
 		if ( !Array.isArray( filterTrueness ) ) {
 			filterTrueness = [ filterTrueness ];
 		}
-		if ( !Array.isArray( filterFaslseness ) ) {
-			filterFaslseness = [ filterFaslseness ];
+		if ( !Array.isArray( filterFalseness ) ) {
+			filterFalseness = [ filterFalseness ];
 		}
 
 		filterObj = jsonpointer.get( JSONsource, filterPath );
 		if ( Array.isArray( filterObj ) ) {
 			i_len = filterObj.length - 1;
 			for ( i = i_len; i !== -1; i -= 1 ) {
-				if ( !filterPassJSON( filterObj[ i ], filterTrueness, filterFaslseness ) ) {
+				if ( !filterPassJSON( filterObj[ i ], filterTrueness, filterFalseness ) ) {
 					jsonpatch.apply( JSONsource, [ { op: "remove", path: filterPath + "/" + i } ] );
 				}
 			}
@@ -19774,7 +19774,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		resultSet,
 		i, i_len, i_cache, backlog, selector,
 		objIterator, savingPathSplit,
-		patches, filterTrueness, filterFaslseness, filterPath, extractor;
+		patches, filterTrueness, filterFalseness, filterPath, extractor;
 
 	if ( elm === event.currentTarget ) {
 		settings = wb.getData( $elm, componentName );
@@ -19841,7 +19841,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 		patches = settings.patches || [];
 		filterPath = settings.fpath;
 		filterTrueness = settings.filter || [];
-		filterFaslseness = settings.filternot || [];
+		filterFalseness = settings.filternot || [];
 
 		if ( !Array.isArray( patches ) ) {
 			patches = [ patches ];
@@ -19849,7 +19849,7 @@ $document.on( "json-fetched.wb", selector, function( event ) {
 
 		// Apply a filtering
 		if ( filterPath ) {
-			JSONresponse = getPatchesToFilter( JSONresponse, filterPath, filterTrueness, filterFaslseness );
+			JSONresponse = getPatchesToFilter( JSONresponse, filterPath, filterTrueness, filterFalseness );
 		}
 
 		// Apply the wraproot
@@ -19922,7 +19922,7 @@ $document.on( patchesEvent, selector, function( event ) {
 		patches = event.patches,
 		filterPath = event.fpath,
 		filterTrueness = event.filter || [],
-		filterFaslseness = event.filternot || [],
+		filterFalseness = event.filternot || [],
 		isCumulative = !!event.cumulative,
 		settings,
 		dsName,
@@ -19955,7 +19955,7 @@ $document.on( patchesEvent, selector, function( event ) {
 
 		// Apply a filtering
 		if ( filterPath ) {
-			dsJSON = getPatchesToFilter( dsJSON, filterPath, filterTrueness, filterFaslseness );
+			dsJSON = getPatchesToFilter( dsJSON, filterPath, filterTrueness, filterFalseness );
 		}
 
 		jsonpatch.apply( dsJSON, patches );
