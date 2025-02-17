@@ -145,18 +145,18 @@
   },
   "@/js/deps/geomap-lib.js": {
     "hashes": {
-      "sha256": "0vifftrh+m5mc7SZzSSeoJD194V4CBSLzVTk/m9SlXw=",
-      "sha512": "GMmjiinG9xdaY2VE9MoFY/n8gewUkrBuQE7WtyYxiQvqS5DF5ZfjizzVq1gkBjdpx6Lsdj7Z5WfAwYr6mbBZOQ=="
+      "sha256": "dDhOw9XHOF5XAm8ok5ctA4sbAt3jz9xsudYZozldNII=",
+      "sha512": "8eys3fWzNe+oq0YNKwSu2WLVkem2eamwfRaXu2z4HqNQ3GGzt45z7gcu/+Mtn73KwoQI4N/5HfOMFeU4cWKBuw=="
     },
-    "integrity": "sha256-0vifftrh+m5mc7SZzSSeoJD194V4CBSLzVTk/m9SlXw= sha512-GMmjiinG9xdaY2VE9MoFY/n8gewUkrBuQE7WtyYxiQvqS5DF5ZfjizzVq1gkBjdpx6Lsdj7Z5WfAwYr6mbBZOQ==",
+    "integrity": "sha256-dDhOw9XHOF5XAm8ok5ctA4sbAt3jz9xsudYZozldNII= sha512-8eys3fWzNe+oq0YNKwSu2WLVkem2eamwfRaXu2z4HqNQ3GGzt45z7gcu/+Mtn73KwoQI4N/5HfOMFeU4cWKBuw==",
     "path": "/js/deps/geomap-lib.js"
   },
   "@/js/deps/geomap-lib.min.js": {
     "hashes": {
-      "sha256": "Dt2N4OkF9wdXoNubVVEoG1Xo5qqeskaE4inZr6nP8Ig=",
-      "sha512": "llIZqORAYmrOnWY1wLDwi3E+/iKg090rLYodq1DUGREOrhDKV8BSn0G9ZgJ6Ze66dhumFF2Q6mqtS8QZmcYEJA=="
+      "sha256": "UZAswAUeFZoJ5OpPPD8bwP4BWBPYlNhGqrgp6LM3KaE=",
+      "sha512": "xcizUmbW0incI/udUKSuCA1UFCAAERkEFkgVknbheMW/HyKPmbzBYAXR48cajewaB7ZZsSZYnkViqCTnDa+MAQ=="
     },
-    "integrity": "sha256-Dt2N4OkF9wdXoNubVVEoG1Xo5qqeskaE4inZr6nP8Ig= sha512-llIZqORAYmrOnWY1wLDwi3E+/iKg090rLYodq1DUGREOrhDKV8BSn0G9ZgJ6Ze66dhumFF2Q6mqtS8QZmcYEJA==",
+    "integrity": "sha256-UZAswAUeFZoJ5OpPPD8bwP4BWBPYlNhGqrgp6LM3KaE= sha512-xcizUmbW0incI/udUKSuCA1UFCAAERkEFkgVknbheMW/HyKPmbzBYAXR48cajewaB7ZZsSZYnkViqCTnDa+MAQ==",
     "path": "/js/deps/geomap-lib.min.js"
   },
   "@/js/deps/jquery.dataTables.js": {
