@@ -133,7 +133,7 @@ Il y a beaucoup de frais système à faire des recherches DOM, créer des objets
 </ul>
 </li>
 <li><strong>Éviter les recherches DOM globales :</strong> Le coût à la performance est beaucoup plus grand lorsqu'on recherche le DOM au complet plutôt que de rechercher seulement une partie de celui-ci. Si vous avez déjà une recherche en mémoire tampon, veuillez en prendre avantage et recherchez de ce point plutôt que de rechercher le DOM au complet à nouveau. Par exemple si vous avez déjà la recherche pour la classe <code>.button</code> en mémoire tampon dans la variable $buttons, faites alors <code>$buttons.find( "a.mybutton" )</code> pour trouver les éléments a plutôt que <code>$( "a.mybutton" )</code>. Lorsque possible, utilisez du JavaScript natif pour rechercher tel que <code>getElementById</code> et <code>getElementsByTagName</code>.</li>
-<li><strong>Recherches DOM optimisées tout d'adord, filtrage ensuite:</strong> Les recherches DOM les plus rapides en JavaScript sont par id et nom de balise à cause des fonctions JavaScript natives <code>getElementById</code>
+<li><strong>Recherches DOM optimisées tout d'abord, filtrage ensuite:</strong> Les recherches DOM les plus rapides en JavaScript sont par id et nom de balise à cause des fonctions JavaScript natives <code>getElementById</code>
 et <code>getElementsByTagName</code>. Prenez avantage de cette performance en exécutant d'abord des recherches optimisées et filtrez ensuite. Par exemple, au lieu de <code>.find( "a[href=*'url_fragment']" )</code> effectuez <code>.find( "a" ).filter( "[href=*'url_fragment']" )</code>.</li>
 <li>
 <strong>Combiner de multiples événements à un élément :</strong> Lorsque vous combinez de multiples événements à un élément, il est plus rapide de combiner tous les événements a un seul gestionnaire d'événement. Vous pouvez utiliser la propriété type de l'événement pour déterminer quel événement a été activé (see the jsPerf <a rel="external" href="https://jsperf.com/combined-or-separate-event-handlers" lang="en">handling multiple events test case</a>).
@@ -166,7 +166,7 @@ $elem.on( "mouseout", function( event ) {
 <pre><code>var test = ( new Date() ).getTime();
 // Code à tester
 console.log( ( new Date() ).getTime() - test );</code></pre>
-<p>Un autre option est d'tiliser un site tel que <a rel="external" href="https://jsperf.com/">jsPerf</a> pour mesurer différents morceaux de code JavaScript.</p>
+<p>Un autre option est d'utiliser un site tel que <a rel="external" href="https://jsperf.com/">jsPerf</a> pour mesurer différents morceaux de code JavaScript.</p>
 </section>
 <section>
 <h3>Scénarios d'essai jsPerf</h3>
@@ -196,7 +196,7 @@ console.log( ( new Date() ).getTime() - test );</code></pre>
 <li><strong>Minimiser les noms de classe CSS :</strong> les noms de classe CSS sont souvent réutilisées de multiple fois à l'intérieur des fichiers CSS et HTML pour pouvoir ajouter rapidement en vrac aux fichiers si ils sont longs are inutilement long. Gardez les noms de classe aussi courts que possible tout en s'assurant qu'ils restent unique. Un exercice de réduction des noms de classe d'un cadre de la BOEW récent a permis de réduire la taille de fichier de 10% à 30%.</li>
 </ul>
 <section>
-<h3>Techniques aditionelles</h3>
+<h3>Techniques additionnelles</h3>
 <ul lang="en">
 <li><a rel="external" href="https://www.queness.com/post/588/15-ways-to-optimize-css-and-reduce-css-file-size">15 Ways to Optimize CSS and Reduce CSS File Size</a></li>
 <li><a rel="external" href="https://web.archive.org/web/20190119144722/http://www.dailycoding.com/Posts/top_7_tip_for_optimizing_css.aspx">Top 7 Tip for Optimizing CSS</a></li>

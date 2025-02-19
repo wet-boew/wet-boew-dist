@@ -8027,7 +8027,7 @@ var componentName = "wb-exitscript",
 
 			}
 
-			// Remove the plugin data and ensure it is removed from the localstorage
+			// Remove the plugin data and ensure it is removed from the localStorage
 			localStorage.removeItem( componentName );
 			localStorage.removeItem( keyForKeyHolder );
 
@@ -8106,7 +8106,7 @@ $document.on( "click", selector, function( event ) {
 
 	} else if ( crypto && this[ componentName ] ) {
 
-		// Save to localstorage, the plugin init will ensure this data is only used once
+		// Save to localStorage, the plugin init will ensure this data is only used once
 		localStorage.setItem( componentName, wb.string.arrayBufferToBase64( this[ componentName ] ) );
 		localStorage.setItem( keyForKeyHolder, JSON.stringify( this[ keyForKeyHolder ] ) );
 	}
@@ -11889,7 +11889,7 @@ var componentName = "wb-mltmd",
 	/**
 	 * @method youTubeEvents
 	 * @description YouTube API event manager
-	 * @param {object} event The event object fior the triggered event
+	 * @param {object} event The event object for the triggered event
 	 */
 	youTubeEvents = function( event ) {
 		var media = event.target.getIframe(),
@@ -13034,7 +13034,7 @@ $document.on( "keyup", function( ) {
 		}
 
 		// Ensure the element in focus is visible
-		// TODO: Find a solution for when there isn't enough page to scoll up or down
+		// TODO: Find a solution for when there isn't enough page to scroll up or down
 		if ( elmInFocusRect.top < focusAreaBelow ) {
 
 			// Scroll down till the top of the element is visible
@@ -17257,7 +17257,7 @@ var componentName = "wb-twitter",
 					console.warn( componentName + ": i18n text is missing. Iframe title override and skip links will be disabled." );
 				}
 
-				// Set Chinese (Simplfified)'s language code to "zh-cn"
+				// Set Chinese (Simplified)'s language code to "zh-cn"
 				// If the link doesn't specify a widget language and its "in-page" language code is "zh-Hans"...
 				// Notes:
 				// -WET uses "zh-Hans", Twitter uses "zh-ch" and falls back to English if the former is used
