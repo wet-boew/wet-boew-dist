@@ -538,6 +538,96 @@
 </section>
 <hr>
 <section>
+<h2>Examples using required fields without asterisks</h2>
+<p>Required fields can be alternatively styled without asterisks by adding the <code>required-no-asterisk</code> class to one of their parent elements (such as <code>&lt;div class="wb-frmvld"&gt;</code> or <code>&lt;form&gt;</code>).</p>
+<p>Whether or not asterisks are used, it is recommended that they be implemented consistently within the same form. Please don't mix and match different asterisk styles within the same form.</p>
+<div class="wb-frmvld required-no-asterisk">
+<form action="#" method="get" id="validation-example-4">
+<div class="form-group">
+<label for="nname1" class="required"><span class="field-name">Nickname</span> <strong class="required">(required)</strong></label>
+<input class="form-control" id="nname1" name="nname1" type="text" autocomplete="nickname" required="required">
+</div>
+<details class="mrgn-bttm-md">
+<summary>View code</summary>
+<div class="alert alert-info">
+<p>Consider adding an <code>aria-hidden="true"</code> attribute to <code>&lt;strong class="required"&gt;</code> (i.e. <code>&lt;strong class="required" aria-hidden="true"&gt;</code>) in required field labels. Hardcoding it will prevent screen readers from announcing "required" twice in the noscript and basic HTML versions of the page. The form validation plugin automatically adds the attribute to the JavaScript version. Don't use the attribute in required <code>&lt;legend&gt;</code> elements.</p>
+</div>
+<pre><code>&lt;div class="wb-frmvld required-no-asterisk"&gt;
+&lt;form action="#" method="get" id="validation-example-4"&gt;
+	...
+	&lt;div class="form-group"&gt;
+		&lt;label for="nname1" class="required required-no-asterisk"&gt;&lt;span class="field-name"&gt;Nickname&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/label&gt;
+		&lt;input class="form-control" id="nname1" name="nname1" type="text" autocomplete="nickname" required="required" /&gt;
+	&lt;/div&gt;</code></pre>
+</details>
+<div class="form-group">
+<label for="cname1" class="required"><span class="field-name">Country name</span> <strong class="required">(required)</strong></label>
+<input class="form-control" id="cname1" name="cname1" type="text" autocomplete="country-name" required="required">
+</div>
+<details class="mrgn-bttm-md">
+<summary>View code</summary>
+<div class="alert alert-info">
+<p>Consider adding an <code>aria-hidden="true"</code> attribute to <code>&lt;strong class="required"&gt;</code> (i.e. <code>&lt;strong class="required" aria-hidden="true"&gt;</code>) in required field labels. Hardcoding it will prevent screen readers from announcing "required" twice in the noscript and basic HTML versions of the page. The form validation plugin automatically adds the attribute to the JavaScript version. Don't use the attribute in required <code>&lt;legend&gt;</code> elements.</p>
+</div>
+<pre><code>&lt;div class="wb-frmvld required-no-asterisk"&gt;
+&lt;form action="#" method="get" id="validation-example-4"&gt;
+	...
+	&lt;div class="form-group"&gt;
+		&lt;label for="cname1" class="required required-no-asterisk"&gt;&lt;span class="field-name"&gt;Country name&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/label&gt;
+		&lt;input class="form-control" id="cname1" name="cname1" type="text" autocomplete="country-name" required="required" /&gt;
+	&lt;/div&gt;</code></pre>
+</details>
+<fieldset class="chkbxrdio-grp">
+<legend class="required"><span class="field-name">Favourite web browser</span> <strong class="required">(required)</strong></legend>
+<div class="radio">
+<label for="fbrowser1"><input type="radio" name="fbrowser" value="1" id="fbrowser1" data-rule-required="true"> Chrome</label>
+</div>
+<div class="radio">
+<label for="fbrowser2"><input type="radio" name="fbrowser" value="2" id="fbrowser2"> Edge</label>
+</div>
+<div class="radio">
+<label for="fbrowser3"><input type="radio" name="fbrowser" value="3" id="fbrowser3"> Firefox</label>
+</div>
+<div class="radio">
+<label for="fbrowser4"><input type="radio" name="fbrowser" value="4" id="fbrowser4"> Safari</label>
+</div>
+<div class="radio">
+<label for="fbrowser5"><input type="radio" name="fbrowser" value="5" id="fbrowser5"> Other</label>
+</div>
+</fieldset>
+<details class="mrgn-bttm-md">
+<summary>View code</summary>
+<div class="alert alert-info">
+<p>Consider adding an <code>aria-hidden="true"</code> attribute to <code>&lt;strong class="required"&gt;</code> (i.e. <code>&lt;strong class="required" aria-hidden="true"&gt;</code>) in required field labels. Hardcoding it will prevent screen readers from announcing "required" twice in the noscript and basic HTML versions of the page. The form validation plugin automatically adds the attribute to the JavaScript version. Don't use the attribute in required <code>&lt;legend&gt;</code> elements.</p>
+</div>
+<pre><code>&lt;div class="wb-frmvld required-no-asterisk"&gt;
+	&lt;form action="#" method="get" id="validation-example-4"&gt;
+		...
+		&lt;fieldset class="chkbxrdio-grp"&gt;
+			&lt;legend class="required"&gt;&lt;span class="field-name"&gt;Favourite web browser&lt;/span&gt; &lt;strong class="required"&gt;(required)&lt;/strong&gt;&lt;/legend&gt;
+			&lt;div class="radio"&gt;
+				&lt;label for="fbrowser1"&gt;&lt;input type="radio" name="fbrowser" value="1" id="fbrowser1" data-rule-required="true" /&gt; Chrome&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class="radio"&gt;
+				&lt;label for="fbrowser2"&gt;&lt;input type="radio" name="fbrowser" value="2" id="fbrowser2" /&gt; Edge&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class="radio"&gt;
+				&lt;label for="fbrowser3"&gt;&lt;input type="radio" name="fbrowser" value="3" id="fbrowser3" /&gt; Firefox&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class="radio"&gt;
+				&lt;label for="fbrowser4"&gt;&lt;input type="radio" name="fbrowser" value="4" id="fbrowser4" /&gt; Safari&lt;/label&gt;
+			&lt;/div&gt;
+			&lt;div class="radio"&gt;
+				&lt;label for="fbrowser5"&gt;&lt;input type="radio" name="fbrowser" value="5" id="fbrowser5" /&gt; Other&lt;/label&gt;
+			&lt;/div&gt;
+		&lt;/fieldset&gt;</code></pre>
+</details>
+<input type="submit" value="Submit" class="btn btn-primary"> <input type="reset" value="Reset page to defaults" class="btn btn-link btn-sm show p-0 mrgn-tp-md">
+</form>
+</div>
+</section>
+<hr>
+<section>
 <h2>Example using custom pattern validation</h2>
 <p>If the <code>pattern</code> attribute is used alongside the <code>data-rule</code> attribute, the pattern validation will prevail; meaning that in the end you only get the generic validation error message that comes from the use of <code>pattern</code>. It is strongly recommended to use the <code>data-msg</code> attribute to customize the error message displayed by the pattern validation when the field is in error state.</p>
 <div class="wb-frmvld">
@@ -1009,7 +1099,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2022-04-13</time></dd>
+<dd><time property="dateModified">2025-02-24</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

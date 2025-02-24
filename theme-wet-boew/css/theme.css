@@ -1,14 +1,14 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-19
+ * v4.0.85 - 2025-02-24
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 @charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-19
+ * v4.0.85 - 2025-02-24
  *
  */
 /*
@@ -4054,16 +4054,22 @@ fieldset.chkbxrdio-grp legend {
  */
 label.required strong.required,
 legend.required strong.required,
-.checkbox.required strong.required, label.required:before,
-legend.required:before,
-.checkbox.required:before {
+.checkbox.required strong.required, label.required:not(.required-no-asterisk .required):before,
+legend.required:not(.required-no-asterisk .required):before,
+.checkbox.required:not(.required-no-asterisk .required):before {
 	color: #d3080c;
 	font-weight: 700;
 }
 
-label.required:before,
-legend.required:before,
-.checkbox.required:before {
+label.required,
+legend.required,
+.checkbox.required {
+	/* Set required asterisk styles... unless any parent element uses a disable class */
+	/* Credit: Stack Overflow answer (https://stackoverflow.com/a/73773370) by magda and Zach Jensz (zach-jensz) */
+}
+label.required:not(.required-no-asterisk .required):before,
+legend.required:not(.required-no-asterisk .required):before,
+.checkbox.required:not(.required-no-asterisk .required):before {
 	content: "* ";
 	margin-left: -0.67em;
 	vertical-align: top;
