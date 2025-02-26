@@ -1,14 +1,14 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-24
+ * v4.0.85 - 2025-02-26
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 @charset "utf-8";
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.85 - 2025-02-24
+ * v4.0.85 - 2025-02-26
  *
  */
 /*
@@ -17,48 +17,48 @@
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  *
  */
-/*Banner*/
-/*Dark Cerulean*/
-/*Lochmara, Dark Cerulean*/
-/*Charcoal*/
-/*White*/
-/*White*/
-/*Gray*/
-/*White*/
-/*Charcoal*/
-/*White*/
-/*Night Rider*/
-/*Language-bar*/
-/*Very Light Grey*/
-/*Main Element*/
-/*Whisper*/
-/*Site menu*/
-/*Blue Whale*/
-/*White*/
-/*Very Light Grey*/
-/*Very Light Grey*/
-/*Black*/
-/*Dim Gray*/
-/*Nobel*/
-/*Nobel*/
-/*Very Light Grey*/
-/*Catalina Blue*/
-/*Charcoal*/
-/*Silver*/
-/*Dim Gray*/
-/*Black Pearl*/
-/*White*/
-/*Link Water*/
-/*Venice Blue*/
-/*Tangaroa*/
-/*Secondary menu*/
-/*Gainsboro*/
-/*Dim Gray*/
-/*Night Rider*/
-/*Skip-links*/
-/*Black*/
-/*White*/
-/*White*/
+/* Banner */
+/* Dark Cerulean */
+/* Lochmara, Dark Cerulean */
+/* Charcoal */
+/* White */
+/* White */
+/* Gray */
+/* White */
+/* Charcoal */
+/* White */
+/* Night Rider */
+/* Language-bar */
+/* Very Light Grey */
+/* Main Element */
+/* Whisper */
+/* Site menu */
+/* Blue Whale */
+/* White */
+/* Very Light Grey */
+/* Very Light Grey */
+/* Black */
+/* Dim Gray */
+/* Nobel */
+/* Nobel */
+/* Very Light Grey */
+/* Catalina Blue */
+/* Charcoal */
+/* Silver */
+/* Dim Gray */
+/* Black Pearl */
+/* White */
+/* Link Water */
+/* Venice Blue */
+/* Tangaroa */
+/* Secondary menu */
+/* Gainsboro */
+/* Dim Gray */
+/* Night Rider */
+/* Skip-links */
+/* Black */
+/* White */
+/* White */
 /*
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
@@ -3997,7 +3997,7 @@ input[type=button], input[type=reset], input[type=submit] {
 }
 .form-inline .label-inline label {
 	font-weight: 400;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	padding-left: 2px;
 }
 
@@ -9381,12 +9381,12 @@ body.wb-modal .modal-dialog summary {
 }
 .mfp-arrow-left:before,
 .mfp-arrow-left .mfp-b {
-	border-right: 27px solid #000000;
+	border-right: 27px solid #000;
 }
 
 .mfp-arrow-right:before,
 .mfp-arrow-right .mfp-b {
-	border-left: 27px solid #000000;
+	border-left: 27px solid #000;
 }
 
 /* Should fix upstream in Magnific Popup rather than overriding in WET */
@@ -11118,7 +11118,7 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	-webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 	background-color: white;
-	border: 1px solid #cccccc;
+	border: 1px solid #ccc;
 	border-radius: 3px;
 	bottom: 12px;
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -11150,7 +11150,7 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 }
 
 .ol-popup:before {
-	border-top-color: #cccccc;
+	border-top-color: #ccc;
 	border-width: 11px;
 	left: 48px;
 	margin-left: -11px;
@@ -11180,7 +11180,7 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 	border-bottom: solid 1px #999;
 	color: #999;
 	font-size: 1em;
-	margin: -5px 0px 5px 0px;
+	margin: -5px 0 5px;
 	padding-bottom: 3px;
 }
 
@@ -11244,11 +11244,11 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 
 .geomap-lgnd-layer {
 	margin-bottom: 10px;
-	margin-top: 0px !important;
+	margin-top: 0 !important;
 }
 
 .geomap-lgnd > :last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 .geomap-geoloc {
@@ -11313,7 +11313,7 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 	font-size: 0.75em;
 	left: 0.6666em;
 	min-width: 100px;
-	padding: 2px 6px 2px 6px;
+	padding: 2px 6px;
 	position: absolute;
 	will-change: contents, width;
 }
@@ -11577,7 +11577,7 @@ ol-geolocate button {
 }
 
 .ol-dragbox {
-	border: 2px solid #ff0033;
+	border: 2px solid #f03;
 	border-radius: 2px;
 	-webkit-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -11675,7 +11675,7 @@ ol-geolocate button {
 }
 
 .tooltip-txt::after {
-	border-color: rgb(192, 192, 192) transparent transparent transparent;
+	border-color: rgb(192, 192, 192) transparent transparent;
 	border-style: solid;
 	border-width: 5px;
 	content: " ";
@@ -11736,7 +11736,7 @@ ol-geolocate button {
 .wb-geomap-geoloc-al-cnt .wb-geomap-geoloc-al a {
 	color: #333;
 	display: block;
-	padding: 5px 5px;
+	padding: 5px;
 	text-decoration: none;
 }
 .wb-geomap-geoloc-al-cnt .wb-geomap-geoloc-al a:hover, .wb-geomap-geoloc-al-cnt .wb-geomap-geoloc-al a:focus {
@@ -11783,7 +11783,7 @@ ol-geolocate button {
 .skeleton-lgnd-2 {
 	background-color: #f5f5f5;
 	height: 25px;
-	margin: 20px 0 20px 0;
+	margin: 20px 0;
 	width: 100%;
 }
 
@@ -13785,7 +13785,7 @@ main {
 	padding-right: 1.8em;
 }
 
-/*skip-links*/
+/* skip-links */
 .wb-sl {
 	background-color: #000;
 	color: #fff;
