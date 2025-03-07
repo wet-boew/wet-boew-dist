@@ -2176,7 +2176,7 @@ a:not([href]):hover, a:not([href]):focus {
 	}
 	.dl-horizontal.dt-max dt {
 		-ms-hyphens: none;
-		hyphens: none;
+		    hyphens: none;
 		min-width: 20ch;
 		white-space: normal;
 		width: auto;
@@ -4563,6 +4563,17 @@ tbody.collapse.in {
 .fade.reverse.in, .fade.out, .pop.out {
 	opacity: 0;
 	visibility: hidden;
+}
+
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0);
+		        transform: rotate(0);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+		        transform: rotate(360deg);
+	}
 }
 
 @keyframes spin {
@@ -9764,6 +9775,8 @@ body.wb-modal .modal-dialog summary {
 .wb-mm-ctrls progress {
 	/* Important Thing */
 	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
 	background: #fff;
 	background-clip: padding-box;
 	border: 7px solid #3e3e3e;
@@ -9797,6 +9810,8 @@ body.wb-modal .modal-dialog summary {
 }
 .wb-mm-ctrls input[type=range] {
 	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
 	background: transparent;
 	display: inline-block;
 	height: 2.5em;
@@ -9813,6 +9828,7 @@ body.wb-modal .modal-dialog summary {
 }
 .wb-mm-ctrls input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
+	        appearance: none;
 	background: #fff;
 	border: 1px solid #707070;
 	-webkit-box-sizing: content-box;
@@ -11115,8 +11131,6 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 }
 
 .ol-popup {
-	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-	-webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 	background-color: white;
 	border: 1px solid #ccc;
 	border-radius: 3px;
@@ -11124,7 +11138,8 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	display: block;
-	filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+	-webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+	        filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 	font-size: 0.75em;
 	left: -50px;
 	min-width: 250px;
@@ -11210,7 +11225,7 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 }
 .wb-geomap-map.active {
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 	outline-color: #66afe9;
 }
 
@@ -11369,11 +11384,11 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 }
 
 .ol-viewport .ol-unselectable {
-	-moz-user-select: none;
-	-ms-user-select: none;
 	-webkit-tap-highlight-color: transparent;
 	-webkit-user-select: none;
-	user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
 }
 
 .ol-control {
@@ -11686,8 +11701,6 @@ ol-geolocate button {
 }
 
 .tooltip-txt {
-	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-	-webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 	background: rgb(192, 192, 192);
 	border: solid 1px rgb(192, 192, 192);
 	border-radius: 5px;
@@ -11696,7 +11709,8 @@ ol-geolocate button {
 	        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	color: rgb(51, 51, 51);
 	cursor: default;
-	filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+	-webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
+	        filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
 	font-size: 0.8em;
 	left: 50%;
 	margin-left: -60px;
@@ -11750,27 +11764,17 @@ ol-geolocate button {
 
 .glyphicon-spin {
 	-webkit-animation: spin 1000ms infinite linear;
-	animation: spin 1000ms infinite linear;
+	        animation: spin 1000ms infinite linear;
 }
 
-@-webkit-keyframes spin {
-	0% {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
-	100% {
-		-webkit-transform: rotate(359deg);
-		transform: rotate(359deg);
-	}
-}
 @keyframes spin {
 	0% {
 		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
+		        transform: rotate(0deg);
 	}
 	100% {
 		-webkit-transform: rotate(359deg);
-		transform: rotate(359deg);
+		        transform: rotate(359deg);
 	}
 }
 .skeleton-lgnd-1 {
