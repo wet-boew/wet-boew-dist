@@ -3940,7 +3940,17 @@ caption {
  *  Firefox-safe line height on input[type="reset|button|submit"]
  */
 input[type=reset], input[type=button], input[type=submit] {
-	height: 37px;
+	/*
+	 *  Form control width
+	 *
+	 *  Default should be representative of the expected length of input.
+	*  Full width should be only for cases when the expected length of input is
+	*  greater than the available width.
+	*  height:37px; rule of Bootstrap was overwritten by height: auto; first
+	*  then a min-height specified, in order to address the issue #8492. July 2019.
+	*/
+	height: auto;
+	min-height: 37px;
 }
 input[type=reset].btn-lg, .btn-group-lg > input[type=reset].btn, input[type=reset].input-lg, .input-group-lg > input[type=reset].form-control,
 .input-group-lg > input[type=reset].input-group-addon,
@@ -3962,20 +3972,6 @@ input[type=reset].btn-sm, .btn-group-sm > input[type=reset].btn, input[type=rese
 }
 input[type=reset].btn-xs, .btn-group-xs > input[type=reset].btn, input[type=button].btn-xs, .btn-group-xs > input[type=button].btn, input[type=submit].btn-xs, .btn-group-xs > input[type=submit].btn {
 	height: 25px;
-}
-
-/*
- *  Form control width
- *
- *  Default should be representative of the expected length of input.
- *  Full width should be only for cases when the expected length of input is
- *  greater than the available width.
- *  height:37px; rule of Bootstrap was overwritten by height: auto; first
- *  then a min-height specified, in order to address the issue #8492. July 2019.
- */
-input[type=button], input[type=reset], input[type=submit] {
-	height: auto;
-	min-height: 37px;
 }
 
 .form-control {
@@ -11127,6 +11123,7 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
  * wet-boew.github.io/wet-boew/License-eng.html / wet-boew.github.io/wet-boew/Licence-fra.html
 */
 .ol-overlay-container {
+	will-change: left, right, top, bottom;
 	z-index: 1000;
 }
 
@@ -11373,10 +11370,6 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 	margin: 1px;
 	text-align: center;
 	will-change: contents, width;
-}
-
-.ol-overlay-container {
-	will-change: left, right, top, bottom;
 }
 
 .ol-unsupported {
@@ -12459,7 +12452,6 @@ html:not(.wb-disable) .wb-pgfltr-out {
 	display: none;
 }
 .tbl-gridify tbody,
-.tbl-gridify td,
 .tbl-gridify td {
 	display: block;
 }
