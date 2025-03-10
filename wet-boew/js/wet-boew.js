@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.86.1 - 2025-03-07
+ * v4.0.86.1 - 2025-03-10
  *
  *//*! Modernizr (Custom Build) | MIT & BSD */
 /*! @license DOMPurify 3.2.4 | (c) Cure53 and other contributors | Released under the Apache license 2.0 and Mozilla Public License 2.0 | github.com/cure53/DOMPurify/blob/3.2.4/LICENSE */
@@ -15014,7 +15014,7 @@ $document.on( "draw.dt", selector, function( event, settings ) {
 			$btn = $th.find( "button" );
 		if ( order && order.length && order[ 0 ][ 0 ] === index ) {
 			var label = ( order[ 0 ][ 1 ] === "desc" ) ? i18nText.aria.sortAscending : i18nText.aria.sortDescending;
-			label = $btn.text() + label;
+			label = $btn.text() + label.replace( /&#160;/g, " " );
 			$btn.attr( "title", label );
 		}
 		$th.removeAttr( "aria-label" );
