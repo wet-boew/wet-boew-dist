@@ -279,7 +279,7 @@
 		{ "op": "patches", "path": "/items", "patches": [
 			{ "op": "wb-swap", "path": "/eventLanguage", "ref": "/reference/language/en" },
 			{ "op": "wb-swap", "path": "/province", "ref": "/reference/province/en" },
-			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus/en" },
+			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus" },
 			{ "op": "wb-toDateISO", "path": "/startDate" },
 			{ "op": "wb-toDateISO", "path": "/endDate" },
 			{ "op": "patches", "path": "/registeredPeople", "patches": [
@@ -297,7 +297,7 @@
 			{ "selector": ".event-start", "value": "/startDate" },
 			{ "selector": ".event-end", "value": "/endDate" },
 			{ "selector": ".event-location", "value": "/city" },
-			{ "selector": ".event-status", "value": "/registrationStatus" },
+			{ "selector": ".event-status", "value": "/registrationStatus/en" },
 			{ "selector": ".event-provinces", "value": "/province", "queryall": "li" },
 			{ "selector": ".event-registered", "value": "/registeredPeople",
 				"mapping": [
@@ -1209,7 +1209,7 @@ working
 <p><a href="test-case-en.html">Consult the special test case examples webpage</a></p>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2022-10-31</time></dd>
+<dd><time property="dateModified">2025-03-19</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

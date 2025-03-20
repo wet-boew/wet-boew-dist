@@ -217,7 +217,7 @@
 		{ "op": "patches", "path": "/items", "patches": [
 			{ "op": "wb-swap", "path": "/eventLanguage", "ref": "/reference/language/fr" },
 			{ "op": "wb-swap", "path": "/province", "ref": "/reference/province/fr" },
-			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus/fr" },
+			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus" },
 			{ "op": "wb-toDateISO", "path": "/startDate" },
 			{ "op": "wb-toDateISO", "path": "/endDate" },
 			{ "op": "patches", "path": "/registeredPeople", "patches": [
@@ -235,7 +235,7 @@
 			{ "selector": ".event-start", "value": "/startDate" },
 			{ "selector": ".event-end", "value": "/endDate" },
 			{ "selector": ".event-location", "value": "/city" },
-			{ "selector": ".event-status", "value": "/registrationStatus" },
+			{ "selector": ".event-status", "value": "/registrationStatus/fr" },
 			{ "selector": ".event-provinces", "value": "/province", "queryall": "li" },
 			{ "selector": ".event-registered", "value": "/registeredPeople",
 				"mapping": [
@@ -279,7 +279,7 @@
 		{ "op": "patches", "path": "/items", "patches": [
 			{ "op": "wb-swap", "path": "/eventLanguage", "ref": "/reference/language/fr" },
 			{ "op": "wb-swap", "path": "/province", "ref": "/reference/province/fr" },
-			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus/fr" },
+			{ "op": "wb-swap", "path": "/registrationStatus", "ref": "/reference/registrationStatus" },
 			{ "op": "wb-toDateISO", "path": "/startDate" },
 			{ "op": "wb-toDateISO", "path": "/endDate" },
 			{ "op": "patches", "path": "/registeredPeople", "patches": [
@@ -297,7 +297,7 @@
 			{ "selector": ".event-start", "value": "/startDate" },
 			{ "selector": ".event-end", "value": "/endDate" },
 			{ "selector": ".event-location", "value": "/city" },
-			{ "selector": ".event-status", "value": "/registrationStatus" },
+			{ "selector": ".event-status", "value": "/registrationStatus/fr" },
 			{ "selector": ".event-provinces", "value": "/province", "queryall": "li" },
 			{ "selector": ".event-registered", "value": "/registeredPeople",
 				"mapping": [
@@ -315,6 +315,7 @@
 				&lt;p>De &lt;span class="event-start">&lt;/span> à &lt;span class="event-end">&lt;/span>&lt;/p>
 				&lt;p>Emplacement: &lt;span class="event-location">&lt;/span>&lt;/p>
 				&lt;p>Statut: &lt;span class="event-status">&lt;/span>&lt;/p>
+				&lt;p>Province(s):&lt;/p>
 				&lt;ul class="event-provinces">
 					&lt;template>
 						&lt;li>&lt;/li>
@@ -1205,7 +1206,7 @@ fonctionne
 <p><a href="test-case-fr.html">Consulter la page d'exemple d'essaie spéciale</a></p>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2022-10-31</time></dd>
+<dd><time property="dateModified">2025-03-19</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
