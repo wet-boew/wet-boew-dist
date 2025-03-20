@@ -13737,7 +13737,7 @@ main {
  */
 #wb-sec .list-group a.list-group-item[href]:hover, #wb-sec .list-group a.list-group-item[href]:focus, #wb-sec .list-group a.list-group-item.wb-navcurr {
 	background: #666666;
-	color: white;
+	color: hsl(0, 0%, 108.3333333333%);
 }
 
 #wb-sec {
@@ -13767,7 +13767,7 @@ main {
 }
 #wb-sec .list-group .list-group .list-group-item {
 	background: rgb(229.5, 229.5, 229.5);
-	color: black;
+	color: hsl(0, 0%, -16.6666666667%);
 	padding-left: 1.8em;
 }
 
