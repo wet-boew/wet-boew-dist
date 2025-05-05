@@ -127,7 +127,7 @@
   text-decoration: none;
 }
 
-.wb-mltmd.video:not(.playing):not(.waiting) .display:before, .geomap-progress:before, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:before, .wb-mltmd.video.waiting .display:before, .wb-mltmd.video:not(.playing):not(.waiting) .display:after, .geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before, .geomap-progress:before, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:before, .wb-mltmd.video.waiting .display:before, .wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after, .geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
   bottom: 0;
   content: " ";
   height: 100px;
@@ -139,10 +139,10 @@
   width: 100px;
 }
 
-.wb-mltmd.video:not(.playing):not(.waiting) .display:after, .geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after, .geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
   z-index: 1;
 }
-.wb-mltmd.video:not(.playing):not(.waiting) .display:before, .geomap-progress:before, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:before, .wb-mltmd.video.waiting .display:before {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before, .geomap-progress:before, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:before, .wb-mltmd.video.waiting .display:before {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
 }
@@ -9631,14 +9631,14 @@ body.wb-modal .modal-dialog summary {
     Light Skinning of mediacontrols
    */
 }
-.wb-mltmd.video:not(.playing):not(.waiting) .display {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display {
   cursor: pointer;
   position: relative;
 }
-.wb-mltmd.video:not(.playing):not(.waiting) .display:before {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before {
   text-align: center;
 }
-.wb-mltmd.video:not(.playing):not(.waiting) .display:after {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after {
   color: #fff;
   content: "\e072";
   font-family: "Glyphicons Halflings";
@@ -9669,9 +9669,6 @@ body.wb-modal .modal-dialog summary {
   display: block;
   margin-left: -2px;
   width: 1.2em;
-}
-.wb-mltmd.youtube.video:not(.playing):not(.waiting) .display:before {
-  background: #3e3e3e;
 }
 .wb-mltmd.skn-lt {
   border-bottom: 1px solid #ddd;
