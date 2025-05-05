@@ -10400,13 +10400,28 @@ $document.on( "click", ".mfp-wrap a[href^='#']", function( event ) {
 	}
 } );
 
-// Event handler for closing a modal popup
+// Event handler for closing a modal popup via the close button
 $( document ).on( "click", ".popup-modal-dismiss", function( event ) {
 	if ( !this.hasAttribute( "target" ) ) {
 		event.preventDefault();
 	}
 
 	$.magnificPopup.close();
+} );
+
+// Event handler for closing a modal popup via the Escape key
+$( document ).on( "keydown", ".mfp-wrap:not(.mfp-close-btn-in)", function( event ) {
+
+	// If the Escape key was pressed...
+	if ( event.key === "Escape" ) {
+		const closeButtons = event.currentTarget.querySelectorAll( ".popup-modal-dismiss" );
+
+		// Trigger a "fake" click on the last close button
+		// Notes:
+		// -Allows Escape key presses to "piggyback" on additional functionality in close button click handlers (such as preventDefault and the session timeout plugin's confirm method)
+		// -Targets the last close button link to accomodate plugins that use multiple close buttons (such as exit script)... the last button is more likely to represent no in those scenarios
+		$( closeButtons[ closeButtons.length - 1 ] ).trigger( "click" );
+	}
 } );
 
 // Event handler for opening a popup without a link
@@ -14202,7 +14217,11 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 
 		// Negative confirmation or the user took too long; logout
 		} else {
-			window.location.href = settings.signInUrl ? settings.signInUrl : settings.logouturl;
+
+			// Use setTimeout() to navigate asynchronously (to support lightbox Escape key presses)
+			setTimeout( function() {
+				window.location.href = settings.signInUrl ? settings.signInUrl : settings.logouturl;
+			} );
 		}
 	},
 
