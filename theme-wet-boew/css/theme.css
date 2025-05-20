@@ -159,12 +159,12 @@
           animation-timing-function: linear;
   color: #fff;
   content: "\e031";
-  font-family: "Glyphicons Halflings";
-  font-size: 3.5em;
   height: 1em;
   line-height: 1.03;
   width: 1em;
   z-index: 2;
+  font-family: "Glyphicons Halflings";
+  font-size: 3.5em;
 }
 
 /*! Reset and dependencies */
@@ -3913,9 +3913,9 @@ select[multiple].input-lg,
  */
 caption {
   color: #333;
+  text-align: center;
   font-size: 1.1em;
   font-weight: bold;
-  text-align: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -9724,10 +9724,10 @@ body.wb-modal .modal-dialog summary {
 .wb-mm-ctrls .btn {
   background: transparent;
   border: 0;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
   color: #fff;
   font-size: 130%;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 .wb-mm-ctrls .btn[disabled]:active:hover {
   color: #fff;
@@ -10806,15 +10806,15 @@ table.dataTable tbody tr.selected {
 }
 .wb-tabs [role=tablist] > li {
   background: #ebf2fc;
-  border-color: #ccc;
-  border-style: solid;
-  border-width: 1px;
   color: #000;
   cursor: pointer;
   display: table-cell;
   left: -10px;
   position: relative;
   text-align: center;
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px;
 }
 .wb-tabs [role=tablist] > li a {
   color: #000;
@@ -11038,9 +11038,9 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 }
 .wb-twitter a.twitter-timeline + .twitter-timeline-loading {
   margin-top: 5px;
+  position: relative;
   min-height: 100px;
   min-width: 100px;
-  position: relative;
   /* Align the loading icon leftwards by default */
 }
 .wb-twitter a.twitter-timeline + .twitter-timeline-loading::before {
@@ -11297,12 +11297,12 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
           animation-timing-function: linear;
   color: #333;
   content: "\e031";
-  font-family: "Glyphicons Halflings";
-  font-size: 1em;
   height: 1em;
   line-height: 1.03;
   width: 1em;
   z-index: 2;
+  font-family: "Glyphicons Halflings";
+  font-size: 1em;
 }
 
 /* OL3 */
@@ -11724,12 +11724,12 @@ ol-geolocate button {
   z-index: 50;
 }
 .wb-geomap-geoloc-al-cnt .wb-geomap-geoloc-al {
-  -webkit-overflow-scrolling: touch;
   background: #fff;
   border: solid 1px #ccc;
   border-top: 0;
   font-size: 0.9em;
   list-style-type: none;
+  -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
   padding: 0;
 }
