@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.88 - 2025-05-22
+ * v4.0.88 - 2025-06-02
  *
  */
 
@@ -13504,7 +13504,7 @@ var $document = wb.doc,
 				let fieldLabel = form.querySelector( "[for=" + field.id + "] > span.field-name" ),
 					fieldLabelText = fieldLabel ? fieldLabel.innerText : form.querySelector( "[for=" + field.id + "]" ).innerText,
 					scrubbedFieldValue = wb.findPotentialPII( field.value, true, { replaceWith: form.settings.scrubChar } ),
-					scrubValHTML = wb.findPotentialPII( field.value, true, { replaceWith: "<span role='img' aria-label='" + i18nText.redacted + "'>" + form.settings.scrubChar + "</span>" } ); // Todo add i18n
+					scrubValHTML = wb.findPotentialPII( field.value.replace( /</g, "&lt;" ), true, { replaceWith: "<span role='img' aria-label='" + i18nText.redacted + "'>" + form.settings.scrubChar + "</span>" } );
 
 				form.PIIFields.push( {
 					elm: field,
