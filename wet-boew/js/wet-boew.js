@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.88.1 - 2025-06-12
+ * v4.0.88.1 - 2025-06-16
  *
  */
 
@@ -9002,14 +9002,6 @@ var componentName = "wb-filter",
 					fltr_info: i18n( "fltr-info" )
 				};
 			}
-
-			Modernizr.addTest( "stringnormalize", "normalize" in String );
-			Modernizr.load( {
-				test: Modernizr.stringnormalize,
-				nope: [
-					"site!deps/unorm" + wb.getMode() + ".js"
-				]
-			} );
 
 			if ( !elm.id ) {
 				elm.id = wb.getId();
