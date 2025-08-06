@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.89 - 2025-08-04
+ * v4.0.89 - 2025-08-06
  *
  */
 
@@ -14767,7 +14767,7 @@ var componentName = "wb-steps",
 					numQuestion = $( ".steps-wrapper", $elm ).length; // Calculate number of questions
 
 				// Addition to UI (Ex: progress bar)
-				if ( !$.contains( $elm, "progress" ) ) {
+				if ( !elm.querySelector( "progress" ) ) {
 					$( "form", $elm ).prepend( "<label class='full-width'><span class='wb-inv'>" + i18nText.progresslabel + "</span><progress class='progressBar' max='" + numQuestion + "'></progress><p class='progressText' role='status'></p></label>" );
 				}
 
