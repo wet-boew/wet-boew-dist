@@ -10274,16 +10274,8 @@ ol.linenums li {
   margin: 10px 1%;
   width: 48%;
 }
-.wb-steps.quiz fieldset:not(:first-child) legend {
-  border-top: 1px solid #e5e5e5;
-  padding-top: 10px;
-}
-.wb-steps.quiz fieldset:not(:first-child):not(:has(legend)) {
-  border-top: 1px solid #e5e5e5;
-  padding-top: 10px;
-}
-.wb-steps.quiz fieldset legend {
-  float: none;
+.wb-steps.quiz fieldset legend + * {
+  clear: left;
 }
 .wb-steps.quiz .wb-tggle-fildst > legend:before {
   content: "";
