@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.89 - 2025-08-08
+ * v4.0.89 - 2025-08-12
  *
  */
 
@@ -9149,7 +9149,13 @@ var componentName = "wb-filter",
 
 		for ( i = 0; i < itemsLength; i += 1 ) {
 			$item = $items.eq( i );
-			text = unAccent( $item.text() );
+
+			// Get the text content of the item, either from the shadow DOM or directly
+			if ( $item[ 0 ].shadowRoot ) {
+				text = unAccent( $item[ 0 ].shadowRoot.textContent );
+			} else {
+				text = unAccent( $item.text() );
+			}
 
 			if ( !searchFilterRegularExp.test( text ) ) {
 				if ( hndParentSelector ) {
