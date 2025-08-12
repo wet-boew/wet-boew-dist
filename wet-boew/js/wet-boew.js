@@ -13583,7 +13583,7 @@ var $document = wb.doc,
 				<div class="modal-footer">
 					<div class="row">
 						<div class="col-xs-12 col-sm-5 mrgn-tp-sm"><button type="button" class="btn btn-link btn-block popup-modal-dismiss">${ i18nText.cancelBtn }</button></div>
-						<div class="col-xs-12 col-sm-7 mrgn-tp-sm"><button type="button" class="btn btn-primary btn-block popup-modal-dismiss" ${ attrScrubSubmit }>${ i18nText.confirmBtn }</button></div>
+						<div class="col-xs-12 col-sm-7 mrgn-tp-sm"><button type="button" class="btn btn-primary btn-block" ${ attrScrubSubmit }>${ i18nText.confirmBtn }</button></div>
 					</div>
 				</div>`;
 		}
@@ -13593,6 +13593,10 @@ var $document = wb.doc,
 
 		// Add PII fields HTML if using a custom UI template
 		if ( modalTemplate ) {
+
+			// Fix for implementers that added the "popup-modal-dismiss" class to the submit button
+			$( ".popup-modal-dismiss[" + attrScrubSubmit + "]" ).removeClass( "popup-modal-dismiss" );
+
 			$( "#" + piiModalID + " [data-scrub-modal-fields]" ).html( piiModalFields );
 		}
 	};
@@ -13612,6 +13616,8 @@ $document.on( "click", "#" + piiModalID + " [" + attrScrubSubmit + "]", function
 	} else {
 		form.submit();
 	}
+
+	$.magnificPopup.close();
 } );
 
 // Add the timer poke to initialize the plugin
