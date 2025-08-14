@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.90 - 2025-08-12
+ * v4.0.90 - 2025-08-14
  *
  */
 
@@ -4493,7 +4493,7 @@ var componentName = "wb-calevt",
 			i, appendData;
 
 		appendData = function( data ) {
-			$ajaxContainer.append( $.trim( data ) );
+			$ajaxContainer.append( String( data ).trim() );
 		};
 
 		for ( i = 0; i < len; i += 1 ) {
@@ -5582,7 +5582,7 @@ var componentName = "wb-charts",
 							"/getcellvalue": function( elem ) {
 
 								// Get the number from the data cell, #3267
-								var cellValue = $.trim( elem.dataset.wbChartsValue || $( elem ).text() );
+								var cellValue = String( elem.dataset.wbChartsValue || $( elem ).text() ).trim();
 								return [
 									parseFloat( cellValue.replace( /(\d{1,3}(?:(?: |,)\d{3})*)(?:(?:.|,)(\d{1,2}))?$/, function( a, b, c ) {
 										return b.replace( / |,/g, "" ) + "." + c || "0";
@@ -14316,7 +14316,7 @@ var $modal, $modalLink, countdownInterval, i18n, i18nText,
 			return null;
 		}
 
-		result = /^([0-9]+(?:\.[0-9]*)?)\s*(.*s)?$/.exec( $.trim( value.toString() ) );
+		result = /^([0-9]+(?:\.[0-9]*)?)\s*(.*s)?$/.exec( value.toString().trim() );
 		if ( result[ 2 ] ) {
 			num = parseFloat( result[ 1 ] );
 			mult = powers[ result[ 2 ] ] || 1;
