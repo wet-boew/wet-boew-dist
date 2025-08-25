@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.90 - 2025-08-19
+ * v4.0.90 - 2025-08-25
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.90 - 2025-08-19
+ * v4.0.90 - 2025-08-25
  *
  */
 /*
@@ -12658,6 +12658,10 @@ a.text-white:hover, a.text-white:focus {
  *
  * Components and helpers style for WET-BOEW
  */
+.wb-disable .nojs-hide, .nojs-show {
+  display: none !important;
+}
+
 /*
  Background Utility CSS
  */
@@ -12705,6 +12709,9 @@ Miscellaneous Utility CSS
   max-width: max-content;
 }
 
+.wb-disable .nojs-show {
+  display: block !important;
+}
 /*
  Views
  */
@@ -12714,7 +12721,7 @@ Miscellaneous Utility CSS
     WET-BOEW
     @title: All screen views
    */
-  .wb-disable .nojs-hide, .nojs-show, .mathml body > div > math,
+  .mathml body > div > math,
   .no-mathml body > div > math {
     display: none !important;
   }
@@ -12733,9 +12740,6 @@ Miscellaneous Utility CSS
   }
   .nowrap {
     white-space: nowrap;
-  }
-  .wb-disable .nojs-show {
-    display: block !important;
   }
   .col-xs-auto, .col-sm-auto, .col-md-auto, .col-lg-auto {
     min-height: 1px;
