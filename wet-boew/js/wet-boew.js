@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.90.1 - 2025-09-08
+ * v4.0.90.1 - 2025-09-09
  *
  */
 
@@ -12090,6 +12090,15 @@ $document.on( initializedEvent, selector, function( event ) {
 
 			// Defaults config set on the video element
 			data.isInitMuted = $media.get( 0 ).muted;
+
+			// Set default Youtube video dimensions if none specified
+			if ( $media[ 0 ].width && $media[ 0 ].height ) {
+				data.width = $media[ 0 ].width;
+				data.height = $media[ 0 ].height;
+			} else {
+				data.width = 640;
+				data.height = 360;
+			}
 
 			if ( youTube.ready === false ) {
 				$document.one( youtubeReadyEvent, function() {
