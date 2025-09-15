@@ -4016,17 +4016,15 @@ legend {
 fieldset {
   border-top: 1px solid #e5e5e5;
   padding-top: 10px;
+}
+fieldset:first-child {
+  border-top: 0;
+}
+fieldset {
   /*
    *  Allows fieldSet/legend to have a bottom border under legend title
    *  https://github.com/wet-boew/wet-boew/issues/7766
    */
-  /*
-   *  Fieldset/legend as a label for a group of checkboxes or radio buttons
-   *  https://github.com/wet-boew/wet-boew/issues/5797
-   */
-}
-fieldset:first-child {
-  border-top: 0;
 }
 fieldset.legend-brdr-bttm {
   border-top: 0;
@@ -4035,6 +4033,12 @@ fieldset.legend-brdr-bttm legend {
   border-bottom: 1px solid #e5e5e5;
   float: none;
   margin-bottom: 10px;
+}
+fieldset {
+  /*
+   *  Fieldset/legend as a label for a group of checkboxes or radio buttons
+   *  https://github.com/wet-boew/wet-boew/issues/5797
+   */
 }
 fieldset.chkbxrdio-grp {
   border-top: 0;
@@ -5742,7 +5746,6 @@ tbody.collapse.in {
   border-top: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  -webkit-overflow-scrolling: touch;
 }
 .navbar-collapse:before, .navbar-collapse:after {
   display: table;
@@ -5750,6 +5753,9 @@ tbody.collapse.in {
 }
 .navbar-collapse:after {
   clear: both;
+}
+.navbar-collapse {
+  -webkit-overflow-scrolling: touch;
 }
 .navbar-collapse.in {
   overflow-y: auto;
@@ -5776,13 +5782,6 @@ tbody.collapse.in {
   }
 }
 
-.navbar-fixed-top,
-.navbar-fixed-bottom {
-  position: fixed;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px;
@@ -5792,6 +5791,13 @@ tbody.collapse.in {
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px;
   }
+}
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 @media (min-width: 768px) {
   .navbar-fixed-top,
@@ -5939,8 +5945,6 @@ tbody.collapse.in {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 6.5px;
-  margin-bottom: 6.5px;
 }
 @media (min-width: 768px) {
   .navbar-form .form-group {
@@ -5999,6 +6003,10 @@ tbody.collapse.in {
   .navbar-form .form-group:last-child {
     margin-bottom: 0;
   }
+}
+.navbar-form {
+  margin-top: 6.5px;
+  margin-bottom: 6.5px;
 }
 @media (min-width: 768px) {
   .navbar-form {
@@ -9627,9 +9635,6 @@ body.wb-modal .modal-dialog summary {
 .wb-mltmd {
   display: block;
   position: relative;
-  /*
-    Light Skinning of mediacontrols
-   */
 }
 .wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display {
   cursor: pointer;
@@ -9669,6 +9674,11 @@ body.wb-modal .modal-dialog summary {
   display: block;
   margin-left: -2px;
   width: 1.2em;
+}
+.wb-mltmd {
+  /*
+    Light Skinning of mediacontrols
+   */
 }
 .wb-mltmd.skn-lt {
   border-bottom: 1px solid #ddd;
@@ -9718,8 +9728,6 @@ body.wb-modal .modal-dialog summary {
   padding-top: 2em;
   position: relative;
   width: 100%;
-  /* Progress Bar */
-  /* Slider polyfill styles */
 }
 .wb-mm-ctrls .btn {
   background: transparent;
@@ -9766,6 +9774,9 @@ body.wb-modal .modal-dialog summary {
 .wb-mm-ctrls .wb-mm-prgrss {
   display: table-cell;
   vertical-align: middle;
+}
+.wb-mm-ctrls {
+  /* Progress Bar */
 }
 .wb-mm-ctrls progress {
   /* Important Thing */
@@ -9859,6 +9870,9 @@ body.wb-modal .modal-dialog summary {
   border: 1px solid #707070;
   height: 1.3em;
   width: 10px;
+}
+.wb-mm-ctrls {
+  /* Slider polyfill styles */
 }
 .wb-mm-ctrls .fd-slider {
   display: inline-block;
@@ -10817,12 +10831,6 @@ table.dataTable tbody tr.selected {
    * Default, minimal, shared style
    */
   /* For backwards compatibility. Should be removed in v4.1 */
-  /**
-   * Style 1 - Basic carousel style
-   */
-  /**
-   * Style 2 - Slider-like carousel style
-   */
 }
 .wb-tabs details[open] {
   border-top-left-radius: 0;
@@ -10905,6 +10913,11 @@ table.dataTable tbody tr.selected {
   position: relative;
   z-index: 1;
 }
+.wb-tabs {
+  /**
+   * Style 1 - Basic carousel style
+   */
+}
 .wb-tabs.carousel-s1 {
   border-top: 0;
 }
@@ -10925,6 +10938,11 @@ table.dataTable tbody tr.selected {
 }
 .wb-tabs.carousel-s1 [role=tablist] > li.tab-count.active, .wb-tabs.carousel-s1 [role=tablist] > li.tab-count:focus, .wb-tabs.carousel-s1 [role=tablist] > li.tab-count:hover {
   cursor: default;
+}
+.wb-tabs {
+  /**
+   * Style 2 - Slider-like carousel style
+   */
 }
 .wb-tabs.carousel-s2 {
   background: #eee;
@@ -11049,17 +11067,9 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 .wb-twitter {
   position: relative;
   /* Align the loading icon relative to the center of the Twitter link in browsers that support :has() */
-  /* Display the loading icon as normal content */
-  /* Prevent the iframe from getting too wide */
-  /* When the iframe gets populated, Twitter's third party widget script injects a style attribute with a width in pixels... but it sometimes gets wider than its container (causing skip links to look misaligned). This sets min/max widths to avoid that behaviour and avoid truncating content if the iframe gets too narrow. */
-  /* The timeline's minimum widths are documented in https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview's Dimensions section... went with the narrowest width that works in practice. */
-  /* Make focus outline rings rounded and scroll horizontally if the inner iframe gets too narrow to fit */
-  /* Completely hide the start notice initially... */
-  /* Completely hide the end notice initially... */
 }
 .wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) {
   display: inline-block;
-  /* Counteract the iframe width fix (see below) to prevent the loading icon from shifting sideways when the empty iframe first appears */
 }
 .wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) a.twitter-timeline + .twitter-timeline-loading::before {
   left: 0;
@@ -11068,8 +11078,14 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 .wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) a.twitter-timeline + .twitter-timeline-loading::after {
   margin: auto;
 }
+.wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) {
+  /* Counteract the iframe width fix (see below) to prevent the loading icon from shifting sideways when the empty iframe first appears */
+}
 .wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) iframe {
   min-width: 0;
+}
+.wb-twitter {
+  /* Display the loading icon as normal content */
 }
 .wb-twitter a.twitter-timeline + .twitter-timeline-loading {
   margin-top: 5px;
@@ -11084,13 +11100,24 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 .wb-twitter a.twitter-timeline + .twitter-timeline-loading::after {
   margin-left: calc((100px - 1em) / 2);
 }
+.wb-twitter {
+  /* Prevent the iframe from getting too wide */
+  /* When the iframe gets populated, Twitter's third party widget script injects a style attribute with a width in pixels... but it sometimes gets wider than its container (causing skip links to look misaligned). This sets min/max widths to avoid that behaviour and avoid truncating content if the iframe gets too narrow. */
+  /* The timeline's minimum widths are documented in https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview's Dimensions section... went with the narrowest width that works in practice. */
+}
 .wb-twitter iframe {
   max-width: 100%;
   min-width: 224px;
 }
+.wb-twitter {
+  /* Make focus outline rings rounded and scroll horizontally if the inner iframe gets too narrow to fit */
+}
 .wb-twitter .twitter-timeline-rendered {
   border-radius: 12px;
   overflow-x: auto;
+}
+.wb-twitter {
+  /* Completely hide the start notice initially... */
 }
 .wb-twitter .wb-twitter-notice-start {
   /* setfocus.wb() automatically adds a tabindex="-1" attribute to the end notice if a skip to start link gets activated */
@@ -11120,6 +11147,9 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 .wb-twitter .wb-twitter-skip a {
   background-color: #000;
   color: #FFF;
+}
+.wb-twitter {
+  /* Completely hide the end notice initially... */
 }
 .wb-twitter .wb-twitter-notice-end {
   /* setfocus.wb() automatically adds a tabindex="-1" attribute to the end notice if a skip to end link gets activated */
