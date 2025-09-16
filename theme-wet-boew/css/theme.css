@@ -12688,8 +12688,12 @@ a.text-white:hover, a.text-white:focus {
  *
  * Components and helpers style for WET-BOEW
  */
-.wb-disable .nojs-hide, .nojs-show {
+.wb-disable .nojs-hide, .wbdisable-show, .nojs-show {
   display: none !important;
+}
+
+.wb-disable .wbdisable-show, .wb-disable .nojs-show {
+  display: block !important;
 }
 
 /*
@@ -12739,9 +12743,6 @@ Miscellaneous Utility CSS
   max-width: max-content;
 }
 
-.wb-disable .nojs-show {
-  display: block !important;
-}
 /*
  Views
  */
