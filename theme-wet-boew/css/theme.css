@@ -8356,7 +8356,7 @@ table.dataTable thead .sorting-icons:after, table.dataTable thead .sorting-icons
 	@title: Accessibility Additions to WET-BOEW - Site template
  */
 #wb-lng .curr span, .wb-show-onfocus, .wb-inv, .wb-invisible, .wb-twitter .wb-twitter-notice-start[tabindex], .wb-twitter .wb-twitter-notice-end[tabindex], .wb-twitter .wb-twitter-skip a, #mb-pnl .srch-pnl label, .wb-fnote dt, .wb-calevt-cal .cal-days td ul, #mb-pnl h3, #wb-info h2, #wb-sec h2, #wb-bc h2, #wb-sm h2, #wb-srch label, #wb-srch h2, #wb-glb-mn h2, #wb-lng h2, .wb-sl {
-  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
   height: 1px;
   margin: 0;
   overflow: hidden;
@@ -8365,7 +8365,7 @@ table.dataTable thead .sorting-icons:after, table.dataTable thead .sorting-icons
 }
 
 .wb-show-onfocus:focus, .wb-twitter .wb-twitter-notice-end[tabindex]:focus, .wb-twitter .wb-twitter-skip a:focus, .wb-disable .wb-slc .wb-sl, .wb-sl:focus {
-  clip: rect(auto, auto, auto, auto);
+  clip-path: none;
   height: inherit;
   margin: inherit;
   overflow: inherit;
@@ -8487,7 +8487,7 @@ table.dataTable thead .sorting-icons:after, table.dataTable thead .sorting-icons
 .wb-calevt-cal .cal-days td:hover ul, .wb-calevt-cal .cal-days td ul.ev-details {
   background-color: #fff;
   border: 1px solid #333;
-  clip: rect(auto, auto, auto, auto);
+  clip-path: none;
   color: #000;
   height: inherit;
   list-style-type: none;
@@ -10091,7 +10091,7 @@ ol.linenums li {
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
  */
 #wb-rsz {
-  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
   margin: 0;
   overflow: hidden;
   position: absolute;
@@ -13361,7 +13361,9 @@ Miscellaneous Utility CSS
     @title: Print view
    */
   .pg-brk-aft {
-    page-break-after: always;
+    -webkit-column-break-after: always;
+       -moz-column-break-after: always;
+            break-after: always;
   }
   a[href]:after {
     content: none;
@@ -13494,7 +13496,9 @@ Miscellaneous Utility CSS
     margin-bottom: 0.5em;
   }
   .wb-tabs.carousel-s2 figure, .wb-tabs.carousel-s1 figure {
-    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+       -moz-column-break-inside: avoid;
+            break-inside: avoid;
   }
   .wb-tabs.carousel-s2 figcaption, .wb-tabs.carousel-s1 figcaption {
     border: 1px solid #000;
