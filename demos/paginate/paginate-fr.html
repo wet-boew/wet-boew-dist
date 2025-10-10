@@ -105,12 +105,6 @@
 <li><a class="btn btn-primary" href="../../docs/ref/paginate/paginate-fr.html">Documentation</a></li>
 <li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Paginer:%20">Questions ou commentaires?</a></li>
 </ul>
-<div class="alert alert-warning">
-<h2>Fonctionnalité instable</h2>
-<p>À utiliser <strong>à vos risques et périls</strong>. Cette fonctionnalité décrite ci-dessous peut être supprimée dans toute version mineure/majeure ultérieure</p>
-<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/10.html">Apprenez-en plus sur la décision de conception concernant les fonctionnalités provisoires (anglais seulement).</a></small></p>
-<p><small><a href="../../docs/ref/provisional-fr.html">Jetez un coup d'œil aux autres fonctionnalités provisoires disponibles.</a></small></p>
-</div>
 <span class="wb-prettify all-pre"></span>
 <h2>Sur cette page:</h2>
 <ul>
@@ -121,7 +115,7 @@
 </ul>
 <section id="paginatedTable">
 <h2>Exemple 1 - Tableau</h2>
-<table class="table wb-paginate provisional">
+<table class="table wb-paginate">
 <thead>
 <tr>
 <th>ID</th>
@@ -373,7 +367,7 @@
 </table>
 <details>
 <summary>Code source</summary>
-<pre><code>&lt;table class="table wb-paginate provisional">
+<pre><code>&lt;table class="table wb-paginate">
 	&lt;thead>
 		&lt;tr>
 			&lt;th>ID&lt;/th>
@@ -409,7 +403,7 @@
 <section id="paginatedArticles">
 <h2>Exemple 2 - Articles</h2>
 <p>Cet exemple exploite l'option suivante&nbsp;: <code>itemsPerPage</code></p>
-<div class="wb-paginate provisional row wb-eqht-grd" data-wb-paginate='{
+<div class="wb-paginate row wb-eqht-grd" data-wb-paginate='{
 		"itemsPerPage": 12
 	}'>
 <article class="col-sm-6 col-md-4 col-lg-3">
@@ -595,7 +589,7 @@
 </div>
 <details>
 <summary>Code source</summary>
-<pre><code>&lt;div class="wb-paginate provisional row wb-eqht-grd" data-wb-paginate='{
+<pre><code>&lt;div class="wb-paginate row wb-eqht-grd" data-wb-paginate='{
 		"itemsPerPage": 12
 	}'>
 	&lt;article class="col-sm-6 col-md-4 col-lg-3">
@@ -630,7 +624,7 @@
 <h2>Exemple 3 - Liste d'événements</h2>
 <p>Cet exemple exploite les options suivantes&nbsp;: <code>itemsPerPage</code>, <code>section</code>, <code>selector</code> et <code>uiTarget</code></p>
 <p>Ce exemple exploite également les deux autres plugiciels suivants&nbsp;: <b>Filtre</b> et <b>Filtre de balises</b>. Pour que les trois plugiciels fonctionnent ensemble, ils doivent être ajoutés au même élément HTML.</p>
-<div class="wb-paginate wb-tagfilter provisional wb-filter" data-wb-filter='{
+<div class="wb-paginate wb-tagfilter wb-filter" data-wb-filter='{
 		"uiTemplate": "#filteredEventsList",
 		"section": ".events-list",
 		"selector": "article"
@@ -898,7 +892,7 @@
 </div>
 <details>
 <summary>Code source</summary>
-<pre><code>&lt;div class="wb-paginate wb-tagfilter provisional wb-filter"
+<pre><code>&lt;div class="wb-paginate wb-tagfilter wb-filter"
 	data-wb-filter='{
 		"uiTemplate": "#filteredEventsList",
 		"section": ".events-list",
@@ -1170,7 +1164,7 @@
 </section>
 <section id="paginatedList">
 <h2>Exemple 4 - Liste</h2>
-<ul class="wb-paginate provisional">
+<ul class="wb-paginate">
 <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, at!</li>
 <li>Soluta maiores deserunt fugit dolorum ratione cum necessitatibus dolore ipsum?</li>
 <li>Libero debitis dicta porro modi nobis odit labore dolor eveniet.</li>
@@ -1256,7 +1250,7 @@
 </ul>
 <details>
 <summary>Code source</summary>
-<pre><code>&lt;ul class="wb-paginate provisional">
+<pre><code>&lt;ul class="wb-paginate">
 	&lt;li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, at!&lt;/li>
 	&lt;li>Soluta maiores deserunt fugit dolorum ratione cum necessitatibus dolore ipsum?&lt;/li>
 	&lt;li>Libero debitis dicta porro modi nobis odit labore dolor eveniet.&lt;/li>
@@ -1270,7 +1264,7 @@
 </section>
 <dl id="wb-dtmd">
 <dt>Date de modification&#160;:&#32;</dt>
-<dd><time property="dateModified">2024-05-14</time></dd>
+<dd><time property="dateModified">2025-09-10</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

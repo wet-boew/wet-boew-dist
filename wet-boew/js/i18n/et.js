@@ -261,7 +261,10 @@ wb.i18nDict = {
 
 	/* Steps form */
 	"rel-preposition": " of ",
-	"progress-label": "Questionnaire progress:"
+	"progress-label": "Questionnaire progress:",
+
+	/* Pagination */
+	"pagination-label": "Pagination"
 };
 
 } )( wb );
