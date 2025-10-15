@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.92 - 2025-10-14
+ * v4.0.92 - 2025-10-15
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.92 - 2025-10-14
+ * v4.0.92 - 2025-10-15
  *
  */
 /*
@@ -10798,11 +10798,6 @@ table.dataTable tbody tr.selected {
           box-shadow: none;
 }
 
-.wb-tabs.carousel-s1 [role=tablist] > li.active a, .wb-tabs.carousel-s1 [role=tablist] > li:focus a, .wb-tabs.carousel-s1 [role=tablist] > li:hover a {
-  border-top: 0;
-  padding-top: 10px;
-}
-
 .wb-tabs.carousel-s2 [role=tablist] > li.control, .wb-tabs.carousel-s1 [role=tablist] > li.control, .wb-tabs [role=tablist] > li a, .wb-tabs [role=tablist] > li {
   display: inline-block;
 }
@@ -10841,7 +10836,11 @@ table.dataTable tbody tr.selected {
 }
 .wb-tabs [role=tablist] {
   border-spacing: 10px 0;
-  display: table;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -10850,9 +10849,9 @@ table.dataTable tbody tr.selected {
 .wb-tabs [role=tablist] > li {
   background: #ebf2fc;
   color: #000;
-  cursor: pointer;
-  display: table-cell;
-  left: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
   text-align: center;
   border-color: #ccc;
@@ -10864,18 +10863,17 @@ table.dataTable tbody tr.selected {
   padding: 10px;
   text-decoration: none;
 }
-.wb-tabs [role=tablist] > li:focus, .wb-tabs [role=tablist] > li:hover {
+.wb-tabs [role=tablist] > li a:focus, .wb-tabs [role=tablist] > li a:hover {
   background: #ccc;
   background: rgba(204, 204, 204, 0.9);
 }
 .wb-tabs [role=tablist] > li.active {
-  background: #fff;
   border-bottom: 0;
-  cursor: default;
   padding-bottom: 1px;
   z-index: 2;
 }
 .wb-tabs [role=tablist] > li.active a {
+  background: #fff;
   border-color: #666;
   border-style: solid;
   border-width: 4px 0 0 0;
@@ -10892,9 +10890,8 @@ table.dataTable tbody tr.selected {
 .wb-tabs [role=tablist] > li.tab-count .curr-count {
   font-size: 1.5em;
 }
-.wb-tabs [role=tablist] > li.tab-count:focus, .wb-tabs [role=tablist] > li.tab-count:hover {
-  background: transparent;
-  cursor: default;
+.wb-tabs [role=tablist] > li + li {
+  margin-left: 10px;
 }
 .wb-tabs [role=tablist].generated li {
   border-bottom: 0;
@@ -10926,18 +10923,11 @@ table.dataTable tbody tr.selected {
   left: 1em;
   position: static;
 }
-.wb-tabs.carousel-s1 [role=tablist] > li.prv {
-  margin-right: 5px;
-}
 .wb-tabs.carousel-s1 [role=tablist] > li.tab-count {
   background: none;
   border: 0;
   font-size: 0.9em;
   padding: 0 0.1em;
-  top: 0.55em;
-}
-.wb-tabs.carousel-s1 [role=tablist] > li.tab-count.active, .wb-tabs.carousel-s1 [role=tablist] > li.tab-count:focus, .wb-tabs.carousel-s1 [role=tablist] > li.tab-count:hover {
-  cursor: default;
 }
 .wb-tabs {
   /**
@@ -10959,12 +10949,18 @@ table.dataTable tbody tr.selected {
 .wb-tabs.carousel-s2 [role=tablist] > li.prv a {
   padding-left: 1em;
 }
+.wb-tabs.carousel-s2 [role=tablist] > li.tab-count {
+  margin: 10px;
+}
 .wb-tabs.carousel-s2 [role=tablist] > li.plypause {
   background: none;
   border: 0;
-  float: right;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   margin-right: 0;
   padding: 2px 0;
+  text-align: right;
 }
 .wb-tabs.carousel-s2 [role=tablist] > li.plypause a {
   font-size: 1.5em;
