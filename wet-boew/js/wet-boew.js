@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.93 - 2025-10-20
+ * v4.0.93 - 2025-10-27
  *
  */
 
@@ -12838,7 +12838,7 @@ var componentName = "wb-overlay",
 			} else {
 				closeText = i18nText.closeOverlay;
 			}
-			closeText = closeText.replace( "'", "&#39;" );
+			closeText = closeText.replaceAll( "'", "&#39;" );
 			overlayClose = "<button type='button' class='mfp-close " + closeClass +
 				"' title='" + closeText + "'>&#xd7;<span class='wb-inv'> " +
 				closeText + "</span></button>";
