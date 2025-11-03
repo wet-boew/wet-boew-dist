@@ -127,7 +127,7 @@
   text-decoration: none;
 }
 
-.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before, .geomap-progress:before, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:before, .wb-mltmd.video.waiting .display:before, .wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after, .geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before, .geomap-progress:before, .wb-mltmd.video.waiting .display:before, .wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after, .geomap-progress:after, .wb-mltmd.video.waiting .display:after {
   bottom: 0;
   content: " ";
   height: 100px;
@@ -139,16 +139,16 @@
   width: 100px;
 }
 
-.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after, .geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after, .geomap-progress:after, .wb-mltmd.video.waiting .display:after {
   z-index: 1;
 }
-.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before, .geomap-progress:before, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:before, .wb-mltmd.video.waiting .display:before {
+.wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before, .geomap-progress:before, .wb-mltmd.video.waiting .display:before {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
 }
 
 /* TODO: Use bootstrap placeholder when nested extends are supported */
-.geomap-progress:after, .wb-twitter a.twitter-timeline + .twitter-timeline-loading:after, .wb-mltmd.video.waiting .display:after {
+.geomap-progress:after, .wb-mltmd.video.waiting .display:after {
   -webkit-animation-duration: 500ms;
           animation-duration: 500ms;
   -webkit-animation-iteration-count: infinite;
@@ -11062,41 +11062,6 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
 
 .wb-twitter {
   position: relative;
-  /* Align the loading icon relative to the center of the Twitter link in browsers that support :has() */
-}
-.wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) {
-  display: inline-block;
-}
-.wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) a.twitter-timeline + .twitter-timeline-loading::before {
-  left: 0;
-  right: 0;
-}
-.wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) a.twitter-timeline + .twitter-timeline-loading::after {
-  margin: auto;
-}
-.wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) {
-  /* Counteract the iframe width fix (see below) to prevent the loading icon from shifting sideways when the empty iframe first appears */
-}
-.wb-twitter:has(a.twitter-timeline + .twitter-timeline-loading) iframe {
-  min-width: 0;
-}
-.wb-twitter {
-  /* Display the loading icon as normal content */
-}
-.wb-twitter a.twitter-timeline + .twitter-timeline-loading {
-  margin-top: 5px;
-  position: relative;
-  min-height: 100px;
-  min-width: 100px;
-  /* Align the loading icon leftwards by default */
-}
-.wb-twitter a.twitter-timeline + .twitter-timeline-loading::before {
-  right: auto;
-}
-.wb-twitter a.twitter-timeline + .twitter-timeline-loading::after {
-  margin-left: calc((100px - 1em) / 2);
-}
-.wb-twitter {
   /* Prevent the iframe from getting too wide */
   /* When the iframe gets populated, Twitter's third party widget script injects a style attribute with a width in pixels... but it sometimes gets wider than its container (causing skip links to look misaligned). This sets min/max widths to avoid that behaviour and avoid truncating content if the iframe gets too narrow. */
   /* The timeline's minimum widths are documented in https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview's Dimensions section... went with the narrowest width that works in practice. */
@@ -11160,18 +11125,6 @@ html:not(.wb-disable) .wb-tagfilter-items:not(:has([data-wb-tags])) + .wb-tagfil
   bottom: 0;
   color: #000;
   text-align: center;
-}
-
-[dir=rtl] .wb-twitter a.twitter-timeline + .twitter-timeline-loading {
-  /* Align the loading icon rightwards by default */
-}
-[dir=rtl] .wb-twitter a.twitter-timeline + .twitter-timeline-loading::before {
-  left: auto;
-  right: 0;
-}
-[dir=rtl] .wb-twitter a.twitter-timeline + .twitter-timeline-loading::after {
-  margin-left: auto;
-  margin-right: calc((100px - 1em) / 2);
 }
 
 /*
