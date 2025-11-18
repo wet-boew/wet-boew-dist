@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.93 - 2025-11-17
+ * v4.0.93 - 2025-11-18
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.93 - 2025-11-17
+ * v4.0.93 - 2025-11-18
  *
  */
 /*
@@ -10840,7 +10840,7 @@ table.dataTable tbody tr.selected {
   display: -ms-flexbox;
   display: flex;
   list-style: none;
-  margin: 0;
+  margin-bottom: -1px;
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0;
@@ -10869,7 +10869,6 @@ table.dataTable tbody tr.selected {
 }
 .wb-tabs [role=tablist] > li.active {
   border-bottom: 0;
-  padding-bottom: 1px;
   z-index: 2;
 }
 .wb-tabs [role=tablist] > li.active a {
