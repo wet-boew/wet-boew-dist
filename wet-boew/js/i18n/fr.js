@@ -264,7 +264,11 @@ wb.i18nDict = {
 	"progress-label": "Progression du questionnaire : ",
 
 	/* Pagination */
-	"pagination-label": "Pagination"
+	"pagination-label": "Pagination",
+
+	/* Tag filter */
+	"items-found": "éléments trouvés sur",
+	"no-items-found": "Aucun élément trouvé correspondant à cette combinaison de filtres"
 };
 
 } )( wb );

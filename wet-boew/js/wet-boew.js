@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-05
+ * v4.0.94.1 - 2026-01-23
  *
  */
 
@@ -8967,7 +8967,7 @@ var componentName = "wb-filter",
 			section: ">tbody"
 		},
 		tblgrp: {
-			selector: " th:not([scope])" + notFilterClassSel,
+			selector: "th:not([scope])",
 			hdnparentuntil: "tbody",
 			section: ">tbody"
 		}
@@ -9010,7 +9010,8 @@ var componentName = "wb-filter",
 				i18n = wb.i18n;
 				i18nText = {
 					filter_label: i18n( "fltr-lbl" ),
-					fltr_info: i18n( "fltr-info" )
+					fltr_info: i18n( "fltr-info" ),
+					itemsFound: i18n( "items-found" )
 				};
 			}
 
@@ -9032,7 +9033,6 @@ var componentName = "wb-filter",
 					if ( uiInfo ) {
 						uiInfoID = uiInfo.id || uiInfoID;
 						uiInfo.id = uiInfoID;
-						uiInfo.setAttribute( "role", "status" );
 					}
 				} else {
 					console.error( componentName + ": " + "an <input type=\"search\"> is required in your UI template." );
@@ -9047,7 +9047,7 @@ var componentName = "wb-filter",
 					"<label for=\"" + inptId + "\" class=\"input-group-addon\"><span class=\"glyphicon glyphicon-filter\" aria-hidden=\"true\"></span> " + i18nText.filter_label + "</label>" +
 					"<input id=\"" + inptId + "\" class=\"form-control " + inputClass + "\" data-" + dtNameFltrArea + "=\"" + elm.id + "\" aria-controls=\"" + elm.id + "\" type=\"search\">" +
 					"</div>" +
-					"<p role=\"status\" id=\"" + uiInfoID + "\">" + i18nText.fltr_info + "</p>" );
+					"<p id=\"" + uiInfoID + "\">" + i18nText.fltr_info + "</p>" );
 
 				if ( settings.source ) {
 					$( settings.source ).prepend( filterUI );
@@ -9077,6 +9077,18 @@ var componentName = "wb-filter",
 				uiTotal.textContent = totalEntries;
 			}
 
+			var statusMessageId = elm.id + "-status",
+				statusMessage = document.getElementById( statusMessageId );
+
+			// Create a hidden status message for screen readers which is separate from the
+			// visual status element to ensure consistent behaviour from screen readers
+			if ( !statusMessage ) {
+				statusMessage = document.createElement( "p" );
+				statusMessage.id = statusMessageId;
+				statusMessage.className = "wb-inv";
+				statusMessage.setAttribute( "role", "status" );
+				$elm.prepend( statusMessage );
+			}
 			wb.ready( $elm, componentName );
 		}
 	},
@@ -9149,7 +9161,7 @@ var componentName = "wb-filter",
 			filter = unAccent( $field.val().trim() ),
 			fCallBack = settings.filterCallback,
 			secSelector = ( settings.section || "" )  + " ",
-			hndParentSelector = settings.hdnparentuntil,
+			hdnParentSelector = settings.hdnparentuntil,
 			$items = $elm.find( secSelector + settings.selector ),
 			itemsLength = $items.length,
 			i, $item, text, searchFilterRegularExp;
@@ -9169,8 +9181,8 @@ var componentName = "wb-filter",
 			}
 
 			if ( !searchFilterRegularExp.test( text ) ) {
-				if ( hndParentSelector ) {
-					$item = $item.parentsUntil( hndParentSelector );
+				if ( hdnParentSelector ) {
+					$item.parentsUntil( hdnParentSelector ).addClass( filterClass );
 				}
 				$item.addClass( filterClass );
 			}
@@ -9187,7 +9199,7 @@ var componentName = "wb-filter",
 	filterCallback = function( $field, $elm, settings ) {
 		var $sections =	$elm.find( settings.section ),
 			sectionsLength = $sections.length,
-			fndSelector = notFilterClassSel + settings.selector,
+			fndSelector = settings.selector + notFilterClassSel,
 			s, $section;
 
 		for ( s = 0; s < sectionsLength; s += 1 ) {
@@ -9195,6 +9207,20 @@ var componentName = "wb-filter",
 			if ( $section.find( fndSelector ).length === 0 ) {
 				$section.addClass( filterClass );
 			}
+		}
+
+		var sectionSelector = settings.section || "",
+			statusMessage = document.getElementById( $elm.attr( "id" ) + "-status" );
+
+		// Build the status message using a string to avoid inconsistencies across different screen readers when reading content from dynamic markup
+		if ( statusMessage ) {
+			var cleanSelector = settings.selector.replace( notFilterClassSel, "" ),
+				totalItems = $elm.find( sectionSelector + " " + cleanSelector ).length,
+				foundItems = $elm.find( sectionSelector + " " + settings.selector + notFilterClassSel ).length;
+
+			setTimeout( function() {
+				statusMessage.textContent = foundItems + " " + i18nText.itemsFound + " " + totalItems;
+			}, 900 );
 		}
 	};
 
@@ -9206,6 +9232,7 @@ $document.on( "keyup", selectorInput, function( event ) {
 	if ( wait ) {
 		clearTimeout( wait );
 	}
+
 	wait = setTimeout( filter.bind( this, $input, $elm, $elm.data() ), 250 );
 } );
 
@@ -16424,16 +16451,17 @@ wb.add( selector );
 ( function( $, window, document, wb ) {
 "use strict";
 
-let wait;
+let wait, i18n;
 
 const componentName = "wb-tagfilter",
-	selector = ".provisional." + componentName,
+	selector = "." + componentName,
 	selectorCtrl = "." + componentName + "-ctrl",
 	initEvent = "wb-init" + selector,
 	$document = wb.doc,
 	tgFilterOutClass = "wb-tgfltr-out",
-	itemsWrapperClass = "wb-tagfilter-items",
-	noResultWrapperClass = "wb-tagfilter-noresult",
+	itemsWrapperClass = componentName + "-items",
+	noResultWrapperClass =  componentName + "-noresult",
+	statusWrapperClass = componentName + "-status",
 
 	init = function( event ) {
 		const elm = wb.init( event, componentName, selector );
@@ -16450,8 +16478,10 @@ const componentName = "wb-tagfilter",
 
 			if ( taggedItemsWrapper ) {
 				taggedItemsWrapper.id = taggedItemsWrapper.id || wb.getId(); // Ensure the element has an ID
-				taggedItemsWrapper.setAttribute( "aria-live", "polite" );
 			}
+
+			// Initialize i18n
+			i18n = wb.i18n;
 
 			// Handle filters
 			if ( filterControls.length ) {
@@ -16467,9 +16497,20 @@ const componentName = "wb-tagfilter",
 				elm.items = buildTaggedItemsArr( taggedItems );
 			}
 
-			// Add accessibility to no result element
-			if ( noResultWrapper ) {
-				noResultWrapper.setAttribute( "role", "status" );
+			// Build a status element if there's not already one (this element will be used to announce the number of items found)
+			if ( !elm.querySelector( ".wb-fltr-info" ) && !elm.querySelector( "." + statusWrapperClass ) ) {
+
+				// Build the wrapper for the status message
+				const statusWrapper = document.createElement( "div" );
+				statusWrapper.classList.add( statusWrapperClass, "wb-inv" );
+				statusWrapper.setAttribute( "role", "status" );
+
+				// Build the status message element
+				const statusMessage = document.createElement( "p" );
+				statusWrapper.appendChild( statusMessage );
+
+				// Append status element after the no result wrapper if it exists, otherwise after the tagged items wrapper
+				( noResultWrapper || taggedItemsWrapper ).after( statusWrapper );
 			}
 
 			// Update list of visible items (in case of predefined filters)
@@ -16500,7 +16541,6 @@ const componentName = "wb-tagfilter",
 				date: dateStr
 			} );
 		} );
-
 		return taggedItemsArr;
 	},
 
@@ -16552,45 +16592,39 @@ const componentName = "wb-tagfilter",
 			}
 
 			let filterGroup = instance.filters[ filterGroupName ],
-				filterGroupChkCnt = filterGroup.filter( function( o ) {
-					return o.isChecked === true;
-				} ).length,
-				filterGroupActiveFilters = [ ];
+				type = filterGroup[ 0 ].type, // All types in a group should be the same, so we can just check the first one
+				selectedFilters = [ ];
 
-			switch ( filterGroup[ 0 ].type ) {
+
+			switch ( type ) {
 				case "checkbox":
-					if ( filterGroupChkCnt > 0 ) {
-						filterGroup.forEach( function( filterItem ) {
-							if ( filterItem.isChecked ) {
-								filterGroupActiveFilters.push( filterItem.value );
-							}
-						} );
-					}
+					selectedFilters = filterGroup
+						.filter( item => item.isChecked )
+						.map( item => item.value );
 					break;
 
 				case "radio":
-					if ( filterGroupChkCnt > 0 ) {
-						for ( let filterItem of filterGroup ) {
-							if ( filterItem.isChecked === true ) {
-								if ( filterItem.value !== "" ) {
-									filterGroupActiveFilters.push( filterItem.value );
-								}
-								break;
-							}
-						}
-					} else {
+				{
+					let selectedItem = filterGroup.find( item => item.isChecked );
+
+					if ( !selectedItem ) {
 						console.warn( componentName + ": Radio button groups must have a default selected value. If you want to display all items, add an option called \"All\" with an empty value." );
+						break;
+					} else if ( selectedItem.value === "" ) { // If the "All" option is selected
+						break;
+					} else {
+						selectedFilters.push( selectedItem.value );
+						break;
 					}
-					break;
+				}
 
 				case "select-one":
 					if ( filterGroup[ 0 ].value !== "" ) {
-						filterGroupActiveFilters.push( filterGroup[ 0 ].value );
+						selectedFilters.push( filterGroup[ 0 ].value );
 					}
 					break;
 			}
-
-			instance.activeFilters.push( filterGroupActiveFilters );
+			instance.activeFilters.push( selectedFilters );
 		}
 	},
 
@@ -16602,24 +16636,24 @@ const componentName = "wb-tagfilter",
 			startDate = ( instance.filters.startDate && instance.filters.startDate[ 0 ] && instance.filters.startDate[ 0 ].value ) || "",
 			endDate   = ( instance.filters.endDate && instance.filters.endDate[ 0 ] && instance.filters.endDate[ 0 ].value ) || "";
 
-		instance.items.forEach( function( item ) {
+		instance.items.forEach( item => {
 			let matchCount = 0,
-				dateMatch = true; // default true unless proven otherwise
+				dateMatch = true; // Default is true unless proven otherwise
 
 			// --- DATE FILTERING ---
 			if ( item.date ) {
 
-				// If only startDate is set
+				// If only startDate is set, item must be after or on the startDate
 				if ( startDate !== "" && endDate === "" ) {
 					dateMatch = wb.date.compare( item.date, startDate ) >= 0;
 				}
 
-				// If only endDate is set
+				// If only endDate is set, item must be before or on the endDate
 				if ( endDate !== "" && startDate === "" ) {
 					dateMatch = wb.date.compare( item.date, endDate ) <= 0;
 				}
 
-				// If both startDate and endDate are set
+				// If both startDate and endDate are set, item must be between startDate and endDate (inclusive)
 				if ( startDate !== "" && endDate !== "" ) {
 					dateMatch = (
 						wb.date.compare( item.date, startDate ) >= 0 &&
@@ -16629,50 +16663,66 @@ const componentName = "wb-tagfilter",
 			}
 
 			// --- TAG FILTERING ---
-			instance.activeFilters.forEach( function( filterGroup ) {
-				if ( filterGroup.length === 0 ) {
-					matchCount++;
-				} else {
-					let itemIncludesFilter = filterGroup.filter( function( f ) {
-						return item.tags.includes( f );
-					} ).length;
-
-					if ( itemIncludesFilter ) {
+			if ( dateMatch ) {
+				instance.activeFilters.forEach( ( filterGroup ) => {
+					if ( filterGroup.length === 0 || filterGroup.some( filter => {
+						return item.tags.includes( filter );
+					} ) ) {
 						matchCount++;
 					}
-				}
-			} );
+				} );
+			}
 
 			// Show item if it matches any filter and is within date range
-			matchCount === filtersGroups && dateMatch ? item.isMatched = true : item.isMatched = false;
+			item.isMatched = ( matchCount === filtersGroups && dateMatch );
 		} );
 	},
 
 	// Update list of visible items according to their "isMatched" property
 	updateDOMItems = function( instance ) {
 		const updatedItemsList = instance.items.forEach( function( item ) {
-			let domItem = instance.querySelector( "#" + item.id ),
-				matched = item.isMatched;
+			let domItem = instance.querySelector( "#" + item.id );
 
-			if ( matched ) {
-				if ( domItem.classList.contains( tgFilterOutClass ) ) {
-					domItem.classList.remove( tgFilterOutClass );
-				}
+			if ( item.isMatched ) {
+				domItem.classList.remove( tgFilterOutClass );
 			} else {
-				if ( !domItem.classList.contains( tgFilterOutClass ) ) {
-					domItem.classList.add( tgFilterOutClass );
-				}
+				domItem.classList.add( tgFilterOutClass );
 			}
 		} );
-
 		return updatedItemsList;
 	},
 
-	// Utility method to update stored active filters, update stored items and update visibility of tagged items
+	// Update the status message element with the number of items found or no items found
+	updateStatusMessage = function( instance ) {
+		const statusWrapper = instance.querySelector( "." + statusWrapperClass ),
+			noResultWrapper = instance.querySelector( "." + noResultWrapperClass ),
+			statusMessageElm = statusWrapper ? statusWrapper.querySelector( "p" ) : null,
+			itemsFoundText = i18n ? i18n( "items-found" ) : "items found out of / éléments trouvés sur";
+
+		if ( statusWrapper && statusMessageElm ) {
+			const matchedCount = instance.items.filter( item => item.isMatched ).length,
+				totalCount = instance.items.length;
+
+			let statusMessageText;
+
+			//  If there are no items and the no result wrapper exists, copy its message to the screen reader status message, otherwise build a new message
+			//  Note: Since the no result wrapper text is not dynamic, it wouldn't get announced by screen readers when the filter changes.
+			//  This is why we copy it to the status message element.
+			if ( matchedCount === 0 ) {
+				statusMessageText = noResultWrapper ? noResultWrapper.textContent : i18n ? i18n( "no-items-found" ) : "No items found / Aucun élément trouvé";
+			} else {
+				statusMessageText = `${ matchedCount } ${ itemsFoundText } ${ totalCount }`;
+			}
+			statusMessageElm.textContent = statusMessageText;
+		}
+	},
+
+	// Utility method to update stored active filters, update stored items, update visibility of tagged items and update status message
 	update = function( instance ) {
 		refineFilters( instance );
 		matchItemsToFilters( instance );
 		updateDOMItems( instance );
+		updateStatusMessage( instance );
 
 		$( instance ).trigger( "wb-filtered", [ { source: componentName } ] );
 	};

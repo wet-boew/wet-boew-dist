@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title>Tag filter - Plugins - Documentation - Web Experience Toolkit
+<title>Tag Filter - Plugins - Documentation - Web Experience Toolkit
 </title>
 <meta content="width=device-width,initial-scale=1" name="viewport">
 <meta name="description" content="Filters through content and shows/hides content that match a certain tags.">
@@ -97,23 +97,17 @@
 <a property="item" typeof="WebPage" href="../../../docs/ref/plugins-en.html"><span property="name">Plugins</span></a>
 <meta property="position" content="3">
 </li>
-<li property="itemListElement" typeof="ListItem"><span property="name">Tag filter</span><meta property="position" content="4"></li>
+<li property="itemListElement" typeof="ListItem"><span property="name">Tag Filter</span><meta property="position" content="4"></li>
 </ol>
 </div>
 </div>
 </nav>
 </header>
 <main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-<h1 id="wb-cont" property="name">Tag filter</h1>
+<h1 id="wb-cont" property="name">Tag Filter</h1>
 <p>
-<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Tag%20filter:%20">Questions or comments?</a>
+<a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Tag%20Filter:%20">Questions or comments?</a>
 </p>
-<div class="alert alert-warning">
-<h2>Unstable feature</h2>
-<p>To be used at <strong>your own risk</strong>. This feature described below can be removed in any subsequent minor/major release</p>
-<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html">Learn more about the design decision around provisional features.</a></small></p>
-<p><small><a href="../../../docs/ref/provisional-en.html">Check other provisional features available.</a></small></p>
-</div>
 <span class="wb-prettify all-pre"></span>
 <h2>Purpose</h2>
 <p property="description">Filters through content and show/hide content that match certain tags.</p>
@@ -121,13 +115,24 @@
 <p>You want to filter through an extensive list of items.</p>
 <h2>Accessibility guidance</h2>
 <p>The filter controls (checkboxes, radio buttons, dropdowns) <strong>must</strong> appear before the list of items they control.</p>
+<section>
+<h2>Evaluations and reports</h2>
+<ul>
+<li>Accessibility assessment
+<ul>
+<li><a href="../../../demos/tagfilter/reports/a11y-1-en.html">English report</a></li>
+<li><a href="../../../demos/tagfilter/reports/a11y-1-fr.html" hreflang="fr">French report</a></li>
+</ul>
+</li>
+</ul>
+</section>
 <h2>Working example</h2>
 <p><a href="../../../demos/tagfilter/tagfilter-en.html">English example</a></p>
 <p><a href="../../../demos/tagfilter/tagfilter-fr.html">French example</a></p>
 <h2>How to implement</h2>
 <h3>Wrap your section and tag your items.</h3>
 <ol>
-<li>Wrap the whole section that is going to be filtered by tags in a <code>&lt;div class="wb-tagfilter provisional"></code>.</li>
+<li>Wrap the whole section that is going to be filtered by tags in a <code>&lt;div class="wb-tagfilter"></code> or a <code>&lt;section class="wb-tagfilter"></code></li>
 <li>Add the attribute <code>data-wb-tags</code> to each item or section that you want to control the visibility of, and define one or multiple tags as its value. Use a regular space between each tag, e.g., <code>data-wb-tags="tag1 tag2 tag3"</code>.</li>
 </ol>
 <h3>Identify your items wrapper</h3>
@@ -202,7 +207,7 @@
 	&lt;li data-wb-tags="tag1">Item 5&lt;/li>
 	...
 &lt;/ul>
-&lt;div class="wb-tagilfter-noresult">
+&lt;div class="wb-tagfilter-noresult">
 	&lt;p>No item match this combination of filters.&lt;/p>
 &lt;/div></code></pre>
 <h3>Essential component behavior</h3>
@@ -214,7 +219,7 @@
 <p>For semantic purposes, every logical group of filters should be wrapped by a <code>&lt;fieldset></code> element.</p>
 <dl id="wb-dtmd">
 <dt>Date modified:&#32;</dt>
-<dd><time property="dateModified">2022-09-10</time></dd>
+<dd><time property="dateModified">2025-11-27</time></dd>
 </dl>
 </main>
 <footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">

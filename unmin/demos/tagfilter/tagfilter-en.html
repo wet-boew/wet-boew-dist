@@ -4,12 +4,12 @@
 		<meta charset="utf-8" />
 		<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-		<title>Tag filter
+		<title>Tag Filter
 		 - Working examples
  - Web Experience Toolkit
 </title>
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<meta name="description" content="Filters through content and shows/hides content that match a certain tags." />
+		<meta name="description" content="Filters through content and shows/hides content that match certain tags." />
 		
 		
 		
@@ -109,7 +109,7 @@
 								<a property="item" typeof="WebPage" href="../../demos/index-en.html"><span property="name">Working examples</span></a>
 								<meta property="position" content="2">
 							</li>
-							<li property="itemListElement" typeof="ListItem"><span property="name">Tag filter</span><meta property="position" content="3"></li>
+							<li property="itemListElement" typeof="ListItem"><span property="name">Tag Filter</span><meta property="position" content="3"></li>
 				</ol>
 			</div>
 		</div>
@@ -117,22 +117,12 @@
 </header>
 
 	<main role="main" property="mainContentOfPage" resource="#wb-main" class="container">
-		<h1 id="wb-cont" property="name">Tag filter</h1>
+		<h1 id="wb-cont" property="name">Tag Filter</h1>
 		<ul class="list-inline">
 				<li><a class="btn btn-primary" href="../../docs/ref/tagfilter/tagfilter-en.html">Documentation</a></li>
-			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Tag%20filter:%20">Questions or comments?</a></li>
+			<li><a class="btn btn-primary" href="https://github.com/wet-boew/wet-boew/issues/new?title=Tag%20Filter:%20">Questions or comments?</a></li>
 		</ul>
 		
-
-<div class="alert alert-warning">
-	<h2>Unstable feature</h2>
-	<p>To be used at <strong>your own risk</strong>. This feature described below can be removed in any subsequent
-		minor/major release</p>
-	<p><small><a href="https://wet-boew.github.io/wet-boew-documentation/decision/7.html">Learn more about the design
-				decision around provisional features.</a></small></p>
-	<p><small><a href="../../docs/ref/provisional-en.html">Check other provisional features available.</a></small>
-	</p>
-</div>
 
 <span class="wb-prettify all-pre"></span>
 
@@ -146,7 +136,7 @@
 	<li><a href="#edgeCases">Edge case examples</a></li>
 </ul>
 
-<section id="filteredEventsList" class="wb-tagfilter provisional">
+<section id="filteredEventsList" class="wb-tagfilter">
 	<h2>Example 1 - Events list</h2>
 	<div class="row">
 		<div class="col-xs-12 col-sm-4 col-lg-3">
@@ -244,7 +234,7 @@
 				</template>
 			</ul>
 			<div class="wb-tagfilter-noresult">
-				<p>No item match this combination of filters.</p>
+				<p>No item matches this combination of filters.</p>
 			</div>
 		</div>
 	</div>
@@ -252,7 +242,7 @@
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;section id="filteredEventsList" class="wb-tagfilter provisional">
+	<pre><code>&lt;section id="filteredEventsList" class="wb-tagfilter">
 	&lt;h2>Example 1 - Events list&lt;/h2>
 	&lt;div class="row">
 		&lt;div class="col-xs-12 col-sm-4 col-lg-3">
@@ -350,14 +340,14 @@
 				&lt;/template>
 			&lt;/ul>
 			&lt;div class="wb-tagfilter-noresult">
-				&lt;p>No item match this combination of filters.&lt;/p>
+				&lt;p>No item matches this combination of filters.&lt;/p>
 			&lt;/div>
 		&lt;/div>
 	&lt;/div>
 &lt;/section></code></pre>
 </details>
 
-<section id="filteredAppsList" class="wb-tagfilter provisional">
+<section id="filteredAppsList" class="wb-tagfilter">
 	<h2>Example 2 - Applications list</h2>
 	<div class="row">
 		<div class="col-sm-4 col-md-5 col-lg-6">
@@ -703,7 +693,7 @@
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;section id=&quot;filteredAppsList&quot; class=&quot;wb-tagfilter provisional&quot;&gt;
+	<pre><code>&lt;section id=&quot;filteredAppsList&quot; class=&quot;wb-tagfilter&quot;&gt;
 		&lt;h2&gt;Example 2 (applications list)&lt;/h2&gt;
 		&lt;div class=&quot;row&quot;&gt;
 			&lt;div class=&quot;col-xs-12 col-sm-4 col-lg-3&quot;&gt;
@@ -852,7 +842,7 @@
 	&lt;/section&gt;</code></pre>
 </details>
 
-<section id="filteredFAQ" class="wb-tagfilter provisional wb-filter" data-wb-filter='{
+<section id="filteredFAQ" class="wb-tagfilter wb-filter" data-wb-filter='{
 		"selector": "article",
 		"section": ".wb-tagfilter-items",
 		"uiTemplate": "#searchFilter"
@@ -974,7 +964,7 @@
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;section id="filteredFAQ" class="wb-tagfilter provisional wb-filter" data-wb-filter='{
+	<pre><code>&lt;section id="filteredFAQ" class="wb-tagfilter wb-filter" data-wb-filter='{
 		"selector": "article",
 		"section": ".wb-tagfilter-items",
 		"uiTemplate": "#searchFilter"
@@ -1095,7 +1085,7 @@
 &lt;/section></code></pre>
 </details>
 
-<section id="filteredTable" class="wb-tagfilter provisional">
+<section id="filteredTable" class="wb-tagfilter">
 	<h2>Table example</h2>
 	<fieldset>
 		<legend class="h5 mrgn-tp-0"><span class="field-name">Select column(s) to show</span></legend>
@@ -1174,7 +1164,7 @@
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;section class="wb-tagfilter provisional">
+	<pre><code>&lt;section class="wb-tagfilter">
 	&lt;h2>Table example&lt;/h2>
 	&lt;fieldset>
 		&lt;legend class="h5 mrgn-tp-0">&lt;span class="field-name">Visible columns&lt;/span>&lt;/legend>
@@ -1223,7 +1213,7 @@
 &lt;/section></code></pre>
 </details>
 
-<section id="filteredByDateRange" class="wb-tagfilter provisional">
+<section id="filteredByDateRange" class="wb-tagfilter">
 	<h2>Example 5 - Date range filter</h2>
 	<div class="row">
 		<div class="col-xs-12 col-sm-4 col-lg-3">
@@ -1237,19 +1227,19 @@
 						<ul class="list-unstyled">
 							<li class="radio">
 								<label>
-									<input type="radio" name="language" class="wb-tagfilter-ctrl" value=""
+									<input type="radio" name="filter_language" class="wb-tagfilter-ctrl" value=""
 										checked> All
 								</label>
 							</li>
 							<li class="radio">
 								<label>
-									<input type="radio" name="language" class="wb-tagfilter-ctrl"
+									<input type="radio" name="filter_language" class="wb-tagfilter-ctrl"
 										value="french"> French
 								</label>
 							</li>
 							<li class="radio">
 								<label>
-									<input type="radio" name="language" class="wb-tagfilter-ctrl"
+									<input type="radio" name="filter_language" class="wb-tagfilter-ctrl"
 										value="english"> English
 								</label>
 							</li>
@@ -1328,13 +1318,13 @@
 				</li>
 				<li data-wb-tags="english ottawa ">
 					<h3>Doing business with the Government of Canada (Webinar)</h3>
-					<time datetime="2025-09-30">September30th, 2025</time>
+					<time datetime="2025-09-30">September 30th, 2025</time>
 					<p><strong>Location:</strong> <span class="event-location">Ottawa</span>,
 						<strong>Language</strong>: <span class="event-language">English</span></p>
 				</li>
 			</ul>
 			<div class="wb-tagfilter-noresult">
-				<p>No item match this combination of filters.</p>
+				<p>No item matches this combination of filters.</p>
 			</div>
 		</div>
 	</div>
@@ -1342,7 +1332,7 @@
 
 <details>
 	<summary>Source code</summary>
-	<pre><code>&lt;section id="filteredByDateRange" class="wb-tagfilter provisional"&gt;
+	<pre><code>&lt;section id="filteredByDateRange" class="wb-tagfilter"&gt;
 	&lt;h2&gt;Example 5 - Date range filter&lt;/h2&gt;
 	&lt;div class="row"&gt;
 		&lt;div class="col-xs-12 col-sm-4 col-lg-3"&gt;
@@ -1356,17 +1346,17 @@
 						&lt;ul class="list-unstyled"&gt;
 							&lt;li class="radio"&gt;
 								&lt;label&gt;
-									&lt;input type="radio" name="language" class="wb-tagfilter-ctrl" value="" checked&gt; All
+									&lt;input type="radio" name="filter_language" class="wb-tagfilter-ctrl" value="" checked&gt; All
 								&lt;/label&gt;
 							&lt;/li&gt;
 							&lt;li class="radio"&gt;
 								&lt;label&gt;
-									&lt;input type="radio" name="language" class="wb-tagfilter-ctrl" value="french"&gt; French
+									&lt;input type="radio" name="filter_language" class="wb-tagfilter-ctrl" value="french"&gt; French
 								&lt;/label&gt;
 							&lt;/li&gt;
 							&lt;li class="radio"&gt;
 								&lt;label&gt;
-									&lt;input type="radio" name="language" class="wb-tagfilter-ctrl" value="english"&gt; English
+									&lt;input type="radio" name="filter_language" class="wb-tagfilter-ctrl" value="english"&gt; English
 								&lt;/label&gt;
 							&lt;/li&gt;
 						&lt;/ul&gt;
@@ -1438,7 +1428,7 @@
 				&lt;/li&gt;
 			&lt;/ul&gt;
 			&lt;div class="wb-tagfilter-noresult"&gt;
-				&lt;p&gt;No item match this combination of filters.&lt;/p&gt;
+				&lt;p&gt;No item matches this combination of filters.&lt;/p&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -1452,7 +1442,7 @@
 
 		<dl id="wb-dtmd">
 			<dt>Date modified:&#32;</dt>
-			<dd><time property="dateModified">2022-09-10</time></dd>
+			<dd><time property="dateModified">2025-11-27</time></dd>
 		</dl>
 	</main>
 
