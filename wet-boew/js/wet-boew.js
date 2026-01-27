@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-23
+ * v4.0.94.1 - 2026-01-27
  *
  */
 
@@ -20179,13 +20179,25 @@ var $document = wb.doc,
 					url: this.action,
 					data: $.param( data )
 				} )
+
+					// If the successURL is set and the success parameter is not defined, redirect to the successURL
 					.done( function() {
+						if ( settings.successURL && !settings.success ) {
+							window.location.href = settings.successURL;
+						} else {
+							$selectorSuccess.removeClass( classToggle );
+						}
 						$elm.trigger( successEvent );
-						$selectorSuccess.removeClass( classToggle );
 					} )
+
+					// If the failureURL is set and the failure parameter is not defined, redirect to the failureURL
 					.fail( function( response ) {
+						if ( settings.failureURL && !settings.failure ) {
+							window.location.href = settings.failureURL;
+						} else {
+							$selectorFailure.removeClass( classToggle );
+						}
 						$elm.trigger( failEvent, response );
-						$selectorFailure.removeClass( classToggle );
 					} )
 					.always( function() {
 
