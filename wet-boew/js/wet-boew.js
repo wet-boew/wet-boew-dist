@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-27
+ * v4.0.94.1 - 2026-01-28
  *
  */
 
@@ -11445,6 +11445,8 @@ var componentName = "wb-mltmd",
 	templateLoadedEvent = "templateloaded" + selector,
 	cuepointEvent = "cuepoint" + selector,
 	captionClass = "cc_on",
+	firstPlayClass = "played",
+	defaultCaptions = false,
 	multimediaEvents = [
 		"durationchange",
 		"playing",
@@ -11999,7 +12001,9 @@ var componentName = "wb-mltmd",
 			},
 			$mltmPlayerElm,
 			mltmPlayerElm,
-			isMuted;
+			isMuted,
+			settings,
+			$ccButton;
 
 		switch ( event.data ) {
 			case null: // init
@@ -12009,11 +12013,29 @@ var componentName = "wb-mltmd",
 
 				// Put video on mute if the video is muted on init, run once
 				$mltmPlayerElm = $media.parentsUntil( selector ).parent();
+				mltmPlayerElm = $mltmPlayerElm.get( 0 );
+
 
 				// Mute the player, GUI
 				if ( $mltmPlayerElm.data( "putMutedOnInit" ) ) {
 					youTubeApi.call( $mltmPlayerElm.get( 0 ), "setMuted", true );
 					$mltmPlayerElm.data( "putMutedOnInit", false );
+				}
+
+				// Check if closed captions should be enabled by default
+				settings = wb.getData( mltmPlayerElm, componentName );
+
+				if ( settings !== undef ) {
+					if ( settings.closedCaptions !== null && settings.closedCaptions === true ) {
+						youTubeApi.call( mltmPlayerElm, "setCaptionsVisible", true );
+
+						$ccButton = $( mltmPlayerElm ).find( ".cc" );
+
+						$ccButton.attr( {
+							"title": i18nText.cc_off,
+							"aria-pressed": true
+						} );
+					}
 				}
 				break;
 			case -1:
@@ -12124,6 +12146,10 @@ $document.on( initializedEvent, selector, function( event ) {
 		if ( settings !== undef ) {
 			data.shareUrl = settings.shareUrl;
 			data.fullscreen = settings.fullscreenBtn || false;
+			data.closedCaptions = settings.closedCaptions || false;
+			if ( data.closedCaptions !== undef ) {
+				defaultCaptions = data.closedCaptions;
+			}
 		}
 
 		$this.addClass( type );
@@ -12286,7 +12312,9 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 			captionsUrl = wb.getUrlParts( data.captions ),
 			currentUrl = wb.getUrlParts( window.location.href ),
 			$media = data.media,
-			$eventReceiver;
+			$eventReceiver,
+			$button,
+			$buttonSpan;
 
 		$media
 			.after( tmpl( template, data ) )
@@ -12343,6 +12371,31 @@ $document.on( renderUIEvent, selector, function( event, type, data ) {
 		// The fullscreen button is not visible by default because there are no controls when in full screen.
 		if ( data.fullscreen ) {
 			$this.attr( "data-fullscreen-btn", true );
+		}
+
+		// Show captions by default if configured to do so
+		let captionStatus;
+
+		if ( $this.data( "wbMltmd" ) !== undef ) {
+			captionStatus = $this.data( "wbMltmd" ).closedCaptions;
+		}
+
+		if ( captionStatus !== undef && defaultCaptions !== undef  && defaultCaptions === true ) {
+
+			$this.addClass( captionClass );
+
+			// Trigger caption visibility change event only on the first time the video plays
+			defaultCaptions = true;
+
+			$button = $this.find( ".cc" );
+			$button
+				.attr( {
+					"title": i18nText.cc_off,
+					"aria-pressed": true
+				} );
+
+			$buttonSpan = $button.find( ".wb-inv" );
+			$buttonSpan.text( i18nText.cc_off );
 		}
 	}
 } );
@@ -12471,7 +12524,8 @@ $document.on( multimediaEvents, selector, function( event, simulated ) {
 		$this = $( eventTarget ),
 		invStart = "<span class='wb-inv'>",
 		invEnd = "</span>",
-		currentTime, $button, $slider, buttonData, isPlay, isMuted, isCCVisible, skipTo, volume;
+		currentTime, $button, $slider, buttonData, isPlay, isMuted, isCCVisible, skipTo, volume,
+		firstPlay = false;
 	switch ( eventType ) {
 		case "playing":
 		case "pause":
@@ -12482,6 +12536,12 @@ $document.on( multimediaEvents, selector, function( event, simulated ) {
 			if ( isPlay ) {
 				$this.addClass( "playing" );
 				$this.find( ".progress" ).addClass( "active" );
+
+				if ( firstPlay === false ) {
+					$this.addClass( firstPlayClass );
+					firstPlay = true;
+				}
+
 			} else {
 				if ( eventType === "ended" ) {
 					this.loading = clearTimeout( this.loading );

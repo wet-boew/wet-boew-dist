@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-27
+ * v4.0.94.1 - 2026-01-28
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-27
+ * v4.0.94.1 - 2026-01-28
  *
  */
 /*
@@ -9664,7 +9664,7 @@ body.wb-modal .modal-dialog summary {
   height: auto;
   width: 100%;
 }
-.wb-mltmd.cc_on .wb-mm-cc {
+.wb-mltmd.cc_on.played:not(.youtube) .wb-mm-cc {
   display: table;
   height: calc(2.875em + 1em);
   padding: 0.5em;
