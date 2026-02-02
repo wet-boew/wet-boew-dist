@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-28
+ * v4.0.94.1 - 2026-02-02
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.94.1 - 2026-01-28
+ * v4.0.94.1 - 2026-02-02
  *
  */
 /*
@@ -4714,6 +4714,10 @@ tbody.collapse.in {
 .fade.reverse.out {
   -webkit-animation-name: fadein;
           animation-name: fadein;
+}
+
+.wb-disable .fade {
+  opacity: 1;
 }
 
 @-webkit-keyframes fadein {
