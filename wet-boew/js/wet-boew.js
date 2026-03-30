@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.95.1 - 2026-03-27
+ * v4.0.95.1 - 2026-03-30
  *
  */
 
@@ -14499,6 +14499,10 @@ var componentName = "wb-share",
 			linkedin: {
 				name: "LinkedIn®",
 				url: "https://www.linkedin.com/shareArticle?mini=true&amp;url={u}&amp;title={t}&amp;ro=false&amp;summary={d}&amp;source="
+			},
+			mastodon: {
+				name: "Mastodon",
+				url: "https://share.joinmastodon.org/#text={t}%20{u}"
 			},
 			myspace: {
 				name: "MySpace",
