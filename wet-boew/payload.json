@@ -833,18 +833,18 @@
   },
   "@/js/deps/proj4.js": {
     "hashes": {
-      "sha256": "FwlfjHrZjUSqnjcormpu6GXqn8Ngcpr5fdED3jx3fao=",
-      "sha512": "w3pOliczAhFoLuBPnMEKbwjFpEnw2xdAfgB+vGQhV/BvcpZQDCuUs27/AT8CoB9Y6YuAlCfh+nTWEiIzga7ZoQ=="
+      "sha256": "/aZp0naflqIChcxGR8JoB1NYabbyjta6KTbDDTN8KUY=",
+      "sha512": "tf5L71vDxUjwXdMtl06LuHauhQHeVX64sVRSjQmFg30Y93oq9xFKxV6E9rS+pTdv8/DbtiiY+id3PL+gw0xxyg=="
     },
-    "integrity": "sha256-FwlfjHrZjUSqnjcormpu6GXqn8Ngcpr5fdED3jx3fao= sha512-w3pOliczAhFoLuBPnMEKbwjFpEnw2xdAfgB+vGQhV/BvcpZQDCuUs27/AT8CoB9Y6YuAlCfh+nTWEiIzga7ZoQ==",
+    "integrity": "sha256-/aZp0naflqIChcxGR8JoB1NYabbyjta6KTbDDTN8KUY= sha512-tf5L71vDxUjwXdMtl06LuHauhQHeVX64sVRSjQmFg30Y93oq9xFKxV6E9rS+pTdv8/DbtiiY+id3PL+gw0xxyg==",
     "path": "/js/deps/proj4.js"
   },
   "@/js/deps/proj4.min.js": {
     "hashes": {
-      "sha256": "dg7oCSSvVaINVa02rnduUQ9PME2mMKGzAzKXuOAUIOE=",
-      "sha512": "XRDLNcmHZKdFcxvvGRn+1Rd8Ov0hZrw9Ltaw91c4bchAJAjY0xdAmR+0jPXpDGYrCzR92fIYxUHA6Y8OiYdDFw=="
+      "sha256": "K5ts65vbcgABBKjwnyIhKzlxK5tKu58lt7cN/N/sZOw=",
+      "sha512": "5kG46YDhbz2ToJzgsU/19NbdEBXlRT8ut1tNaPIaGCTv6vJqg7cACyxMod8bHlKoupMtBQECRrn19tBN4clELw=="
     },
-    "integrity": "sha256-dg7oCSSvVaINVa02rnduUQ9PME2mMKGzAzKXuOAUIOE= sha512-XRDLNcmHZKdFcxvvGRn+1Rd8Ov0hZrw9Ltaw91c4bchAJAjY0xdAmR+0jPXpDGYrCzR92fIYxUHA6Y8OiYdDFw==",
+    "integrity": "sha256-K5ts65vbcgABBKjwnyIhKzlxK5tKu58lt7cN/N/sZOw= sha512-5kG46YDhbz2ToJzgsU/19NbdEBXlRT8ut1tNaPIaGCTv6vJqg7cACyxMod8bHlKoupMtBQECRrn19tBN4clELw==",
     "path": "/js/deps/proj4.min.js"
   },
   "@/js/deps/run_prettify.js": {
