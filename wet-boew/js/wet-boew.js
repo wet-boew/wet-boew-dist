@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.96 - 2026-05-05
+ * v4.0.96 - 2026-05-07
  *
  */
 
@@ -20240,7 +20240,7 @@ var $document = wb.doc,
 						if ( settings.successURL && !settings.success ) {
 							window.location.href = settings.successURL;
 						} else {
-							$selectorSuccess.removeClass( classToggle );
+							$selectorSuccess.removeClass( classToggle ).trigger( "setfocus.wb" );
 						}
 						$elm.trigger( successEvent );
 					} )
@@ -20250,7 +20250,7 @@ var $document = wb.doc,
 						if ( settings.failureURL && !settings.failure ) {
 							window.location.href = settings.failureURL;
 						} else {
-							$selectorFailure.removeClass( classToggle );
+							$selectorFailure.removeClass( classToggle ).trigger( "setfocus.wb" );
 						}
 						$elm.trigger( failEvent, response );
 					} )
