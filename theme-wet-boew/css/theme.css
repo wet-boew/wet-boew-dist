@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.96.1 - 2026-05-25
+ * v4.0.96.1 - 2026-05-27
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.96.1 - 2026-05-25
+ * v4.0.96.1 - 2026-05-27
  *
  */
 /*
@@ -12696,14 +12696,9 @@ Miscellaneous Utility CSS
     WET-BOEW
     @title: All screen views
    */
-  .mathml body > div > math,
-  .no-mathml body > div > math {
-    display: none !important;
-  }
   main {
     background-color: #fff;
   }
-  /* Hide MathML check */
   #wb-dtmd {
     margin: 2em 0 0;
   }
@@ -12716,7 +12711,10 @@ Miscellaneous Utility CSS
   .nowrap {
     white-space: nowrap;
   }
-  .col-xs-auto, .col-sm-auto, .col-md-auto, .col-lg-auto {
+  .col-xs-auto,
+  .col-sm-auto,
+  .col-md-auto,
+  .col-lg-auto {
     min-height: 1px;
     padding-left: 15px;
     padding-right: 15px;
