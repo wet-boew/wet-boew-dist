@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.96.1 - 2026-06-10
+ * v4.0.96.1 - 2026-06-15
  *
  */
 
@@ -11431,7 +11431,11 @@ $document.on( "keyup", selector + " [role=menuitem]", function( event ) {
 $document.on( "mediumview.wb largeview.wb xlargeview.wb", function() {
 	var mobilePanel = document.getElementById( "mb-pnl" );
 	if ( mobilePanel && mobilePanel.getAttribute( "aria-hidden" ) === "false" ) {
-		$( mobilePanel ).trigger( "close.wb-overlay" );
+		$( mobilePanel ).trigger( {
+			type: ( "close" ),
+			namespace: "wb-overlay",
+			noFocus: true
+		} );
 	}
 } );
 
