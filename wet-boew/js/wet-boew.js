@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.96.2 - 2026-06-16
+ * v4.0.96.2 - 2026-06-19
  *
  */
 
@@ -13091,7 +13091,7 @@ $document.on( "timerpoke.wb " + initEvent + " keydown open" + selector +
 						length = $focusable.length;
 						index = $focusable.index( event.target ) + ( event.shiftKey ? -1 : 1 );
 
-						if ( index < 0 || index === length ) {
+						if ( event.target === overlay || index === -1 || index === length ) {
 							event.preventDefault();
 							$focusable.eq( index < 0 ? length - 1 : 0 )
 								.trigger( setFocusEvent );
