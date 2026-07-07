@@ -3,7 +3,7 @@
 * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
 */
 /*
------ Chinese dictionary (il8n) ---
+----- Chinese dictionary (i18n) ---
 */
 ( function( wb ) {
 "use strict";

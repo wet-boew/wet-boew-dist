@@ -3,7 +3,7 @@
 * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
 */
 /*
------ Indonesian dictionary (il8n) ---
+----- Indonesian dictionary (i18n) ---
 */
 ( function( wb ) {
 "use strict";

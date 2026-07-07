@@ -3,7 +3,7 @@
 * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
 */
 /*
------ Inuktitut dictionary (il8n) ---
+----- Inuktitut dictionary (i18n) ---
 */
 ( function( wb ) {
 "use strict";

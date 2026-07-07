@@ -3,7 +3,7 @@
 * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
 */
 /*
------ Japanese dictionary (il8n) ---
+----- Japanese dictionary (i18n) ---
 */
 ( function( wb ) {
 "use strict";
