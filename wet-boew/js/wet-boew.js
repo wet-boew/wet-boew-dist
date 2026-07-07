@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.96.3 - 2026-06-25
+ * v4.0.96.3 - 2026-07-07
  *
  */
 
@@ -12120,7 +12120,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 							"aria-hidden": "false"
 						} )
 						.find( "[role=menuitem]:first" )
-						.trigger( "setfocus.wb" );
+						.trigger( focusEvent );
 				}
 
 			// Escape, left / right arrow without a submenu
@@ -12165,14 +12165,14 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 						$menu.closest( "li" )
 							.find( menuitemSelector )
 							.trigger( "click" )
-							.trigger( "setfocus.wb" );
+							.trigger( focusEvent );
 
 					// No higher-level menu but the current submenu is open
 					} else if ( $menuItem.parent().children( "ul" ).attr( "aria-hidden" ) === "false" ) {
 						event.preventDefault();
 						$menuItem
 							.trigger( "click" )
-							.trigger( "setfocus.wb" );
+							.trigger( focusEvent );
 					}
 				}
 
