@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.97 - 2026-08-13
+ * v4.0.97 - 2026-08-18
  *
  */
 
@@ -2465,6 +2465,15 @@ var localParseHTML = jQuery.parseHTML,
 		"<td />",
 		"<td/>"
 	],
+	allowedTags = [
+		"gc-combobox"
+	],
+
+	// Declare the allowed attributes for custom tags
+	allowedTagAttributes = {
+		"gc-combobox": [ "all-options-tag", "enable-select-all", "options" ]
+	},
+
 	sanitize = function( html ) {
 
 		// Add an exception for DataTable plugin
@@ -2472,7 +2481,14 @@ var localParseHTML = jQuery.parseHTML,
 			return html;
 		}
 
-		return DOMPurify.sanitize( html );
+		return DOMPurify.sanitize( html, {
+			ADD_TAGS: allowedTags,
+
+			// Add the allowed attributes for the declared custom tags to prevent them from being stripped during sanitization
+			ADD_ATTR: function( attributeName, tagName ) {
+				return ( allowedTagAttributes[ tagName ] || [] ).includes( attributeName );
+			}
+		} );
 	};
 
 jQuery.parseHTML = function( data, context, keepScripts ) {
