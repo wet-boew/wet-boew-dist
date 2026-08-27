@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.97 - 2026-08-25
+ * v4.0.97 - 2026-08-27
  *
  */
 
@@ -4781,6 +4781,7 @@ $.fn.wb = function( method ) {
 
 Derived from jQuery UI, with the following changes:
 * Adheres to WET's ESLint settings (no-eq-null: changed loose null checks into strict undefined checks)
+* Adds support for the summary element (https://github.com/jquery/jquery-ui/pull/1885 is proposing the same change to jQuery UI itself)
 * Adds an isVisible parameter to the focusable method (preset to true to behave like jQuery UI by default, can optionally be set to false)
 * Adds an extra discoverable method (leverages the focusable method with isVisible set to false)
 
@@ -4812,7 +4813,7 @@ function focusable( element, hasTabindex, isVisible = true ) {
 		return img.length > 0;
 	}
 
-	if ( /^(input|select|textarea|button|object)$/.test( nodeName ) ) {
+	if ( /^(input|select|textarea|button|object|summary)$/.test( nodeName ) ) {
 		focusableIfVisible = !element.disabled;
 
 		if ( focusableIfVisible ) {
