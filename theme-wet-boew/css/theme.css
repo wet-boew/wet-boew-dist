@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.97 - 2026-09-21
+ * v4.0.97 - 2026-09-22
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.97 - 2026-09-21
+ * v4.0.97 - 2026-09-22
  *
  */
 /*
@@ -9457,8 +9457,8 @@ body.wb-modal .modal-dialog summary {
   text-align: left;
 }
 .wb-menu .sm details > * {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -1.1em;
+  margin-right: -1.1em;
 }
 .wb-menu .menu {
   margin-left: 0;
@@ -9480,15 +9480,19 @@ body.wb-modal .modal-dialog summary {
 .wb-menu .sm-open .expicon {
   z-index: -1;
 }
-.wb-menu details, .wb-menu details[open] {
-  border: 0;
+.wb-menu details {
   margin-bottom: 0;
 }
-.wb-menu details summary, .wb-menu details[open] summary {
+.wb-menu details[open] {
   border: 0;
-  color: inherit;
 }
-.wb-menu details summary:focus, .wb-menu details summary:hover, .wb-menu details[open] summary:focus, .wb-menu details[open] summary:hover {
+.wb-menu details summary {
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  text-indent: 0;
+}
+.wb-menu details summary:focus, .wb-menu details summary:hover {
   text-decoration: none;
 }
 
