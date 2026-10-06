@@ -195,6 +195,7 @@ wb.i18nDict = {
 	"twitter-skip-end": "Skip to end of @%username%’s X timeline",
 	"twitter-skip-start": "Skip to start of @%username%’s X timeline",
 	"twitter-timeline-title": "X timeline",
+	"twitter-unavailable": "The X timeline is unavailable. Use the link below to view it on X.",
 
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",

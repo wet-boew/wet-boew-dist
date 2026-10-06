@@ -195,6 +195,7 @@ wb.i18nDict = {
 	"twitter-skip-end": "Passer à la fin du fil X de @%username%",
 	"twitter-skip-start": "Passer au commencement du fil X de @%username%",
 	"twitter-timeline-title": "Fil X",
+	"twitter-unavailable": "Le fil X est indisponible. Utilisez le lien ci-dessous pour le consulter sur X.",
 
 	/* Geomap */
 	"geo-mapctrl": "@geo-mapctrl@",

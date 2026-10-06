@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.97 - 2026-10-05
+ * v4.0.97 - 2026-10-06
  *
  */
 
@@ -18631,7 +18631,8 @@ var componentName = "wb-twitter",
 						endNotice: i18n( "twitter-end-notice" ),
 						skipEnd: i18n( "twitter-skip-end" ),
 						skipStart: i18n( "twitter-skip-start" ),
-						timelineTitle: i18n( "twitter-timeline-title" )
+						timelineTitle: i18n( "twitter-timeline-title" ),
+						unavailable: i18n( "twitter-unavailable" )
 					};
 				}
 
@@ -18692,6 +18693,10 @@ var componentName = "wb-twitter",
 									// Note: Twitter's widget script removes "a.twitter-timeline" upon displaying the timeline iframe's content
 									if ( removedNode === twitterLink ) {
 										const iframeContainer = eventTarget.querySelector( "div.twitter-timeline" );
+										const fallback = eventTarget.querySelector( ".wb-twitter-fallback" );
+										if ( fallback ) {
+											fallback.remove();
+										}
 
 										addSkipLinks( iframeContainer );
 
@@ -18714,12 +18719,15 @@ var componentName = "wb-twitter",
 					subtree: true
 				} );
 
-				// Handle the case where the iframe never loads - wait 5 seconds before displaying a fallback message
+				// Keep the original link available when the third-party timeline does not render
 				setTimeout( () => {
 					const iframe = eventTarget.querySelector( "iframe.twitter-timeline" );
-					if ( !iframe ) {
-						const fallbackMessage = "Twitter timeline is currently unavailable.";
-						console.warn( componentName + ": " + fallbackMessage );
+					if ( !iframe && eventTarget.contains( twitterLink ) && typeof i18nText.unavailable === "string" ) {
+						const fallback = document.createElement( "p" );
+						fallback.className = componentName + "-fallback";
+						fallback.setAttribute( "role", "status" );
+						fallback.textContent = i18nText.unavailable;
+						twitterLink.before( fallback );
 						observer.disconnect();
 					}
 				}, 5000 ); // 5 seconds
