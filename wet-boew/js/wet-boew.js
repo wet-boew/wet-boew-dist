@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.98 - 2026-10-19
+ * v4.0.98 - 2026-10-20
  *
  */
 
@@ -2935,8 +2935,7 @@ var getUrlParts = function( url ) {
 	 * @return {integer} of IE version
 	 */
 	oldie = ( function() {
-		var undef,
-			v = 3,
+		var v = 3,
 			div = document.createElement( "div" ),
 			all = div.getElementsByTagName( "i" );
 
@@ -5699,9 +5698,9 @@ var componentName = "wb-calevt",
 		// Simplified conversion to date object
 		var date1 = wb.date.convert( dateLow ),
 			date2 = wb.date.convert( dateHigh ),
-			dstAdjust = 0,
 			oneMinute = 1000 * 60,
 			oneDay = oneMinute * 60 * 24,
+			dstAdjust,
 			diff;
 
 		// Equalize times in case date objects have them
@@ -6540,15 +6539,15 @@ var componentName = "wb-charts",
 	 */
 	createCharts = function( $elm ) {
 		var allSeries = [],
-			chartslabels = [],
-			dataSeries = [],
+			chartslabels,
+			dataSeries,
 			nbBarChart = 0,
 			$caption = $( "caption", $elm ),
 			captionHtml = $caption.html() || "",
 			captionText = $caption.text() || "",
-			valuePoint = 0,
+			valuePoint,
 			dataCellUnitRegExp = /[^+\-., 0-9]+[^\-+0-9]*/,
-			lowestFlotDelta, $imgContainer, $placeHolder,
+			lowestFlotDelta, $placeHolder,
 			$wetChartContainer, htmlPlaceHolder, figurehtml,
 			cellValue, datacolgroupfound, dataGroup, header,
 			i, iLength, j, jLength, parsedData, rIndex, currVectorOptions,
@@ -7029,7 +7028,7 @@ var componentName = "wb-charts",
 		 * @param {number} referenceValue - Reference Value Vector ID
 		 */
 		function setInnerStepValuesChildRecursive( headerCell, headerLevel, stepsValue, referenceValue ) {
-			var cumulativeValue = 0,
+			var cumulativeValue,
 
 				// Step Values for childs header in headerCell
 				flotDelta,
@@ -7151,8 +7150,7 @@ var componentName = "wb-charts",
 		function verticalLabels( parsedData ) {
 
 			// Get the appropriate ticks
-			var headerlevel = 0,
-				labelsVectorPosition, stepsValue, columnReferenceValue;
+			var headerlevel, labelsVectorPosition, stepsValue, columnReferenceValue;
 
 			if ( !reverseTblParsing || ( reverseTblParsing && optionsCharts.referencevalue === false ) ) {
 				columnReferenceValue = parsedData.colgrouphead.col.length;
@@ -7192,7 +7190,7 @@ var componentName = "wb-charts",
 
 			// Find the range of the first data colgroup
 			var dataColgroupStart = -1,
-				headerlevel = 0,
+				headerlevel,
 				theadRowStack = parsedData.theadRowStack,
 				i, iLength, labelsVectorPosition,
 				stepsValue, rowReferenceValue;
@@ -7347,8 +7345,6 @@ var componentName = "wb-charts",
 						}
 
 						// Gets the value
-						header = !reverseTblParsing ? dataCell.row.header : dataCell.col.header;
-
 						cellValue = optionsCharts.getcellvalue( !reverseTblParsing ?
 							currentDataGroupVector.cell[ rIndex ].elem :
 							currentDataGroupVector.datacell[ rIndex ].elem );
@@ -7362,12 +7358,8 @@ var componentName = "wb-charts",
 							]
 						);
 
-						valuePoint += header[ header.length - 1 ].flotDelta;
-
 						break;
 					}
-
-					pieQuaterFlotSeries = { };
 
 					// Get the setting from the associative cell header
 					dataCell = !reverseTblParsing ?
@@ -7437,7 +7429,6 @@ var componentName = "wb-charts",
 				// Fix the legend that appear under the graphic
 				$( ".legend > div", $wetChartContainer ).remove();
 				$( ".legend > table", $wetChartContainer ).removeAttr( "style" ).addClass( "font-small" );
-				$( ".legend", $placeHolder ).appendTo( $imgContainer );
 			}
 
 			// Remove any "pieLabel" ids set by the flotPie.js plugin at line #457
@@ -7454,9 +7445,6 @@ var componentName = "wb-charts",
 
 			// If normal parsing
 			dataGroup = currentRowGroup;
-			rIndex = ( parsedData.colgroup[ 0 ].type === 1 ?
-				parsedData.colgroup[ 1 ].col.length :
-				parsedData.colgroup[ 0 ].col.length ) - 1;
 			chartslabels = horizontalLabels( parsedData );
 		} else {
 
@@ -7464,7 +7452,6 @@ var componentName = "wb-charts",
 			dataGroup = parsedData.colgroup[ 0 ].type === 1 ?
 				parsedData.colgroup[ 1 ] :
 				parsedData.colgroup[ 0 ];
-			rIndex = currentRowGroup.row.length - 1;
 			chartslabels = verticalLabels( parsedData );
 		}
 
@@ -8844,11 +8831,11 @@ var componentName = "wb-eqht",
 	onResize = function() {
 		var $elm, $children, $anchor, currentChild, childCSS, i, j,
 			$elms = $( selector ),
-			row = [],
-			rowTop = -1,
-			currentChildTop = -1,
-			currentChildHeight = -1,
-			tallestHeight = -1;
+			row,
+			rowTop,
+			currentChildTop,
+			currentChildHeight,
+			tallestHeight;
 
 		for ( i = $elms.length - 1; i !== -1; i -= 1 ) {
 			$elm = $elms.eq( i );
@@ -8887,7 +8874,7 @@ var componentName = "wb-eqht",
 				currentChild.style.cssText = childCSS;
 				$children.eq( j ).data( minHeightCSS, minHeightDefault );
 			}
-			$elm = reattachElement( $anchor );
+			reattachElement( $anchor );
 
 			// set the top offset and tallest height to the first element
 			rowTop = $children[ 0 ] ? $children[ 0 ].getBoundingClientRect().top + window.pageYOffset : 0;
@@ -9704,7 +9691,7 @@ var componentName = "wb-feeds",
 	corsEntry = function( xmlDoc, limit ) {
 		var entries = xmlDoc.getElementsByTagName( "entry" ).length,
 			arr_entry = [],
-			corsObj = {},
+			corsObj,
 			jsonString = JSON.stringify( xmlToJson( xmlDoc ) ),
 			jsonObj = JSON.parse( jsonString ),
 			i, iCache;
@@ -10012,7 +9999,7 @@ $document.on( "click", selector + " .feed-flickr", function( event ) {
 			flickrData.description + "</span>";
 
 	if ( $flickrOverlay.length === 0 ) {
-		$flickrOverlay = $( "<section id='wb-feeds-flick-lbx' class='mfp-hide modal-dialog modal-content overlay-def'>" +
+		$( "<section id='wb-feeds-flick-lbx' class='mfp-hide modal-dialog modal-content overlay-def'>" +
 			"<header class='modal-header'><h2 class='modal-title'>" + flickrData.title + "</h2></header>" +
 			"<div class='modal-body'>" + body + "</div></section>" ).insertAfter( "main" );
 	} else {
@@ -12449,7 +12436,6 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 				// Escape or left arrow: Go up a level if there is a higher-level
 				// menu or close the current submenu if there isn't
 				} else if ( which !== RIGHT_KC ) {
-					$subMenu = $parentMenu.length !== 0 ? $menu : $menuItem;
 
 					// There is a higher-level menu
 					if ( $parentMenu.length !== 0 ) {
@@ -12481,7 +12467,7 @@ $document.on( "keydown", selector + " [role=menuitem]", function( event ) {
 
 				// If couldn't find a match, try the previous siblings
 				if ( !result ) {
-					result = selectByLetter(
+					selectByLetter(
 						which,
 						$parent.prevAll().find( menuItemSelector ).get()
 					);
@@ -13545,7 +13531,7 @@ $document.on( "input change", selector, function( event ) {
 $document.on( "keydown", dispCtrls, function( event ) {
 	var playerTarget = event.currentTarget.parentNode,
 		which = event.which,
-		volume = 0,
+		volume,
 		step = 0.05,
 		$playerTarget = $( playerTarget );
 
@@ -13637,7 +13623,6 @@ $document.on( multimediaEvents, selector, function( event, simulated ) {
 
 				if ( firstPlay === false ) {
 					$this.addClass( firstPlayClass );
-					firstPlay = true;
 				}
 
 			} else {
@@ -16680,7 +16665,7 @@ var componentName = "wb-tabs",
 		// returns DOM object = proceed with init
 		// returns undefined = do not proceed with init (e.g., already initialized)
 		var elm = wb.init( event, componentName, selector ),
-			isCarousel = true,
+			isCarousel,
 			open = "open",
 			hashTargetLen = 0,
 			$panels, $tablist, activeId, $openPanel, $elm, elmId, $hashTarget,
@@ -20692,8 +20677,7 @@ var componentName = "wb-jsonmanager",
 				}
 
 				if ( arrPath.length > 1 ) {
-					var pointer = "";
-					pointer = arrPath.pop();
+					var pointer = arrPath.pop();
 
 					if ( arrPath[ 0 ] && arrPath[ 0 ] !== "" ) {
 
