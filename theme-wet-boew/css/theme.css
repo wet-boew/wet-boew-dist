@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.98.1 - 2026-11-04
+ * v4.0.98.1 - 2026-11-05
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.98.1 - 2026-11-04
+ * v4.0.98.1 - 2026-11-05
  *
  */
 /*
@@ -9640,6 +9640,76 @@ body.wb-modal .modal-dialog summary {
   vertical-align: middle;
 }
 
+:-webkit-full-screen figcaption, :-webkit-full-screen .wb-mm-ctrls {
+  display: none !important;
+}
+
+:-ms-fullscreen figcaption, :-ms-fullscreen .wb-mm-ctrls {
+  display: none !important;
+}
+
+:fullscreen figcaption, :fullscreen .wb-mm-ctrls {
+  display: none !important;
+}
+:-webkit-full-screen .display {
+  height: 100%;
+}
+:-ms-fullscreen .display {
+  height: 100%;
+}
+:fullscreen .display {
+  height: 100%;
+}
+:-webkit-full-screen video {
+  height: 100% !important;
+  object-fit: contain;
+}
+:-ms-fullscreen video {
+  height: 100% !important;
+  object-fit: contain;
+}
+:fullscreen video {
+  height: 100% !important;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+:-webkit-full-screen .wb-mm-cc {
+  bottom: 8em;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: auto;
+}
+:-ms-fullscreen .wb-mm-cc {
+  bottom: 8em;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: auto;
+}
+:fullscreen .wb-mm-cc {
+  bottom: 8em;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: auto;
+}
+:-webkit-full-screen:not(.cc_on) .wb-mm-cc {
+  display: none;
+}
+:-ms-fullscreen:not(.cc_on) .wb-mm-cc {
+  display: none;
+}
+:fullscreen:not(.cc_on) .wb-mm-cc {
+  display: none;
+}
+
 .wb-mltmd {
   display: block;
   position: relative;
@@ -9650,6 +9720,7 @@ body.wb-modal .modal-dialog summary {
 }
 .wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:before {
   text-align: center;
+  z-index: 1;
 }
 .wb-mltmd.video:not(.playing):not(.waiting):not(.youtube) .display:after {
   color: #fff;
@@ -9716,6 +9787,7 @@ body.wb-modal .modal-dialog summary {
 .wb-mm-cc {
   background-color: #000;
   color: #fff;
+  position: relative;
   text-align: center;
   -webkit-transition: all 0.26s ease;
   transition: all 0.26s ease;
