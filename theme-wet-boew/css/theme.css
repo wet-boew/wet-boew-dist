@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.98.1 - 2026-11-05
+ * v4.0.98.1 - 2026-11-16
  *
  */
 
@@ -10,7 +10,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.98.1 - 2026-11-05
+ * v4.0.98.1 - 2026-11-16
  *
  */
 /*
@@ -115,7 +115,7 @@
   display: none;
 }
 
-.wb-twitter .wb-twitter-notice-start[tabindex], .wb-disable .wb-tabs > .tabpanels > details, .wb-disable .wb-tabs > details, .wb-menu .sm.open li {
+.wb-twitter .wb-twitter-notice-start[tabindex], .wb-disable .wb-tabs > .tabpanels > details, .wb-disable .wb-tabs > details, .wb-menu details[open] .sm li {
   display: block;
 }
 
@@ -123,7 +123,8 @@
   display: block !important;
 }
 
-.wb-menu .active > a, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus, .wb-menu .menu > li a {
+.wb-menu .active > a, .wb-menu .menu > li a,
+.wb-menu .menu > li summary, .wb-menu .menu > li a:hover, .wb-menu .menu > li a:focus {
   text-decoration: none;
 }
 
@@ -9439,26 +9440,43 @@ body.wb-modal .modal-dialog summary {
 }
 
 .wb-menu .sm {
-  display: none;
-  max-height: 0;
   overflow: hidden;
   position: relative;
 }
-.wb-menu .sm.open {
+.wb-menu .sm details > * {
+  margin-left: -1.1em;
+  margin-right: -1.1em;
+}
+.wb-menu details::details-content {
+  /* Prevent find in page searches (aka hidden=until-found) from auto-expanding collapsed details elements containing hits */
+  display: none;
+}
+.wb-menu details[open]::details-content {
+  /* Allow find-in-page searches on expanded details elements */
+  display: block;
+}
+.wb-menu details[open] .sm {
   display: inline;
-  max-height: 1000px;
+  margin-left: -1.1em;
   min-width: 12.5em;
   position: absolute;
   text-transform: none;
   top: auto;
   z-index: 500;
 }
-.wb-menu .sm.open li a {
+.wb-menu details[open] .sm li a,
+.wb-menu details[open] .sm li summary {
   text-align: left;
 }
-.wb-menu .sm details > * {
-  margin-left: -1.1em;
-  margin-right: -1.1em;
+.wb-menu details summary.item:focus {
+  /* Make the menu bar's summary item outlines consistent with link items */
+  outline-offset: -2px;
+  outline-style: revert;
+  outline-width: revert;
+}
+.wb-menu summary > .glyphicon:first-child {
+  /* Counteract a summary heading override that makes the menu bar's arrow icons very tall */
+  display: inline-block;
 }
 .wb-menu .menu {
   margin-left: 0;
@@ -9471,13 +9489,26 @@ body.wb-modal .modal-dialog summary {
 }
 .wb-menu .menu > li a {
   display: block;
+}
+.wb-menu .menu > li a,
+.wb-menu .menu > li summary {
   padding: 1em;
   text-align: center;
 }
-.wb-menu .menu > li a[aria-haspopup]:hover, .wb-menu .menu > li a[aria-haspopup]:focus {
+.wb-menu .menu > li > details[open] {
+  padding-bottom: 0;
+}
+.wb-menu .menu > li > details[open] > summary {
+  display: inline-block !important;
+  margin-bottom: 0;
+}
+.wb-menu .menu > li > details > summary {
   cursor: default;
 }
-.wb-menu .sm-open .expicon {
+.wb-menu .menu > li > details > summary::marker {
+  content: none;
+}
+.wb-menu .active > details[open] .expicon {
   z-index: -1;
 }
 .wb-menu details {
@@ -9571,7 +9602,11 @@ body.wb-modal .modal-dialog summary {
 [dir=rtl] .wb-menu .menu > li {
   float: right;
 }
-[dir=rtl] .wb-menu .sm.open li a {
+[dir=rtl] .wb-menu details[open] .sm {
+  margin-right: -1.1em;
+}
+[dir=rtl] .wb-menu details[open] .sm li a,
+[dir=rtl] .wb-menu details[open] .sm li summary {
   text-align: right;
 }
 [dir=rtl] .expicon {
@@ -13686,18 +13721,26 @@ main {
 /*
  * Site menu
  */
-#wb-sm .sm.open li a:hover, #wb-sm .sm.open li a:focus,
-#wb-sm .sm.open li summary:hover,
-#wb-sm .sm.open li summary:focus, #wb-sm .sm.open li a.wb-navcurr,
-#wb-sm .sm.open li summary.wb-navcurr, #wb-sm .menu > li > a.wb-navcurr {
+#wb-sm details[open] .sm li a:hover, #wb-sm details[open] .sm li a:focus,
+#wb-sm details[open] .sm li summary:hover,
+#wb-sm details[open] .sm li summary:focus, #wb-sm details[open] .sm li a.wb-navcurr,
+#wb-sm details[open] .sm li summary.wb-navcurr, #wb-sm .menu > li > details > summary.wb-navcurr, #wb-sm .menu > li > a.wb-navcurr {
   background: #0b3048;
   color: #fff;
 }
 
-#wb-sm .menu > li.active > a, #wb-sm .menu > li > a:hover {
+#wb-sm .menu > li.active > details > summary, #wb-sm .menu > li.active > a, #wb-sm .menu > li > details > summary:hover, #wb-sm .menu > li > a:hover {
   background: #ccc;
   border-color: #ccc;
   color: #000;
+}
+
+#wb-sm .menu > li > details > summary, #wb-sm .menu > li > a {
+  border-left: 1px solid #999;
+  color: #fff;
+}
+#wb-sm .menu > li:last-child > details > summary, #wb-sm .menu > li:last-child > a {
+  border-right: 1px solid #999;
 }
 
 #wb-sm {
@@ -13708,22 +13751,15 @@ main {
   margin-bottom: 0;
   text-shadow: 1px 1px 1px #666;
 }
-#wb-sm .menu > li > a {
-  border-left: 1px solid #999;
-  color: #fff;
-}
-#wb-sm .menu > li:last-child > a {
-  border-right: 1px solid #999;
-}
-#wb-sm .sm.open {
+#wb-sm details[open] .sm {
   background: #ccc;
   border-bottom: 5px solid #243850;
   border-left: 0;
   border-right: 0;
   padding: 0;
 }
-#wb-sm .sm.open li a,
-#wb-sm .sm.open li summary {
+#wb-sm details[open] .sm li a,
+#wb-sm details[open] .sm li summary {
   border-left: 0;
   border-right: 0;
   color: #444;
@@ -13731,8 +13767,11 @@ main {
   text-decoration: none;
   text-shadow: none;
 }
-#wb-sm .sm.open .slflnk a {
+#wb-sm details[open] .sm .slflnk a {
   background: #bbb;
+}
+#wb-sm {
+  /* Possibly unused... submenus don't usually contain row classes, unclear why only row link colours would need to be customized */
 }
 #wb-sm .sm .row {
   background: transparent;
