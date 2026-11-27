@@ -1,7 +1,7 @@
 /*!
  * Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
  * wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html
- * v4.0.98.2 - 2026-11-24
+ * v4.0.98.2 - 2026-11-27
  *
  */
 
@@ -6585,13 +6585,20 @@ var componentName = "wb-charts",
 									textlabel = Math.round( series.percent * Math.pow( 10, optionsCharts.decimal ) );
 									textlabel = textlabel / Math.pow( 10, optionsCharts.decimal );
 								}
-
 								if ( optionsCharts.nolegend ) {
 
 									// Add the series label
 									textlabel = label + "<br />" + textlabel;
 								}
-								return textlabel + "%";
+
+								if ( wb.lang === "fr" ) {
+									if ( textlabel.toString().includes( "." ) ) {
+										textlabel = textlabel.toString().replace( ".", "," );
+									}
+									return textlabel + " %";
+								} else {
+									return textlabel + "%";
+								}
 							}
 						}
 					},
